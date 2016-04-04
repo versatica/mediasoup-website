@@ -1,0 +1,110 @@
+@import 'compass/reset';
+@import 'compass/css3/box-sizing';
+@import 'compass/css3/images';
+@import 'compass/css3/transform';
+@import 'compass/css3/transition';
+@import 'compass/css3/box-shadow';
+@import 'compass/css3/flexbox';
+@import 'compass/utilities/general/clearfix';
+@import 'compass/css3/user-interface';
+@import 'compass/css3/filter';
+// @import 'memo';  // Must be before 'breakpoint'.
+@import 'singularitygs';
+@import 'breakpoint';
+
+// Import fonts
+@import 'fonts';
+
+$media-big: min-width 600px;
+$media-small: max-width 600px;
+
+$color-text-6: #f0f8ff;
+$color-text-5: #ddd;
+$color-text-4: #8f8f8f;
+$color-text-3: #777;
+$color-text-2: #666;
+$color-text-1: #080808;
+$color-highlight: #ccff66;
+$color-highlight-dark: shade($color-highlight, 25%);
+
+$footer-num-items: 3;
+$footer-item-height: 2.5rem;
+$footer-padding: 0.5rem;
+$footer-height-horizontal: (2 * $footer-item-height) + ($footer-padding * 2);
+$footer-height-vertical: (($footer-num-items + 1) * $footer-item-height) + ($footer-padding * 2);
+
+html {
+	position: relative;
+	min-height: 100%;
+	// Default font size for common text
+	font-size: 15px;
+	font-family: 'Open Sans';
+	font-weight: 400;
+}
+
+body {
+	height: 100%;
+	background-position: fixed;
+	@include background-image(linear-gradient(110deg, #000 0%, #222 30%,#060606 30%, #333 100%));
+
+	@include breakpoint($media-big) {
+		margin-bottom: $footer-height-horizontal;
+	}
+
+	@include breakpoint($media-small) {
+		margin-bottom: $footer-height-vertical;
+	}
+}
+
+.content {
+	@import 'home';
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: $footer-padding 0;
+	background-color: rgba(#fff, 0.02);
+	border-top: 1px solid rgba(#fff, 0.1);
+	font-size: 1rem;
+
+	.links {
+		@include add-grid(3);
+		@include add-gutter(1/4);
+		@include pie-clearfix;
+		max-width: 500px;
+		margin: 0 auto;
+
+		a {
+			display: block;
+			height: $footer-item-height;
+			line-height: $footer-item-height;
+			color: $color-text-3;
+			text-align: center;
+			text-decoration: none;
+			border-bottom: 1px solid $color-text-1;
+			@include box-sizing(border-box);
+			@include transition-duration(0.25s);
+
+			&:hover {
+				color: $color-text-4;
+				border-color: $color-highlight-dark;
+			}
+
+			@include breakpoint($media-big) {
+				&.col1 { @include grid-span(1,1); }
+				&.col2 { @include grid-span(1,2); }
+				&.col3 { @include grid-span(1,3); }
+			}
+		}
+	}
+
+	p.copyright {
+		height: $footer-item-height;
+		line-height: $footer-item-height * 1.2;
+		text-align: center;
+		font-size: 0.8rem;
+		color: $color-text-2;
+	}
+}

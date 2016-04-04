@@ -1,0 +1,24 @@
+{
+  "name": "mediasoup-website",
+  "authors": [
+    "Iñaki Baz Castillo <ibc@aliax.net>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "anchor-js": "^3.1.0",
+    "fastclick": "^1.0.6",
+    "prism": "^1.4.1"
+  }
+}

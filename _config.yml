@@ -1,0 +1,25 @@
+source: .
+
+exclude: [NO_GIT, Gemfile, Gemfile.lock]
+
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  auto_ids: false
+  toc_levels: 2..4
+  # This is needed to disable builtin highlight-rouge
+  syntax_highlighter: true
+
+gems:
+  - jekyll-compass
+  - singularitygs
+  - breakpoint
+
+defaults:
+  -
+    scope:
+      path: ''
+    values:
+      layout: layout
+
