@@ -2,12 +2,13 @@
 	font-family: 'Poiret One';
 	font-style: normal;
 	font-weight: 400;
-	src: url('/fonts/PoiretOne.ttf') format('truetype');
+	src: url('/fonts/PoiretOne.ttf') format('truetype'),
+	     url('/fonts/PoiretOne.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Open Sans';
 	font-style: normal;
 	font-weight: 400;
-	src: url('/fonts/OpenSans.ttf') format('truetype');
+	src: local('Open Sans'), local('OpenSans'), url('/fonts/OpenSans.ttf') format('truetype');
 }
