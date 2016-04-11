@@ -13,7 +13,6 @@ kramdown:
 
 gems:
   - jekyll-compass
-  - singularitygs
   - breakpoint
 
 defaults:
