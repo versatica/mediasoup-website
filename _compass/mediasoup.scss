@@ -68,6 +68,7 @@ body
 		@include flex(100 0 auto);
 		@include display-flex;
 		@include flex-direction(column);
+		position: relative;
 
 		@import 'home';
 	}
