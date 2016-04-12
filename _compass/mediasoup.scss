@@ -48,6 +48,7 @@ html
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
+	background-color: #0a0a0a;
 
 	@include breakpoint($computer)
 	{
@@ -58,9 +59,14 @@ html
 body
 {
 	min-height: 100%;
+	// THis hsould not be needed, but IE does not takes all the height without it
+	height: 100%;
 	@include display-flex;
 	@include flex-direction(column);
 	@include align-items(center);
+	@include transition-property(opacity);
+	@include transition-delay(0.25s);
+	@include transition-duration(0.50s);
 
 	> .content
 	{

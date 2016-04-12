@@ -26,10 +26,12 @@
 		<script src='/js/init.js'></script>
 	</head>
 
-	<body>
+	<body class="{% if page.fadein %}fadein{% endif %}">
 		<div class="header"></div>
 
 		<div class="content">
+			{{ content }}
+			{{ content }}
 			{{ content }}
 		</div>
 
