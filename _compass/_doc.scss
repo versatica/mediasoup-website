@@ -1,0 +1,196 @@
+[data-category="doc"] {
+	color: $color-text-4;
+
+	@include breakpoint($computer) {
+		margin: 3rem auto;
+		width: 100%;
+		max-width: 1024px;
+		padding: 1rem;
+		font-size: 1rem;
+	}
+
+	@include breakpoint($mobile) {
+		margin: 2.5rem auto;
+		width: 100%;
+		padding: 1rem;
+		font-size: 0.85rem;
+	}
+
+	h1 {
+		font-family: 'Poiret One';
+		font-size: 2.8em;
+		color: $color-text-7;
+		margin-bottom: 1em;
+	}
+
+	h2 {
+		font-size: 1.8em;
+		line-height: 1.8em;
+		color: $color-text-7;
+		border-bottom: 1px solid $color-highlight;
+		margin-top: 1.25em;
+		margin-bottom: 1.5em;
+	}
+
+	h3 {
+		font-size: 1.4em;
+		color: $color-text-6;
+		font-weight: bold;
+		margin-top: 2em;
+		margin-bottom: 1.5em;
+	}
+
+	h4 {
+		font-size: 1.1em;
+		color: $color-text-5;
+		font-weight: bold;
+		margin-top: 2em;
+		margin-bottom: 1.5em;
+
+		&.code {
+			font-family: Consolas, Monaco, 'Andale Mono', monospace;
+		}
+	}
+
+	h5 {
+		font-size: 1em;
+		color: $color-text-5;
+		font-weight: bold;
+		margin-top: 1.5em;
+		margin-bottom: 1em;
+	}
+
+	p {
+		line-height: 1.5em;
+		margin-top: 0.75em;
+		margin-bottom: 0.75em;
+	}
+
+	ul {
+		line-height: 1.5em;
+		margin-left: 2em;
+		margin-top: 1em;
+		margin-bottom: 1em;
+		list-style-type: disc;
+
+		li ul {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+	}
+
+	a {
+		text-decoration: none;
+		color: $color-highlight-dark;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	strong {
+		font-weight: bold;
+		color: $color-text-5;
+	}
+
+	em {
+		font-style: italic;
+	}
+
+	@import 'prism';
+
+	// Overrides prism.js Twilight theme.
+	pre[class*="language-"] {
+		border: 1px solid rgba(#fff, 0.25);
+		margin-top: 2em;
+		margin-bottom: 2em;
+		background: rgba(#222, 0.75);
+		box-shadow: none;
+		font-size: 0.85em;
+	}
+
+	:not(pre) > code {
+		font-family: Consolas, Monaco, 'Andale Mono', monospace;
+		font-size: 0.9em;
+		color: $color-text-5;
+		white-space: pre;
+		background-color: rgba(#333, 0.75);
+		border-radius: 4px;
+		padding: 2px 4px;
+	}
+
+	section {
+		margin: 0;
+		padding-left: 1.5em;
+
+		> h4 {
+			margin-left: -0.75em;
+		}
+	}
+
+	div.note {
+		margin: 2em 2em;
+		padding: 1em;
+		font-size: 0.95em;
+		background: rgba(#000, 0.75);
+		border: 1px solid $color-highlight-dark;
+		border-radius: 5px;
+
+		&.warn {
+			border: 1px solid #cf694a;
+		}
+
+		> *:first-child {
+			margin-top: 0 !important;
+		}
+
+		> *:last-child {
+			margin-bottom: 0 !important;
+		}
+	}
+
+	.table-wrapper {
+		overflow: auto;
+	}
+
+	table {
+		width: 100%;
+		margin: 0 auto;
+		border-collapse: collapse;
+		margin-top: 1.5em;
+		margin-bottom: 1.5em;
+		background-color: rgba(#333, 0.1);
+		font-size: 0.9em;
+
+		th {
+			padding: 0.75em 0;
+			text-align: center;
+			color: $color-text-5;
+			background-color: rgba(#999, 0.15);
+		}
+
+		td {
+			padding: 0.75em;
+			line-height: 1.5em;
+		}
+
+		th, td {
+			border: 1px solid #444;
+			min-width: 200px;
+		}
+	}
+
+	// Remove margin-top for first sibling elements.
+	h1 + h2, h1 + h3, h1 + p, h1 + ul, h1 + pre,
+	h2 + h3, h2 + h4, h2 + p, h2 + ul, h2 + pre,
+	h3 + h4, h3 + p, h3 + ul, h3 + pre,
+	h4 + h5, h4 + p, h4 + ul, h4 + pre,
+	ul + p,
+	p + ul,
+	section > *:first-child {
+		margin-top: 0 !important;
+	}
+	section > *:last-child {
+		margin-bottom: 0 !important;
+	}
+}

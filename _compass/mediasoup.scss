@@ -10,56 +10,44 @@
 @import 'compass/css3/filter';
 @import 'breakpoint';
 
-// Import fonts
+// Import fonts.
 @import 'fonts';
 
-$computer: min-width 600px;
-$mobile: max-width 600px;
+$computer: min-width 900px;
+$mobile: max-width 900px;
 
-$color-text-6: #f0f8ff;
-$color-text-5: #ddd;
-$color-text-4: #8f8f8f;
+$color-text-7: #f0f8ff;
+$color-text-6: #ddd;
+$color-text-5: #bbb;
+$color-text-4: #999;
 $color-text-3: #777;
 $color-text-2: #666;
 $color-text-1: #080808;
 $color-highlight: #ccff66;
 $color-highlight-dark: shade($color-highlight, 25%);
 
-*
-{
+* {
 	@include box-sizing(border-box);
-
-	&.fadein
-	{
-		opacity: 0;
-	}
 }
 
-html
-{
+html {
 	height: 100%;
-	// Default font size for common text
+	// Default font size for common text.
 	font-size: 15px;
 	font-family: 'Open Sans', Helvetica;
 	font-weight: 400;
 
-	@include background-image(linear-gradient(110deg, #000 0%, #222 30%,#060606 30%, #333 100%));
+	@include background-image(linear-gradient(110deg, #000 0%, #222 30%, #060606 30%, #333 100%));
 	background-position: center;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-color: #0a0a0a;
-
-	@include breakpoint($computer)
-	{
-		min-width: 950px;
-	}
 }
 
-body
-{
+body {
 	min-height: 100%;
-	// THis hsould not be needed, but IE does not takes all the height without it
+	// THis should not be needed, but IE does not takes all the height without it.
 	height: 100%;
 	@include display-flex;
 	@include flex-direction(column);
@@ -68,19 +56,32 @@ body
 	@include transition-delay(0.25s);
 	@include transition-duration(0.50s);
 
-	> .content
-	{
+	@include breakpoint($computer) {
+		&.loading {
+			opacity: 0;
+		}
+	}
+
+	> .content {
 		@include flex(100 0 auto);
 		@include display-flex;
 		@include flex-direction(column);
 		position: relative;
 		width: 100%;  // Nedded for IE 11.
 
+		> [data-category] {
+			@include flex(100 0 auto);
+		}
+
+		// Import categories.
 		@import 'home';
+		@import 'doc';
+
+		// Import tools.
+		@import 'anchor';
 	}
 
-	> .footer
-	{
+	> .footer {
 		@include flex(0 0 auto);
 		width: 100%;
 		padding: 0.5rem 2rem;
@@ -88,17 +89,14 @@ body
 		border-top: 1px solid rgba(#fff, 0.1);
 		font-size: 1rem;
 
-		> .links
-		{
-			@include breakpoint($computer)
-			{
+		> .links {
+			@include breakpoint($computer) {
 				@include display-flex;
 				@include flex-direction(row);
 				@include justify-content(center);
 			}
 
-			> a
-			{
+			> a {
 				display: block;
 				height: 2.5rem;
 				line-height: 2.5rem;
@@ -108,22 +106,19 @@ body
 				border-bottom: 1px solid $color-text-1;
 				@include transition-duration(0.2s);
 
-				&:hover
-				{
-					color: $color-text-5;
+				&:hover {
+					color: $color-text-6;
 					border-color: $color-highlight-dark;
 				}
 
-				@include breakpoint($computer)
-				{
+				@include breakpoint($computer) {
 					margin: 0 1rem;
 					width: 10rem;
 				}
 			}
 		}
 
-		> .copyright
-		{
+		> .copyright {
 			height: 2.5rem;
 			line-height: 2.5rem * 1.2;
 			text-align: center;

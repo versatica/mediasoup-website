@@ -5,6 +5,7 @@
   ],
   "description": "",
   "main": "",
+  "private": true,
   "moduleType": [],
   "license": "MIT",
   "homepage": "",
@@ -16,7 +17,7 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
+  "dependencies": {
     "anchor-js": "^3.1.0",
     "fastclick": "^1.0.6",
     "prism": "^1.4.1"

@@ -1,11 +1,17 @@
 window.addEventListener('load', function()
 {
-	var fadeinElems = document.querySelectorAll('.fadein');
+	var loadingElems = document.querySelectorAll('.loading');
 
-	for (var i = 0, len = fadeinElems.length; i < len; i++)
+	for (var i = 0, len = loadingElems.length; i < len; i++)
 	{
-		var fadeinElem = fadeinElems[i];
+		var elem = loadingElems[i];
 
-		fadeinElem.classList.remove('fadein');
+		elem.classList.remove('loading');
+	}
+
+	// Load anchor-js
+	if (window.anchors)
+	{
+		anchors.add('.content h2, .content h3, .content h4');
 	}
 });

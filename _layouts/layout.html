@@ -22,20 +22,30 @@
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="/images/favicon/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
+
 		<link rel="stylesheet" href="/css/mediasoup.css">
+
+		{% if page.code %}
+		<script src='/js/libs/prism/prism.js'></script>
+		{% endif %}
+
+		{% if page.anchors %}
+		<script src='/js/libs/anchor-js/anchor.js'></script>
+		{% endif %}
+
 		<script src='/js/init.js'></script>
 	</head>
 
-	<body class="{% if page.fadein %}fadein{% endif %}">
-		<div class="header"></div>
-
+	<body class="{% if page.category == "home" %}loading{% endif %}">
 		<div class="content">
-			{{ content }}
+			<div data-category="{{page.category}}">
+				{{ content }}
+			</div>
 		</div>
 
 		<div class="footer">
 			<div class="links">
-				<a class="col1" href="#">Documentation</a>
+				<a class="col1" href="/doc/api/">API</a>
 				<a class="col2" href="https://github.com/ibc/mediasoup/">Github</a>
 				<a class="col3" href="#">About</a>
 			</div>

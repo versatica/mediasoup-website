@@ -1,6 +1,14 @@
 source: .
 
-exclude: [NO_GIT, Gemfile, Gemfile.lock]
+exclude:
+  - NO_GIT
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - node_modules
+  - bower.json
+  - bower_components
+  - gulpfile.js
 
 markdown: kramdown
 
