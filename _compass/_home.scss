@@ -11,8 +11,8 @@
 
 		@include breakpoint($computer) {
 			padding-left: 20%;
-			margin: 5rem 0;
-			font-size: 4.8rem;
+			margin: 4rem 0;
+			font-size: 4.5rem;
 
 			&.loading {
 				@include filter(grayscale(100%) blur(4.00pt));
@@ -26,22 +26,8 @@
 		}
 
 		> h1 {
-			font-family: 'Poiret One';
-			letter-spacing: -0.04em;
-			color: $color-text-7;
+			@include mediasoup-logo();
 			margin-bottom: 1rem;
-
-			span.small {
-				font-size: 0.85em;
-			}
-
-			span.merge {
-				letter-spacing: -0.1em;
-			}
-
-			span.highlight {
-				color: $color-highlight;
-			}
 		}
 
 		> h2 {
@@ -112,7 +98,7 @@
 			@include transition-property(transform filter -webkit-filter -moz-filter);
 			@include transition-delay(0.50s);
 			@include transition-duration(1.50s);
-			@include transform(rotate(-15deg));
+			@include transform(rotate(-20deg));
 
 			&.loading {
 				@include transform(rotate(0deg));
@@ -139,7 +125,7 @@
 		}
 
 		@include breakpoint($mobile) {
-			font-size: 0.9rem;
+			font-size: 0.95rem;
 			padding: 0 5%;
 		}
 

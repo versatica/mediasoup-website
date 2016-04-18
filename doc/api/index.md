@@ -1,9 +1,20 @@
 ---
-title    : mediasoup API
+title    : API
 category : doc
 code     : true
 anchors  : true
+toc      : true
+arrow    : true
 ---
+
+<div markdown='1' class='toc-wrapper'>
+  * Will be replaced with the ToC
+  {: toc .toc}
+</div>
+
+<div markdown='1' class='toc-button'>
+</div>
+
 
 # API
 
@@ -67,7 +78,7 @@ Usage example:
 
 ```javascript
 var server = mediasoup.Server({
-    logLevel            : 'warn`,
+    logLevel            : 'warn',
     rtcListenIPv4       : '1.2.3.4',
     rtcListenIPv6       : false,
     dtlsCertificateFile : '/home/foo/dtls-cert.pem',
@@ -98,7 +109,7 @@ A boolean indicating whether the `server` has been closed.
 
 
 ### Methods
-{: #mediasoup-methods}
+{: #Server-methods}
 
 <section markdown='1'>
 
@@ -110,19 +121,21 @@ Closes the `server`.
 #### server.dump()
 {: #server-dump .code}
 
-Returns a Promise that resolves to an Object containing the current status and details of the `server `.
+Returns a Promise that resolves to an Object containing the current status and details of the `server`.
 
 *TBD:* Document it.
 
 #### server.updateSettings([options])
 {: #server-updateSettings .code}
 
-Updates the `server` settings. Given `options` is a subset of the [options](#mediasoup-Server-options) given to `mediasoup.Server()`:
+Updates the `server` settings.
+
+`options` is a subset of the [options](#mediasoup-Server-options) given to `mediasoup.Server()` which just includes the following settings:
 
 * `logLevel`
 
 #### server.Room([options])
-{: #server-Roomr .code}
+{: #server-Room .code}
 
 Creates a [Room](#Room) instance.
 
@@ -143,3 +156,106 @@ var room = server.Room();
 ```
 
 </section>
+
+
+### Events
+{: #Server-events}
+
+<section markdown='1'>
+
+#### server.on('close', fn(error))
+{: #server-on-close .code}
+
+Emitted when the `server` is closed. In case of error, the callback is called with the corresponding `Error` parameter.
+
+```javascript
+server.on('close', function(error) {
+  if (error)
+    console.error('server closed with error: %o', error);
+});
+```
+
+</section>
+
+
+## Room
+{: #Room}
+
+A `room` holds a multi-participants RTC conference.
+
+
+### Properties
+{: #Room-properties}
+
+<section markdown='1'>
+
+#### room.closed
+{: #room-closed .code}
+
+A boolean indicating whether the `room` has been closed.
+
+#### room.peers
+{: #room-peers .code}
+
+An Array with the list of [Peer](#Peer) instances in the `room`.
+
+</section>
+
+
+### Methods
+{: #Room-methods}
+
+<section markdown='1'>
+
+#### room.close()
+{: #room-close .code}
+
+Closes the `room`.
+
+#### room.dump()
+{: #room-dump .code}
+
+Returns a Promise that resolves to an Object containing the current status and details of the `room`.
+
+*TBD:* Document it.
+
+#### room.Peer(name)
+{: #room-Peer .code}
+
+Creates a [Peer](#Peer) instance.
+
+* `name` (String): Peer name (it must be unique within the `room`).
+
+```javascript
+var peer = room.Peer('alice');
+```
+
+#### room.getPeer(name)
+{: #room-getPeer .code}
+
+Returns a [Peer](#Peer) with the given `name`, or `undefined` if such a peer does not exist in the `room`.
+
+* `name` (String): Peer name.
+
+</section>
+
+
+### Events
+{: #Room-events}
+
+<section markdown='1'>
+
+#### room.on('close', fn(error))
+{: #room-on-close .code}
+
+Emitted when the `room` is closed. In case of error, the callback is called with the corresponding `Error` parameter.
+
+```javascript
+room.on('close', function(error) {
+  if (error)
+    console.error('room closed with error: %o', error);
+});
+```
+
+</section>
+

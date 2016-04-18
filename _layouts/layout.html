@@ -2,7 +2,11 @@
 <html>
 
 	<head>
-		<title>{{ page.title }}</title>
+		{% if page.category == "home" %}
+		<title>mediasoup</title>
+		{% else %}
+		<title>{{ page.title }} - mediasoup</title>
+		{% endif %}
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
@@ -33,10 +37,20 @@
 		<script src='/js/libs/anchor-js/anchor.js'></script>
 		{% endif %}
 
+		{% if page.toc %}
+		<script src='/js/toc.js'></script>
+		{% endif %}
+
 		<script src='/js/init.js'></script>
 	</head>
 
-	<body class="{% if page.category == "home" %}loading{% endif %}">
+	<body class="loading">
+		{% if page.category != "home" %}
+		<div class="header">
+			<h1><a href="/">m<span class='highlight small'>e</span>dia<span class="highlight"><span class='merge'>s</span>oup</span></a></h1>
+		</div>
+		{% endif %}
+
 		<div class="content">
 			<div data-category="{{page.category}}">
 				{{ content }}
@@ -52,6 +66,10 @@
 
 			<p class="copyright">Copyright &copy; 2016, Iñaki Baz Castillo</p>
 		</div>
+
+		{% if page.arrow %}
+		<div class="arrow-up"></div>
+		{% endif %}
 	</body>
 
 </html>

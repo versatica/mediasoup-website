@@ -1,0 +1,106 @@
+.toc-wrapper {
+	position: fixed;
+	z-index: 10;
+	left: 101%;  // Hidden by default.
+	bottom: 0;
+	width: 104%;  // Trick to hide the scroll bar.
+	height: 50%;
+	padding: 1rem 75px;  // Avoid the TOC button.
+	background: rgba(#faffff, 0.9);
+	@include box-shadow(0px -2px 5px 0px rgba(#666, 0.2));
+	@include transition-duration(0.2s);
+	overflow-y: scroll;
+
+	@include breakpoint($mobile) {
+		display: none;
+	}
+
+	&.visible {
+		left: 0px;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	a {
+		display: inline-block;
+		text-decoration: none;
+		color: inherit;
+		font-weight: inherit;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		max-width: 250px;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	ul.toc {
+		@include display-flex();
+		@include flex-wrap(wrap);  // Allow multiple horizontal rows.
+		@include align-items(top); // Center over Y axis.
+		@include justify-content(center); // Center over X axis.
+		font-size: 1rem;
+
+		// First level.
+		> li {
+			display: block;
+			margin: 0.75em;
+			margin-bottom: 1em;
+			font-weight: bold;
+			color: #333;
+
+			// Second level.
+			> ul {
+				margin-left: 0.5rem;
+
+				> li {
+					margin: 0 0 0.5em 0;
+					font-size: 0.9em;
+					font-weight: bold;
+					color: shade($color-highlight-dark, 20%);
+
+					// Third level (API).
+					> ul {
+						> li {
+							font-family: Consolas, Monaco, 'Andale Mono', monospace;
+							font-size: 0.9em;
+							line-height: 1.3em;
+							color: #666;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.toc-button {
+	$height: 140px;
+	$width: 70px;
+
+	position: fixed;
+	z-index: 20;
+	right: 0;
+	top: 50%;
+	margin-top: -$height / 2;
+	height: $height;
+	width: $width;
+	background: center url(/images/toc.svg) no-repeat;
+	background-size: 50%;
+	background-color: #fcffff;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-right: none;
+	@include box-shadow(0px 2px 5px 0px rgba(#222, 0.75));
+	cursor: pointer;
+
+	@include breakpoint($mobile) {
+		display: none;
+	}
+}

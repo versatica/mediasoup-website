@@ -5,13 +5,14 @@
 @import 'compass/css3/transition';
 @import 'compass/css3/box-shadow';
 @import 'compass/css3/flexbox';
-@import 'compass/utilities/general/clearfix';
 @import 'compass/css3/user-interface';
 @import 'compass/css3/filter';
 @import 'breakpoint';
 
 // Import fonts.
-@import 'fonts';
+@import './fonts';
+// Import my mixins.
+@import './mixins';
 
 $computer: min-width 900px;
 $mobile: max-width 900px;
@@ -26,6 +27,7 @@ $color-text-1: #080808;
 $color-highlight: #ccff66;
 $color-highlight-dark: shade($color-highlight, 25%);
 
+
 * {
 	@include box-sizing(border-box);
 }
@@ -33,7 +35,7 @@ $color-highlight-dark: shade($color-highlight, 25%);
 html {
 	height: 100%;
 	// Default font size for common text.
-	font-size: 15px;
+	font-size: 16px;
 	font-family: 'Open Sans', Helvetica;
 	font-weight: 400;
 
@@ -53,12 +55,41 @@ body {
 	@include flex-direction(column);
 	@include align-items(center);
 	@include transition-property(opacity);
-	@include transition-delay(0.25s);
+	@include transition-delay(0.15s);
 	@include transition-duration(0.50s);
 
 	@include breakpoint($computer) {
 		&.loading {
 			opacity: 0;
+		}
+	}
+
+	> .header {
+		@include flex(0 0 auto);
+		width: 100%;
+		height: 4.5rem;
+		@include display-flex;
+		@include flex-direction(column);
+		@include justify-content(center);
+		background-color: rgba(#fff, 0.04);
+		border-bottom: 1px solid rgba(#fff, 0.1);
+		font-size: 2.5rem;
+
+		@include breakpoint($computer) {
+			padding: 0 3.5rem;
+		}
+
+		@include breakpoint($mobile) {
+			@include align-items(center);
+		}
+
+		h1 {
+			@include mediasoup-logo();
+
+			a {
+				color: inherit !important;
+				text-decoration: none;
+			}
 		}
 	}
 
@@ -79,6 +110,7 @@ body {
 
 		// Import tools.
 		@import 'anchor';
+		@import 'toc';
 	}
 
 	> .footer {
@@ -124,6 +156,38 @@ body {
 			text-align: center;
 			font-size: 0.8rem;
 			color: $color-text-2;
+		}
+	}
+
+	> .arrow-up {
+		position: fixed;
+		z-index: 5;
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		background-image: url('/images/arrow-up.svg');
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: center;
+		opacity: 0;  // Hidden by default
+		@include transition-duration(0.2s);
+
+		&.visible {
+			opacity: 0.2;
+
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+
+		@include breakpoint($computer) {
+			bottom: 2rem;
+			right: 2rem;
+		}
+
+		@include breakpoint($mobile) {
+			bottom: 1rem;
+			right: 1rem;
 		}
 	}
 }

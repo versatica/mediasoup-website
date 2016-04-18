@@ -2,8 +2,8 @@
 	color: $color-text-4;
 
 	@include breakpoint($computer) {
-		margin: 3rem auto;
-		width: 100%;
+		margin: 4rem auto;
+		width: 90%;
 		max-width: 1024px;
 		padding: 1rem;
 		font-size: 1rem;
@@ -13,28 +13,28 @@
 		margin: 2.5rem auto;
 		width: 100%;
 		padding: 1rem;
-		font-size: 0.85rem;
+		font-size: 0.95rem;
 	}
 
 	h1 {
 		font-family: 'Poiret One';
-		font-size: 2.8em;
+		font-size: 2.5em;
 		color: $color-text-7;
 		margin-bottom: 1em;
 	}
 
 	h2 {
-		font-size: 1.8em;
-		line-height: 1.8em;
+		font-size: 1.6em;
+		line-height: 1.6em;
 		color: $color-text-7;
 		border-bottom: 1px solid $color-highlight;
-		margin-top: 1.25em;
+		margin-top: 2em;
 		margin-bottom: 1.5em;
 	}
 
 	h3 {
-		font-size: 1.4em;
-		color: $color-text-6;
+		font-size: 1.2em;
+		color: shade($color-highlight-dark, 20%);
 		font-weight: bold;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
@@ -42,12 +42,13 @@
 
 	h4 {
 		font-size: 1.1em;
-		color: $color-text-5;
+		color: $color-text-6;
 		font-weight: bold;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 
 		&.code {
+			font-size: 1em;
 			font-family: Consolas, Monaco, 'Andale Mono', monospace;
 		}
 	}
@@ -101,9 +102,9 @@
 
 	// Overrides prism.js Twilight theme.
 	pre[class*="language-"] {
+		width: 94%;
+		margin: 2em auto;
 		border: 1px solid rgba(#fff, 0.25);
-		margin-top: 2em;
-		margin-bottom: 2em;
 		background: rgba(#222, 0.75);
 		box-shadow: none;
 		font-size: 0.85em;
@@ -121,10 +122,13 @@
 
 	section {
 		margin: 0;
-		padding-left: 1.5em;
 
-		> h4 {
-			margin-left: -0.75em;
+		@include breakpoint($computer) {
+			padding-left: 1.5em;
+		}
+
+		@include breakpoint($mobile) {
+			padding-left: 0.5em;
 		}
 	}
 

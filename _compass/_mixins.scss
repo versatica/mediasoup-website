@@ -1,0 +1,17 @@
+@mixin mediasoup-logo() {
+	font-family: 'Poiret One';
+	letter-spacing: -0.04em;
+	color: $color-text-7;
+
+	span.small {
+		font-size: 0.85em;
+	}
+
+	span.merge {
+		letter-spacing: -0.1em;
+	}
+
+	span.highlight {
+		color: $color-highlight;
+	}
+}

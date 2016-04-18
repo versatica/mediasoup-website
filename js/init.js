@@ -1,17 +1,62 @@
 window.addEventListener('load', function()
 {
-	var loadingElems = document.querySelectorAll('.loading');
+	setLoading();
+	setAnchors();
+	setArrowUp();
 
-	for (var i = 0, len = loadingElems.length; i < len; i++)
+	function setLoading()
 	{
-		var elem = loadingElems[i];
+		var loadingElems = document.querySelectorAll('.loading');
 
-		elem.classList.remove('loading');
+		for (var i = 0, len = loadingElems.length; i < len; i++)
+		{
+			var elem = loadingElems[i];
+
+			elem.classList.remove('loading');
+		}
 	}
 
-	// Load anchor-js
-	if (window.anchors)
+	function setAnchors()
 	{
-		anchors.add('.content h2, .content h3, .content h4');
+		if (window.anchors)
+			anchors.add('.content h2, .content h3, .content h4');
+	}
+
+	function setArrowUp()
+	{
+		var arrowElem = document.querySelector('.arrow-up');
+		var isVisible = false;
+
+		if (!arrowElem)
+			return;
+
+		document.addEventListener('scroll', function()
+		{
+			var contentHeight = document.body.scrollHeight;
+			var visibleHeight = document.body.offsetHeight;
+			var scrollTop = document.body.scrollTop;
+
+			if ((scrollTop > visibleHeight) && (scrollTop + visibleHeight < contentHeight - 150))
+			{
+				if (!isVisible)
+				{
+					isVisible = true;
+					arrowElem.classList.add('visible');
+				}
+			}
+			else
+			{
+				if (isVisible)
+				{
+					isVisible = false;
+					arrowElem.classList.remove('visible');
+				}
+			}
+		});
+
+		arrowElem.addEventListener('click', function()
+		{
+			document.body.scrollTop = 0;
+		});
 	}
 });
