@@ -102,12 +102,19 @@
 
 	// Overrides prism.js Twilight theme.
 	pre[class*="language-"] {
-		width: 94%;
 		margin: 2em auto;
 		border: 1px solid rgba(#fff, 0.25);
 		background: rgba(#222, 0.75);
 		box-shadow: none;
 		font-size: 0.85em;
+
+		@include breakpoint($computer) {
+			width: 92%;
+		}
+
+		@include breakpoint($mobile) {
+			width: 100%;
+		}
 	}
 
 	:not(pre) > code {

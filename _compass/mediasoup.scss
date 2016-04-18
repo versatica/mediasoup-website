@@ -38,13 +38,12 @@ html {
 	font-size: 16px;
 	font-family: 'Open Sans', Helvetica;
 	font-weight: 400;
-
 	@include background-image(linear-gradient(110deg, #000 0%, #222 30%, #060606 30%, #333 100%));
 	background-position: center;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-color: #0a0a0a;
+	background-color: #191919;
 }
 
 body {
