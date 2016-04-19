@@ -61,11 +61,4 @@ window.addEventListener('load', function()
 	{
 		event.stopPropagation();
 	});
-
-	// Hack to avoid content (body) scrolling while scrolling the TOC.
-	toc.addEventListener('mousewheel', function(event)
-	{
-		// This works in Chrome but just if the TOC needs a vertical scroll.
-		return false;
-	});
 });

@@ -1,4 +1,4 @@
-source: .
+# source: .
 
 exclude:
   - NO_GIT
@@ -20,10 +20,13 @@ kramdown:
   smart_quotes: [ 'apos', 'apos', 'ldquo', 'rdquo' ]
   # This is needed to disable builtin highlight-rouge
   syntax_highlighter: true
+  enable_coderay: false
 
 gems:
   - jekyll-compass
   - breakpoint
+
+permalink: pretty
 
 defaults:
   -
@@ -31,4 +34,3 @@ defaults:
       path: ''
     values:
       layout: layout
-

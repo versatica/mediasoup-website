@@ -6,12 +6,11 @@
 		@include flex(0 0 auto);
 		width: 100%;
 		@include transition-property(filter -webkit-filter -moz-filter);
-		@include transition-delay(0.50s);
-		@include transition-duration(1.00s);
+		@include transition-duration(1.5s);
 
 		@include breakpoint($computer) {
 			padding-left: 20%;
-			margin: 4rem 0;
+			margin: 4.5rem 0;
 			font-size: 4.5rem;
 
 			&.loading {
@@ -22,7 +21,7 @@
 		@include breakpoint($mobile) {
 			margin: 4rem 0;
 			padding: 0 5%;
-			font-size: 3.5rem;
+			font-size: 3.2rem;
 		}
 
 		> h1 {
@@ -152,7 +151,6 @@
 				line-height: 1.4em;
 				text-align: center;
 				letter-spacing: -.05em;
-				color: $color-text-6;
 				margin-bottom: 1.1em;
 				color: $color-highlight-dark;
 				background-color: rgba(#000, 0.2);
@@ -183,6 +181,11 @@
 				@include breakpoint($mobile) {
 					font-size: 1em;
 					padding: 0 0.2em;
+				}
+
+				strong {
+					color: shade($color-highlight, 30%);
+					// color: $color-text-5;
 				}
 
 				a {

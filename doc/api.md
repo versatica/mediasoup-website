@@ -7,7 +7,7 @@ toc      : true
 arrow    : true
 ---
 
-<div markdown='1' class='toc-wrapper'>
+<div markdown='1' class='toc-wrapper api'>
   * Will be replaced with the ToC
   {: toc .toc}
 </div>
@@ -258,4 +258,3 @@ room.on('close', function(error) {
 ```
 
 </section>
-
