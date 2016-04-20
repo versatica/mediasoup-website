@@ -1,18 +1,77 @@
 window.addEventListener('load', function()
 {
 	setLoading();
+	setMenu();
 	setAnchors();
 	setArrowUp();
 
 	function setLoading()
 	{
-		var loadingElems = document.querySelectorAll('.loading');
+		var elems = document.querySelectorAll('.loading');
 
-		for (var i = 0, len = loadingElems.length; i < len; i++)
+		for (var i = 0, len = elems.length; i < len; i++)
 		{
-			var elem = loadingElems[i];
+			var elem = elems[i];
 
 			elem.classList.remove('loading');
+		}
+	}
+
+	function setMenu()
+	{
+		var menuButton = document.querySelector('.menu-button');
+		var menu = document.querySelector('.menu');
+		var menuClose = menu.querySelector('.close');
+		var isVisible = false;
+
+		menuButton.addEventListener('click', function()
+		{
+			event.stopPropagation();
+			toggleMenu();
+		});
+
+		menuClose.addEventListener('click', hideMenu);
+
+		document.addEventListener('click', hideMenu);
+
+		document.addEventListener('keydown', function(event)
+		{
+			// ESC
+			if (event.keyCode === 27)
+				hideMenu();
+		});
+
+		menu.addEventListener('click', function()
+		{
+			event.stopPropagation();
+		});
+
+		function toggleMenu()
+		{
+			if (isVisible)
+				hideMenu();
+			else
+				showMenu();
+		}
+
+		function showMenu()
+		{
+			if (isVisible)
+				return;
+
+			isVisible = true;
+			menu.classList.add('visible');
+		}
+
+		function hideMenu()
+		{
+			if (!isVisible)
+				return;
+
+			window.MENU = menu;
+
+			isVisible = false;
+			menu.classList.remove('visible');
 		}
 	}
 
@@ -24,10 +83,10 @@ window.addEventListener('load', function()
 
 	function setArrowUp()
 	{
-		var arrowElem = document.querySelector('.arrow-up');
+		var arrow = document.querySelector('.arrow-up');
 		var isVisible = false;
 
-		if (!arrowElem)
+		if (!arrow)
 			return;
 
 		document.addEventListener('scroll', function()
@@ -41,7 +100,7 @@ window.addEventListener('load', function()
 				if (!isVisible)
 				{
 					isVisible = true;
-					arrowElem.classList.add('visible');
+					arrow.classList.add('visible');
 				}
 			}
 			else
@@ -49,12 +108,12 @@ window.addEventListener('load', function()
 				if (isVisible)
 				{
 					isVisible = false;
-					arrowElem.classList.remove('visible');
+					arrow.classList.remove('visible');
 				}
 			}
 		});
 
-		arrowElem.addEventListener('click', function()
+		arrow.addEventListener('click', function()
 		{
 			document.body.scrollTop = 0;
 		});

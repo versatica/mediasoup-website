@@ -25,7 +25,7 @@ window.addEventListener('load', function()
 		toc.classList.remove('visible');
 		setTimeout(function()
 		{
-			if (!toc.classList.contains('visible'))
+			if (!isTocVisible)
 				tocUl.style.display = 'none';
 		}, transitionDuration * 1.5);
 	}

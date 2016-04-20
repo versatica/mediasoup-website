@@ -63,13 +63,16 @@ body {
 		}
 	}
 
+	@import 'menu';
+
 	> .header {
 		@include flex(0 0 auto);
 		width: 100%;
-		height: 4.5rem;
+		height: 64px;
 		@include display-flex;
-		@include flex-direction(column);
-		@include justify-content(center);
+		@include flex-direction(row);
+		@include justify-content(space-between);
+		@include align-items(center);
 		background-color: rgba(#fff, 0.04);
 		border-bottom: 1px solid rgba(#fff, 0.1);
 		font-size: 2.5rem;
@@ -79,7 +82,7 @@ body {
 		}
 
 		@include breakpoint($mobile) {
-			@include align-items(center);
+			padding: 0 16px;
 		}
 
 		h1 {
@@ -88,6 +91,44 @@ body {
 			a {
 				color: inherit !important;
 				text-decoration: none;
+			}
+		}
+
+		> .fake-space {
+			@include breakpoint($computer) {
+				display: none;
+			}
+
+			@include breakpoint($mobile) {
+				height: 32px;
+				width: 32px;
+			}
+		}
+
+		> .menu-button {
+			height: 100%;
+			background-image: url('/images/menu.png');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			cursor: pointer;
+			@include transition-property(opacity);
+			@include transition-duration(0.25s);
+
+			@include breakpoint($computer) {
+				width: 2.5rem;
+				opacity: 0.75;
+
+				&:hover {
+					opacity: 1;
+				}
+			}
+
+			@include breakpoint($mobile) {
+				height: 32px;
+				width: 32px;
+				opacity: 0.9;
 			}
 		}
 	}

@@ -9,7 +9,7 @@
 		@include transition-duration(1.5s);
 
 		@include breakpoint($computer) {
-			padding-left: 20%;
+			padding: 0 20%;
 			margin: 4.5rem 0;
 			font-size: 4.5rem;
 
@@ -35,6 +35,40 @@
 			color: $color-text-6;
 			margin: 0;
 			margin-left: 2px;
+		}
+	}
+
+	> .menu-button {
+		z-index: 2;
+		background-image: url('/images/menu.png');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: contain;
+		cursor: pointer;
+		@include transition-property(opacity);
+		@include transition-duration(0.25s);
+
+		@include breakpoint($computer) {
+			position: absolute;
+			top: 4rem;
+			right: 12%;
+			height: 50px;
+			width: 50px;
+			opacity: 0.75;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		@include breakpoint($mobile) {
+			position: absolute;
+			top: 16px;
+			right: 16px;
+			height: 32px;
+			width: 32px;
+			opacity: 0.9;
 		}
 	}
 
