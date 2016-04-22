@@ -2,6 +2,7 @@ window.addEventListener('load', function()
 {
 	setLoading();
 	setMenu();
+	setFastClick();
 	setAnchors();
 	setArrowUp();
 
@@ -23,6 +24,7 @@ window.addEventListener('load', function()
 		var menu = document.querySelector('.menu');
 		var menuClose = menu.querySelector('.close');
 		var isVisible = false;
+		var hammer = new Hammer(menu);
 
 		menuButton.addEventListener('click', function()
 		{
@@ -46,6 +48,11 @@ window.addEventListener('load', function()
 			event.stopPropagation();
 		});
 
+		hammer.on('panright', function(event)
+		{
+			hideMenu();
+		});
+
 		function toggleMenu()
 		{
 			if (isVisible)
@@ -61,6 +68,7 @@ window.addEventListener('load', function()
 
 			isVisible = true;
 			menu.classList.add('visible');
+			document.body.classList.add('noscroll');
 		}
 
 		function hideMenu()
@@ -68,11 +76,15 @@ window.addEventListener('load', function()
 			if (!isVisible)
 				return;
 
-			window.MENU = menu;
-
 			isVisible = false;
 			menu.classList.remove('visible');
+			document.body.classList.remove('noscroll');
 		}
+	}
+
+	function setFastClick()
+	{
+		FastClick.attach(document.body);
 	}
 
 	function setAnchors()

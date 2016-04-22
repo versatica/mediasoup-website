@@ -7,32 +7,52 @@
 	right: -$width;
 	width: $width;
 	height: 120%;
-	padding: 100px 8px 8px 8px;
+	padding: 80px 8px 8px 8px;
 	overflow: hidden;
 	background-color: rgba(#fff, 0.95);
 	@include box-shadow(-5px 0px 5px 0px rgba(#333, 0.3));
-	font-size: 1.2rem;
 	@include transition-property(right);
 	@include transition-duration(0.15s);
 
+	@include breakpoint($computer) {
+		font-size: 1.2rem;
+	}
+
+	@include breakpoint($mobile) {
+		font-size: 1.1rem;
+	}
+
+	@include breakpoint($mobile-landscape) {
+		padding-top: 20px;
+	}
+
 	&.visible {
 		right: 0;
+
+		> .close {
+			@include transition-delay(0.25s);
+			@include transform(scale(1));
+		}
 	}
 
 	> .close {
 		position: absolute;
-		top: 20px;
-		right: 20px;
-		height: 36px;
-		width: 36px;
-		background-image: url('/images/close.png');
+		top: 16px;
+		right: 16px;
+		height: 32px;
+		width: 32px;
+		background-size: 24px;
+		background-image: url('/images/close.svg');
 		background-position: center;
 		background-repeat: no-repeat;
 		cursor: pointer;
 		opacity: 0.75;
+		@include transform(scale(0));
+		@include transition-property(opacity transform);
 		@include transition-duration(0.25s);
 
 		&:hover {
+			@include transition-delay(0s);
 			opacity: 1;
 		}
 	}
@@ -50,6 +70,10 @@
 			color: shade($color-highlight-dark, 30%);
 			background-color: rgba(#fff, 1);
 			border-color: #ddd;
+		}
+
+		@include breakpoint($mobile-landscape) {
+			padding: 0.5em 1em;
 		}
 	}
 }

@@ -9,6 +9,9 @@
 		{% endif %}
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="Content-Language" content="en">
+		<meta name="description" content="mediasoup - Powerful WebRTC SFU for Node.js">
+
 		<link rel="apple-touch-icon" sizes="57x57" href="/images/favicon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="/images/favicon/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="/images/favicon/apple-icon-72x72.png">
@@ -29,6 +32,8 @@
 
 		<link rel="stylesheet" href="/css/mediasoup.css">
 
+		<script src='/js/libs/fastclick/lib/fastclick.js'></script>
+
 		{% if page.code %}
 		<script src='/js/libs/prism/prism.js'></script>
 		{% endif %}
@@ -41,18 +46,14 @@
 		<script src='/js/toc.js'></script>
 		{% endif %}
 
+		<script src='/js/libs/hammerjs/hammer.js'></script>
+
 		<script src='/js/init.js'></script>
 	</head>
 
 	<body class="loading">
 		{% if page.category != "home" %}
-		<div class="header">
-			<div class="fake-space"></div>
-
-			<h1><a href="/">m<span class='highlight small'>e</span>dia<span class="highlight"><span class='merge'>s</span>oup</span></a></h1>
-
-			<div class="menu-button"></div>
-		</div>
+		{% include header.html %}
 		{% endif %}
 
 		{% include menu.html %}

@@ -40,25 +40,32 @@
 
 	> .menu-button {
 		z-index: 2;
-		background-image: url('/images/menu.png');
-		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
-		background-size: contain;
 		cursor: pointer;
-		@include transition-property(opacity);
-		@include transition-duration(0.25s);
+		@include transition-property(opacity transform);
+		@include transition-duration(.75s);
 
 		@include breakpoint($computer) {
 			position: absolute;
 			top: 4rem;
-			right: 12%;
-			height: 50px;
-			width: 50px;
-			opacity: 0.75;
+			right: 10%;
+			width: 48px;
+			height: 48px;
+			background-size: contain;
+			background-image: url('/images/menu.svg');
+			border-radius: 5px;
+			border: 1px solid rgba($color-highlight, 0.3);
+			opacity: 0.8;
 
 			&:hover {
+				@include transition-duration(.25s);
 				opacity: 1;
+			}
+
+			&.loading {
+				opacity: 0;
+				@include transform(scale(0));
 			}
 		}
 
@@ -66,49 +73,55 @@
 			position: absolute;
 			top: 16px;
 			right: 16px;
-			height: 32px;
 			width: 32px;
+			height: 32px;
+			background-size: contain;
+			background-image: url('/images/menu.svg');
 			opacity: 0.9;
 		}
 	}
 
-	> pre.install {
-		@include flex(0 0 auto);
-		display: block;
-		text-align: center;
-		@include transition-property(opacity transform);
-		@include transition-delay(0.75s);
-		@include transition-duration(1.50s);
+	> .install {
+		overflow: hidden;
 
-		@include breakpoint($computer) {
-			font-size: 1rem;
-			margin-bottom: 5rem;
-
-			&.loading {
-				opacity: 0;
-				@include transform(scale(1.25));
-			}
-		}
-
-		@include breakpoint($mobile) {
-			font-size: 0.8rem;
-			margin-bottom: 4rem;
-		}
-
-		code {
+		> pre {
+			@include flex(0 0 auto);
 			display: block;
-			padding: 0.8em 0;
-			font-family: Consolas, Monaco, 'Andale Mono', monospace;
-			white-space: pre;
-			color: $color-text-1;
-			@include background-image(linear-gradient(left, rgba(#fff, 0.05) 0%, rgba(#fff, 0.4) 25%, rgba(#fff, 0.9) 50%, rgba(#fff, 0.4) 75%, rgba(#fff, 0.05) 100%));
+			text-align: center;
+			@include transition-property(opacity transform);
+			@include transition-delay(0.75s);
+			@include transition-duration(1.50s);
+
+			@include breakpoint($computer) {
+				font-size: 1rem;
+				margin-bottom: 5rem;
+
+				&.loading {
+					opacity: 0;
+					@include transform(scale(1.25));
+				}
+			}
 
 			@include breakpoint($mobile) {
-				@include background-image(linear-gradient(left, rgba(#fff, 0.3) 0%, rgba(#fff, 0.6) 25%, rgba(#fff, 1.0) 50%, rgba(#fff, 0.6) 75%, rgba(#fff, 0.3) 100%));
+				font-size: 0.8rem;
+				margin-bottom: 4rem;
 			}
 
-			span.no-select {
-				@include user-select(none);
+			code {
+				display: block;
+				padding: 0.8em 0;
+				font-family: Consolas, Monaco, 'Andale Mono', monospace;
+				white-space: pre;
+				color: $color-text-1;
+				@include background-image(linear-gradient(left, rgba(#fff, 0.05) 0%, rgba(#fff, 0.4) 25%, rgba(#fff, 0.9) 50%, rgba(#fff, 0.4) 75%, rgba(#fff, 0.05) 100%));
+
+				@include breakpoint($mobile) {
+					@include background-image(linear-gradient(left, rgba(#fff, 0.3) 0%, rgba(#fff, 0.6) 25%, rgba(#fff, 1.0) 50%, rgba(#fff, 0.6) 75%, rgba(#fff, 0.3) 100%));
+				}
+
+				span.no-select {
+					@include user-select(none);
+				}
 			}
 		}
 	}

@@ -16,6 +16,7 @@
 
 $computer: min-width 900px;
 $mobile: max-width 900px;
+$mobile-landscape: max-height 450px;
 
 $color-text-7: #f0f8ff;
 $color-text-6: #ddd;
@@ -63,6 +64,14 @@ body {
 		}
 	}
 
+	// Just for mobiles (in which there is no hardcoded scroll bar) disable
+	// scrolling when "noscroll" class is set (when the menu is shown).
+	@include breakpoint($mobile) {
+		&.noscroll {
+			overflow: hidden;
+		}
+	}
+
 	@import 'menu';
 
 	> .header {
@@ -106,19 +115,20 @@ body {
 		}
 
 		> .menu-button {
-			height: 100%;
-			background-image: url('/images/menu.png');
-			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
-			background-size: contain;
 			cursor: pointer;
 			@include transition-property(opacity);
 			@include transition-duration(0.25s);
 
 			@include breakpoint($computer) {
-				width: 2.5rem;
-				opacity: 0.75;
+				width: 48px;
+				height: 48px;
+				background-size: contain;
+				background-image: url('/images/menu.svg');
+				border-radius: 5px;
+				// border: 1px solid rgba($color-highlight, 0.3);
+				opacity: 0.8;
 
 				&:hover {
 					opacity: 1;
@@ -126,8 +136,10 @@ body {
 			}
 
 			@include breakpoint($mobile) {
-				height: 32px;
 				width: 32px;
+				height: 32px;
+				background-size: contain;
+				background-image: url('/images/menu.svg');
 				opacity: 0.9;
 			}
 		}

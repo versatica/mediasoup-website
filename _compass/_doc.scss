@@ -161,6 +161,7 @@
 	}
 
 	.table-wrapper {
+		margin: 2em 0;
 		overflow: auto;
 	}
 
@@ -168,8 +169,6 @@
 		width: 100%;
 		margin: 0 auto;
 		border-collapse: collapse;
-		margin-top: 1.5em;
-		margin-bottom: 1.5em;
 		background-color: rgba(#333, 0.1);
 		font-size: 0.9em;
 
