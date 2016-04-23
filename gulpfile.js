@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var mainBowerFiles = require('gulp-main-bower-files');
 var request = require('request');
 var shell = require('gulp-shell');
+var sitemap = require('gulp-sitemap');
 var fs = require('fs');
 
 gulp.task('bower', function()
@@ -16,6 +17,16 @@ gulp.task('npm-shield', function () {
   	.pipe(fs.createWriteStream('images/npm-shield-mediasoup.svg'));
 });
 
+gulp.task('sitemap', function()
+{
+	return gulp.src('_site/**/*.html')
+		.pipe(sitemap(
+			{
+				siteUrl : 'http://mediasoup.org'
+			}))
+		.pipe(gulp.dest('./_site'));
+});
+
 gulp.task('jekyll:build', shell.task(
 	[ 'jekyll build' ]
 ));
@@ -28,7 +39,7 @@ gulp.task('clean', shell.task(
 	[ 'rm -rf _site/ .sass-cache/' ]
 ));
 
-gulp.task('build', gulp.series('clean', 'bower', 'npm-shield', 'jekyll:build'));
+gulp.task('build', gulp.series('clean', 'bower', 'npm-shield', 'jekyll:build', 'sitemap'));
 
 gulp.task('live', gulp.series('clean', 'bower', 'jekyll:watch'));
 

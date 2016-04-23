@@ -26,10 +26,14 @@ window.addEventListener('load', function()
 		var isVisible = false;
 		var hammer = new Hammer(menu);
 
-		menuButton.addEventListener('click', function()
+		menuButton.addEventListener('click', function(event)
 		{
 			event.stopPropagation();
-			toggleMenu();
+
+			if (isVisible)
+				hideMenu();
+			else
+				showMenu();
 		});
 
 		menuClose.addEventListener('click', hideMenu);
@@ -43,23 +47,20 @@ window.addEventListener('load', function()
 				hideMenu();
 		});
 
-		menu.addEventListener('click', function()
+		menu.addEventListener('click', function(event)
 		{
 			event.stopPropagation();
 		});
 
-		hammer.on('panright', function(event)
+		menu.addEventListener('wheel', function(event)
+		{
+			event.preventDefault();
+		});
+
+		hammer.on('panright', function()
 		{
 			hideMenu();
 		});
-
-		function toggleMenu()
-		{
-			if (isVisible)
-				hideMenu();
-			else
-				showMenu();
-		}
 
 		function showMenu()
 		{
@@ -68,7 +69,6 @@ window.addEventListener('load', function()
 
 			isVisible = true;
 			menu.classList.add('visible');
-			document.body.classList.add('noscroll');
 		}
 
 		function hideMenu()
@@ -78,7 +78,6 @@ window.addEventListener('load', function()
 
 			isVisible = false;
 			menu.classList.remove('visible');
-			document.body.classList.remove('noscroll');
 		}
 	}
 

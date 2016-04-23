@@ -1,6 +1,5 @@
 ---
 title    : API
-category : doc
 code     : true
 anchors  : true
 toc      : true

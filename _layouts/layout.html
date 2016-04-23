@@ -2,7 +2,7 @@
 <html lang="en">
 
 	<head>
-		{% if page.category == "home" %}
+		{% if page.home %}
 		<title>mediasoup</title>
 		{% else %}
 		<title>{{ page.title }} - mediasoup</title>
@@ -51,26 +51,32 @@
 	</head>
 
 	<body class="loading">
-		{% if page.category != "home" %}
+		{% unless page.home %}
 		{% include header.html %}
-		{% endif %}
+		{% endunless %}
 
 		{% include menu.html %}
 
 		<div class="content">
-			<div data-category="{{page.category}}">
+			{% if page.home %}
+			<div data-content="home">
 				{{ content }}
 			</div>
+			{% else %}
+			<div data-content="default">
+				{{ content }}
+			</div>
+			{% endif %}
 		</div>
 
 		<div class="footer">
 			<div class="links">
-				<a href="/doc/api/">API</a>
+				<a href="/license/">License</a>
 				<a href="https://github.com/ibc/mediasoup/">Github</a>
 				<a href="/about/">About</a>
 			</div>
 
-			<p class="copyright">Copyright &copy; 2016, Iñaki Baz Castillo</p>
+			<p class="copyright">{% include copyright.html %}</p>
 		</div>
 
 		{% if page.arrow %}

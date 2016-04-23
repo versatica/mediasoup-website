@@ -6,7 +6,7 @@
 	top: 0;
 	right: -$width;
 	width: $width;
-	height: 120%;
+	height: 100%;
 	padding: 80px 8px 8px 8px;
 	overflow: hidden;
 	background-color: rgba(#fff, 0.95);
@@ -67,7 +67,7 @@
 		@include transition-duration(0.1s);
 
 		&:hover {
-			color: shade($color-highlight-dark, 30%);
+			color: $color-highlight-dark;
 			background-color: rgba(#fff, 1);
 			border-color: #ddd;
 		}

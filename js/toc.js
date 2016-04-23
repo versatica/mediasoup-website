@@ -6,6 +6,20 @@ window.addEventListener('load', function()
 	var transitionDuration = 200;
 	var isTocVisible = false;
 
+	toc.addEventListener('wheel', function(event)
+	{
+		var deltaY = event.deltaY;
+		var contentHeight = toc.scrollHeight;
+		var visibleHeight = toc.offsetHeight;
+		var scrollTop = toc.scrollTop;
+
+		if ((scrollTop === 0 && deltaY < 0) ||
+		    (visibleHeight + scrollTop === contentHeight && deltaY > 0))
+		{
+			event.preventDefault();
+		}
+	});
+
 	function showToc()
 	{
 		if (isTocVisible)
@@ -33,6 +47,8 @@ window.addEventListener('load', function()
 	// Click on the TOC button shows/hides the TOC panel.
 	tocButton.addEventListener('click', function(event)
 	{
+		event.stopPropagation();
+
 		if (!isTocVisible)
 			showToc();
 		else
@@ -51,12 +67,7 @@ window.addEventListener('load', function()
 	{
 		hideToc();
 	});
-	// ...unless it is the TOC button,
-	tocButton.addEventListener('click', function(event)
-	{
-		event.stopPropagation();
-	});
-	// ...or the TOC panel.
+	// ...unless it happens in the TOC panel.
 	toc.addEventListener('click', function(event)
 	{
 		event.stopPropagation();
