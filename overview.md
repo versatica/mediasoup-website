@@ -12,7 +12,7 @@ Before all else, **mediasoup** is an SFU (*Selective Forwarding Unit*) that enab
 An SFU does not mix participants' media streams but relays them in a multi-streaming fashion (enpoints send one and receive many). This design leads to a better performance, higher throughput and less latency than the classic MCU (*Multipoint Control Unit*) model, and lets the endpoint choose which streams to render and how to display them.
 
 <div markdown='1' class='note'>
-Detailed information regarding the architecture of a SFU can be found at RFC 7667 "RTP Topologies" [section 3.7](https://tools.ietf.org/html/rfc7667#section-3.7).
+Detailed information regarding the architecture of an SFU can be found at RFC 7667 "RTP Topologies" [section 3.7](https://tools.ietf.org/html/rfc7667#section-3.7).
 </div>
 
 Unlike other existing SFU implementations, **mediasoup** is not a standalone server but an unopinionated Node.js library which can be integrated into a larger application:
