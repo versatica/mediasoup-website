@@ -6,19 +6,7 @@ window.addEventListener('load', function()
 	var transitionDuration = 200;
 	var isTocVisible = false;
 
-	toc.addEventListener('wheel', function(event)
-	{
-		var deltaY = event.deltaY;
-		var contentHeight = toc.scrollHeight;
-		var visibleHeight = toc.offsetHeight;
-		var scrollTop = toc.scrollTop;
-
-		if ((scrollTop === 0 && deltaY < 0) ||
-		    (visibleHeight + scrollTop === contentHeight && deltaY > 0))
-		{
-			event.preventDefault();
-		}
-	});
+	dontscrollthebody(toc);
 
 	function showToc()
 	{

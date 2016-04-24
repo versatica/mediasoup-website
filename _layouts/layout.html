@@ -32,6 +32,8 @@
 		<link rel="stylesheet" href="/css/mediasoup.css">
 
 		<script src='/js/libs/fastclick/lib/fastclick.js'></script>
+		<script src='/js/libs/hammerjs/hammer.js'></script>
+		<script src='/js/libs/dontscrollthebody/dist/dontscrollthebody.js'></script>
 
 		{% if page.code %}
 		<script src='/js/libs/prism/prism.js'></script>
@@ -45,12 +47,10 @@
 		<script src='/js/toc.js'></script>
 		{% endif %}
 
-		<script src='/js/libs/hammerjs/hammer.js'></script>
-
 		<script src='/js/init.js'></script>
 	</head>
 
-	<body class="loading">
+	<body>
 		{% unless page.home %}
 		{% include header.html %}
 		{% endunless %}
@@ -59,7 +59,7 @@
 
 		{% include menu.html %}
 
-		<div class="content">
+		<div class="content loading">
 			{% if page.home %}
 			<div data-content="home">
 				{{ content }}
