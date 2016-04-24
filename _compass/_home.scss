@@ -116,7 +116,7 @@
 				@include background-image(linear-gradient(left, rgba(#fff, 0.05) 0%, rgba(#fff, 0.4) 25%, rgba(#fff, 0.9) 50%, rgba(#fff, 0.4) 75%, rgba(#fff, 0.05) 100%));
 
 				@include breakpoint($mobile) {
-					@include background-image(linear-gradient(left, rgba(#fff, 0.3) 0%, rgba(#fff, 0.6) 25%, rgba(#fff, 1.0) 50%, rgba(#fff, 0.6) 75%, rgba(#fff, 0.3) 100%));
+					@include background-image(linear-gradient(left, rgba(#fff, 0.4) 0%, rgba(#fff, 0.7) 25%, rgba(#fff, 1.0) 50%, rgba(#fff, 0.7) 75%, rgba(#fff, 0.4) 100%));
 				}
 
 				span.no-select {
@@ -148,7 +148,7 @@
 
 			&.loading {
 				@include transform(rotate(0deg));
-				@include filter(grayscale(100%) blur(4.00pt));
+				@include filter(grayscale(100%) blur(6.0pt));
 			}
 		}
 

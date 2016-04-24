@@ -55,6 +55,11 @@ body {
 	@include flex-direction(column);
 	@include align-items(center);
 
+	> .logo-mini {
+		display: none;
+
+	}
+
 	> .coming-soon {
 		position: fixed;
 		z-index: 200;
@@ -239,10 +244,10 @@ body {
 		@include transition-duration(0.2s);
 
 		&.visible {
-			opacity: 0.2;
+			opacity: 0.5;
 
 			&:hover {
-				opacity: 0.7;
+				opacity: 0.8;
 			}
 		}
 
