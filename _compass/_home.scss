@@ -140,15 +140,15 @@
 			right: 15%;
 			height: 400px;
 			width: 400px;
-			opacity: 0.15;
-			@include transition-property(transform filter -webkit-filter -moz-filter);
+			opacity: 0.2;
+			@include transition-property(opacity transform);
 			@include transition-delay(0.50s);
-			@include transition-duration(1.50s);
+			@include transition-duration(2s);
 			@include transform(rotate(-20deg));
 
 			&.loading {
+				opacity: 0;
 				@include transform(rotate(0deg));
-				@include filter(grayscale(100%) blur(6.0pt));
 			}
 		}
 

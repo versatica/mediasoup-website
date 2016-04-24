@@ -1,8 +1,8 @@
 {
   "name": "mediasoup-website",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "mediasoup website",
+  "homepage": "http://mediasoup.org",
   "devDependencies": {
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
     "gulp-main-bower-files": "^1.3.1",

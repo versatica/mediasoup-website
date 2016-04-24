@@ -5,6 +5,8 @@ var shell = require('gulp-shell');
 var sitemap = require('gulp-sitemap');
 var fs = require('fs');
 
+const PKG = require('./package.json');
+
 gulp.task('bower', function()
 {
 	return gulp.src('./bower.json')
@@ -22,7 +24,7 @@ gulp.task('sitemap', function()
 	return gulp.src('_site/**/*.html')
 		.pipe(sitemap(
 			{
-				siteUrl : 'http://mediasoup.org'
+				siteUrl : PKG.homepage
 			}))
 		.pipe(gulp.dest('./_site'));
 });
