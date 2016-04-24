@@ -7,9 +7,9 @@ anchors : true
 
 # Overview
 
-Before all else, **mediasoup** is an SFU (*Selective Forwarding Unit*) that enables multiparty conferencing for WebRTC endpoints.
+An SFU (Selective Forwarder Unit) receives audio and video streams from every participant in a conference room and relays them to everyone else (enpoints send one and receive many). Compared to a mixer or MCU (Multipoint Control Unit), this design leads to a better performance, higher throughput and less latency. It's highly scalable and requires much less resources given that it does not transcode or mix media.
 
-An SFU does not mix participants' media streams but relays them in a multi-streaming fashion (enpoints send one and receive many). This design leads to a better performance, higher throughput and less latency than the classic MCU (*Multipoint Control Unit*) model, and lets the endpoint choose which streams to render and how to display them.
+Since endpoints get the other participants media separately, they can have a personalized layout and choose which streams to render and how to display them.
 
 <div markdown='1' class='note'>
 Detailed information regarding the architecture of an SFU can be found at RFC 7667 "RTP Topologies" [section 3.7](https://tools.ietf.org/html/rfc7667#section-3.7).
@@ -26,14 +26,15 @@ Thus internally, **mediasoup** can be splitted into two separete components:
 * a JavaScript layer exposing a modern ECMAScript 6 [API](/api/), and
 * a subprocess that handles the media layer (ICE, DTLS, RTP and so on).
 
-Both components communicate to each other by means of inter-process communication. From the point of view of the developer, the application integrating **mediasoup** should just worry about the JavaScript [API](/api/) exposed by the library.
+Both components communicate to each other by means of inter-process communication. However, from the point of view of the developer, the application integrating **mediasoup** should just care about the JavaScript [API](/api/) exposed by the library.
+
+It's also noticeable the fact that **mediasoup** does not include or mandate a network signaling protocol (such as SIP or XMPP) but, instead, lets the application developer choose and implement the desired one.
 
 
 ## Design goals
 
 * Be a Node.js library: `npm install mediasoup`
 * Be minimalist: just handle the media layer
-* Don't deal with network signaling protocols (SIP, XMPP, etc)
 * Expose a modern ECMAScript 6 [API](/api/) in sync with [ORTC](http://ortc.org/)
 * Work with current WebRTC client implementations
 

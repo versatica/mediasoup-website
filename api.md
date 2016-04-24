@@ -178,7 +178,7 @@ server.on('close', (error) => {
 ## Room
 {: #Room}
 
-A `room` holds a multi-participants RTC conference.
+A `room` holds a multiparty RTC (Real-Time Communication) conference.
 
 
 ### Properties
@@ -320,7 +320,7 @@ Returns a Promise that resolves to an Object containing the current status and d
 #### peer.createTransport(options)
 {: #peer-createTransport .code}
 
-Returns a Promise that resolves to a new [Transport](#Transport) instance associated to this `peer`. If something does wrong the Promise is rejected with the corresponding `Error` object. 
+Returns a Promise that resolves to a new [Transport](#Transport) instance associated to this `peer`. If something goes wrong the Promise is rejected with the corresponding `Error` object. 
 
 `options` is an Object with the following fields:
 
