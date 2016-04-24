@@ -21,7 +21,7 @@ Unlike other existing SFU implementations, **mediasoup** is not a standalone ser
 var mediasoup = require('mediasoup');
 ```
 
-Thus, **mediasoup** can be splitted into two separete components:
+Thus internally, **mediasoup** can be splitted into two separete components:
 
 * a JavaScript layer exposing a modern ECMAScript 6 [API](/api/), and
 * a subprocess that handles the media layer (ICE, DTLS, RTP and so on).
@@ -47,5 +47,5 @@ Both components communicate to each other by means of inter-process communicatio
 
 ## Requirements
 
-* Node.js >= v4.0.0
+* Node.js >= `v4.0.0`
 * POSIX based operating system (Windows not yet supported)

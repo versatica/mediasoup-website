@@ -5,9 +5,9 @@ title : About
 
 # About
 
-![Iñaki Baz Castillo][ibc-image]{: .left.round}
+![Iñaki Baz Castillo][ibc-image]{: .left.round }
 
-Made with love, **mediasoup** is by far my larger Open Source project. It combines years of experience in C/C++ and JavaScript languages, a deep knowledge of real-time communication protocols and technologies, and so many sleepless nights reading specifications.
+Made with love, **mediasoup** is by far my largest Open Source project. It combines years of experience in C/C++ and JavaScript languages, a deep knowledge of real-time communication protocols and technologies, and so many sleepless nights reading specifications.
 
 My name is Iñaki Baz Castillo and I'm passionate about new technologies, modern web applications development, Node.js, SIP protocol and, above all, real-time communications.
 

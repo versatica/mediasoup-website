@@ -18,18 +18,33 @@
 
 	h1 {
 		font-family: 'Poiret One';
-		font-size: 2.5em;
 		color: $color-text-7;
 		margin-bottom: 1em;
+
+		@include breakpoint($computer) {
+			font-size: 2.5em;
+		}
+
+		@include breakpoint($mobile) {
+			font-size: 2em;
+		}
 	}
 
 	h2 {
-		font-size: 1.6em;
-		line-height: 1.6em;
 		color: $color-text-7;
 		border-bottom: 1px solid $color-highlight;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
+
+		@include breakpoint($computer) {
+			font-size: 1.6em;
+			line-height: 1.6em;
+		}
+
+		@include breakpoint($mobile) {
+			font-size: 1.35em;
+			line-height: 1.35em;
+		}
 	}
 
 	h3 {
@@ -77,7 +92,6 @@
 		li ul {
 			margin-top: 0;
 			margin-bottom: 0;
-			list-style-type: circle;
 		}
 	}
 
@@ -91,13 +105,16 @@
 
 		&.inline-icon {
 			margin: 0 2px;
-			background-color: rgba(#fff, 0.5);
-			border-radius: 4px;
-			@include transition-property(background-color);
-			@include transition-duration(0.2s);
 
-			&:hover {
-				background-color: rgba($color-highlight, 0.9);
+			img {
+				background-color: rgba(#fff, 0.5);
+				border-radius: 4px;
+				@include transition-property(background-color);
+				@include transition-duration(0.2s);
+
+				&:hover {
+					background-color: rgba($color-highlight, 0.9);
+				}
 			}
 		}
 	}
@@ -158,7 +175,7 @@
 		font-size: 0.95em;
 		background: rgba(#000, 0.25);
 		border: 1px solid $color-highlight-dark;
-		border-radius: 5px;
+		border-radius: 4px;
 
 		&.warn {
 			border: 1px solid #cf694a;

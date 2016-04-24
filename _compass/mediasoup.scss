@@ -54,15 +54,6 @@ body {
 	@include display-flex;
 	@include flex-direction(column);
 	@include align-items(center);
-	@include transition-property(opacity);
-	@include transition-delay(0.15s);
-	@include transition-duration(0.50s);
-
-	@include breakpoint($computer) {
-		&.loading {
-			opacity: 0;
-		}
-	}
 
 	> .coming-soon {
 		position: fixed;
@@ -76,11 +67,13 @@ body {
 		text-shadow: 0px 0px 5px rgba(#fff, 0.5);
 		text-align: center;
 		@include transition-property(opacity);
-		@include transition-delay(1s);
-		@include transition-duration(1s);
+		@include transition-delay(.2s);
+		@include transition-duration(.2s);
 
-		&.loading {
-			opacity: 0;
+		@include breakpoint($computer) {
+			&.loading {
+				opacity: 0;
+			}
 		}
 
 		@include breakpoint($computer) {
@@ -129,17 +122,6 @@ body {
 			}
 		}
 
-		> .fake-space {
-			@include breakpoint($computer) {
-				display: none;
-			}
-
-			@include breakpoint($mobile) {
-				height: 32px;
-				width: 32px;
-			}
-		}
-
 		> .menu-button {
 			background-position: center;
 			background-repeat: no-repeat;
@@ -153,7 +135,6 @@ body {
 				background-size: contain;
 				background-image: url('/images/menu.svg');
 				border-radius: 5px;
-				// border: 1px solid rgba($color-highlight, 0.3);
 				opacity: 0.8;
 
 				&:hover {
@@ -177,6 +158,13 @@ body {
 		@include flex-direction(column);
 		position: relative;
 		width: 100%;  // Nedded for IE 11.
+		@include transition-property(opacity);
+		@include transition-delay(0.15s);
+		@include transition-duration(0.50s);
+
+		&.loading {
+			opacity: 0;
+		}
 
 		> [data-content] {
 			@include flex(100 0 auto);
@@ -264,8 +252,8 @@ body {
 		}
 
 		@include breakpoint($mobile) {
-			bottom: 1rem;
-			right: 1rem;
+			bottom: 0.5rem;
+			right: 0.5rem;
 		}
 	}
 }

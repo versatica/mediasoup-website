@@ -232,7 +232,6 @@
 
 				strong {
 					color: shade($color-highlight, 30%);
-					// color: $color-text-5;
 				}
 
 				a {
@@ -255,18 +254,5 @@
 		height: 20px;
 		text-align: center;
 		margin-bottom: 2rem;
-		@include transition-property(opacity);
-		@include transition-delay(0.25s);
-		@include transition-duration(0.75s);
-
-		@include breakpoint($computer) {
-			&.loading {
-				opacity: 0;
-			}
-		}
-
-		img[src=''] {
-			display: none;
-		}
 	}
 }
