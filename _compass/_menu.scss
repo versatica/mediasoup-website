@@ -50,6 +50,7 @@
 		@include transform(scale(0));
 		@include transition-property(opacity transform);
 		@include transition-duration(0.25s);
+		-webkit-tap-highlight-color: transparent;
 
 		&:hover {
 			@include transition-delay(0s);

@@ -133,6 +133,7 @@ body {
 			cursor: pointer;
 			@include transition-property(opacity);
 			@include transition-duration(0.25s);
+			-webkit-tap-highlight-color: transparent;
 
 			@include breakpoint($computer) {
 				width: 48px;
@@ -208,6 +209,7 @@ body {
 				text-decoration: none;
 				border-bottom: 1px solid $color-text-1;
 				@include transition-duration(0.2s);
+				-webkit-tap-highlight-color: transparent;
 
 				&:hover {
 					color: $color-text-6;
@@ -242,6 +244,7 @@ body {
 		background-position: center;
 		opacity: 0;  // Hidden by default
 		@include transition-duration(0.2s);
+		-webkit-tap-highlight-color: transparent;
 
 		&.visible {
 			opacity: 0.5;

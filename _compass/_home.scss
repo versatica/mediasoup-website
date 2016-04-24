@@ -45,6 +45,7 @@
 		cursor: pointer;
 		@include transition-property(opacity transform);
 		@include transition-duration(.75s);
+		-webkit-tap-highlight-color: transparent;
 
 		@include breakpoint($computer) {
 			position: absolute;
@@ -231,7 +232,8 @@
 				}
 
 				strong {
-					color: shade($color-highlight, 30%);
+					font-weight: bold;
+					color: $color-text-5;
 				}
 
 				a {
