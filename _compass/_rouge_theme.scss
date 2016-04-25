@@ -1,12 +1,12 @@
 pre.highlight {
 	overflow: auto;
+	width: 100%;
+	margin: 0 auto;
 	padding: 1.2em;
 	border: 1px solid rgba(#fff, 0.25);
 	border-radius: 4px;
 	background: rgba(#222, 0.75);
-	box-shadow: none;
 	font-size: 0.85em;
-	color: white;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	text-align: left;
 	text-shadow: 0 -.1em .2em black;
