@@ -18,13 +18,12 @@ kramdown:
   toc_levels: 2..4
   # Remove typographic single quotes (but allow typographic double quotes)
   smart_quotes: [ 'apos', 'apos', 'ldquo', 'rdquo' ]
-  # This is needed to disable builtin highlight-rouge
-  syntax_highlighter: true
-  enable_coderay: false
+  syntax_highlighter: rouge
 
 gems:
   - jekyll-compass
   - breakpoint
+  - rouge
 
 permalink: pretty
 

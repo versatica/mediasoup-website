@@ -1,6 +1,5 @@
 ---
 title    : API
-code     : true
 anchors  : true
 toc      : true
 arrow    : true

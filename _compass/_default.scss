@@ -140,15 +140,11 @@
 		font-style: italic;
 	}
 
-	@import 'prism';
+	// @import a theme for rouge.
+	@import 'rouge_theme';
 
-	// Overrides prism.js Twilight theme.
-	pre[class*="language-"] {
+	div.highlighter-rouge {
 		margin: 2em auto;
-		border: 1px solid rgba(#fff, 0.25);
-		background: rgba(#222, 0.75);
-		box-shadow: none;
-		font-size: 0.85em;
 
 		@include breakpoint($computer) {
 			width: 92%;
