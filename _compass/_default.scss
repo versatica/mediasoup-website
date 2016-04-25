@@ -1,5 +1,7 @@
 [data-content="default"] {
 	color: $color-text-4;
+	width: 100%;
+	overflow-x: hidden;
 
 	@include breakpoint($computer) {
 		margin: 4rem auto;
