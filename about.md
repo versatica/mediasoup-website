@@ -7,15 +7,22 @@ title : About
 
 ![Iñaki Baz Castillo][ibc-image]{: .left.round }
 
-Made with love, **mediasoup** is by far my largest Open Source project. It combines years of experience in C/C++ and JavaScript languages, a deep knowledge of real-time communication protocols and technologies, and so many sleepless nights reading specifications.
-
-My name is Iñaki Baz Castillo and I'm passionate about new technologies, modern web applications development, Node.js, SIP protocol and, above all, real-time communications.
-
-This is me in the network:
 [![][linkedin-image]][linkedin-url]{: .inline-icon }
 [![][github-image]][github-ibc-url]{: .inline-icon }
 [![][github-image]][github-versatica-url]{: .inline-icon }
 [![][twitter-image]][twitter-url]{: .inline-icon }
+
+My name is Iñaki Baz Castillo and I'm passionate about new technologies, Open Source, modern web applications development, Node.js, SIP protocol and, above all, Real-Time Communications.
+
+During the last years of my life I've been deeply involved in Voice over IP technologies, collaborating in many well known Open Source software projects and designing and implementing others of my own. I also have authored and co-authored some protocol specifications in the IETF, including the [RFC 7118](http://tools.ietf.org/html/rfc7118) "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)" where my transition to WebRTC began.
+
+Since the first days of WebRTC my professional efforts go around it, and this is where **mediasoup** takes place. Made with love, this is by far my largest Open Source project, combining several of my preferred technical fields plus so many sleepless nights coding and reading specifications.
+
+
+#### Acknowledgements
+
+**mediasoup** would not have been possible without the help and advice of [José Luis Millán](https://github.com/jmillan) and [Saúl Ibarra Corretgé](https://about.me/saghul).
+
 
 
 

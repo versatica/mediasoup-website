@@ -1,3 +1,45 @@
+.toc-button {
+	position: fixed;
+	z-index: 300;
+	background: center url(/images/toc.svg) no-repeat;
+	background-size: 50%;
+	background-color: #fcffff;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-right: none;
+	@include box-shadow(0px 2px 5px 0px rgba(#222, 0.75));
+	cursor: pointer;
+	@include transition-property(opacity);
+	@include transition-delay(1s);
+	@include transition-duration(.5s);
+
+	&.loading {
+		opacity: 0;
+	}
+
+	@include breakpoint($computer) {
+		$height: 140px;
+		$width: 70px;
+
+		right: 0;
+		top: 50%;
+		margin-top: -$height / 2;
+		height: $height;
+		width: $width;
+	}
+
+	@include breakpoint($mobile) {
+		$height: 60px;
+		$width: 40px;
+
+		right: 0;
+		top: 50%;
+		margin-top: -$height / 2;
+		height: $height;
+		width: $width;
+	}
+}
+
 .toc-wrapper {
 	position: fixed;
 	z-index: 10;
@@ -5,14 +47,18 @@
 	bottom: 0;
 	width: 104%;  // Trick to hide the scroll bar.
 	max-height: 50%;
-	padding: 1rem 5rem;  // Avoid the TOC button.
 	background: rgba(#faffff, 0.9);
+	font-size: 1rem;
 	@include box-shadow(0px -2px 5px 0px rgba(#666, 0.2));
 	@include transition-duration(0.2s);
-	overflow-y: scroll;
+	overflow-y: auto;
+
+	@include breakpoint($computer) {
+		padding: 1rem 5rem;
+	}
 
 	@include breakpoint($mobile) {
-		display: none;
+		padding: 1rem 1rem;
 	}
 
 	&.visible {
@@ -44,21 +90,26 @@
 	ul.toc {
 		@include display-flex();
 		@include flex-wrap(wrap);  // Allow multiple horizontal rows.
-		@include align-items(top); // Center over Y axis.
-		@include justify-content(center); // Center over X axis.
-		font-size: 1rem;
+		@include align-items(flex-start);
+
+		@include breakpoint($computer) {
+			@include justify-content(center);
+		}
+
+		@include breakpoint($mobile) {
+			@include justify-content(flex-start);
+		}
 
 		// First level.
 		> li {
 			display: block;
-			margin: 0.75em;
-			margin-bottom: 1em;
+			margin: 0.75em 0.75em 0 0.75em;
 			font-weight: bold;
 			color: #333;
 
 			// Second level.
 			> ul {
-				margin-left: 0.5rem;
+				margin-left: 0.5em;
 
 				> li {
 					margin: 0 0 0.5em 0;
@@ -83,30 +134,5 @@
 	&.api > ul.toc > li > ul > li > ul > li {
 		font-family: Consolas, Monaco, 'Andale Mono', monospace;
 		letter-spacing: -0.04em;
-	}
-}
-
-.toc-button {
-	$height: 140px;
-	$width: 70px;
-
-	position: fixed;
-	z-index: 20;
-	right: 0;
-	top: 50%;
-	margin-top: -$height / 2;
-	height: $height;
-	width: $width;
-	background: center url(/images/toc.svg) no-repeat;
-	background-size: 50%;
-	background-color: #fcffff;
-	border-top-left-radius: 6px;
-	border-bottom-left-radius: 6px;
-	border-right: none;
-	@include box-shadow(0px 2px 5px 0px rgba(#222, 0.75));
-	cursor: pointer;
-
-	@include breakpoint($mobile) {
-		display: none;
 	}
 }

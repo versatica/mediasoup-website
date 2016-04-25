@@ -11,7 +11,7 @@ arrow    : true
   {: toc .toc}
 </div>
 
-<div markdown='1' class='toc-button'>
+<div markdown='1' class='toc-button loading'>
 </div>
 
 
@@ -115,7 +115,8 @@ A boolean indicating whether the `server` has been closed.
 #### server.close()
 {: #server-close .code}
 
-Closes the `server`.
+Closes the `server`, including all its `rooms`, and triggers a [close](#server-on-close) event.
+
 
 #### server.dump()
 {: #server-dump .code}
@@ -207,7 +208,7 @@ An Array with the list of [Peer](#Peer) instances in the `room`.
 #### room.close()
 {: #room-close .code}
 
-Closes the `room`.
+Closes the `room`, including all its `peers`, and triggers a [close](#room-on-close) event.
 
 #### room.dump()
 {: #room-dump .code}
@@ -260,10 +261,10 @@ room.on('close', (error) => {
 ## Peer
 {: #Peer}
 
-A `peer` represents a remote media endpoint that will connect to **mediasoup** (by means of ICE+DTLS) and will send/receive media streams.
+A `peer` represents a remote media endpoint that connects to **mediasoup** (by means of ICE+DTLS) and sends/receives media streams.
 
 <div markdown='1' class='note'>
-In WebRTC 1.0 a `peer` references a remote `RTCPeerConnection` running in a browser.
+In the context of WebRTC 1.0 a `peer` implies a `RTCPeerConnection` running in a remote browser.
 </div>
 
 
@@ -308,7 +309,7 @@ An Array with the list of [RtpSenders](#RtpSenders) instances associated to the 
 #### peer.close()
 {: #peer-close .code}
 
-Closes the `peer`.
+Closes the `peer`, frees its network resources and removes it from the `room`. It will also trigger a [close](#peer-on-close) event.
 
 #### peer.dump()
 {: #peer-dump .code}

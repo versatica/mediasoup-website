@@ -35,6 +35,9 @@ $color-highlight-dark: shade($color-highlight, 25%);
 
 html {
 	height: 100%;
+	// This prevents the whole layout being resized when scrolling up/down in mobile
+	// (it requires height:100% and overflow:auto in body).
+	overflow: hidden;
 	// Default font size for common text.
 	font-size: 16px;
 	font-family: 'Open Sans', Helvetica;
@@ -48,16 +51,14 @@ html {
 }
 
 body {
-	min-height: 100%;
-	// THis should not be needed, but IE does not takes all the height without it.
 	height: 100%;
+	overflow: auto;
 	@include display-flex;
 	@include flex-direction(column);
 	@include align-items(center);
 
 	> .logo-mini {
 		display: none;
-
 	}
 
 	> .coming-soon {

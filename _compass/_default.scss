@@ -65,6 +65,9 @@
 		&.code {
 			font-size: 1em;
 			font-family: Consolas, Monaco, 'Andale Mono', monospace;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
 		}
 	}
 
@@ -105,6 +108,14 @@
 
 		&.inline-icon {
 			margin: 0 2px;
+
+			&:first-child {
+				margin-left: 0;
+			}
+
+			&:last-child {
+				margin-right: 0;
+			}
 
 			img {
 				background-color: rgba(#fff, 0.5);
@@ -238,7 +249,7 @@
 		&.left {
 			@include breakpoint($computer) {
 				float: left;
-				margin: 0.25em 2em 1em 0;
+				margin: 0 2em 1em 0;
 			}
 
 			@include breakpoint($mobile) {

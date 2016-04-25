@@ -7,7 +7,7 @@ anchors : true
 
 # Overview
 
-An SFU (Selective Forwarder Unit) receives audio and video streams from every participant in a conference room and relays them to everyone else (enpoints send one and receive many). Compared to a mixer or MCU (Multipoint Control Unit), this design leads to a better performance, higher throughput and less latency. It's highly scalable and requires much less resources given that it does not transcode or mix media.
+An SFU (Selective Forwarder Unit) receives audio and video streams from every participant in a conference room and relays them to everyone else (endpoints send one and receive many). Compared to a mixer or MCU (Multipoint Control Unit), this design leads to a better performance, higher throughput and less latency. It's highly scalable and requires much less resources given that it does not transcode or mix media.
 
 Since endpoints get the other participants media separately, they can have a personalized layout and choose which streams to render and how to display them.
 
