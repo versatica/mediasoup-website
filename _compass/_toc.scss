@@ -7,7 +7,7 @@
 	border-top-left-radius: 6px;
 	border-bottom-left-radius: 6px;
 	border-right: none;
-	@include box-shadow(0px 2px 5px 0px rgba(#222, 0.75));
+	@include box-shadow(0px 0px 5px 0px rgba(#222, 0.7));
 	cursor: pointer;
 	@include transition-property(opacity);
 	@include transition-delay(0.75s);
@@ -18,8 +18,8 @@
 	}
 
 	@include breakpoint($computer) {
-		$height: 140px;
-		$width: 70px;
+		$height: 120px;
+		$width: 65px;
 
 		right: 0;
 		top: 50%;
@@ -48,6 +48,9 @@
 	width: 104%;  // Trick to hide the scroll bar.
 	max-height: 50%;
 	background: rgba(#faffff, 0.9);
+	border-color: transparent;
+	border-style: solid;
+	border-width: 8px 0;
 	font-size: 1rem;
 	@include box-shadow(0px -2px 5px 0px rgba(#666, 0.2));
 	@include transition-duration(0.2s);
