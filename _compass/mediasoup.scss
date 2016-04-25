@@ -243,16 +243,12 @@ body {
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center;
-		opacity: 0;  // Hidden by default
+		opacity: 0.3;
 		@include transition-duration(0.2s);
 		-webkit-tap-highlight-color: transparent;
 
-		&.visible {
-			opacity: 0.5;
-
-			&:hover {
-				opacity: 0.8;
-			}
+		&:hover {
+			opacity: 0.75;
 		}
 
 		@include breakpoint($computer) {

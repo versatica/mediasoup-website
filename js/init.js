@@ -95,38 +95,18 @@ window.addEventListener('load', function()
 	function setArrowUp()
 	{
 		var arrow = document.querySelector('.arrow-up');
-		var isVisible = false;
 
 		if (!arrow)
 			return;
 
-		document.addEventListener('scroll', function()
-		{
-			var contentHeight = document.body.scrollHeight;
-			var visibleHeight = document.body.offsetHeight;
-			var scrollTop = document.body.scrollTop;
-
-			if ((scrollTop > visibleHeight) && (scrollTop + visibleHeight < contentHeight - 150))
-			{
-				if (!isVisible)
-				{
-					isVisible = true;
-					arrow.classList.add('visible');
-				}
-			}
-			else
-			{
-				if (isVisible)
-				{
-					isVisible = false;
-					arrow.classList.remove('visible');
-				}
-			}
-		});
-
 		arrow.addEventListener('click', function()
 		{
+			var previousValue = document.body.style.height;
+
+			// Ugly trick due to body:100%.
+			document.body.style.height = 'auto';
 			document.body.scrollTop = 0;
+			document.body.style.height = previousValue;
 		});
 	}
 });
