@@ -1,6 +1,6 @@
 .toc-button {
 	position: fixed;
-	z-index: 300;
+	z-index: 50;
 	background: center url(/images/toc.svg) no-repeat;
 	background-size: 50%;
 	background-color: #fcffff;
@@ -12,6 +12,7 @@
 	@include transition-property(opacity);
 	@include transition-delay(0.75s);
 	@include transition-duration(.1s);
+	-webkit-tap-highlight-color: transparent;
 
 	&.loading {
 		opacity: 0;
