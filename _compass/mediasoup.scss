@@ -38,7 +38,7 @@ html {
 	height: 100%;
 	// This prevents the whole layout being resized when scrolling up/down in mobile
 	// (it requires height:100% and overflow:auto in body).
-	overflow: hidden;
+	// overflow: hidden;
 	// Default font size for common text.
 	font-size: 16px;
 	font-family: 'Open Sans', Helvetica;
@@ -52,11 +52,19 @@ html {
 }
 
 body {
+	min-height: 100%;
+	// Should not be needed, but IE does not takes all the height without it.
 	height: 100%;
 	overflow: auto;
 	@include display-flex;
 	@include flex-direction(column);
 	@include align-items(center);
+
+	@include breakpoint($mobile) {
+		&.noscroll {
+			overflow: hidden;
+		}
+	}
 
 	> .logo-mini {
 		display: none;
@@ -236,7 +244,6 @@ body {
 
 	> .arrow-up {
 		position: fixed;
-		z-index: 5;
 		width: 50px;
 		height: 50px;
 		cursor: pointer;
@@ -244,12 +251,20 @@ body {
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center;
-		opacity: 0.3;
+		// Hidden by default.
+		z-index: -1;
+		opacity: 0;
+		@include transition-property(opacity);
 		@include transition-duration(0.2s);
 		-webkit-tap-highlight-color: transparent;
 
-		&:hover {
-			opacity: 0.75;
+		&.visible {
+			z-index: 5;
+			opacity: 0.5;
+
+			&:hover {
+				opacity: 0.75;
+			}
 		}
 
 		@include breakpoint($computer) {

@@ -5,6 +5,7 @@ window.addEventListener('load', function()
 	var tocUl = document.querySelector('.toc-wrapper ul.toc');
 	var transitionDuration = 200;
 	var isTocVisible = false;
+	var hammer = new Hammer(toc);
 
 	dontscrollthebody(toc);
 
@@ -51,7 +52,7 @@ window.addEventListener('load', function()
 	});
 
 	// Click on the whole page hides the TOC panel,
-	document.body.addEventListener('click', function(event)
+	document.addEventListener('click', function(event)
 	{
 		hideToc();
 	});
@@ -59,5 +60,10 @@ window.addEventListener('load', function()
 	toc.addEventListener('click', function(event)
 	{
 		event.stopPropagation();
+	});
+
+	hammer.on('panright', function()
+	{
+		hideToc();
 	});
 });

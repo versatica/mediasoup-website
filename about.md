@@ -21,8 +21,7 @@ Since the first days of WebRTC my professional efforts go around it, and this is
 
 #### Acknowledgements
 
-**mediasoup** would not have been possible without the help and advice of [José Luis Millán](https://github.com/jmillan) and [Saúl Ibarra Corretgé](https://about.me/saghul).
-
+**mediasoup** would not have been possible without the help and advice of [José Luis Millán][jmillan-url] and [Saúl Ibarra Corretgé][saghul-url].
 
 
 
@@ -35,4 +34,7 @@ Since the first days of WebRTC my professional efforts go around it, and this is
 [github-versatica-url]: https://github.com/versatica
 [twitter-image]: /images/icon-twitter.svg
 [twitter-url]: https://twitter.com/ibc_tw
+[jmillan-url]: https://github.com/jmillan
+[saghul-url]: http://bettercallsaghul.com
+
 

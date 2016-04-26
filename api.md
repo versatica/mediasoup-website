@@ -10,7 +10,7 @@ arrow    : true
   {: toc .toc}
 </div>
 
-<div markdown='1' class='toc-button loading'>
+<div markdown='1' class='toc-button'>
 </div>
 
 

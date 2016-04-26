@@ -9,14 +9,7 @@
 	border-right: none;
 	@include box-shadow(0px 0px 5px 0px rgba(#222, 0.7));
 	cursor: pointer;
-	@include transition-property(opacity);
-	@include transition-delay(0.75s);
-	@include transition-duration(.1s);
 	-webkit-tap-highlight-color: transparent;
-
-	&.loading {
-		opacity: 0;
-	}
 
 	@include breakpoint($computer) {
 		$height: 120px;

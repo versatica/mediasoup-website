@@ -69,6 +69,9 @@ window.addEventListener('load', function()
 
 			isVisible = true;
 			menu.classList.add('visible');
+
+			// Avoid body scroll in mobile.
+			document.body.classList.add('noscroll');
 		}
 
 		function hideMenu()
@@ -78,6 +81,9 @@ window.addEventListener('load', function()
 
 			isVisible = false;
 			menu.classList.remove('visible');
+
+			// Allow body scroll in mobile.
+			document.body.classList.remove('noscroll');
 		}
 	}
 
@@ -95,18 +101,57 @@ window.addEventListener('load', function()
 	function setArrowUp()
 	{
 		var arrow = document.querySelector('.arrow-up');
+		var isVisible = false;
 
 		if (!arrow)
 			return;
 
+		document.addEventListener('scroll', function()
+		{
+			// Hack: https://miketaylr.com/posts/2014/11/document-body-scrolltop.html
+
+			var elem;
+
+			if (document.documentElement && document.documentElement.scrollTop)
+				elem = document.documentElement;
+			else if (document.body.parentNode && document.body.parentNode.scrollTop)
+				elem = document.body.parentNode;
+			else
+				elem = document.body;
+
+			var scrollHeight = elem.scrollHeight;
+			var visibleHeight = elem.offsetHeight;
+			var scrollTop = elem.scrollTop;
+
+			if ((scrollTop > visibleHeight) && (scrollTop + visibleHeight < scrollHeight - 150))
+			{
+				if (!isVisible)
+				{
+					isVisible = true;
+					arrow.classList.add('visible');
+				}
+			}
+			else
+			{
+				if (isVisible)
+				{
+					isVisible = false;
+					arrow.classList.remove('visible');
+				}
+			}
+		});
+
 		arrow.addEventListener('click', function()
 		{
-			var previousValue = document.body.style.height;
+			// Hack: https://miketaylr.com/posts/2014/11/document-body-scrolltop.html
+			var d = document;
 
-			// Ugly trick due to body:100%.
-			document.body.style.height = 'auto';
-			document.body.scrollTop = 0;
-			document.body.style.height = previousValue;
+			if (d.documentElement && d.documentElement.scrollTop)
+				d.documentElement.scrollTop = 0;
+			else if (d.body.parentNode && d.body.parentNode.scrollTop)
+				d.body.parentNode.scrollTop = 0;
+			else if (d.body && d.body.scrollTop)
+				d.body.scrollTop = 0;
 		});
 	}
 });
