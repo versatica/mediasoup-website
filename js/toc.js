@@ -68,10 +68,8 @@ window.addEventListener('load', function()
 		event.stopPropagation();
 	});
 
-	hammer.on('panright', function(event)
+	hammer.on('panright', function()
 	{
-		console.log('deltaX:%s | distante:%s', event.deltaX, event.distance);
-
 		hideToc();
 	});
 });
