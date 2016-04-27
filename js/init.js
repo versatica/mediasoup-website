@@ -24,7 +24,9 @@ window.addEventListener('load', function()
 		var menu = document.querySelector('.menu');
 		var menuClose = menu.querySelector('.close');
 		var isVisible = false;
-		var hammer = new Hammer(menu);
+		var hammer = new Hammer.Manager(menu);
+
+		hammer.add(new Hammer.Pan({ threshold: 15 }));
 
 		menuButton.addEventListener('click', function(event)
 		{
@@ -102,22 +104,27 @@ window.addEventListener('load', function()
 	{
 		var arrow = document.querySelector('.arrow-up');
 		var isVisible = false;
+		var elem;
 
 		if (!arrow)
 			return;
 
 		document.addEventListener('scroll', function()
 		{
-			// Hack: https://miketaylr.com/posts/2014/11/document-body-scrolltop.html
+			if (!elem)
+			{
+				// Hack: https://miketaylr.com/posts/2014/11/document-body-scrolltop.html
 
-			var elem;
+				if (document.documentElement && document.documentElement.scrollTop)
+					elem = document.documentElement;
+				else if (document.body.parentNode && document.body.parentNode.scrollTop)
+					elem = document.body.parentNode;
+				else if (document.body.scrollTop)
+					elem = document.body;
 
-			if (document.documentElement && document.documentElement.scrollTop)
-				elem = document.documentElement;
-			else if (document.body.parentNode && document.body.parentNode.scrollTop)
-				elem = document.body.parentNode;
-			else
-				elem = document.body;
+				if (!elem)
+					return;
+			}
 
 			var scrollHeight = elem.scrollHeight;
 			var visibleHeight = elem.offsetHeight;

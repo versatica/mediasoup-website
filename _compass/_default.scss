@@ -88,7 +88,7 @@
 
 	ul {
 		line-height: 1.5em;
-		margin-left: 2em;
+		margin-left: 1.5em;
 		margin-top: 1em;
 		margin-bottom: 1em;
 		list-style-type: disc;
@@ -96,6 +96,17 @@
 		li ul {
 			margin-top: 0;
 			margin-bottom: 0;
+		}
+	}
+
+	div.big-list {
+		ul {
+			font-size: 1.4em;
+
+			li {
+				margin-top: 0.75em;
+				margin-bottom: 0.75em;
+			}
 		}
 	}
 

@@ -1,8 +1,7 @@
 ---
-title    : API
-anchors  : true
-toc      : true
-arrow    : true
+title   : API
+anchors : true
+toc     : true
 ---
 
 <div markdown='1' class='toc-wrapper api'>

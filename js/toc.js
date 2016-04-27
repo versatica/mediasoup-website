@@ -5,7 +5,13 @@ window.addEventListener('load', function()
 	var tocUl = document.querySelector('.toc-wrapper ul.toc');
 	var transitionDuration = 200;
 	var isTocVisible = false;
-	var hammer = new Hammer(toc);
+	var hammer = new Hammer.Manager(toc);
+
+	hammer.add(new Hammer.Pan(
+		{
+			threshold : 50,
+			direction : Hammer.DIRECTION_RIGHT
+		}));
 
 	dontscrollthebody(toc);
 
@@ -62,8 +68,10 @@ window.addEventListener('load', function()
 		event.stopPropagation();
 	});
 
-	hammer.on('panright', function()
+	hammer.on('panright', function(event)
 	{
+		console.log('deltaX:%s | distante:%s', event.deltaX, event.distance);
+
 		hideToc();
 	});
 });

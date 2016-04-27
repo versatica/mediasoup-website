@@ -7,12 +7,26 @@ var fs = require('fs');
 
 const PKG = require('./package.json');
 
-gulp.task('bower', function()
+gulp.task('clean', shell.task(
+	[ 'rm -rf _site/ .sass-cache/' ]
+));
+
+gulp.task('bower:clean', shell.task(
+	[ 'rm -rf ./js/libs/' ]
+));
+
+gulp.task('bower:install', shell.task(
+	[ 'bower install' ]
+));
+
+gulp.task('bower:main-files', function()
 {
 	return gulp.src('./bower.json')
 		.pipe(mainBowerFiles())
 		.pipe(gulp.dest('./js/libs'));
 });
+
+gulp.task('bower', gulp.series('bower:clean', 'bower:install', 'bower:main-files'));
 
 gulp.task('npm-shield', function () {
   return request('https://img.shields.io/npm/v/mediasoup.svg')
@@ -35,10 +49,6 @@ gulp.task('jekyll:build', shell.task(
 
 gulp.task('jekyll:watch', shell.task(
 	[ 'jekyll serve' ]
-));
-
-gulp.task('clean', shell.task(
-	[ 'rm -rf _site/ .sass-cache/' ]
 ));
 
 gulp.task('build', gulp.series('clean', 'bower', 'npm-shield', 'jekyll:build', 'sitemap'));
