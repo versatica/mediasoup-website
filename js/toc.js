@@ -9,7 +9,7 @@ window.addEventListener('load', function()
 
 	hammer.add(new Hammer.Pan(
 		{
-			threshold : 50,
+			threshold : 30,
 			direction : Hammer.DIRECTION_RIGHT
 		}));
 

@@ -9,6 +9,7 @@
     "gulp-shell": "^0.5.2",
     "gulp-sitemap": "^4.0.0",
     "main-bower-files": "^2.11.1",
-    "request": "^2.72.0"
+    "request": "^2.72.0",
+    "rsyncwrapper": "^1.0.0"
   }
 }
