@@ -18,7 +18,6 @@
   ],
   "dependencies": {
     "anchor-js": "^3.1.0",
-    "fastclick": "^1.0.6",
     "hammerjs": "hammer.js#^2.0.7",
     "dontscrollthebody": "^0.1.0"
   }

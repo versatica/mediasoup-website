@@ -2,7 +2,6 @@ window.addEventListener('load', function()
 {
 	setLoading();
 	setMenu();
-	setFastClick();
 	setAnchors();
 	setArrowUp();
 
@@ -87,11 +86,6 @@ window.addEventListener('load', function()
 			// Allow body scroll in mobile.
 			document.body.classList.remove('noscroll');
 		}
-	}
-
-	function setFastClick()
-	{
-		FastClick.attach(document.body);
 	}
 
 	function setAnchors()
