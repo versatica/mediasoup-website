@@ -90,8 +90,15 @@ peer.createTransport({ tcp: false })
 
 Creates a [RtpReceiver](#RtpReceiver) instance.
 
-* `transport` ([Transport](#Transport)): Associated `transport`.
+<div markdown='1' class='table-wrapper'>
 
+Parameter   | Type    | Required  | Description  
+----------- | ------- | --------- | -------------
+`transport` | [Transport](#Transport)  | Yes | Associated `transport`.
+
+</div>
+
+Usage example:
 
 ```javascript
 var rtpReceiver = peer.RtpReceiver(transport);

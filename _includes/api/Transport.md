@@ -135,6 +135,44 @@ Field           | Type    | Description
 </section>
 
 
+### Enums
+{: #Transport-enums}
+
+<section markdown='1'>
+
+#### IceState
+{: #Transport-IceState .code}
+
+<div markdown='1' class='table-wrapper'>
+
+Value          | Description  
+-------------- | -------------
+'new'          | No ICE Binding Requests have been received yet.
+'connected'    | Valid ICE Binding Request have been received, but none with USE-CANDIDATE attribute. Outgoing media is allowed.
+'completed'    | ICE Binding Request with USE_CANDIDATE attribute has been received. Media in both directions is now allowed.
+'disconnected' | ICE was 'connected' or 'completed' but it has suddenly failed (currently this can just happen if the selected tuple has 'tcp' protocol).
+'closed'       | ICE state when the `transport` has been closed.
+
+</div>
+
+#### DtlsState
+{: #Transport-DtlsState .code}
+
+<div markdown='1' class='table-wrapper'>
+
+Value          | Description  
+-------------- | -------------
+'new'          | DTLS procedures not yet initiated.
+'connecting'   | DTLS connecting.
+'connected'    | DTLS successfully connected (SRTP keys already extracted).
+'failed'       | DTLS connection failed.
+'closed'       | DTLS state when the `transport` has been closed.
+
+</div>
+
+</section>
+
+
 ### Properties
 {: #Transport-properties}
 
@@ -163,14 +201,14 @@ Sequence of local [IceCandidate](#Transport-IceCandidate) associated to this `tr
 #### transport.iceSelectedTuple
 {: #transport-iceSelectedTuple .code}
 
-Returns the selected [IceSelectedTuple](#Transport-IceSelectedTuple) indicating information about the selected ICE candidate pair.
+The selected [IceSelectedTuple](#Transport-IceSelectedTuple) indicating information about the selected ICE candidate pair.
 
-It returns `undefined` if ICE is not yet established (no working candidate pair was found).
+It is `undefined` if ICE is not yet established (no working candidate pair was found).
 
 #### transport.iceState
 {: #transport-iceState .code}
 
-String indicating the current ICE state of the `transport`.
+The current [IceState](#Transport-IceState) of the `transport`.
 
 <div markdown='1' class='table-wrapper'>
 
@@ -192,19 +230,7 @@ iceState       | Description
 #### transport.dtlsState
 {: #transport-dtlsState .code}
 
-String indicating the current DTLS state of the `transport`.
-
-<div markdown='1' class='table-wrapper'>
-
-dtlsState      | Description  
--------------- | -------------
-'new'          | DTLS procedures not yet initiated.
-'connecting'   | DTLS connecting.
-'connected'    | DTLS successfully connected (SRTP keys already extracted).
-'failed'       | DTLS connection failed.
-'closed'       | DTLS state when the `transport` has been closed.
-
-</div>
+The current [DtlsState](#Transport-DtlsState) of the `transport`.
 
 </section>
 
@@ -214,7 +240,48 @@ dtlsState      | Description
 
 <section markdown='1'>
 
-*TBD*
+#### transport.close()
+{: #transport-close .code}
+
+Closes the `transport` and triggers a [close](#transport-on-close) event.
+
+#### transport.dump()
+{: #transport-dump .code}
+
+Returns a Promise that resolves to an Object containing the current status and details of the `transport`.
+
+*TBD:* Document it.
+
+#### transport.setRemoteDtlsParameters(parameters)
+{: #transport-setRemoteDtlsParameters .code}
+
+Set remote DTLS parameters. Returns a Promise that resolves to this `transport`. If something goes wrong the Promise is rejected with the corresponding `Error` object. 
+
+<div markdown='1' class='table-wrapper'>
+
+Parameter  | Type    | Required  | Description  
+-----------| ------- | --------- | -------------
+`options`  | [RemoteDtlsParameters](#Transport-RemoteDtlsParameters)  | Yes | Remote DTLS parameters.
+
+</div>
+
+Usage example:
+
+```javascript
+transport.setRemoteDtlsParameters({
+  role        : 'server',
+  fingerprint : {
+    algorithm : 'sha-1',
+    value     : '751b8193b7ed277e42bed6c48ef7043a49ce3faa'
+  }
+})
+  .then((transport) => {
+    console.log('remote DTLS parameters set');
+  })
+  .catch((error) => {
+    console.error('remote DTLS parameters failed: %o', error);
+  });
+```
 
 </section>
 
@@ -226,6 +293,48 @@ The `Transport` class inherits from [EventEmitter](https://nodejs.org/api/events
 
 <section markdown='1'>
 
-*TBD*
+#### transport.on('close', fn(error))
+{: #transport-on-close .code}
+
+Emitted when the `transport` is closed. In case of error, the callback is called with the corresponding `Error` object.
+
+#### transport.on('iceselectedtuplechange', fn(data))
+{: #transport-on-iceselectedtuplechange .code}
+
+Emitted when the ICE selected tuple changes. `data` Object has the following fields:
+
+<div markdown='1' class='table-wrapper'>
+
+Field             | Type    | Description   
+----------------- | ------- | ----------------
+`iceSelectedTuple`| [IceSelectedTuple](#Transport-IceSelectedTuple) | The ICE selected tuple.
+
+</div>
+
+#### transport.on('icestatechange', fn(data))
+{: #transport-on-icestatechange .code}
+
+Emitted when the ICE state changes. `data` Object has the following fields:
+
+<div markdown='1' class='table-wrapper'>
+
+Field             | Type    | Description   
+----------------- | ------- | ----------------
+`iceState`        | [IceState](#Transport-IceState) | The new ICE state.
+
+</div>
+
+#### transport.on('dtlsstatechange', fn(data))
+{: #transport-on-dtlsstatechange .code}
+
+Emitted when the DTLS state changes. `data` Object has the following fields:
+
+<div markdown='1' class='table-wrapper'>
+
+Field             | Type    | Description   
+----------------- | ------- | ----------------
+`dtlsState`       | [DtlsState](#Transport-DtlsState) | The new DTLS state.
+
+</div>
 
 </section>
