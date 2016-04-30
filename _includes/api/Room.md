@@ -4,6 +4,26 @@
 A `room` holds a multiparty RTC (Real-Time Communication) conference.
 
 
+### Dictionaries
+{: #Room-dictionaries}
+
+<section markdown='1'>
+
+#### RoomOptions
+{: #Room-RoomOptions .code}
+
+
+<div markdown='1' class='table-wrapper'>
+
+Option                    | Type    | Description   | Default
+------------------------- | ------- | ------------- | -------------
+`forceUniquePayloadTypes` | Boolean | TBD. | `false`
+
+</div>
+
+</section>
+
+
 ### Properties
 {: #Room-properties}
 
@@ -44,7 +64,15 @@ Returns a Promise that resolves to an Object containing the current status and d
 
 Creates a [Peer](#Peer) instance within this `room`.
 
-* `name` (String): Peer name (it must be unique within the `room`).
+<div markdown='1' class='table-wrapper'>
+
+Parameter  | Type    | Required  | Description  
+-----------| ------- | --------- | -------------
+`name`     | String  | Yes       | Peer name. Must be unique within the `room`.
+
+</div>
+
+Usage example:
 
 ```javascript
 var peer = room.Peer('alice');
@@ -55,13 +83,22 @@ var peer = room.Peer('alice');
 
 Returns a [Peer](#Peer) with the given `name`, or `undefined` if such a peer does not exist in the `room`.
 
-* `name` (String): Peer name.
+<div markdown='1' class='table-wrapper'>
+
+Parameter  | Type    | Required  | Description  
+-----------| ------- | --------- | -------------
+`name`     | String  | Yes       | Peer name.
+
+</div>
+
 
 </section>
 
 
 ### Events
 {: #Room-events}
+
+The `Room` class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 <section markdown='1'>
 

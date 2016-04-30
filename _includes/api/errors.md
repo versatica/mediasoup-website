@@ -12,6 +12,6 @@ The `errors` module (exported via `mediasoup.errors`) holds custom [Error](https
 #### errors.InvalidStateError
 {: #errors-InvalidStateError .code}
 
-This error happens when an API method is called on an Object in invalid status (for example "closed").
+This error happens when an API method is called on an Object in invalid status (for example when such an Object is closed).
 
 </section>

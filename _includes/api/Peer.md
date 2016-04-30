@@ -1,10 +1,10 @@
 ## Peer
 {: #Peer}
 
-A `peer` represents a remote media endpoint that connects to **mediasoup** (by means of ICE+DTLS) and sends/receives media streams.
+A `peer` is the local representation of a remote media endpoint that connects to **mediasoup** and sends/receives media streams.
 
 <div markdown='1' class='note'>
-In the context of WebRTC 1.0 a `peer` implies a `RTCPeerConnection` running in a remote browser.
+In the context of WebRTC 1.0, such a "remote media endpoint" implies a `RTCPeerConnection` running in a remote browser.
 </div>
 
 
@@ -49,7 +49,9 @@ An Array with the list of [RtpSenders](#RtpSenders) instances associated to the 
 #### peer.close()
 {: #peer-close .code}
 
-Closes the `peer`, frees its network resources and removes it from the `room`. It will also trigger a [close](#peer-on-close) event.
+Closes the `peer`, including all its `transports`, `rtpReceivers` and `rtpSenders`, and triggers a [close](#peer-on-close) event.
+
+Network resources and port bindings associated to the `peer` are released.
 
 #### peer.dump()
 {: #peer-dump .code}
@@ -63,18 +65,11 @@ Returns a Promise that resolves to an Object containing the current status and d
 
 Returns a Promise that resolves to a new [Transport](#Transport) instance associated to this `peer`. If something goes wrong the Promise is rejected with the corresponding `Error` object. 
 
-`options` is an Object with the following fields:
+<div markdown='1' class='table-wrapper'>
 
-<div markdown='1' id='peer-createTransport-options' class='table-wrapper'>
-
-Option                   | Type    | Description   | Default
------------------------- | ------- | ------------- | -------------
-`udp`                    | Boolean | Offer UDP ICE candidates. | `true`
-`tcp`                    | Boolean | Offer TCP ICE candidates. | `true`
-`preferIPv4`             | Boolean | Prefer IPv4 over IPv6 ICE candidates. | `false`
-`preferIPv6`             | Boolean | Prefer IPv6 over IPv4 ICE candidates. | `false`
-`preferUdp`              | Boolean | Prefer UDP over TCP ICE candidates. | `false`
-`preferTcp`              | Boolean | Prefer TCP over UDP ICE candidates. | `false`
+Parameter  | Type    | Required  | Description  
+-----------| ------- | --------- | -------------
+`options`  | [TransportOptions](#Transport-TransportOptions)  | No | Transport options.
 
 </div>
 
@@ -107,6 +102,8 @@ var rtpReceiver = peer.RtpReceiver(transport);
 
 ### Events
 {: #Peer-events}
+
+The `Peer` class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 <section markdown='1'>
 

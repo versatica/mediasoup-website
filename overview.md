@@ -22,8 +22,8 @@ var mediasoup = require('mediasoup');
 
 Thus internally, **mediasoup** can be splitted into two separete components:
 
-* a JavaScript layer exposing a modern ECMAScript 6 [API](/api/), and
-* a subprocess that handles the media layer (ICE, DTLS, RTP and so on).
+* a JavaScript layer exposing a modern ECMAScript 6 [API](/api/) for Node.js, and
+* a set of subprocesses that handle the media layer (ICE, DTLS, RTP and so on).
 
 Both components communicate to each other by means of inter-process communication. However, from the point of view of the developer, the application integrating **mediasoup** should just care about the JavaScript [API](/api/) exposed by the library.
 
