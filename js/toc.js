@@ -15,6 +15,33 @@ window.addEventListener('load', function()
 
 	dontscrollthebody(toc);
 
+	document.addEventListener('click', function(event)
+	{
+		if (tocButton.contains(event.target))
+		{
+			if (!isTocVisible)
+				showToc();
+			else
+				hideToc();
+		}
+		else if (!toc.contains(event.target))
+		{
+			hideToc();
+		}
+	});
+
+	// ESC key hides the TOC panel.
+	document.addEventListener('keydown', function(event)
+	{
+		if (event.keyCode === 27)
+			hideToc();
+	});
+
+	hammer.on('panright', function()
+	{
+		hideToc();
+	});
+
 	function showToc()
 	{
 		if (isTocVisible)
@@ -38,38 +65,4 @@ window.addEventListener('load', function()
 				tocUl.style.display = 'none';
 		}, transitionDuration * 1.5);
 	}
-
-	// Click on the TOC button shows/hides the TOC panel.
-	tocButton.addEventListener('click', function(event)
-	{
-		event.stopPropagation();
-
-		if (!isTocVisible)
-			showToc();
-		else
-			hideToc();
-	});
-
-	// ESC key hides the TOC panel.
-	window.addEventListener('keydown', function(event)
-	{
-		if (event.keyCode === 27)
-			hideToc();
-	});
-
-	// Click on the whole page hides the TOC panel,
-	document.addEventListener('click', function(event)
-	{
-		hideToc();
-	});
-	// ...unless it happens in the TOC panel.
-	toc.addEventListener('click', function(event)
-	{
-		event.stopPropagation();
-	});
-
-	hammer.on('panright', function()
-	{
-		hideToc();
-	});
 });

@@ -27,30 +27,25 @@ window.addEventListener('load', function()
 
 		hammer.add(new Hammer.Pan({ threshold: 15 }));
 
-		menuButton.addEventListener('click', function(event)
+		document.addEventListener('click', function(event)
 		{
-			event.stopPropagation();
-
-			if (isVisible)
-				hideMenu();
-			else
+			if (menuButton.contains(event.target))
+			{
 				showMenu();
+			}
+			else if (!menu.contains(event.target))
+			{
+				hideMenu();
+			}
 		});
 
 		menuClose.addEventListener('click', hideMenu);
-
-		document.addEventListener('click', hideMenu);
 
 		document.addEventListener('keydown', function(event)
 		{
 			// ESC
 			if (event.keyCode === 27)
 				hideMenu();
-		});
-
-		menu.addEventListener('click', function(event)
-		{
-			event.stopPropagation();
 		});
 
 		menu.addEventListener('wheel', function(event)
