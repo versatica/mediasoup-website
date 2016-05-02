@@ -1,20 +1,20 @@
 ## extra
 {: #extra}
 
-The `extra` module (exported via [mediasoup.extra](#mediasoup-extra)) holds utilities for the application developer.
+The `extra` module (exported via [`mediasoup.extra`](#mediasoup-extra)) holds utilities for the application developer.
 
 
 ### Functions
 {: #extra-functions}
 
-<section markdown='1'>
+<section markdown="1">
 
 #### extra.fingerprintFromSDP(sdpFingerprint)
 {: #extra-fingerprintFromSDP .code}
 
 Generates a raw DTLS certificate fingerprint (lowercase hex string without colons).
 
-<div markdown='1' class='table-wrapper'>
+<div markdown="1" class="table-wrapper">
 
 Argument         | Type    | Required  | Description  
 ---------------- | ------- | --------- | -------------
@@ -25,10 +25,10 @@ Argument         | Type    | Required  | Description
 Usage example:
 
 ```javascript
-var sdpFingerprint = '75:1B:81:93:B7:ED:27:7E:42:BE:D6:C4:8E:F7:04:3A:49:CE:3F:EE';
+var sdpFingerprint = "75:1B:81:93:B7:ED:27:7E:42:BE:D6:C4:8E:F7:04:3A:49:CE:3F:EE";
 
 extra.fingerprintFromSDP(sdpFingerprint);
-// => '751b8193b7ed277e42bed6c48ef7043a49ce3fee'
+// => "751b8193b7ed277e42bed6c48ef7043a49ce3fee"
 ```
 
 #### extra.fingerprintToSDP(rawFingerprint)
@@ -36,7 +36,7 @@ extra.fingerprintFromSDP(sdpFingerprint);
 
 Generates a DTLS certificate fingerprint for SDP usage (uppercase hex string with colons).
 
-<div markdown='1' class='table-wrapper'>
+<div markdown="1" class="table-wrapper">
 
 Argument         | Type    | Required  | Description  
 ---------------- | ------- | --------- | -------------
@@ -47,10 +47,10 @@ Argument         | Type    | Required  | Description
 Usage example:
 
 ```javascript
-var rawFingerprint = '751b8193b7ed277e42bed6c48ef7043a49ce3fee';
+var rawFingerprint = "751b8193b7ed277e42bed6c48ef7043a49ce3fee";
 
 extra.fingerprintToSDP(rawFingerprint);
-// => '75:1B:81:93:B7:ED:27:7E:42:BE:D6:C4:8E:F7:04:3A:49:CE:3F:EE'
+// => "75:1B:81:93:B7:ED:27:7E:42:BE:D6:C4:8E:F7:04:3A:49:CE:3F:EE"
 ```
 
 </section>

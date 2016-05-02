@@ -7,14 +7,14 @@ A `room` holds a multiparty RTC (Real-Time Communication) conference.
 ### Dictionaries
 {: #Room-dictionaries}
 
-<section markdown='1'>
+<section markdown="1">
 
 #### RoomSettings
 {: #Room-RoomSettings .code}
 
-<div markdown='1' class='table-wrapper'>
+<div markdown="1" class="table-wrapper">
 
-Option                    | Type    | Description   | Default
+Field                     | Type    | Description   | Default
 ------------------------- | ------- | ------------- | -------------
 `forceUniquePayloadTypes` | Boolean | TBD. | `false`
 
@@ -26,15 +26,19 @@ Option                    | Type    | Description   | Default
 ### Properties
 {: #Room-properties}
 
-<section markdown='1'>
+<section markdown="1">
 
 #### room.closed
 {: #room-closed .code}
+
+* Read only
 
 A boolean indicating whether the `room` has been closed.
 
 #### room.peers
 {: #room-peers .code}
+
+* Read only
 
 An Array with the list of [Peer](#Peer) instances in the `room`.
 
@@ -44,7 +48,7 @@ An Array with the list of [Peer](#Peer) instances in the `room`.
 ### Methods
 {: #Room-methods}
 
-<section markdown='1'>
+<section markdown="1">
 
 #### room.close()
 {: #room-close .code}
@@ -54,7 +58,7 @@ Closes the `room`, including all its `peers`, and triggers a [`close`](#room-on-
 #### room.dump()
 {: #room-dump .code}
 
-Returns a Promise that resolves to an Object containing the current status and details of the `room`.
+For debugging purposes. Returns a Promise that resolves to an Object containing the current status and details of the `room`.
 
 *TBD:* Document it.
 
@@ -63,7 +67,7 @@ Returns a Promise that resolves to an Object containing the current status and d
 
 Returns a new [Peer](#Peer) instance.
 
-<div markdown='1' class='table-wrapper'>
+<div markdown="1" class="table-wrapper">
 
 Argument   | Type    | Required  | Description  
 ---------- | ------- | --------- | -------------
@@ -74,7 +78,7 @@ Argument   | Type    | Required  | Description
 Usage example:
 
 ```javascript
-var peer = room.Peer('alice');
+var peer = room.Peer("alice");
 ```
 
 #### room.getPeer(name)
@@ -82,7 +86,7 @@ var peer = room.Peer('alice');
 
 Returns a [Peer](#Peer) with the given `name`, or `undefined` if such a peer does not exist in the `room`.
 
-<div markdown='1' class='table-wrapper'>
+<div markdown="1" class="table-wrapper">
 
 Argument   | Type    | Required  | Description  
 ---------- | ------- | --------- | -------------
@@ -98,9 +102,9 @@ Argument   | Type    | Required  | Description
 
 The `Room` class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-<section markdown='1'>
+<section markdown="1">
 
-#### room.on('close', fn(error))
+#### room.on("close", fn(error))
 {: #room-on-close .code}
 
 Emitted when the `room` is closed. In case of error, the callback is called with the corresponding `Error` object.

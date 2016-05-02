@@ -7,7 +7,7 @@ The `errors` module (exported via [`mediasoup.errors`](#mediasoup-errors)) holds
 ### Classes
 {: #errors-classes}
 
-<section markdown='1'>
+<section markdown="1">
 
 #### errors.InvalidStateError
 {: #errors-InvalidStateError .code}

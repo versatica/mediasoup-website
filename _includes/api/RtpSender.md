@@ -7,7 +7,7 @@
 ### Properties
 {: #RtpSender-properties}
 
-<section markdown='1'>
+<section markdown="1">
 
 *TBD*
 
@@ -17,7 +17,7 @@
 ### Methods
 {: #RtpSender-methods}
 
-<section markdown='1'>
+<section markdown="1">
 
 *TBD*
 
@@ -29,7 +29,7 @@
 
 The `RtpSender` class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-<section markdown='1'>
+<section markdown="1">
 
 *TBD*
 
