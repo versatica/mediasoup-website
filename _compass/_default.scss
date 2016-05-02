@@ -140,6 +140,10 @@
 				}
 			}
 		}
+
+		> code {
+			color: $color-highlight-dark !important;
+		}
 	}
 
 	strong {

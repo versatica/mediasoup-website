@@ -26,17 +26,17 @@ The `name` (String) of the `peer`.
 #### peer.transports
 {: #peer-transports .code}
 
-An Array with the list of [Transport](#Transport) instances associated to the `peer`.
+An Array with the list of [Transport](#Transport) instances associated to the `peer` in the order in which they were created.
 
 #### peer.rtpReceivers
 {: #peer-rtpReceivers .code}
 
-An Array with the list of [RtpReceivers](#RtpReceivers) instances associated to the `peer`.
+An Array with the list of [RtpReceivers](#RtpReceivers) instances associated to the `peer` in the order in which they were created.
 
 #### peer.rtpSenders
 {: #peer-rtpSenders .code}
 
-An Array with the list of [RtpSenders](#RtpSenders) instances associated to the `peer`.
+An Array with the list of [RtpSenders](#RtpSenders) instances associated to the `peer` in the order in which they were created.
 
 </section>
 
@@ -49,9 +49,7 @@ An Array with the list of [RtpSenders](#RtpSenders) instances associated to the 
 #### peer.close()
 {: #peer-close .code}
 
-Closes the `peer`, including all its `transports`, `rtpReceivers` and `rtpSenders`, and triggers a [close](#peer-on-close) event.
-
-Network resources and port bindings associated to the `peer` are released.
+Closes the `peer`, including all its `transports`, `rtpReceivers` and `rtpSenders`, and triggers a [`close`](#peer-on-close) event.
 
 #### peer.dump()
 {: #peer-dump .code}
@@ -67,8 +65,8 @@ Returns a Promise that resolves to a new [Transport](#Transport) instance associ
 
 <div markdown='1' class='table-wrapper'>
 
-Parameter  | Type    | Required  | Description  
------------| ------- | --------- | -------------
+Argument   | Type    | Required  | Description  
+---------- | ------- | --------- | -------------
 `options`  | [TransportOptions](#Transport-TransportOptions)  | No | Transport options.
 
 </div>
@@ -88,11 +86,11 @@ peer.createTransport({ tcp: false })
 #### peer.RtpReceiver(transport)
 {: #peer-RtpReceiver .code}
 
-Creates a [RtpReceiver](#RtpReceiver) instance.
+Returns a new [RtpReceiver](#RtpReceiver) instance.
 
 <div markdown='1' class='table-wrapper'>
 
-Parameter   | Type    | Required  | Description  
+Argument    | Type    | Required  | Description  
 ----------- | ------- | --------- | -------------
 `transport` | [Transport](#Transport)  | Yes | Associated `transport`.
 
@@ -119,17 +117,19 @@ The `Peer` class inherits from [EventEmitter](https://nodejs.org/api/events.html
 
 Emitted when the `peer` is closed. In case of error, the callback is called with the corresponding `Error` object.
 
-```javascript
-peer.on('close', (error) => {
-  if (error)
-    console.error('peer closed with error: %o', error);
-});
-```
-
 #### peer.on('newrtpsender', fn(rtpSender))
 {: #peer-on-newrtpsender .code}
 
-Emitted when another `peer` in the `room` creates a new [RtpReceiver](#RtpReceiver) and calls [receive()](#rtpReceiver-receive) on it. The given callback is called with a new [RtpSender](#RtpSender) instance associated to such a `rtpReceiver`.
+Emitted when another `peer` in the same `room` creates a new [RtpReceiver](#RtpReceiver) and calls [`receive()`](#rtpReceiver-receive) on it.
+
+<div markdown='1' class='table-wrapper'>
+
+Callback argument | Type    | Description   
+----------------- | ------- | ----------------
+`rtpSenders`      | [RtpSender](#RtpSender) | `rtpSender` associated to the new `rtpReceiver`.
+
+</div>
+
 
 ```javascript
 peer.on('newrtpsender', (rtpSender) => {

@@ -1,7 +1,7 @@
 ## extra
 {: #extra}
 
-The `extra` module (exported via `mediasoup.extra`) holds utilities for the application developer.
+The `extra` module (exported via [mediasoup.extra](#mediasoup-extra)) holds utilities for the application developer.
 
 
 ### Functions
@@ -12,9 +12,17 @@ The `extra` module (exported via `mediasoup.extra`) holds utilities for the appl
 #### extra.fingerprintFromSDP(sdpFingerprint)
 {: #extra-fingerprintFromSDP .code}
 
-Generates a raw DTLS certificate fingerprint (lowercase without colons).
+Generates a raw DTLS certificate fingerprint (lowercase hex string without colons).
 
-* `sdpFingerprint` (String): SDP fingerprint (uppercase with colons).
+<div markdown='1' class='table-wrapper'>
+
+Argument         | Type    | Required  | Description  
+---------------- | ------- | --------- | -------------
+`sdpFingerprint` | String  | Yes       | SDP fingerprint (uppercase hex string with colons).
+
+</div>
+
+Usage example:
 
 ```javascript
 var sdpFingerprint = '75:1B:81:93:B7:ED:27:7E:42:BE:D6:C4:8E:F7:04:3A:49:CE:3F:EE';
@@ -26,9 +34,17 @@ extra.fingerprintFromSDP(sdpFingerprint);
 #### extra.fingerprintToSDP(rawFingerprint)
 {: #extra-fingerprintToSDP .code}
 
-Generates a DTLS certificate fingerprint for SDP usage (uppercase with colons).
+Generates a DTLS certificate fingerprint for SDP usage (uppercase hex string with colons).
 
-* `rawFingerprint` (String): Raw fingerprint (lowercase without colons).
+<div markdown='1' class='table-wrapper'>
+
+Argument         | Type    | Required  | Description  
+---------------- | ------- | --------- | -------------
+`rawFingerprint` | String  | Yes       | Raw fingerprint (lowercase hex string without colons).
+
+</div>
+
+Usage example:
 
 ```javascript
 var rawFingerprint = '751b8193b7ed277e42bed6c48ef7043a49ce3fee';

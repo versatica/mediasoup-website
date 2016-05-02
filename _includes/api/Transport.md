@@ -3,7 +3,7 @@
 
 A `transport` represents a ICE+DTLS virtual connection over which a remote peer sends and receives media streams.
 
-The `Transport` instance is created by means of [peer.createTransport()](#peer-createTransport). It binds UDP and TCP ports (depending on the given parameters) and waits for ICE Binding Requests coming from the `peer`. Once ICE procedures are done, DTLS connection must be established.
+The `Transport` instance is created by means of [`peer.createTransport()`](#peer-createTransport). It binds UDP and TCP ports (depending on the given parameters) and waits for ICE Binding Requests coming from the `peer`. Once ICE procedures are done, DTLS connection must be established.
 
 <div markdown='1' class='note'>
 
@@ -86,7 +86,7 @@ Field              | Type    | Description
 
 Field           | Type    | Description   
 --------------- | ------- | ----------------
-`role`          | String  | DTLS role ('auto' / 'client' / 'server').
+`role`          | [DtlsRole](#Transport-DtlsRole) | DTLS role ('auto' by default).
 `fingerprints`  | [LocalDtlsFingerprints](#Transport-LocalDtlsFingerprints) | Local DTLS fingerprints.
 
 </div>
@@ -155,6 +155,19 @@ Value          | Description
 
 </div>
 
+#### DtlsRole
+{: #Transport-DtlsRole .code}
+
+<div markdown='1' class='table-wrapper'>
+
+Value          | Description  
+-------------- | -------------
+'auto'         | The DTLS role is determined based on the resolved ICE role (the 'controlled' role acts as DTLS client, the 'controlling' role acts as DTLS server'). Since **mediasoup** is a ICE Lite implementation it always behaves as ICE 'controlled'.
+'client'       | DTLS client role. **mediasoup** transitions to DTLS client when [`transport.setRemoteDtlsParameters()`](#transport-setRemoteDtlsParameters) is called with `role` 'server' or 'auto'.
+'server'       | DTLS server role. **mediasoup** transitions to DTLS server when [`transport.setRemoteDtlsParameters()`](#transport-setRemoteDtlsParameters) is called with 'client' `role`.
+
+</div>
+
 #### DtlsState
 {: #Transport-DtlsState .code}
 
@@ -196,7 +209,7 @@ Local [IceParameters](#Transport-IceParameters) of the `transport`.
 #### transport.iceLocalCandidates
 {: #transport-iceLocalCandidates .code}
 
-Sequence of local [IceCandidate](#Transport-IceCandidate) associated to this `transport`.
+Sequence of local [IceCandidate](#Transport-IceCandidate) Objects associated to this `transport`.
 
 #### transport.iceSelectedTuple
 {: #transport-iceSelectedTuple .code}
@@ -243,7 +256,7 @@ The current [DtlsState](#Transport-DtlsState) of the `transport`.
 #### transport.close()
 {: #transport-close .code}
 
-Closes the `transport` and triggers a [close](#transport-on-close) event.
+Closes the `transport` and triggers a [`close](#transport-on-close) event.
 
 #### transport.dump()
 {: #transport-dump .code}
@@ -259,8 +272,8 @@ Set remote DTLS parameters. Returns a Promise that resolves to this `transport`.
 
 <div markdown='1' class='table-wrapper'>
 
-Parameter  | Type    | Required  | Description  
------------| ------- | --------- | -------------
+Argument   | Type    | Required  | Description  
+---------- | ------- | --------- | -------------
 `options`  | [RemoteDtlsParameters](#Transport-RemoteDtlsParameters)  | Yes | Remote DTLS parameters.
 
 </div>
@@ -298,40 +311,40 @@ The `Transport` class inherits from [EventEmitter](https://nodejs.org/api/events
 
 Emitted when the `transport` is closed. In case of error, the callback is called with the corresponding `Error` object.
 
-#### transport.on('iceselectedtuplechange', fn(data))
+#### transport.on('iceselectedtuplechange', fn(iceSelectedTuple))
 {: #transport-on-iceselectedtuplechange .code}
 
-Emitted when the ICE selected tuple changes. `data` Object has the following fields:
+Emitted when the ICE selected tuple changes.
 
 <div markdown='1' class='table-wrapper'>
 
-Field             | Type    | Description   
+Callback argument | Type    | Description   
 ----------------- | ------- | ----------------
-`iceSelectedTuple`| [IceSelectedTuple](#Transport-IceSelectedTuple) | The ICE selected tuple.
+`iceSelectedTuple`| [IceSelectedTuple](#Transport-IceSelectedTuple) | The new ICE selected tuple.
 
 </div>
 
-#### transport.on('icestatechange', fn(data))
+#### transport.on('icestatechange', fn(iceState))
 {: #transport-on-icestatechange .code}
 
-Emitted when the ICE state changes. `data` Object has the following fields:
+Emitted when the ICE state changes.
 
 <div markdown='1' class='table-wrapper'>
 
-Field             | Type    | Description   
+Callback argument | Type    | Description   
 ----------------- | ------- | ----------------
 `iceState`        | [IceState](#Transport-IceState) | The new ICE state.
 
 </div>
 
-#### transport.on('dtlsstatechange', fn(data))
+#### transport.on('dtlsstatechange', fn(dtlsState))
 {: #transport-on-dtlsstatechange .code}
 
-Emitted when the DTLS state changes. `data` Object has the following fields:
+Emitted when the DTLS state changes.
 
 <div markdown='1' class='table-wrapper'>
 
-Field             | Type    | Description   
+Callback argument | Type    | Description   
 ----------------- | ------- | ----------------
 `dtlsState`       | [DtlsState](#Transport-DtlsState) | The new DTLS state.
 

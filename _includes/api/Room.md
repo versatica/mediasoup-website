@@ -9,9 +9,8 @@ A `room` holds a multiparty RTC (Real-Time Communication) conference.
 
 <section markdown='1'>
 
-#### RoomOptions
-{: #Room-RoomOptions .code}
-
+#### RoomSettings
+{: #Room-RoomSettings .code}
 
 <div markdown='1' class='table-wrapper'>
 
@@ -50,7 +49,7 @@ An Array with the list of [Peer](#Peer) instances in the `room`.
 #### room.close()
 {: #room-close .code}
 
-Closes the `room`, including all its `peers`, and triggers a [close](#room-on-close) event.
+Closes the `room`, including all its `peers`, and triggers a [`close`](#room-on-close) event.
 
 #### room.dump()
 {: #room-dump .code}
@@ -62,12 +61,12 @@ Returns a Promise that resolves to an Object containing the current status and d
 #### room.Peer(name)
 {: #room-Peer .code}
 
-Creates a [Peer](#Peer) instance within this `room`.
+Returns a new [Peer](#Peer) instance.
 
 <div markdown='1' class='table-wrapper'>
 
-Parameter  | Type    | Required  | Description  
------------| ------- | --------- | -------------
+Argument   | Type    | Required  | Description  
+---------- | ------- | --------- | -------------
 `name`     | String  | Yes       | Peer name. Must be unique within the `room`.
 
 </div>
@@ -85,12 +84,11 @@ Returns a [Peer](#Peer) with the given `name`, or `undefined` if such a peer doe
 
 <div markdown='1' class='table-wrapper'>
 
-Parameter  | Type    | Required  | Description  
------------| ------- | --------- | -------------
+Argument   | Type    | Required  | Description  
+---------- | ------- | --------- | -------------
 `name`     | String  | Yes       | Peer name.
 
 </div>
-
 
 </section>
 
@@ -106,12 +104,5 @@ The `Room` class inherits from [EventEmitter](https://nodejs.org/api/events.html
 {: #room-on-close .code}
 
 Emitted when the `room` is closed. In case of error, the callback is called with the corresponding `Error` object.
-
-```javascript
-room.on('close', (error) => {
-  if (error)
-    console.error('room closed with error: %o', error);
-});
-```
 
 </section>

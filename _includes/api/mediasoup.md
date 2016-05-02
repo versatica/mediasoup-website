@@ -1,7 +1,7 @@
 ## mediasoup
 {: #mediasoup}
 
-The top-level module.
+The top-level module exported by the **mediasoup** library.
 
 ```javascript
 var mediasoup = require('mediasoup');
@@ -31,16 +31,16 @@ Provides access to the [extra](#extra) module.
 
 <section markdown='1'>
 
-#### mediasoup.Server(options)
+#### mediasoup.Server(settings)
 {: #mediasoup-Server .code}
 
-Creates a [Server](#Server) instance.
+Returns a new [Server](#Server) instance.
 
 <div markdown='1' class='table-wrapper'>
 
-Parameter  | Type    | Required  | Description  
------------| ------- | --------- | -------------
-`options`  | [ServerOptions](#Server-ServerOptions)  | No | Server options.
+Argument   | Type    | Required  | Description  
+---------- | ------- | --------- | -------------
+`settings` | [ServerSettings](#Server-ServerSettings) | No | Server settings.
 
 </div>
 
