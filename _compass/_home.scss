@@ -116,6 +116,11 @@
 				color: $color-text-1;
 				@include background-image(linear-gradient(left, rgba(#fff, 0.05) 0%, rgba(#fff, 0.4) 25%, rgba(#fff, 0.9) 50%, rgba(#fff, 0.4) 75%, rgba(#fff, 0.05) 100%));
 
+				border-width: 1px 0;
+				border-style: solid;
+				border-top-color: rgba(#fff, 0.2);
+				border-bottom-color: rgba(#000, 0.2);
+
 				@include breakpoint($mobile) {
 					@include background-image(linear-gradient(left, rgba(#fff, 0.4) 0%, rgba(#fff, 0.7) 25%, rgba(#fff, 1.0) 50%, rgba(#fff, 0.7) 75%, rgba(#fff, 0.4) 100%));
 				}
