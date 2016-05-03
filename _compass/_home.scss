@@ -83,42 +83,47 @@
 	}
 
 	> .install {
+		@include flex(0 0 auto);
 		overflow: hidden;
 
+		@include breakpoint($computer) {
+			margin-bottom: 4.5rem;
+		}
+
+		@include breakpoint($mobile) {
+			margin-bottom: 4rem;
+		}
+
 		> pre {
-			@include flex(0 0 auto);
 			display: block;
-			@include transition-property(opacity transform);
-			@include transition-delay(0.75s);
-			@include transition-duration(1.50s);
+			@include transition-property(opacity transform background-color color border-color);
+			@include transition-delay(0.5s);
+			@include transition-duration(1.25s);
+			background-color: rgba(#fff, .02);
+			border-top: 1px solid rgba(#fff, 0.1);
+			border-bottom: 1px solid rgba(#fff, 0.1);
+			color: $color-text-4;
+			text-shadow: 0 -.1em .2em black;
 
 			@include breakpoint($computer) {
-				font-size: 1rem;
-				margin-bottom: 5rem;
-
 				&.loading {
 					opacity: 0;
 					@include transform(scale(1.25));
+					background-color: rgba(#fff, 0.3);
+					border-top-color: transparent;
+					color: #fff;
 				}
-			}
-
-			@include breakpoint($mobile) {
-				font-size: 0.8rem;
-				margin-bottom: 4rem;
 			}
 
 			code {
 				display: block;
 				padding: 0.8em 0;
+				font-size: 1rem;
 				text-align: center;
-				font-family: Consolas, Monaco, 'Andale Mono', monospace;
+				font-family: 'Monaco', 'Andale Mono', monospace;
 				white-space: pre;
-				margin: 5px 0;
-				color: $color-text-4;
-				text-shadow: 0 -.1em .2em black;
-				background-color: rgba(#fff, 0.02);
-				border-top: 1px solid rgba(#fff, 0.1);
-				border-bottom: 1px solid rgba(#fff, 0.1);
+				color: inherit;
+				text-shadow: inherit;
 
 				span.no-select {
 					@include user-select(none);
@@ -144,7 +149,7 @@
 			opacity: 0.1;
 			@include transition-property(opacity transform);
 			@include transition-delay(0.50s);
-			@include transition-duration(2s);
+			@include transition-duration(1.25s);
 			@include transform(rotate(-20deg));
 
 			&.loading {

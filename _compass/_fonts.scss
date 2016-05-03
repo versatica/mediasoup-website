@@ -12,3 +12,9 @@
 	font-weight: 400;
 	src: local('Open Sans'), local('OpenSans'), url('/fonts/OpenSans.ttf') format('truetype');
 }
+
+@font-face {
+	font-family: 'Monaco';
+	font-style: normal;
+	src: url('/fonts/Monaco.ttf') format('truetype');
+}
