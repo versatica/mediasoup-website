@@ -18,7 +18,7 @@ In the context of WebRTC 1.0, such a "remote media endpoint" implies a `RTCPeerC
 
 * Read only
 
-A boolean indicating whether the `peer` has been closed.
+A Boolean indicating whether the `peer` has been closed.
 
 #### peer.name
 {: #peer-name .code}
@@ -73,11 +73,11 @@ For debugging purposes. Returns a Promise that resolves to an Object containing 
 
 Returns a Promise that resolves to a new [Transport](#Transport) instance associated to this `peer`. If something goes wrong the Promise is rejected with the corresponding `Error` object. 
 
-<div markdown="1" class="table-wrapper">
+<div markdown="1" class="table-wrapper L3">
 
-Argument   | Type    | Required  | Description  
----------- | ------- | --------- | -------------
-`options`  | [TransportOptions](#Transport-TransportOptions)  | No | Transport options.
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`options`  | [TransportOptions](#Transport-TransportOptions) | Transport options. | No |
 
 </div>
 
@@ -98,11 +98,11 @@ peer.createTransport({ tcp: false })
 
 Returns a new [RtpReceiver](#RtpReceiver) instance.
 
-<div markdown="1" class="table-wrapper">
+<div markdown="1" class="table-wrapper L3">
 
-Argument    | Type    | Required  | Description  
------------ | ------- | --------- | -------------
-`transport` | [Transport](#Transport)  | Yes | Associated `transport`.
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`transport` | [Transport](#Transport) | Associated `transport`. | Yes |
 
 </div>
 
@@ -132,9 +132,9 @@ Emitted when the `peer` is closed. In case of error, the callback is called with
 
 Emitted when another `peer` in the same `room` creates a new [RtpReceiver](#RtpReceiver) and calls [`receive()`](#rtpReceiver-receive) on it.
 
-<div markdown="1" class="table-wrapper">
+<div markdown="1" class="table-wrapper L3">
 
-Callback argument | Type    | Description   
+Argument | Type    | Description   
 ----------------- | ------- | ----------------
 `rtpSenders`      | [RtpSender](#RtpSender) | `rtpSender` associated to the new `rtpReceiver`.
 

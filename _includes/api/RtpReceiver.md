@@ -20,7 +20,7 @@ In the context of WebRTC 1.0, a `RTCPeerConnection` calling `addStream()` with a
 
 * Read only
 
-A boolean indicating whether the `rtpReceiver` has been closed.
+A Boolean indicating whether the `rtpReceiver` has been closed.
 
 #### rtpReceiver.rtpParameters
 {: #rtpReceiver-rtpParameters .code}
@@ -41,7 +41,7 @@ The [Transport](#Transport) associated to the `rtpReceiver`.
 
 * Read/Write
 
-A boolean indicating whether RTP packets received by this `rtpReceiver` should reach JavaScript land via the [`rtp`](#rtpReceiver-on-rtp) event.
+A Boolean indicating whether RTP packets received by this `rtpReceiver` should reach JavaScript land via the [`rtp`](#rtpReceiver-on-rtp) event.
 
 ```javascript
 rtpReceiver.listenForRtp = true;
@@ -82,11 +82,11 @@ Returns `false`.
 
 Set remote RTP parameters. Returns a Promise that resolves to this `rtpReceiver`. If something goes wrong the Promise is rejected with the corresponding `Error` object.
 
-<div markdown="1" class="table-wrapper">
+<div markdown="1" class="table-wrapper L3">
 
-Argument        | Type    | Required  | Description  
---------------- | ------- | --------- | -------------
-`rtpParameters` | [RtpParameters](#RtpParameters) | Yes | Remote RTP parameters.
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`rtpParameters` | [RtpParameters](#RTP-RtpParameters) | Remote RTP parameters. | Yes |
 
 </div>
 
@@ -110,9 +110,9 @@ Emitted when the `rtpReceiver` is closed. In case of error, the callback is call
 
 Emitted for each received RTP packet if [`listenForRtp`](#rtpReceiver-listenForRtp) is set to `true`.
 
-<div markdown="1" class="table-wrapper">
+<div markdown="1" class="table-wrapper L3">
 
-Callback argument | Type    | Description   
+Argument | Type    | Description   
 ----------------- | ------- | ----------------
 `packet`          | [Buffer](https://nodejs.org/api/buffer.html) | Binary data containing the full RTP packet.
 

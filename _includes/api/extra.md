@@ -14,11 +14,11 @@ The `extra` module (exported via [`mediasoup.extra`](#mediasoup-extra)) holds ut
 
 Generates a raw DTLS certificate fingerprint (lowercase hex string without colons).
 
-<div markdown="1" class="table-wrapper">
+<div markdown="1" class="table-wrapper L3">
 
-Argument         | Type    | Required  | Description  
----------------- | ------- | --------- | -------------
-`sdpFingerprint` | String  | Yes       | SDP fingerprint (uppercase hex string with colons).
+Argument         | Type    | Description | Required | Default 
+---------------- | ------- | ----------- | -------- | ----------
+`sdpFingerprint` | String  | SDP fingerprint (uppercase hex string with colons). | Yes |
 
 </div>
 
@@ -36,11 +36,11 @@ extra.fingerprintFromSDP(sdpFingerprint);
 
 Generates a DTLS certificate fingerprint for SDP usage (uppercase hex string with colons).
 
-<div markdown="1" class="table-wrapper">
+<div markdown="1" class="table-wrapper L3">
 
-Argument         | Type    | Required  | Description  
----------------- | ------- | --------- | -------------
-`rawFingerprint` | String  | Yes       | Raw fingerprint (lowercase hex string without colons).
+Argument         | Type    | Description | Required | Default 
+---------------- | ------- | ----------- | -------- | ----------
+`rawFingerprint` | String  | Raw fingerprint (lowercase hex string without colons). | Yes |
 
 </div>
 

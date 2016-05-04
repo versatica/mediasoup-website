@@ -12,11 +12,11 @@ A `room` holds a multiparty RTC (Real-Time Communication) conference.
 #### RoomSettings
 {: #Room-RoomSettings .code}
 
-<div markdown="1" class="table-wrapper">
+<div markdown="1" class="table-wrapper L3">
 
-Field                     | Type    | Description   | Default
-------------------------- | ------- | ------------- | -------------
-`forceUniquePayloadTypes` | Boolean | TBD. | `false`
+Field                    | Type    | Description   | Required | Default
+------------------------ | ------- | ------------- | -------- | ---------
+`forceUniquePayloadTypes` | Boolean | TBD. | No | `false`
 
 </div>
 
@@ -33,7 +33,7 @@ Field                     | Type    | Description   | Default
 
 * Read only
 
-A boolean indicating whether the `room` has been closed.
+A Boolean indicating whether the `room` has been closed.
 
 #### room.peers
 {: #room-peers .code}
@@ -67,11 +67,11 @@ For debugging purposes. Returns a Promise that resolves to an Object containing 
 
 Returns a new [Peer](#Peer) instance.
 
-<div markdown="1" class="table-wrapper">
+<div markdown="1" class="table-wrapper L3">
 
-Argument   | Type    | Required  | Description  
----------- | ------- | --------- | -------------
-`name`     | String  | Yes       | Peer name. Must be unique within the `room`.
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`name`     | String  | Peer name. Must be unique within the `room`. | Yes |
 
 </div>
 
@@ -86,11 +86,11 @@ var peer = room.Peer("alice");
 
 Returns a [Peer](#Peer) with the given `name`, or `undefined` if such a peer does not exist in the `room`.
 
-<div markdown="1" class="table-wrapper">
+<div markdown="1" class="table-wrapper L3">
 
-Argument   | Type    | Required  | Description  
----------- | ------- | --------- | -------------
-`name`     | String  | Yes       | Peer name.
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`name`     | String  | Peer name. | Yes |
 
 </div>
 

@@ -36,11 +36,11 @@ Provides access to the [extra](#extra) module.
 
 Returns a new [Server](#Server) instance.
 
-<div markdown="1" class="table-wrapper">
+<div markdown="1" class="table-wrapper L3">
 
-Argument   | Type    | Required  | Description  
----------- | ------- | --------- | -------------
-`settings` | [ServerSettings](#Server-ServerSettings) | No | Server settings.
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`settings` | [ServerSettings](#Server-ServerSettings) | Server settings. | No |
 
 </div>
 
