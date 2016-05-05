@@ -99,7 +99,7 @@
 			@include transition-property(opacity transform background-color color border-color);
 			@include transition-delay(0.5s);
 			@include transition-duration(1.25s);
-			background-color: rgba(#fff, .02);
+			background-color: rgba(#fff, 0.03);
 			border-top: 1px solid rgba(#fff, 0.1);
 			border-bottom: 1px solid rgba(#fff, 0.1);
 			color: $color-text-4;

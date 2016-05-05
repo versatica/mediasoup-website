@@ -21,7 +21,10 @@ Since the first days of WebRTC my professional efforts go around it, and this is
 
 #### Acknowledgements
 
-**mediasoup** would not have been possible without the help and advice of [José Luis Millán][jmillan-url] and [Saúl Ibarra Corretgé][saghul-url].
+**mediasoup** would not have been possible without the help and advice of:
+
+* [José Luis Millán][jmillan-url]
+* [Saúl Ibarra Corretgé][saghul-url]
 
 
 
