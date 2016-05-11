@@ -93,15 +93,16 @@ peer.createTransport({ tcp: false })
   });
 ```
 
-#### peer.RtpReceiver(transport)
+#### peer.RtpReceiver(kind, transport)
 {: #peer-RtpReceiver .code}
 
 Returns a new [RtpReceiver](#RtpReceiver) instance.
 
 <div markdown="1" class="table-wrapper L3">
 
-Argument   | Type    | Description | Required | Default 
----------- | ------- | ----------- | -------- | ----------
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`kind`      | String  | Media kind ("audio" or "video"). | Yes |
 `transport` | [Transport](#Transport) | Associated `transport`. | Yes |
 
 </div>
@@ -109,7 +110,7 @@ Argument   | Type    | Description | Required | Default
 Usage example:
 
 ```javascript
-var rtpReceiver = peer.RtpReceiver(transport);
+var rtpReceiver = peer.RtpReceiver('audio', transport);
 ```
 
 </section>

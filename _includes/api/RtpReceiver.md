@@ -1,7 +1,7 @@
 ## RtpReceiver
 {: #RtpReceiver}
 
-A `rtpReceiver` describes a media stream (track) sent by a remote media endpoint and received by the corresponding [Peer](#Peer) instance in **mediasoup**.
+A `rtpReceiver` describes a media stream (track) of audio or video sent by a remote media endpoint and received by the corresponding [Peer](#Peer) instance in **mediasoup**.
 
 The `RtpReceiver` instance is created by means of [`peer.RtpReceiver()`](#peer-RtpReceiver).
 
@@ -21,6 +21,13 @@ In the context of WebRTC 1.0, a `RTCPeerConnection` calling `addStream()` with a
 * Read only
 
 A Boolean indicating whether the `rtpReceiver` has been closed.
+
+#### rtpReceiver.kind
+{: #rtpReceiver-kind .code}
+
+* Read only
+
+A String indicating the media kind ("audio" or "video") handled by the `rtpReceiver`.
 
 #### rtpReceiver.rtpParameters
 {: #rtpReceiver-rtpParameters .code}

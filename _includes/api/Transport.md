@@ -55,10 +55,10 @@ Field               | Type    | Description   | Required | Default
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
 `foundation`       | String  | Unique identifier that allows ICE to correlate candidates that appear on multiple `transports`. | Yes |
-`priority`         | Number  | The assigned priority of the candidate. | Yes |
+`priority`         | Integer | The assigned priority of the candidate. | Yes |
 `ip`               | String  | The IP address of the candidate. | Yes |
 `protocol`         | String  | The protocol of the candidate ("udp" / "tcp"). | Yes |
-`port`             | Number  | The port for the candidate. | Yes |
+`port`             | Integer | The port for the candidate. | Yes |
 `type`             | String  | The type of candidate (always "host"). | Yes |
 `tcpType`          | String  | The type of TCP candidate (always "passive"). | No |
 
@@ -72,9 +72,9 @@ Field              | Type    | Description   | Required | Default
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
 `localIP`          | String  | Local IP of the tuple. | Yes |
-`localPort`        | Number  | Local port of the tuple. | Yes |
+`localPort`        | Integer | Local port of the tuple. | Yes |
 `remoteIP`         | String  | Remote IP of the tuple. | Yes |
-`remotePort`       | Number  | Remote port of the tuple. | Yes |
+`remotePort`       | Integer | Remote port of the tuple. | Yes |
 `protocol`         | String  | The protocol of the tuple ("udp" / "tcp"). | Yes |
 
 </div>
@@ -94,7 +94,7 @@ Field           | Type    | Description   | Required | Default
 #### LocalDtlsFingerprints
 {: #Transport-LocalDtlsFingerprints .code}
 
-Map of DTLS algorithms (as defined in the "Hash function Textual Names" registry initially specified in [RFC4572 Section 8](http://tools.ietf.org/html/rfc4572#section-8)) and their corresponding certificate fingerprint values (in lowercase hex string as expressed utilizing the syntax of "fingerprint" in [RFC4572 Section 5](http://tools.ietf.org/html/rfc4572#section-5)).
+Map of DTLS algorithms (as defined in the "Hash function Textual Names" registry initially specified in [RFC 4572](http://tools.ietf.org/html/rfc4572#section-8) Section 8) and their corresponding certificate fingerprint values (in lowercase hex string as expressed utilizing the syntax of "fingerprint" in [RFC 4572](http://tools.ietf.org/html/rfc4572#section-5) Section 5).
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -219,6 +219,13 @@ Local [IceParameters](#Transport-IceParameters) of the `transport`.
 
 Sequence of local [IceCandidate](#Transport-IceCandidate) Objects associated to this `transport`.
 
+#### transport.iceState
+{: #transport-iceState .code}
+
+* Read only
+
+The current [IceState](#Transport-IceState) of the `transport`.
+
 #### transport.iceSelectedTuple
 {: #transport-iceSelectedTuple .code}
 
@@ -227,13 +234,6 @@ Sequence of local [IceCandidate](#Transport-IceCandidate) Objects associated to 
 The selected [IceSelectedTuple](#Transport-IceSelectedTuple) indicating information about the selected ICE candidate pair.
 
 It is `undefined` if ICE is not yet established (no working candidate pair was found).
-
-#### transport.iceState
-{: #transport-iceState .code}
-
-* Read only
-
-The current [IceState](#Transport-IceState) of the `transport`.
 
 #### transport.dtlsLocalParameters
 {: #transport-dtlsLocalParameters .code}
@@ -248,6 +248,19 @@ The current [IceState](#Transport-IceState) of the `transport`.
 * Read only
 
 The current [DtlsState](#Transport-DtlsState) of the `transport`.
+
+#### transport.dtlsRemoteCert
+{: #transport-dtlsRemoteCert .code}
+
+* Read only
+
+The remote certificate in PEM format (String). It is set once [`dtlsState`](#transport-dtlsState) becomes "connected".
+
+<div markdown="1" class="note">
+
+The application may want to inspect the remote certificate for authorization purposes by using some certificates utility such as the Node [pem](https://github.com/andris9/pem) module.
+
+</div>
 
 </section>
 
