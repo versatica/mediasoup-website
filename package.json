@@ -1,6 +1,6 @@
 {
   "name": "mediasoup-website",
-  "version": "1.0.0",
+  "version": "0.1.0-pre7",
   "description": "mediasoup website",
   "homepage": "http://mediasoup.org",
   "devDependencies": {
