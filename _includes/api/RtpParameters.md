@@ -19,7 +19,7 @@ Field                    | Type    | Description   | Required | Default
 `codecs`                 | sequence<[RtpCodecParameters](#RTP-RtpCodecParameters)> | The list of codecs to send or receive. | Yes |
 `encodings`              | sequence<[RtpEncodingParameters](#RTP-RtpEncodingParameters)> | The "encodings" or "layers" to be used for simulcast, Scalable Video Coding, RTX, FEC, etc.  | No |
 `headerExtensions`       | sequence<[RtpHeaderExtensionParameters](#RTP-RtpHeaderExtensionParameters)> | Configured RTP header extensions. | No |
-`rtcp`                   | [RtcpParameters](#RTP-RtcpParameters) | RTCP parameters. | Yes |
+`rtcp`                   | [RtcpParameters](#RTP-RtcpParameters) | RTCP parameters. | No |
 
 </div>
 
@@ -80,8 +80,8 @@ Field                    | Type    | Description   | Required | Default
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
-`ssrc`                   | Integer | The SSRC to use for FEC. | No |
 `mechanism`              | String  | The Forward Error Correction (FEC) mechanism to use: "red", "red+ulpfec" or "flexfec". | Yes |
+`ssrc`                   | Integer | The SSRC to use for FEC. | No |
 
 </div>
 
