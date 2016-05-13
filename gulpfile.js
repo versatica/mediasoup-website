@@ -64,11 +64,11 @@ gulp.task('rsync', function(done)
 		args      : [ '--no-perms' ],
 		onStdout  : function(data)
 		{
-			console.log(data);
+			console.log(String(data));
 		},
 		onStderr  : function(data)
 		{
-			console.error(data);
+			console.error(String(data));
 		},
 	};
 
