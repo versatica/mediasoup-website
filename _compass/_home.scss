@@ -1,17 +1,18 @@
 [data-content="home"] {
 	@include display-flex;
 	@include flex-direction(column);
+	text-align: justify;
 
 	> .banner {
 		@include flex(0 0 auto);
 		width: 100%;
-		@include transition-property(filter -webkit-filter -moz-filter);
-		@include transition-duration(1.5s);
 
 		@include breakpoint($computer) {
 			padding: 0 20%;
 			margin: 4.5rem 0;
 			font-size: 4.5rem;
+			@include transition-property(filter -webkit-filter -moz-filter);
+			@include transition-duration(1.5s);
 
 			&.loading {
 				@include filter(grayscale(100%) blur(4.00pt));
@@ -43,8 +44,6 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		cursor: pointer;
-		@include transition-property(opacity transform);
-		@include transition-duration(.75s);
 		-webkit-tap-highlight-color: transparent;
 
 		@include breakpoint($computer) {
@@ -58,6 +57,8 @@
 			border-radius: 5px;
 			border: 1px solid rgba($color-highlight, 0.3);
 			opacity: 0.8;
+			@include transition-property(opacity transform);
+			@include transition-duration(.75s);
 
 			&:hover {
 				@include transition-duration(.25s);
@@ -96,9 +97,6 @@
 
 		> pre {
 			display: block;
-			@include transition-property(opacity transform background-color color border-color);
-			@include transition-delay(0.5s);
-			@include transition-duration(1.25s);
 			background-color: rgba(#fff, 0.03);
 			border-top: 1px solid rgba(#fff, 0.1);
 			border-bottom: 1px solid rgba(#fff, 0.1);
@@ -106,6 +104,10 @@
 			text-shadow: 0 -.1em .2em black;
 
 			@include breakpoint($computer) {
+				@include transition-property(opacity transform background-color color border-color);
+				@include transition-delay(1.75s);
+				@include transition-duration(1.25s);
+
 				&.loading {
 					opacity: 0;
 					@include transform(scale(1.25));
@@ -148,8 +150,8 @@
 			width: 400px;
 			opacity: 0.1;
 			@include transition-property(opacity transform);
-			@include transition-delay(0.50s);
-			@include transition-duration(1.25s);
+			@include transition-delay(0.6s);
+			@include transition-duration(1.5s);
 			@include transform(rotate(-20deg));
 
 			&.loading {
