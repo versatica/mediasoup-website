@@ -9,6 +9,7 @@ exclude:
   - bower.json
   - bower_components
   - gulpfile.js
+  - LICENSE
 
 markdown: kramdown
 
