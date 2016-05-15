@@ -27,6 +27,8 @@ window.addEventListener('load', function()
 
 		hammer.add(new Hammer.Pan({ threshold: 15 }));
 
+		dontscrollthebody(menu);
+
 		document.addEventListener('click', function(event)
 		{
 			if (menuButton.contains(event.target))
@@ -46,11 +48,6 @@ window.addEventListener('load', function()
 			// ESC
 			if (event.keyCode === 27)
 				hideMenu();
-		});
-
-		menu.addEventListener('wheel', function(event)
-		{
-			event.preventDefault();
 		});
 
 		hammer.on('panright', function()

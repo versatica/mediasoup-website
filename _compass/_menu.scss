@@ -6,9 +6,10 @@
 	top: 0;
 	right: -$width;
 	width: $width;
-	height: 120%;  // Trick for hide it in mobile
-	padding: 80px 8px 8px 8px;
-	overflow: hidden;
+	// Trick to avoid menu flash effect in mobile.
+	height: 115%;
+	padding-bottom: 15%;
+	overflow: auto;
 	background-color: rgba(#fff, 0.95);
 	@include box-shadow(-5px 0px 5px 0px rgba(#333, 0.3));
 	@include transition-property(right);
@@ -22,59 +23,56 @@
 		font-size: 1.1rem;
 	}
 
-	@include breakpoint($mobile-landscape) {
-		padding-top: 20px;
-	}
-
 	&.visible {
 		right: 0;
 
-		> .close {
+		> .container > .close {
 			@include transition-delay(0.25s);
 			@include transform(scale(1));
 		}
 	}
 
-	> .close {
-		position: absolute;
-		top: 16px;
-		right: 16px;
-		height: 32px;
-		width: 32px;
-		background-size: 24px;
-		background-image: url('/images/close.svg');
-		background-position: center;
-		background-repeat: no-repeat;
-		cursor: pointer;
-		opacity: 0.75;
-		@include transform(scale(0));
-		@include transition-property(opacity transform);
-		@include transition-duration(0.25s);
-		-webkit-tap-highlight-color: transparent;
+	> .container {
+		padding: 64px 8px 8px 8px;
+		overflow: auto;
 
-		&:hover {
-			@include transition-delay(0s);
-			opacity: 1;
-		}
-	}
+		> .close {
+			position: absolute;
+			top: 16px;
+			right: 16px;
+			height: 32px;
+			width: 32px;
+			background-size: 24px;
+			background-image: url('/images/close.svg');
+			background-position: center;
+			background-repeat: no-repeat;
+			cursor: pointer;
+			opacity: 0.75;
+			@include transform(scale(0));
+			@include transition-property(opacity transform);
+			@include transition-duration(0.25s);
+			-webkit-tap-highlight-color: transparent;
 
-	> a {
-		display: block;
-		padding: 0.7em 1em;
-		text-decoration: none;
-		color: #444;
-		border-radius: 4px;
-		border: 1px solid transparent;
-		@include transition-duration(0.1s);
-
-		&:hover {
-			color: $color-highlight-dark;
-			background-color: rgba(#fff, 1);
-			border-color: #ddd;
+			&:hover {
+				@include transition-delay(0s);
+				opacity: 1;
+			}
 		}
 
-		@include breakpoint($mobile-landscape) {
-			padding: 0.5em 1em;
+		> a {
+			display: block;
+			padding: 0.7em 1em;
+			text-decoration: none;
+			color: #444;
+			border-radius: 4px;
+			border: 1px solid transparent;
+			@include transition-duration(0.1s);
+
+			&:hover {
+				color: $color-highlight-dark;
+				background-color: rgba(#fff, 1);
+				border-color: #ddd;
+			}
 		}
 	}
 }
