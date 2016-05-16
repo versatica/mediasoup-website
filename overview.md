@@ -14,7 +14,7 @@ Since endpoints get the other participants media separately, they can have a per
 Detailed information regarding the architecture of an SFU can be found at RFC 7667 "RTP Topologies" [section 3.7](https://tools.ietf.org/html/rfc7667#section-3.7).
 </div>
 
-Unlike other existing SFU implementations, **mediasoup** is not a standalone server but an unopinionated Node.js library which can be integrated into a larger application:
+Unlike other existing SFU implementations, **mediasoup** is not a standalone server but an unopinionated [Node.js](https://nodejs.org) library which can be integrated into a larger application:
 
 ```javascript
 var mediasoup = require("mediasoup");
@@ -35,7 +35,7 @@ It's also noticeable the fact that **mediasoup** does not include or mandate a n
 * Be a Node.js library: `npm install mediasoup`
 * Be minimalist: just handle the media layer
 * Expose a modern ECMAScript 6 [API](/api/) in sync with [ORTC](http://ortc.org/)
-* Work with current WebRTC client implementations
+* Work with current [WebRTC](https://webrtc.org) client implementations
 
 
 ## Features
