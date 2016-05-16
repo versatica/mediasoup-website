@@ -20,8 +20,12 @@ Field                    | Type    | Description   | Required | Default
 `encodings`              | sequence<[RtpEncodingParameters](#RTP-RtpEncodingParameters)> | The "encodings" or "layers" to be used for simulcast, Scalable Video Coding, RTX, FEC, etc.  | No |
 `headerExtensions`       | sequence<[RtpHeaderExtensionParameters](#RTP-RtpHeaderExtensionParameters)> | Configured RTP header extensions. | No |
 `rtcp`                   | [RtcpParameters](#RTP-RtcpParameters) | RTCP parameters. | No |
+`userParameters`         | Dictionary | Custom user parameters. | No |
 
 </div>
+
+`userParameters` are custom parameters set by the user in [`rtpReceiver.receive()`](#rtpReceiver-receive) and copied into all the associated [RtpSender](#RtpSender) instances.
+
 
 #### RtpCodecParameters
 {: #RTP-RtpCodecParameters .code}

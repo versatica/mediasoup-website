@@ -248,21 +248,20 @@
 
 			th, td {
 				border: 1px solid #444;
-				min-width: 100px;
 			}
 		}
 
 		&.L2 {
 			th:nth-child(2),
 			td:nth-child(2) {
-				min-width: 300px;
+				min-width: 280px;
 			}
 		}
 
 		&.L3 {
 			th:nth-child(3),
 			td:nth-child(3) {
-				min-width: 300px;
+				min-width: 280px;
 			}
 		}
 	}
