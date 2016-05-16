@@ -34,7 +34,7 @@ Field                    | Type    | Description   | Required | Default
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
-`name`                   | String  | The codec name. Valid values are listed in [IANA-RTP-2](http://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2) ("Subtype" column). | Yes |
+`name`                   | String  | The codec MIME type. Valid values are listed in [IANA-RTP-2](http://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2). The syntax must match `type/subtype` (examples: "audio/opus", "video/H264"). | Yes |
 `payloadType`            | Integer | The value that goes in the RTP Payload Type Field. Must be unique. | Yes |
 `clockRate`              | Integer | Codec clock rate expressed in Hertz. | No |
 `maxptime`               | Integer | The maximum packetization time. | No |
