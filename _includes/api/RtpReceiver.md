@@ -67,8 +67,8 @@ The [RtpParameters](#RtpReceiver-RtpParameters) of the `rtpReceiver`. It is fill
 
 The [Transport](#Transport) associated to the `rtpReceiver`.
 
-#### rtpReceiver.listenForRtpMode
-{: #rtpReceiver-listenForRtpMode .code}
+#### rtpReceiver.rtpListenMode
+{: #rtpReceiver-rtpListenMode .code}
 
 * Read/Write
 
@@ -87,9 +87,9 @@ Value      | Description
 Usage example:
 
 ```javascript
-rtpReceiver.listenForRtpMode = "raw";
-rtpReceiver.listenForRtpMode = "object";
-rtpReceiver.listenForRtpMode = null;
+rtpReceiver.rtpListenMode = "raw";
+rtpReceiver.rtpListenMode = "object";
+rtpReceiver.rtpListenMode = null;
 ```
 
 </section>
@@ -153,13 +153,13 @@ Emitted when the `rtpReceiver` is closed. In case of error, the callback is call
 #### rtpReceiver.on("rtp", fn(packet))
 {: #rtpReceiver-on-rtp .code}
 
-Emitted for each received RTP packet if [`listenForRtpMode`](#rtpReceiver-listenForRtpMode) is "raw" or "object".
+Emitted for each received RTP packet if [`rtpListenMode`](#rtpReceiver-rtpListenMode) is "raw" or "object".
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument | Type    | Description   
 -------- | ------- | ----------------
-`packet` | [Buffer](https://nodejs.org/api/buffer.html)\|[RtpObject](#RtpReceiver-RtpObject) | RTP packet in raw or parsed format, depending on the [`listenForRtpMode`](#rtpReceiver-listenForRtpMode) mode.
+`packet` | [Buffer](https://nodejs.org/api/buffer.html)\|[RtpObject](#RtpReceiver-RtpObject) | RTP packet in raw or parsed format, depending on the [`rtpListenMode`](#rtpReceiver-rtpListenMode) mode.
 
 </div>
 
