@@ -24,7 +24,7 @@ Field                    | Type    | Description   | Required | Default
 
 </div>
 
-`userParameters` are custom parameters set by the user in [`rtpReceiver.receive()`](#rtpReceiver-receive) and copied into all the associated [RtpSender](#RtpSender) instances.
+`userParameters` are custom parameters set by the user in [`rtpReceiver.receive()`](#rtpReceiver-receive) and copied verbatim into the corresponding [RtpParameters](#RTP-RtpParameters) of all the associated [RtpSender](#RtpSender) instances.
 
 
 #### RtpCodecParameters

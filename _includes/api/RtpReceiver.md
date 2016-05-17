@@ -10,6 +10,30 @@ In the context of WebRTC 1.0, a `RTCPeerConnection` calling `addStream()` with a
 </div>
 
 
+### Dictionaries
+{: #RtpReceiver-dictionaries}
+
+<section markdown="1">
+
+#### RtpObject
+{: #RtpReceiver-RtpObject .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field                    | Type    | Description   | Required | Default
+------------------------ | ------- | ------------- | -------- | ---------
+`payloadType`            | Integer | RTP payload type. | Yes  |
+`marker`                 | Boolean | RTP marker field. | Yes  |
+`sequenceNumber`         | Integer | RTP sequence number. | Yes  |
+`timestamp`              | Integer | RTP timestamp. | Yes  |
+`ssrc`                   | Integer | RTP SSRC. | Yes  |
+`payload`                | [Buffer](https://nodejs.org/api/buffer.html) | RTP binary payload. | Yes  |
+
+</div>
+
+</section>
+
+
 ### Properties
 {: #RtpReceiver-properties}
 
@@ -43,15 +67,29 @@ The [RtpParameters](#RtpReceiver-RtpParameters) of the `rtpReceiver`. It is fill
 
 The [Transport](#Transport) associated to the `rtpReceiver`.
 
-#### rtpReceiver.listenForRtp
-{: #rtpReceiver-listenForRtp .code}
+#### rtpReceiver.listenForRtpMode
+{: #rtpReceiver-listenForRtpMode .code}
 
 * Read/Write
 
-A Boolean indicating whether RTP packets received by this `rtpReceiver` should reach JavaScript land via the [`rtp`](#rtpReceiver-on-rtp) event.
+Enables or disables the [`rtp`](#rtpReceiver-on-rtp) event for RTP packets received by this `rtpReceiver`. By enabling it, RTP packets will reach JavaScript land.
+
+<div markdown="1" class="table-wrapper L2">
+
+Value      | Description
+---------- | --------------
+"raw"      | Enables retrieval of RTP packets in raw format ([Buffer](https://nodejs.org/api/buffer.html) object).
+"object"   | Enables retrieval of RTP packets in [RtpObject](#RtpReceiver-RtpObject) format.
+`null`     | Disabled retrieval of RTP packets.
+
+</div>
+
+Usage example:
 
 ```javascript
-rtpReceiver.listenForRtp = true;
+rtpReceiver.listenForRtpMode = "raw";
+rtpReceiver.listenForRtpMode = "object";
+rtpReceiver.listenForRtpMode = null;
 ```
 
 </section>
@@ -115,13 +153,13 @@ Emitted when the `rtpReceiver` is closed. In case of error, the callback is call
 #### rtpReceiver.on("rtp", fn(packet))
 {: #rtpReceiver-on-rtp .code}
 
-Emitted for each received RTP packet if [`listenForRtp`](#rtpReceiver-listenForRtp) is set to `true`.
+Emitted for each received RTP packet if [`listenForRtpMode`](#rtpReceiver-listenForRtpMode) is "raw" or "object".
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument | Type    | Description   
------------------ | ------- | ----------------
-`packet`          | [Buffer](https://nodejs.org/api/buffer.html) | Binary data containing the full RTP packet.
+-------- | ------- | ----------------
+`packet` | [Buffer](https://nodejs.org/api/buffer.html)\|[RtpObject](#RtpReceiver-RtpObject) | RTP packet in raw or parsed format, depending on the [`listenForRtpMode`](#rtpReceiver-listenForRtpMode) mode.
 
 </div>
 
