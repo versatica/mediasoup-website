@@ -53,13 +53,6 @@ A Boolean indicating whether the `rtpReceiver` has been closed.
 
 A String indicating the media kind ("audio" or "video") handled by the `rtpReceiver`.
 
-#### rtpReceiver.rtpParameters
-{: #rtpReceiver-rtpParameters .code}
-
-* Read only
-
-The [RtpParameters](#RtpReceiver-RtpParameters) of the `rtpReceiver`. It is filled once [`rtpReceiver.receive()`](#rtpReceiver-receive) is called and its Promise resolved.
-
 #### rtpReceiver.transport
 {: #rtpReceiver-transport .code}
 
@@ -67,30 +60,12 @@ The [RtpParameters](#RtpReceiver-RtpParameters) of the `rtpReceiver`. It is fill
 
 The [Transport](#Transport) associated to the `rtpReceiver`.
 
-#### rtpReceiver.rtpListenMode
-{: #rtpReceiver-rtpListenMode .code}
+#### rtpReceiver.rtpParameters
+{: #rtpReceiver-rtpParameters .code}
 
-* Read/Write
+* Read only
 
-Enables or disables the [`rtp`](#rtpReceiver-on-rtp) event for RTP packets received by this `rtpReceiver`. By enabling it, RTP packets will reach JavaScript land.
-
-<div markdown="1" class="table-wrapper L2">
-
-Value      | Description
----------- | --------------
-"raw"      | Enables retrieval of RTP packets in raw format ([Buffer](https://nodejs.org/api/buffer.html) object).
-"object"   | Enables retrieval of RTP packets in [RtpObject](#RtpReceiver-RtpObject) format.
-`null`     | Disabled retrieval of RTP packets.
-
-</div>
-
-Usage example:
-
-```javascript
-rtpReceiver.rtpListenMode = "raw";
-rtpReceiver.rtpListenMode = "object";
-rtpReceiver.rtpListenMode = null;
-```
+The [RtpParameters](#RtpReceiver-RtpParameters) of the `rtpReceiver`. It is filled once [`rtpReceiver.receive()`](#rtpReceiver-receive) is called and its Promise resolved.
 
 </section>
 
@@ -150,16 +125,29 @@ The `RtpReceiver` class inherits from [EventEmitter](https://nodejs.org/api/even
 
 Emitted when the `rtpReceiver` is closed. In case of error, the callback is called with the corresponding `Error` object.
 
-#### rtpReceiver.on("rtp", fn(packet))
-{: #rtpReceiver-on-rtp .code}
+#### rtpReceiver.on("rtpraw", fn(packet))
+{: #rtpReceiver-on-rtpraw .code}
 
-Emitted for each received RTP packet if [`rtpListenMode`](#rtpReceiver-rtpListenMode) is "raw" or "object".
+Emitted for each valid RTP packet received by this `rtpReceiver`.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument | Type    | Description   
 -------- | ------- | ----------------
-`packet` | [Buffer](https://nodejs.org/api/buffer.html)\|[RtpObject](#RtpReceiver-RtpObject) | RTP packet in raw or parsed format, depending on the [`rtpListenMode`](#rtpReceiver-rtpListenMode) mode.
+`packet` | [Buffer](https://nodejs.org/api/buffer.html) | Full RTP packet in binary/raw format.
+
+</div>
+
+#### rtpReceiver.on("rtpobject", fn(packet))
+{: #rtpReceiver-on-rtpobject .code}
+
+Emitted for each valid RTP packet received by this `rtpReceiver`.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`packet` | [RtpObject](#RtpReceiver-RtpObject) | Parsed RTP packet.
 
 </div>
 
