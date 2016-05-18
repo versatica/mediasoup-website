@@ -105,13 +105,13 @@
 
 			@include breakpoint($computer) {
 				@include transition-property(opacity transform background-color color border-color);
-				@include transition-delay(1.75s);
-				@include transition-duration(1.25s);
+				@include transition-delay(1.5s);
+				@include transition-duration(1s);
 
 				&.loading {
 					opacity: 0;
 					@include transform(scale(1.25));
-					background-color: rgba(#fff, 0.3);
+					background-color: rgba(#fff, 0.1);
 					border-top-color: transparent;
 					color: #fff;
 				}
