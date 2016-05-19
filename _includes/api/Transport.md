@@ -299,12 +299,12 @@ Usage example:
 
 ```javascript
 transport.setRemoteDtlsParameters({
-  role        : "server",
-  fingerprint : {
-    algorithm : "sha-1",
-    value     : "751b8193b7ed277e42bed6c48ef7043a49ce3faa"
-  }
-})
+    role        : "server",
+    fingerprint : {
+      algorithm : "sha-1",
+      value     : "751b8193b7ed277e42bed6c48ef7043a49ce3faa"
+    }
+  })
   .then((transport) => {
     console.log("remote DTLS parameters set");
   })

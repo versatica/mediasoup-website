@@ -1,0 +1,144 @@
+.api-toc-button {
+	position: fixed;
+	z-index: 50;
+	background: center url(/images/toc.svg) no-repeat;
+	background-size: 50%;
+	background-color: #fcffff;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-right: none;
+	@include box-shadow(0px 0px 5px 0px rgba(#222, 0.7));
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+
+	@include breakpoint($computer) {
+		$height: 120px;
+		$width: 65px;
+
+		right: 0;
+		top: 50%;
+		margin-top: -$height / 2;
+		height: $height;
+		width: $width;
+	}
+
+	@include breakpoint($mobile) {
+		$height: 60px;
+		$width: 40px;
+
+		right: 0;
+		top: 50%;
+		margin-top: -$height / 2;
+		height: $height;
+		width: $width;
+	}
+}
+
+.api-toc-wrapper {
+	position: fixed;
+	z-index: 10;
+	left: 101%;  // Hidden by default.
+	bottom: 0;
+	width: 104%;  // Trick to hide the scroll bar.
+	max-height: 50%;
+	background: rgba(#faffff, 0.9);
+	border-color: transparent;
+	border-style: solid;
+	border-width: 8px 0;
+	font-size: 1rem;
+	@include box-shadow(0px -2px 5px 0px rgba(#666, 0.2));
+	@include transition-duration(0.2s);
+	overflow-y: auto;
+
+	@include breakpoint($computer) {
+		padding: 1rem 5rem 2rem 5rem;
+	}
+
+	@include breakpoint($mobile) {
+		padding: 0.5rem 1rem 1rem 1rem;
+	}
+
+	&.visible {
+		left: 0px;
+	}
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	a {
+		display: inline-block;
+		text-decoration: none;
+		color: inherit;
+		font-weight: inherit;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+		max-width: 100%;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	ul.toc {
+		@include display-flex();
+		@include align-items(flex-start);
+
+		@include breakpoint($computer) {
+			@include flex-direction(row);
+			@include flex-wrap(wrap);  // Allow multiple horizontal rows.
+			@include justify-content(center);
+		}
+
+		@include breakpoint($mobile) {
+			@include flex-direction(column);
+			@include justify-content(flex-start);
+		}
+
+		// First level.
+		> li {
+			display: block;
+			margin: 0.75em 0.75em 0.25em 0.75em;
+			font-weight: bold;
+			color: #333;
+
+			@include breakpoint($computer) {
+				width: 300px;
+			}
+
+			@include breakpoint($mobile) {
+				width: calc(100% - 1.50em);
+			}
+
+			// Second level.
+			> ul {
+				margin-left: 0.5em;
+
+				> li {
+					margin: 0 0 0.5em 0;
+					font-size: 0.9em;
+					font-weight: bold;
+					color: shade($color-highlight-dark, 20%);
+
+					// Third level (API).
+					> ul {
+						> li {
+							font-size: 0.9em;
+							line-height: 1.3em;
+							color: #666;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// If it has 'api' class use code font for h4
+	&.api > ul.toc > li > ul > li > ul > li {
+		font-family: Consolas, Monaco, 'Andale Mono', monospace;
+		letter-spacing: -0.04em;
+	}
+}

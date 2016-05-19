@@ -1,16 +1,16 @@
 ---
 title   : API
 anchors : true
-toc     : true
+apiToc  : true
 ---
 
 
-<div markdown="1" class="toc-wrapper api">
+<div markdown="1" class="api-toc-wrapper api">
   * Will be replaced with the ToC
   {: toc .toc}
 </div>
 
-<div markdown="1" class="toc-button">
+<div markdown="1" class="api-toc-button">
 </div>
 
 

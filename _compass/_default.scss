@@ -52,8 +52,10 @@
 
 	h3 {
 		font-size: 1.2em;
-		color: shade($color-highlight-dark, 20%);
+		line-height: 1.5em;
+		color: $color-highlight-dark;
 		font-weight: bold;
+		border-bottom: 1px solid #222;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 	}

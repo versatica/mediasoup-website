@@ -34,3 +34,6 @@ defaults:
       path: ''
     values:
       layout: layout
+
+custom:
+  canonicalUrl: 'http://mediasoup.org'
