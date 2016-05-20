@@ -190,17 +190,16 @@
 		}
 
 		> .wrapper {
-			width: 100%;
-
 			@include breakpoint($computer) {
 				@include display-flex;
 				@include flex-direction(row);
 				@include justify-content(center);
+				margin: 0;
 			}
 
 			.box {
 				@include breakpoint($computer) {
-					@include flex(0 100 auto);
+					@include flex(0 10 auto);
 					width: 33%;
 					margin: 0 2.5%;
 
