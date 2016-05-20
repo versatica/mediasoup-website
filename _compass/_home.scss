@@ -11,6 +11,7 @@
 			@include display-flex;
 			@include flex-direction(column);
 			@include justify-content(center);
+			min-height: 150px;
 			padding: 0 20%;
 			font-size: 4.5rem;
 			@include transition-property(filter -webkit-filter -moz-filter);
@@ -94,7 +95,7 @@
 			@include display-flex;
 			@include flex-direction(column);
 			@include justify-content(center);
-			margin: 1rem 0;
+			min-height: 120px;
 		}
 
 		@include breakpoint($mobile) {
