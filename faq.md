@@ -20,7 +20,7 @@ All those using others languages/platforms for the signaling plane would need to
 
 Not exactly. [Native addons](https://nodejs.org/api/addons.html) are Node.js extensions written in C/C++ that can be loaded using `require()` as if they were ordinary Node.js modules.
 
-Instead, **mediasoup** launches a set of C++ child processes ([media workers](https://github.com/ibc/mediasoup/tree/master/worker)) and communicates with them by means of inter-process communication. This design leads to a media worker design not tiled to the internals of Node.js or V8 (which change in every new release).
+Instead, **mediasoup** launches a set of C++ child processes ([media workers](https://github.com/ibc/mediasoup/tree/master/worker)) and communicates with them by means of inter-process communication. This appraoch leads to a media worker design not tiled to the internals of Node.js or V8 (which change in every new release).
 
 
 ### ORTC API?
@@ -51,4 +51,4 @@ However, these requirements are not usually satisfied by existing SIP devices so
 
 ### Can you provide a full example app?
 
-Yes, as long as you pronounce the magic words: "NEED HELP PLZ PLZ PLZ".
+Yes, as long as you say the magic words: "NEED HELP PLZ PLZ PLZ".
