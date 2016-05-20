@@ -95,7 +95,8 @@
 			@include display-flex;
 			@include flex-direction(column);
 			@include justify-content(center);
-			min-height: 120px;
+			min-height: 100px;
+			margin-bottom: 0.5rem;
 		}
 
 		@include breakpoint($mobile) {
