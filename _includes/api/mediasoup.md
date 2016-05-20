@@ -1,7 +1,7 @@
 ## mediasoup
 {: #mediasoup}
 
-The top-level module exported by the **mediasoup** library.
+The top-level module exported by the **mediasoup** module.
 
 ```javascript
 var mediasoup = require("mediasoup");

@@ -2,6 +2,7 @@
 title   : API
 anchors : true
 apiToc  : true
+class   : h3color
 ---
 
 

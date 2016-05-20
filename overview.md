@@ -14,7 +14,7 @@ Since endpoints get the other participants media separately, they can have a per
 Detailed information regarding the architecture of an SFU can be found at RFC 7667 "RTP Topologies" [section 3.7](https://tools.ietf.org/html/rfc7667#section-3.7).
 </div>
 
-Unlike other existing SFU implementations, **mediasoup** is not a standalone server but an unopinionated [Node.js](https://nodejs.org) library which can be integrated into a larger application:
+Unlike other existing SFU implementations, **mediasoup** is not a standalone server but an unopinionated [Node.js](https://nodejs.org) module which can be integrated into a larger application:
 
 ```javascript
 var mediasoup = require("mediasoup");
@@ -25,14 +25,14 @@ Thus internally, **mediasoup** can be splitted into two separete components:
 * a JavaScript layer exposing a modern ECMAScript 6 [API](/api/) for Node.js, and
 * a set of subprocesses that handle the media layer (ICE, DTLS, RTP and so on).
 
-Both components communicate to each other by means of inter-process communication. However, from the point of view of the developer, the application integrating **mediasoup** should just care about the JavaScript [API](/api/) exposed by the library.
+Both components communicate to each other by means of inter-process communication. However, from the point of view of the developer, the application should just care about the JavaScript [API](/api/) exposed by **mediasoup**.
 
 It's also noticeable the fact that **mediasoup** does not include or mandate a network signaling protocol (such as SIP or XMPP) but, instead, lets the application developer choose and implement the desired one.
 
 
 ## Design goals
 
-* Be a Node.js library: `npm install mediasoup`
+* Be a Node.js module: `npm install mediasoup`
 * Be minimalist: just handle the media layer
 * Expose a modern ECMAScript 6 [API](/api/) in sync with [ORTC](http://ortc.org/)
 * Work with current [WebRTC](https://webrtc.org) client implementations
@@ -43,7 +43,7 @@ It's also noticeable the fact that **mediasoup** does not include or mandate a n
 * Multiple conference rooms with multiple participants
 * IPv6 ready
 * ICE / DTLS / RTP / RTCP / DataChannel over UDP and TCP
-* Extremely powerful (media handler subprocess coded in C++ on top of [libuv](http://libuv.org))
+* Extremely powerful (media worker subprocess coded in C++ on top of [libuv](http://libuv.org))
 * Can handle RTP packets in JavaScript land
 
 

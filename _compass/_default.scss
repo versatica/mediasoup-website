@@ -21,7 +21,8 @@
 
 	h1 {
 		font-family: 'Poiret One';
-		color: $color-text-7;
+		color: $color-text-8;
+		text-align: left;
 		margin-bottom: 1em;
 
 		@include breakpoint($computer) {
@@ -34,7 +35,8 @@
 	}
 
 	h2 {
-		color: $color-text-7;
+		color: $color-text-8;
+		text-align: left;
 		border-bottom: 1px solid $color-highlight;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
@@ -53,17 +55,23 @@
 	h3 {
 		font-size: 1.2em;
 		line-height: 1.5em;
-		color: $color-highlight-dark;
+		color: $color-text-7;
 		font-weight: bold;
-		border-bottom: 1px solid #222;
+		text-align: left;
+		border-bottom: 1px solid #2a2a2a;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
+	}
+
+	&.h3color h3 {
+		color: $color-highlight-dark;
 	}
 
 	h4 {
 		font-size: 1.1em;
 		color: $color-text-6;
 		font-weight: bold;
+		text-align: left;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 
@@ -79,6 +87,7 @@
 		font-size: 1em;
 		color: $color-text-5;
 		font-weight: bold;
+		text-align: left;
 		margin-top: 1.5em;
 		margin-bottom: 1em;
 	}

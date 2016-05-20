@@ -19,7 +19,7 @@ During the last years of my life I've been deeply involved in Voice over IP tech
 Since the first days of WebRTC my professional efforts go around it, and this is where **mediasoup** takes place. Made with love, this is by far my largest Open Source project, combining several of my preferred technical fields plus so many sleepless nights coding and reading specifications.
 
 
-## Acknowledgements
+### Acknowledgements
 
 **mediasoup** would not have been possible without the help and advice of:
 
