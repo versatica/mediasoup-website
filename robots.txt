@@ -4,10 +4,5 @@ layout : null
 
 
 User-agent: *
-Disallow: /css/
-Disallow: /favicons/
-Disallow: /fonts/
-Disallow: /images/
-Disallow: /js/
 Disallow: /404.html
 Sitemap: {{ site.custom.canonicalUrl }}/sitemap.xml

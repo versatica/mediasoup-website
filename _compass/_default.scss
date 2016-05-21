@@ -212,12 +212,13 @@
 		margin: 2em auto;
 		padding: 1em;
 		font-size: 0.95em;
-		background: rgba(#000, 0.25);
+		background-color: rgba(#000, 0.25);
 		border: 1px solid rgba($color-highlight-dark, 0.75);
 		border-radius: 4px;
 
 		&.warn {
 			border: 1px solid rgba(#ff5542, 0.75);
+			background-color: rgba(#ff5542, 0.05);
 		}
 
 		@include breakpoint($computer) {
