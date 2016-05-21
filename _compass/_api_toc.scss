@@ -83,7 +83,7 @@
 		}
 	}
 
-	ul.toc {
+	> ul {
 		@include display-flex();
 		@include align-items(flex-start);
 
@@ -126,6 +126,8 @@
 					// Third level (API).
 					> ul {
 						> li {
+							font-family: Consolas, Monaco, 'Andale Mono', monospace;
+							letter-spacing: -0.04em;
 							font-size: 0.9em;
 							line-height: 1.3em;
 							color: #666;
@@ -134,11 +136,5 @@
 				}
 			}
 		}
-	}
-
-	// If it has 'api' class use code font for h4
-	&.api > ul.toc > li > ul > li > ul > li {
-		font-family: Consolas, Monaco, 'Andale Mono', monospace;
-		letter-spacing: -0.04em;
 	}
 }

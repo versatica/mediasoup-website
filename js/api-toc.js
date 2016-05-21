@@ -2,7 +2,7 @@ window.addEventListener('load', function()
 {
 	var tocButton = document.querySelector('.api-toc-button');
 	var toc = document.querySelector('.api-toc-wrapper');
-	var tocUl = toc.querySelector('ul.toc');
+	var tocUl = toc.children[0];
 	var transitionDuration = 200;
 	var isTocVisible = false;
 	var hammer = new Hammer.Manager(toc);

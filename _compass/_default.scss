@@ -16,7 +16,7 @@
 		margin: 2.5rem auto;
 		width: 100%;
 		padding: 1rem;
-		font-size: 0.95rem;
+		font-size: 0.85rem;
 	}
 
 	h1 {
@@ -104,6 +104,10 @@
 		margin-top: 1em;
 		margin-bottom: 1em;
 		list-style-type: disc;
+
+		@include breakpoint($mobile) {
+			text-align: left;
+		}
 
 		li ul {
 			margin-top: 0;
@@ -254,7 +258,7 @@
 			td {
 				padding: 0.75em;
 				line-height: 1.5em;
-				text-align: justify;  // It doesn't seem to be inherited
+				text-align: left;
 			}
 
 			th, td {

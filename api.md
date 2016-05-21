@@ -6,9 +6,9 @@ class   : h3color
 ---
 
 
-<div markdown="1" class="api-toc-wrapper api">
+<div markdown="1" class="api-toc-wrapper">
   * Will be replaced with the ToC
-  {: toc .toc}
+  {: toc}
 </div>
 
 <div markdown="1" class="api-toc-button">
