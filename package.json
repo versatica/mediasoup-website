@@ -1,7 +1,8 @@
 {
   "name": "mediasoup-website",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "mediasoup website",
+  "main": "lib/index.js",
   "homepage": "http://mediasoup.org",
   "repository": {
     "type": "git",
@@ -9,13 +10,34 @@
   },
   "author": "Iñaki Baz Castillo <ibc@aliax.net>",
   "license": "LicenseRef-LICENSE",
+  "browser": {
+    "anchor-js": "./node_modules/anchor-js/anchor.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "anchor-js": "anchors"
+  },
+  "dependencies": {
+    "anchor-js": "^3.1.1",
+    "domready": "^1.0.8",
+    "dontscrollthebody": "^0.1.0",
+    "hammerjs": "^2.0.8"
+  },
   "devDependencies": {
+    "browserify": "^13.0.1",
+    "browserify-shim": "^3.8.12",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
-    "gulp-main-bower-files": "^1.5.0",
+    "gulp-rename": "^1.2.2",
     "gulp-shell": "^0.5.2",
     "gulp-sitemap": "^4.1.1",
-    "main-bower-files": "^2.13.0",
+    "gulp-uglify": "^1.5.3",
     "request": "^2.72.0",
-    "rsyncwrapper": "^1.0.0"
+    "rsyncwrapper": "^1.0.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }

@@ -34,6 +34,33 @@
 		<meta name="theme-color" content="#ffffff">
 
 		<link rel="stylesheet" href="/css/mediasoup.css">
+
+		<script>
+			// Transition for 'loading' elements
+			window.addEventListener('load', function()
+			{
+				var elems = document.querySelectorAll('.loading');
+
+				for (var i = 0, len = elems.length; i < len; i++)
+				{
+					var elem = elems[i];
+
+					elem.classList.remove('loading');
+				}
+			});
+
+			var page = {};
+
+			{% if page.anchors %}
+			page.anchors = true;
+			{% endif %}
+
+			{% if page.apiToc %}
+			page.apiToc = true;
+			{% endif %}
+		</script>
+
+		<script async src='/js/site.js'></script>
 	</head>
 
 	<body>
@@ -73,26 +100,6 @@
 		</div>
 
 		<div class="arrow-up"></div>
-
-		<script>
-			{% include init.js %}
-		</script>
-
-
-		<script src='/js/libs/hammerjs/hammer.js'></script>
-		<script src='/js/libs/dontscrollthebody/dist/dontscrollthebody.js'></script>
-
-		{% if page.anchors %}
-		<script src='/js/libs/anchor-js/anchor.js' onload="init.setAnchors()"></script>
-		{% endif %}
-
-		{% if page.apiToc %}
-		<script src='/js/api-toc.js'></script>
-		{% endif %}
-
-		<script src='/js/init.js'></script>
-
-		<!-- <script async src='/js/piwik.js'></script> -->
 	</body>
 
 </html>

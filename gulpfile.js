@@ -1,9 +1,14 @@
+var path = require('path');
+var fs = require('fs');
 var gulp = require('gulp');
-var mainBowerFiles = require('gulp-main-bower-files');
-var request = require('request');
+var rename = require('gulp-rename');
 var shell = require('gulp-shell');
 var sitemap = require('gulp-sitemap');
-var fs = require('fs');
+var browserify = require('browserify');
+var vinyl_source_stream = require('vinyl-source-stream');
+var vinyl_buffer = require('vinyl-buffer');
+var uglify = require('gulp-uglify');
+var request = require('request');
 var rsync = require('rsyncwrapper');
 
 const PKG = require('./package.json');
@@ -12,24 +17,19 @@ gulp.task('clean', shell.task(
 	[ 'rm -rf _site/ .sass-cache/' ]
 ));
 
-gulp.task('bower:clean', shell.task(
-	[ 'rm -rf ./js/libs/' ]
-));
-
-gulp.task('bower:install', shell.task(
-	[ 'bower install' ]
-));
-
-gulp.task('bower:main-files', function()
+gulp.task('browserify', function()
 {
-	return gulp.src('./bower.json')
-		.pipe(mainBowerFiles())
-		.pipe(gulp.dest('./js/libs'));
+	return browserify([path.join(__dirname, PKG.main)])
+		.bundle()
+		.pipe(vinyl_source_stream(PKG.name + '.js'))
+		.pipe(vinyl_buffer())
+		.pipe(uglify())
+		.pipe(rename('site.js'))
+		.pipe(gulp.dest('./js/'));
 });
 
-gulp.task('bower', gulp.series('bower:clean', 'bower:install', 'bower:main-files'));
-
-gulp.task('npm-shield', function () {
+gulp.task('npm-shield', function()
+{
   return request('https://img.shields.io/npm/v/mediasoup.svg')
   	.pipe(fs.createWriteStream('images/npm-shield-mediasoup.svg'));
 });
@@ -87,9 +87,9 @@ gulp.task('rsync', function(done)
 	});
 });
 
-gulp.task('build', gulp.series('clean', 'bower', 'npm-shield', 'jekyll:build', 'sitemap'));
+gulp.task('build', gulp.series('clean', 'browserify', 'npm-shield', 'jekyll:build', 'sitemap'));
 
-gulp.task('live', gulp.series('clean', 'bower', 'jekyll:watch'));
+gulp.task('live', gulp.series('clean', 'browserify', 'jekyll:watch'));
 
 gulp.task('deploy', gulp.series('build', 'rsync'));
 

@@ -1,7 +1,6 @@
-/js/libs/
 /Gemfile.lock
 /node_modules/
-/bower_components/
+/js/site.js
 /_site/
 /.sass-cache/
 /.jekyll-metadata
