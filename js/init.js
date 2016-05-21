@@ -1,21 +1,7 @@
 window.addEventListener('load', function()
 {
-	setLoading();
 	setMenu();
-	setAnchors();
 	setArrowUp();
-
-	function setLoading()
-	{
-		var elems = document.querySelectorAll('.loading');
-
-		for (var i = 0, len = elems.length; i < len; i++)
-		{
-			var elem = elems[i];
-
-			elem.classList.remove('loading');
-		}
-	}
 
 	function setMenu()
 	{
@@ -78,12 +64,6 @@ window.addEventListener('load', function()
 			// Allow body scroll in mobile.
 			document.body.classList.remove('noscroll');
 		}
-	}
-
-	function setAnchors()
-	{
-		if (window.anchors)
-			anchors.add('.content h2, .content h3, .content h4');
 	}
 
 	function setArrowUp()
