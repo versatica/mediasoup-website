@@ -28,6 +28,14 @@ Not exactly. [Native addons](https://nodejs.org/api/addons.html) are Node.js ext
 Instead, **mediasoup** launches a set of C++ child processes ([media workers](https://github.com/ibc/mediasoup/tree/master/worker)) and communicates with them by means of inter-process communication. This appraoch leads to a media worker design not tiled to the internals of Node.js or V8 (which change in every new release).
 
 
+### Which signaling protocol does it use?
+{: #which-signaling-protocol-does-it-use}
+
+That's a wrong question. **mediasoup** does not provide any network signaling protocol to communicate with endpoints/browsers. It just handles the media layer.
+
+It's up to the application developer to build his preferred signaling protocol or choose an existing one and integrate it with **mediasoup**.
+
+
 ### ORTC API?
 {: #ortc-api}
 
