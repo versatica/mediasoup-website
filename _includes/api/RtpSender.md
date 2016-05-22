@@ -29,11 +29,11 @@ Closes the `rtpSender` and triggers a [`close`](#rtpSender-on-close) event.
 
 For debugging purposes. Returns a Promise that resolves to an Object containing the `rtpSender` internals.
 
-```javascript
+```json
 {
-  rtpSenderId   : 67138704,
-  kind          : "audio",
-  rtpParameters : {}
+  "rtpSenderId"   : 67138704,
+  "kind"          : "audio",
+  "rtpParameters" : {}
 }
 ```
 

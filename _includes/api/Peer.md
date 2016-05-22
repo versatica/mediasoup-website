@@ -66,15 +66,13 @@ Closes the `peer`, including all its `transports`, `rtpReceivers` and `rtpSender
 
 For debugging purposes. Returns a Promise that resolves to an Object containing the `peer` internals.
 
-```javascript
+```json
 {
-  {
-    peerId       : 13257608,
-    peerName     : "alice",
-    transports   : [], // Array of transport.dump() resolved data  
-    rtpReceivers : [], // Array of rtpReceiver.dump() resolved data
-    rtpSenders   : []  // Array of rtpSender.dump() resolved data
-  }
+  "peerId"       : 13257608,
+  "peerName"     : "alice",
+  "transports"   : [],
+  "rtpReceivers" : [],
+  "rtpSenders"   : []
 }
 ```
 

@@ -72,16 +72,17 @@ Closes the `server`, including all its `rooms`, and triggers a [`close`](#server
 
 For debugging purposes. Returns a Promise that resolves to an Object containing the `server` internals.
 
-```javascript
+```json
 {
-  workers : [
+  "workers" :
+  [
     {
-      workerId : "gijzfkyr#1",
-      rooms    : [] // Array of room.dump() resolved data
+      "workerId" : "gijzfkyr#1",
+      "rooms"    : []
     },
     {
-      workerId : "gijzfkyr#2",
-      rooms    : [] // Array of room.dump() resolved data
+      "workerId" : "gijzfkyr#2",
+      "rooms"    : []
     }
   ]
 }

@@ -85,13 +85,13 @@ Closes the `rtpReceiver` and triggers a [`close`](#rtpReceiver-on-close) event.
 
 For debugging purposes. Returns a Promise that resolves to an Object containing the `rtpReceiver` internals.
 
-```javascript
+```json
 {
-  rtpReceiverId         : 73691078,
-  kind                  : "video",
-  rtpRawEventEnabled    : false,
-  rtpObjectEventEnabled : false,
-  rtpParameters         : {}
+  "rtpReceiverId"         : 73691078,
+  "kind"                  : "video",
+  "rtpRawEventEnabled"    : false,
+  "rtpObjectEventEnabled" : false,
+  "rtpParameters"         : {}
 }
 ```
 

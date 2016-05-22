@@ -60,12 +60,12 @@ Closes the `room`, including all its `peers`, and triggers a [`close`](#room-on-
 
 For debugging purposes. Returns a Promise that resolves to an Object containing the `room` internals.
 
-```javascript
+```json
 {
-  roomId                   : 45450588,
-  options                  : {},
-  peers                    : [], // Array of peer.dump() resolved data
-  mapRtpReceiverRtpSenders : {}
+  "roomId"                   : 45450588,
+  "options"                  : {},
+  "peers"                    : [],
+  "mapRtpReceiverRtpSenders" : {}
 }
 ```
 

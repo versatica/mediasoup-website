@@ -280,16 +280,16 @@ Closes the `transport` and triggers a [`close`](#transport-on-close) event.
 
 For debugging purposes. Returns a Promise that resolves to an Object containing the `transport` internals.
 
-```javascript
+```json
 {
-  transportId         : 38061109,
-  dtlsLocalParameters : {},
-  dtlsState           : "connected",
-  iceLocalCandidates  : [],
-  iceLocalParameters  : {},
-  iceRole             : "controlled",
-  iceSelectedTuple    : {},
-  iceState            : "completed",
+  "transportId"         : 38061109,
+  "dtlsLocalParameters" : {},
+  "dtlsState"           : "connected",
+  "iceLocalCandidates"  : [],
+  "iceLocalParameters"  : {},
+  "iceRole"             : "controlled",
+  "iceSelectedTuple"    : {},
+  "iceState"            : "completed"
 }
 ```
 
