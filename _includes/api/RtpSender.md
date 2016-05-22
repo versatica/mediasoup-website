@@ -19,7 +19,33 @@
 
 <section markdown="1">
 
-*TBD*
+#### rtpSender.close()
+{: #rtpSender-close .code}
+
+Closes the `rtpSender` and triggers a [`close`](#rtpSender-on-close) event.
+
+#### rtpSender.dump()
+{: #rtpSender-dump .code}
+
+For debugging purposes. Returns a Promise that resolves to an Object containing the `rtpSender` internals.
+
+```javascript
+{
+  rtpSenderId   : 67138704,
+  kind          : "audio",
+  rtpParameters : {}
+}
+```
+
+#### rtpSender.isRtpSender()
+{: #rtpSender-isRtpSender .code}
+
+Returns `true`.
+
+#### rtpSender.isRtpReceiver()
+{: #rtpSender-isRtpReceiver .code}
+
+Returns `false`.
 
 </section>
 

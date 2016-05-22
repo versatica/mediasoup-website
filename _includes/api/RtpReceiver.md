@@ -83,9 +83,17 @@ Closes the `rtpReceiver` and triggers a [`close`](#rtpReceiver-on-close) event.
 #### rtpReceiver.dump()
 {: #rtpReceiver-dump .code}
 
-For debugging purposes. Returns a Promise that resolves to an Object containing the current status and details of the `rtpReceiver`.
+For debugging purposes. Returns a Promise that resolves to an Object containing the `rtpReceiver` internals.
 
-*TBD:* Document it.
+```javascript
+{
+  rtpReceiverId         : 73691078,
+  kind                  : "video",
+  rtpRawEventEnabled    : false,
+  rtpObjectEventEnabled : false,
+  rtpParameters         : {}
+}
+```
 
 #### rtpReceiver.isRtpReceiver()
 {: #rtpReceiver-isRtpReceiver .code}

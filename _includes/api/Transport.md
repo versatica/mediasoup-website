@@ -278,9 +278,20 @@ Closes the `transport` and triggers a [`close`](#transport-on-close) event.
 #### transport.dump()
 {: #transport-dump .code}
 
-For debugging purposes. Returns a Promise that resolves to an Object containing the current status and details of the `transport`.
+For debugging purposes. Returns a Promise that resolves to an Object containing the `transport` internals.
 
-*TBD:* Document it.
+```javascript
+{
+  transportId         : 38061109,
+  dtlsLocalParameters : {},
+  dtlsState           : "connected",
+  iceLocalCandidates  : [],
+  iceLocalParameters  : {},
+  iceRole             : "controlled",
+  iceSelectedTuple    : {},
+  iceState            : "completed",
+}
+```
 
 #### transport.setRemoteDtlsParameters(parameters)
 {: #transport-setRemoteDtlsParameters .code}

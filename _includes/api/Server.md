@@ -70,9 +70,22 @@ Closes the `server`, including all its `rooms`, and triggers a [`close`](#server
 #### server.dump()
 {: #server-dump .code}
 
-For debugging purposes. Returns a Promise that resolves to an Object containing the current status and details of the `server`.
+For debugging purposes. Returns a Promise that resolves to an Object containing the `server` internals.
 
-*TBD:* Document it.
+```javascript
+{
+  workers : [
+    {
+      workerId : "gijzfkyr#1",
+      rooms    : [] // Array of room.dump() resolved data
+    },
+    {
+      workerId : "gijzfkyr#2",
+      rooms    : [] // Array of room.dump() resolved data
+    }
+  ]
+}
+```
 
 #### server.updateSettings(settings)
 {: #server-updateSettings .code}

@@ -58,9 +58,16 @@ Closes the `room`, including all its `peers`, and triggers a [`close`](#room-on-
 #### room.dump()
 {: #room-dump .code}
 
-For debugging purposes. Returns a Promise that resolves to an Object containing the current status and details of the `room`.
+For debugging purposes. Returns a Promise that resolves to an Object containing the `room` internals.
 
-*TBD:* Document it.
+```javascript
+{
+  roomId                   : 45450588,
+  options                  : {},
+  peers                    : [], // Array of peer.dump() resolved data
+  mapRtpReceiverRtpSenders : {}
+}
+```
 
 #### room.Peer(name)
 {: #room-Peer .code}

@@ -64,9 +64,19 @@ Closes the `peer`, including all its `transports`, `rtpReceivers` and `rtpSender
 #### peer.dump()
 {: #peer-dump .code}
 
-For debugging purposes. Returns a Promise that resolves to an Object containing the current status and details of the `peer`.
+For debugging purposes. Returns a Promise that resolves to an Object containing the `peer` internals.
 
-*TBD:* Document it.
+```javascript
+{
+  {
+    peerId       : 13257608,
+    peerName     : "alice",
+    transports   : [], // Array of transport.dump() resolved data  
+    rtpReceivers : [], // Array of rtpReceiver.dump() resolved data
+    rtpSenders   : []  // Array of rtpSender.dump() resolved data
+  }
+}
+```
 
 #### peer.createTransport(options)
 {: #peer-createTransport .code}
