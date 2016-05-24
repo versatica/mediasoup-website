@@ -57,7 +57,7 @@ Of course, "someone" may produce a Node.js module/utility that deals with that s
 
 Given that **mediasoup** does not handle the signaling plane, it's hard to provide a "full application example". The [API](/api/), the [Guide](/guide/) and the existing [test units](https://github.com/ibc/mediasoup/tree/master/test) should be sufficient for the developer to learn how to use it.
 
-However, take into account that **mediasoup** provides a low level API so knowledge and expertise in Real-Time Communications is crucial.
+However, take into account that **mediasoup** provides a low level API so knowledge and expertise in Real-Time Communication is crucial.
 
 
 ### Does mediasoup transcode?
