@@ -143,6 +143,10 @@ body {
 			@include transition-duration(0.25s);
 			-webkit-tap-highlight-color: transparent;
 
+			&.hidden {
+				opacity: 0;
+			}
+
 			@include breakpoint($computer) {
 				width: 48px;
 				height: 48px;

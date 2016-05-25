@@ -62,7 +62,7 @@
 			border-radius: 5px;
 			border: 1px solid rgba($color-highlight, 0.3);
 			opacity: 0.8;
-			@include transition-property(opacity transform);
+			@include transition-property(transform);
 			@include transition-duration(.75s);
 
 			&:hover {
@@ -71,7 +71,14 @@
 			}
 
 			&.loading {
-				opacity: 0;
+				@include transform(scale(0));
+			}
+
+			&.loaded {
+				@include transition-duration(.25s);
+			}
+
+			&.hidden {
 				@include transform(scale(0));
 			}
 		}

@@ -43,9 +43,19 @@
 
 				for (var i = 0, len = elems.length; i < len; i++)
 				{
-					var elem = elems[i];
+					var element = elems[i];
 
-					elem.classList.remove('loading');
+					(function(elem)
+					{
+						elem.classList.remove('loading');
+						elem.addEventListener('transitionend', loaded);
+
+						function loaded()
+						{
+							elem.removeEventListener('transitionend', loaded);
+							elem.classList.add('loaded');
+						}
+					})(element);
 				}
 			});
 
