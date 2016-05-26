@@ -49,7 +49,7 @@ gulp.task('jekyll:build', shell.task(
 ));
 
 gulp.task('jekyll:watch', shell.task(
-	[ 'jekyll serve' ]
+	[ 'jekyll serve --host 0.0.0.0' ]
 ));
 
 gulp.task('rsync', function(done)

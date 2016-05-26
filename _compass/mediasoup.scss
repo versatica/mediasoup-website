@@ -18,6 +18,9 @@
 $computer: min-width 900px;
 $mobile: max-width 900px;
 
+$header-height-computer: 64px;
+$header-height-mobile: 56px;
+
 $color-text-8: #f0f8ff;
 $color-text-7: #ddd;
 $color-text-6: #ccc;
@@ -36,19 +39,18 @@ $color-highlight-dark: shade($color-highlight, 25%);
 
 html {
 	height: 100%;
-	// This prevents the whole layout being resized when scrolling up/down in mobile
-	// (it requires height:100% and overflow:auto in body).
-	// overflow: hidden;
 	// Default font size for common text.
 	font-size: 16px;
 	font-family: 'Open Sans', Helvetica;
 	font-weight: 400;
-	@include background-image(linear-gradient(110deg, #000 0%, #222 30%, #060606 30%, #333 100%));
+	@include background-image(linear-gradient(110deg,
+		#000 0%,
+		#222 30%,
+		#060606 30%,
+		#333 100%));
 	background-color: #191919;
-	background-position: center;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	background-size: cover;
 }
 
 body {
@@ -70,60 +72,45 @@ body {
 		display: none;
 	}
 
-	> .coming-soon {
-		position: fixed;
-		z-index: 200;
-		width: 400px;
-		@include transform(rotate(-45deg));
-		color: rgba(#fff, 0.9);
-		background-color: rgba(#f06a2a, 0.9);
-		@include box-shadow(0px 0px 5px 0px rgba(#333, 0.6));
-		text-align: center;
-		@include transition-property(opacity);
-		@include transition-delay(.2s);
-		@include transition-duration(.2s);
-
-		@include breakpoint($computer) {
-			&.loading {
-				opacity: 0;
-			}
-		}
-
-		@include breakpoint($computer) {
-			bottom: 50px;
-			right: -130px;
-			font-size: 1.15rem;
-			line-height: 2.3rem;
-		}
-
-		@include breakpoint($mobile) {
-			bottom: 45px;
-			right: -145px;
-			font-size: 0.8rem;
-			line-height: 1.8rem;
-		}
-	}
-
 	@import 'menu';
 
 	> .header {
-		@include flex(0 0 auto);
-		width: 100%;
-		height: 64px;
+		position: fixed;
+		z-index: 2;
+		top: 0;
+		left: 0;
+		right: 0;
 		@include display-flex;
 		@include flex-direction(row);
 		@include justify-content(space-between);
 		@include align-items(center);
-		background-color: rgba(#fff, 0.04);
-		border-bottom: 1px solid rgba(#fff, 0.1);
-		font-size: 2.5rem;
+		border-bottom: 1px solid rgba(#fff, 0.25);
+		@include background-image(linear-gradient(110deg,
+			rgba(shade($color-highlight, 60%), 0.95) 0%,
+			rgba(shade($color-highlight, 30%), 0.95) 30%,
+			rgba(#1a1a1a, 0.85) 30%,
+			rgba(#393939, 0.85) 100%));
+		background-attachment: fixed;
+		background-repeat: no-repeat;
 
 		@include breakpoint($computer) {
+			height: $header-height-computer;
 			padding: 0 3.5rem;
+			font-size: 2.5rem;
 		}
 
 		@include breakpoint($mobile) {
+			height: $header-height-mobile;
 			padding: 0 16px;
+			font-size: 2rem;
+
+			// NOTE: Hack to avoid Android Chrome issue:
+			// https://bugs.chromium.org/p/chromium/issues/detail?id=615116
+			@include background-image(linear-gradient(110deg,
+				rgba(shade($color-highlight, 60%), 0.95) 0%,
+				rgba(shade($color-highlight, 30%), 0.95) 45%,
+				rgba(#1a1a1a, 0.85) 45%,
+				rgba(#393939, 0.85) 100%));
 		}
 
 		h1 {
@@ -277,6 +264,40 @@ body {
 		@include breakpoint($mobile) {
 			bottom: 0.5rem;
 			right: 0.5rem;
+		}
+	}
+
+	> .coming-soon {
+		position: fixed;
+		z-index: 200;
+		width: 400px;
+		@include transform(rotate(-45deg));
+		color: rgba(#fff, 0.9);
+		background-color: rgba(#f06a2a, 0.9);
+		@include box-shadow(0px 0px 5px 0px rgba(#333, 0.6));
+		text-align: center;
+		@include transition-property(opacity);
+		@include transition-delay(.2s);
+		@include transition-duration(.2s);
+
+		@include breakpoint($computer) {
+			&.loading {
+				opacity: 0;
+			}
+		}
+
+		@include breakpoint($computer) {
+			bottom: 50px;
+			right: -130px;
+			font-size: 1.15rem;
+			line-height: 2.3rem;
+		}
+
+		@include breakpoint($mobile) {
+			bottom: 45px;
+			right: -145px;
+			font-size: 0.8rem;
+			line-height: 1.8rem;
 		}
 	}
 }

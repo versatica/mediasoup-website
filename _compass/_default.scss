@@ -1,4 +1,7 @@
 [data-content="default"] {
+	$padding: 16px;
+
+	padding: $padding;
 	color: $color-text-4;
 	width: 100%;
 	overflow: hidden;
@@ -6,17 +9,34 @@
 
 	@include breakpoint($computer) {
 		margin: 4rem auto;
+		padding-top: $padding + $header-height-computer;
 		width: 90%;
 		max-width: 1024px;
-		padding: 1rem;
 		font-size: 1rem;
 	}
 
 	@include breakpoint($mobile) {
 		margin: 2.5rem auto;
+		padding-top: $padding + $header-height-mobile;
 		width: 100%;
-		padding: 1rem;
 		font-size: 0.85rem;
+	}
+
+	// Fix fixed header size for anchor links
+	h2:before, h3:before, h4:before {
+		content: '';
+		display: block;
+		visibility: hidden;
+
+		@include breakpoint($computer) {
+			height: $header-height-computer * 1.3;
+			margin-top: -$header-height-computer * 1.3;
+		}
+
+		@include breakpoint($mobile) {
+			height: $header-height-mobile * 1.3;
+			margin-top: -$header-height-mobile * 1.3;
+		}
 	}
 
 	h1 {
