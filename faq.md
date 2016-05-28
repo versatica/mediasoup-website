@@ -52,6 +52,12 @@ By providing a similar API, the developer does not need to learn yet another Web
 Of course, "someone" may produce a Node.js module/utility that deals with that stuff. :)
 
 
+### Does mediasoup provide a high level API?
+{: #does-mediasoup-provide-a-high-level-api}
+
+No. **mediasoup** provides a low level API in sync with [ORTC](http://ortc.org/). This is the intended approach. Higher level APIs can be easily built on top of **mediasoup**.
+
+
 ### Is there any example code?
 {: #is-there-any-example-code}
 

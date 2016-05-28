@@ -139,7 +139,7 @@ Emitted when the `peer` is closed. In case of error, the callback is called with
 #### peer.on("newrtpsender", fn(rtpSender))
 {: #peer-on-newrtpsender .code}
 
-Emitted when another `peer` in the same `room` creates a new [RtpReceiver](#RtpReceiver) and calls [`receive()`](#rtpReceiver-receive) on it.
+Emitted when another `peer` in the same `room` creates a new [RtpReceiver](#RtpReceiver) and calls [`receive()`](#rtpReceiver-receive) on it for first time.
 
 <div markdown="1" class="table-wrapper L3">
 
