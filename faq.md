@@ -78,3 +78,11 @@ No. All the peers in a room must support a common subset of audio and video code
 This is a WebRTC SFU so, as far as the endpoint supports the WebRTC media requirements (ICE, DTLS-SRTP, MTI codecs, multi-stream, etc.), it can join a **mediasoup** room.
 
 However, these requirements are not usually satisfied by existing SIP devices so a media gateway may be required. We consider that such a task (translating the old world to the new one) is best done outside **mediasoup**.
+
+
+### Can I connect mediasoup with Asterisk/FreeSwitch?
+{: #can-i-connect-mediasoup-with-asterisk-freeswitch}
+
+Regardless both have basic WebRTC support, neither Asterisk nor FreeSwitch support multiple audio/video streams over the same RTP flow.
+
+Or to put it another way, a legacy telephony call cannot join a **mediasoup** room expecting a single mixed audio back.

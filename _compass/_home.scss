@@ -1,4 +1,4 @@
-[data-content="home"] {
+[data-content='home'] {
 	@include display-flex;
 	@include flex-direction(column);
 	text-align: justify;
@@ -15,11 +15,15 @@
 			margin: 1rem 0;
 			padding: 0 20%;
 			font-size: 4.5rem;
-			@include transition-property(filter -webkit-filter -moz-filter);
-			@include transition-duration(1.5s);
+			@include transition-property(opacity transform);
+			@include transition-delay(0.5s);
+			@include transition-duration(1.6s);
+			@include transform-origin(30%);
+			@include transform(perspective(250px));
 
 			&.loading {
-				@include filter(grayscale(100%) blur(4.00pt));
+				opacity: 0;
+				@include transform(perspective(250px) rotateY(90deg) rotateX(15deg));
 			}
 		}
 
@@ -201,7 +205,7 @@
 
 		@include breakpoint($mobile) {
 			padding: 0 5%;
-			font-size: 0.85rem;
+			font-size: 0.9rem;
 		}
 
 		> .wrapper {

@@ -53,4 +53,3 @@ It's also noticeable the fact that **mediasoup** does not include or mandate a n
 * POSIX based operating system (Windows not yet supported)
 * `make`
 * `gcc` or `clang` with C++11 support
-* Must run in a publicly reachable host (ICE "Lite" implementation)

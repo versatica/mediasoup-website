@@ -19,11 +19,6 @@
 
 <section markdown="1">
 
-#### rtpSender.close()
-{: #rtpSender-close .code}
-
-Closes the `rtpSender` and triggers a [`close`](#rtpSender-on-close) event.
-
 #### rtpSender.dump()
 {: #rtpSender-dump .code}
 

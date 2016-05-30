@@ -1,4 +1,4 @@
-[data-content="default"] {
+[data-content='default'] {
 	$padding: 16px;
 
 	padding: $padding;
@@ -19,7 +19,7 @@
 		margin: 2.5rem auto;
 		padding-top: $padding + $header-height-mobile;
 		width: 100%;
-		font-size: 0.85rem;
+		font-size: 0.9rem;
 	}
 
 	// Fix fixed header size for anchor links

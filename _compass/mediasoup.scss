@@ -7,7 +7,6 @@
 @import 'compass/css3/flexbox';
 @import 'compass/css3/user-interface';
 @import 'compass/css3/hyphenation';
-@import 'compass/css3/filter';
 @import 'breakpoint';
 
 // Import fonts.
@@ -40,17 +39,9 @@ $color-highlight-dark: shade($color-highlight, 25%);
 html {
 	height: 100%;
 	// Default font size for common text.
-	font-size: 16px;
+	font-size: 17px;
 	font-family: 'Open Sans', Helvetica;
 	font-weight: 400;
-	@include background-image(linear-gradient(110deg,
-		#000 0%,
-		#222 30%,
-		#060606 30%,
-		#333 100%));
-	background-color: #191919;
-	background-attachment: fixed;
-	background-repeat: no-repeat;
 }
 
 body {
@@ -61,6 +52,14 @@ body {
 	@include display-flex;
 	@include flex-direction(column);
 	@include align-items(center);
+	@include background-image(linear-gradient(110deg,
+		#000 0%,
+		#222 30%,
+		#060606 30%,
+		#333 100%));
+	background-color: #191919;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
 
 	@include breakpoint($mobile) {
 		&.noscroll {
