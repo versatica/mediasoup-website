@@ -110,6 +110,7 @@ body {
 
 		h1 {
 			@include mediasoup-logo();
+			margin-bottom: 0.1em;
 
 			a {
 				color: inherit !important;
