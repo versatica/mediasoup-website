@@ -36,9 +36,24 @@
 		<link rel="stylesheet" href="/css/mediasoup.css">
 
 		<script>
-			// Transition for 'loading' elements
 			window.addEventListener('load', function()
 			{
+				// Hack for iOS devices
+
+				var iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+				if (iOS)
+				{
+					document.body.classList.add('ios');
+
+					var header = document.querySelector('body > .header')
+
+					if (header)
+						header.classList.add('ios');
+				}
+
+				// Transition for 'loading' elements
+
 				var elems = document.querySelectorAll('.loading');
 
 				for (var i = 0, len = elems.length; i < len; i++)
@@ -71,7 +86,7 @@
 			{% endif %}
 		</script>
 
-		<script async src='/js/site.js'></script>
+		<script async src="/js/site.js"></script>
 	</head>
 
 	<body>
@@ -81,10 +96,6 @@
 		{% unless page.home %}
 		{% include header.html %}
 		{% endunless %}
-
-		{% if page.home %}
-		<div class="coming-soon loading">COMING SOON</div>
-		{% endif %}
 
 		{% include menu.html %}
 
@@ -107,10 +118,14 @@
 				<a href="/about/">About</a>
 			</div>
 
-			<p class="copyright">Copyright &copy; 2015, Iñaki Baz Castillo</p>
+			<p class="copyright">Copyright &copy; 2015-2016, Iñaki Baz Castillo</p>
 		</div>
 
 		<div class="arrow-up"></div>
+
+		{% if page.home %}
+		<div class="coming-soon loading">COMING SOON</div>
+		{% endif %}
 	</body>
 
 </html>

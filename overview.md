@@ -30,9 +30,16 @@ Both components communicate to each other by means of inter-process communicatio
 It's also noticeable the fact that **mediasoup** does not include or mandate a network signaling protocol (such as SIP or XMPP) but, instead, lets the application developer choose and implement the desired one.
 
 
+## Installation
+
+```bash
+$ npm install mediasoup --save
+```
+
+
 ## Design goals
 
-* Be a Node.js module: `npm install mediasoup`
+* Be a Node.js module
 * Be minimalist: just handle the media layer
 * Expose a modern ECMAScript 6 [API](/api/) in sync with [ORTC](http://ortc.org/)
 * Work with current [WebRTC](https://webrtc.org) client implementations

@@ -52,19 +52,38 @@ body {
 	@include display-flex;
 	@include flex-direction(column);
 	@include align-items(center);
-	@include background-image(linear-gradient(110deg,
-		#000 0%,
-		#222 30%,
-		#060606 30%,
-		#333 100%));
-	background-color: #191919;
-	background-attachment: fixed;
 	background-repeat: no-repeat;
 
-	@include breakpoint($mobile) {
-		&.noscroll {
-			overflow: hidden;
+	@include breakpoint($computer) {
+		@include background-image(linear-gradient(110deg,
+			#000 0%,
+			#222 30%,
+			#060606 30%,
+			#333 100%));
+		background-color: #191919;
+		// Just set fixed background on computer (it's not supported in iOS Safari
+		// and scrolling becomes ugly in Chrome/Firefox for mobile).
+		background-attachment: fixed;
+
+		// iOS devices do not support background-attachment: fixed.
+		&.ios {
+			@include background-image(linear-gradient(110deg,
+				#000 0%,
+				#222 30%,
+				#191919 30%,
+				#191919 100%));
+			background-color: #191919;
+			background-attachment: initial;
 		}
+	}
+
+	@include breakpoint($mobile) {
+		@include background-image(linear-gradient(110deg,
+			#000 0%,
+			#222 30%,
+			#191919 30%,
+			#191919 100%));
+		background-color: #191919;
 	}
 
 	> .logo-mini {
@@ -96,6 +115,15 @@ body {
 				rgba(#393939, 0.85) 100%));
 			background-attachment: fixed;
 			background-repeat: no-repeat;
+
+			// iOS devices do not support background-attachment: fixed.
+			&.ios {
+				background-image: url('/images/header-bg.svg');
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+				background-attachment: initial;
+			}
 		}
 
 		@include breakpoint($mobile) {
@@ -229,8 +257,6 @@ body {
 
 	> .arrow-up {
 		position: fixed;
-		width: 50px;
-		height: 50px;
 		cursor: pointer;
 		background-image: url('/images/arrow-up.svg');
 		background-repeat: no-repeat;
@@ -255,11 +281,15 @@ body {
 		@include breakpoint($computer) {
 			bottom: 2rem;
 			right: 2rem;
+			width: 50px;
+			height: 50px;
 		}
 
 		@include breakpoint($mobile) {
-			bottom: 0.5rem;
-			right: 0.5rem;
+			bottom: 16px;
+			right: 16px;
+			width: 32px;
+			height: 32px;
 		}
 	}
 

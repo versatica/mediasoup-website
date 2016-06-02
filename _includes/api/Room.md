@@ -9,14 +9,16 @@ A `room` holds a multiparty RTC (Real-Time Communication) conference.
 
 <section markdown="1">
 
-#### RoomSettings
-{: #Room-RoomSettings .code}
+#### RoomCapabilities
+{: #Room-RoomCapabilities .code}
+
+*TBD*
 
 <div markdown="1" class="table-wrapper L3">
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
-`forceUniquePayloadTypes` | Boolean | TBD. | No | `false`
+                         |         |               |          |
 
 </div>
 
@@ -100,6 +102,11 @@ Argument   | Type    | Description | Required | Default
 `name`     | String  | Peer name. | Yes |
 
 </div>
+
+#### room.getCapabilities()
+{: #room-getCapabilities .code}
+
+Returns the current capabilities (of type [RoomCapabilities](#Room-RoomCapabilities)) of the `room`.
 
 </section>
 

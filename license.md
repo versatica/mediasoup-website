@@ -5,7 +5,7 @@ title : License
 
 # ISC License
 
-Copyright &copy; 2015, Iñaki Baz Castillo &#060;ibc@aliax.net&#062;
+Copyright &copy; 2015-2016, Iñaki Baz Castillo &#060;ibc@aliax.net&#062;
 
 Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
 
