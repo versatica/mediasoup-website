@@ -114,7 +114,7 @@ Set remote RTP parameters. Returns a Promise that resolves to this `rtpReceiver`
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`rtpParameters` | [RtpParameters](#RTP-RtpParameters) | Remote RTP parameters. | Yes |
+`rtpParameters` | [RtpParameters](#RtpDictionaries-RtpParameters) | Remote RTP parameters. | Yes |
 
 </div>
 

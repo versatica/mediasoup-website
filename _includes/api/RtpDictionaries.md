@@ -1,34 +1,32 @@
-## RTP Parameters
-{: #RTP}
-
-The RTP dictionaries defined in this section are used by both the [RtpReceiver](#RtpReceiver) and the [RtpSender](#RtpSender).
+## RTP Dictionaries
+{: #RtpDictionaries}
 
 ### Dictionaries
-{: #RTP-dictionaries}
+{: #RtpDictionaries-dictionaries}
 
 <section markdown="1">
 
 #### RtpParameters
-{: #RTP-RtpParameters .code}
+{: #RtpDictionaries-RtpParameters .code}
 
 <div markdown="1" class="table-wrapper L3">
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
 `muxId`                  | String  | Stable identifier associated to the RTP stream that corresponds to the MID RTP header extension defined in [BUNDLE](https://tools.ietf.org/html/draft-ietf-mmusic-sdp-bundle-negotiation). | No |
-`codecs`                 | sequence<[RtpCodecParameters](#RTP-RtpCodecParameters)> | The list of codecs to send or receive. | Yes |
-`encodings`              | sequence<[RtpEncodingParameters](#RTP-RtpEncodingParameters)> | The "encodings" or "layers" to be used for simulcast, Scalable Video Coding, RTX, FEC, etc.  | No |
-`headerExtensions`       | sequence<[RtpHeaderExtensionParameters](#RTP-RtpHeaderExtensionParameters)> | Configured RTP header extensions. | No |
-`rtcp`                   | [RtcpParameters](#RTP-RtcpParameters) | RTCP parameters. | No |
+`codecs`                 | sequence<[RtpCodecParameters](#RtpDictionaries-RtpCodecParameters)> | The list of codecs to send or receive. | Yes |
+`encodings`              | sequence<[RtpEncodingParameters](#RtpDictionaries-RtpEncodingParameters)> | The "encodings" or "layers" to be used for simulcast, Scalable Video Coding, RTX, FEC, etc.  | No |
+`headerExtensions`       | sequence<[RtpHeaderExtensionParameters](#RtpDictionaries-RtpHeaderExtensionParameters)> | Configured RTP header extensions. | No |
+`rtcp`                   | [RtcpParameters](#RtpDictionaries-RtcpParameters) | RTCP parameters. | No |
 `userParameters`         | Dictionary | Custom user parameters. | No |
 
 </div>
 
-`userParameters` are custom parameters set by the user in [`rtpReceiver.receive()`](#rtpReceiver-receive) and copied verbatim into the corresponding [RtpParameters](#RTP-RtpParameters) of all the associated [RtpSender](#RtpSender) instances.
+`userParameters` are custom parameters set by the user in [`rtpReceiver.receive()`](#rtpReceiver-receive) and copied verbatim into the corresponding [RtpParameters](#RtpDictionaries-RtpParameters) of all the associated [RtpSender](#RtpSender) instances.
 
 
 #### RtpCodecParameters
-{: #RTP-RtpCodecParameters .code}
+{: #RtpDictionaries-RtpCodecParameters .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -40,13 +38,13 @@ Field                    | Type    | Description   | Required | Default
 `maxptime`               | Integer | The maximum packetization time. | No |
 `ptime`                  | Integer | The duration of media represented by a packet in millisecond. | No |
 `numChannels`            | Integer | Codec clock rate expressed in Hertz. | No |
-`rtcpFeedback`           | sequence<[RtcpFeedback](#RTP-RtcpFeedback)> | Transport layer and codec-specific feedback messages for this codec. | No |
+`rtcpFeedback`           | sequence<[RtcpFeedback](#RtpDictionaries-RtcpFeedback)> | Transport layer and codec-specific feedback messages for this codec. | No |
 `parameters`             | Dictionary | Codec-specific parameters available for signaling. | No |
 
 </div>
 
 #### RtcpFeedback
-{: #RTP-RtcpFeedback .code}
+{: #RtpDictionaries-RtcpFeedback .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -58,16 +56,16 @@ Field                    | Type    | Description   | Required | Default
 </div>
 
 #### RtpEncodingParameters
-{: #RTP-RtpEncodingParameters .code}
+{: #RtpDictionaries-RtpEncodingParameters .code}
 
 <div markdown="1" class="table-wrapper L3">
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
-`ssrc`                   | Integer | The SSRC for this layering/encoding. Multiple [RtpEncodingParameters](#RTP-RtpEncodingParameters) objects can share the same `ssrc` value (useful, for example, to indicate that different RTX payload types associated to different codecs are carried over the same stream). | No |
+`ssrc`                   | Integer | The SSRC for this layering/encoding. Multiple [RtpEncodingParameters](#RtpDictionaries-RtpEncodingParameters) objects can share the same `ssrc` value (useful, for example, to indicate that different RTX payload types associated to different codecs are carried over the same stream). | No |
 `codecPayloadType`       | Integer | For per-encoding codec specifications. If set, it must point to an entry in `codecs` with same `payloadType`. | No |
-`fec`                    | [RtpFecParameters](#RTP-RtpFecParameters) | If set, specifies the FEC mechanism to use. | No |
-`rtx`                    | [RtpRtxParameters](#RTP-RtpRtxParameters) | If set, specifies the RTX parameters. | No |
+`fec`                    | [RtpFecParameters](#RtpDictionaries-RtpFecParameters) | If set, specifies the FEC mechanism to use. | No |
+`rtx`                    | [RtpRtxParameters](#RtpDictionaries-RtpRtxParameters) | If set, specifies the RTX parameters. | No |
 `resolutionScale`        | Double   | Just for video streams. It signals how the video's resolution will be scaled down in each dimension. For example, if the value is 2.0, the video will be scaled down by a factor of 2 in each dimension, resulting in sending a video of one quarter size. For scalable video coding, it refers to the aggregate scale down of this layer when combined with all dependent layers. | No | 1.0
 `framerateScale`         | Double   | Inverse of the input framerate fraction to be encoded. Example: 1.0 = full framerate, 2.0 = one half of the full framerate. For scalable video coding, it refers to the inverse of the aggregate fraction of input framerate achieved by this layer when combined with all dependent layers. | No | 1.0
 `maxFramerate`           | Integer  | The maximum framerate to use for this encoding. Not used for scalable video coding. | No |
@@ -78,7 +76,7 @@ Field                    | Type    | Description   | Required | Default
 </div>
 
 #### RtpFecParameters
-{: #RTP-RtpFecParameters .code}
+{: #RtpDictionaries-RtpFecParameters .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -90,7 +88,7 @@ Field                    | Type    | Description   | Required | Default
 </div>
 
 #### RtpRtxParameters
-{: #RTP-RtpRtxParameters .code}
+{: #RtpDictionaries-RtpRtxParameters .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -101,7 +99,7 @@ Field                    | Type    | Description   | Required | Default
 </div>
 
 #### RtpHeaderExtensionParameters
-{: #RTP-RtpHeaderExtensionParameters .code}
+{: #RtpDictionaries-RtpHeaderExtensionParameters .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -115,7 +113,7 @@ Field                    | Type    | Description   | Required | Default
 </div>
 
 #### RtcpParameters
-{: #RTP-RtcpParameters .code}
+{: #RtpDictionaries-RtcpParameters .code}
 
 <div markdown="1" class="table-wrapper L3">
 

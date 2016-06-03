@@ -31,7 +31,7 @@ class   : h3color
 
 {% include api/RtpSender.md %}
 
-{% include api/RtpParameters.md %}
+{% include api/RtpDictionaries.md %}
 
 {% include api/errors.md %}
 

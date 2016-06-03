@@ -106,7 +106,7 @@ Argument   | Type    | Description | Required | Default
 #### room.getCapabilities()
 {: #room-getCapabilities .code}
 
-Returns the current capabilities (of type [RoomCapabilities](#Room-RoomCapabilities)) of the `room`.
+Returns a Promise that resolves to the current capabilities (of type [RoomCapabilities](#Room-RoomCapabilities)) of the `room`.
 
 </section>
 
