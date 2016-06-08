@@ -110,7 +110,7 @@ Returns a new [RtpReceiver](#RtpReceiver) instance.
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`kind`      | String  | Media kind ("audio" or "video"). | Yes |
+`kind`      | String  | Media kind ("audio" / "video" / ["depth"](https://w3c.github.io/mediacapture-depth/)). | Yes |
 `transport` | [Transport](#Transport) | Associated `transport`. | Yes |
 
 </div>
