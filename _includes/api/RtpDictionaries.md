@@ -22,6 +22,8 @@ Field                    | Type    | Description   | Required | Default
 
 </div>
 
+Entries for the RTP retransmission mechanism defined in [RFC 4588](https://tools.ietf.org/html/rfc4588) are not included in the `codecs` sequence.
+
 `userParameters` are custom parameters set by the user in [`rtpReceiver.receive()`](#rtpReceiver-receive) and copied verbatim into the corresponding [RtpParameters](#RtpDictionaries-RtpParameters) of all the associated [RtpSender](#RtpSender) instances.
 
 
@@ -38,8 +40,21 @@ Field                    | Type    | Description   | Required | Default
 `maxptime`               | Integer | The maximum packetization time. | No |
 `ptime`                  | Integer | The duration of media represented by a packet in millisecond. | No |
 `numChannels`            | Integer | Codec clock rate expressed in Hertz. | No |
+`rtx`                    | [RTCRtpCodecRtxParameters](#RtpDictionaries-RTCRtpCodecRtxParameters) | Retransmission parameters for the codec. | No |
 `rtcpFeedback`           | sequence<[RtcpFeedback](#RtpDictionaries-RtcpFeedback)> | Transport layer and codec-specific feedback messages for this codec. | No |
 `parameters`             | Dictionary | Codec-specific parameters available for signaling. | No |
+
+</div>
+
+#### RTCRtpCodecRtxParameters
+{: #RtpDictionaries-RTCRtpCodecRtxParameters .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field                    | Type    | Description   | Required | Default
+------------------------ | ------- | ------------- | -------- | ---------
+`payloadType`            | Integer | The payload type of retransmission packets defined in [RFC 4588](https://tools.ietf.org/html/rfc4588). | Yes |
+`rtxTime`                | Integer | The maximum time (measured in milliseconds) a sender will keep an original RTP packet in its buffers available for retransmission. | No |
 
 </div>
 
