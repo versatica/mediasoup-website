@@ -51,7 +51,7 @@ A Boolean indicating whether the `rtpReceiver` has been closed.
 
 * Read only
 
-A String indicating the media kind ("audio" or "video") handled by the `rtpReceiver`.
+The [MediaKind](#RtpDictionaries-MediaKind) handled by the `rtpReceiver`.
 
 #### rtpReceiver.transport
 {: #rtpReceiver-transport .code}

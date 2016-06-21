@@ -101,13 +101,29 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
-#### server.Room()
-{: #server-Room .code}
+#### server.createRoom(options)
+{: #server-createRoom .code}
 
-Returns a new [Room](#Room) instance.
+Returns a Promise that resolves to a new [Room](#Room) instance. If something goes wrong the Promise is rejected with the corresponding `Error` object. 
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`options`  | [RoomOptions](#Room-RoomOptions) | Room options. | Yes |
+
+</div>
+
+Usage example:
 
 ```javascript
-var room = server.Room();
+server.createRoom(options)
+  .then((room) => {
+    console.log("room created: %o", room);
+  })
+  .catch((error) => {
+    console.error("room creation failed: %o", error);
+  });
 ```
 
 </section>

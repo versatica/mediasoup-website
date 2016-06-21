@@ -53,4 +53,44 @@ extra.fingerprintToSDP(rawFingerprint);
 // => "75:1B:81:93:B7:ED:27:7E:42:BE:D6:C4:8E:F7:04:3A:49:CE:3F:EE"
 ```
 
+#### extra.paramFromSDP(param)
+{: #extra-paramFromSDP .code}
+
+Generates a **mediasoup** normalized parameter name (camelcase).
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`param`    | String  | SDP parameter name. | Yes |
+
+</div>
+
+Usage example:
+
+```javascript
+extra.paramFromSDP("profile-level-id");
+// => "profileLevelId"
+```
+
+#### extra.paramToSDP(param)
+{: #extra-paramToSDP .code}
+
+Generates a SDP normalized parameter name (lowercase separated by "-").
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`param`    | String  | **mediasoup**P parameter name. | Yes |
+
+</div>
+
+Usage example:
+
+```javascript
+extra.paramToSDP("packetizationMode");
+// => "packetization-mode"
+```
+
 </section>

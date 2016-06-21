@@ -36,10 +36,10 @@ Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
 `name`                   | String  | The codec MIME type. Valid values are listed in [IANA-RTP-2](http://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2). The syntax must match `type/subtype` (examples: "audio/opus", "video/H264"). | Yes |
 `payloadType`            | Integer | The value that goes in the RTP Payload Type Field. Must be unique. | Yes |
-`clockRate`              | Integer | Codec clock rate expressed in Hertz. | No |
+`clockRate`              | Integer | Codec clock rate expressed in Hertz. | Yes |
 `maxptime`               | Integer | The maximum packetization time. | No |
 `ptime`                  | Integer | The duration of media represented by a packet in millisecond. | No |
-`numChannels`            | Integer | Codec clock rate expressed in Hertz. | No |
+`numChannels`            | Integer | The number of channels (mono=1, stereo=2) for audio codecs. | No | 1
 `rtx`                    | [RTCRtpCodecRtxParameters](#RtpDictionaries-RTCRtpCodecRtxParameters) | Retransmission parameters for the codec. | No |
 `rtcpFeedback`           | sequence<[RtcpFeedback](#RtpDictionaries-RtcpFeedback)> | Transport layer and codec-specific feedback messages for this codec. | No |
 `parameters`             | Dictionary | Codec-specific parameters available for signaling. | No |
@@ -142,4 +142,22 @@ Field                    | Type    | Description   | Required | Default
 
 </section>
 
+
+### Enums
+{: #RtpDictionaries-enums}
+
+<section markdown="1">
+
+#### MediaKind
+{: #RtpDictionaries-MediaKind .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value          | Description  
+-------------- | -------------
+"audio"        | Audio kind.
+"video"        | Video kind.
+"depth"        | [Depth](https://w3c.github.io/mediacapture-depth/) kind.
+
+</div>
 

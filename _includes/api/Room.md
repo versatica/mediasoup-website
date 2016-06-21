@@ -9,8 +9,19 @@ A `room` holds a multiparty RTC (Real-Time Communication) conference.
 
 <section markdown="1">
 
-#### RoomCapabilities
-{: #Room-RoomCapabilities .code}
+#### RoomOptions
+{: #Room-RoomOptions .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field                    | Type    | Description   | Required | Default
+------------------------ | ------- | ------------- | -------- | ---------
+`mediaCodecs`            | sequence<[RoomMediaCodec](#Room-RoomMediaCodec)> | Media codecs available in the `room`. | Yes. |
+
+</div>
+
+#### RoomMediaCodec
+{: #Room-RoomMediaCodec .code}
 
 *TBD*
 
@@ -102,13 +113,6 @@ Argument   | Type    | Description | Required | Default
 `name`     | String  | Peer name. | Yes |
 
 </div>
-
-#### room.getCapabilities()
-{: #room-getCapabilities .code}
-
-Returns a Promise that resolves to the current capabilities (of type [RoomCapabilities](#Room-RoomCapabilities)) of the `room`.
-
-</section>
 
 
 ### Events
