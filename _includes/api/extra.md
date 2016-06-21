@@ -82,7 +82,7 @@ Generates a SDP normalized parameter name (lowercase separated by "-").
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`param`    | String  | **mediasoup**P parameter name. | Yes |
+`param`    | String  | **mediasoup** parameter name. | Yes |
 
 </div>
 
