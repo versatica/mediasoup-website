@@ -3,6 +3,11 @@
 
 A `peer` is the local representation of a remote media endpoint that connects to **mediasoup** and sends/receives media streams.
 
+One should understand this in "reverse" order: 
+
+* If a browser wants to send video, its corresponding **mediasoup** `peer` will "receive" video.
+* If a browser wants to receive video, its corresponding **mediasoup** `peer` will "send" video.
+
 <div markdown="1" class="note">
 In the context of WebRTC 1.0, such a "remote media endpoint" implies a `RTCPeerConnection` running in a remote browser.
 </div>
