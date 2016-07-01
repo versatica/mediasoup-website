@@ -53,6 +53,13 @@ A Boolean indicating whether the `rtpReceiver` has been closed.
 
 The [MediaKind](#RtpDictionaries-MediaKind) handled by the `rtpReceiver`.
 
+#### rtpReceiver.associatedPeer
+{: #rtpReceiver-associatedPeer .code}
+
+* Read only
+
+The associated [Peer](#Peer) instance owner of this `rtpReceiver`.
+
 #### rtpReceiver.transport
 {: #rtpReceiver-transport .code}
 
