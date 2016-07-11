@@ -1,9 +1,7 @@
 ## Peer
 {: #Peer}
 
-A `peer` is the local representation of a remote media endpoint that connects to **mediasoup** and sends/receives media streams.
-
-One should understand this in "reverse" order: 
+A `peer` is the local representation of a remote media endpoint that connects to **mediasoup** and sends/receives media streams. It should be understood in "reverse" order: 
 
 * If a browser wants to send video, its corresponding **mediasoup** `peer` will "receive" video.
 * If a browser wants to receive video, its corresponding **mediasoup** `peer` will "send" video.
