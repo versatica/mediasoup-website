@@ -75,14 +75,14 @@
 			});
 
 			// Set page settings
-			var page = {};
+			window.settings = {};
 
 			{% if page.anchors %}
-			page.anchors = true;
+			window.settings.anchors = true;
 			{% endif %}
 
 			{% if page.apiToc %}
-			page.apiToc = true;
+			window.settings.apiToc = true;
 			{% endif %}
 		</script>
 
