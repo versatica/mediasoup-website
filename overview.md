@@ -58,5 +58,6 @@ $ npm install mediasoup --save
 
 * Node.js >= `v4.0.0`
 * POSIX based operating system (Windows not yet supported)
+* `Python` 2
 * `make`
 * `gcc` or `clang` with C++11 support
