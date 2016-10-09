@@ -36,3 +36,9 @@ class   : h3color
 {% include api/errors.md %}
 
 {% include api/extra.md %}
+
+{% include api/webrtc.md %}
+
+{% include api/webrtc.RTCPeerConnection.md %}
+
+{% include api/webrtc.RTCSessionDescription.md %}

@@ -23,6 +23,11 @@ Provides access to the [errors](#errors) module.
 
 Provides access to the [extra](#extra) module.
 
+#### mediasoup.webrtc
+{: #mediasoup-webrtc .code}
+
+Provides access to the [webrtc](#webrtc) module, which exposes a subset of the [W3C WebRTC 1.0 API](https://www.w3.org/TR/webrtc/), including classes such as `RTCPeerConnection`.
+
 </section>
 
 
