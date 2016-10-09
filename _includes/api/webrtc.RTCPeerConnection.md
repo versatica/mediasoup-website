@@ -127,14 +127,98 @@ Gets the remote [RTCSessionDescription](#webrtc-RTCSessionDescription) (if any).
 
 The [RTCSignalingState](#webrtc-RTCPeerConnection-RTCSignalingState) of this `peerconnection`.
 
+</section>
+
 
 ### Methods
 {: #webrtc-RTCPeerConnection-methods}
 
-*TODO*
+<section markdown="1">
+
+#### peerconnection.close()
+{: #webrtc-peerconnection-close .code}
+
+Closes the `peerconnection` and triggers a [`close`](#peerconnection-on-close) event.
+
+#### peerconnection.createOffer()
+{: #webrtc-peerconnection-createOffer .code}
+
+Generates a blob of SDP that contains an RFC 3264 offer with the supported configurations for the session, including descriptions of the internal [Transport](#Transport), [RtpReceiver](#RtpReceiver) and [RtpSender](#RtpSender) instances attached to this `peerconnection`, the RTP parameters supported by both the `room` and the remote endpoint, and local ICE candidates.
+
+Returns a Promise that resolves to a local [RTCSessionDescription](#webrtc-RTCSessionDescription) instance of type "offer".
+
+#### peerconnection.createAnswer()
+{: #webrtc-peerconnection-createAnswer .code}
+
+Generates a blob of SDP that contains an RFC 3264 answer.
+
+Returns a Promise that resolves to a local [RTCSessionDescription](#webrtc-RTCSessionDescription) instance of type "answer".
+
+#### peerconnection.setLocalDescription(desc)
+{: #webrtc-peerconnection-setLocalDescription .code}
+
+Instructs the `peerconnection` to apply the supplied [RTCSessionDescription](#webrtc-RTCSessionDescription) as the local offer or answer.
+
+Returns a Promise.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`desc`  | [RTCSessionDescription](#webrtc-RTCSessionDescription) | Local description. | Yes |
+
+</div>
+
+#### peerconnection.setRemoteDescription(desc)
+{: #webrtc-peerconnection-setRemoteDescription .code}
+
+Instructs the `peerconnection` to apply the supplied [RTCSessionDescription](#webrtc-RTCSessionDescription) as the remote offer or answer.
+
+Returns a Promise.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`desc`  | [RTCSessionDescription](#webrtc-RTCSessionDescription) | Remote description. | Yes |
+
+</div>
+
+<div markdown="1" class="note warn">
+
+Currently, the **mediasoup** implementation of `RTCPeerConnection` requires that the initial offer comes from the remote endpoint, which means that `setRemoteDescription()` MUST be called before `createOffer()`.
+
+There is another limitation: the current implementation does not support re-negotiation if initiated by the remote endpoint. This is, `setRemoteDescription()` can just be called once if the provided [RTCSessionDescription](#webrtc-RTCSessionDescription) has type "offer".
+
+Due to these limitations, the first SDP offer received from the endpoint should include all the media (audio and/or video) tracks, given that they can not be added later.
+
+</div>
+
+</section>
 
 
 ### Events
 {: #webrtc-RTCPeerConnection-events}
 
-*TODO*
+The `RTCPeerConnection` class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+
+<section markdown="1">
+
+#### peerconnection.on("close", fn(error))
+{: #webrtc-peerconnection-on-close .code}
+
+Emitted when the `peerconnection` is closed. In case of error, the callback is called with the corresponding `Error` object.
+
+#### peerconnection.on("signalingstatechange", fn())
+{: #webrtc-peerconnection-on-signalingstatechange .code}
+
+Emitted when the [signalingState](#webrtc-peerconnection-signalingState) of the `peerconnection` changes.
+
+#### peerconnection.on("negotiationneeded", fn())
+{: #webrtc-peerconnection-on-negotiationneeded .code}
+
+Emitted when the `room` changes (a new `peer` joins it, a `peer` leaves it, or an existing `peer` modifies its sending media description).
+
+When "negotiationneeded" is fired on a `peerconnection`, the application should retrieve its updated local [RTCSessionDescription](#webrtc-RTCSessionDescription) (by means of `createOffer()` and `setLocalDescription()`) and send it to the associated endpoint.
+
+</section>
