@@ -27,6 +27,11 @@ Since the first days of WebRTC my professional efforts go around it, and this is
 * [Saúl Ibarra Corretgé][saghul-url]
 
 
+### Donate
+
+You can support **mediasoup** by making a donation [here][paypal-url]{:target="_blank"}. Thanks!
+
+
 
 
 [ibc-image]: /images/ibc.jpg
@@ -39,5 +44,6 @@ Since the first days of WebRTC my professional efforts go around it, and this is
 [twitter-url]: https://twitter.com/ibc_tw
 [jmillan-url]: https://github.com/jmillan
 [saghul-url]: http://bettercallsaghul.com
+[paypal-url]: https://paypal.me/inakibazcastillo/100
 
 
