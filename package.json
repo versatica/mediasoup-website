@@ -1,9 +1,9 @@
 {
   "name": "mediasoup-website",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mediasoup website",
   "main": "lib/index.js",
-  "homepage": "http://mediasoup.org",
+  "homepage": "https://mediasoup.org",
   "repository": {
     "type": "git",
     "url": "https://github.com/ibc/mediasoup-website.git"
