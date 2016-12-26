@@ -109,20 +109,16 @@ body {
 			padding: 0 3.5rem;
 			font-size: 2.5rem;
 			@include background-image(linear-gradient(110deg,
-				rgba(shade($color-highlight, 60%), 0.95) 0%,
-				rgba(shade($color-highlight, 30%), 0.95) 30%,
-				rgba(#1a1a1a, 0.85) 30%,
-				rgba(#393939, 0.85) 100%));
+				rgba(#000, 0.9) 0%,
+				rgba(#222, 0.9) 30%,
+				rgba(#060606, 0.9) 30%,
+				rgba(#333, 0.9) 100%));
 			background-attachment: fixed;
-			background-repeat: no-repeat;
 
 			// iOS devices do not support background-attachment: fixed.
 			&.ios {
-				background-image: url('/images/header-bg.svg');
-				background-repeat: no-repeat;
-				background-size: cover;
-				background-position: center;
-				background-attachment: initial;
+				@include background-image(none);
+				background-color: rgba(#222, 0.9);
 			}
 		}
 
@@ -130,10 +126,7 @@ body {
 			height: $header-height-mobile;
 			padding: 0 16px;
 			font-size: 2rem;
-			background-image: url('/images/header-bg.svg');
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center;
+			background-color: rgba(#222, 0.9);
 		}
 
 		h1 {
