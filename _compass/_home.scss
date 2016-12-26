@@ -199,12 +199,11 @@
 			@include display-flex;
 			@include flex-direction(column);
 			@include justify-content(center);
-			padding: 0 6%;
+			padding: 0 5%;
 			font-size: 1rem;
 		}
 
 		@include breakpoint($mobile) {
-			padding: 0 5%;
 			font-size: 0.9rem;
 		}
 
@@ -213,37 +212,41 @@
 				@include display-flex;
 				@include flex-direction(row);
 				@include justify-content(center);
-				margin: 0;
+				@include box-shadow(0px 7px 15px -1px rgba(#000, 0.3));
+			}
+
+			@include breakpoint($mobile) {
+				margin-bottom: 3rem;
 			}
 
 			.box {
+				&.first {
+					background-color: rgba(#000, 0.45);
+				}
+
+				&.second {
+					background-color: rgba(#111, 0.35);
+				}
+
+				&.third {
+					background-color: rgba(#333, 0.25);
+				}
+
 				@include breakpoint($computer) {
 					@include flex(0 10 auto);
-					width: 33%;
-					margin: 0 2.5%;
-
-					&:first-child {
-						margin-left: 0;
-					}
-
-					&:last-child {
-						margin-right: 0;
-					}
+					width: 34%;
+					padding: 2.5%;
 				}
 
 				@include breakpoint($mobile) {
-					margin-bottom: 3rem;
+					padding: 1.5rem;
 				}
 
 				h3 {
 					line-height: 1.4em;
-					text-align: center;
 					letter-spacing: -.05em;
 					margin-bottom: 1.1em;
 					color: $color-highlight-dark;
-					background-color: rgba(#000, 0.2);
-					border: 1px solid rgba($color-highlight-dark, 0.4);
-					border-radius: 4px;
 
 					@include breakpoint($computer) {
 						font-size: 1.1em;
@@ -263,12 +266,10 @@
 
 					@include breakpoint($computer) {
 						font-size: 0.95em;
-						padding: 0 0.4em;
 					}
 
 					@include breakpoint($mobile) {
 						font-size: 1em;
-						padding: 0 0.2em;
 					}
 
 					strong {
