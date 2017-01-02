@@ -207,11 +207,12 @@
 		}
 
 		> .wrapper {
+			@include box-shadow(0px 7px 15px -1px rgba(#000, 0.3));
+
 			@include breakpoint($computer) {
 				@include display-flex;
 				@include flex-direction(row);
 				@include justify-content(center);
-				@include box-shadow(0px 7px 15px -1px rgba(#000, 0.3));
 			}
 
 			@include breakpoint($mobile) {
@@ -220,21 +221,27 @@
 
 			.box {
 				&.first {
-					background-color: rgba(#000, 0.45);
+					background-color: rgba(108, 181, 168, 0.25);
 				}
 
 				&.second {
-					background-color: rgba(#111, 0.35);
+					background-color: rgba(84, 144, 133, 0.25);
 				}
 
 				&.third {
-					background-color: rgba(#333, 0.25);
+					background-color: rgba(68, 111, 104, 0.25);
 				}
 
 				@include breakpoint($computer) {
 					@include flex(0 10 auto);
 					width: 34%;
 					padding: 1.75rem;
+					background-clip: padding-box;
+					border-right: 4px solid transparent;
+
+					&:last-child {
+						border-right: none;
+					}
 				}
 
 				@include breakpoint($mobile) {
@@ -261,7 +268,7 @@
 
 				p {
 					line-height: 1.4em;
-					color: $color-text-4;
+					color: $color-text-5;
 					letter-spacing: .05em;
 					margin-bottom: 1em;
 
@@ -271,11 +278,6 @@
 
 					@include breakpoint($mobile) {
 						font-size: 1em;
-					}
-
-					strong {
-						font-weight: bold;
-						color: $color-text-5;
 					}
 
 					a {
