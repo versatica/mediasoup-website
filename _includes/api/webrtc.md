@@ -9,7 +9,7 @@ The `webrtc` module (exported via [`mediasoup.webrtc`](#mediasoup-webrtc)) expos
 Usage example:
 
 ```javascript
-const mediasoup = require('mediasoup');
+const mediasoup = require("mediasoup");
 const RTCPeerConnection = mediasoup.webrtc.RTCPeerConnection;
 const RTCSessionDescription = mediasoup.webrtc.RTCSessionDescription;
 
@@ -21,7 +21,7 @@ let room; // an existing  mediasoup Room instance
 onNewParticipant = function((request, participant) => {
   let peerconnection = new RTCPeerConnection(room, participant.name);
   let desc = new RTCSessionDescription({
-    type : 'offer',
+    type : "offer",
     sdp  : request.sdp
   });
 
@@ -40,7 +40,7 @@ onNewParticipant = function((request, participant) => {
       });
     })
     .catch((error) => {
-      console.error('error handling SDP offer from participant: %s', error);
+      console.error("error handling SDP offer from participant: %s", error);
       
       // Reject the participant
       request.reject(error.message);
@@ -50,14 +50,14 @@ onNewParticipant = function((request, participant) => {
     });
 
   // Handle "negotiationneeded" event
-  peerconnection.on('negotiationneeded', () => {
+  peerconnection.on("negotiationneeded", () => {
     peerconnection.createOffer()
       .then((desc) => {
         return peerconnection.setLocalDescription(desc);
       })
       .then(() => {
         // Send the SDP re-offer to the endpoint and expect a SDP answer
-        participant.sendRequest('reoffer', {
+        participant.sendRequest("reoffer", {
             sdp : peerconnection.localDescription.sdp
           })
           .then((response) => {

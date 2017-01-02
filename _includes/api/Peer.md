@@ -121,7 +121,7 @@ Argument    | Type    | Description | Required | Default
 Usage example:
 
 ```javascript
-var rtpReceiver = peer.RtpReceiver('audio', transport);
+var rtpReceiver = peer.RtpReceiver("audio", transport);
 ```
 
 </section>
