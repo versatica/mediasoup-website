@@ -1,7 +1,6 @@
 [data-content='home'] {
 	@include display-flex;
 	@include flex-direction(column);
-	text-align: justify;
 
 	> .banner {
 		width: 100%;
@@ -263,10 +262,11 @@
 				p {
 					line-height: 1.4em;
 					color: $color-text-4;
+					letter-spacing: .05em;
 					margin-bottom: 1em;
 
 					@include breakpoint($computer) {
-						font-size: 0.95em;
+						font-size: 0.9em;
 					}
 
 					@include breakpoint($mobile) {
