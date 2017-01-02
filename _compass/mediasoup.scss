@@ -306,10 +306,10 @@ body {
 		}
 
 		@include breakpoint($computer) {
-			bottom: 50px;
-			right: -130px;
-			font-size: 1.15rem;
-			line-height: 2.3rem;
+			bottom: 60px;
+			right: -120px;
+			font-size: 1rem;
+			line-height: 2.2rem;
 		}
 
 		@include breakpoint($mobile) {
