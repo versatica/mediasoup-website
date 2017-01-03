@@ -295,21 +295,20 @@ body {
 		background-color: rgba(#f06a2a, 0.9);
 		@include box-shadow(0px 0px 5px 0px rgba(#333, 0.6));
 		text-align: center;
-		@include transition-property(opacity);
-		@include transition-delay(.2s);
-		@include transition-duration(.2s);
-
-		@include breakpoint($computer) {
-			&.loading {
-				opacity: 0;
-			}
-		}
 
 		@include breakpoint($computer) {
 			bottom: 60px;
 			right: -120px;
 			font-size: 1rem;
 			line-height: 2.2rem;
+			@include transition-property(bottom right);
+			@include transition-delay(2s);
+			@include transition-duration(.5s);
+
+			&.loading {
+				bottom: -120px;
+				right: -300px;
+			}
 		}
 
 		@include breakpoint($mobile) {

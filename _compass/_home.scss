@@ -213,6 +213,12 @@
 				@include display-flex;
 				@include flex-direction(row);
 				@include justify-content(center);
+				@include transition-delay(1s);
+				@include transition-duration(1s);
+
+				&.loading {
+					@include box-shadow(0px 7px 15px -1px rgba(#000, 0));
+				}
 			}
 
 			@include breakpoint($mobile) {
@@ -221,14 +227,17 @@
 
 			.box {
 				&.first {
+					@include transition-delay(0.5s);
 					background-color: rgba(108, 181, 168, 0.25);
 				}
 
 				&.second {
+					@include transition-delay(0.65s);
 					background-color: rgba(84, 144, 133, 0.25);
 				}
 
 				&.third {
+					@include transition-delay(0.8s);
 					background-color: rgba(68, 111, 104, 0.25);
 				}
 
@@ -238,9 +247,15 @@
 					padding: 1.75rem;
 					background-clip: padding-box;
 					border-right: 4px solid transparent;
+					@include transition-property(opacity);
+					@include transition-duration(1s);
 
 					&:last-child {
 						border-right: none;
+					}
+
+					&.loading {
+						opacity: 0;
 					}
 				}
 
@@ -301,5 +316,15 @@
 		height: 20px;
 		text-align: center;
 		margin: 2rem;
+
+		@include breakpoint($computer) {
+			@include transition-property(transform);
+			@include transition-delay(2s);
+			@include transition-duration(0.5s);
+
+			&.loading {
+				@include transform(scale(0));
+			}
+		}
 	}
 }
