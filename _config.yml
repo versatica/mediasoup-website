@@ -9,6 +9,7 @@ exclude:
   - lib
   - gulpfile.js
   - LICENSE
+  - TODO.md
 
 markdown: kramdown
 
