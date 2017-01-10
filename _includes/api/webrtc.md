@@ -18,8 +18,8 @@ let room; // an existing  mediasoup Room instance
 // [...]
 
 // Function called when a new participant wants to join an existing room
-onNewParticipant = function((request, participant) => {
-  let peerconnection = new RTCPeerConnection(room, participant.name);
+function onNewParticipant(request, participant) {
+  let peerconnection = new RTCPeerConnection(room, participant.id);
   let desc = new RTCSessionDescription({
     type : "offer",
     sdp  : request.sdp
@@ -57,17 +57,18 @@ onNewParticipant = function((request, participant) => {
       })
       .then(() => {
         // Send the SDP re-offer to the endpoint and expect a SDP answer
-        participant.sendRequest("reoffer", {
-            sdp : peerconnection.localDescription.sdp
-          })
-          .then((response) => {
-            let desc = new RTCSessionDescription(response.sdp);
+        // (assume this method returns a Promise with the received response)
+        return participant.sendRequest("reoffer", {
+          sdp : peerconnection.localDescription.sdp
+        });
+      })
+      .then((response) => {
+        let desc = new RTCSessionDescription(response.sdp);
 
-            // Update the remote description
-            peerconnection.setRemoteDescription(desc);
-          });
+        // Update the remote description
+        peerconnection.setRemoteDescription(desc);
       });
   });
-};
+}
 ```
 
