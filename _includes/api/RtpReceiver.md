@@ -72,7 +72,7 @@ The [Transport](#Transport) associated to the `rtpReceiver`.
 
 * Read only
 
-The [RtpParameters](#RtpReceiver-RtpParameters) of the `rtpReceiver`. It is filled once [`rtpReceiver.receive()`](#rtpReceiver-receive) is called and its Promise resolved.
+The [RtpParameters](#RtpDictionaries-RtpParameters) of the `rtpReceiver`. It is filled once [`rtpReceiver.receive()`](#rtpReceiver-receive) is called and its Promise resolved.
 
 </section>
 

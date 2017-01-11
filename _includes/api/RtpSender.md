@@ -45,7 +45,7 @@ The [Transport](#Transport) associated to the `rtpSender`.
 
 * Read only
 
-The [RtpParameters](#RtpSender-RtpParameters) of the `rtpSender`. These parameters are a subset of the parameters in the corresponding `rtpReceiver` (limited by the capabilities of this `peer`).
+The [RtpParameters](#RtpDictionaries-RtpParameters) of the `rtpSender`. These parameters are a subset of the parameters in the corresponding `rtpReceiver` (limited by the capabilities of this `peer`).
 
 #### rtpSender.available
 {: #rtpSender-available .code}
