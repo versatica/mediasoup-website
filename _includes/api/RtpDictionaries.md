@@ -77,7 +77,7 @@ Field                    | Type    | Description   | Required | Default
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
-`ssrc`                   | Integer | The SSRC for this layering/encoding. Multiple [RtpEncodingParameters](#RtpDictionaries-RtpEncodingParameters) objects can share the same `ssrc` value (useful, for example, to indicate that different RTX payload types associated to different codecs are carried over the same stream). | No |
+`ssrc`                   | Integer | The SSRC for this layering/encoding. Multiple `RtpEncodingParameters` objects can share the same `ssrc` value (useful, for example, to indicate that different RTX payload types associated to different codecs are carried over the same stream). | No |
 `codecPayloadType`       | Integer | For per-encoding codec specifications. If set, it must point to an entry in `codecs` with same `payloadType`. | No |
 `fec`                    | [RtpFecParameters](#RtpDictionaries-RtpFecParameters) | If set, specifies the FEC mechanism to use. | No |
 `rtx`                    | [RtpRtxParameters](#RtpDictionaries-RtpRtxParameters) | If set, specifies the RTX parameters. | No |
