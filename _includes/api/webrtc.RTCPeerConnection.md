@@ -37,8 +37,8 @@ In the other side, latest versions of Firefox do implement "Unified Plan", so `u
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
-`audio`                  | Integer | Audio bandwhich limit in kilobits per second. | No | Unset
-`video`                  | Integer | Video bandwhich limit in kilobits per second. | No | Unset
+`audio`                  | Integer | Audio bandwidth limit in kilobits per second. | No | Unset
+`video`                  | Integer | Video bandwidth limit in kilobits per second. | No | Unset
 
 </div>
 
