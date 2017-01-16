@@ -23,7 +23,7 @@ var mediasoup = require("mediasoup");
 Thus internally, **mediasoup** can be splitted into two separete components:
 
 * a JavaScript layer exposing a modern ECMAScript 6 [API](/api/) for Node.js, and
-* a set of subprocesses that handle the media layer (ICE, DTLS, RTP and so on).
+* a set of C/C++ subprocesses that handle the media layer (ICE, DTLS, RTP and so on).
 
 Both components communicate to each other by means of inter-process communication. However, from the point of view of the developer, the application should just care about the JavaScript [API](/api/) exposed by **mediasoup**.
 
@@ -37,6 +37,18 @@ Within your Node.js application:
 ```bash
 $ npm install mediasoup --save
 ```
+
+Prior to that, ensure your host satisfies the following **requirements**:
+
+* Node.js >= `v4.0.0`
+* POSIX based operating system (Windows not yet supported)
+* Python 2 (`python2` or `python` command must point to the Python 2 executable)
+* `make`
+* `gcc` and `g++`, or `clang`, with C++11 support
+
+<div markdown="1" class="note">
+In Debian and Ubuntu install the `build-essential` package. It includes both `make` and `gcc`/`g++`.
+</div>
 
 
 ## Design goals
@@ -54,12 +66,3 @@ $ npm install mediasoup --save
 * ICE / DTLS / RTP / RTCP over UDP and TCP.
 * Extremely powerful (media worker subprocess coded in C++ on top of [libuv](http://libuv.org)).
 * Can handle RTP packets in JavaScript land.
-
-
-## Requirements
-
-* Node.js >= `v4.0.0`
-* POSIX based operating system (Windows not yet supported)
-* `Python` 2
-* `make`
-* `gcc` or `clang` with C++11 support
