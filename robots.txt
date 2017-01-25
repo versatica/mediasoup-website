@@ -2,7 +2,6 @@
 layout : null
 ---
 
-
 User-agent: *
 Disallow: /404.html
 Sitemap: {{ site.custom.canonicalUrl }}/sitemap.xml

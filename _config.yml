@@ -36,5 +36,5 @@ defaults:
       layout: layout
 
 custom:
-  canonicalUrl: 'http://mediasoup.org'
+  canonicalUrl: 'https://mediasoup.org'
   currentYear: 2017

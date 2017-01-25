@@ -79,16 +79,6 @@ For debugging purposes. Returns a Promise that resolves to an Object containing 
 }
 ```
 
-#### rtpSender.isRtpSender()
-{: #rtpSender-isRtpSender .code}
-
-Returns `true`.
-
-#### rtpSender.isRtpReceiver()
-{: #rtpSender-isRtpReceiver .code}
-
-Returns `false`.
-
 </section>
 
 
