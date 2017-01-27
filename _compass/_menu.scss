@@ -4,7 +4,8 @@
 	position: fixed;
 	z-index: 100;
 	top: 0;
-	right: -$width;
+	// Hide the lateral shadow.
+	right: -$width - 5px;
 	width: $width;
 	// Trick to avoid menu flash effect in mobile.
 	height: 115%;
@@ -49,7 +50,7 @@
 			cursor: pointer;
 			opacity: 0.75;
 			@include transform(scale(0));
-			@include transition-property(opacity transform);
+			@include transition-property(opacity, transform);
 			@include transition-duration(0.25s);
 			-webkit-tap-highlight-color: transparent;
 

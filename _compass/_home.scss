@@ -14,7 +14,7 @@
 			margin: 1rem 0;
 			padding: 0 20%;
 			font-size: 4.5rem;
-			@include transition-property(opacity transform);
+			@include transition-property(opacity, transform);
 			@include transition-delay(0.5s);
 			@include transition-duration(1.6s);
 			@include transform-origin(30%);
@@ -129,7 +129,7 @@
 			text-shadow: 0 -.1em .2em black;
 
 			@include breakpoint($computer) {
-				@include transition-property(opacity transform background-color color border-color);
+				@include transition-property(opacity, transform, background-color, color, border-color);
 				@include transition-delay(1.5s);
 				@include transition-duration(1s);
 
@@ -174,7 +174,7 @@
 			height: 400px;
 			width: 400px;
 			opacity: 0.085;
-			@include transition-property(opacity transform);
+			@include transition-property(opacity, transform);
 			@include transition-delay(0.6s);
 			@include transition-duration(1.5s);
 			@include transform(rotate(-20deg));
