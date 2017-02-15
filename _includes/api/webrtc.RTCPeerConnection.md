@@ -1,7 +1,7 @@
 ## webrtc.RTCPeerConnection
 {: #webrtc-RTCPeerConnection}
 
-Internally, a `peerconnection` manages a [Peer](#Peer) instance and all its associated [Transport](#Transport), [RtpReceiver](#RtpReceiver) and [RtpSender](#RtpSender) instances.
+Internally, a `peerconnection` manages a given [Peer](#Peer) instance and all its associated [Transport](#Transport), [RtpReceiver](#RtpReceiver) and [RtpSender](#RtpSender) instances.
 
 
 ### Dictionaries
@@ -16,6 +16,7 @@ Internally, a `peerconnection` manages a [Peer](#Peer) instance and all its asso
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
+`peer`                   | [Peer](#Peer) | A **mediasoup** Peer instance. | Yes |
 `transportOptions`       | [TransportOptions](#Transport-TransportOptions) | Options for the transport. | No |
 `usePlanB`               | Boolean | Expect and generate [Plan B](https://tools.ietf.org/html/draft-uberti-rtcweb-plan-00) SDPs for this `peerconnection`. | No | `false`
 `bandwidth`              | [BandwidthOptions](#webrtc-RTCPeerConnection-BandwidthOptions) | Bandwidth limit. | No |
@@ -39,6 +40,24 @@ Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
 `audio`                  | Integer | Audio bandwidth limit in kilobits per second. | No | Unset
 `video`                  | Integer | Video bandwidth limit in kilobits per second. | No | Unset
+
+</div>
+
+#### RTCOfferOptions
+{: #webrtc-RTCPeerConnection-RTCOfferOptions .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field                    | Type    | Description   | Required | Default
+------------------------ | ------- | ------------- | -------- | ---------
+`offerToReceiveAudio`    | Integer | Number of audio tracks the remote peer is allowed to send. | No | 1
+`offerToReceiveVideo`    | Integer | Number of video tracks the remote peer is allowed to send. | No | 1
+
+</div>
+
+<div markdown="1" class="note">
+
+These options are just valid for the initial SDP offer sent to the endpoint.
 
 </div>
 
@@ -78,9 +97,7 @@ Value                | Description
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`room`     | [Room](#Room) | Room instance | Yes |
-`name`     | String  | Peer name. | Yes |
-`options`  | [RTCPeerConnectionOptions](#webrtc-RTCPeerConnection-RTCPeerConnectionOptions) | RTCPeerConnection options. | No |
+`options`  | [RTCPeerConnectionOptions](#webrtc-RTCPeerConnection-RTCPeerConnectionOptions) | RTCPeerConnection options. | Yes |
 
 </div>
 
@@ -97,14 +114,14 @@ Argument   | Type    | Description | Required | Default
 
 * Read only
 
-A Boolean indicating whether the `peerconnection` has been closed.
+A Boolean indicating whether the `peerconnection` (so its associated `peer`) has been closed.
 
 #### peerconnection.peer
 {: #webrtc-peerconnection-peer .code}
 
 * Read only
 
-Retrieves the internal [Peer](#Peer) instance associated to this `peerconnection`.
+Retrieves the [Peer](#Peer) instance associated to this `peerconnection`.
 
 #### peerconnection.localDescription
 {: #webrtc-peerconnection-localDescription .code}
@@ -140,12 +157,33 @@ The [RTCSignalingState](#webrtc-RTCPeerConnection-RTCSignalingState) of this `pe
 
 Closes the `peerconnection` and triggers a [`close`](#peerconnection-on-close) event.
 
-#### peerconnection.createOffer()
+#### peerconnection.setCapabilities(sdp)
+{: #webrtc-peerconnection-setCapabilities .code}
+
+The endpoint must provide its media capabilities in order to join a room. To do that, the endpoint must create a `RTCPeerConnection`, call `createOffer({ offerToReceiveAudio: 1, offerToReceiveVideo: 1 })` on it, obtain the `desc.sdp` and send it to **mediasoup**. 
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`sdp`      | String  | An SDP providing the media capabilities of the peer. | Yes |
+
+</div>
+
+#### peerconnection.createOffer(options)
 {: #webrtc-peerconnection-createOffer .code}
 
 Generates a blob of SDP that contains an RFC 3264 offer with the supported configurations for the session, including descriptions of the internal [Transport](#Transport), [RtpReceiver](#RtpReceiver) and [RtpSender](#RtpSender) instances attached to this `peerconnection`, the RTP parameters supported by both the `room` and the remote endpoint, and local ICE candidates.
 
 Returns a Promise that resolves to a local [RTCSessionDescription](#webrtc-RTCSessionDescription) instance of type "offer".
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`options`  | [RTCOfferOptions](#webrtc-RTCPeerConnection-RTCOfferOptions) | Options for the offer. | No |
+
+</div>
 
 #### peerconnection.createAnswer()
 {: #webrtc-peerconnection-createAnswer .code}
@@ -186,11 +224,9 @@ Argument   | Type    | Description | Required | Default
 
 <div markdown="1" class="note warn">
 
-Currently, the **mediasoup** implementation of `RTCPeerConnection` requires that the initial offer comes from the remote endpoint, which means that `setRemoteDescription()` MUST be called before `createOffer()`.
+The **mediasoup** implementation of `RTCPeerConnection` requires that the SDP O/A procedure is always initiated my **mediasoup**. This means that `setRemoteDescription()` can only be called with a remote answer. To be clear: the remote endpoint should not attempt to renegotiate by sending a SDP re-offer.
 
-There is another limitation: the current implementation does not support re-negotiation if initiated by the remote endpoint. This is, `setRemoteDescription()` can just be called once if the provided [RTCSessionDescription](#webrtc-RTCSessionDescription) has type "offer".
-
-Due to these limitations, the first SDP offer received from the endpoint should include all the media (audio and/or video) tracks, given that they can not be added later.
+If the remote endpoint wishes to add/remove a sending audio or video track, it must signal such a desire to the server application (by means of the signaling protocol up to the application) so the server side application can provide him with a re-offer (by calling `createOffer() and setLocalDescription()`). The remote endpoint can then produce an SDP answer containing the desired changes (no audio/video tracks, etc).
 
 </div>
 

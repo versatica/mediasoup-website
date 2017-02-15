@@ -1,49 +1,76 @@
 ---
-title : About
+title   : About
+anchors : true
 ---
 
 
 # About
 
-![Iñaki Baz Castillo][ibc-image]{: .left.round }
+**mediasoup** is made with love by a small team of Real-Time addicts.
 
-[![][linkedin-image]][linkedin-url]{: .inline-icon }
-[![][github-image]][github-ibc-url]{: .inline-icon }
-[![][github-image]][github-versatica-url]{: .inline-icon }
-[![][twitter-image]][twitter-url]{: .inline-icon }
 
-My name is Iñaki Baz Castillo and I'm passionate about new technologies, Open Source, modern web applications development, Node.js, SIP protocol and, above all, Real-Time Communications.
+## Iñaki Baz Castillo
 
-During the last years of my life I've been deeply involved in Voice over IP technologies, collaborating in many well known Open Source software projects and designing and implementing others of my own. I also have authored and co-authored some protocol specifications in the IETF, including the [RFC 7118](http://tools.ietf.org/html/rfc7118) "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)" where my transition to WebRTC began.
+![Iñaki Baz Castillo][ibc-photo]{: .left.round }
+
+[![][github-icon]][ibc-github-url]{: .inline-icon }
+[![][github-icon]][versatica-github-url]{: .inline-icon }
+[![][linkedin-icon]][ibc-linkedin-url]{: .inline-icon }
+[![][twitter-icon]][ibc-twitter-url]{: .inline-icon }
+
+I'm passionate about new technologies, Open Source, modern web applications development, Node.js, SIP protocol and, above all, Real-Time Communications.
+
+During the last years of my life I've been deeply involved in Voice over IP technologies, collaborating in many well known Open Source software projects and designing and implementing others of my own. I also have authored and co-authored some protocol specifications in the IETF, including the [RFC 7118][rfc7118-url]{:target="_blank"} "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)" where my transition to WebRTC began.
 
 Since the first days of WebRTC my professional efforts go around it, and this is where **mediasoup** takes place. Made with love, this is by far my largest Open Source project, combining several of my preferred technical fields plus so many sleepless nights coding and reading specifications.
 
 
-### Acknowledgements
+## José Luis Millán
+
+![José Luis Millán][jmillan-photo]{: .left.round }
+
+[![][github-icon]][jmillan-github-url]{: .inline-icon }
+[![][github-icon]][versatica-github-url]{: .inline-icon }
+[![][linkedin-icon]][jmillan-linkedin-url]{: .inline-icon }
+[![][twitter-icon]][jmillan-twitter-url]{: .inline-icon }
+
+I'm a Real Time Communication passionate and developer. I have many years of experience in SIP and VoIP, and for the last years I've been focused on WebRTC development in client and server side.
+
+I'm a core author of JsSIP "The JavaScript SIP library" and co-author of the [RFC 7118][rfc7118-url]{:target="_blank"} "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)" and have taken part in the specification of Object RTC (ORTC) API for WebRTC.
+
+
+## Acknowledgements
 
 **mediasoup** would not have been possible without the help and advice of:
 
-* [José Luis Millán][jmillan-url]
-* [Saúl Ibarra Corretgé][saghul-url]
+* [Saúl Ibarra Corretgé][saghul-personal-url]
 
 
-### Donate
+## Donate
 
 You can support **mediasoup** by making a donation [here][paypal-url]{:target="_blank"}. Thanks!
 
 
 
 
-[ibc-image]: /images/ibc.jpg
-[linkedin-image]: /images/icon-linkedin.svg
-[linkedin-url]: https://linkedin.com/in/inakibaz
-[github-image]: /images/icon-github.svg
-[github-ibc-url]: https://github.com/ibc
-[github-versatica-url]: https://github.com/versatica
-[twitter-image]: /images/icon-twitter.svg
-[twitter-url]: https://twitter.com/ibc_tw
-[jmillan-url]: https://github.com/jmillan
-[saghul-url]: http://bettercallsaghul.com
+[ibc-photo]: /images/ibc.jpg
+[ibc-github-url]: https://github.com/ibc
+[ibc-linkedin-url]: https://linkedin.com/in/inakibaz
+[ibc-twitter-url]: https://twitter.com/ibc_tw
+
+[jmillan-photo]: /images/jmillan.jpg
+[jmillan-github-url]: https://github.com/jmillan
+[jmillan-linkedin-url]: https://www.linkedin.com/in/jos%C3%A9-luis-mill%C3%A1n-a423683b/
+[jmillan-twitter-url]: https://twitter.com/jomivi
+
+[versatica-github-url]: https://github.com/versatica
+
+[github-icon]: /images/icon-github.svg
+[linkedin-icon]: /images/icon-linkedin.svg
+[twitter-icon]: /images/icon-twitter.svg
+
+[rfc7118-url]: http://tools.ietf.org/html/rfc7118
+[saghul-personal-url]: http://bettercallsaghul.com
 [paypal-url]: https://paypal.me/inakibazcastillo/100
 
 
