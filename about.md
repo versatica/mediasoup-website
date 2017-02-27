@@ -18,7 +18,7 @@ anchors : true
 [![][linkedin-icon]][ibc-linkedin-url]{: .inline-icon }
 [![][twitter-icon]][ibc-twitter-url]{: .inline-icon }
 
-I'm passionate about new technologies, Open Source, modern web applications development, Node.js, SIP protocol and, above all, Real-Time Communications.
+I'm passionate about new technologies, Open Source, WebRTC, modern web applications development, Node.js, SIP protocol and, above all, Real-Time Communications.
 
 During the last years of my life I've been deeply involved in Voice over IP technologies, collaborating in many well known Open Source software projects and designing and implementing others of my own. I also have authored and co-authored some protocol specifications in the IETF, including the [RFC 7118][rfc7118-url]{:target="_blank"} "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)" where my transition to WebRTC began.
 
