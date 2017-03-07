@@ -69,7 +69,7 @@ gulp.task('rsync', function(done)
 		onStderr  : function(data)
 		{
 			console.error(String(data));
-		},
+		}
 	};
 
 	rsync(options, function(error, stdout, stderr, cmd)

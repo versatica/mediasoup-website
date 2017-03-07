@@ -47,15 +47,15 @@ The [Transport](#Transport) associated to the `rtpSender`.
 
 The [RtpParameters](#RtpDictionaries-RtpParameters) of the `rtpSender`. These parameters are a subset of the parameters in the corresponding `rtpReceiver` (limited by the capabilities of this `peer`).
 
-#### rtpSender.available
-{: #rtpSender-available .code}
+#### rtpSender.active
+{: #rtpSender-active .code}
 
 * Read only
 
 Boolean indicating whether the `peer` owning this `rtpSender` is capable of receiving the associated audio/video stream.
 
 <div markdown="1" class="note">
-If the capabilities of this `peer` do not support the codecs required by this `rtpSender` the `available` property becomes `false`.
+If the capabilities of this `peer` do not support the codecs required by this `rtpSender`, or the app called `disable()` or did not set a `transport`for this `rtpSender`, the `active` property becomes `false`.
 </div>
 
 </section>
@@ -78,6 +78,16 @@ For debugging purposes. Returns a Promise that resolves to an Object containing 
   "rtpParameters" : {}
 }
 ```
+
+#### rtpSender.enable()
+{: #rtpSender-enable .code}
+
+*TBD*
+
+#### rtpSender.disable()
+{: #rtpSender-disable .code}
+
+*TBD*
 
 </section>
 
