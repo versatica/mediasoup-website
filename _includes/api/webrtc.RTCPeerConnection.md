@@ -19,7 +19,6 @@ Field                    | Type    | Description   | Required | Default
 `peer`                   | [Peer](#Peer) | A **mediasoup** Peer instance. | Yes |
 `transportOptions`       | [TransportOptions](#Transport-TransportOptions) | Options for the transport. | No |
 `usePlanB`               | Boolean | Expect and generate [Plan B](https://tools.ietf.org/html/draft-uberti-rtcweb-plan-00) SDPs for this `peerconnection`. | No | `false`
-`bandwidth`              | [BandwidthOptions](#webrtc-RTCPeerConnection-BandwidthOptions) | Bandwidth limit. | No |
 
 </div>
 
@@ -28,18 +27,6 @@ Field                    | Type    | Description   | Required | Default
 Chrome/Chromium browser does not yet implement [Unified Plan](https://tools.ietf.org/html/draft-roach-mmusic-unified-plan-00) (see open [issue](https://bugs.chromium.org/p/chromium/issues/detail?id=465349)) and, hence, setting `usePlanB` to `true` is required for Chrome/Chromium based endpoints.
 
 In the other side, latest versions of Firefox do implement "Unified Plan", so `usePlanB` must be `false` (or unset) for endpoints running Firefox.
-
-</div>
-
-#### BandwidthOptions
-{: #webrtc-RTCPeerConnection-BandwidthOptions .code}
-
-<div markdown="1" class="table-wrapper L3">
-
-Field                    | Type    | Description   | Required | Default
------------------------- | ------- | ------------- | -------- | ---------
-`audio`                  | Integer | Audio bandwidth limit in kilobits per second. | No | Unset
-`video`                  | Integer | Video bandwidth limit in kilobits per second. | No | Unset
 
 </div>
 
