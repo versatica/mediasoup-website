@@ -266,7 +266,6 @@
 
 				h3 {
 					line-height: 1.3em;
-					letter-spacing: -.05em;
 					margin-bottom: 1.1em;
 					color: $color-highlight-dark;
 
@@ -283,8 +282,7 @@
 
 				p {
 					line-height: 1.4em;
-					color: $color-text-5;
-					letter-spacing: .05em;
+					color: rgba($color-text-5, 0.9);
 					margin-bottom: 1em;
 
 					@include breakpoint($computer) {
