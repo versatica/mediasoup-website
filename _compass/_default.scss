@@ -318,6 +318,8 @@
 		}
 
 		&.left {
+			opacity: 0.75;
+
 			@include breakpoint($computer) {
 				float: left;
 				margin: 0 2em 1em 0;
