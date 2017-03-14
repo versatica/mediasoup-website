@@ -44,6 +44,7 @@
 		color: $color-text-8;
 		text-align: left;
 		margin-bottom: 1em;
+		clear: both;
 
 		@include breakpoint($computer) {
 			font-size: 2.5em;
@@ -60,6 +61,7 @@
 		border-bottom: 1px solid $color-highlight;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
+		clear: both;
 
 		@include breakpoint($computer) {
 			font-size: 1.6em;
@@ -80,6 +82,7 @@
 		border-bottom: 1px solid #2a2a2a;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
+		clear: both;
 	}
 
 	&.h3color h3 {
@@ -92,6 +95,7 @@
 		text-align: left;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
+		clear: both;
 
 		&.code {
 			font-size: 0.9em;
@@ -107,6 +111,7 @@
 		text-align: left;
 		margin-top: 1.5em;
 		margin-bottom: 1em;
+		clear: both;
 	}
 
 	p {
