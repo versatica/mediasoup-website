@@ -202,7 +202,7 @@ body {
 		@include flex(0 0 auto);
 		width: 100%;
 		padding: 0.5rem 2rem;
-		background-color: rgba(#fff, 0.03);
+		background-color: rgba(#fff, 0.065);
 		border-top: 1px solid rgba(#fff, 0.1);
 		font-size: 1rem;
 
@@ -220,7 +220,7 @@ body {
 				color: $color-text-3;
 				text-align: center;
 				text-decoration: none;
-				border-bottom: 1px solid $color-text-1;
+				border-bottom: 1px solid #000;
 				@include transition-duration(0.2s);
 				-webkit-tap-highlight-color: transparent;
 
