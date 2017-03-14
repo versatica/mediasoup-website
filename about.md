@@ -13,6 +13,7 @@ anchors : true
 
 ![Iñaki Baz Castillo][ibc-photo]{: .left.round }
 
+[![][website-icon]][ibc-website-url]{: .inline-icon }
 [![][github-icon]][ibc-github-url]{: .inline-icon }
 [![][github-icon]][versatica-github-url]{: .inline-icon }
 [![][linkedin-icon]][ibc-linkedin-url]{: .inline-icon }
@@ -54,6 +55,7 @@ You can support **mediasoup** by making a donation [here][paypal-url]{:target="_
 
 
 [ibc-photo]: /images/ibc.jpg
+[ibc-website-url]: https://inakibaz.me
 [ibc-github-url]: https://github.com/ibc
 [ibc-linkedin-url]: https://linkedin.com/in/inakibaz
 [ibc-twitter-url]: https://twitter.com/ibc_tw
@@ -65,6 +67,7 @@ You can support **mediasoup** by making a donation [here][paypal-url]{:target="_
 
 [versatica-github-url]: https://github.com/versatica
 
+[website-icon]: /images/icon-website.svg
 [github-icon]: /images/icon-github.svg
 [linkedin-icon]: /images/icon-linkedin.svg
 [twitter-icon]: /images/icon-twitter.svg
