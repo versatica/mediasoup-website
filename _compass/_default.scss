@@ -168,6 +168,8 @@
 			}
 
 			img {
+				width: 24px;
+				height: 24px;
 				background-color: rgba(#fff, 0.5);
 				border-radius: 4px;
 				@include transition-property(background-color);

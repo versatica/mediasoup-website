@@ -18,8 +18,9 @@ anchors : true
 [![][github-icon]][versatica-github-url]{: .inline-icon }
 [![][linkedin-icon]][ibc-linkedin-url]{: .inline-icon }
 [![][twitter-icon]][ibc-twitter-url]{: .inline-icon }
+[![][upwork-icon]][ibc-upwork-url]{: .inline-icon }
 
-I'm passionate about new technologies, Open Source, WebRTC, modern web applications development, Node.js, SIP protocol and, above all, Real-Time Communications.
+I'm passionate about new technologies, Open Source, WebRTC, modern Web development, Node.js, C++ and, above all, Real-Time Communications.
 
 During the last years of my life I've been deeply involved in Voice over IP technologies, collaborating in many well known Open Source software projects and designing and implementing others of my own. I also have authored and co-authored some protocol specifications in the IETF, including the [RFC 7118][rfc7118-url]{:target="_blank"} "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)" where my transition to WebRTC began.
 
@@ -59,6 +60,7 @@ You can support **mediasoup** by making a donation [here][paypal-url]{:target="_
 [ibc-github-url]: https://github.com/ibc
 [ibc-linkedin-url]: https://linkedin.com/in/inakibaz
 [ibc-twitter-url]: https://twitter.com/ibc_tw
+[ibc-upwork-url]: https://www.upwork.com/o/profiles/users/_~01d3a30a4d8a3d0690/
 
 [jmillan-photo]: /images/jmillan.jpg
 [jmillan-github-url]: https://github.com/jmillan
@@ -71,6 +73,7 @@ You can support **mediasoup** by making a donation [here][paypal-url]{:target="_
 [github-icon]: /images/icon-github.svg
 [linkedin-icon]: /images/icon-linkedin.svg
 [twitter-icon]: /images/icon-twitter.svg
+[upwork-icon]: /images/icon-upwork.svg
 
 [rfc7118-url]: http://tools.ietf.org/html/rfc7118
 [saghul-personal-url]: http://bettercallsaghul.com
