@@ -111,7 +111,6 @@ body {
 				rgba(#060606, 0.9) 25%,
 				rgba(#111, 0.9) 100%));
 			background-attachment: fixed;
-			background-color: rgba(#222, 0.9);
 
 			// iOS devices (iPad) do not support background-attachment: fixed.
 			&.ios {
