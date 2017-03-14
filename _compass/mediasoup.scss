@@ -40,8 +40,20 @@ html {
 	height: 100%;
 	// Default font size for common text.
 	font-size: 16px;
-	font-family: 'Open Sans', Helvetica;
-	font-weight: 400;
+	// font-family: 'Open Sans', Helvetica;
+	// font-weight: 400;
+
+	font-family: 'Roboto', sans-serif;
+
+	@include breakpoint($computer) {
+		font-size: 16px;
+		font-weight: 300;
+	}
+
+	@include breakpoint($mobile) {
+		font-size: 13px;
+		font-weight: 400;
+	}
 }
 
 body {

@@ -76,7 +76,6 @@
 		font-size: 1.2em;
 		line-height: 1.5em;
 		color: $color-text-7;
-		font-weight: bold;
 		text-align: left;
 		border-bottom: 1px solid #2a2a2a;
 		margin-top: 2em;
@@ -90,13 +89,12 @@
 	h4 {
 		font-size: 1.1em;
 		color: $color-text-6;
-		font-weight: bold;
 		text-align: left;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 
 		&.code {
-			font-size: 1em;
+			font-size: 0.9em;
 			font-family: 'Monaco', 'Andale Mono', monospace;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -106,7 +104,6 @@
 	h5 {
 		font-size: 1em;
 		color: $color-text-5;
-		font-weight: bold;
 		text-align: left;
 		margin-top: 1.5em;
 		margin-bottom: 1em;
