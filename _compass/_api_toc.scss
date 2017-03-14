@@ -102,7 +102,7 @@
 		> li {
 			display: block;
 			margin: 0.75em 0.75em 0.25em 0.75em;
-			font-weight: bold;
+			font-weight: 400;
 			color: #333;
 
 			@include breakpoint($computer) {
@@ -120,7 +120,7 @@
 				> li {
 					margin: 0 0 0.5em 0;
 					font-size: 0.9em;
-					font-weight: bold;
+					font-weight: 400;
 					color: shade($color-highlight-dark, 25%);
 
 					// Third level (API).
