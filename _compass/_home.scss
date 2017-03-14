@@ -207,7 +207,7 @@
 		}
 
 		> .wrapper {
-			@include box-shadow(0px 7px 15px -1px rgba(#000, 0.3));
+			@include box-shadow(0px 7px 15px -1px rgba(#000, 0.2));
 
 			@include breakpoint($computer) {
 				@include display-flex;
@@ -244,15 +244,10 @@
 				@include breakpoint($computer) {
 					@include flex(0 10 auto);
 					width: 34%;
+					margin: 0 2px;
 					padding: 1.75rem;
-					background-clip: padding-box;
-					border-right: 4px solid transparent;
 					@include transition-property(opacity);
 					@include transition-duration(1s);
-
-					&:last-child {
-						border-right: none;
-					}
 
 					&.loading {
 						opacity: 0;
