@@ -54,8 +54,8 @@ Usage example:
 ```javascript
 var server = mediasoup.Server({
     logLevel            : "warn",
-    rtcListenIPv4       : "1.2.3.4",
-    rtcListenIPv6       : false,
+    rtcIPv4             : "1.2.3.4",
+    rtcIPv6             : false,
     dtlsCertificateFile : "/home/foo/dtls-cert.pem",
     dtlsPrivateKeyFile  : "/home/foo/dtls-key.pem"
   });

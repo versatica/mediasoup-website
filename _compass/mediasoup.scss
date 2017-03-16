@@ -38,12 +38,7 @@ $color-highlight-dark: shade($color-highlight, 25%);
 
 html {
 	height: 100%;
-	// Default font size for common text.
-	font-size: 16px;
-	// font-family: 'Open Sans', Helvetica;
-	// font-weight: 400;
-
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', 'Helvetica', 'sans-serif';
 
 	@include breakpoint($computer) {
 		font-size: 16px;
@@ -176,10 +171,10 @@ body {
 		@include display-flex;
 		@include flex-direction(column);
 		position: relative;
-		width: 100%;  // Nedded for IE 11.
+		width: 100%; // Nedded for IE 11.
 		@include transition-property(opacity);
 		@include transition-delay(0.15s);
-		@include transition-duration(0.50s);
+		@include transition-duration(0.75s);
 
 		&.loading {
 			opacity: 0;
@@ -298,9 +293,10 @@ body {
 			right: -120px;
 			font-size: 1rem;
 			line-height: 2.2rem;
+			opacity: 0.85;
 			@include transition-property(bottom, right);
-			@include transition-delay(2s);
-			@include transition-duration(.5s);
+			@include transition-delay(2.5s);
+			@include transition-duration(.25s);
 
 			&.loading {
 				bottom: -120px;

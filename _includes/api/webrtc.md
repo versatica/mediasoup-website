@@ -17,8 +17,8 @@ const signaling = require("./signaling");
 // Create a mediasoup Server.
 const mediaServer = mediasoup.Server({
   logLevel   : "debug",
-  listenIPv4 : true,
-  listenIPv6 : false,
+  rtcIPv4    : true,
+  rtcIPv6    : false,
   rtcMinPort : 40000,
   rtcMaxPort : 49999
 });

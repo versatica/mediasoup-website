@@ -15,7 +15,7 @@
 			padding: 0 20%;
 			font-size: 4.5rem;
 			@include transition-property(opacity, transform);
-			@include transition-delay(0.5s);
+			@include transition-delay(0.75s);
 			@include transition-duration(1.6s);
 			@include transform-origin(30%);
 			@include transform(perspective(250px));
@@ -130,7 +130,7 @@
 
 			@include breakpoint($computer) {
 				@include transition-property(opacity, transform, background-color, color, border-color);
-				@include transition-delay(1.5s);
+				@include transition-delay(1.25s);
 				@include transition-duration(1s);
 
 				&.loading {
@@ -173,7 +173,7 @@
 			right: 15%;
 			height: 400px;
 			width: 400px;
-			opacity: 0.085;
+			opacity: 0.06;
 			@include transition-property(opacity, transform);
 			@include transition-delay(0.6s);
 			@include transition-duration(1.5s);
@@ -227,17 +227,17 @@
 
 			.box {
 				&.first {
-					@include transition-delay(0.5s);
+					// @include transition-delay(0.5s);
 					background-color: rgba(108, 181, 168, 0.25);
 				}
 
 				&.second {
-					@include transition-delay(0.65s);
+					// @include transition-delay(0.65s);
 					background-color: rgba(84, 144, 133, 0.25);
 				}
 
 				&.third {
-					@include transition-delay(0.8s);
+					// @include transition-delay(0.8s);
 					background-color: rgba(68, 111, 104, 0.25);
 				}
 
@@ -309,11 +309,11 @@
 		height: 20px;
 		text-align: center;
 		margin: 2rem;
+		opacity: 0.75;
 
 		@include breakpoint($computer) {
 			@include transition-property(transform);
-			@include transition-delay(2s);
-			@include transition-duration(0.5s);
+			@include transition-duration(0.25s);
 
 			&.loading {
 				@include transform(scale(0));
