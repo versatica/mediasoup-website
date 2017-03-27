@@ -116,6 +116,7 @@ The available list of log tags is the following:
 * "rtp": Generates logs about RTP.
 * "srtp": Generates logs about SRTP encryption/decryption.
 * "rtcp": Generates logs about RTCP.
+* "rbe": Generates logs about remote bandwidth estimation.
 
 <div markdown="1" class="note">
 Remember: These logs are just generated if their severity is equal or higher than the given [logLevel](/api/#Server-ServerSettings), but they are just logged if the value of the `DEBUG` environment variable matches their namespace.
