@@ -201,6 +201,7 @@
 		}
 
 		@include breakpoint($mobile) {
+			padding: 0 10px;
 			font-size: 0.9rem;
 		}
 
@@ -254,7 +255,6 @@
 
 				@include breakpoint($mobile) {
 					padding: 1.5rem;
-					border-top: 1px solid rgba($color-highlight-dark, 0.5);
 				}
 
 				h3 {
