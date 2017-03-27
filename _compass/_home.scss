@@ -254,6 +254,7 @@
 				}
 
 				@include breakpoint($mobile) {
+					margin: 5px  0;
 					padding: 1.5rem;
 				}
 
