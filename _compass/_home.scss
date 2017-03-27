@@ -276,7 +276,7 @@
 
 				p {
 					line-height: 1.4em;
-					color: rgba($color-text-5, 0.9);
+					color: rgba($color-text-5, 0.75);
 					margin-bottom: 1em;
 
 					@include breakpoint($computer) {
