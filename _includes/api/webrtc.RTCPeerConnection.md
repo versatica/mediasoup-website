@@ -217,6 +217,22 @@ If the remote endpoint wishes to add/remove a sending audio or video track, it m
 
 </div>
 
+#### peerconnection.reset()
+{: #webrtc-peerconnection-reset .code}
+
+Reset the internal machinery of the `RTCPeerConnection`. It basically sets the `signalingState` to "stable".
+
+Useful if the app failed to receive a pending SDP re-answer from the client.
+
+#### peerconnection.consumeIceRestart()
+{: #webrtc-peerconnection-consumeIceRestart .code}
+
+ICE restart just can be achieved by means of generating a new SDP offer in the client side using `peerconnection.createOffer({ iceRestart: true })`.
+
+This method is a no-op that allows the remote client restart its ICE machinery and sends a re-offer to **mediasoup**.
+
+Returns a Promise that resolves to the local [RTCSessionDescription](#webrtc-RTCSessionDescription) instance of type "answer" to be delivered to the remote client.
+
 </section>
 
 
