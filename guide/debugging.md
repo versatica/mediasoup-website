@@ -116,6 +116,7 @@ The available list of log tags is the following:
 * "rtp": Generates logs about RTP.
 * "srtp": Generates logs about SRTP encryption/decryption.
 * "rtcp": Generates logs about RTCP.
+* "rtx": Generates logs about RTP retransmission, including NACK/PLI/FIR.
 * "rbe": Generates logs about remote bandwidth estimation.
 
 <div markdown="1" class="note">
