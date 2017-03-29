@@ -71,7 +71,7 @@ function handleParticipant(participant, request, appRoom, mediaRoom) {
   let mediaPeer = mediaRoom.Peer(participant.username);
   let peerconnection = new RTCPeerConnection({
     peer     : mediaPeer,
-    usePlanB : participant.isChrome
+    usePlanB : participant.usePlanB
   });
 
   // Participant is required to join the mediasoup Room by providing a
