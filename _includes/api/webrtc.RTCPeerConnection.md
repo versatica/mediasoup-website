@@ -157,6 +157,12 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
+<div markdown="1" class="note warn">
+
+In order to get the capabilities SDP in the WebRTC browser/endpoint, just call `pc.createOffer()` (as stated above) but **DO NOT** call `pc.setLocalDescription()`).
+
+</div>
+
 #### peerconnection.createOffer(options)
 {: #webrtc-peerconnection-createOffer .code}
 
