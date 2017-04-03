@@ -324,6 +324,25 @@ transport.setRemoteDtlsParameters({
   });
 ```
 
+#### transport.setMaxBitrate(bitrate)
+{: #transport-setMaxBitrate .code}
+
+Set maximum uplink bitrate for media streams sent by the remote endpoint over this `transport`. Returns a Promise that resolves to this `transport`. If something goes wrong the Promise is rejected with the corresponding `Error` object. 
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`bitrate`  | Number  | Maximum uplink bitrate in `bps`. | Yes | 0 (no limit)
+
+</div>
+
+Usage example:
+
+```javascript
+transport.setMaxBitrate(250000);
+```
+
 </section>
 
 
