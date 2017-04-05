@@ -29,4 +29,4 @@ Please do **NOT** open an issue in GitHub for questions or doubts. Use the [medi
 
 
 [mediasoup-google-group]: https://groups.google.com/forum/#!forum/mediasoup
-[mediasoup-github-issues]: https://github.com/ibc/mediasoup/issues
+[mediasoup-github-issues]: https://github.com/versatica/mediasoup/issues

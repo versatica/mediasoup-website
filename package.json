@@ -6,7 +6,7 @@
   "homepage": "https://mediasoup.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ibc/mediasoup-website.git"
+    "url": "https://github.com/versatica/mediasoup-website.git"
   },
   "author": "Iñaki Baz Castillo <ibc@aliax.net>",
   "license": "LicenseRef-LICENSE",
