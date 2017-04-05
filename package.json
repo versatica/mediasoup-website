@@ -1,6 +1,6 @@
 {
   "name": "mediasoup-website",
-  "version": "0.8.3",
+  "version": "0.8.4",
   "description": "mediasoup website",
   "main": "lib/index.js",
   "homepage": "https://mediasoup.org",
