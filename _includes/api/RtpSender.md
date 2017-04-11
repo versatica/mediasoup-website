@@ -31,7 +31,7 @@ The [MediaKind](#RtpDictionaries-MediaKind) handled by the `rtpSender`.
 
 * Read only
 
-The associated [Peer](#Peer) instance owner of the associated  `rtpReceiver`.
+The [Peer](#Peer) instance owner of this `rtpSender`.
 
 #### rtpSender.transport
 {: #rtpSender-transport .code}
@@ -46,6 +46,13 @@ The [Transport](#Transport) associated to the `rtpSender`.
 * Read only
 
 The [RtpParameters](#RtpDictionaries-RtpParameters) of the `rtpSender`. These parameters are a subset of the parameters in the corresponding `rtpReceiver` (limited by the capabilities of this `peer`).
+
+#### rtpSender.associatedRtpReceiver
+{: #rtpSender-associatedRtpReceiver .code}
+
+* Read only
+
+The associated [RtpReceiver](#RtpReceiver) instance.
 
 #### rtpSender.active
 {: #rtpSender-active .code}

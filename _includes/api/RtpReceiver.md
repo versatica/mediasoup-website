@@ -53,19 +53,19 @@ A Boolean indicating whether the `rtpReceiver` has been closed.
 
 The [MediaKind](#RtpDictionaries-MediaKind) handled by the `rtpReceiver`.
 
-#### rtpReceiver.associatedPeer
-{: #rtpReceiver-associatedPeer .code}
+#### rtpReceiver.peer
+{: #rtpReceiver-peer .code}
 
 * Read only
 
-The associated [Peer](#Peer) instance owner of this `rtpReceiver`.
+The [Peer](#Peer) instance owner of this `rtpReceiver`.
 
 #### rtpReceiver.transport
 {: #rtpReceiver-transport .code}
 
 * Read only
 
-The [Transport](#Transport) associated to the `rtpReceiver`.
+The [Transport](#Transport) assigned to this `rtpReceiver`.
 
 #### rtpReceiver.rtpParameters
 {: #rtpReceiver-rtpParameters .code}
