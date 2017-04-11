@@ -231,8 +231,8 @@ Reset the internal machinery of the `RTCPeerConnection`. It basically sets the `
 
 Useful if the app failed to receive a pending SDP re-answer from the client.
 
-#### peerconnection.consumeIceRestart(desc)
-{: #webrtc-peerconnection-consumeIceRestart .code}
+#### peerconnection.iceRestart(desc)
+{: #webrtc-peerconnection-iceRestart .code}
 
 ICE restart just can be achieved by means of generating a new SDP offer in the client side using `peerconnection.createOffer({ iceRestart: true })`.
 
