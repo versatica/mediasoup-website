@@ -231,22 +231,12 @@ Reset the internal machinery of the `RTCPeerConnection`. It basically sets the `
 
 Useful if the app failed to receive a pending SDP re-answer from the client.
 
-#### peerconnection.iceRestart(desc)
+#### peerconnection.restartIce()
 {: #webrtc-peerconnection-iceRestart .code}
 
-ICE restart just can be achieved by means of generating a new SDP offer in the client side using `peerconnection.createOffer({ iceRestart: true })`.
+By calling this method, a SDP re-offer is triggered with new `a=ice-ufrag` and `a=ice-pwd` values, producing a "ICE restart" in the browser.
 
-This method is a no-op that allows the remote client restart its ICE machinery and sends a re-offer to **mediasoup**.
-
-Returns a Promise that resolves to the local [RTCSessionDescription](#webrtc-RTCSessionDescription) instance of type "answer" to be delivered to the remote client.
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument   | Type    | Description | Required | Default 
----------- | ------- | ----------- | -------- | ----------
-`desc`  | [RTCSessionDescription](#webrtc-RTCSessionDescription) | Remote description. | Yes |
-
-</div>
+Returns a Promise.
 
 </section>
 
