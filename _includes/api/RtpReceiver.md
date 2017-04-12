@@ -130,6 +130,32 @@ The `RtpReceiver` class inherits from [EventEmitter](https://nodejs.org/api/even
 
 Emitted when the `rtpReceiver` is closed. In case of error, the callback is called with the corresponding `Error` object.
 
+#### rtpReceiver.on("parameters", fn(rtpParameters))
+{: #rtpReceiver-on-parameters .code}
+
+Fired after calling [`receive()`](#rtpReceiver-receive) for the first time.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`rtpParameters` | [RtpParameters](#RtpDictionaries-RtpParameters) | New effective RTP parameters.
+
+</div>
+
+#### rtpReceiver.on("parameterschange", fn(rtpParameters))
+{: #rtpReceiver-on-parameterschange .code}
+
+Fired after calling [`receive()`](#rtpReceiver-receive) with new RTP parameters.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`rtpParameters` | [RtpParameters](#RtpDictionaries-RtpParameters) | New effective RTP parameters.
+
+</div>
+
 #### rtpReceiver.on("rtpraw", fn(packet))
 {: #rtpReceiver-on-rtpraw .code}
 

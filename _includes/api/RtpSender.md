@@ -59,10 +59,10 @@ The associated [RtpReceiver](#RtpReceiver) instance.
 
 * Read only
 
-Boolean indicating whether the `peer` owning this `rtpSender` is capable of receiving the associated audio/video stream.
+Boolean indicating whether the remote endpoint associated to this `rtpSender` is capable of receiving the associated audio/video stream.
 
 <div markdown="1" class="note">
-If the capabilities of this `peer` do not support the codecs required by this `rtpSender`, or the app called `disable()` or did not set a `transport`for this `rtpSender`, the `active` property becomes `false`.
+If the capabilities of the `peer` do not support the codecs required by this `rtpSender`, or the app called `disable()` or did not set a `transport`for this `rtpSender`, the `active` property becomes `false`.
 </div>
 
 </section>
@@ -86,15 +86,17 @@ For debugging purposes. Returns a Promise that resolves to an Object containing 
 }
 ```
 
-#### rtpSender.enable()
-{: #rtpSender-enable .code}
-
-*TBD*
-
 #### rtpSender.disable()
 {: #rtpSender-disable .code}
 
-*TBD*
+The `rtpSender` stops sending RTP to the remote endpoint. It may trigger an [`activechange`](#rtpSender-on-activechange) event.
+
+#### rtpSender.enable()
+{: #rtpSender-enable .code}
+
+The `rtpSender` resumes sending RTP to the remote endpoint. It may trigger an [`activechange`](#rtpSender-on-activechange) event.
+
+It has no effect if [`disable()`](##rtpSender-disable) was not called before.
 
 </section>
 
@@ -110,5 +112,32 @@ The `RtpSender` class inherits from [EventEmitter](https://nodejs.org/api/events
 {: #rtpSender-on-close .code}
 
 Emitted when the `rtpSender` is closed. In case of error, the callback is called with the corresponding `Error` object.
+
+#### rtpSender.on("parameterschange", fn(rtpParameters, active))
+{: #rtpSender-on-parameterschange .code}
+
+Fired once the RTP parameters of this `rtpSender` change.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`rtpParameters` | [RtpParameters](#RtpDictionaries-RtpParameters) | New effective RTP parameters.
+`active` | Boolean | Updated [`active`](#rtpSender-active) value.
+
+</div>
+
+#### rtpSender.on("activechange", fn(active))
+{: #rtpSender-on-activechange .code}
+
+Fired when the [`active`](#rtpSender-active) value changes.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`active` | Boolean | Updated [`active`](#rtpSender-active) value.
+
+</div>
 
 </section>
