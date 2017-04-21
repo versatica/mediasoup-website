@@ -240,7 +240,7 @@
 		border-radius: 4px;
 
 		&.warn {
-			background-color: rgba(255, 111, 111, 0.2);
+			background-color: rgba(179, 35, 35, 0.4);
 		}
 
 		@include breakpoint($computer) {
