@@ -5,7 +5,6 @@
 	color: $color-text-4;
 	width: 100%;
 	overflow: hidden;
-	text-align: justify;
 
 	@include breakpoint($computer) {
 		margin: 4rem auto;
@@ -13,6 +12,7 @@
 		width: 90%;
 		max-width: 1024px;
 		font-size: 1rem;
+		text-align: left;
 	}
 
 	@include breakpoint($mobile) {
@@ -20,6 +20,7 @@
 		padding-top: $padding + $header-height-mobile;
 		width: 100%;
 		font-size: 0.9rem;
+		text-align: left;
 	}
 
 	// Fix fixed header size for anchor links
