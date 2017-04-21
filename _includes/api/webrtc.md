@@ -77,13 +77,20 @@ function handleParticipant(participant, request, appRoom, mediaRoom) {
   // Participant is required to join the mediasoup Room by providing a
   // capabilities SDP.
   peerconnection.setCapabilities(participant.capabilities)
+    // OK, so accept the request.
     .then(() => {
-      // OK, so accept the request.
       request.accept();
 
       // And then generate the initial SDP offer for this participant and send
       // it to him.
       sendSdpOffer(participant, peerconnection, appRoom);
+    })
+    // Something was wrong, reject the request.
+    .catch((error) => {
+      request.reject(error);
+
+      // And also close the RTCPeerConnection.
+      peerconnection.close();
     });
 
   // When something changes in the mediasoup Room (such as when a new participant
@@ -120,10 +127,15 @@ function sendSdpOffer(participant, peerconnection, appRoom) {
   // set it as remote description.
   .then((data) => {
     return peerconnection.setRemoteDescription(data.answer);
+  })
+  // If something goes wrong, reset the RTCPeerConnection internal status so,
+  // at least, things may work later in a new re-offer.
+  .catch((error) => {
+    peerconnection.reset();
   });
 }
-
-// NOTE: It's also up to the application how to signal the relationship between
-// audio/video streams and their associated room participants.
 ```
 
+<div markdown="1" class="note">
+Check the [WebRTC API tricks](/guide/webrtc_api_tricks/) section to get help regarding how to signal the relationship between audio/video streams and their associated room participants.
+</div>

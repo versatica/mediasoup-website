@@ -28,14 +28,14 @@
     "hammerjs": "^2.0.8"
   },
   "devDependencies": {
-    "browserify": "^14.1.0",
-    "browserify-shim": "^3.8.13",
+    "browserify": "^14.3.0",
+    "browserify-shim": "^3.8.14",
     "gulp": "git://github.com/gulpjs/gulp.git#4.0",
     "gulp-rename": "^1.2.2",
-    "gulp-shell": "^0.5.2",
+    "gulp-shell": "^0.6.3",
     "gulp-sitemap": "^4.2.0",
-    "gulp-uglify": "^2.0.1",
-    "request": "^2.79.0",
+    "gulp-uglify": "^2.1.2",
+    "request": "^2.81.0",
     "rsyncwrapper": "^2.0.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"

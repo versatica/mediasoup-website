@@ -16,6 +16,13 @@ In the context of WebRTC 1.0, such a "remote media endpoint" implies a `RTCPeerC
 
 <section markdown="1">
 
+#### peer.id
+{: #peer-id .code}
+
+* Read only
+
+Unique identifier (number).
+
 #### peer.closed
 {: #peer-closed .code}
 
@@ -69,15 +76,23 @@ Closes the `peer`, including all its `transports`, `rtpReceivers` and `rtpSender
 
 For debugging purposes. Returns a Promise that resolves to an Object containing the `peer` internals.
 
-```json
-{
-  "peerId"       : 13257608,
-  "peerName"     : "alice",
-  "transports"   : [],
-  "rtpReceivers" : [],
-  "rtpSenders"   : []
-}
-```
+#### peer.setCapabilities(capabilities)
+{: #peer-setCapabilities .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`capabilities` | [RtpCapabilities](#RtpDictionaries-RtpCapabilities) | Peer's RTP capabilities. | Yes |
+
+</div>
+
+Sets the RTP capabilities of the `peer`.
+
+<div markdown="1" class="note warn">
+This method must be called before creating any  `RtpReceiver` for this `peer`.
+</div>
+
 
 #### peer.createTransport(options)
 {: #peer-createTransport .code}
@@ -139,19 +154,57 @@ The `Peer` class inherits from [EventEmitter](https://nodejs.org/api/events.html
 
 Emitted when the `peer` is closed. In case of error, the callback is called with the corresponding `Error` object.
 
-#### peer.on("newrtpsender", fn(rtpSender))
-{: #peer-on-newrtpsender .code}
+#### peer.on("capabilities", fn(capabilities))
+{: #peer-on-capabilities .code}
 
-Emitted when another `peer` in the same `room` creates a new [RtpReceiver](#RtpReceiver) and calls [`receive()`](#rtpReceiver-receive) on it for first time.
+Emitted after a succesful call to [`setCapabilities`](#peer-setCapabilities). It provides the effective RTP capabilities of the `peer` (after filtering capabilities non supported by the `room`).
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument     | Type    | Description   
+------------ | ------- | ----------------
+`capabilities` | [RtpCapabilities](#RtpDictionaries-RtpCapabilities) | Peer's effective RTP capabilities. | Yes |
+
+</div>
+
+#### peer.on("newtransport", fn(transport))
+{: #peer-on-newtransport .code}
+
+Emitted when a new `transport` is created.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument | Type    | Description   
------------------ | ------- | ----------------
-`rtpSenders`      | [RtpSender](#RtpSender) | `rtpSender` associated to the new `rtpReceiver`.
+-------- | ------- | ----------------
+`transport` | [Transport](#Transport) | New `transport`.
 
 </div>
 
+#### peer.on("newrtpreceiver", fn(rtpReceiver))
+{: #peer-on-newrtpreceiver .code}
+
+Emitted when a new `rtpReceiver` is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument     | Type    | Description   
+------------ | ------- | ----------------
+`rtpReceiver` | [RtpReceiver](#RtpReceiver) | New `rtpReceiver`.
+
+</div>
+
+#### peer.on("newrtpsender", fn(rtpSender))
+{: #peer-on-newrtpsender .code}
+
+Emitted when another `peer` in the same `room` creates a new [RtpReceiver](#RtpReceiver) and calls [`receive()`](#rtpReceiver-receive) on it for first time. Also emitted for each already existing [RtpReceiver](#RtpReceiver) in the `room` once the `peer` joins it.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument     | Type    | Description   
+------------ | ------- | ----------------
+`rtpSender` | [RtpSender](#RtpSender) | New `rtpSender`.
+
+</div>
 
 ```javascript
 peer.on("newrtpsender", (rtpSender) => {

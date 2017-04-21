@@ -121,6 +121,28 @@ Argument   | Type    | Description | Required | Default
 Usage example:
 
 ```javascript
+const options = {
+  roomCodecs : [
+    {
+      kind        : "audio",
+      name        : "audio/opus",
+      clockRate   : 48000,
+      payloadType : 101,
+      parameters  :
+      {
+        useInBandFec : true,
+        useDtx       : true
+      }
+    },
+    {
+      kind        : "video",
+      name        : "video/vp8",
+      clockRate   : 90000,
+      payloadType : 102
+    }
+  ]
+};
+
 server.createRoom(options)
   .then((room) => {
     console.log("room created: %o", room);
@@ -151,5 +173,18 @@ server.on("close", (error) => {
     console.error("server closed with error: %o", error);
 });
 ```
+
+#### server.on("newroom", room)
+{: #server-on-newroom .code}
+
+Emitted when a new `room` is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`room`   | [Room](#Room) | New `room`.
+
+</div>
 
 </section>

@@ -13,7 +13,7 @@ title : Support
 Use the public [mediasoup Google Group][mediasoup-google-group] for questions and doubts regarding **mediasoup**.
 
 <div markdown="1" class="note">
-Before doing that, please check the [F.A.Q.](/faq/) and the [Guide](/guide/) (the response could be there).
+Before doing that, please check the [API documentation](/api/), the [F.A.Q.](/faq/) and the [Guide](/guide/) (the response could be there).
 </div>
 
 

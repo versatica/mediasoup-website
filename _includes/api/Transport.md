@@ -191,6 +191,13 @@ Value          | Description
 
 <section markdown="1">
 
+#### transport.id
+{: #transport-id .code}
+
+* Read only
+
+Unique identifier (number).
+
 #### transport.closed
 {: #transport-closed .code}
 
@@ -280,19 +287,6 @@ Closes the `transport` and triggers a [`close`](#transport-on-close) event.
 
 For debugging purposes. Returns a Promise that resolves to an Object containing the `transport` internals.
 
-```json
-{
-  "transportId"         : 38061109,
-  "dtlsLocalParameters" : {},
-  "dtlsState"           : "connected",
-  "iceLocalCandidates"  : [],
-  "iceLocalParameters"  : {},
-  "iceRole"             : "controlled",
-  "iceSelectedTuple"    : {},
-  "iceState"            : "completed"
-}
-```
-
 #### transport.setRemoteDtlsParameters(parameters)
 {: #transport-setRemoteDtlsParameters .code}
 
@@ -342,6 +336,11 @@ Usage example:
 ```javascript
 transport.setMaxBitrate(250000);
 ```
+
+#### transport.changeUfragPwd()
+{: #transport-changeUfragPwd .code}
+
+Set new local ICE `usernameFragment` and `password`. Useufl to produce a ICE restart. Returns a Promise that resolves to this `transport`. If something goes wrong the Promise is rejected with the corresponding `Error` object. 
 
 </section>
 

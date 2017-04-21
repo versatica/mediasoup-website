@@ -17,7 +17,7 @@ kramdown:
   input: GFM
   auto_ids: false
   toc_levels: 2..4
-  # Remove typographic single quotes (but allow typographic double quotes)
+  # Remove typographic single quotes (but allow typographic double quotes).
   smart_quotes: [ 'apos', 'apos', 'ldquo', 'rdquo' ]
   syntax_highlighter: rouge
 

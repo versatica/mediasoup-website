@@ -39,6 +39,13 @@ Field                    | Type    | Description   | Required | Default
 
 <section markdown="1">
 
+#### rtpReceiver.id
+{: #rtpReceiver-id .code}
+
+* Read only
+
+Unique identifier (number).
+
 #### rtpReceiver.closed
 {: #rtpReceiver-closed .code}
 
@@ -72,7 +79,7 @@ The [Transport](#Transport) assigned to this `rtpReceiver`.
 
 * Read only
 
-The [RtpParameters](#RtpDictionaries-RtpParameters) of the `rtpReceiver`. It is filled once [`rtpReceiver.receive()`](#rtpReceiver-receive) is called and its Promise resolved.
+The effective [RtpParameters](#RtpDictionaries-RtpParameters) of the `rtpReceiver`. It is filled once [`rtpReceiver.receive()`](#rtpReceiver-receive) is called and its Promise resolved.
 
 </section>
 
@@ -90,18 +97,6 @@ Closes the `rtpReceiver` and triggers a [`close`](#rtpReceiver-on-close) event.
 #### rtpReceiver.dump()
 {: #rtpReceiver-dump .code}
 
-For debugging purposes. Returns a Promise that resolves to an Object containing the `rtpReceiver` internals.
-
-```json
-{
-  "rtpReceiverId"         : 73691078,
-  "kind"                  : "video",
-  "rtpRawEventEnabled"    : false,
-  "rtpObjectEventEnabled" : false,
-  "rtpParameters"         : {}
-}
-```
-
 #### rtpReceiver.receive(rtpParameters)
 {: #rtpReceiver-receive .code}
 
@@ -112,6 +107,19 @@ Set remote RTP parameters. Returns a Promise that resolves to this `rtpReceiver`
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
 `rtpParameters` | [RtpParameters](#RtpDictionaries-RtpParameters) | Remote RTP parameters. | Yes |
+
+</div>
+
+#### rtpReceiver.setTransport(transport)
+{: #rtpReceiver-setTransport .code}
+
+Set a new [Transport](#Transport). Returns a Promise that resolves to this `rtpReceiver`. If something goes wrong the Promise is rejected with the corresponding `Error` object.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`transport` | [Transport](#Transport) | New `transport`. | Yes |
 
 </div>
 
@@ -153,6 +161,19 @@ Fired after calling [`receive()`](#rtpReceiver-receive) with new RTP parameters.
 Argument | Type    | Description   
 -------- | ------- | ----------------
 `rtpParameters` | [RtpParameters](#RtpDictionaries-RtpParameters) | New effective RTP parameters.
+
+</div>
+
+#### rtpReceiver.on("transport", fn(transport))
+{: #rtpReceiver-on-transport .code}
+
+Emitted when a `transport` is assigned via [`setTransport()`](#rtpReceiver-setTransport).
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`transport` | [Transport](#Transport) | New assigned `transport`.
 
 </div>
 

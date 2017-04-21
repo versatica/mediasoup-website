@@ -23,13 +23,16 @@ Field                    | Type    | Description   | Required | Default
 #### RoomMediaCodec
 {: #Room-RoomMediaCodec .code}
 
-*TBD*
-
 <div markdown="1" class="table-wrapper L3">
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
-                         |         |               |          |
+`mediaCodecs`            | sequence<[RtpCodecParameters](#RtpDictionaries-RtpCodecParameters)> | The list of media codecs supported by the `room`. | Yes |
+
+<div markdown="1" class="note warn">
+ * Feature codecs (such as RTX or FEC) must not be placed into `mediaCodecs`.
+ * Entries in `mediaCodecs` must not have `rtcpFeedback` parameter.
+</div>
 
 </div>
 
@@ -40,6 +43,13 @@ Field                    | Type    | Description   | Required | Default
 {: #Room-properties}
 
 <section markdown="1">
+
+#### room.id
+{: #room-id .code}
+
+* Read only
+
+Unique identifier (number).
 
 #### room.closed
 {: #room-closed .code}
@@ -73,19 +83,10 @@ Closes the `room`, including all its `peers`, and triggers a [`close`](#room-on-
 
 For debugging purposes. Returns a Promise that resolves to an Object containing the `room` internals.
 
-```json
-{
-  "roomId"                   : 45450588,
-  "options"                  : {},
-  "peers"                    : [],
-  "mapRtpReceiverRtpSenders" : {}
-}
-```
-
 #### room.Peer(name)
 {: #room-Peer .code}
 
-Returns a new [Peer](#Peer) instance.
+Creates and returns a new [Peer](#Peer) instance.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -126,5 +127,18 @@ The `Room` class inherits from [EventEmitter](https://nodejs.org/api/events.html
 {: #room-on-close .code}
 
 Emitted when the `room` is closed. In case of error, the callback is called with the corresponding `Error` object.
+
+#### room.on("newpeer", peer)
+{: #room-on-newpeer .code}
+
+Emitted when a new `peer` is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`peer`   | [Peer](#Peer) | New `peer`.
+
+</div>
 
 </section>

@@ -24,11 +24,9 @@ Field                    | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-
 Chrome/Chromium browser does not yet implement [Unified Plan](https://tools.ietf.org/html/draft-roach-mmusic-unified-plan-00) (see open [issue](https://bugs.chromium.org/p/chromium/issues/detail?id=465349)) and, hence, setting `usePlanB` to `true` is required for Chrome/Chromium based endpoints.
 
 In the other side, latest versions of Firefox do implement "Unified Plan", so `usePlanB` must be `false` (or unset) for endpoints running Firefox.
-
 </div>
 
 #### RTCOfferOptions

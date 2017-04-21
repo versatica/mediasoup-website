@@ -75,3 +75,19 @@ The [RTCSdpType](#webrtc-RTCSessionDescription-RTCSdpType) type.
 {: #webrtc-description-sdp .code}
 
 The SDP body (String).
+
+</section>
+
+
+### Methods
+{: #webrtc-RTCSessionDescription-serialize}
+
+<section markdown="1">
+
+#### description.serialize()
+{: #webrtc-description-serialize .code}
+
+Returns an object with two keys: [`type`](#webrtc-description-type) and [`sdp`](#webrtc-description-sdp).
+
+
+</section>

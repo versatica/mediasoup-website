@@ -12,6 +12,13 @@ A `RtpSender` instance is created within the [`newrtpsender`](#peer-on-newrtpsen
 
 <section markdown="1">
 
+#### rtpSender.id
+{: #rtpSender-id .code}
+
+* Read only
+
+Unique identifier (number).
+
 #### rtpSender.closed
 {: #rtpSender-closed .code}
 
@@ -26,8 +33,8 @@ A Boolean indicating whether the `rtpSender` has been closed. This happens when 
 
 The [MediaKind](#RtpDictionaries-MediaKind) handled by the `rtpSender`.
 
-#### rtpSender.associatedPeer
-{: #rtpSender-associatedPeer .code}
+#### rtpSender.peer
+{: #rtpSender-peer .code}
 
 * Read only
 
@@ -77,14 +84,6 @@ If the capabilities of the `peer` do not support the codecs required by this `rt
 {: #rtpSender-dump .code}
 
 For debugging purposes. Returns a Promise that resolves to an Object containing the `rtpSender` internals.
-
-```json
-{
-  "rtpSenderId"   : 67138704,
-  "kind"          : "audio",
-  "rtpParameters" : {}
-}
-```
 
 #### rtpSender.disable()
 {: #rtpSender-disable .code}

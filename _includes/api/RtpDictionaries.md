@@ -6,8 +6,26 @@
 
 <section markdown="1">
 
+#### RtpCapabilities
+{: #RtpDictionaries-RtpCapabilities .code}
+
+Used by [Peer](#Peer).
+
+<div markdown="1" class="table-wrapper L3">
+
+Field                    | Type    | Description   | Required | Default
+------------------------ | ------- | ------------- | -------- | ---------
+`codecs`                 | sequence<[RtpCodecParameters](#RtpDictionaries-RtpCodecParameters)> | The list of supported codecs. | Yes |
+`headerExtensions`       | sequence<[RtpHeaderExtension](#RtpDictionaries-RtpHeaderExtension)> | Supported RTP header extensions. | No |
+`fecMechanisms`         | sequence<String> | Supported Forward Error Correction (FEC) mechanisms and combinations. | No |
+
+</div>
+
+
 #### RtpParameters
 {: #RtpDictionaries-RtpParameters .code}
+
+Used by [RtpReceiver](#RtpReceiver) and [RtpSender](#RtpSender).
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -22,8 +40,6 @@ Field                    | Type    | Description   | Required | Default
 
 </div>
 
-Entries for the RTP retransmission mechanism defined in [RFC 4588](https://tools.ietf.org/html/rfc4588) are not included in the `codecs` sequence.
-
 `userParameters` are custom parameters set by the user in [`rtpReceiver.receive()`](#rtpReceiver-receive) and copied verbatim into the corresponding [RtpParameters](#RtpDictionaries-RtpParameters) of all the associated [RtpSender](#RtpSender) instances.
 
 
@@ -34,29 +50,18 @@ Entries for the RTP retransmission mechanism defined in [RFC 4588](https://tools
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
+`kind`                   | [MediaKind](#RtpDictionaries-MediaKind) | Media kind. | Required for [RtpCapabilities](#RtpDictionaries-RtpCapabilities) of [Peer](#Peer) and [RoomMediaCodec](#Room-RoomMediaCodec) of [Room](#Room) |
 `name`                   | String  | The codec MIME type. Valid values are listed in [IANA-RTP-2](http://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2). The syntax must match `type/subtype` (examples: "audio/opus", "video/H264"). | Yes |
 `payloadType`            | Integer | The value that goes in the RTP Payload Type Field. Must be unique. | Yes |
 `clockRate`              | Integer | Codec clock rate expressed in Hertz. | Yes |
 `maxptime`               | Integer | The maximum packetization time. | No |
 `ptime`                  | Integer | The duration of media represented by a packet in millisecond. | No |
 `numChannels`            | Integer | The number of channels (mono=1, stereo=2) for audio codecs. | No | 1
-`rtx`                    | [RTCRtpCodecRtxParameters](#RtpDictionaries-RTCRtpCodecRtxParameters) | Retransmission parameters for the codec. | No |
 `rtcpFeedback`           | sequence<[RtcpFeedback](#RtpDictionaries-RtcpFeedback)> | Transport layer and codec-specific feedback messages for this codec. | No |
 `parameters`             | Dictionary | Codec-specific parameters available for signaling. | No |
 
 </div>
 
-#### RTCRtpCodecRtxParameters
-{: #RtpDictionaries-RTCRtpCodecRtxParameters .code}
-
-<div markdown="1" class="table-wrapper L3">
-
-Field                    | Type    | Description   | Required | Default
------------------------- | ------- | ------------- | -------- | ---------
-`payloadType`            | Integer | The payload type of retransmission packets defined in [RFC 4588](https://tools.ietf.org/html/rfc4588). | Yes |
-`rtxTime`                | Integer | The maximum time (measured in milliseconds) a sender will keep an original RTP packet in its buffers available for retransmission. | No |
-
-</div>
 
 #### RtcpFeedback
 {: #RtpDictionaries-RtcpFeedback .code}
@@ -77,7 +82,7 @@ Field                    | Type    | Description   | Required | Default
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
-`ssrc`                   | Integer | The SSRC for this layering/encoding. Multiple `RtpEncodingParameters` objects can share the same `ssrc` value (useful, for example, to indicate that different RTX payload types associated to different codecs are carried over the same stream). | No |
+`ssrc`                   | Integer | The SSRC for this layering/encoding. | No |
 `codecPayloadType`       | Integer | For per-encoding codec specifications. If set, it must point to an entry in `codecs` with same `payloadType`. | No |
 `fec`                    | [RtpFecParameters](#RtpDictionaries-RtpFecParameters) | If set, specifies the FEC mechanism to use. | No |
 `rtx`                    | [RtpRtxParameters](#RtpDictionaries-RtpRtxParameters) | If set, specifies the RTX parameters. | No |
@@ -113,8 +118,26 @@ Field                    | Type    | Description   | Required | Default
 
 </div>
 
+#### RtpHeaderExtension
+{: #RtpDictionaries-RtpHeaderExtension .code}
+
+Used in [RtpCapabilities](#RtpDictionaries-RtpCapabilities).
+
+<div markdown="1" class="table-wrapper L3">
+
+Field                    | Type    | Description   | Required | Default
+------------------------ | ------- | ------------- | -------- | ---------
+`kind`                   | [MediaKind](#RtpDictionaries-MediaKind) | Media kind. If unset applies to all. | No. |
+`uri`                    | String  | The URI of the RTP header extension. | Yes |
+`preferredId`            | Integer | The value that goes in the RTP packet. | Yes |
+`preferredEncrypt`       | Boolean | If true, the value in the header is encrypted as per [RFC 6904](http://tools.ietf.org/html/rfc6904). | No | `false`
+
+</div>
+
 #### RtpHeaderExtensionParameters
 {: #RtpDictionaries-RtpHeaderExtensionParameters .code}
+
+Used in [RtpParameters](#RtpDictionaries-RtpParameters).
 
 <div markdown="1" class="table-wrapper L3">
 
