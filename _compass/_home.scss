@@ -124,7 +124,7 @@
 			background-color: rgba(#fff, 0.03);
 			border-top: 1px solid rgba(#fff, 0.1);
 			border-bottom: 1px solid rgba(#fff, 0.1);
-			color: $color-text-4;
+			color: rgba(#908b75, 0.9);
 			text-shadow: 0 -.1em .2em black;
 
 			@include breakpoint($computer) {
@@ -148,7 +148,7 @@
 				text-align: center;
 				font-family: 'Monaco', 'Andale Mono', monospace;
 				white-space: pre;
-				color: rgba(#908b75, 0.9);
+				color: inherit;
 				text-shadow: inherit;
 
 				span.no-select {
