@@ -86,7 +86,7 @@
 	}
 
 	&.h3color h3 {
-		color: $color-highlight-dark;
+		color: $color-highlight;
 	}
 
 	h4 {
@@ -150,7 +150,7 @@
 
 	a {
 		text-decoration: none;
-		color: $color-highlight-dark;
+		color: $color-highlight;
 
 		&:hover {
 			text-decoration: underline;
@@ -215,7 +215,7 @@
 		font-size: 0.9em;
 		color: $color-text-5;
 		white-space: pre;
-		background-color: rgba(#333, 0.75);
+		background-color: rgba(#151515, 0.75);
 		border-radius: 4px;
 		padding: 1px 2px;
 	}
@@ -236,12 +236,11 @@
 		margin: 2em auto;
 		padding: 1em;
 		font-size: 0.95em;
-		background-color: rgba(#000, 0.25);
-		border: 1px solid rgba($color-highlight-dark, 0.75);
+		background-color: rgba(122, 118, 98, 0.25);
 		border-radius: 4px;
 
 		&.warn {
-			border-color: rgba(#ff5542, 0.75);
+			background-color: rgba(255, 111, 111, 0.2);
 		}
 
 		@include breakpoint($computer) {

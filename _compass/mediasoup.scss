@@ -28,8 +28,8 @@ $color-text-4: #999;
 $color-text-3: #777;
 $color-text-2: #666;
 $color-text-1: #080808;
-$color-highlight: #ccff66;
-$color-highlight-dark: shade($color-highlight, 25%);
+$color-highlight: #928e7a;
+$color-highlight-dark: shade($color-highlight, 20%);
 
 
 * {
@@ -62,7 +62,7 @@ body {
 	background-repeat: no-repeat;
 	@include background-image(linear-gradient(110deg,
 		#000 0%,
-		#333 25%,
+		#282828 25%,
 		#000 25%,
 		#080808 100%));
 	background-color: #080808;
@@ -102,7 +102,7 @@ body {
 			font-size: 2.5rem;
 			@include background-image(linear-gradient(110deg,
 				rgba(#000, 0.9) 0%,
-				rgba(#222, 0.9) 25%,
+				rgba(#282828, 0.9) 25%,
 				rgba(#060606, 0.9) 25%,
 				rgba(#111, 0.9) 100%));
 			background-attachment: fixed;

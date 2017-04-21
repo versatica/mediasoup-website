@@ -62,8 +62,8 @@
 			background-size: contain;
 			background-image: url('/images/menu.svg');
 			border-radius: 5px;
-			border: 1px solid rgba($color-highlight, 0.3);
-			opacity: 0.8;
+			border: 1px solid rgba(#ffffff, 0.4);
+			opacity: 0.65;
 			@include transition-property(transform);
 			@include transition-duration(.75s);
 
@@ -227,18 +227,15 @@
 
 			.box {
 				&.first {
-					// @include transition-delay(0.5s);
-					background-color: rgba(108, 181, 168, 0.25);
+					background-color: rgba(#03a9f4, 0.45);
 				}
 
 				&.second {
-					// @include transition-delay(0.65s);
-					background-color: rgba(84, 144, 133, 0.25);
+					background-color: rgba(#00bcd4, 0.45);
 				}
 
 				&.third {
-					// @include transition-delay(0.8s);
-					background-color: rgba(68, 111, 104, 0.25);
+					background-color: rgba(#009688, 0.45);
 				}
 
 				@include breakpoint($computer) {
@@ -262,7 +259,7 @@
 				h3 {
 					line-height: 1.3em;
 					margin-bottom: 1.1em;
-					color: $color-highlight-dark;
+					color: rgba(#fff, 0.75);
 
 					@include breakpoint($computer) {
 						font-size: 1.1em;
@@ -277,7 +274,7 @@
 
 				p {
 					line-height: 1.4em;
-					color: rgba($color-text-5, 0.75);
+					color: rgba($color-text-5, 0.95);
 					margin-bottom: 1em;
 
 					@include breakpoint($computer) {
