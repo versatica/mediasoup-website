@@ -19,7 +19,7 @@ Field                    | Type    | Description   | Required | Default
 `peer`                   | [Peer](#Peer) | A **mediasoup** Peer instance. | Yes |
 `transportOptions`       | [TransportOptions](#Transport-TransportOptions) | Options for the transport. | No |
 `usePlanB`               | Boolean | Expect and generate [Plan B](https://tools.ietf.org/html/draft-uberti-rtcweb-plan-00) SDPs for this `peerconnection`. | No | `false`
-`maxBitrate`             | Number   | Maximum uplink bitrate in `bps` (see [transport.setMaxBitrate()](#transport-setMaxBitrate)). | No | 0 (no limit)
+`maxBitrate`             | Number   | Maximum sending bitrate in `bps` (see [transport.setMaxBitrate()](#transport-setMaxBitrate)). | No | 0 (no limit)
 
 </div>
 
