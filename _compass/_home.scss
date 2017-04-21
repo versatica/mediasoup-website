@@ -121,10 +121,10 @@
 
 		> pre {
 			display: block;
-			background-color: rgba(#fff, 0.03);
+			background-color: rgba(193, 192, 186, 0.1);
 			border-top: 1px solid rgba(#fff, 0.1);
 			border-bottom: 1px solid rgba(#fff, 0.1);
-			color: rgba(#908b75, 0.9);
+			color: rgba(142, 140, 132, 0.75);
 			text-shadow: 0 -.1em .2em black;
 
 			@include breakpoint($computer) {
@@ -227,15 +227,15 @@
 
 			.box {
 				&.first {
-					background-color: rgba(#03a9f4, 0.45);
+					background-color: rgba(146, 142, 122, 0.2);
 				}
 
 				&.second {
-					background-color: rgba(#00bcd4, 0.45);
+					background-color: rgba(154, 151, 136, 0.4);
 				}
 
 				&.third {
-					background-color: rgba(#009688, 0.45);
+					background-color: rgba(3, 188, 244, 0.35);
 				}
 
 				@include breakpoint($computer) {
