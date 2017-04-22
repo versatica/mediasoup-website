@@ -196,7 +196,7 @@ body {
 	> .footer {
 		@include flex(0 0 auto);
 		width: 100%;
-		padding: 0.5rem 2rem;
+		padding: 1.5rem 2rem 2.25rem 2rem;
 		background-color: rgba(#fff, 0.065);
 		border-top: 1px solid rgba(#fff, 0.1);
 		font-size: 1rem;
@@ -210,9 +210,9 @@ body {
 
 			> a {
 				display: block;
-				height: 2.5rem;
-				line-height: 2.5rem;
-				color: $color-text-3;
+				height: 2.4rem;
+				line-height: 2.4rem;
+				color: rgba($color-text-3, 0.9);
 				text-align: center;
 				text-decoration: none;
 				border-bottom: 1px solid #000;
@@ -229,14 +229,6 @@ body {
 					width: 10rem;
 				}
 			}
-		}
-
-		> .copyright {
-			height: 2.5rem;
-			line-height: 2.5rem * 1.2;
-			text-align: center;
-			font-size: 0.8rem;
-			color: $color-text-2;
 		}
 	}
 
