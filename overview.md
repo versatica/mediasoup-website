@@ -17,7 +17,7 @@ Detailed information regarding the architecture of an SFU can be found at RFC 76
 Unlike other existing SFU implementations, **mediasoup** is not a standalone server but an unopinionated [Node.js](https://nodejs.org) module which can be integrated into a larger application:
 
 ```javascript
-var mediasoup = require("mediasoup");
+const mediasoup = require("mediasoup");
 ```
 
 Thus internally, **mediasoup** can be splitted into two separete components:

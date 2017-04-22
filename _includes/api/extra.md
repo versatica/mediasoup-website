@@ -25,7 +25,7 @@ Argument         | Type    | Description | Required | Default
 Usage example:
 
 ```javascript
-var sdpFingerprint = "75:1B:81:93:B7:ED:27:7E:42:BE:D6:C4:8E:F7:04:3A:49:CE:3F:EE";
+const sdpFingerprint = "75:1B:81:93:B7:ED:27:7E:42:BE:D6:C4:8E:F7:04:3A:49:CE:3F:EE";
 
 extra.fingerprintFromSDP(sdpFingerprint);
 // => "751b8193b7ed277e42bed6c48ef7043a49ce3fee"
@@ -47,7 +47,7 @@ Argument         | Type    | Description | Required | Default
 Usage example:
 
 ```javascript
-var rawFingerprint = "751b8193b7ed277e42bed6c48ef7043a49ce3fee";
+const rawFingerprint = "751b8193b7ed277e42bed6c48ef7043a49ce3fee";
 
 extra.fingerprintToSDP(rawFingerprint);
 // => "75:1B:81:93:B7:ED:27:7E:42:BE:D6:C4:8E:F7:04:3A:49:CE:3F:EE"

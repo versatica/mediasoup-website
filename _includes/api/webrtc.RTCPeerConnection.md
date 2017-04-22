@@ -218,7 +218,7 @@ Argument   | Type    | Description | Required | Default
 
 The **mediasoup** implementation of `RTCPeerConnection` requires that the SDP O/A procedure is always initiated my **mediasoup**. This means that `setRemoteDescription()` can only be called with a remote answer. To be clear: the remote endpoint should not attempt to renegotiate by sending a SDP re-offer.
 
-If the remote endpoint wishes to add/remove a sending audio or video track, it must signal such a desire to the server application (by means of the signaling protocol up to the application) so the server side application can provide him with a re-offer (by calling `createOffer() and setLocalDescription()`). The remote endpoint can then produce an SDP answer containing the desired changes (sending audio/video addition or removal, etc).
+If the remote endpoint wishes to add/remove a sending audio or video track, it must signal such a desire to the server application (by means of the signaling protocol up to the application) so the server side application can provide him with a re-offer (by calling `createOffer()` and `setLocalDescription()`). The remote endpoint can then produce an SDP answer containing the desired changes (sending audio/video addition or removal, etc).
 
 </div>
 

@@ -99,7 +99,7 @@ Argument   | Type    | Description | Required | Default
 Usage example:
 
 ```javascript
-var peer = room.Peer("alice");
+const peer = room.Peer("alice");
 ```
 
 #### room.getPeer(name)

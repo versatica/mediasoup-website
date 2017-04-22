@@ -4,7 +4,7 @@
 The top-level module exported by the **mediasoup** module.
 
 ```javascript
-var mediasoup = require("mediasoup");
+const mediasoup = require("mediasoup");
 ```
 
 
@@ -52,7 +52,7 @@ Argument   | Type    | Description | Required | Default
 Usage example:
 
 ```javascript
-var server = mediasoup.Server({
+const server = mediasoup.Server({
     logLevel            : "warn",
     rtcIPv4             : "1.2.3.4",
     rtcIPv6             : false,
