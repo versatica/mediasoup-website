@@ -31,7 +31,6 @@ $color-text-1: #080808;
 $color-highlight: #928e7a;
 $color-highlight-dark: shade($color-highlight, 20%);
 
-
 * {
 	@include box-sizing(border-box);
 }

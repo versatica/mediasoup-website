@@ -138,6 +138,12 @@
 		}
 	}
 
+	#markdown-toc {
+		a {
+			color: $color-highlight;
+		}
+	}
+
 	div.big-list {
 		ul {
 			font-size: 1.4em;
@@ -145,13 +151,17 @@
 			li {
 				margin-top: 0.75em;
 				margin-bottom: 0.75em;
+
+				a {
+					color: $color-highlight;
+				}
 			}
 		}
 	}
 
 	a {
 		text-decoration: none;
-		color: $color-highlight;
+		color: #9c7f2c;
 
 		&:hover {
 			text-decoration: underline;
