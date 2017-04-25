@@ -1,13 +1,17 @@
-var path = require('path');
-var gulp = require('gulp');
-var rename = require('gulp-rename');
-var shell = require('gulp-shell');
-var sitemap = require('gulp-sitemap');
-var browserify = require('browserify');
-var vinyl_source_stream = require('vinyl-source-stream');
-var vinyl_buffer = require('vinyl-buffer');
-var uglify = require('gulp-uglify');
-var rsync = require('rsyncwrapper');
+'use strict';
+
+const path = require('path');
+const fs = require('fs');
+const gulp = require('gulp');
+const rename = require('gulp-rename');
+const shell = require('gulp-shell');
+const sitemap = require('gulp-sitemap');
+const browserify = require('browserify');
+const vinyl_source_stream = require('vinyl-source-stream');
+const vinyl_buffer = require('vinyl-buffer');
+const uglify = require('gulp-uglify');
+const request = require('request');
+const rsync = require('rsyncwrapper');
 
 const PKG = require('./package.json');
 
@@ -24,6 +28,12 @@ gulp.task('browserify', function()
 		.pipe(uglify())
 		.pipe(rename('site.js'))
 		.pipe(gulp.dest('./js/'));
+});
+
+gulp.task('npm-shield', function()
+{
+	return request('https://img.shields.io/npm/v/mediasoup.svg')
+		.pipe(fs.createWriteStream('images/npm-shield-mediasoup.svg'));
 });
 
 gulp.task('sitemap', function()
@@ -46,7 +56,7 @@ gulp.task('jekyll:watch', shell.task(
 
 gulp.task('rsync', function(done)
 {
-	var options =
+	const options =
 	{
 		src	      : './_site/',
 		dest      : 'v2:/var/www/mediasoup.org/',
@@ -54,11 +64,11 @@ gulp.task('rsync', function(done)
 		recursive : true,
 		deleteAll : true,
 		args      : [ '--no-perms' ],
-		onStdout  : function(data)
+		onStdout  : (data) =>
 		{
 			console.log(String(data));
 		},
-		onStderr  : function(data)
+		onStderr  : (data) =>
 		{
 			console.error(String(data));
 		}
@@ -79,7 +89,7 @@ gulp.task('rsync', function(done)
 	});
 });
 
-gulp.task('build', gulp.series('clean', 'browserify', 'jekyll:build', 'sitemap'));
+gulp.task('build', gulp.series('clean', 'browserify', 'npm-shield', 'jekyll:build', 'sitemap'));
 
 gulp.task('live', gulp.series('clean', 'browserify', 'jekyll:watch'));
 
