@@ -229,15 +229,18 @@
 
 			.box {
 				&.first {
-					background-color: rgba(146, 142, 122, 0.2);
+					// background-color: rgba(146, 142, 122, 0.2);
+					background-color: rgba(25, 23, 15, 0.7);
 				}
 
 				&.second {
-					background-color: rgba(154, 151, 136, 0.4);
+					// background-color: rgba(154, 151, 136, 0.4);
+					background-color: rgba(128, 121, 91, 0.7);
 				}
 
 				&.third {
-					background-color: rgba(3, 188, 244, 0.35);
+					// background-color: rgba(3, 188, 244, 0.35);
+					background-color: rgba(16, 168, 214, 0.7);
 				}
 
 				@include breakpoint($computer) {
@@ -269,7 +272,7 @@
 				h3 {
 					line-height: 1.3em;
 					margin-bottom: 1.1em;
-					color: rgba(#fff, 0.75);
+					color: rgba(#fff, 0.9);
 
 					@include breakpoint($computer) {
 						font-size: 1.1em;
@@ -284,7 +287,7 @@
 
 				p {
 					line-height: 1.4em;
-					color: rgba($color-text-5, 0.95);
+					color: rgba(#fff, 0.85);
 					margin-bottom: 1em;
 
 					@include breakpoint($computer) {

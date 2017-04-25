@@ -20,14 +20,23 @@ $mobile: max-width 900px;
 $header-height-computer: 64px;
 $header-height-mobile: 56px;
 
-$color-text-8: #f0f8ff;
-$color-text-7: #ddd;
-$color-text-6: #ccc;
-$color-text-5: #bbb;
-$color-text-4: #999;
-$color-text-3: #777;
-$color-text-2: #666;
-$color-text-1: #080808;
+// $color-text-8: #f0f8ff;
+// $color-text-7: #ddd;
+// $color-text-6: #ccc;
+// $color-text-5: #bbb;
+// $color-text-4: #999;
+// $color-text-3: #777;
+// $color-text-2: #666;
+// $color-text-1: #080808;
+
+$color-text-8: #777;
+$color-text-7: #999;
+$color-text-6: #aaa;
+$color-text-5: #fff;
+$color-text-4: #ccc;
+$color-text-3: #ddd;
+$color-text-2: #eee;
+$color-text-1: #fff;
 $color-highlight: #928e7a;
 $color-highlight-dark: shade($color-highlight, 20%);
 
@@ -60,11 +69,11 @@ body {
 	@include align-items(center);
 	background-repeat: no-repeat;
 	@include background-image(linear-gradient(110deg,
-		#000 0%,
-		#282828 25%,
-		#000 25%,
-		#080808 100%));
-	background-color: #080808;
+		#fff 0%,
+		#d9dada 25%,
+		#fff 25%,
+		#e5e5e5 100%));
+	background-color: #eee;
 
 	@include breakpoint($computer) {
 		// Just set fixed background on computer (it's not supported in iOS Safari
