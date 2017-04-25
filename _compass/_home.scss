@@ -62,8 +62,7 @@
 			background-size: contain;
 			background-image: url('/images/menu.svg');
 			border-radius: 5px;
-			border: 1px solid rgba(#ffffff, 0.4);
-			opacity: 0.65;
+			opacity: 0.75;
 			@include transition-property(transform);
 			@include transition-duration(.75s);
 
@@ -122,10 +121,10 @@
 		> pre {
 			display: block;
 			background-color: rgba(#000, 0.05);
-			color: #479494;
+			color: #444;
 
 			@include breakpoint($computer) {
-				@include transition-property(opacity, transform, background-color, color, border-color);
+				@include transition-property(opacity, transform, background-color, color);
 				@include transition-delay(1.25s);
 				@include transition-duration(1s);
 
@@ -168,7 +167,7 @@
 			right: 15%;
 			height: 400px;
 			width: 400px;
-			opacity: 0.06;
+			opacity: 0.2;
 			@include transition-property(opacity, transform);
 			@include transition-delay(0.6s);
 			@include transition-duration(1.5s);
@@ -220,7 +219,11 @@
 
 			.box {
 				&.first {
-					background-color: rgba(25, 23, 15, 0.85);
+					background-color: rgba(#19170f, 0.85);
+
+					p {
+						color: rgba(#fff, 0.8);
+					}
 				}
 
 				&.second {
@@ -228,7 +231,7 @@
 				}
 
 				&.third {
-					background-color: rgba(16, 168, 214, 0.85);
+					background-color: rgba(#10a8d6, 0.85);
 				}
 
 				@include breakpoint($computer) {
@@ -254,7 +257,7 @@
 
 				@include breakpoint($mobile) {
 					margin: 5px  0;
-					padding: 1.5rem;
+					padding: 2rem 1.5rem 3rem 1.5rem;
 				}
 
 				h3 {
@@ -275,7 +278,7 @@
 
 				p {
 					line-height: 1.4em;
-					color: rgba(#fff, 0.9);
+					color: rgba(#fff, 0.95);
 					margin-bottom: 1em;
 
 					@include breakpoint($computer) {

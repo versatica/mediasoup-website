@@ -2,7 +2,7 @@
 	$padding: 16px;
 
 	padding: $padding;
-	color: $color-text-4;
+	color: $color-text;
 	width: 100%;
 	overflow: hidden;
 
@@ -42,7 +42,7 @@
 
 	h1 {
 		font-family: 'Poiret One';
-		color: $color-text-8;
+		color: #19170f;
 		text-align: left;
 		margin-bottom: 1em;
 		clear: both;
@@ -57,49 +57,49 @@
 	}
 
 	h2 {
-		color: $color-text-8;
+		color: #19170f;
 		text-align: left;
-		border-bottom: 1px solid $color-highlight;
+		border-bottom: 1px solid #19170f;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 		clear: both;
 
 		@include breakpoint($computer) {
-			font-size: 1.6em;
-			line-height: 1.6em;
+			font-size: 1.8em;
+			line-height: 1.8em;
 		}
 
 		@include breakpoint($mobile) {
-			font-size: 1.35em;
-			line-height: 1.35em;
+			font-size: 1.5em;
+			line-height: 1.5em;
 		}
 	}
 
 	h3 {
-		font-size: 1.2em;
+		font-size: 1.4em;
 		line-height: 1.5em;
-		color: $color-text-7;
+		color: #222;
+		border-bottom: 1px solid rgba($color-highlight-dark, 0.75);
 		text-align: left;
-		border-bottom: 1px solid #2a2a2a;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 		clear: both;
 	}
 
 	&.h3color h3 {
-		color: $color-highlight;
+		color: $color-highlight-dark;
 	}
 
 	h4 {
-		font-size: 1.1em;
-		color: $color-text-6;
+		font-size: 1.25em;
+		color: #333;
 		text-align: left;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 		clear: both;
 
 		&.code {
-			font-size: 0.9em;
+			font-size: 1em;
 			font-family: 'Monaco', 'Andale Mono', monospace;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -108,7 +108,7 @@
 
 	h5 {
 		font-size: 1em;
-		color: $color-text-5;
+		color: red;
 		text-align: left;
 		margin-top: 1.5em;
 		margin-bottom: 1em;
@@ -138,12 +138,6 @@
 		}
 	}
 
-	:not(.api-toc-wrapper) #markdown-toc {
-		a {
-			color: $color-highlight;
-		}
-	}
-
 	div.big-list {
 		ul {
 			font-size: 1.4em;
@@ -151,17 +145,13 @@
 			li {
 				margin-top: 0.75em;
 				margin-bottom: 0.75em;
-
-				a {
-					color: $color-highlight;
-				}
 			}
 		}
 	}
 
 	a {
 		text-decoration: none;
-		color: #9c7f2c;
+		color: $color-highlight-dark;
 
 		&:hover {
 			text-decoration: underline;
@@ -181,13 +171,13 @@
 			img {
 				width: 24px;
 				height: 24px;
-				background-color: rgba(#fff, 0.5);
 				border-radius: 4px;
-				@include transition-property(background-color);
+				opacity: 0.75;
+				@include transition-property(opacity);
 				@include transition-duration(0.2s);
 
 				&:hover {
-					background-color: rgba($color-highlight, 0.9);
+					opacity: 1;
 				}
 			}
 		}
@@ -199,7 +189,7 @@
 
 	strong {
 		font-weight: 400;
-		color: $color-text-5;
+		color: #000;
 	}
 
 	em {
@@ -224,9 +214,9 @@
 	:not(pre) > code {
 		font-family: 'Monaco', 'Andale Mono', monospace;
 		font-size: 0.9em;
-		color: $color-text-5;
+		color: #444;
 		white-space: pre;
-		background-color: rgba(#151515, 0.75);
+		background-color: rgba(#eee, 0.85);
 		border-radius: 4px;
 		padding: 1px 2px;
 	}
@@ -247,11 +237,12 @@
 		margin: 2em auto;
 		padding: 1em;
 		font-size: 0.95em;
-		background-color: rgba(122, 118, 98, 0.25);
+		color: shade($color-text, 40%);
+		background-color: rgba(#91d1e4, 0.5);
 		border-radius: 4px;
 
 		&.warn {
-			background-color: rgba(179, 35, 35, 0.4);
+			background-color: rgba(#c35b5b, 0.5);
 		}
 
 		@include breakpoint($computer) {
@@ -279,14 +270,14 @@
 			width: 100%;
 			margin: 0 auto;
 			border-collapse: collapse;
-			background-color: rgba(#333, 0.1);
+			background-color: rgba(#333, 0.15);
 			font-size: 0.9em;
 
 			th {
 				padding: 0.75em;
 				text-align: center;
-				color: $color-text-5;
-				background-color: rgba(#999, 0.15);
+				color: rgba(#fff, 0.75);
+				background-color: rgba(#475f73, 0.85);
 			}
 
 			td {
@@ -296,7 +287,7 @@
 			}
 
 			th, td {
-				border: 1px solid #444;
+				border: 1px solid #fff;
 			}
 		}
 
@@ -330,7 +321,7 @@
 		}
 
 		&.left {
-			opacity: 0.75;
+			opacity: 0.85;
 
 			@include breakpoint($computer) {
 				float: left;

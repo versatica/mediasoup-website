@@ -11,8 +11,8 @@
 	height: 115%;
 	padding-bottom: 15%;
 	overflow: auto;
-	background-color: rgba(#111, 0.95);
-	@include box-shadow(-5px 0px 8px 0px rgba(#333, 0.1));
+	background-color: rgba(#111, 0.96);
+	@include box-shadow(-5px 0px 8px 0px rgba(#333, 0.12));
 	@include transition-property(right);
 	@include transition-duration(0.15s);
 

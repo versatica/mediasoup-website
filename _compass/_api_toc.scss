@@ -3,11 +3,11 @@
 	z-index: 50;
 	background: center url(/images/toc.svg) no-repeat;
 	background-size: 50%;
-	background-color: #fcffff;
+	background-color: #fff;
 	border-top-left-radius: 6px;
 	border-bottom-left-radius: 6px;
 	border-right: none;
-	@include box-shadow(0px 0px 5px 0px rgba(#222, 0.7));
+	@include box-shadow(0px 0px 5px 0px rgba(#111, 0.7));
 	cursor: pointer;
 	-webkit-tap-highlight-color: transparent;
 
@@ -39,12 +39,12 @@
 	z-index: 10;
 	bottom: 0;
 	top: 0;
-	background: rgba(#faffff, 0.9);
+	background: rgba(#fff, 0.96);
 	border-color: transparent;
 	border-style: solid;
 	border-width: 8px 0;
 	font-size: 0.95rem;
-	@include box-shadow(0px -2px 5px 0px rgba(#666, 0.2));
+	@include box-shadow(-5px 0px 8px 0px rgba(#333, 0.1));
 	@include transition-duration(0.2s);
 	overflow-y: auto;
 
@@ -55,8 +55,8 @@
 	}
 
 	@include breakpoint($mobile) {
-		right: -250px;
-		width: 230px;
+		right: -270px;
+		width: 250px;
 		padding: 1rem 0.25rem;
 	}
 
@@ -91,7 +91,7 @@
 			display: block;
 			margin: 1.5em 0.75em 0.25em 0.75em;
 			font-weight: 400;
-			color: shade($color-highlight-dark, 25%);
+			color: #19170f;
 
 			&:first-child {
 				margin-top: 0.75em;
@@ -105,7 +105,7 @@
 					margin: 0 0 0.5em 0;
 					font-size: 0.95em;
 					font-weight: 400;
-					color: #2c869c;
+					color: $color-highlight-dark;
 
 					// Third level (API).
 					> ul {
