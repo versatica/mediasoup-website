@@ -317,7 +317,7 @@
 		height: 20px;
 		text-align: center;
 		margin: 2rem;
-		opacity: 0.75;
+		opacity: 0.9;
 
 		@include breakpoint($computer) {
 			@include transition-property(transform);
