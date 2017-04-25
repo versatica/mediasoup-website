@@ -45,15 +45,15 @@ pre.highlight {
 	.s   { color: #57c5e6; } /* literal.string */
 	.na  { color: #cccccc; } /* name.attribute */
 	.nb  { color: #f8f8f2; } /* name.builtin */
-	.nc  { color: #dfdfdf; } /* name.class */
+	.nc  { color: #e5e5e5; } /* name.class */
 	.no  { color: #f9ee9a; } /* name.constant */
-	.nd  { color: #dfdfdf; } /* name.decorator */
+	.nd  { color: #e5e5e5; } /* name.decorator */
 	.ni  { color: #f8f8f2; } /* name.entity */
-	.ne  { color: #dfdfdf; } /* name.exception */
-	.nf  { color: #dfdfdf; } /* name.function */
+	.ne  { color: #e5e5e5; } /* name.exception */
+	.nf  { color: #e5e5e5; } /* name.function */
 	.nl  { color: #f8f8f2; } /* name.label */
 	.nn  { color: #f8f8f2; } /* name.namespace */
-	.nx  { color: #dfdfdf; } /* name.other */
+	.nx  { color: #e5e5e5; } /* name.other */
 	.py  { color: #f8f8f2; } /* name.property */
 	.nt  { color: #a1e075; } /* name.tag */
 	.nv  { color: #f8f8f2; } /* name.variable */
@@ -83,5 +83,5 @@ pre.highlight {
 	.gh  { } /* generic heading & diff header */
 	.gu  { color: #75715e; } /* generic.subheading & diff unified/comment? */
 	.gd  { color: #a1e075; } /* generic.deleted & diff deleted */
-	.gi  { color: #dfdfdf; } /* generic.inserted & diff inserted */
+	.gi  { color: #e5e5e5; } /* generic.inserted & diff inserted */
 }
