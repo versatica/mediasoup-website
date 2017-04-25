@@ -20,7 +20,7 @@ $mobile: max-width 900px;
 $header-height-computer: 64px;
 $header-height-mobile: 56px;
 
-$color-text: #4f4f4f;
+$color-text: #222;
 $color-highlight: #33b4db;
 $color-highlight-dark: shade($color-highlight, 20%);
 
@@ -199,7 +199,7 @@ body {
 				display: block;
 				height: 2.4rem;
 				line-height: 2.4rem;
-				color: #222;
+				color: #111;
 				text-align: center;
 				text-decoration: none;
 				border-bottom: 1px solid rgba(#fff, 0.75);

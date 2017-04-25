@@ -2,7 +2,7 @@
 	font-family: 'Poiret One';
 	letter-spacing: -0.04em;
 	@if ($light) {
-		color: rgba(#fff, 0.9);
+		color: rgba(#fff, 0.95);
 	} @else {
 		color: #3b3a33;
 	}

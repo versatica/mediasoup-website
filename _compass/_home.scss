@@ -40,9 +40,16 @@
 		> p.description {
 			margin: 0.1em 0 0.1em 2px;
 			font-family: 'Poiret One';
-			color: #111;
-			font-size: 0.3em;
+			color: #000;
 			line-height: 1.5em;
+
+			@include breakpoint($computer) {
+				font-size: 0.35em;
+			}
+
+			@include breakpoint($mobile) {
+				font-size: 0.45em;
+			}
 		}
 	}
 
