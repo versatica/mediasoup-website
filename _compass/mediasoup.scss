@@ -20,15 +20,6 @@ $mobile: max-width 900px;
 $header-height-computer: 64px;
 $header-height-mobile: 56px;
 
-// $color-text-8: #f0f8ff;
-// $color-text-7: #ddd;
-// $color-text-6: #ccc;
-// $color-text-5: #bbb;
-// $color-text-4: #999;
-// $color-text-3: #777;
-// $color-text-2: #666;
-// $color-text-1: #080808;
-
 $color-text-8: #777;
 $color-text-7: #999;
 $color-text-6: #aaa;
@@ -37,7 +28,7 @@ $color-text-4: #ccc;
 $color-text-3: #ddd;
 $color-text-2: #eee;
 $color-text-1: #fff;
-$color-highlight: #928e7a;
+$color-highlight: #33b4db;
 $color-highlight-dark: shade($color-highlight, 20%);
 
 * {
@@ -72,8 +63,8 @@ body {
 		#fff 0%,
 		#d9dada 25%,
 		#fff 25%,
-		#e5e5e5 100%));
-	background-color: #eee;
+		#fff 100%));
+	background-color: #fff;
 
 	@include breakpoint($computer) {
 		// Just set fixed background on computer (it's not supported in iOS Safari
@@ -205,7 +196,7 @@ body {
 		@include flex(0 0 auto);
 		width: 100%;
 		padding: 1.5rem 2rem 2.25rem 2rem;
-		background-color: rgba(#fff, 0.065);
+		background-color: rgba(#222, 0.1);
 		border-top: 1px solid rgba(#fff, 0.1);
 		font-size: 1rem;
 
@@ -220,15 +211,15 @@ body {
 				display: block;
 				height: 2.4rem;
 				line-height: 2.4rem;
-				color: rgba($color-text-3, 0.9);
+				color: #222;
 				text-align: center;
 				text-decoration: none;
-				border-bottom: 1px solid #000;
+				border-bottom: 1px solid #222;
 				@include transition-duration(0.2s);
 				-webkit-tap-highlight-color: transparent;
 
 				&:hover {
-					color: $color-text-6;
+					color: $color-highlight-dark;
 					border-color: $color-highlight-dark;
 				}
 

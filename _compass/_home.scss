@@ -29,7 +29,7 @@
 			margin: 4rem 0;
 			width: 100%;
 			padding: 0 5%;
-			font-size: 3.2rem;
+			font-size: 3.5rem;
 		}
 
 		> h1 {
@@ -38,10 +38,10 @@
 		}
 
 		> p.description {
-			margin: 0.2em 0 0.2em 2px;
+			margin: 0.1em 0 0.1em 2px;
 			font-family: 'Poiret One';
-			color: rgba($color-text-6, 0.9);
-			font-size: 0.35em;
+			color: #111;
+			font-size: 0.3em;
 			line-height: 1.5em;
 		}
 	}
@@ -121,13 +121,8 @@
 
 		> pre {
 			display: block;
-			// background-color: rgba(193, 192, 186, 0.1);
-			background-color: rgba(28, 159, 222, 0.3);
-			border-top: 1px solid rgba(#fff, 0.12);
-			border-bottom: 1px solid rgba(#fff, 0.12);
-			// color: rgba(142, 140, 132, 0.75);
-			color: rgba(#fff, 0.5);;
-			text-shadow: 0 -0.1em 0.2em #111;
+			background-color: rgba(#000, 0.05);
+			color: #479494;
 
 			@include breakpoint($computer) {
 				@include transition-property(opacity, transform, background-color, color, border-color);
@@ -137,8 +132,7 @@
 				&.loading {
 					opacity: 0;
 					@include transform(scale(1.25));
-					background-color: rgba(#fff, 0.1);
-					border-color: transparent;
+					background-color: rgba(#000, 0.25);
 					color: #fff;
 				}
 			}
@@ -192,35 +186,32 @@
 	}
 
 	> .boxes {
-		width: 100%;
 		@include flex(100 0 auto);
 
 		@include breakpoint($computer) {
 			@include display-flex;
 			@include flex-direction(column);
 			@include justify-content(center);
+			width: 90%;
+			min-width: 1024px;
+			margin: 0 auto;
 			padding: 0 6%;
 			font-size: 1rem;
 		}
 
 		@include breakpoint($mobile) {
+			width: 100%;
 			padding: 0 10px;
 			font-size: 0.9rem;
 		}
 
 		> .wrapper {
-			@include box-shadow(0px 7px 15px -1px rgba(#000, 0.2));
-
 			@include breakpoint($computer) {
 				@include display-flex;
 				@include flex-direction(row);
 				@include justify-content(center);
 				@include transition-delay(1s);
 				@include transition-duration(1s);
-
-				&.loading {
-					@include box-shadow(0px 7px 15px -1px rgba(#000, 0));
-				}
 			}
 
 			@include breakpoint($mobile) {
@@ -229,18 +220,15 @@
 
 			.box {
 				&.first {
-					// background-color: rgba(146, 142, 122, 0.2);
-					background-color: rgba(25, 23, 15, 0.7);
+					background-color: rgba(25, 23, 15, 0.85);
 				}
 
 				&.second {
-					// background-color: rgba(154, 151, 136, 0.4);
-					background-color: rgba(128, 121, 91, 0.7);
+					background-color: rgba(#0383a7, 0.85);
 				}
 
 				&.third {
-					// background-color: rgba(3, 188, 244, 0.35);
-					background-color: rgba(16, 168, 214, 0.7);
+					background-color: rgba(16, 168, 214, 0.85);
 				}
 
 				@include breakpoint($computer) {
@@ -272,7 +260,7 @@
 				h3 {
 					line-height: 1.3em;
 					margin-bottom: 1.1em;
-					color: rgba(#fff, 0.9);
+					color: rgba(#fff, 1);
 
 					@include breakpoint($computer) {
 						font-size: 1.1em;
@@ -287,7 +275,7 @@
 
 				p {
 					line-height: 1.4em;
-					color: rgba(#fff, 0.85);
+					color: rgba(#fff, 0.9);
 					margin-bottom: 1em;
 
 					@include breakpoint($computer) {
