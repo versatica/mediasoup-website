@@ -11,8 +11,8 @@
 	height: 115%;
 	padding-bottom: 15%;
 	overflow: auto;
-	background-color: rgba(#111, 0.96);
-	@include box-shadow(-5px 0px 8px 0px rgba(#333, 0.12));
+	background-color: rgba(#17aacc, 0.96);
+	@include box-shadow(-5px 0px 8px 0px rgba(#333, 0.25));
 	@include transition-property(right);
 	@include transition-duration(0.15s);
 
@@ -48,7 +48,7 @@
 			background-position: center;
 			background-repeat: no-repeat;
 			cursor: pointer;
-			opacity: 0.75;
+			opacity: 0.9;
 			@include transform(scale(0));
 			@include transition-property(opacity, transform);
 			@include transition-duration(0.25s);
@@ -65,16 +65,15 @@
 			padding: 0.7em 1em;
 			text-align: center;
 			text-decoration: none;
-			color: rgba(#fff, 0.75);
+			color: rgba(#fff, 0.95);
 			font-weight: 300;
 			border-radius: 4px;
-			border: 1px solid transparent;
-			@include transition-duration(0.1s);
+			@include transition-property(color, background-color);
+			@include transition-duration(.15s);
 
 			&:hover {
 				color: rgba(#fff, 1);
-				background-color: rgba(#fff, 0.05);
-				// border-color: rgba(#fff, 0.1);
+				background-color: rgba(#fff, 0.15);
 			}
 		}
 	}

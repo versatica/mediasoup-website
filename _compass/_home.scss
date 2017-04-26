@@ -240,27 +240,31 @@
 			.box {
 				&.first {
 					@include background-image(radial-gradient(circle farthest-side at center bottom,
-						rgba(#49545d, 0.85), rgba(#000, 0.85) 125%));
-					background-color: rgba(#000, 0.85);
+						rgba(#58cce6, 0.95), rgba(#1c95dc, 0.95) 125%));
+					// background-color: rgba(#1c95dc, 0.95);
 
 					p {
-						color: rgba(#fff, 0.8);
+						color: rgba(#fff, 1);
 					}
 				}
 
 				&.second {
 					@include background-image(radial-gradient(circle farthest-side at center bottom,
-						rgba(#50b1da, 0.85), rgba(#004287, 0.9) 125%));
-					background-color: rgba(#004287, 0.9);
+						rgba(#50b1da, 0.95), rgba(#004287, 0.95) 125%));
+					// background-color: rgba(#004287, 0.95);
+
+					p {
+						color: rgba(#fff, 0.95);
+					}
 				}
 
 				&.third {
 					@include background-image(radial-gradient(circle farthest-side at center bottom,
-						rgba(#58cce6, 0.85), rgba(#1c95dc, 0.9) 125%));
-					background-color: rgba(#1c95dc, 0.9);
+						rgba(#49545d, 0.95), rgba(#000, 0.95) 125%));
+					// background-color: rgba(#000, 0.95);
 
 					p {
-						color: rgba(#fff, 1);
+						color: rgba(#fff, 0.9);
 					}
 				}
 
