@@ -188,6 +188,20 @@ body {
 		background-color: rgba(#222, 0.1);
 		font-size: 1rem;
 
+		@include breakpoint($computer) {
+			@include transition-property(background-color);
+			@include transition-duration(0.5s);
+
+			&:hover {
+				background-color: rgba(#111, 0.85);
+
+				> .links > a {
+					color: rgba(#fff, 0.85);
+					border-color: rgba(#fff, 0.85);
+				}
+			}
+		}
+
 		> .links {
 			@include breakpoint($computer) {
 				@include display-flex;
@@ -207,7 +221,7 @@ body {
 				-webkit-tap-highlight-color: transparent;
 
 				&:hover {
-					color: $color-highlight-dark;
+					color: $color-highlight;
 					border-color: $color-highlight;
 				}
 
