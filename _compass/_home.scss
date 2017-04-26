@@ -143,6 +143,19 @@
 				}
 			}
 
+			@include breakpoint($mobile) {
+				@include transition-property(opacity, transform, background-color, color);
+				@include transition-delay(0.25s);
+				@include transition-duration(1.5s);
+
+				&.loading {
+					opacity: 0;
+					@include transform(scale(2.25));
+					background-color: rgba(#fff, 0.5);
+					color: #fff;
+				}
+			}
+
 			code {
 				display: block;
 				padding: 0.8em 0;
@@ -274,7 +287,7 @@
 
 				@include breakpoint($mobile) {
 					margin: 5px  0;
-					padding: 2rem 1.5rem 3rem 1.5rem;
+					padding: 2rem 1.5rem 2.5rem 1.5rem;
 				}
 
 				h3 {
@@ -288,8 +301,8 @@
 					}
 
 					@include breakpoint($mobile) {
-						font-size: 1.2em;
-						padding: 0.6em 0;
+						font-size: 1.4em;
+						padding: 0.5em 0;
 					}
 				}
 
