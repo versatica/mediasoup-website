@@ -25,7 +25,7 @@ All those using others languages/platforms for the signaling plane would need to
 
 Not exactly. [Native addons](https://nodejs.org/api/addons.html) are Node.js extensions written in C/C++ that can be loaded using `require()` as if they were ordinary Node.js modules.
 
-Instead, **mediasoup** launches a set of C++ child processes ([media workers](https://github.com/ibc/mediasoup/tree/master/worker)) and communicates with them by means of inter-process communication. This appraoch leads to a media worker design not tiled to the internals of Node.js or V8 (which change in every new release).
+Instead, **mediasoup** launches a set of C++ child processes ([media workers](https://github.com/ibc/mediasoup/tree/master/worker)) and communicates with them by means of inter-process communication. This approach leads to a media worker design not tiled to the internals of Node.js or V8 (which change in every new release).
 
 
 ### Which signaling protocol does it use?
