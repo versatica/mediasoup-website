@@ -28,8 +28,8 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2"
-     inkscape:cx="70.709102"
+     inkscape:zoom="5.5390625"
+     inkscape:cx="62.223912"
      inkscape:cy="70.852615"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -60,17 +60,17 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-168.50886,-240.45604)">
-    <circle
-       style="opacity:1;fill:#212121;fill-opacity:1;stroke:none;stroke-width:30;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+    <ellipse
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:30;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4186"
        cx="235.25586"
        cy="307.20303"
-       r="66.747002"
        inkscape:export-xdpi="345.18405"
-       inkscape:export-ydpi="345.18405" />
+       inkscape:export-ydpi="345.18405"
+       r="66.747002" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:116.52159882px;line-height:125%;font-family:'Poiret One';-inkscape-font-specification:'Poiret One, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f5f5f5;fill-opacity:1;stroke:#ffffff;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:116.52159882px;line-height:125%;font-family:'Poiret One';-inkscape-font-specification:'Poiret One, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        x="172.40855"
        y="333.36212"
        id="text3349"
@@ -79,10 +79,10 @@
          id="tspan3351"
          x="172.40855"
          y="333.36212"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:116.52159882px;line-height:125%;font-family:'Poiret One';-inkscape-font-specification:'Poiret One, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#f5f5f5;fill-opacity:1;stroke:#ffffff;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;">m</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:116.52159882px;line-height:125%;font-family:'Poiret One';-inkscape-font-specification:'Poiret One, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">m</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:116.52159882px;line-height:125%;font-family:'Poiret One';-inkscape-font-specification:'Poiret One, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#33b4db;fill-opacity:1;stroke:#33b4db;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:116.52159882px;line-height:125%;font-family:'Poiret One';-inkscape-font-specification:'Poiret One, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#2196b9;fill-opacity:1;stroke:#2196b9;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        x="255.1067"
        y="333.47867"
        id="text3374"
@@ -91,6 +91,6 @@
          id="tspan3376"
          x="255.1067"
          y="333.47867"
-         style="fill:#33b4db;fill-opacity:1;stroke:#33b4db;stroke-width:1.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;">s</tspan></text>
+         style="fill:#2196b9;fill-opacity:1;stroke:#2196b9;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">s</tspan></text>
   </g>
 </svg>
