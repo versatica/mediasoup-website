@@ -22,7 +22,7 @@ $header-height-mobile: 56px;
 
 $color-text: #222;
 $color-highlight: #33b4db;
-$color-highlight-dark: shade($color-highlight, 20%);
+$color-highlight-dark: shade($color-highlight, 15%);
 
 * {
 	@include box-sizing(border-box);
