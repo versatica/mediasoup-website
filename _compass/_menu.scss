@@ -16,14 +16,6 @@
 	@include transition-property(right);
 	@include transition-duration(0.15s);
 
-	@include breakpoint($computer) {
-		font-size: 1.15rem;
-	}
-
-	@include breakpoint($mobile) {
-		font-size: 1.1rem;
-	}
-
 	&.visible {
 		right: 0;
 
@@ -34,8 +26,15 @@
 	}
 
 	> .container {
-		padding: 64px 8px 8px 8px;
 		overflow: auto;
+
+		@include breakpoint($computer) {
+			padding: 64px 8px 8px 8px;
+		}
+
+		@include breakpoint($mobile) {
+			padding: 48px 6px 6px 6px;
+		}
 
 		> .close {
 			position: absolute;
@@ -63,13 +62,22 @@
 		> a {
 			display: block;
 			padding: 0.7em 1em;
+			color: rgba(#fff, 0.9);
 			text-align: center;
 			text-decoration: none;
-			color: rgba(#fff, 0.95);
-			font-weight: 300;
 			border-radius: 4px;
 			@include transition-property(color, background-color);
 			@include transition-duration(.15s);
+
+			@include breakpoint($computer) {
+				font-size: 1.15rem;
+				font-weight: 400;
+			}
+
+			@include breakpoint($mobile) {
+				font-size: 1rem;
+				font-weight: 400;
+			}
 
 			&:hover {
 				color: rgba(#fff, 1);
