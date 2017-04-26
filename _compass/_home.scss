@@ -226,7 +226,9 @@
 
 			.box {
 				&.first {
-					background-color: rgba(#19170f, 0.85);
+					@include background-image(radial-gradient(circle farthest-side at center bottom,
+						rgba(#49545d, 0.85), rgba(#000, 0.85) 125%));
+					background-color: rgba(#000, 0.85);
 
 					p {
 						color: rgba(#fff, 0.8);
@@ -234,11 +236,15 @@
 				}
 
 				&.second {
-					background-color: rgba(#0383a7, 0.85);
+					@include background-image(radial-gradient(circle farthest-side at center bottom,
+						rgba(#50b1da, 0.85), rgba(#005b87, 0.9) 125%));
+					background-color: rgba(#005b87, 0.9);
 				}
 
 				&.third {
-					background-color: rgba(#10a8d6, 0.85);
+					@include background-image(radial-gradient(circle farthest-side at center bottom,
+						rgba(#58cce6, 0.85), rgba(#1c95dc, 0.9) 125%));
+					background-color: rgba(#1c95dc, 0.9);
 				}
 
 				@include breakpoint($computer) {
