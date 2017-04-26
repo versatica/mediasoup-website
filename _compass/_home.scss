@@ -245,6 +245,10 @@
 					@include background-image(radial-gradient(circle farthest-side at center bottom,
 						rgba(#58cce6, 0.85), rgba(#1c95dc, 0.9) 125%));
 					background-color: rgba(#1c95dc, 0.9);
+
+					p {
+						color: rgba(#fff, 1);
+					}
 				}
 
 				@include breakpoint($computer) {
