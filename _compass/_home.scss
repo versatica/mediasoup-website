@@ -237,8 +237,8 @@
 
 				&.second {
 					@include background-image(radial-gradient(circle farthest-side at center bottom,
-						rgba(#50b1da, 0.85), rgba(#005b87, 0.9) 125%));
-					background-color: rgba(#005b87, 0.9);
+						rgba(#50b1da, 0.85), rgba(#004287, 0.9) 125%));
+					background-color: rgba(#004287, 0.9);
 				}
 
 				&.third {
