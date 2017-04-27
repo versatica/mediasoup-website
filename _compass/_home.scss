@@ -187,7 +187,7 @@
 			right: 15%;
 			height: 400px;
 			width: 400px;
-			opacity: 0.2;
+			opacity: 0.1;
 			@include transition-property(opacity, transform);
 			@include transition-delay(1s);
 			@include transition-duration(1.5s);
@@ -240,8 +240,7 @@
 			.box {
 				&.first {
 					@include background-image(radial-gradient(circle farthest-side at center bottom,
-						rgba(#58cce6, 0.95), rgba(#1c95dc, 0.95) 125%));
-					// background-color: rgba(#1c95dc, 0.95);
+						rgba(#58cce6, 0.95), rgba(#1fa4e8, 0.95) 125%));
 
 					p {
 						color: rgba(#fff, 1);
@@ -250,8 +249,7 @@
 
 				&.second {
 					@include background-image(radial-gradient(circle farthest-side at center bottom,
-						rgba(#50b1da, 0.95), rgba(#004287, 0.95) 125%));
-					// background-color: rgba(#004287, 0.95);
+						rgba(#50b1da, 0.95), rgba(#005587, 0.95) 125%));
 
 					p {
 						color: rgba(#fff, 0.95);
@@ -260,8 +258,7 @@
 
 				&.third {
 					@include background-image(radial-gradient(circle farthest-side at center bottom,
-						rgba(#49545d, 0.95), rgba(#000, 0.95) 125%));
-					// background-color: rgba(#000, 0.95);
+						rgba(#49545d, 0.95), rgba(#040506, 0.95) 125%));
 
 					p {
 						color: rgba(#fff, 0.9);
