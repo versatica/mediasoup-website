@@ -57,9 +57,9 @@
 	}
 
 	h2 {
-		color: #19170f;
+		color: $color-highlight-dark;
 		text-align: left;
-		border-bottom: 1px solid #19170f;
+		border-bottom: 1px solid $color-highlight-dark;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 		clear: both;
@@ -270,14 +270,14 @@
 			width: 100%;
 			margin: 0 auto;
 			border-collapse: collapse;
-			background-color: rgba(#333, 0.1);
+			background-color: rgba(#333, 0.075);
 			font-size: 0.9em;
 
 			th {
 				padding: 0.75em;
 				text-align: center;
 				color: rgba(#fff, 0.9);
-				background-color: rgba(#52aeca, 0.85);
+				background-color: rgba($color-highlight-dark, 0.85);
 			}
 
 			td {

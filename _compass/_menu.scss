@@ -11,7 +11,7 @@
 	height: 115%;
 	padding-bottom: 15%;
 	overflow: auto;
-	background-color: rgba(shade($color-highlight, 20%), 0.92);
+	background-color: rgba($color-highlight-dark, 0.95);
 	@include box-shadow(-5px 0px 8px 0px rgba(#333, 0.25));
 	@include transition-property(right);
 	@include transition-duration(0.15s);

@@ -240,7 +240,7 @@
 			.box {
 				&.first {
 					@include background-image(radial-gradient(circle farthest-side at center bottom,
-						rgba(#58cce6, 0.95), rgba(#1fa4e8, 0.95) 125%));
+						rgba(#81c7e2, 0.95), rgba(#1fa4e8, 0.95) 125%));
 
 					p {
 						color: rgba(#fff, 1);
@@ -249,7 +249,7 @@
 
 				&.second {
 					@include background-image(radial-gradient(circle farthest-side at center bottom,
-						rgba(#50b1da, 0.95), rgba(#005587, 0.95) 125%));
+						rgba(#50adda, 0.95), rgba(#004287, 0.95) 125%));
 
 					p {
 						color: rgba(#fff, 0.95);
