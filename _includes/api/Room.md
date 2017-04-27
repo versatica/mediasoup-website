@@ -29,10 +29,23 @@ Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
 `mediaCodecs`            | sequence<[RtpCodecParameters](#RtpDictionaries-RtpCodecParameters)> | The list of media codecs supported by the `room`. | Yes |
 
+</div>
+
 <div markdown="1" class="note warn">
  * Feature codecs (such as RTX or FEC) must not be placed into `mediaCodecs`.
  * Entries in `mediaCodecs` must not have `rtcpFeedback` parameter.
 </div>
+
+#### AudioLevelInfo
+{: #Room-AudioLevelInfo .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field                    | Type    | Description   | Required | Default
+------------------------ | ------- | ------------- | -------- | ---------
+`peer`                   | [Peer](#Peer) | `peer` generating audio. | Yes |
+`rtpReceiver`            | [RtpReceiver](#RtpReceiver) | `rtpReceiver` generating audio. | Yes |
+`audioLevel`             | Integer | Audio level in dBov (0 means maximum level, -127 means no audio). | Yes |
 
 </div>
 
@@ -138,6 +151,19 @@ Emitted when a new `peer` is created.
 Argument | Type    | Description   
 -------- | ------- | ----------------
 `peer`   | [Peer](#Peer) | New `peer`.
+
+</div>
+
+#### room.on("audiolevels", fn(audioLevelInfos))
+{: #room-on-audiolevels .code}
+
+Emitted every 500 ms. Provides information regarding the audio level of each audio `rtpReceiver` in the `room`.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`audioLevelInfos` | sequence<[AudioLevelInfo](#Room-AudioLevelInfo)> | Audio level information entries ordered by level (higher first).
 
 </div>
 
