@@ -85,17 +85,37 @@ If the capabilities of the `peer` do not support the codecs required by this `rt
 
 For debugging purposes. Returns a Promise that resolves to an Object containing the `rtpSender` internals.
 
-#### rtpSender.disable()
+#### rtpSender.disable(options)
 {: #rtpSender-disable .code}
 
-The `rtpSender` stops sending RTP to the remote endpoint. It may trigger an [`activechange`](#rtpSender-on-activechange) event.
+The `rtpSender` stops sending RTP to the remote endpoint. It may trigger an [`activechange`](#rtpSender-on-activechange) event (unless `options.emit` is set to `false`).
 
-#### rtpSender.enable()
+`options` is an optional object with the following fields:
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`emit`     | Boolean | Whether [`activechange`](#rtpSender-on-activechange) event could be fired or not. | No | `true`
+
+</div>
+
+#### rtpSender.enable(options)
 {: #rtpSender-enable .code}
 
-The `rtpSender` resumes sending RTP to the remote endpoint. It may trigger an [`activechange`](#rtpSender-on-activechange) event.
+The `rtpSender` resumes sending RTP to the remote endpoint. It may trigger an [`activechange`](#rtpSender-on-activechange) event (unless `options.emit` is set to `false`).
 
 It has no effect if [`disable()`](##rtpSender-disable) was not called before.
+
+`options` is an optional object with the following fields:
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`emit`     | Boolean | Whether [`activechange`](#rtpSender-on-activechange) event could be fired or not. | No | `true`
+
+</div>
 
 </section>
 
