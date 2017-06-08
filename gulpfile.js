@@ -89,7 +89,8 @@ gulp.task('rsync', function(done)
 	});
 });
 
-gulp.task('build', gulp.series('clean', 'browserify', 'npm-shield', 'jekyll:build', 'sitemap'));
+// gulp.task('build', gulp.series('clean', 'browserify', 'npm-shield', 'jekyll:build', 'sitemap'));
+gulp.task('build', gulp.series('clean', 'browserify', 'jekyll:build', 'sitemap'));
 
 gulp.task('live', gulp.series('clean', 'browserify', 'jekyll:watch'));
 
