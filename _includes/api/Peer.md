@@ -49,14 +49,14 @@ An Array with the list of [Transport](#Transport) instances associated to the `p
 
 * Read only
 
-An Array with the list of [RtpReceivers](#RtpReceivers) instances associated to the `peer` in the order in which they were created.
+An Array with the list of [RtpReceivers](#RtpReceiver) instances associated to the `peer` in the order in which they were created.
 
 #### peer.rtpSenders
 {: #peer-rtpSenders .code}
 
 * Read only
 
-An Array with the list of [RtpSenders](#RtpSenders) instances associated to the `peer` in the order in which they were created.
+An Array with the list of [RtpSenders](#RtpSender) instances associated to the `peer` in the order in which they were created.
 
 </section>
 
