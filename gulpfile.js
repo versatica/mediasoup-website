@@ -30,11 +30,19 @@ gulp.task('browserify', function()
 		.pipe(gulp.dest('./js/'));
 });
 
-gulp.task('npm-shield', function()
+gulp.task('mediasoup-npm-shield', function()
 {
-	return request('https://img.shields.io/npm/v/mediasoup.svg')
+	return request('https://img.shields.io/npm/v/mediasoup.svg?label=mediasoup')
 		.pipe(fs.createWriteStream('images/npm-shield-mediasoup.svg'));
 });
+
+gulp.task('mediasoup-client-npm-shield', function()
+{
+	return request('https://img.shields.io/npm/v/mediasoup-client.svg?label=mediasoup-client')
+		.pipe(fs.createWriteStream('images/npm-shield-mediasoup-client.svg'));
+});
+
+gulp.task('npm-shields', gulp.series('mediasoup-npm-shield', 'mediasoup-client-npm-shield'));
 
 gulp.task('sitemap', function()
 {
@@ -89,7 +97,7 @@ gulp.task('rsync', function(done)
 	});
 });
 
-// gulp.task('build', gulp.series('clean', 'browserify', 'npm-shield', 'jekyll:build', 'sitemap'));
+// gulp.task('build', gulp.series('clean', 'browserify', 'npm-shields', 'jekyll:build', 'sitemap'));
 gulp.task('build', gulp.series('clean', 'browserify', 'jekyll:build', 'sitemap'));
 
 gulp.task('live', gulp.series('clean', 'browserify', 'jekyll:watch'));

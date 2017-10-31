@@ -1,0 +1,13 @@
+[data-content='breadcrumbs'] {
+	position: absolute;
+
+	@include breakpoint($computer) {
+		top: 20px;
+		font-size: 0.9rem;
+	}
+
+	@include breakpoint($mobile) {
+		top: 40px;
+		font-size: 0.65rem;
+	}
+}

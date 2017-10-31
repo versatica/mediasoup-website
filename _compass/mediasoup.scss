@@ -177,6 +177,7 @@ body {
 		@import 'default';
 
 		// Import tools.
+		@import 'breadcrumbs';
 		@import 'anchor';
 		@import 'api_toc';
 	}

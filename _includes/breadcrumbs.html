@@ -1,0 +1,10 @@
+<div data-content="breadcrumbs">
+	{% for crumb in breadcrumbs %}
+		<span class="separator">/</span>
+		{% if crumb.url == '/' %}
+	  	<a href="{{ crumb.url }}">home</a>
+	  {% else %}
+	  	<a href="{{ crumb.url }}">{{ crumb.title }}</a>
+	  {% endif %}
+	{% endfor %}
+</div>

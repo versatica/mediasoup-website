@@ -92,6 +92,7 @@
 			</div>
 			{% else %}
 			<div data-content="default" class="{{ page.class }}">
+				{% include breadcrumbs.html %}
 				{{ content }}
 			</div>
 			{% endif %}
@@ -99,8 +100,8 @@
 
 		<div class="footer">
 			<div class="links">
-				<a href="/license/">License</a>
-				<a href="https://github.com/versatica/mediasoup/">GitHub</a>
+				<a href="/documentation/">Documentation</a>
+				<a href="/github/">GitHub</a>
 				<a href="/about/">About</a>
 			</div>
 		</div>

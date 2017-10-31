@@ -350,5 +350,10 @@
 				@include transform(scale(0));
 			}
 		}
+
+		> a.npm-version {
+			display: inline-block;
+			margin: 0 2px;
+		}
 	}
 }
