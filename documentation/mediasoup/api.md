@@ -17,12 +17,18 @@ class   : h3color
 
 # API
 
-**TODO:** Not yet done.
-
 {% include mediasoup/api/mediasoup.md %}
 
 {% include mediasoup/api/Server.md %}
 
 {% include mediasoup/api/Room.md %}
+
+{% include mediasoup/api/Peer.md %}
+
+{% include mediasoup/api/Transport.md %}
+
+{% include mediasoup/api/WebRtcTransport.md %}
+
+{% include mediasoup/api/PlainRtpTransport.md %}
 
 {% include mediasoup/api/errors.md %}

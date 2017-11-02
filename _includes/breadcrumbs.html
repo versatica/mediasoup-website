@@ -4,7 +4,11 @@
 		{% if crumb.url == '/' %}
 	  	<a href="{{ crumb.url }}">home</a>
 	  {% else %}
-	  	<a href="{{ crumb.url }}">{{ crumb.title }}</a>
+	  	{% if page.url != crumb.url %}
+	  		<a href="{{ crumb.url }}">{{ crumb.title }}</a>
+	  	{% else %}
+	  		 {{ crumb.title }}
+	  	{% endif %}
 	  {% endif %}
 	{% endfor %}
 </div>

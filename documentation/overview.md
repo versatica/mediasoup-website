@@ -59,3 +59,8 @@ Both components communicate to each other by means of inter-process communicatio
 [mediasoup-client](https://github.com/versatica/mediasoup-client) is the SDK for building JavaScript client side applications. It's a tiny library exposing a powerful cross-browser API that lets the client application join a **mediasoup** room and manage audio/video streams.
 
 **mediasoup-client** supports all the current WebRTC and ORTC browsers, including Chrome, Firefox, Safari, Microsoft Edge, and derived browsers (such as Opera or any Chromium based browser). Internally, **mediasoup-client** handles each browser in a different way by implementing WebRTC (Plan-B or Unified-Plan) or the ORTC API (such as in Microsoft Edge).
+
+
+### Features
+
+*TODO*

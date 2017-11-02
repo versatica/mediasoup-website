@@ -17,4 +17,4 @@ class   : h3color
 
 # API
 
-**TODO:** Not yet done.
+*TBD*

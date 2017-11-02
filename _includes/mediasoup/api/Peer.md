@@ -42,7 +42,7 @@ An Object with the RTP capabilities of the `peer`, miming the syntax of [RTCRtpC
 
 * Read only
 
-An Array with the list of [Transport](#Transport) instances associated to the `peer` in the order in which they were created.
+An Array with the list of [WebRtcTransport](#WebRtcTransport) instances associated to the `peer` in the order in which they were created.
 
 #### peer.producers
 {: #peer-producers .code}
@@ -82,13 +82,13 @@ Argument   | Type    | Description | Required | Default
 #### peer.getTransportById(id)
 {: #peer-getTransportById .code}
 
-Retrieves the [Transport](#Transport) with the given `id`, or `undefined` if not found.
+Retrieves the [WebRtcTransport](#WebRtcTransport) with the given `id`, or `undefined` if not found.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`id`       | Integer | Transport id. | Yes |
+`id`       | Integer | WebRtcTransport id. | Yes |
 
 </div>
 
@@ -172,67 +172,70 @@ The `Peer` class inherits from [EventEmitter](https://nodejs.org/api/events.html
 
 <section markdown="1">
 
-#### peer.on("close", fn(error))
+#### peer.on("close", fn(direction, appData))
 {: #peer-on-close .code}
 
-Emitted when the `peer` is closed. In case of error, the callback is called with the corresponding `Error` object.
-
-#### peer.on("capabilities", fn(capabilities))
-{: #peer-on-capabilities .code}
-
-Emitted after a succesful call to [`setCapabilities`](#peer-setCapabilities). It provides the effective RTP capabilities of the `peer` (after filtering capabilities non supported by the `room`).
+Emitted when the `peer` is closed.
 
 <div markdown="1" class="table-wrapper L3">
 
-Argument     | Type    | Description   
------------- | ------- | ----------------
-`capabilities` | [RtpCapabilities](#RtpDictionaries-RtpCapabilities) | Peer's effective RTP capabilities. | Yes |
+Argument  | Type    | Description   
+--------- | ------- | ----------------
+`direction` | String | "local" or "remote".
+`appData` | Any     | Custom app data.
 
 </div>
 
-#### peer.on("newtransport", fn(transport))
-{: #peer-on-newtransport .code}
+#### peer.on("notify", fn(notification))
+{: #peer-on-newproducer .code}
 
-Emitted when a new `transport` is created.
+Emitted when a new [mediasoup protocol](/documentation/mediasoup-protocol/) notification must be sent by the Node.js application to the associated **mediasoup-client**.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument | Type    | Description   
 -------- | ------- | ----------------
-`transport` | [Transport](#Transport) | New `transport`.
+`notification` | Object | mediasoup protocol notification.
 
 </div>
 
-#### peer.on("newrtpreceiver", fn(rtpReceiver))
-{: #peer-on-newrtpreceiver .code}
+#### peer.on("newtransport", fn(webrtcTransport))
+{: #peer-on-newtransport .code}
 
-Emitted when a new `rtpReceiver` is created.
+Emitted when a new `webrtcTransport` is created.
 
 <div markdown="1" class="table-wrapper L3">
 
-Argument     | Type    | Description   
------------- | ------- | ----------------
-`rtpReceiver` | [RtpReceiver](#RtpReceiver) | New `rtpReceiver`.
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`webrtcTransport` | [WebRtcTransport](#WebRtcTransport) | New `webrtcTransport`.
 
 </div>
 
-#### peer.on("newrtpsender", fn(rtpSender))
-{: #peer-on-newrtpsender .code}
+#### peer.on("newproducer", fn(producer))
+{: #peer-on-newproducer .code}
 
-Emitted when another `peer` in the same `room` creates a new [RtpReceiver](#RtpReceiver) and calls [`receive()`](#rtpReceiver-receive) on it for first time. Also emitted for each already existing [RtpReceiver](#RtpReceiver) in the `room` once the `peer` joins it.
+Emitted when a new `producer` is created.
 
 <div markdown="1" class="table-wrapper L3">
 
-Argument     | Type    | Description   
------------- | ------- | ----------------
-`rtpSender` | [RtpSender](#RtpSender) | New `rtpSender`.
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`producer` | [Producer](#Producer) | New `producer`.
 
 </div>
 
-```javascript
-peer.on("newrtpsender", (rtpSender) => {
-  console.log("new rtpSender: %o", rtpSender);
-});
-```
+#### peer.on("newconsumer", fn(consumer))
+{: #peer-on-newconsumer .code}
+
+Emitted when a new `consumer` is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`consumer` | [Consumer](#Consumer) | New `consumer`.
+
+</div>
 
 </section>

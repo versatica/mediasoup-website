@@ -12,6 +12,7 @@ title : Documentation
 * [Overview](/documentation/overview/)
 * [Glossary](/documentation/glossary/)
 * [mediasoup protocol](/documentation/mediasoup-protocol/)
+* [RTC stats](/documentation/rtc-stats/)
 
 #### mediasoup
 
