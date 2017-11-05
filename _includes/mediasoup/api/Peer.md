@@ -3,6 +3,8 @@
 
 A `peer` is the local representation of a remote media endpoint that connects to **mediasoup** and sends/receives media streams.
 
+For more information, check the [Glossary](/documentation/glossary#Glossary-Peer) section.
+
 
 ### Properties
 {: #Peer-properties}

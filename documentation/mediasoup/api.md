@@ -31,4 +31,8 @@ class   : h3color
 
 {% include mediasoup/api/PlainRtpTransport.md %}
 
+{% include mediasoup/api/Producer.md %}
+
+{% include mediasoup/api/Consumer.md %}
+
 {% include mediasoup/api/errors.md %}

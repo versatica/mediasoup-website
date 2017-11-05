@@ -3,6 +3,9 @@
 
 A `room` holds a multiparty RTC (Real-Time Communication) conference.
 
+For more information, check the [Glossary](/documentation/glossary#Glossary-Room) section.
+
+
 
 ### Dictionaries
 {: #Room-dictionaries}

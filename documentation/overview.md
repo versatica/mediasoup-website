@@ -63,4 +63,6 @@ Both components communicate to each other by means of inter-process communicatio
 
 ### Features
 
-*TODO*
+* ECMAScript 6 API.
+* Runs on Chrome, Firefox, Safari, Microsoft Edge and derived browsers.
+

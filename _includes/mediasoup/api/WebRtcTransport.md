@@ -3,11 +3,37 @@
 
 A `webrtcTransport` represents a network path negotiated by both, **mediasoup-client** and **mediasoup**, via ICE and DTLS.
 
+For more information, check the [Glossary](/documentation/glossary#Glossary-Transport) section.
+
 <div markdown="1" class="note">
 
 **mediasoup** is a [ICE Lite](https://tools.ietf.org/html/rfc5245#section-2.7) implementation, meaning that it will never initiate ICE connections but expect ICE Binding Requests on its open ports.
 
 </div>
+
+
+### Dictionaries
+{: #WebRtcTransport-dictionaries}
+
+<section markdown="1">
+
+#### MirroringOptions
+{: #WebRtcTransport-MirroringOptions .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field        | Type    | Description   | Required | Default
+------------ | ------- | ------------- | -------- | ---------
+`remoteIP`   | String  | Destination IP. | Yes |
+`remotePort` | Integer | Destination port. | Yes |
+`sendRtp`    | Boolean | Whether RTP sent to the client must be mirrored.     | No | `false`
+`sendRtcp`   | Boolean | Whether RTCP sent to the client must be mirrored.     | No | `false`
+`recvRtp`    | Boolean | Whether RTP received from the client must be mirrored.     | No | `false`
+`recvRtcp`   | Boolean | Whether RTCP received from the client must be mirrored.     | No | `false`
+
+</div>
+
+</section>
 
 
 ### Properties
@@ -142,7 +168,7 @@ Argument   | Type    | Description | Required | Default
 </div>
 
 <div markdown="1" class="note warn">
-This method can just be called on `webrtcTransports` with  `direction: "send"`.
+This method can just be called on open `webrtcTransports` with  `direction: "send"` (it will throw otherwise).
 </div>
 
 Usage example:
@@ -162,6 +188,26 @@ Returns a Promise resolving to an array of Objects containing RTC stats related 
 
 <div markdown="1" class="note">
 Check the [RTC stats](/documentation/rtc-stats/) section for more details.
+</div>
+
+#### webrtcTransport.startMirroring(options)
+{: #webrtcTransport-startMirroring .code}
+
+Enables RTP/RTCP mirroring. The selected RTP/RTCP over this `webrtcTransport` will be sent to the given address (see `options`).
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`options`  | [MirroringOptions](#WebRtcTransport-MirroringOptions) | Options. | Yes |
+
+</div>
+
+#### webrtcTransport.stopMirroring()
+{: #webrtcTransport-stopMirroring .code}
+
+Stops RTP/RTCP mirroring.
+
 </div>
 
 </section>

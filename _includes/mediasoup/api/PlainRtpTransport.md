@@ -1,7 +1,7 @@
 ## PlainRtpTransport
 {: #PlainRtpTransport}
 
-A `plainRtpTransport` represents a network path negotiated on which plain RTP (no ICE, DTLS or DTLS) is carried.
+A `plainRtpTransport` represents a network path negotiated on which plain RTP and RTCP (no ICE, DTLS or DTLS) is carried.
 
 
 ### Properties
@@ -42,20 +42,5 @@ The [5-Tuple](#Transport-IceSelectedTuple) indicating information about the conn
 {: #plainRtpTransport-close .code}
 
 Closes the `plainRtpTransport` and triggers a [`close`](#plainRtpTransport-on-close) event.
-
-</section>
-
-
-### Events
-{: #PlainRtpTransport-events}
-
-The `PlainRtpTransport` class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
-
-<section markdown="1">
-
-#### plainRtpTransport.on("close", fn())
-{: #plainRtpTransport-on-close .code}
-
-Emitted when the `plainRtpTransport` is closed.
 
 </section>
