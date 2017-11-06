@@ -58,9 +58,11 @@
 	}
 
 	h2 {
-		color: $color-highlight-dark;
+		// color: $color-highlight-dark;
+		color: #000;
 		text-align: left;
-		border-bottom: 1px solid $color-highlight-dark;
+		// border-bottom: 1px solid $color-highlight-dark;
+		border-bottom: 1px solid #000;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 		clear: both;
@@ -342,8 +344,7 @@
 	h3 + h4, h3 + p, h3 + ul, h3 + pre,
 	h4 + h5, h4 + p, h4 + ul, h4 + pre,
 	ul + p,
-	p + ul,
-	section > *:first-child {
+	p + ul {
 		margin-top: 0 !important;
 	}
 	section > *:last-child {

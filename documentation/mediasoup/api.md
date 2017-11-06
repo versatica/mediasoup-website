@@ -35,4 +35,8 @@ class   : h3color
 
 {% include mediasoup/api/Consumer.md %}
 
+{% include mediasoup/api/ActiveSpeakerDetector.md %}
+
+{% include mediasoup/api/RtpStreamer.md %}
+
 {% include mediasoup/api/errors.md %}

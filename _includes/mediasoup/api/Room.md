@@ -19,7 +19,7 @@ For more information, check the [Glossary](/documentation/glossary#Glossary-Room
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
-`kind`                   | String  | Media kind ("audio" or "video"). | Yes. |
+`kind`                   | String  | Media kind ("audio" or "video"). | Yes |
 `name`                   | String  | The codec MIME subtype. Valid values are listed in [IANA-RTP-2](http://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2). Examples: "opus", "VP8", "H264". | Yes |
 `preferredPayloadType`   | Integer | The value that goes in the RTP Payload Type Field. Must be unique. If unset, **mediasoup** chooses. | No |
 `clockRate`              | Integer | Codec clock rate expressed in Hertz. | Yes |
@@ -183,17 +183,17 @@ function handleRequestFromMediasoupClient(message, accept, reject)
 
 Creates and returns a new [ActiveSpeakerDetector](#ActiveSpeakerDetector).
 
-#### room.createRtpStreamer(producer, [options])
+#### room.createRtpStreamer(producer, options)
 {: #room-createRtpStreamer .code}
 
-Creates and returns a new [RtpStreamer](#RtpStreamer) associated to the given `producer`.
+Returns a Promise resolving to a new [RtpStreamer](#RtpStreamer) associated to the given `producer`.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
 `producer` | [Producer](#Producer) | Associated `producer`. | Yes |
-`options`  | [RtpStreamOptions](#RtpStream-RtpStreamOptions) | Options for the `rtpStreamer`. | No | 
+`options`  | [RtpStreamerOptions](#RtpStreamer-RtpStreamerOptions) | Options for the `rtpStreamer`. | Yes | 
 
 </div>
 
@@ -242,7 +242,7 @@ Emitted every few milliseconds. It provides information regarding the audio leve
 
 Argument | Type    | Description   
 -------- | ------- | ----------------
-`audioLevelInfos` | sequence<[AudioLevelInfo](#Room-AudioLevelInfo)> | Audio level information entries ordered by `audioLevel` (higher first).
+`audioLevelInfos` | sequence&lt;[AudioLevelInfo](#Room-AudioLevelInfo)&gt; | Audio level information entries ordered by `audioLevel` (higher first).
 
 </div>
 

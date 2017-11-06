@@ -174,7 +174,7 @@ The `Peer` class inherits from [EventEmitter](https://nodejs.org/api/events.html
 
 <section markdown="1">
 
-#### peer.on("close", fn(direction, appData))
+#### peer.on("close", fn(originator, appData))
 {: #peer-on-close .code}
 
 Emitted when the `peer` is closed.
@@ -183,13 +183,13 @@ Emitted when the `peer` is closed.
 
 Argument  | Type    | Description   
 --------- | ------- | ----------------
-`direction` | String | "local" or "remote".
+`originator` | String | "local" or "remote".
 `appData` | Any     | Custom app data.
 
 </div>
 
 #### peer.on("notify", fn(notification))
-{: #peer-on-newproducer .code}
+{: #peer-on-notify .code}
 
 Emitted when a new [mediasoup protocol](/documentation/mediasoup-protocol/) notification must be sent by the Node.js application to the associated **mediasoup-client**.
 

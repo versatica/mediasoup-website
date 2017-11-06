@@ -21,8 +21,8 @@ Provides access to the [errors](#errors) module.
 </section>
 
 
-### Methods
-{: #mediasoup-methods}
+### Functions
+{: #mediasoup-functions}
 
 <section markdown="1">
 

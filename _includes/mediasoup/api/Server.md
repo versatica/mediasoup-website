@@ -93,7 +93,7 @@ Creates and returns a new [Room](#Room) instance.
 
 Argument      | Type    | Description | Required | Default 
 ------------- | ------- | ----------- | -------- | ----------
-`mediaCodecs` | sequence<[RoomMediaCodec](#Room-RoomMediaCodec)> | Room media codecs. | Yes |
+`mediaCodecs` | sequence&lt;[RoomMediaCodec](#Room-RoomMediaCodec)&gt; | Room media codecs. | Yes |
 
 </div>
 

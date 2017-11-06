@@ -1,7 +1,7 @@
 ## PlainRtpTransport
 {: #PlainRtpTransport}
 
-A `plainRtpTransport` represents a network path negotiated on which plain RTP and RTCP (no ICE, DTLS or DTLS) is carried.
+A `plainRtpTransport` represents a network path negotiated on which plain RTP and RTCP (no ICE nor DTLS) is carried.
 
 
 ### Properties

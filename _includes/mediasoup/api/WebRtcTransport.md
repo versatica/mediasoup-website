@@ -6,9 +6,7 @@ A `webrtcTransport` represents a network path negotiated by both, **mediasoup-cl
 For more information, check the [Glossary](/documentation/glossary#Glossary-Transport) section.
 
 <div markdown="1" class="note">
-
 **mediasoup** is a [ICE Lite](https://tools.ietf.org/html/rfc5245#section-2.7) implementation, meaning that it will never initiate ICE connections but expect ICE Binding Requests on its open ports.
-
 </div>
 
 
@@ -168,7 +166,7 @@ Argument   | Type    | Description | Required | Default
 </div>
 
 <div markdown="1" class="note warn">
-This method can just be called on open `webrtcTransports` with  `direction: "send"` (it will throw otherwise).
+This method can just be called on open `webrtcTransports` with `direction: "send"` (it will throw otherwise).
 </div>
 
 Usage example:
@@ -208,8 +206,6 @@ Argument   | Type    | Description | Required | Default
 
 Stops RTP/RTCP mirroring.
 
-</div>
-
 </section>
 
 
@@ -220,7 +216,7 @@ The `WebRtcTransport` class inherits from [EventEmitter](https://nodejs.org/api/
 
 <section markdown="1">
 
-#### webrtcTransport.on("close", fn(direction, appData))
+#### webrtcTransport.on("close", fn(originator, appData))
 {: #webrtcTransport-on-close .code}
 
 Emitted when the `webrtcTransport` is closed.
@@ -229,7 +225,7 @@ Emitted when the `webrtcTransport` is closed.
 
 Argument  | Type    | Description   
 --------- | ------- | ----------------
-`direction` | String | "local" or "remote".
+`originator` | String | "local" or "remote".
 `appData` | Any     | Custom app data.
 
 </div>

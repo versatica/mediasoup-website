@@ -1,7 +1,7 @@
 ## Consumer
 {: #Consumer}
 
-A `consumer` represents an audio/video media track sent to a remote client.
+A `consumer` represents an audio/video media track received from the `room`.
 
 For more information, check the [Glossary](/documentation/glossary#Glossary-Consumer) section.
 
@@ -39,20 +39,6 @@ Custom data set by the application.
 
 The media kind ("audio" or "video") handled by the `consumer`.
 
-#### consumer.peer
-{: #consumer-peer .code}
-
-* Read only
-
-The [Peer](#Peer) owner of this `consumer` (if any).
-
-#### consumer.transport
-{: #consumer-transport .code}
-
-* Read only
-
-The [Transport](#Transport) assigned to this `consumer`.
-
 #### consumer.rtpParameters
 {: #consumer-rtpParameters .code}
 
@@ -60,47 +46,58 @@ The [Transport](#Transport) assigned to this `consumer`.
 
 An Object with the effective RTP parameters of the `consumer`, miming the syntax of [RTCRtpParameters](http://draft.ortc.org/#dom-rtcrtpparameters) in ORTC.
 
-#### consumer.source
-{: #consumer-source .code}
+#### consumer.track
+{: #consumer-track .code}
 
 * Read only
 
-The RTP source of this `consumer`. Typically it corresponds to a [#Producer](Producer).
+The [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#mediastreamtrack) internally handled by the `consumer`.
 
-#### consumer.enabled
-{: #consumer-enabled .code}
+It is `undefined` if [`receive()`](#consumer-receive) was not called before.
+
+#### consumer.peer
+{: #consumer-peer .code}
 
 * Read only
 
-Boolean indicating whether this `consumer` has been enabled (so the endpoint can receive RTP). Being enabled also means that a `transport` has been assigned to this `consumer`.
+The remote [Peer](#Peer) instance producing the media.
+
+It is `undefined` if this is not a `Consumer` associated to a remote `peer`.
+
+#### consumer.supported
+{: #consumer-supported .code}
+
+* Read only
+
+A Boolean indicating whether our browser/device can enable this `Consumer`. If we don't support the audio/video codec this won't be `true`.
+
+#### consumer.transport
+{: #consumer-transport .code}
+
+* Read only
+
+The [Transport](#Transport) assigned to this `consumer` (if any).
 
 #### consumer.locallyPaused
 {: #consumer-locallyPaused .code}
 
 * Read only
 
-Boolean indicating whether this `consumer` has been locally paused (in **mediasoup**).
+Boolean indicating whether this `consumer` has been locally paused.
 
 #### consumer.remotelyPaused
 {: #consumer-remotelyPaused .code}
 
 * Read only
 
-Boolean indicating whether this `consumer` has been remotely paused (by the remote client).
-
-#### consumer.sourcePaused
-{: #consumer-sourcePaused .code}
-
-* Read only
-
-Boolean indicating whether the source of this `consumer` has been paused.
+Boolean indicating whether this `consumer` has been remotely paused.
 
 #### consumer.paused
 {: #consumer-paused .code}
 
 * Read only
 
-Boolean indicating whether this `consumer` has been locally or remotely paused, or its source has been paused.
+Boolean indicating whether this `consumer` has been locally or remotely paused.
 
 #### consumer.preferredProfile
 {: #consumer-preferredProfile .code}
@@ -137,64 +134,92 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
+#### consumer.receive(transport)
+{: #consumer-send .code}
+
+Enables receiving RTP for this `consumer` by providing a `transport`. It returns a Promise resolving to a remote [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#mediastreamtrack).
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`transport` | [Transport](#Transport) | `transport` with `direction` "recv". | Yes |
+
+</div>
+
+Usage example:
+
+```javascript
+const stream = new MediaStream();
+
+consumer.receive(recvTransport)
+  .then((track) =>
+  {
+    stream.addTrack(track);
+    videoElem.srcObject = stream;
+  });
+```
+
 #### consumer.pause([appData])
 {: #consumer-pause .code}
 
-Pauses the `consumer` locally, meaning that no RTP will be relayed to the remote client.
+Pauses the `consumer` locally, meaning that no RTP will be received from the `room`.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`appData`  | Any     | Custom app data sent to the remote client. | No |
+`appData`  | Any     | Custom app data. | No |
 
 </div>
 
 #### consumer.resume([appData])
 {: #consumer-resume .code}
 
-Resumes the `consumer` locally, meaning that RTP will be relayed again to the remote client (unless the `consumer` was also remotely paused).
+Resumes the `consumer` locally, meaning that RTP will be received again from the `room` (unless the `consumer` or its remote source was also remotely paused).
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`appData`  | Any     | Custom app data sent to the remote client. | No |
+`appData`  | Any     | Custom app data. | No |
 
 </div>
 
-#### consumer.setPreferredProfile(profile)
-{: #consumer-setPreferredProfile .code}
+#### consumer.replaceTrack(track)
+{: #consumer-replaceTrack .code}
 
-Set the given RTP `profile` as the desired profile. No profile higher than the given one will become effective profile for this `consumer`.
-
-For more information, check the [Glossary](/documentation/glossary#Glossary-Profile) section.
+Replaces the audio/video track being sent to the `room`.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`profile`  | String  | Preffered RTP profile. | Yes |
+`track `   | [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#mediastreamtrack) | New audio/video track. | Yes |
 
 </div>
 
-<div markdown="1" class="note">
-If no preferred profile is set into a `consumer` (meaning that "default" will be used) and the associated source (`producer`) has a preferred profile, that will be used in the `consumer`.
+#### consumer.enableStats(interval = 1)
+{: #consumer-enableStats .code}
+
+Subscribes the `consumer` to RTC stats retrieved via the [`stats`](#consumer-on-stats) event.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`interval` | Integer | Stats retrieval interval (in seconds). | No | 1
+
 </div>
-
-#### consumer.requestKeyFrame()
-{: #consumer-requestKeyFrame .code}
-
-Request a RTCP PLI to the RTP source (if supported).
-
-#### consumer.getStats()
-{: #consumer-getStats .code}
-
-Returns a Promise resolving to an array of Objects containing RTC stats related to the `consumer`.
 
 <div markdown="1" class="note">
 Check the [RTC stats](/documentation/rtc-stats/) section for more details.
 </div>
+
+#### consumer.disableStats()
+{: #consumer-disableStats .code}
+
+Closes the subscription to RTC stats for this `consumer`.
 
 </section>
 
@@ -258,6 +283,19 @@ Emitted when the effective profile changes.
 Argument  | Type    | Description   
 --------- | ------- | ----------------
 `profile` | String | Current effective RTP profile.
+
+</div>
+
+#### consumer.on("stats", fn(stats))
+{: #consumer-on-stats .code}
+
+Emitted when RTC stats are retrieved.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+---------| ------- | ----------------
+`stats`  | sequence&lt;Object&gt; | RTC stats.
 
 </div>
 
