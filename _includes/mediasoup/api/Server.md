@@ -22,7 +22,7 @@ Field                    | Type    | Description   | Required | Default
 `rtcIPv4`          | String\|Boolean | IPv4 for RTC. Valid values are a IPv4, `true` (auto-detect) and `false` (disabled). | No | `true`
 `rtcIPv6`          | String\|Boolean | IPv6 for RTC. Valid values are a IPv6, `true` (auto-detect) and `false` (disabled). | No | `true`
 `rtcAnnouncedIPv4` | String | Announced IPv4 for RTC. Useful for deployments in server with private IP such as AWS. Valid values are a IPv4. | No |
-`rtcAnnouncedIPv6` | String | Announced IPv6 for RTC. Useful for deployments in server with private IP such as AWS. Valid values are a IPv4. | No |
+`rtcAnnouncedIPv6` | String | Announced IPv6 for RTC. Useful for deployments in server with private IP such as AWS. Valid values are a IPv6. | No |
 `rtcMinPort`             | Integer | Minimun RTC port. | No | 10000
 `rtcMaxPort`             | Integer | Maximum RTC port. | No | 59999
 `dtlsCertificateFile`    | String  | Path to the DTLS certificate. If unset, a random certificate is generated. | No |

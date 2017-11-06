@@ -1,7 +1,7 @@
 ## Room
 {: #Room}
 
-A `room` is the local representation of a remote [Room](/documentation/mediasoup/api#Room) in **mediasoup** plus own our `peer` joining it.
+A `room` is the local representation of a remote [Room](/documentation/mediasoup/api#Room) in **mediasoup** plus our own `peer` joining it.
 
 For more information, check the [Glossary](/documentation/glossary#Glossary-Room) section.
 
