@@ -132,7 +132,7 @@ room.join("alice")
 ```
 
 <div markdown="1" class="note">
-Once the Promise returned by `join()` returns, it's recommended to immediately iterate all the `peers` the Promise resolves with, and also all the `consumers` in each `peer` so they can be enabled for media reception.
+Once the Promise returned by `join()` resolves, it's recommended to immediately iterate all the `peers` the Promise resolves with, and also all the `consumers` in each `peer` so they can be enabled for media reception.
 </div>
 
 #### room.leave([appData])
