@@ -121,7 +121,7 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
-#### transport.enableStats(interval = 1)
+#### transport.enableStats([interval = 1])
 {: #transport-enableStats .code}
 
 Subscribes the `transport` to RTC stats retrieved via the [`stats`](#transport-on-stats) event.

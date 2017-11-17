@@ -186,20 +186,7 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
-#### consumer.replaceTrack(track)
-{: #consumer-replaceTrack .code}
-
-Replaces the audio/video track being sent to the `room`.
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument   | Type    | Description | Required | Default 
----------- | ------- | ----------- | -------- | ----------
-`track `   | [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#mediastreamtrack) | New audio/video track. | Yes |
-
-</div>
-
-#### consumer.enableStats(interval = 1)
+#### consumer.enableStats([interval = 1])
 {: #consumer-enableStats .code}
 
 Subscribes the `consumer` to RTC stats retrieved via the [`stats`](#consumer-on-stats) event.

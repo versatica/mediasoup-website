@@ -199,7 +199,7 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
-#### producer.enableStats(interval = 1)
+#### producer.enableStats([interval = 1])
 {: #producer-enableStats .code}
 
 Subscribes the `producer` to RTC stats retrieved via the [`stats`](#producer-on-stats) event.
