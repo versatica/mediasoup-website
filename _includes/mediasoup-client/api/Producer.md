@@ -199,7 +199,7 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
-#### producer.enableStats([interval = 1])
+#### producer.enableStats([interval = 1000])
 {: #producer-enableStats .code}
 
 Subscribes the `producer` to RTC stats retrieved via the [`stats`](#producer-on-stats) event.
@@ -208,7 +208,7 @@ Subscribes the `producer` to RTC stats retrieved via the [`stats`](#producer-on-
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`interval` | Integer | Stats retrieval interval (in seconds). | No | 1
+`interval` | Integer | Stats retrieval interval (in milliseconds). | No | 1000
 
 </div>
 
@@ -272,6 +272,16 @@ Argument  | Type    | Description
 `appData` | Any     | Custom app data.
 
 </div>
+
+#### producer.on("trackended", fn())
+{: #producer-on-trackended .code}
+
+Emitted when the `track`'s source is closed (useful to detect microphone or webcam failures).
+
+#### producer.on("unhandled", fn())
+{: #producer-on-unhandled .code}
+
+Emitted when the associated `transport` is closed.
 
 #### producer.on("stats", fn(stats))
 {: #producer-on-stats .code}

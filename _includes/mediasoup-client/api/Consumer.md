@@ -186,7 +186,7 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
-#### consumer.enableStats([interval = 1])
+#### consumer.enableStats([interval = 1000])
 {: #consumer-enableStats .code}
 
 Subscribes the `consumer` to RTC stats retrieved via the [`stats`](#consumer-on-stats) event.
@@ -195,7 +195,7 @@ Subscribes the `consumer` to RTC stats retrieved via the [`stats`](#consumer-on-
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`interval` | Integer | Stats retrieval interval (in seconds). | No | 1
+`interval` | Integer | Stats retrieval interval (in milliseconds). | No | 1000
 
 </div>
 
@@ -272,6 +272,11 @@ Argument  | Type    | Description
 `profile` | String | Current effective RTP profile.
 
 </div>
+
+#### consumer.on("unhandled", fn())
+{: #consumer-on-unhandled .code}
+
+Emitted when the associated `transport` is closed.
 
 #### consumer.on("stats", fn(stats))
 {: #consumer-on-stats .code}
