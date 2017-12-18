@@ -27,11 +27,6 @@ $ bower install mediasoup-client
 ```
 
 
-## Requirements
-
-* **mediasoup-client** uses ES6 syntax so a transpiler (such as [Babel](https://babeljs.io)) is required if you load it as a module.
-
-
 ## Usage
 
 Depending on how your web application loads libraries (for example, by using a JavaScript module loader) your may need to use one of the following ways to load **mediasoup-client**:
