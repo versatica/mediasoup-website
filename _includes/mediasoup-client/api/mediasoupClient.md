@@ -61,6 +61,25 @@ Returns a Boolean indicating if the current browser/device is supported by **med
 
 Returns a [DeviceInfo](#mediasoupClient-DeviceInfo) Object with the browser/device information.
 
+#### mediasoupClient.checkCapabilitiesForRoom(roomRtpCapabilities)
+{: #mediasoupClient-checkCapabilitiesForRoom .code}
+
+Checks the audio/video capabilities of the current device/browser for the remote `room` given its RTP capabilities.
+
+It returns a Promise that resolves to an Object with `audio` and `video` Booleans, indicating whether sending and receiving audio/video is possible once joined in that `room`.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`roomRtpCapabilities`  | [RTCRtpCapabilities](http://draft.ortc.org/#dom-rtcrtpcapabilities) | Room RTP capabilities. | Yes |
+
+</div>
+
+<div markdown="1" class="note">
+This method is useful in the scenario in which the application wishes to request the user with mic/webcam permissions before joining the room. By running this method before, the application could avoid requesting webcam permission to the user if his browser does not support the video codec of the room.
+</div>
+
 </section>
 
 
