@@ -1,7 +1,7 @@
 ## RtpStreamer
 {: #RtpStreamer}
 
-An `rtpStreaer` represents both a specialized [Consumer](#Consumer) and a [PlainRtpTransport](#PlainRtpTransport). It's created by calling the [`room.createRtpStreamer()`](#room-createRtpStreamer) by passing a [Producer](#Producer) and [RtpStreamOptions](#RtpStreamer-RtpStreamerOptions).
+An `rtpStreamer` represents both a specialized [Consumer](#Consumer) and a [PlainRtpTransport](#PlainRtpTransport). It's created by calling the [`room.createRtpStreamer()`](#room-createRtpStreamer) by passing a [Producer](#Producer) and [RtpStreamOptions](#RtpStreamer-RtpStreamerOptions).
 
 The RTP and RTCP received by the `producer` will be relayed/mirrored to the given IP and port using plain RTP/RTCP.
 
