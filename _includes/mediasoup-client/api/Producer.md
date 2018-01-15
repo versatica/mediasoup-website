@@ -276,7 +276,7 @@ Argument  | Type    | Description
 #### producer.on("trackended", fn())
 {: #producer-on-trackended .code}
 
-Emitted when the `track`'s source is closed (useful to detect microphone or webcam failures).
+Emitted when the internally managed `track`'s is stopped (useful to detect microphone or webcam disconnection/failures). The `producer` is not automatically closed (it's up to the application to close it or not).
 
 #### producer.on("unhandled", fn())
 {: #producer-on-unhandled .code}
