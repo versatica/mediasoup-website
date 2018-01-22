@@ -226,6 +226,10 @@ navigator.mediaDevices.getUserMedia({ audio: true, video: true })
 Within the new `Producer`, the given `track` is internally cloned, so the application can safely `stop()` the original `track`.
 </div>
 
+<div markdown="1" class="warn">
+The above is not true in [react-native-webrtc](https://github.com/oney/react-native-webrtc/) because it does not implement `track.clone()` and, hence,, the `track` handled by the `Producer` is the original one and MUST NOT be stopped by the application.
+</div>
+
 #### room.restartIce()
 {: #room-restartIce .code}
 
