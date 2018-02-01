@@ -65,7 +65,7 @@ An Object with the effective RTP parameters of the `consumer`, miming the syntax
 
 * Read only
 
-The RTP source of this `consumer`. Typically it corresponds to a [#Producer](Producer).
+The RTP source of this `consumer`. Typically it corresponds to a [Producer](#Producer).
 
 #### consumer.enabled
 {: #consumer-enabled .code}
