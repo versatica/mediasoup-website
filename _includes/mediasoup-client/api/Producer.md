@@ -278,6 +278,11 @@ Argument  | Type    | Description
 
 Emitted when the internally managed `track`'s is stopped (useful to detect microphone or webcam disconnection/failures). The `producer` is not automatically closed (it's up to the application to close it or not).
 
+#### producer.on("handled", fn())
+{: #producer-on-handled .code}
+
+Emitted when a `transport` is given to this `producer`.
+
 #### producer.on("unhandled", fn())
 {: #producer-on-unhandled .code}
 

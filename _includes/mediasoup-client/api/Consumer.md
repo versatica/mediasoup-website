@@ -273,6 +273,11 @@ Argument  | Type    | Description
 
 </div>
 
+#### consumer.on("handled", fn())
+{: #consumer-on-handled .code}
+
+Emitted when a `transport` is given to this `consumer`.
+
 #### consumer.on("unhandled", fn())
 {: #consumer-on-unhandled .code}
 
