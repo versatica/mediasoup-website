@@ -39,6 +39,35 @@ home : true
 </div>
 
 <div class="shields loading">
-	<a class="npm-version" href="https://npmjs.org/package/mediasoup"><img src="/images/npm-shield-mediasoup.svg" data-canonical-src="https://img.shields.io/npm/v/mediasoup.svg" alt="mediasoup npm shield"></a>
-	<a class="npm-version" href="https://npmjs.org/package/mediasoup-client"><img src="/images/npm-shield-mediasoup-client.svg" data-canonical-src="https://img.shields.io/npm/v/mediasoup-client.svg" alt="mediasoup-client npm shield"></a>
+	<a
+		class="npm-version"
+		href="https://npmjs.org/package/mediasoup"
+	>
+		<img
+			id="mediasoup-npm-shield"
+			src=""
+			data-canonical-src="https://img.shields.io/npm/v/mediasoup.svg"
+			alt=""
+		>
+	</a>
+
+	<a
+		class="npm-version"
+		href="https://npmjs.org/package/mediasoup-client"
+	>
+		<img
+			id="mediasoup-client-npm-shield"
+			src=""
+			data-canonical-src="https://img.shields.io/npm/v/mediasoup-client.svg"
+			alt=""
+		>
+	</a>
 </div>
+
+<script>
+	setTimeout(function()
+	{
+		document.getElementById('mediasoup-npm-shield').src = 'https://img.shields.io/npm/v/mediasoup.svg?label=mediasoup';
+		document.getElementById('mediasoup-client-npm-shield').src = 'https://img.shields.io/npm/v/mediasoup-client.svg?label=mediasoup-client';
+	});
+</script>
