@@ -227,7 +227,7 @@ Within the new `Producer`, the given `track` is internally cloned, so the applic
 </div>
 
 <div markdown="1" class="warn">
-The above is not true in [react-native-webrtc](https://github.com/oney/react-native-webrtc/) because it does not implement `track.clone()` and, hence,, the `track` handled by the `Producer` is the original one and MUST NOT be stopped by the application.
+The above is not true in [react-native-webrtc](https://github.com/oney/react-native-webrtc/) because it does not implement `track.clone()` and, hence, the `track` handled by the `Producer` is the original one and MUST NOT be stopped by the application.
 </div>
 
 #### room.restartIce()

@@ -18,9 +18,14 @@ For more information, check the [Glossary](/documentation/glossary#Glossary-Prod
 
 Field       | Type    | Description   | Required | Default
 ----------- | ------- | ------------- | -------- | ---------
-`simulcast` | [SimulcastOptions](#Producer-SimulcastOptions) | Simulcast options. | No |              
+`simulcast` | [SimulcastOptions](#Producer-SimulcastOptions)\|Boolean | Simulcast options. | No |              
 
 </div>
+
+<div markdown="1" class="note">
+If `simulcast` is set to `true`, a default value will be set. Note that in some browsers there is no API to specify bitrates for simulcast streams (such as in Chrome family) so passing an a [SimulcastOptions](#Producer-SimulcastOptions) Object here is the same as just setting it to `true`.
+</div>
+
 
 #### SimulcastOptions
 {: #Producer-SimulcastOptions .code}
