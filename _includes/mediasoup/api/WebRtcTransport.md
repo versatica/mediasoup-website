@@ -24,10 +24,10 @@ Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
 `remoteIP`   | String  | Destination IP. | Yes |
 `remotePort` | Integer | Destination port. | Yes |
-`sendRtp`    | Boolean | Whether RTP sent to the client must be mirrored.     | No | `false`
-`sendRtcp`   | Boolean | Whether RTCP sent to the client must be mirrored.     | No | `false`
-`recvRtp`    | Boolean | Whether RTP received from the client must be mirrored.     | No | `false`
-`recvRtcp`   | Boolean | Whether RTCP received from the client must be mirrored.     | No | `false`
+`sendRtp`    | Boolean | Whether RTP sent to the client must be mirrored.     | No | `true`
+`sendRtcp`   | Boolean | Whether RTCP sent to the client must be mirrored.     | No | `true`
+`recvRtp`    | Boolean | Whether RTP received from the client must be mirrored.     | No | `true`
+`recvRtcp`   | Boolean | Whether RTCP received from the client must be mirrored.     | No | `true`
 
 </div>
 
