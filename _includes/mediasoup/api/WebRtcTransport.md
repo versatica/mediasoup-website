@@ -24,11 +24,16 @@ Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
 `remoteIP`   | String  | Destination IP. | Yes |
 `remotePort` | Integer | Destination port. | Yes |
+`localIP`    | String  | Local IP.     | No | `rtcIPv4` or `rtcIPv6` given in [ServerSettings](#Server-ServerSettings)
 `sendRtp`    | Boolean | Whether RTP sent to the client must be mirrored.     | No | `true`
 `sendRtcp`   | Boolean | Whether RTCP sent to the client must be mirrored.     | No | `true`
 `recvRtp`    | Boolean | Whether RTP received from the client must be mirrored.     | No | `true`
 `recvRtcp`   | Boolean | Whether RTCP received from the client must be mirrored.     | No | `true`
 
+</div>
+
+<div markdown="1" class="note warn">
+If `localIP` is given, the RTP port range given in [ServerSettings](#Server-ServerSettings) (`rtcMinPort` - `rtcMaxPort`) is not honored and, instead, any available random port will be used.
 </div>
 
 </section>

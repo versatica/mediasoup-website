@@ -20,8 +20,14 @@ Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
 `remoteIP`   | String  | Destination IP. | Yes |
 `remotePort` | Integer | Destination port. | Yes |
+`localIP`    | String  | Local IP.     | No | `rtcIPv4` or `rtcIPv6` given in [ServerSettings](#Server-ServerSettings)
 
 </div>
+
+<div markdown="1" class="note warn">
+If `localIP` is given, the RTP port range given in [ServerSettings](#Server-ServerSettings) (`rtcMinPort` - `rtcMaxPort`) is not honored and, instead, any available random port will be used.
+</div>
+
 
 </section>
 
