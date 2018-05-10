@@ -164,7 +164,7 @@ function handleRequestFromMediasoupClient(message, accept, reject)
         .then((response) =>
         {
           // Get the new mediasoup Peer instance.
-          const peer = mediasoupRoom.getMediasoupPeerByName(peerName);
+          const peer = mediasoupRoom.getPeerByName(peerName);
 
           console.info("new peer joined the room: %o", peer);
 
