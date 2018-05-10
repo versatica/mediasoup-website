@@ -40,11 +40,11 @@ gulp.task('sitemap', function()
 });
 
 gulp.task('jekyll:build', shell.task(
-	[ 'jekyll build' ]
+	[ 'bundle exec jekyll build' ]
 ));
 
 gulp.task('jekyll:watch', shell.task(
-	[ 'jekyll serve --host 0.0.0.0' ]
+	[ 'bundle exec jekyll serve --host 0.0.0.0' ]
 ));
 
 gulp.task('rsync', function(done)
