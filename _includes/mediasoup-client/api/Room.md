@@ -21,7 +21,7 @@ Field                    | Type    | Description   | Required | Default
 `requestTimeout`         | Integer | Timeout for mediasoup protocol sent requests (in milliseconds). | No | 10000 (10 seconds)
 `transportOptions`       | [TransportOptions](#Transport-TransportOptions) | Options for created `transports`. | No |
 `turnServers`            | sequence&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#dom-rtciceserver)&gt; | Array of TURN servers. | No | `[]`
-`iceTransportPolicy      | String  | The [ICE transport policy](https://w3c.github.io/webrtc-pc/#dom-rtcconfiguration-icetransportpolicy). | No | "all"
+`iceTransportPolicy`     | String  | The [ICE transport policy](https://w3c.github.io/webrtc-pc/#dom-rtcconfiguration-icetransportpolicy). | No | "all"
 
 </div>
 
