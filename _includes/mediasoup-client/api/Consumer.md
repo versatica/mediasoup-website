@@ -186,6 +186,21 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
+#### consumer.setPreferredProfile(profile)
+{: #consumer-setPreferredProfile .code}
+
+Set the given RTP `profile` as the desired profile. No profile higher than the given one will become effective profile for this `consumer`.
+
+For more information, check the [Glossary](/documentation/glossary#Glossary-Profile) section.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`profile`  | String  | Preffered RTP profile. | Yes |
+
+</div>
+
 #### consumer.enableStats([interval = 1000])
 {: #consumer-enableStats .code}
 
