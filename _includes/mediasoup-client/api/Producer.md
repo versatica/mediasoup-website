@@ -3,7 +3,7 @@
 
 A `producer` represents an audio/video media track sent to the `room`.
 
-For more information, check the [Glossary](/documentation/glossary#Glossary-Producer) section.
+For more information, check the [Glossary](/documentation/glossary/#Glossary-Producer) section.
 
 
 ### Dictionaries
@@ -108,7 +108,7 @@ The [Transport](#Transport) assigned to this `producer` (if any).
 
 * Read only
 
-An Object with the effective RTP parameters of the `producer`, miming the syntax of [RTCRtpParameters](http://draft.ortc.org/#dom-rtcrtpparameters) in ORTC.
+An Object with the effective RTP parameters of the `producer`, miming the syntax of [RTCRtpParameters](https://draft.ortc.org/#rtcrtpparameters*) in ORTC.
 
 #### producer.locallyPaused
 {: #producer-locallyPaused .code}

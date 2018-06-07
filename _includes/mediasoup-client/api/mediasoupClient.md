@@ -72,7 +72,7 @@ It returns a Promise that resolves to an Object with `audio` and `video` Boolean
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`roomRtpCapabilities`  | [RTCRtpCapabilities](http://draft.ortc.org/#dom-rtcrtpcapabilities) | Room RTP capabilities. | Yes |
+`roomRtpCapabilities`  | [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*) | Room RTP capabilities. | Yes |
 
 </div>
 

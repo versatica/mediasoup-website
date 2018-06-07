@@ -6,7 +6,7 @@ anchors : true
 
 # RTC stats
 
-Similar to [WebRTC](https://w3c.github.io/webrtc-stats/) and [ORTC](http://draft.ortc.org/#rtcstats-dictionary), **mediasoup** provides stats in server side. If enabled, they are also delivered to **mediasoup-client**.
+Similar to [WebRTC](https://w3c.github.io/webrtc-stats/) and [ORTC](https://draft.ortc.org/#rtcstats-dictionary), **mediasoup** provides stats in server side. If enabled, they are also delivered to **mediasoup-client**.
 
 Currently stats are generated for the following entities:
 

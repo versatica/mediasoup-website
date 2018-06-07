@@ -41,6 +41,6 @@ The [5-Tuple](#Transport-IceSelectedTuple) indicating information about the conn
 #### plainRtpTransport.close()
 {: #plainRtpTransport-close .code}
 
-Closes the `plainRtpTransport` and triggers a [`close`](#plainRtpTransport-on-close) event.
+Closes the `plainRtpTransport`.
 
 </section>

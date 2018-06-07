@@ -3,7 +3,7 @@
 
 A `room` holds a multiparty RTC (Real-Time Communication) conference.
 
-For more information, check the [Glossary](/documentation/glossary#Glossary-Room) section.
+For more information, check the [Glossary](/documentation/glossary/#Glossary-Room) section.
 
 
 
@@ -71,7 +71,7 @@ A Boolean indicating whether the `room` has been closed.
 
 * Read only.
 
-An Object with the RTP capabilities of the `room`, miming the syntax of [RTCRtpCapabilities](http://draft.ortc.org/#dom-rtcrtpcapabilities) in ORTC.
+An Object with the RTP capabilities of the `room`, miming the syntax of [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*) in ORTC.
 
 #### room.peers
 {: #room-peers .code}

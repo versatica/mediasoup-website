@@ -3,7 +3,7 @@
 
 A `room` is the local representation of a remote [Room](/documentation/mediasoup/api#Room) in **mediasoup** plus our own `peer` joining it.
 
-For more information, check the [Glossary](/documentation/glossary#Glossary-Room) section.
+For more information, check the [Glossary](/documentation/glossary/#Glossary-Room) section.
 
 
 ### Dictionaries
@@ -20,7 +20,7 @@ Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
 `requestTimeout`         | Integer | Timeout for mediasoup protocol sent requests (in milliseconds). | No | 10000 (10 seconds)
 `transportOptions`       | [TransportOptions](#Transport-TransportOptions) | Options for created `transports`. | No |
-`turnServers`            | sequence&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#dom-rtciceserver)&gt; | Array of TURN servers. | No | `[]`
+`turnServers`            | sequence&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver*)&gt; | Array of TURN servers. | No | `[]`
 `iceTransportPolicy`     | String  | The [ICE transport policy](https://w3c.github.io/webrtc-pc/#dom-rtcconfiguration-icetransportpolicy). | No | "all"
 
 </div>

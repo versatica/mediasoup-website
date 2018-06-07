@@ -3,7 +3,7 @@
 
 A `consumer` represents an audio/video media track received from the `room`.
 
-For more information, check the [Glossary](/documentation/glossary#Glossary-Consumer) section.
+For more information, check the [Glossary](/documentation/glossary/#Glossary-Consumer) section.
 
 
 ### Properties
@@ -44,7 +44,7 @@ The media kind ("audio" or "video") handled by the `consumer`.
 
 * Read only
 
-An Object with the effective RTP parameters of the `consumer`, miming the syntax of [RTCRtpParameters](http://draft.ortc.org/#dom-rtcrtpparameters) in ORTC.
+An Object with the effective RTP parameters of the `consumer`, miming the syntax of [RTCRtpParameters](https://draft.ortc.org/#rtcrtpparameters*) in ORTC.
 
 #### consumer.track
 {: #consumer-track .code}
@@ -191,7 +191,7 @@ Argument   | Type    | Description | Required | Default
 
 Set the given RTP `profile` as the desired profile. No profile higher than the given one will become effective profile for this `consumer`.
 
-For more information, check the [Glossary](/documentation/glossary#Glossary-Profile) section.
+For more information, check the [Glossary](/documentation/glossary/#Glossary-Profile) section.
 
 <div markdown="1" class="table-wrapper L3">
 

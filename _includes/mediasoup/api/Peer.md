@@ -3,7 +3,7 @@
 
 A `peer` is the local representation of a remote media endpoint that connects to **mediasoup** and sends/receives media streams.
 
-For more information, check the [Glossary](/documentation/glossary#Glossary-Peer) section.
+For more information, check the [Glossary](/documentation/glossary/#Glossary-Peer) section.
 
 
 ### Properties
@@ -37,7 +37,7 @@ Custom data set by the application. When the `peer` is created via the [mediasou
 
 * Read only
 
-An Object with the RTP capabilities of the `peer`, miming the syntax of [RTCRtpCapabilities](http://draft.ortc.org/#dom-rtcrtpcapabilities) in ORTC.
+An Object with the RTP capabilities of the `peer`, miming the syntax of [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*) in ORTC.
 
 #### peer.transports
 {: #peer-transports .code}

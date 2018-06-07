@@ -3,7 +3,7 @@
 
 A `peer` is the local representation of a remote `peer`.
 
-For more information, check the [Glossary](/documentation/glossary#Glossary-Peer) section.
+For more information, check the [Glossary](/documentation/glossary/#Glossary-Peer) section.
 
 
 ### Properties

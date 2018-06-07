@@ -3,7 +3,7 @@
 
 A `transport` represents a path, negotiated via ICE and DTLS, for sending or receiving audio/video RTP.
 
-For more information, check the [Glossary](/documentation/glossary#Glossary-Transport) section.
+For more information, check the [Glossary](/documentation/glossary/#Glossary-Transport) section.
 
 <div markdown="1" class="note">
 Internally, the `transport` runs a specific handler depending on the underlying browser/device. This may be a `RTCPeerConnection` with Plan-B, or Unified-Plan, using legacy or modern WebRTC API, or even a set of `RTCIceTransport`, `RTCDtlsTransport`, `RTCRtpSender`, `RTCRtpReceiver` instances when the browser/device runs ORTC inside.
