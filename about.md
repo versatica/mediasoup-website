@@ -75,8 +75,8 @@ You can support **mediasoup** by making a donation [here][paypal-url]{:target="_
 [twitter-icon]: /images/icon-twitter.svg
 [upwork-icon]: /images/icon-upwork.svg
 
-[rfc7118-url]: http://tools.ietf.org/html/rfc7118
-[saghul-personal-url]: http://bettercallsaghul.com
+[rfc7118-url]: https://tools.ietf.org/html/rfc7118
+[saghul-personal-url]: https://about.me/saghul
 [paypal-url]: https://paypal.me/inakibazcastillo/100
 
 

@@ -20,7 +20,7 @@ For more information, check the [Glossary](/documentation/glossary/#Glossary-Roo
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
 `kind`                   | String  | Media kind ("audio" or "video"). | Yes |
-`name`                   | String  | The codec MIME subtype. Valid values are listed in [IANA-RTP-2](http://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2). Examples: "opus", "VP8", "H264". | Yes |
+`name`                   | String  | The codec MIME subtype. Valid values are listed in [IANA-RTP-2](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2). Examples: "opus", "VP8", "H264". | Yes |
 `preferredPayloadType`   | Integer | The value that goes in the RTP Payload Type Field. Must be unique. If unset, **mediasoup** chooses. | No |
 `clockRate`              | Integer | Codec clock rate expressed in Hertz. | Yes |
 `channels`               | Integer | The number of channels (mono=1, stereo=2) for audio codecs. | No | 1

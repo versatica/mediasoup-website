@@ -135,7 +135,7 @@ Argument   | Type    | Description | Required | Default
 </div>
 
 #### consumer.receive(transport)
-{: #consumer-send .code}
+{: #consumer-receive .code}
 
 Enables receiving RTP for this `consumer` by providing a `transport`. It returns a Promise resolving to a remote [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#mediastreamtrack).
 

@@ -51,7 +51,7 @@ Both components communicate to each other by means of inter-process communicatio
 * ICE / DTLS / RTP / RTCP over UDP and TCP.
 * RTP simulcast suport with an API for choosing the desired layer.
 * Congestion control via [REMB](https://tools.ietf.org/html/draft-alvestrand-rmcat-remb).
-* Extremely powerful (media worker subprocess coded in C++ on top of [libuv](http://libuv.org)).
+* Extremely powerful (media worker subprocess coded in C++ on top of [libuv](https://libuv.org)).
 
 
 ## Client side

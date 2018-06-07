@@ -76,7 +76,7 @@ Field           | Type    | Description   | Required | Default
 #### LocalDtlsFingerprints
 {: #Transport-LocalDtlsFingerprints .code}
 
-Map of DTLS algorithms (as defined in the "Hash function Textual Names" registry initially specified in [RFC 4572](http://tools.ietf.org/html/rfc4572#section-8) Section 8) and their corresponding certificate fingerprint values (in lowercase hex string as expressed utilizing the syntax of "fingerprint" in [RFC 4572](http://tools.ietf.org/html/rfc4572#section-5) Section 5).
+Map of DTLS algorithms (as defined in the "Hash function Textual Names" registry initially specified in [RFC 4572](https://tools.ietf.org/html/rfc4572#section-8) Section 8) and their corresponding certificate fingerprint values (in lowercase hex string as expressed utilizing the syntax of "fingerprint" in [RFC 4572](https://tools.ietf.org/html/rfc4572#section-5) Section 5).
 
 <div markdown="1" class="table-wrapper L3">
 
