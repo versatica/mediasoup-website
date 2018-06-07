@@ -145,8 +145,8 @@ Value          | Description
 Value          | Description  
 -------------- | -------------
 "auto"         | The DTLS role is determined based on the resolved ICE role (the "controlled" role acts as DTLS client, the "controlling" role acts as DTLS server"). Since **mediasoup** is a ICE Lite implementation it always behaves as ICE "controlled".
-"client"       | DTLS client role. **mediasoup** transitions to DTLS client when [`transport.setRemoteDtlsParameters()`](#transport-setRemoteDtlsParameters) is called with `role` "server" or "auto".
-"server"       | DTLS server role. **mediasoup** transitions to DTLS server when [`transport.setRemoteDtlsParameters()`](#transport-setRemoteDtlsParameters) is called with "client" `role`.
+"client"       | DTLS client role.
+"server"       | DTLS server role.
 
 </div>
 
