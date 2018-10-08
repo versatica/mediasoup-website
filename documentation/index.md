@@ -27,4 +27,8 @@ title : Documentation
 * [API](/documentation/mediasoup-client/api/)
 * [Debugging](/documentation/mediasoup-client/debugging/)
 
+#### Resources
+
+* [Examples](/documentation/examples/)
+
 </div>
