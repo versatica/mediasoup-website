@@ -1,5 +1,5 @@
 ---
-title : examples
+title : Examples
 ---
 
 
