@@ -1,5 +1,6 @@
 ---
-title : Examples
+title   : Examples
+anchors : true
 ---
 
 
