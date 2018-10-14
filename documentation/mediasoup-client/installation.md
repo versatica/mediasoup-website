@@ -34,7 +34,7 @@ Depending on how your web application loads libraries (for example, by using a J
 * Using ES6 `import`:
 
 ```javascript
-import mediasoupClient from "mediasoup-client";
+import * as mediasoupClient from 'mediasoup-client';
 ```
 
 * Using [browserify](http://browserify.org) or [webpack](https://webpack.github.io): 

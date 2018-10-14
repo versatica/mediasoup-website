@@ -88,6 +88,4 @@ gulp.task('live', gulp.series('clean', 'browserify', 'jekyll:watch'));
 
 gulp.task('deploy', gulp.series('build', 'rsync'));
 
-gulp.task('d', gulp.series('deploy'));
-
 gulp.task('default', gulp.series('build'));
