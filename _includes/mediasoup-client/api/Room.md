@@ -22,7 +22,12 @@ Field                    | Type    | Description   | Required | Default
 `transportOptions`       | [TransportOptions](#Transport-TransportOptions) | Options for created `transports`. | No |
 `turnServers`            | sequence&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver-dictionary)&gt; | Array of TURN servers. | No | `[]`
 `iceTransportPolicy`     | String  | The [ICE transport policy](https://w3c.github.io/webrtc-pc/#dom-rtcconfiguration-icetransportpolicy). | No | "all"
+`spy`                    | Boolean | Join as spy peer (other peers won't see this peer) | No | `false`
 
+</div>
+
+<div markdown="1" class="note warn">
+It's up to the application server running **mediasoup** whether a `peer` with `spy: true` must be allowed to join a room or not. The server can do this by inspecting the mediasoup protocol request with `method: 'join'` (see the [mediasoup protocol](/documentation/mediasoup-protocol/) for more information).
 </div>
 
 </section>

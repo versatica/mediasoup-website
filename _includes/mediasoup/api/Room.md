@@ -143,7 +143,7 @@ Usage example:
 // * request: A mediasoup protocol request payload with target: "room".
 // * accept: A function to tell our signaling protocol to accept the request.
 // * reject: A function to tell our signaling protocol to reject the request.
-function handleRequestFromMediasoupClient(message, accept, reject)
+function handleRequestFromMediasoupClient(request, accept, reject)
 {
   switch (request.method)
   {
@@ -158,7 +158,10 @@ function handleRequestFromMediasoupClient(message, accept, reject)
 
     case "join":
     {
-      const { peerName } = request;
+      const { peerName, spy } = request;
+
+      // Here we may want to check whether `spy` is `true` and allow or reject
+      // this join request based on app logic/policy.
 
       mediasoupRoom.receiveRequest(request)
         .then((response) =>
