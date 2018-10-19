@@ -27,7 +27,9 @@ Field                    | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note warn">
-It's up to the application server running **mediasoup** whether a `peer` with `spy: true` must be allowed to join a room or not. The server can do this by inspecting the mediasoup protocol request with `method: 'join'` (see the [mediasoup protocol](/documentation/mediasoup-protocol/) for more information).
+It's up to the application server running **mediasoup** whether a `peer` with `spy: true` must be allowed to join a room or not. The server can do this by inspecting the mediasoup protocol request with `method: 'join'`.
+
+For more inforrmation, see the [mediasoup protocol](/documentation/mediasoup-protocol/) and the [usage example](/documentation/mediasoup/api/#room-receiveRequest) in server side.
 </div>
 
 </section>
