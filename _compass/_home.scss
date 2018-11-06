@@ -247,38 +247,15 @@
 			}
 
 			.box {
-				&.first {
-					@include background-image(radial-gradient(circle farthest-side at center bottom,
-						rgba(#81c7e2, 0.95), rgba(#1fa4e8, 0.95) 125%));
-
-					p {
-						color: rgba(#fff, 1);
-					}
-				}
-
-				&.second {
-					@include background-image(radial-gradient(circle farthest-side at center bottom,
-						rgba(#50adda, 0.95), rgba(#004287, 0.95) 125%));
-
-					p {
-						color: rgba(#fff, 0.95);
-					}
-				}
-
-				&.third {
-					@include background-image(radial-gradient(circle farthest-side at center bottom,
-						rgba(#49545d, 0.95), rgba(#040506, 0.95) 125%));
-
-					p {
-						color: rgba(#fff, 0.9);
-					}
-				}
+				background-color: #fff;
+				box-shadow: 0 4px 8px 0 rgba(#0e0e0f, 0.2);
 
 				@include breakpoint($computer) {
 					@include flex(0 10 auto);
 					width: 34%;
-					margin: 0 2px;
+					margin: 0 4px;
 					padding: 1.75rem;
+					border-radius: 6px;
 					@include transition-property(opacity);
 					@include transition-duration(1s);
 
@@ -296,14 +273,17 @@
 				}
 
 				@include breakpoint($mobile) {
-					margin: 5px  0;
+					margin: 10px  0;
 					padding: 2rem 1.5rem 2.5rem 1.5rem;
+					border-radius: 6px;
 				}
 
 				h3 {
 					line-height: 1.3em;
 					margin-bottom: 1.1em;
-					color: rgba(#fff, 1);
+					color: #111;
+					font-weight: 400;
+					border-bottom: 2px solid #1EB7E8;
 
 					@include breakpoint($computer) {
 						font-size: 1.1em;
@@ -318,7 +298,7 @@
 
 				p {
 					line-height: 1.4em;
-					color: rgba(#fff, 0.95);
+					color: #666;
 					margin-bottom: 1em;
 
 					@include breakpoint($computer) {

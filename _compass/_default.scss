@@ -177,7 +177,7 @@
 				border-radius: 4px;
 				opacity: 0.75;
 				@include transition-property(opacity);
-				@include transition-duration(0.2s);
+				@include transition-duration(0.1s);
 
 				&:hover {
 					opacity: 1;

@@ -185,23 +185,8 @@ body {
 	> .footer {
 		@include flex(0 0 auto);
 		width: 100%;
-		padding: 1.5rem 2rem 2.25rem 2rem;
-		background-color: rgba(#222, 0.1);
-		font-size: 1rem;
-
-		@include breakpoint($computer) {
-			@include transition-property(background-color);
-			@include transition-duration(0.5s);
-
-			&:hover {
-				background-color: rgba(#111, 0.85);
-
-				> .links > a {
-					color: rgba(#fff, 0.85);
-					border-color: rgba(#fff, 0.85);
-				}
-			}
-		}
+		padding: 1.75rem 2rem 2.25rem 2rem;
+		background-color: rgba(#111, 0.85);
 
 		> .links {
 			@include breakpoint($computer) {
@@ -212,13 +197,13 @@ body {
 
 			> a {
 				display: block;
-				height: 2.4rem;
-				line-height: 2.4rem;
-				color: #111;
+				color: rgba(#fff, 0.65);
+				border-bottom: 1px solid rgba(#fff, 0.1);
+				font-size: 0.85rem;
 				text-align: center;
 				text-decoration: none;
-				border-bottom: 1px solid rgba(#fff, 0.75);
-				@include transition-duration(0.2s);
+				@include transition-property(color, border-bottom);
+				@include transition-duration(0.05s);
 				-webkit-tap-highlight-color: transparent;
 
 				&:hover {
@@ -227,8 +212,13 @@ body {
 				}
 
 				@include breakpoint($computer) {
-					margin: 0 1rem;
-					width: 10rem;
+					margin: 0 0.5rem;
+					line-height: 2rem;
+					width: 8rem;
+				}
+
+				@include breakpoint($mobile) {
+					line-height: 2.5rem;
 				}
 			}
 		}
