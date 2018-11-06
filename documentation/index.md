@@ -30,5 +30,6 @@ title : Documentation
 #### Resources
 
 * [Examples](/documentation/examples/)
+* [Publications](/documentation/publications/)
 
 </div>
