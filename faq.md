@@ -39,18 +39,16 @@ It's up to the application developer to build his preferred signaling protocol t
 ### Is there any example code?
 {: #is-there-any-example-code}
 
-Yes, check the [mediasoup-demo](https://github.com/versatica/mediasoup-demo).
+Yes, check the [examples](/documentation/examples/).
 
 
 ### Does mediasoup transcode?
 {: #does-mediasoup-transcode}
 
-No. All the peers in a room must support a common subset of audio and video codecs. Said that, WebRTC defines a list of MTI ("mandatory to implement") audio/video codecs, so in a world of happy unicorns this topic should not be a problem.
+No. All the peers in a room should support a common subset of audio and video codecs. Said that, WebRTC defines a list of MTI ("mandatory to implement") audio/video codecs, so in a world of happy unicorns this topic should not be a problem.
 
 
 ### Does it work with legacy SIP endpoints?
 {: #does-it-work-with-legacy-sip-endpoints}
 
-This is a WebRTC SFU so, as far as the endpoint supports the WebRTC media requirements (ICE, DTLS-SRTP, MTI codecs, multi-stream, etc.), it can join a **mediasoup** room.
-
-However, these requirements are not usually satisfied by existing SIP devices so a media gateway may be required. We consider that such a task (translating the old world to the new one) is best done outside **mediasoup**.
+No.
