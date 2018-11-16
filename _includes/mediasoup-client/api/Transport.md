@@ -100,6 +100,14 @@ A String ("send" or "recv") representing the direction of the media over this `t
 
 The [ConnectionState](#Transport-ConnectionState) of the underlying `RTCPeerConnection` or `RTCIceTransport`.
 
+
+#### transport.handler
+{: #transport-handler .code}
+
+* Read only
+
+The [DeviceHandler](https://github.com/versatica/mediasoup-client/blob/master/lib/handlers) used by the `transport`.
+
 </section>
 
 
