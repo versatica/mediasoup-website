@@ -4,6 +4,26 @@
 A `plainRtpTransport` represents a network path negotiated on which plain RTP and RTCP (no ICE nor DTLS) is carried.
 
 
+### Dictionaries
+{: #PlainRtpTransport-dictionaries}
+
+<section markdown="1">
+
+#### RemoteParameters
+{: #PlainRtpTransport-RemoteParameters .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field        | Type    | Description   | Required | Default
+------------ | ------- | ------------- | -------- | ---------
+`ip`   | String  | Destination IP. | Yes |
+`port` | Integer | Destination port. | Yes |
+
+</div>
+
+</section>
+
+
 ### Properties
 {: #PlainRtpTransport-properties}
 
@@ -30,6 +50,20 @@ A Boolean indicating whether the `plainRtpTransport` has been closed.
 
 The [5-Tuple](#Transport-IceSelectedTuple) indicating information about the connection.
 
+#### plainRtpTransport.localIP
+{: #plainRtpTransport-localIP .code}
+
+* Read only
+
+The `local IP address` (String) of the `transport`.
+
+#### plainRtpTransport.localPort
+{: #plainRtpTransport-localPort .code}
+
+* Read only
+
+The `local port` (Number) of the `transport`.
+
 </section>
 
 
@@ -42,5 +76,18 @@ The [5-Tuple](#Transport-IceSelectedTuple) indicating information about the conn
 {: #plainRtpTransport-close .code}
 
 Closes the `plainRtpTransport`.
+
+#### plainRtpTransport.setRemoteParameters(parameters)
+{: #plainRtpTransport-setRemoteParameters .code}
+
+Set the `remote IP address` and `port` for the `plainRtpTransport`.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`parameters`  | [PlainRtpRemoteParameters](#PlainRtpTransport-RemoteParameters) | Remote parameters. | Yes |
+
+</div>
 
 </section>

@@ -41,7 +41,21 @@ Current `flag` values can be:
 * "safari"
 * "msedge"
 * "opera"
+* `custom` (see [setDeviceHandler](#mediasoupClient-setDeviceHandler))
 </div>
+
+</section>
+
+
+### Properties
+{: #mediasoupClient-properties}
+
+<section markdown="1">
+
+#### mediasoupClient.internals
+{: #mediasoupClient-internals .code}
+
+Exposes the [internals](https://github.com/versatica/mediasoup-client/blob/master/lib/internals.js) property.
 
 </section>
 
@@ -50,6 +64,20 @@ Current `flag` values can be:
 {: #mediasoupClient-functions}
 
 <section markdown="1">
+
+#### mediasoupClient.setDeviceHandler(handler, metadata)
+{: #mediasoupClient-setDeviceHandler .code}
+
+Set a custom device handler that **mediasoup-client** will use instead of any builtin one.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`handler`  | [DeviceHandler](https://github.com/versatica/mediasoup-client/blob/master/lib/handlers) | Custom device handler. | Yes |
+`metadata` | [DeviceInfo](#mediasoupClient-DeviceInfo) | Custom device info. | Yes |
+
+</div>
 
 #### mediasoupClient.isDeviceSupported()
 {: #mediasoupClient-isDeviceSupported .code}
