@@ -52,3 +52,18 @@ No. All the peers in a room should support a common subset of audio and video co
 {: #does-it-work-with-legacy-sip-endpoints}
 
 No.
+
+
+### Running mediasoup in hosts with private IP (AWS, Google Cloud, Azure)
+{: #running-mediasoup-in-hosts-with-private-ip}
+
+Those environments run virtual hosts with private IP and provide mechanisms to route an external public IP into that private IP. **mediasoup** implements ICE-Lite meaning that it won't initiate ICE connections but will always act as ICE "server" role.
+
+In order to run **mediasoup** in those environments (host with private IP and a mapped public IP):
+
+* Let `HOST_PRIVATE_IP` be the internal private IP of the host.
+* Let `HOST_PUBLIC_IP` be the external public IP mapped to `HOST_PRIVATE_IP`.
+* Make `rtcIPv4` or `rtcIPv6` (in [ServerSettings](/documentation/mediasoup/api/#Server-ServerSettings)) point to `HOST_PRIVATE_IP`.
+* Make `rtcAnnouncedIPv4` or `rtcAnnouncedIPv6` point to `HOST_PUBLIC_IP`.
+* Redirect the port range given by `rtcMinPort`-`rtcMaxPort` from `HOST_PUBLIC_IP` to `HOST_PRIVATE_IP`.
+* And, of course, also redirect whichever port your application uses for signaling (HTTP/WebSocket) from `HOST_PUBLIC_IP` to `HOST_PRIVATE_IP`.
