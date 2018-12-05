@@ -7,7 +7,7 @@ anchors : true
 # Examples
 
 <div markdown="1" class="note">
-Projects below may use different versions of mediasoup. Please check it within exact project.
+Projects below may use different versions of mediasoup. Please check it within each project.
 </div>
 
 
