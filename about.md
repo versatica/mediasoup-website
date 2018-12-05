@@ -6,7 +6,7 @@ anchors : true
 
 # About
 
-**mediasoup** is made with love by a small team of Real-Time addicts.
+mediasoup is made with love by a small team of Real-Time addicts.
 
 
 ## Iñaki Baz Castillo
@@ -24,7 +24,7 @@ I'm passionate about new technologies, Open Source, WebRTC, modern Web developme
 
 During the last years of my life I've been deeply involved in Voice over IP technologies, collaborating in many well known Open Source software projects and designing and implementing others of my own. I also have authored and co-authored some protocol specifications in the IETF, including the [RFC 7118][rfc7118-url]{:target="_blank"} "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)" where my transition to WebRTC began.
 
-Since the first days of WebRTC my professional efforts go around it, and this is where **mediasoup** takes place. Made with love, this is by far my largest Open Source project, combining several of my preferred technical fields plus so many sleepless nights coding and reading specifications.
+Since the first days of WebRTC my professional efforts go around it, and this is where mediasoup takes place. Made with love, this is by far my largest Open Source project, combining several of my preferred technical fields plus so many sleepless nights coding and reading specifications.
 
 
 ## José Luis Millán
@@ -43,14 +43,14 @@ I'm a core author of JsSIP "The JavaScript SIP library" and co-author of the [RF
 
 ## Acknowledgements
 
-**mediasoup** would not have been possible without the help and advice of:
+mediasoup would not have been possible without the help and advice of:
 
 * [Saúl Ibarra Corretgé][saghul-personal-url]
 
 
 ## Donate
 
-You can support **mediasoup** by making a donation [here][paypal-url]{:target="_blank"}. Thanks!
+You can support mediasoup by making a donation [here][paypal-url]{:target="_blank"}. Thanks!
 
 
 

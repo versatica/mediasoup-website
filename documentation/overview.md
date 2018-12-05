@@ -34,7 +34,7 @@ Unlike other existing SFU implementations, [mediasoup](https://github.com/versat
 const mediasoup = require("mediasoup");
 ```
 
-Thus internally, **mediasoup** can be splitted into two separete components:
+Thus internally, mediasoup can be splitted into two separete components:
 
 * a JavaScript layer exposing a modern ECMAScript 6 API for Node.js, and
 * a set of C/C++ subprocesses that handle the media layer (ICE, DTLS, RTP and so on).
@@ -56,9 +56,9 @@ Both components communicate to each other by means of inter-process communicatio
 
 ## Client side
 
-[mediasoup-client](https://github.com/versatica/mediasoup-client) is the SDK for building JavaScript client side applications. It's a tiny library exposing a powerful cross-browser API that lets the client application join a **mediasoup** room and manage audio/video streams.
+[mediasoup-client](https://github.com/versatica/mediasoup-client) is the SDK for building JavaScript client side applications. It's a tiny library exposing a powerful cross-browser API that lets the client application join a mediasoup room and manage audio/video streams.
 
-**mediasoup-client** supports all the current WebRTC and ORTC browsers, including Chrome, Firefox, Safari, Microsoft Edge, and derived browsers (such as Opera or any Chromium based browser). Internally, **mediasoup-client** handles each browser in a different way by implementing WebRTC (Plan-B or Unified-Plan) or the ORTC API (such as in Microsoft Edge).
+mediasoup-client supports all the current WebRTC and ORTC browsers, including Chrome, Firefox, Safari, Microsoft Edge, and derived browsers (such as Opera or any Chromium based browser). Internally, mediasoup-client handles each browser in a different way by implementing WebRTC (Plan-B or Unified-Plan) or the ORTC API (such as in Microsoft Edge).
 
 
 ### Features

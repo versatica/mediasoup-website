@@ -7,29 +7,12 @@ title : Documentation
 
 <div markdown="1">
 
-#### General
+* [Overview](/documentation/overview/) - A brief introduction to mediasoup.
 
-* [Overview](/documentation/overview/)
-* [Glossary](/documentation/glossary/)
-* [mediasoup protocol](/documentation/mediasoup-protocol/)
-* [RTC stats](/documentation/rtc-stats/)
+* [v2 documentation](/documentation/v2/) - Documentation for mediasoup and mediasoup-client **v2**.
 
-#### mediasoup
+* [Examples](/documentation/examples/) - Projects using mediasoup.
 
-* [Installation](/documentation/mediasoup/installation/)
-* [API](/documentation/mediasoup/api/)
-* [Debugging](/documentation/mediasoup/debugging/)
-* [Building](/documentation/mediasoup/building/)
-
-#### mediasoup-client
-
-* [Installation](/documentation/mediasoup-client/installation/)
-* [API](/documentation/mediasoup-client/api/)
-* [Debugging](/documentation/mediasoup-client/debugging/)
-
-#### Resources
-
-* [Examples](/documentation/examples/)
-* [Publications](/documentation/publications/)
+* [Publications](/documentation/publications/) - Publications and studies about mediasoup.
 
 </div>

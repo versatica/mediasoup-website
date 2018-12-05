@@ -5,12 +5,12 @@ title : Support
 
 # Support
 
-**mediasoup** is an Open Source project supported on a best effort basis.
+mediasoup is an Open Source project supported on a best effort basis.
 
 
 ### Questions and doubts
 
-Use the public [mediasoup Google Group][mediasoup-google-group] for questions and doubts regarding **mediasoup**.
+Use the public [mediasoup Google Group][mediasoup-google-group] for questions and doubts regarding mediasoup.
 
 <div markdown="1" class="note">
 Before doing that, please check the [documentation](/documentation/) and the [F.A.Q.](/faq/) (the response could be there).
