@@ -110,7 +110,7 @@ Argument      | Type    | Description | Required | Default
 
 Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
-`workerIdx`  | Integer | Worker index to let the app select a specific worker to handle this room. If unset, the worker is chosen incrementally. | No |
+`workerIdx`  | Integer | Worker index (from 0 to `server.numWorkers` - 1) to let the app select a specific worker to handle this room. If unset, the worker is chosen incrementally. | No |
 
 </div>
 
