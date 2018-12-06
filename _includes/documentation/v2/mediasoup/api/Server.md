@@ -57,6 +57,13 @@ Field                    | Type    | Description   | Required | Default
 
 A boolean indicating whether the `server` has been closed.
 
+#### server.numWorkers
+{: #server-numWorkers .code}
+
+* Read only
+
+The number of available workers (it matches `numWorkers` in [ServerSettings](#Server-ServerSettings) if given).
+
 </section>
 
 
@@ -69,7 +76,6 @@ A boolean indicating whether the `server` has been closed.
 {: #server-close .code}
 
 Closes the `server`, including all its `rooms`, and triggers a [`close`](#server-on-close) event.
-
 
 #### server.updateSettings(settings)
 {: #server-updateSettings .code}
@@ -84,7 +90,7 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
-#### server.Room(mediaCodecs)
+#### server.Room(mediaCodecs, [options])
 {: #server-Room .code}
 
 Creates and returns a new [Room](#Room) instance.
@@ -94,6 +100,17 @@ Creates and returns a new [Room](#Room) instance.
 Argument      | Type    | Description | Required | Default 
 ------------- | ------- | ----------- | -------- | ----------
 `mediaCodecs` | sequence&lt;[RoomMediaCodec](#Room-RoomMediaCodec)&gt; | Room media codecs. | Yes |
+`options` | Object | Optional room options | No |
+
+</div>
+
+`options` allows the following items:
+
+<div markdown="1" class="table-wrapper L3">
+
+Field        | Type    | Description   | Required | Default
+------------ | ------- | ------------- | -------- | ---------
+`workerIdx`  | Integer | Worker index to let the app select a specific worker to handle this room. If unset, the worker is chosen incrementally. | No |
 
 </div>
 
