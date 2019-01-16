@@ -9,7 +9,7 @@ Although mediasoup does not implement a signaling protocol, both the client (med
 
 Those messages can be serialized to JSON bodies for network transmission, but may be converted into JavaScripts Objects (`JSON.parse()`) before they are given to the corresponding API methods in both mediasoup and mediasoup-client.
 
-The exact definition of the message payloads that must be exchanged is documented in the `MEDIASOUP_PROTOCOL.md` file included in the mediasoup-client source code.
+The exact definition of the message payloads that must be exchanged is documented in the [MEDIASOUP_PROTOCOL.md](https://github.com/versatica/mediasoup-client/blob/v2/MEDIASOUP_PROTOCOL.md) file included in the mediasoup-client source code.
 
 <div markdown="1" class="note">
 The application developer does not need to know in depth about these messages, but can intercept them for advanced usages.
@@ -45,7 +45,7 @@ It's up to the application how to correlate those **requests** and their associa
 
 ## Message examples
 
-Those real messages are directly taken from the [MEDIASOUP_PROTOCOL.md](https://github.com/versatica/mediasoup-client/blob/master/MEDIASOUP_PROTOCOL.md) file included in the mediasoup-client source code. Here they are represented in JSON format.
+Those real messages are directly taken from the [MEDIASOUP_PROTOCOL.md](https://github.com/versatica/mediasoup-client/blob/v2/MEDIASOUP_PROTOCOL.md) file included in the mediasoup-client source code. Here they are represented in JSON format.
 
 
 ### mediasoup-client request sent to the mediasoup Room
