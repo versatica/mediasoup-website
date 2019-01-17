@@ -18,12 +18,21 @@ For more information, check the [Glossary](/documentation/v2/glossary/#Glossary-
 
 Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
+`roomSettings`           | Object  | Remote room settings. If given it must include a `rtpCapabilities` entry (`RTCRtpCapabilities` of the remote room). | No |
 `requestTimeout`         | Integer | Timeout for mediasoup protocol sent requests (in milliseconds). | No | 10000 (10 seconds)
 `transportOptions`       | [TransportOptions](#Transport-TransportOptions) | Options for created `transports`. | No |
 `turnServers`            | sequence&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver-dictionary)&gt; | Array of TURN servers. | No | `[]`
 `iceTransportPolicy`     | String  | The [ICE transport policy](https://w3c.github.io/webrtc-pc/#dom-rtcconfiguration-icetransportpolicy). | No | "all"
 `spy`                    | Boolean | Join as spy peer (other peers won't see this peer) | No | `false`
 
+</div>
+
+<div markdown="1" class="note">
+If `roomSettings` is given (so it's an Object with `rtpCapabilities`) mediasoup-client will not request them when [room.join()](#room-join) is called.
+
+You can manually get the server side room's RTP capabilities via the [room.rtpCapabilities](/documentation/v2/mediasoup/api/#room-rtpCapabilities) getter.
+
+Here you have a chance to mangle those room RTP capabilities and remove/reorder codecs (to force this mediasoup-client `room` instance to use a preferred video codec and so on).
 </div>
 
 <div markdown="1" class="note warn">
