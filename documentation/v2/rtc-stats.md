@@ -75,6 +75,6 @@ When enabling stats for a `consumer`, received stats look as follows:
 Here there is an Array with two Objects, one for the stream being consumed by the `consumer` (with `type: 'outbound-rtp'`) and another with the stats of the associated `producer` (`type: 'inbound-rtp'`). Note that the second one includes a `inboundRtpId: '8nvfesjqo5ntjm3k'` field referencing the associated `producer`'s stats Object within the array.
 
 <div markdown="1" class="note">
-When the `producer` uses simulcast (so it sends N streams with different SSRC values) the stats Object with `type: 'inbound-rtp'` references the stats of the specific inbound stream with same profile ("low", "meidum" or "high") that the `consumer` is receiving in that moment.
+When the `producer` uses simulcast (so it sends N streams with different SSRC values) the stats Object with `type: 'inbound-rtp'` references the stats of the specific inbound stream with same profile ("low", "medium" or "high") that the `consumer` is receiving in that moment.
 </div>
 
