@@ -9,6 +9,8 @@ title : Documentation
 
 * [Overview](/documentation/overview/) - A brief introduction to mediasoup.
 
+* [v3 Documentation](/documentation/v3/) - Documentation for mediasoup and mediasoup-client **v3**.
+
 * [v2 Documentation](/documentation/v2/) - Documentation for mediasoup and mediasoup-client **v2**.
 
 * [v1 Documentation](/documentation/v1/) - Documentation for mediasoup and mediasoup-client **v1**.
