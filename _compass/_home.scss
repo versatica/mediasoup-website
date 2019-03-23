@@ -9,12 +9,12 @@
 			@include display-flex;
 			@include flex-direction(column);
 			@include justify-content(center);
-			margin: 4rem 0 4rem 20%;
+			margin: 3rem 0 4rem 20%;
 			width: 500px;
 			font-size: 4.5rem;
 			@include transition-property(opacity, transform);
 			@include transition-delay(0.75s);
-			@include transition-duration(1.6s);
+			@include transition-duration(1s);
 			@include transform-origin(30%);
 			@include transform(perspective(250px));
 
@@ -26,7 +26,7 @@
 
 		@include breakpoint($mobile) {
 			@include flex(0 0 auto);
-			margin: 4rem 0;
+			margin: 3rem 0;
 			width: 100%;
 			padding: 0 5%;
 			font-size: 3.5rem;
@@ -115,7 +115,7 @@
 		@include breakpoint($computer) {
 			@include flex(20 0 auto);
 			@include display-flex;
-			@include flex-direction(column);
+			@include flex-direction(row);
 			@include justify-content(center);
 			margin-bottom: 2rem;
 		}
@@ -125,14 +125,23 @@
 			margin-bottom: 2rem;
 		}
 
-		> pre {
+		> .content {
 			display: block;
-			background-color: rgba(#000, 0.05);
-			color: #444;
+			width: 100%;
+			padding: 10px;
+			// background-color: rgba(#000, 0.05);
+			// color: #444;
+			// background-color: rgba($color-blue-dark, 0.75);
+			// color: #fff;
+			background-color: rgba($color-highlight-dark, 0.15);
+			color: #666;
 
 			@include breakpoint($computer) {
+				@include display-flex;
+				@include flex-direction(row);
+				@include justify-content(center);
 				@include transition-property(opacity, transform, background-color, color);
-				@include transition-delay(1.35s);
+				@include transition-delay(1.5s);
 				@include transition-duration(1s);
 
 				&.loading {
@@ -146,37 +155,40 @@
 			@include breakpoint($mobile) {
 				@include transition-property(opacity, transform, background-color, color);
 				@include transition-delay(0.25s);
-				@include transition-duration(1.5s);
+				@include transition-duration(1s);
 
 				&.loading {
 					opacity: 0;
-					@include transform(scale(2.25));
+					@include transform(scale(1.5));
 					background-color: rgba(#fff, 0.5);
 					color: #fff;
 				}
 			}
 
-			code {
-				display: block;
-				padding: 0.8em 0;
-				text-align: center;
-				font-family: 'Monaco', 'Andale Mono', monospace;
-				white-space: pre;
-				color: inherit;
-				text-shadow: inherit;
+			> .code-container {
+				margin: auto;
 
-				@include breakpoint($computer) {
-					font-size: 0.9em;
-					line-height: 1.6em;
-				}
+				code {
+					display: block;
+					text-align: left;
+					font-family: 'Monaco', 'Andale Mono', monospace;
+					white-space: pre;
+					color: inherit;
+					text-shadow: inherit;
 
-				@include breakpoint($mobile) {
-					font-size: 0.8em;
-					line-height: 1.8em;
-				}
+					@include breakpoint($computer) {
+						font-size: 0.9em;
+						line-height: 1.6em;
+					}
 
-				span.no-select {
-					@include user-select(none);
+					@include breakpoint($mobile) {
+						font-size: 0.8em;
+						line-height: 1.8em;
+					}
+
+					span.no-select {
+						@include user-select(none);
+					}
 				}
 			}
 		}
@@ -255,7 +267,6 @@
 					width: 34%;
 					margin: 0 4px;
 					padding: 1.75rem;
-					border-radius: 6px;
 					@include transition-property(opacity);
 					@include transition-duration(1s);
 
@@ -275,15 +286,13 @@
 				@include breakpoint($mobile) {
 					margin: 10px  0;
 					padding: 2rem 1.5rem 2.5rem 1.5rem;
-					border-radius: 6px;
 				}
 
 				h3 {
 					line-height: 1.3em;
-					margin-bottom: 1.1em;
-					color: #111;
+					margin-bottom: 1em;
+					color: $color-highlight-dark;
 					font-weight: 400;
-					border-bottom: 2px solid #1EB7E8;
 
 					@include breakpoint($computer) {
 						font-size: 1.1em;

@@ -11,8 +11,9 @@
 	height: 115%;
 	padding-bottom: 15%;
 	overflow: auto;
-	background-color: rgba($color-highlight-dark, 0.95);
-	@include box-shadow(-5px 0px 8px 0px rgba(#333, 0.25));
+	// background-color: rgba($color-highlight-dark, 1);
+	background-color: rgba(#333, 0.98);
+	@include box-shadow(-3px 0px 8px 0px rgba(#333, 0.25));
 	@include transition-property(right);
 	@include transition-duration(0.15s);
 
@@ -62,21 +63,21 @@
 		> a {
 			display: block;
 			padding: 0.7em 1em;
-			color: rgba(#fff, 0.9);
+			color: rgba(#fff, 0.65);
 			text-align: center;
 			text-decoration: none;
 			border-radius: 4px;
 			@include transition-property(color, background-color);
-			@include transition-duration(.15s);
+			@include transition-duration(0.05s);
 
 			@include breakpoint($computer) {
-				font-size: 1.15rem;
-				font-weight: 400;
+				font-size: 1.1rem;
+				font-weight: 300;
 			}
 
 			@include breakpoint($mobile) {
 				font-size: 1rem;
-				font-weight: 400;
+				font-weight: 300;
 			}
 
 			&:hover {

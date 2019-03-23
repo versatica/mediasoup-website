@@ -21,8 +21,10 @@ $header-height-computer: 64px;
 $header-height-mobile: 56px;
 
 $color-text: #222;
-$color-highlight: #1fb7e8;
-$color-highlight-dark: #1a8fc5;
+$color-highlight: #B7BDA9;
+$color-highlight-dark: #7C8073;
+$color-blue: #1fb7e8;
+$color-blue-dark: #1a8fc5;
 
 * {
 	@include box-sizing(border-box);
@@ -54,7 +56,7 @@ body {
 	background-repeat: no-repeat;
 	@include background-image(linear-gradient(110deg,
 		#fff 0%,
-		#dadcdc 25%,
+		#dddfdf 25%,
 		#f4f4f4 25%,
 		#f4f4f4 100%));
 	background-color: #f4f4f4;
@@ -191,7 +193,7 @@ body {
 
 			> a {
 				display: block;
-				color: rgba(#fff, 0.65);
+				color: rgba(#fff, 0.5);
 				border-bottom: 1px solid rgba(#fff, 0.1);
 				font-size: 0.85rem;
 				text-align: center;
