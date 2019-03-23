@@ -11,8 +11,7 @@
 	height: 115%;
 	padding-bottom: 15%;
 	overflow: auto;
-	// background-color: rgba($color-highlight-dark, 1);
-	background-color: rgba(#333, 0.98);
+	background-color: rgba(#333, 0.96);
 	@include box-shadow(-3px 0px 8px 0px rgba(#333, 0.25));
 	@include transition-property(right);
 	@include transition-duration(0.15s);
@@ -82,7 +81,7 @@
 
 			&:hover {
 				color: rgba(#fff, 1);
-				background-color: rgba(#fff, 0.15);
+				background-color: rgba(#fff, 0.05);
 			}
 		}
 	}

@@ -58,10 +58,10 @@
 	}
 
 	h2 {
-		// color: $color-highlight-dark;
+		// color: $color-dark;
 		color: #000;
 		text-align: left;
-		// border-bottom: 1px solid $color-highlight-dark;
+		// border-bottom: 1px solid $color-dark;
 		border-bottom: 1px solid #000;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
@@ -82,7 +82,7 @@
 		font-size: 1.4em;
 		line-height: 1.5em;
 		color: #151515;
-		border-bottom: 1px solid rgba($color-highlight-dark, 0.75);
+		border-bottom: 1px solid rgba($color-dark, 0.75);
 		text-align: left;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
@@ -90,7 +90,7 @@
 	}
 
 	&.h3color h3 {
-		color: $color-highlight-dark;
+		color: $color-dark;
 	}
 
 	h4 {
@@ -154,7 +154,7 @@
 
 	a {
 		text-decoration: none;
-		color: $color-highlight-dark;
+		color: $color-dark;
 
 		&:hover {
 			text-decoration: underline;
@@ -186,7 +186,7 @@
 		}
 
 		> code {
-			color: $color-highlight-dark !important;
+			color: $color-dark !important;
 		}
 	}
 
@@ -241,11 +241,12 @@
 		padding: 1em;
 		font-size: 0.95em;
 		color: shade($color-text, 60%);
-		background-color: rgba(#91d1e4, 0.5);
+		background-color: rgba(#aaa, 0.1);
 		border-radius: 4px;
+		border: 2px solid $color-highlight;
 
 		&.warn {
-			background-color: rgba(#ec5e5e, 0.5);
+			border-color: #e47474;
 		}
 
 		@include breakpoint($computer) {
@@ -280,7 +281,7 @@
 				padding: 0.75em;
 				text-align: center;
 				color: rgba(#fff, 0.9);
-				background-color: rgba($color-highlight-dark, 0.85);
+				background-color: rgba($color-dark, 0.85);
 			}
 
 			td {

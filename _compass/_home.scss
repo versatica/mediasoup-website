@@ -110,10 +110,10 @@
 	}
 
 	> .install {
+		@include flex(0 0 auto);
 		overflow: hidden;
 
 		@include breakpoint($computer) {
-			@include flex(20 0 auto);
 			@include display-flex;
 			@include flex-direction(row);
 			@include justify-content(center);
@@ -121,7 +121,6 @@
 		}
 
 		@include breakpoint($mobile) {
-			@include flex(0 0 auto);
 			margin-bottom: 2rem;
 		}
 
@@ -129,11 +128,7 @@
 			display: block;
 			width: 100%;
 			padding: 10px;
-			// background-color: rgba(#000, 0.05);
-			// color: #444;
-			// background-color: rgba($color-blue-dark, 0.75);
-			// color: #fff;
-			background-color: rgba($color-highlight-dark, 0.15);
+			background-color: rgba(#7C8073, 0.15);
 			color: #666;
 
 			@include breakpoint($computer) {
@@ -187,6 +182,7 @@
 					}
 
 					span.no-select {
+						color: $color-highlight;
 						@include user-select(none);
 					}
 				}
@@ -291,7 +287,7 @@
 				h3 {
 					line-height: 1.3em;
 					margin-bottom: 1em;
-					color: $color-highlight-dark;
+					color: $color-dark;
 					font-weight: 400;
 
 					@include breakpoint($computer) {
@@ -321,7 +317,7 @@
 					a {
 						@include transition-duration(0.25s);
 						text-decoration: none;
-						color: $color-highlight-dark;
+						color: $color-dark;
 						border-bottom: 1px solid transparent;
 
 						&:hover {

@@ -21,10 +21,8 @@ $header-height-computer: 64px;
 $header-height-mobile: 56px;
 
 $color-text: #222;
-$color-highlight: #B7BDA9;
-$color-highlight-dark: #7C8073;
-$color-blue: #1fb7e8;
-$color-blue-dark: #1a8fc5;
+$color-highlight: #1fb7e8;
+$color-dark: #1B9FC9;
 
 * {
 	@include box-sizing(border-box);
