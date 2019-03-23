@@ -182,7 +182,7 @@
 					}
 
 					span.no-select {
-						color: $color-highlight;
+						color: $color-dark;
 						@include user-select(none);
 					}
 				}
