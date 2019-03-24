@@ -59,7 +59,7 @@ mediasoup:mediasoup-worker [id:xgxaspcs#1] DepLibSRTP::ClassInit() | loaded libs
 By default logging is turned off. In order to enable it, the `DEBUG` environment variable must be set *before* loading mediasoup and any other Node.js module that also uses the **debug** module.
 
 <div markdown="1" class="note">
-Check the [debug](https://www.npmjs.com/package/debug) module documentation v2/for further information regarding how to filter specific log messages based on namespace matching rules.
+Check the [debug](https://www.npmjs.com/package/debug) module documentation for further information regarding how to filter specific log messages based on namespace matching rules.
 </div>
 
 

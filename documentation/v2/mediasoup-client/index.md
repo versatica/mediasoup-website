@@ -7,8 +7,10 @@ title : mediasoup-client
 
 <div markdown="1">
 
-* [Installation](/documentation/mediasoup-client/installation/)
-* [API](/documentation/mediasoup-client/api/)
-* [Debugging](/documentation/mediasoup-client/debugging/)
+Client side JavaScript library.
+
+* [Installation](/documentation/v2/mediasoup-client/installation/)
+* [API](/documentation/v2/mediasoup-client/api/)
+* [Debugging](/documentation/v2/mediasoup-client/debugging/)
 
 </div>

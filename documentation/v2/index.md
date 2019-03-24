@@ -7,20 +7,27 @@ title : v2
 
 <div markdown="1">
 
-#### General
+### General
+{: .h3color}
 
 * [Glossary](/documentation/v2/glossary/)
 * [mediasoup protocol](/documentation/v2/mediasoup-protocol/)
 * [RTC stats](/documentation/v2/rtc-stats/)
 
-#### mediasoup
+### mediasoup
+{: .h3color}
+
+C++ SFU and server side Node.js module.
 
 * [Installation](/documentation/v2/mediasoup/installation/)
 * [API](/documentation/v2/mediasoup/api/)
 * [Debugging](/documentation/v2/mediasoup/debugging/)
 * [Building](/documentation/v2/mediasoup/building/)
 
-#### mediasoup-client
+### mediasoup-client
+{: .h3color}
+
+Client side JavaScript library.
 
 * [Installation](/documentation/v2/mediasoup-client/installation/)
 * [API](/documentation/v2/mediasoup-client/api/)

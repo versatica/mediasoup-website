@@ -19,7 +19,7 @@ The RTP and RTCP received by the `producer` will be relayed/mirrored to the give
 Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
 `remoteIP`   | String  | Destination IP. | Yes |
-`remotePort` | Integer | Destination port. | Yes |
+`remotePort` | Number | Destination port. | Yes |
 `localIP`    | String  | Local IP.     | No | `rtcIPv4` or `rtcIPv6` given in [ServerSettings](#Server-ServerSettings)
 
 </div>

@@ -19,11 +19,10 @@ Detailed information regarding the architecture of an SFU can be found at RFC 76
 
 * Be a WebRTC [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit).
 * Be a Node.js module in server side.
-* Be a tiny SDK in client side.
+* Be a tiny JavaScript (and C++) library in client side.
 * Be minimalist: just handle the media layer.
-* Expose a modern ECMAScript 6 API in both client and server sides.
-* Support all the existing WebRTC and ORTC browsers.
-* Do not mandate a specific signaling protocol.
+* Support all the existing WebRTC endpoints.
+* Do not mandate a specific signaling protocol (be signaling agnostic).
 
 
 ## Server side
@@ -42,27 +41,19 @@ Thus internally, mediasoup can be splitted into two separete components:
 Both components communicate to each other by means of inter-process communication. However, from the point of view of the developer, the application should just care about the JavaScript API integration.
 
 
-### Features
+#### Features
 
 * ECMAScript 6 API.
-* Multiple conference rooms with multiple participants.
 * Multi-stream: multiple audio/video streams over a single ICE + DTLS transport.
 * IPv6 ready.
 * ICE / DTLS / RTP / RTCP over UDP and TCP.
-* RTP simulcast suport with an API for choosing the desired layer.
-* Congestion control via [REMB](https://tools.ietf.org/html/draft-alvestrand-rmcat-remb).
+* Simulcast support.
+* Congestion control.
 * Extremely powerful (media worker subprocess coded in C++ on top of [libuv](https://libuv.org)).
 
 
 ## Client side
 
-[mediasoup-client](https://github.com/versatica/mediasoup-client) is the SDK for building JavaScript client side applications. It's a tiny library exposing a powerful cross-browser API that lets the client application join a mediasoup room and manage audio/video streams.
+[mediasoup-client](https://github.com/versatica/mediasoup-client) is the JavaScript library for building JavaScript client side applications. It's a tiny library exposing a powerful cross-browser API. It supports all current WebRTC browsers with different "handlers" for each browser model/version.
 
-mediasoup-client supports all the current WebRTC and ORTC browsers, including Chrome, Firefox, Safari, Microsoft Edge, and derived browsers (such as Opera or any Chromium based browser). Internally, mediasoup-client handles each browser in a different way by implementing WebRTC (Plan-B or Unified-Plan) or the ORTC API (such as in Microsoft Edge).
-
-
-### Features
-
-* ECMAScript 6 API.
-* Runs on Chrome, Firefox, Safari, Microsoft Edge and derived browsers.
-
+[libmediasoupclient](https://github.com/versatica/libmediasoupclient) is a C++ library for building C++ client side applications.

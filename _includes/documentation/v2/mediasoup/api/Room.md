@@ -21,9 +21,9 @@ Field                    | Type    | Description   | Required | Default
 ------------------------ | ------- | ------------- | -------- | ---------
 `kind`                   | String  | Media kind ("audio" or "video"). | Yes |
 `name`                   | String  | The codec MIME subtype. Valid values are listed in [IANA-RTP-2](https://www.iana.org/assignments/rtp-parameters/rtp-parameters.xhtml#rtp-parameters-2). Examples: "opus", "VP8", "H264". | Yes |
-`preferredPayloadType`   | Integer | The value that goes in the RTP Payload Type Field. Must be unique. If unset, mediasoup chooses. | No |
-`clockRate`              | Integer | Codec clock rate expressed in Hertz. | Yes |
-`channels`               | Integer | The number of channels (mono=1, stereo=2) for audio codecs. | No | 1
+`mimetype`               | String  | The codec MIME type, i.e. "audio/opus", "video/VP8", etc. The list of mediasoup supported codecs is the [mediasoup/lib/supportedRtpCapabilities.js](https://github.com/versatica/mediasoup/blob/v2/lib/supportedRtpCapabilities.js) file. | Yes |
+`clockRate`              | Number | Codec clock rate expressed in Hertz. | Yes |
+`channels`               | Number | The number of channels (mono=1, stereo=2) for audio codecs. | No | 1
 `parameters`             | Dictionary | Codec-specific parameters available for signaling. | No |
 
 </div>
@@ -40,7 +40,7 @@ Feature codecs such as RTX or FEC must **NOT** be placed into Room `mediaCodecs`
 Field            | Type    | Description   | Required | Default
 ---------------- | ------- | ------------- | -------- | ---------
 `producer`       | [Producer](#Producer) | `producer` generating audio. | Yes |
-`audioLevel`     | Integer | Audio level in dBov (0 means maximum level, -127 means no audio). | Yes |
+`audioLevel`     | Number | Audio level in dBov (0 means maximum level, -127 means no audio). | Yes |
 
 </div>
 
@@ -57,7 +57,7 @@ Field            | Type    | Description   | Required | Default
 
 * Read only
 
-Unique identifier (Integer).
+Unique identifier (Number).
 
 #### room.closed
 {: #room-closed .code}

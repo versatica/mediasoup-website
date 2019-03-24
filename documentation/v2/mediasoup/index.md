@@ -7,9 +7,11 @@ title : mediasoup
 
 <div markdown="1">
 
-* [Installation](/documentation/mediasoup/installation/)
-* [API](/documentation/mediasoup/api/)
-* [Debugging](/documentation/mediasoup/debugging/)
-* [Building](/documentation/mediasoup/building/)
+C++ SFU and server side Node.js module.
 
+* [Installation](/documentation/v2/mediasoup/installation/)
+* [API](/documentation/v2/mediasoup/api/)
+* [Debugging](/documentation/v2/mediasoup/debugging/)
+* [Building](/documentation/v2/mediasoup/building/)
+  
 </div>

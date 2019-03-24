@@ -23,6 +23,7 @@ If you find an issue or bug in the software, or want to propose a new feature or
 
 * [mediasoup issue tracker][mediasoup-github-issues]
 * [mediasoup-client issue tracker][mediasoup-client-github-issues]
+* [libmediasoupclient issue tracker][libmediasoupclient-github-issues]
 
 <div markdown="1" class="note warn">
 Please do **NOT** open an issue in GitHub for questions or doubts. Use the [mediasoup Google Group][mediasoup-google-group] instead.
@@ -34,3 +35,4 @@ Please do **NOT** open an issue in GitHub for questions or doubts. Use the [medi
 [mediasoup-google-group]: https://groups.google.com/forum/#!forum/mediasoup
 [mediasoup-github-issues]: https://github.com/versatica/mediasoup/issues
 [mediasoup-client-github-issues]: https://github.com/versatica/mediasoup-client/issues
+[libmediasoupclient-github-issues]: https://github.com/versatica/libmediasoupclient/issues

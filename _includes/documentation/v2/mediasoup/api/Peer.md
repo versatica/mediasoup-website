@@ -90,7 +90,7 @@ Retrieves the [WebRtcTransport](#WebRtcTransport) with the given `id`, or `undef
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`id`       | Integer | WebRtcTransport id. | Yes |
+`id`       | Number | WebRtcTransport id. | Yes |
 
 </div>
 
@@ -103,7 +103,7 @@ Retrieves the [Producer](#Producer) with the given `id`, or `undefined` if not f
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`id`       | Integer | Producer id. | Yes |
+`id`       | Number | Producer id. | Yes |
 
 </div>
 
@@ -116,7 +116,7 @@ Retrieves the [Consumer](#Consumer) with the given `id`, or `undefined` if not f
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`id`       | Integer | Consumer id. | Yes |
+`id`       | Number | Consumer id. | Yes |
 
 </div>
 

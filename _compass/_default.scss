@@ -58,11 +58,9 @@
 	}
 
 	h2 {
-		// color: $color-dark;
-		color: #000;
+		color: #444;
 		text-align: left;
-		// border-bottom: 1px solid $color-dark;
-		border-bottom: 1px solid #000;
+		border-bottom: 4px solid rgba(#333, 0.1);
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 		clear: both;
@@ -111,7 +109,7 @@
 
 	h5 {
 		font-size: 1em;
-		color: red;
+		color: $color-text;
 		text-align: left;
 		margin-top: 1.5em;
 		margin-bottom: 1em;
@@ -219,7 +217,7 @@
 		font-size: 0.9em;
 		color: #444;
 		white-space: pre;
-		background-color: rgba(#eee, 0.85);
+		background-color: rgba(#fff, 0.25);
 		border-radius: 4px;
 		padding: 1px 2px;
 	}
