@@ -49,14 +49,14 @@
 	overscroll-behavior: contain;
 
 	@include breakpoint($computer) {
-		right: -360px;
-		width: 340px;
+		right: -400px;
+		width: 380px;
 		padding: 2rem 1rem;
 	}
 
 	@include breakpoint($mobile) {
-		right: -270px;
-		width: 250px;
+		right: -290px;
+		width: 260px;
 		padding: 1rem 0.25rem;
 	}
 

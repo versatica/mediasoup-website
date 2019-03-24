@@ -1,16 +1,28 @@
-## PlainRtpTransport
-{: #PlainRtpTransport}
+## PipeTransport
+{: #PipeTransport}
 
 A `plainRtpTransport` represents a network path negotiated on which plain RTP and RTCP (no ICE nor DTLS) is carried.
 
 
 ### Dictionaries
-{: #PlainRtpTransport-dictionaries}
+{: #PipeTransport-dictionaries}
 
 <section markdown="1">
 
+#### PipeTransportOptions
+{: #PipeTransport-Options .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field         | Type    | Description   | Required | Default
+------------- | ------- | ------------- | -------- | ---------
+`listenIp`    | [TransportListenIp](#Transport-ListenIp)\|String| Listening IP. | Yes |
+`appData`     | Object  | Custom application data. | No | `{}`
+
+</div>
+
 #### RemoteParameters
-{: #PlainRtpTransport-RemoteParameters .code}
+{: #PipeTransport-RemoteParameters .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -25,7 +37,7 @@ Field        | Type    | Description   | Required | Default
 
 
 ### Properties
-{: #PlainRtpTransport-properties}
+{: #PipeTransport-properties}
 
 <section markdown="1">
 
@@ -68,7 +80,7 @@ The `local port` (Number) of the `transport`.
 
 
 ### Methods
-{: #PlainRtpTransport-methods}
+{: #PipeTransport-methods}
 
 <section markdown="1">
 
@@ -86,7 +98,7 @@ Set the `remote IP address` and `port` for the `plainRtpTransport`.
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`parameters`  | [PlainRtpRemoteParameters](#PlainRtpTransport-RemoteParameters) | Remote parameters. | Yes |
+`parameters`  | [PlainRtpRemoteParameters](#PipeTransport-RemoteParameters) | Remote parameters. | Yes |
 
 </div>
 

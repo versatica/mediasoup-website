@@ -9,6 +9,21 @@ A `plainRtpTransport` represents a network path negotiated on which plain RTP an
 
 <section markdown="1">
 
+#### PlainRtpTransportOptions
+{: #PlainRtpTransport-Options .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field         | Type    | Description   | Required | Default
+------------- | ------- | ------------- | -------- | ---------
+`listenIp`    | [TransportListenIp](#Transport-ListenIp)\|String| Listening IP. | Yes |
+`rtcpMux`     | Boolean | Use RTCP-mux (RPT and RTCP in the same port). | No | `true`
+`comedia`     | Boolean | Whether remote IP:port should be auto-detected based on first RTP/RTCP packet received. If enabled, `connect()` method must not be called. This option is ignored if `multiSource` is set. | No | `false`
+`multiSource` | Boolean | Whether RTP/RTCP from different remote IPs:ports is allowed. If set, the transport will just be valid for receiving media (`consume()` cannot be called on it) and `connect()` must not be called. | No | `false`
+`appData`     | Object  | Custom application data. | No | `{}`
+
+</div>
+
 #### RemoteParameters
 {: #PlainRtpTransport-RemoteParameters .code}
 

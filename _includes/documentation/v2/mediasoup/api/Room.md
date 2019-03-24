@@ -223,7 +223,7 @@ Argument  | Type    | Description
 
 </div>
 
-#### room.on("newpeer", peer)
+#### room.on("newpeer", fn(peer))
 {: #room-on-newpeer .code}
 
 Emitted when a new `peer` is created.

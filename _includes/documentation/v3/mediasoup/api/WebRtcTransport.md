@@ -1,7 +1,9 @@
 ## WebRtcTransport
 {: #WebRtcTransport}
 
-A `webrtcTransport` represents a network path negotiated by both, mediasoup-client and mediasoup, via ICE and DTLS.
+**TODO**
+
+A WebRTC transport represents a network path negotiated by both, mediasoup-client and mediasoup, via ICE and DTLS.
 
 For more information, check the [Glossary](/documentation/v2/glossary/#Glossary-Transport) section.
 
@@ -15,25 +17,20 @@ mediasoup is a [ICE Lite](https://tools.ietf.org/html/rfc5245#section-2.7) imple
 
 <section markdown="1">
 
-#### MirroringOptions
-{: #WebRtcTransport-MirroringOptions .code}
+#### WebRtcTransportOptions
+{: #WebRtcTransport-Options .code}
 
 <div markdown="1" class="table-wrapper L3">
 
 Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
-`remoteIP`   | String  | Destination IP. | Yes |
-`remotePort` | Number | Destination port. | Yes |
-`localIP`    | String  | Local IP.     | No | `rtcIPv4` or `rtcIPv6` given in [ServerSettings](#Server-ServerSettings)
-`sendRtp`    | Boolean | Whether RTP sent to the client must be mirrored.     | No | `true`
-`sendRtcp`   | Boolean | Whether RTCP sent to the client must be mirrored.     | No | `true`
-`recvRtp`    | Boolean | Whether RTP received from the client must be mirrored.     | No | `true`
-`recvRtcp`   | Boolean | Whether RTCP received from the client must be mirrored.     | No | `true`
+`listenIps` | Array&lt;[TransportListenIp](#Transport-ListenIp)&gt;\|[TransportListenIp](#Transport-ListenIp)\|String| Listening IP or IPs in order of preference. | Yes |
+`enableUdp` | Boolean | Listen in UDP. | No | `true`
+`enableTcp` | Boolean | Listen in TCP. | No | `false`
+`preferUdp` | Boolean | Listen in UDP. | No | `false`
+`preferTcp` | Boolean | Listen in TCP. | No | `false`
+`appData`   | Object  | Custom application data. | No | `{}`
 
-</div>
-
-<div markdown="1" class="note warn">
-If `localIP` is given, the RTP port range given in [ServerSettings](#Server-ServerSettings) (`rtcMinPort` - `rtcMaxPort`) is not honored and, instead, any available random port will be used.
 </div>
 
 </section>

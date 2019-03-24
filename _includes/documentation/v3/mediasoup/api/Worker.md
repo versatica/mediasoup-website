@@ -1,7 +1,7 @@
 ## Worker
 {: #Worker}
 
-A worker represents a mediasoup worker child subprocess that handles media realtime-communications. It runs in a single CPU core and can handle many [Router](#Router) instances.
+A worker represents a mediasoup subprocess that handles media realtime-communications. It runs in a single CPU core and can handle many [Router](#Router) instances.
 
 
 ### Dictionaries
@@ -10,7 +10,7 @@ A worker represents a mediasoup worker child subprocess that handles media realt
 <section markdown="1">
 
 #### WorkerSettings
-{: #Worker-WorkerSettings .code}
+{: #Worker-Settings .code}
 
 <div markdown="1" class="table-wrapper L3 M5">
 
@@ -26,7 +26,7 @@ Field                    | Type    | Description   | Required | Default
 </div>
 
 #### WorkerUpdateableSettings
-{: #Worker-WorkerUpdateableSettings .code}
+{: #Worker-UpdateableSettings .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -52,12 +52,29 @@ Field                    | Type    | Description   | Required | Default
 
 The PID of the worker process.
 
+```javascript
+console.log(worker.pid);
+// => 86665
+```
+
 #### worker.closed
 {: #worker-closed .code}
 
 * `@type` Boolean, read only
 
 Whether the worker is closed.
+
+```javascript
+console.log(worker.closed);
+// => false
+```
+
+#### worker.observer
+{: #worker-observer .code}
+
+* `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
+
+See the [Observer Events](#Worker-observer-events) section below.
 
 </section>
 
@@ -70,7 +87,7 @@ Whether the worker is closed.
 #### worker.close()
 {: #worker-close .code}
 
-Closes the worker, including all its routers. It emits an "observer:close" event.
+Closes the worker, including all its routers.
 
 #### worker.updateSettings(settings)
 {: #worker-updateSettings .code}
@@ -83,7 +100,7 @@ Updates the worker settings in runtime. Just a subset of the worker settings can
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`settings` | [WorkerUpdateableSettings](#Worker-WorkerUpdateableSettings) | Worker updateable settings. | No |
+`settings` | [WorkerUpdateableSettings](#Worker-UpdateableSettings) | Worker updateable settings. | No |
 
 </div>
 
@@ -99,11 +116,9 @@ Creates a new router.
 
 Argument      | Type    | Description | Required | Default 
 ------------- | ------- | ----------- | -------- | ----------
-`mediaCodecs` | sequence&lt;[RouterMediaCodec](#Router-RouterMediaCodec)&gt; | Router media codecs. | Yes |
+`mediaCodecs` | Array&lt;[RouterMediaCodec](#Router-MediaCodec)&gt; | Router media codecs. | Yes |
 
 </div>
-
-Usage example:
 
 ```javascript
 const mediaCodecs =
@@ -136,27 +151,40 @@ const router = await worker.createRouter({ mediaCodecs });
 ### Events
 {: #Worker-events}
 
-The Worker class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+<section markdown="1">
+
+#### worker.on("died")
+{: #worker-on-died .code}
+
+Emitted when the worker process unexpectedly dies.
+
+<div markdown="1" class="note warn">
+This should never happens (if it happens, it's a bug).
+</div>
+
+</section>
+
+
+### Observer Events
+{: #Worker-observer-events}
 
 <section markdown="1">
 
-TODO: died, observer:close, observer:newrouter
-
-#### worker.on("close")
-{: #worker-on-close .code}
+#### worker.observer.on("close")
+{: #worker-observer-on-close .code}
 
 Emitted when the worker is closed.
 
-#### worker.on("newroom", fn(room))
-{: #worker-on-newroom .code}
+#### worker.observer.on("newrouter", fn(router))
+{: #worker-observer-on-newrouter .code}
 
-Emitted when a new room is created.
+Emitted when a new [Router](#Router) instance is created.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument | Type    | Description   
 -------- | ------- | ----------------
-`room`   | [Room](#Room) | New `room`.
+`worker` | [Router](#Router) | New router.
 
 </div>
 

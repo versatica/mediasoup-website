@@ -16,6 +16,18 @@ Currently mediasoup implements two transport types:
 
 <section markdown="1">
 
+#### TransportListenIp
+{: #Transport-ListenIp .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field         | Type    | Description   | Required | Default
+------------- | ------- | ------------- | -------- | ---------
+`ip`          | String  | Listening IPv4 or IPv6. | Yes      |
+`announcedIp` | String  | Announced IPv4 or IPv6 (useful when running mediasoup behind NAT with private IP). | No      |
+
+</div>
+
 #### IceParameters
 {: #Transport-IceParameters .code}
 

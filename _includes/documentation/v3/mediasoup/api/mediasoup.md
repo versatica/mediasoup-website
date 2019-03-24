@@ -28,9 +28,9 @@ console.log(mediasoup.version);
 #### mediasoup.observer
 {: #mediasoup-observer .code}
 
-* `@type` EventEmitter, read only
+* `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
 
-An event emitter that emits a "observer:newworker" event when a new [Worker](#Worker) instance is created. See the [Observer Events](#mediasoup-observer-events) section below.
+An event emitter that allows the application (or third party libraries) monitor [Worker](#Worker) instances created by the application. See the [Observer Events](#mediasoup-observer-events) section below.
 
 </section>
 
@@ -52,7 +52,7 @@ Creates a new worker with the given settings.
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`settings` | [WorkerSettings](#Worker-WorkerSettings) | Worker settings. | No |
+`settings` | [WorkerSettings](#Worker-Settings) | Worker settings. | No |
 
 </div>
 
@@ -75,8 +75,8 @@ Returns a cloned copy of the mediasoup supported RTP capabilities, specifically 
 ```javascript
 const rtpCapabilities = mediasoup.getSupportedRtpCapabilities();
 
-console.log(rtpCapabilities.codecs);
-// => [ { }, { }, ... ]
+console.log(rtpCapabilities);
+// => { codecs: [], headerExtensions: [] }
 ```
 
 </section>
@@ -85,12 +85,10 @@ console.log(rtpCapabilities.codecs);
 ### Observer Events
 {: #mediasoup-observer-events}
 
-The [observer](#mediasoup-observer) is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) that emits the following events:
-
 <section markdown="1">
 
-#### observer.on("observer:newworker")
-{: #mediasoup-observer-on-observer-newworker .code}
+#### mediasoup.observer.on("newworker", fn(worker))
+{: #mediasoup-observer-on-newworker .code}
 
 Emitted when a new [Worker](#Worker) instance is created.
 
