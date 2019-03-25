@@ -1,15 +1,36 @@
-## ActiveSpeakerDetector
-{: #ActiveSpeakerDetector}
+## AudioLevelObserver
+{: #AudioLevelObserver}
 
-An `activeSpeakerDetector` provides the `room` with the highest audio volume level.
+<section markdown="1">
 
-<div markdown="1" class="note">
-The `ActiveSpeakerDetector` mechanism is based on the [`audiolevels`](#room-on-audiolevels) event of the `room`.
+An audio level observer monitor the volume of audio producers.
+
+</section>
+
+
+### Dictionaries
+{: #AudioLevelObserver-dictionaries}
+
+<section markdown="1">
+
+#### AudioLevelObserverOptions
+{: #AudioLevelObserver-Options .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field          | Type    | Description  | Required | Default 
+-------------- | ------- | ------------ | -------- | ----------
+`maxEntries`   | Number  | Maximum number of entries in the "volumes" event. | No | 1
+`threshold`    | Number  | Minimum average volume (in dBvo from -127 to 0) for entries in the "volumes" event. | No | -80
+`interval`     | Number  | Interval in ms for checking audio volumes. | No | 1000
+
 </div>
+
+</section>
 
 
 ### Methods
-{: #ActiveSpeakerDetector-methods}
+{: #AudioLevelObserver-methods}
 
 <section markdown="1">
 
@@ -22,9 +43,9 @@ Closes the `activeSpeakerDetector` and triggers a [`close`](#activeSpeakerDetect
 
 
 ### Events
-{: #ActiveSpeakerDetector-events}
+{: #AudioLevelObserver-events}
 
-The `ActiveSpeakerDetector` class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+The `AudioLevelObserver` class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 <section markdown="1">
 

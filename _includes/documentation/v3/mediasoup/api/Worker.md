@@ -1,7 +1,11 @@
 ## Worker
 {: #Worker}
 
+<section markdown="1">
+
 A worker represents a mediasoup subprocess that handles media realtime-communications. It runs in a single CPU core and can handle many [Router](#Router) instances.
+
+</section>
 
 
 ### Dictionaries
@@ -178,7 +182,7 @@ Emitted when the worker is closed.
 #### worker.observer.on("newrouter", fn(router))
 {: #worker-observer-on-newrouter .code}
 
-Emitted when a new [Router](#Router) instance is created.
+Emitted when a new router is created.
 
 <div markdown="1" class="table-wrapper L3">
 

@@ -234,7 +234,7 @@ body {
 
 		&.visible {
 			z-index: 5;
-			opacity: 0.15;
+			opacity: 0.25;
 
 			&:hover {
 				opacity: 0.5;
@@ -251,7 +251,7 @@ body {
 		@include breakpoint($mobile) {
 			bottom: 16px;
 			right: 16px;
-			width: 428px;
+			width: 42px;
 			height: 42px;
 		}
 	}

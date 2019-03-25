@@ -1,7 +1,11 @@
 ## PipeTransport
 {: #PipeTransport}
 
+<section markdown="1">
+
 A `plainRtpTransport` represents a network path negotiated on which plain RTP and RTCP (no ICE nor DTLS) is carried.
+
+</section>
 
 
 ### Dictionaries

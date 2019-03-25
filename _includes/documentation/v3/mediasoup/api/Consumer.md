@@ -1,9 +1,13 @@
 ## Consumer
 {: #Consumer}
 
+<section markdown="1">
+
 A `consumer` represents an audio/video media track sent to a remote client.
 
 For more information, check the [Glossary](/documentation/v2/glossary/#Glossary-Consumer) section.
+
+</section>
 
 
 ### Properties

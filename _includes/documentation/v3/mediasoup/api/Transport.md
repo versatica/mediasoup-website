@@ -1,6 +1,8 @@
 ## Transport
 {: #Transport}
 
+<section markdown="1">
+
 A `transport` represents a path for sending or receiving audio/video RTP.
 
 For more information, check the [Glossary](/documentation/v2/glossary/#Glossary-Transport) section.
@@ -9,6 +11,8 @@ Currently mediasoup implements two transport types:
 
 * [WebRtcTransport](#WebRtcTransport)
 * [PlainRtpTransport](#PlainRtpTransport)
+
+</section>
 
 
 ### Dictionaries

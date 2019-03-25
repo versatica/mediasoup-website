@@ -1,7 +1,11 @@
 ## Router
 {: #Router}
 
+<section markdown="1">
+
 A router holds a multiparty RTC (Real-Time Communication) conference by allowing injection, selection and forwarding of media streams.
+
+</section>
 
 
 ### Dictionaries
@@ -60,7 +64,7 @@ Whether the router is closed.
 
 * `@type` [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*), read only
 
-An Object with the RTP capabilities of the router. There capabilities are tipically needed by mediasoup clients to set their sending RTP parameters.
+An Object with the RTP capabilities of the router. These capabilities are tipically needed by mediasoup clients to compute their sending RTP parameters.
 
 #### router.observer
 {: #router-observer .code}
@@ -80,7 +84,7 @@ See the [Observer Events](#Router-observer-events) section below.
 #### router.close()
 {: #router-close .code}
 
-Closes the router, including all its transports and rtpObservers.
+Closes the router, including all its transports and RTP observers (such as audio level observers).
 
 #### router.createWebRtcTransport(options)
 {: #router-createWebRtcTransport .code}
@@ -162,8 +166,8 @@ const transport = await router.createPipeTransport(
 
 * `@async`
 * `@returns` Object:
-  - `pipeConsumer`: `@type` [Consumer](#Consumer) - Consumer created in the current router.
-  - `pipeProducer`: `@type` [Producer](#Producer) - Producer created in the destination router.
+  - `pipeConsumer` (`@type` [Consumer](#Consumer)) - Consumer created in the current router.
+  - `pipeProducer` (`@type` [Producer](#Producer)) - Producer created in the destination router.
 
 Pipes the given producer into another router in the same host. It creates an underlying [PipeTransport](#PipeTransport) (if not previously created) that interconnects two routers.
 
@@ -248,7 +252,7 @@ Argument          | Type    | Description  | Required | Default
 ```javascript
 if (router.canConsume({ producerId, rtpCapabilities }))
 {
-  // Consumer the producer calling transport.consume().
+  // Consume the producer by calling transport.consume().
 }
 ```
 

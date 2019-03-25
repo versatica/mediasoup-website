@@ -1,11 +1,15 @@
 ## mediasoup
 {: #mediasoup}
 
+<section markdown="1">
+
 The top-level module exported by the mediasoup module.
 
 ```javascript
 const mediasoup = require("mediasoup");
 ```
+
+</section>
 
 
 ### Properties
@@ -90,7 +94,7 @@ console.log(rtpCapabilities);
 #### mediasoup.observer.on("newworker", fn(worker))
 {: #mediasoup-observer-on-newworker .code}
 
-Emitted when a new [Worker](#Worker) instance is created.
+Emitted when a new worker is created.
 
 <div markdown="1" class="table-wrapper L3">
 

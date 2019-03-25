@@ -1,9 +1,13 @@
 ## Producer
 {: #Producer}
 
+<section markdown="1">
+
 A `producer` represents an audio/video media track sent to the `room`.
 
 For more information, check the [Glossary](/documentation/v2/glossary/#Glossary-Producer) section.
+
+</section>
 
 
 ### Properties
