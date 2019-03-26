@@ -24,7 +24,7 @@ Field                    | Type    | Description   | Required | Default
 `mimeType`               | String  | The codec MIME type, i.e. "audio/opus", "video/VP8". The list of mediasoup supported codecs is available in the [mediasoup/lib/supportedRtpCapabilities.js](https://github.com/versatica/mediasoup/blob/v3/lib/supportedRtpCapabilities.js) file. | Yes |
 `clockRate`              | Number  | Codec clock rate expressed in Hertz. | Yes |
 `channels`               | Number  | The number of channels (mono=1, stereo=2) for audio codecs. | No | 1
-`parameters`             | Dictionary | Codec-specific parameters available for signaling. | No |
+`parameters`             | Object  | Codec specific parameters. Some parameters (such as "packetization-mode" and "profile-level-id" in H264) are critical for codec matching. | No |
 
 </div>
 
@@ -169,16 +169,16 @@ const transport = await router.createPipeTransport(
   - `pipeConsumer` (`@type` [Consumer](#Consumer)) - Consumer created in the current router.
   - `pipeProducer` (`@type` [Producer](#Producer)) - Producer created in the destination router.
 
-Pipes the given producer into another router in the same host. It creates an underlying [PipeTransport](#PipeTransport) (if not previously created) that interconnects two routers.
+Pipes the given producer into another router in the same host. It creates an underlying [PipeTransport](#PipeTransport) (if not previously created) that interconnects both routers.
 
-This is useful to expand broadcasting capabilities (one to many) by interconnecting different routers that run in separate workers (so in different CPU cores).
+This is specially useful to expand broadcasting capabilities (one to many) by interconnecting different routers that run in separate workers (so in different CPU cores).
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument     | Type    | Description | Required | Default 
 ------------ | ------- | ----------- | -------- | ----------
 `producerId` | String  | Producer id | Yes      |
-`router`     | [Router](#Router) | Destination router to pipe to the given producer. | Yes |
+`router`     | [Router](#Router) | Destination router to pipe the given producer. | Yes |
 `listenIp`   | String  | Internal IP to connect both routers. | No      | "127.0.0.1"
 
 </div>
@@ -197,13 +197,9 @@ const transport1 = await router1.createWebRtcTransport({ ... });
 const producer1 = await transport1.produce({ ... });
 
 // Pipe producer1 into router2.
-await router1.pipeToRouter(
-  {
-    producerId : producer1.id,
-    router     : router2
-  });
+await router1.pipeToRouter({ producerId: producer1.id, router: router2 });
 
-// Consume in router2.
+// Consume producer1 from router2.
 const transport2 = await router2.createWebRtcTransport({ ... });
 const consumer2 = await transport2.consume({ producerId: producer.id, ... });
 ```

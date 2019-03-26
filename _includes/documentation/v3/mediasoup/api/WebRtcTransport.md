@@ -5,9 +5,7 @@
 
 **TODO**
 
-A WebRTC transport represents a network path negotiated by both, mediasoup-client and mediasoup, via ICE and DTLS.
-
-For more information, check the [Glossary](/documentation/v2/glossary/#Glossary-Transport) section.
+A WebRTC transport represents a network path established by both, a WebRTC endpoint and mediasoup, via ICE and DTLS. A WebRTC transport may be used for receiving media, for sending media or for receiving and sending, there is no limitation in mediasoup. However, due their design, mediasoup-client and libmediasoupclient require separate WebRTC transports for sending and receiving media.
 
 <div markdown="1" class="note">
 mediasoup is a [ICE Lite](https://tools.ietf.org/html/rfc5245#section-2.7) implementation, meaning that it will never initiate ICE connections but expect ICE Binding Requests on its open ports.

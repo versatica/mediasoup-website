@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-The top-level module exported by the mediasoup module.
+The top-level exported module.
 
 ```javascript
 const mediasoup = require("mediasoup");

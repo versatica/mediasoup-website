@@ -47,16 +47,13 @@
 		text-align: left;
 		margin-bottom: 1em;
 		clear: both;
-		overflow: hidden;
 
 		@include breakpoint($computer) {
 			font-size: 2.5em;
-			line-height: 1.5em;
 		}
 
 		@include breakpoint($mobile) {
 			font-size: 2em;
-			line-height: 1.5em;
 		}
 	}
 
@@ -67,11 +64,10 @@
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 		clear: both;
-		overflow: hidden;
 
 		@include breakpoint($computer) {
 			font-size: 1.8em;
-			line-height: 1.5em;
+			line-height: 1.8em;
 		}
 
 		@include breakpoint($mobile) {
@@ -89,7 +85,6 @@
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 		clear: both;
-		overflow: hidden;
 	}
 
 	&.h3color h3 {
@@ -98,32 +93,30 @@
 
 	h4 {
 		font-size: 1.25em;
-		line-height: 1.5em;
 		color: #262626;
 		text-align: left;
 		margin-top: 2em;
 		margin-bottom: 1.5em;
 		clear: both;
-		overflow: hidden;
 
 		&.code {
 			font-size: 1em;
-			line-height: 1.5em;
 			font-family: 'Monaco', 'Andale Mono', monospace;
 			text-overflow: ellipsis;
-			white-space: nowrap;
+
+			@include breakpoint($computer) {
+				white-space: nowrap;
+			}
 		}
 	}
 
 	h5 {
 		font-size: 1em;
-		line-height: 1.5em;
 		color: $color-text;
 		text-align: left;
 		margin-top: 1.5em;
 		margin-bottom: 1em;
 		clear: both;
-		overflow: hidden;
 	}
 
 	p {

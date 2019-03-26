@@ -24,10 +24,15 @@ Field                    | Type    | Description   | Required | Default
 `logTags`                | Array&lt;String&gt; | Log tags for debugging. Check the list of available tags in [Debugging](/documentation/v3/mediasoup/debugging/) documentation. | No | `[ ]`
 `rtcMinPort`             | Number  | Minimun RTC port for ICE, DTLS, RTP, etc. | No | 10000
 `rtcMaxPort`             | Number  | Maximum RTC port for ICE, DTLS, RTP, etc. | No | 59999
-`dtlsCertificateFile`    | String  | Path to the DTLS certificate. If unset, one is dynamically created. | No |
-`dtlsPrivateKeyFile`     | String  | Path to the DTLS private key. If unset, one is dynamically created. | No |
+`dtlsCertificateFile`    | String  | Path to the DTLS public certificate file in PEM format. If unset, a certificate is dynamically created. | No |
+`dtlsPrivateKeyFile`     | String  | Path to the DTLS certificate private key file in PEM format. If unset, a certificate is dynamically created. | No |
 
 </div>
+
+<div markdown="1" class="note">
+RTC listening IPs are not set at worker level. Instead, they are set per individual transport.
+</div>
+
 
 #### WorkerUpdateableSettings
 {: #Worker-UpdateableSettings .code}
