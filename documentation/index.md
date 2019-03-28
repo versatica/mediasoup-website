@@ -7,16 +7,33 @@ title : Documentation
 
 <div markdown="1">
 
-* [Overview](/documentation/overview/) - A brief introduction to mediasoup.
+##### [Overview](/documentation/overview/)
 
-* [v3 Documentation](/documentation/v3/) - mediasoup, mediasoup-client and libmediasoupclient **v3**.
+A brief introduction to mediasoup and its ecosystem.
 
-* [v2 Documentation](/documentation/v2/) - mediasoup and mediasoup-client **v2**.
 
-* [v1 Documentation](/documentation/v1/) - mediasoup and mediasoup-client **v1**.
+##### [v3 Documentation](/documentation/v3/)
 
-* [Examples](/documentation/examples/) - Projects using mediasoup.
+mediasoup, mediasoup-client and libmediasoupclient **v3**.
 
-* [Publications](/documentation/publications/) - Publications and studies about mediasoup.
+
+##### [v2 Documentation](/documentation/v2/)
+
+mediasoup and mediasoup-client **v2**.
+
+
+##### [v1 Documentation](/documentation/v1/)
+
+mediasoup **v1**.
+
+
+##### [Examples](/documentation/examples/)
+
+Projects using mediasoup.
+
+
+##### [Publications](/documentation/publications/)
+
+Publications and studies about mediasoup.
 
 </div>

@@ -20,9 +20,9 @@ const mediasoup = require("mediasoup");
 #### mediasoup.version
 {: #mediasoup-version .code}
 
-* `@type` String, read only
-
 The mediasoup version.
+
+> `@type` String, read only
 
 ```javascript
 console.log(mediasoup.version);
@@ -32,9 +32,9 @@ console.log(mediasoup.version);
 #### mediasoup.observer
 {: #mediasoup-observer .code}
 
-* `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
-
 An event emitter that allows the application (or third party libraries) monitor [Worker](#Worker) instances created by the application. See the [Observer Events](#mediasoup-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
 
 </section>
 
@@ -47,10 +47,10 @@ An event emitter that allows the application (or third party libraries) monitor 
 #### mediasoup.createWorker(settings)
 {: #mediasoup-createWorker .code}
 
-* `@async`
-* `@returns` [Worker](#Worker)
-
 Creates a new worker with the given settings.
+
+> `@async`
+> `@returns` [Worker](#Worker)
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -72,9 +72,9 @@ const worker = async mediasoup.createWorker(
 #### mediasoup.getSupportedRtpCapabilities()
 {: #mediasoup-getSupportedRtpCapabilities .code}
 
-* `@returns` [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*)
-
 Returns a cloned copy of the mediasoup supported RTP capabilities, specifically the content of the [mediasoup/lib/supportedRtpCapabilities.js](https://github.com/versatica/mediasoup/blob/v3/lib/supportedRtpCapabilities.js) file.
+
+> `@returns` [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*)
 
 ```javascript
 const rtpCapabilities = mediasoup.getSupportedRtpCapabilities();

@@ -43,9 +43,9 @@ Feature codecs such as RTX or FEC must **NOT** be placed into Router `mediaCodec
 #### router.id
 {: #router-id .code}
 
-* `@type` String, read only
-
 Router identifier.
+
+> `@type` String, read only
 
 ```javascript
 console.log(router.id);
@@ -55,23 +55,23 @@ console.log(router.id);
 #### router.closed
 {: #router-closed .code}
 
-* `@type` Boolean, read only
-
 Whether the router is closed.
+
+> `@type` Boolean, read only
 
 #### router.rtpCapabilities
 {: #router-rtpCapabilities .code}
 
-* `@type` [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*), read only
-
 An Object with the RTP capabilities of the router. These capabilities are tipically needed by mediasoup clients to compute their sending RTP parameters.
+
+> `@type` [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*), read only
 
 #### router.observer
 {: #router-observer .code}
 
-* `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
-
 See the [Observer Events](#Router-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
 
 </section>
 
@@ -89,10 +89,11 @@ Closes the router, including all its transports and RTP observers (such as audio
 #### router.createWebRtcTransport(options)
 {: #router-createWebRtcTransport .code}
 
-* `@async`
-* `@returns` [WebRtcTransport](#WebRtcTransport)
-
 Creates a new WebRTC transport.
+
+> `@async`
+> 
+> `@returns` [WebRtcTransport](#WebRtcTransport)
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -115,10 +116,11 @@ const transport = await router.createWebRtcTransport(
 #### router.createPlainRtpTransport(options)
 {: #router-createPlainRtpTransport .code}
 
-* `@async`
-* `@returns` [PlainRtpTransport](#PlainRtpTransport)
-
 Creates a new plain RTP transport.
+
+> `@async`
+> 
+> `@returns` [PlainRtpTransport](#PlainRtpTransport)
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -140,10 +142,11 @@ const transport = await router.createPlainRtpTransport(
 #### router.createPipeTransport(options)
 {: #router-createPipeTransport .code}
 
-* `@async`
-* `@returns` [PipeTransport](#PipeTransport)
-
 Creates a new pipe transport.
+
+> `@async`
+> 
+> `@returns` [PipeTransport](#PipeTransport)
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -164,14 +167,17 @@ const transport = await router.createPipeTransport(
 #### router.pipeToRouter({ producerId, router, listenIp })
 {: #router-pipeToRouter .code}
 
-* `@async`
-* `@returns` Object:
-  - `pipeConsumer` (`@type` [Consumer](#Consumer)) - Consumer created in the current router.
-  - `pipeProducer` (`@type` [Producer](#Producer)) - Producer created in the destination router.
-
 Pipes the given producer into another router in the same host. It creates an underlying [PipeTransport](#PipeTransport) (if not previously created) that interconnects both routers.
 
 This is specially useful to expand broadcasting capabilities (one to many) by interconnecting different routers that run in separate workers (so in different CPU cores).
+
+> `@async`
+> 
+> `@returns` Object:
+> 
+> * `pipeConsumer`  {`@type` [Consumer](#Consumer)} Consumer created in the current router.
+>
+> * `pipeProducer`  {`@type` [Producer](#Producer)} Producer created in the destination router.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -185,8 +191,8 @@ Argument     | Type    | Description | Required | Default
 
 ```javascript
 // Have two workers.
-const worker1 = async mediasoup.createWorker();
-const worker2 = async mediasoup.createWorker();
+const worker1 = await mediasoup.createWorker();
+const worker2 = await mediasoup.createWorker();
 
 // Create a router in each worker.
 const router1 = await worker1.createRouter({ mediaCodecs });
@@ -201,16 +207,17 @@ await router1.pipeToRouter({ producerId: producer1.id, router: router2 });
 
 // Consume producer1 from router2.
 const transport2 = await router2.createWebRtcTransport({ ... });
-const consumer2 = await transport2.consume({ producerId: producer.id, ... });
+const consumer2 = await transport2.consume({ producerId: producer1.id, ... });
 ```
 
 #### router.createAudioLevelObserver(options)
 {: #router-createAudioLevelObserver .code}
 
-* `@async`
-* `@returns` [AudioLevelObserver](#AudioLevelObserver)
-
 Creates a new audio level observer.
+
+> `@async`
+> 
+> `@returns` [AudioLevelObserver](#AudioLevelObserver)
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -232,9 +239,9 @@ const audioLevelObserver = await router.createAudioLevelObserver(
 #### router.canConsume({ producerId, rtpCapabilities })
 {: #router-canConsume .code}
 
-* `@returns` Boolean
-
 Whether the given RTP capabilities are valid to consume the given producer.
+
+> `@returns` Boolean
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -263,7 +270,7 @@ if (router.canConsume({ producerId, rtpCapabilities }))
 #### router.on("workerclose")
 {: #router-on-workerclose .code}
 
-Emitted when the worker this router belongs to is closed. The router is then also closed.
+Emitted when the worker this router belongs to is closed. The router itself is also closed.
 
 </section>
 
@@ -276,5 +283,18 @@ Emitted when the worker this router belongs to is closed. The router is then als
 {: #router-observer-on-close .code}
 
 Emitted when the router is closed.
+
+#### router.observer.on("newtransport", fn(transport))
+{: #router-observer-on-newtransport .code}
+
+Emitted when a new transport is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`transport` | [WebRtcTransport](#WebRtcTransport)\|[PlainRtpTransport](#PlainRtpTransport)\|[PipeTransport](#PipeTransport) | New transport.
+
+</div>
 
 </section>

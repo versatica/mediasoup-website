@@ -6,7 +6,7 @@ anchors : true
 
 # Installation
 
-Install the `mediasoup` Node.js module via NPM within your Node.js application:
+Install the mediasoup Node.js module via NPM within your Node.js application:
 
 ```bash
 $ npm install mediasoup@2 --save
@@ -22,7 +22,7 @@ In order to build the C/C++ component the following packages and libraries must 
 * Python 2 (`python2` or `python` command must point to the Python 2 executable)
 * `make`
 * `gcc` and `g++`, or `clang`, with C++11 support
-* `cc` command pointing to `gcc` or `clang`.
+* `cc` command pointing to `gcc` or `clang`
 
 <div markdown="1" class="note">
 In Debian and Ubuntu install the `build-essential` package. It includes both `make` and `gcc`/`g++`.

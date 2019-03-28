@@ -61,7 +61,7 @@
 		color: #444;
 		text-align: left;
 		border-bottom: 4px solid rgba(#333, 0.1);
-		margin-top: 2em;
+		margin-top: 2.5em;
 		margin-bottom: 1.5em;
 		clear: both;
 
@@ -82,7 +82,7 @@
 		color: #151515;
 		border-bottom: 1px solid rgba($color-dark, 0.75);
 		text-align: left;
-		margin-top: 2em;
+		margin-top: 2.5em;
 		margin-bottom: 1.5em;
 		clear: both;
 	}
@@ -95,7 +95,7 @@
 		font-size: 1.25em;
 		color: #262626;
 		text-align: left;
-		margin-top: 2em;
+		margin-top: 2.5em;
 		margin-bottom: 1.5em;
 		clear: both;
 
@@ -112,6 +112,7 @@
 
 	h5 {
 		font-size: 1em;
+		font-weight: 400;
 		color: $color-text;
 		text-align: left;
 		margin-top: 1.5em;
@@ -139,6 +140,16 @@
 		li ul {
 			margin-top: 0;
 			margin-bottom: 0;
+		}
+	}
+
+	blockquote {
+		border-left: 6px solid #d6d6d6;
+		padding-left: 8px;
+
+		p, ul {
+			margin-top: 0em;
+			margin-bottom: 0em;
 		}
 	}
 

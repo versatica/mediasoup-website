@@ -57,9 +57,9 @@ Field                    | Type    | Description   | Required | Default
 #### worker.pid
 {: #worker-pid .code}
 
-* `@type` Number, read only
-
 The PID of the worker process.
+
+> `@type` Number, read only
 
 ```javascript
 console.log(worker.pid);
@@ -69,9 +69,9 @@ console.log(worker.pid);
 #### worker.closed
 {: #worker-closed .code}
 
-* `@type` Boolean, read only
-
 Whether the worker is closed.
+
+> `@type` Boolean, read only
 
 ```javascript
 console.log(worker.closed);
@@ -81,9 +81,9 @@ console.log(worker.closed);
 #### worker.observer
 {: #worker-observer .code}
 
-* `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
-
 See the [Observer Events](#Worker-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
 
 </section>
 
@@ -101,9 +101,9 @@ Closes the worker, including all its routers.
 #### worker.updateSettings(settings)
 {: #worker-updateSettings .code}
 
-* `@async`
-
 Updates the worker settings in runtime. Just a subset of the worker settings can be updated.
+
+> `@async`
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -116,10 +116,11 @@ Argument   | Type    | Description | Required | Default
 #### worker.createRouter({ mediaCodecs })
 {: #worker-createRouter .code}
 
-* `@async`
-* `@returns` [Router](#Router)
-
 Creates a new router.
+
+> `@async`
+> 
+> `@returns` [Router](#Router)
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -193,7 +194,7 @@ Emitted when a new router is created.
 
 Argument | Type    | Description   
 -------- | ------- | ----------------
-`worker` | [Router](#Router) | New router.
+`router` | [Router](#Router) | New router.
 
 </div>
 
