@@ -5,6 +5,8 @@
 
 A `plainRtpTransport` represents a network path negotiated on which plain RTP and RTCP (no ICE nor DTLS) is carried.
 
+> `@inherits` [Transport](#Transport)
+> 
 </section>
 
 
@@ -14,13 +16,13 @@ A `plainRtpTransport` represents a network path negotiated on which plain RTP an
 <section markdown="1">
 
 #### PipeTransportOptions
-{: #PipeTransport-Options .code}
+{: #PipeTransportOptions .code}
 
 <div markdown="1" class="table-wrapper L3">
 
 Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
-`listenIp`    | [TransportListenIp](#Transport-ListenIp)\|String| Listening IP. | Yes |
+`listenIp`    | [TransportListenIp](#TransportListenIp)\|String| Listening IP address. | Yes |
 `appData`     | Object  | Custom application data. | No | `{}`
 
 </div>

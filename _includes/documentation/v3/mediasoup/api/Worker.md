@@ -14,7 +14,7 @@ A worker represents a mediasoup subprocess that handles media realtime-communica
 <section markdown="1">
 
 #### WorkerSettings
-{: #Worker-Settings .code}
+{: #WorkerSettings .code}
 
 <div markdown="1" class="table-wrapper L3 M5">
 
@@ -35,7 +35,7 @@ RTC listening IPs are not set at worker level. Instead, they are set per individ
 
 
 #### WorkerUpdateableSettings
-{: #Worker-UpdateableSettings .code}
+{: #WorkerUpdateableSettings .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -103,32 +103,32 @@ Closes the worker, including all its routers.
 
 Updates the worker settings in runtime. Just a subset of the worker settings can be updated.
 
-> `@async`
-
 <div markdown="1" class="table-wrapper L3">
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`settings` | [WorkerUpdateableSettings](#Worker-UpdateableSettings) | Worker updateable settings. | No |
+`settings` | [WorkerUpdateableSettings](#WorkerUpdateableSettings) | Worker updateable settings. | No |
 
 </div>
+
+> `@async`
 
 #### worker.createRouter({ mediaCodecs })
 {: #worker-createRouter .code}
 
 Creates a new router.
 
-> `@async`
-> 
-> `@returns` [Router](#Router)
-
 <div markdown="1" class="table-wrapper L3">
 
 Argument      | Type    | Description | Required | Default 
 ------------- | ------- | ----------- | -------- | ----------
-`mediaCodecs` | Array&lt;[RouterMediaCodec](#Router-MediaCodec)&gt; | Router media codecs. | Yes |
+`mediaCodecs` | Array&lt;[RouterMediaCodec](#RouterMediaCodec)&gt; | Router media codecs. | Yes |
 
 </div>
+
+> `@async`
+> 
+> `@returns` [Router](#Router)
 
 ```javascript
 const mediaCodecs =

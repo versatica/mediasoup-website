@@ -3,10 +3,12 @@
 
 <section markdown="1">
 
-A WebRTC transport represents a network path established by both, a WebRTC endpoint and mediasoup, via ICE and DTLS. A WebRTC transport may be used for receiving media, for sending media or for receiving and sending, there is no limitation in mediasoup. However, due their design, mediasoup-client and libmediasoupclient require separate WebRTC transports for sending and receiving media.
+A WebRTC transport represents a network path established by both, a WebRTC endpoint and mediasoup, via ICE and DTLS. A WebRTC transport may be used to receive media, to send media or to both receive and send. There is no limitation in mediasoup. However, due to their design, mediasoup-client and libmediasoupclient require separate WebRTC transports for sending and receiving.
+
+> `@inherits` [Transport](#Transport)
 
 <div markdown="1" class="note">
-mediasoup is a [ICE Lite](https://tools.ietf.org/html/rfc5245#section-2.7) implementation, meaning that it does not initiate ICE connections but expect ICE Binding Requests sent by remote peers.
+The WebRTC transport implementation of mediasoup is [ICE Lite](https://tools.ietf.org/html/rfc5245#section-2.7), meaning that it does not initiate ICE connections but expects ICE Binding Requests from endpoints.
 </div>
 
 </section>
@@ -18,13 +20,13 @@ mediasoup is a [ICE Lite](https://tools.ietf.org/html/rfc5245#section-2.7) imple
 <section markdown="1">
 
 #### WebRtcTransportOptions
-{: #WebRtcTransport-Options .code}
+{: #WebRtcTransportOptions .code}
 
 <div markdown="1" class="table-wrapper L3">
 
 Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
-`listenIps` | Array&lt;[TransportListenIp](#Transport-ListenIp)&gt;\|[TransportListenIp](#Transport-ListenIp)\|String| Listening IP or IPs in order of preference. | Yes |
+`listenIps` | Array&lt;[TransportListenIp](#TransportListenIp)&gt;\|[TransportListenIp](#TransportListenIp)\|String| Listening IP address or addresses in order of preference (first one is the preferred one). | Yes |
 `enableUdp` | Boolean | Listen in UDP. | No | `true`
 `enableTcp` | Boolean | Listen in TCP. | No | `false`
 `preferUdp` | Boolean | Listen in UDP. | No | `false`
@@ -63,35 +65,20 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
-#### IceSelectedTuple
-{: #WebRtcTransport-IceSelectedTuple .code}
-
-<div markdown="1" class="table-wrapper L3">
-
-Field              | Type    | Description   | Required | Default
------------------- | ------- | ------------- | -------- | ---------
-`localIP`          | String  | Local IP of the tuple. | Yes |
-`localPort`        | Number | Local port of the tuple. | Yes |
-`remoteIP`         | String  | Remote IP of the tuple. | Yes |
-`remotePort`       | Number | Remote port of the tuple. | Yes |
-`protocol`         | String  | The protocol of the tuple ("udp" / "tcp"). | Yes |
-
-</div>
-
-#### LocalDtlsParameters
-{: #WebRtcTransport-LocalDtlsParameters .code}
+#### DtlsParameters
+{: #WebRtcTransport-DtlsParameters .code}
 
 <div markdown="1" class="table-wrapper L3">
 
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
-`role`          | [DtlsRole](#WebRtcTransport-DtlsRole) | Local DTLS role. | No | "auto"
-`fingerprints`  | [LocalDtlsFingerprints](#WebRtcTransport-LocalDtlsFingerprints) | Local DTLS fingerprints. | Yes |
+`role`          | [DtlsRole](#WebRtcTransport-DtlsRole) | DTLS role. | No | "auto"
+`fingerprints`  | [DtlsFingerprints](#WebRtcTransport-DtlsFingerprints) | DTLS fingerprints. | Yes |
 
 </div>
 
-#### LocalDtlsFingerprints
-{: #WebRtcTransport-LocalDtlsFingerprints .code}
+#### DtlsFingerprints
+{: #WebRtcTransport-DtlsFingerprints .code}
 
 Map of DTLS algorithms (as defined in the "Hash function Textual Names" registry initially specified in [RFC 4572](https://tools.ietf.org/html/rfc4572#section-8) Section 8) and their corresponding certificate fingerprint values (in lowercase hex string as expressed utilizing the syntax of "fingerprint" in [RFC 4572](https://tools.ietf.org/html/rfc4572#section-5) Section 5).
 
@@ -99,16 +86,18 @@ Map of DTLS algorithms (as defined in the "Hash function Textual Names" registry
 
 Field             | Type    | Description   | Required | Default
 ----------------- | ------- | ------------- | -------- | ---------
-`sha-1`           | String  | SHA-1 certificate fingerprint. | Yes |
-`sha-224`         | String  | SHA-224 certificate fingerprint. | Yes |
-`sha-256`         | String  | SHA-256 certificate fingerprint. | Yes |
-`sha-384`         | String  | SHA-384 certificate fingerprint. | Yes |
-`sha-512`         | String  | SHA-512 certificate fingerprint. | Yes |
+`sha-1`           | String  | SHA-1 certificate fingerprint.   | No |
+`sha-224`         | String  | SHA-224 certificate fingerprint. | No |
+`sha-256`         | String  | SHA-256 certificate fingerprint. | No |
+`sha-384`         | String  | SHA-384 certificate fingerprint. | No |
+`sha-512`         | String  | SHA-512 certificate fingerprint. | No |
 
 </div>
 
 #### RemoteDtlsParameters
 {: #WebRtcTransport-RemoteDtlsParameters .code}
+
+**TODO: NO**
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -151,7 +140,7 @@ Value          | Description
 "new"          | No ICE Binding Requests have been received yet.
 "connected"    | Valid ICE Binding Request have been received, but none with USE-CANDIDATE attribute. Outgoing media is allowed.
 "completed"    | ICE Binding Request with USE_CANDIDATE attribute has been received. Media in both directions is now allowed.
-"disconnected" | ICE was "connected" or "completed" but it has suddenly failed (currently this can just happen if the selected tuple has "tcp" protocol).
+"disconnected" | ICE was "connected" or "completed" but it has suddenly failed (this can just happen if the selected tuple has "tcp" protocol).
 "closed"       | ICE state when the `transport` has been closed.
 
 </div>
@@ -195,94 +184,87 @@ Value          | Description
 #### webrtcTransport.id
 {: #webrtcTransport-id .code}
 
-* Read only
-
-Unique identifier (Number).
+See [transport.id](#transport-id).
 
 #### webrtcTransport.closed
 {: #webrtcTransport-closed .code}
 
-* Read only
-
-A Boolean indicating whether the `webrtcTransport` has been closed.
+See [transport.closed](#transport-closed).
 
 #### webrtcTransport.appData
 {: #webrtcTransport-appData .code}
 
-* Read-write
-
-Custom data set by the application. When the `webrtcTransport` is created via the [mediasoup protocol](/documentation/v2/mediasoup-protocol/), the `appData` is filled with the corresponding field in the `createTransport` request.
-
-#### webrtcTransport.direction
-{: #webrtcTransport-direction .code}
-
-* Read only
-
-A String ("send" or "recv") representing the direction of the media over this `webrtcTransport`.
+See [transport.appData](#transport-appData).
 
 #### webrtcTransport.iceRole
 {: #webrtcTransport-iceRole .code}
 
-* Read only
+Local ICE role. Due to the mediasoup ICE Lite design, this is always "controlled".
 
-String indicating the ICE role of the `webrtcTransport`. Due to the ICE Lite design, this is always "controlled".
+> `@type` String, read only
 
-#### webrtcTransport.iceLocalParameters
-{: #webrtcTransport-iceLocalParameters .code}
+#### webrtcTransport.iceParameters
+{: #webrtcTransport-iceParameters .code}
 
-* Read only
+Local ICE parameters.
 
-Local [IceParameters](#WebRtcTransport-IceParameters) of the `webrtcTransport`.
+> `@type` [IceParameters](#WebRtcTransport-IceParameters), read only
 
-#### webrtcTransport.iceLocalCandidates
-{: #webrtcTransport-iceLocalCandidates .code}
 
-* Read only
+#### webrtcTransport.iceCandidates
+{: #webrtcTransport-iceCandidates .code}
 
-Sequence of local [IceCandidate](#WebRtcTransport-IceCandidate) Objects associated to this `webrtcTransport`.
+Local ICE candidates.
+
+> `@type` Array&lt;[IceCandidate](#WebRtcTransport-IceCandidate)&gt;, read only
 
 #### webrtcTransport.iceState
 {: #webrtcTransport-iceState .code}
 
-* Read only
+Current ICE state.
 
-The current [IceState](#WebRtcTransport-IceState) of the `webrtcTransport`.
+> `@type` [IceState](#WebRtcTransport-IceState), read only
 
 #### webrtcTransport.iceSelectedTuple
 {: #webrtcTransport-iceSelectedTuple .code}
 
-* Read only
+The selected transport tuple if ICE is in "connected" or "completed" state. It is `undefined` if ICE is not yet established (no working candidate pair was found).
 
-The selected [IceSelectedTuple](#WebRtcTransport-IceSelectedTuple) indicating information about the selected ICE candidate pair.
+> `@type` [TransportTuple](#TransportTuple), read only
 
-It is `undefined` if ICE is not yet established (no working candidate pair was found).
+#### webrtcTransport.dtlsParameters
+{: #webrtcTransport-dtlsParameters .code}
 
-#### webrtcTransport.dtlsLocalParameters
-{: #webrtcTransport-dtlsLocalParameters .code}
+Local DTLS parameters.
 
-* Read only
-
-[LocalDtlsParameters](#WebRtcTransport-LocalDtlsParameters) of the `webrtcTransport`.
+> `@type` [DtlsParameters](#WebRtcTransport-DtlsParameters), read only
 
 #### webrtcTransport.dtlsState
 {: #webrtcTransport-dtlsState .code}
 
-* Read only
+Current DTLS state.
 
-The current [DtlsState](#WebRtcTransport-DtlsState) of the `webrtcTransport`.
+> `@type` [DtlsState](#WebRtcTransport-DtlsState), read only
 
 #### webrtcTransport.dtlsRemoteCert
 {: #webrtcTransport-dtlsRemoteCert .code}
 
-* Read only
+The remote certificate in PEM format. It is set once [`dtlsState`](#webrtcTransport-dtlsState) becomes "connected".
 
-The remote certificate in PEM format (String). It is set once [`dtlsState`](#webrtcTransport-dtlsState) becomes "connected".
+> `@type` String, read only
 
 <div markdown="1" class="note">
 
-The application may want to inspect the remote certificate for authorization purposes by using some certificates utility such as the Node [pem](https://github.com/andris9/pem) module.
+The application may want to inspect the remote certificate for authorization purposes by using some certificates utility such as the Node [pem](https://www.npmjs.com/package/pem) module.
 
 </div>
+
+#### webrtcTransport.observer
+{: #webrtcTransport-observer .code}
+
+See the [Observer Events](#WebRtcTransport-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
 
 </section>
 
@@ -292,18 +274,57 @@ The application may want to inspect the remote certificate for authorization pur
 
 <section markdown="1">
 
-#### webrtcTransport.close([appData])
+#### webrtcTransport.close()
 {: #webrtcTransport-close .code}
 
-Closes the `webrtcTransport` and triggers a [`close`](#webrtcTransport-on-close) event.
+See [transport.close()](#transport-close).
+
+#### webrtcTransport.getStats()
+{: #webrtcTransport-getStats .code}
+
+Returns current RTC statistics of the WebRTC transport.
+
+> `@async`
+> 
+> `@overrides`
+> 
+> `@returns` Array&lt;[RTCStats](https://www.w3.org/TR/webrtc/#dom-rtcstats)&gt;
+
+*TODO:* Write an output example.
+
+#### webrtcTransport.connect({ dtlsParameters })
+{: #webrtcTransport-connect .code}
+
+Provides the WebRTC transport with the remote endpoint parameters.
 
 <div markdown="1" class="table-wrapper L3">
 
-Argument   | Type    | Description | Required | Default 
----------- | ------- | ----------- | -------- | ----------
-`appData`  | Any     | Custom app data. | No |
+Argument         | Type    | Description | Required | Default 
+---------------- | ------- | ----------- | -------- | ----------
+`dtlsParameters` | [DtlsParameters](#WebRtcTransport-DtlsParameters) | Remote DTLS parameters. | Yes |
 
 </div>
+
+> `@async`
+> 
+> `@abstract`
+
+```javascript
+await transport.connect(
+  {
+    dtlsParameters :
+    {
+      role         : "server",
+      fingerprints :
+      [
+        {
+          algorithm : "sha-256",
+          value     : "E5:F5:CA:A7:2D:93:E6:16:AC:21:09:9F:23:51:62:8C:D0:66:E9:0C:22:54:2B:82:0C:DF:E0:C5:2C:7E:CD:53"
+        }
+      ]
+    }
+  });
+```
 
 #### webrtcTransport.setMaxBitrate(bitrate)
 {: #webrtcTransport-setMaxBitrate .code}
@@ -341,24 +362,6 @@ Returns a Promise resolving to an array of Objects containing RTC stats related 
 Check the [RTC stats](/documentation/v2/rtc-stats/) section for more details.
 </div>
 
-#### webrtcTransport.startMirroring(options)
-{: #webrtcTransport-startMirroring .code}
-
-Enables RTP/RTCP mirroring. The selected RTP/RTCP over this `webrtcTransport` will be sent to the given address (see `options`).
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument   | Type    | Description | Required | Default 
----------- | ------- | ----------- | -------- | ----------
-`options`  | [MirroringOptions](#WebRtcTransport-MirroringOptions) | Options. | Yes |
-
-</div>
-
-#### webrtcTransport.stopMirroring()
-{: #webrtcTransport-stopMirroring .code}
-
-Stops RTP/RTCP mirroring.
-
 </section>
 
 
@@ -392,7 +395,7 @@ Emitted when the ICE selected tuple changes.
 
 Argument | Type    | Description   
 ----------------- | ------- | ----------------
-`iceSelectedTuple`| [IceSelectedTuple](#WebRtcTransport-IceSelectedTuple) | The new ICE selected tuple.
+`iceSelectedTuple`| [TransportTuple](#TransportTuple) | The new ICE selected tuple.
 
 </div>
 

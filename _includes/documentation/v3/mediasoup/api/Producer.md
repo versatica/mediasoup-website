@@ -3,9 +3,29 @@
 
 <section markdown="1">
 
-A `producer` represents an audio/video media track sent to the `room`.
+A producer represents an audio or video source being injected into a router. It's created on top of a transport that defines how the media packets are carried.
 
-For more information, check the [Glossary](/documentation/v2/glossary/#Glossary-Producer) section.
+</section>
+
+
+### Dictionaries
+{: #Producer-dictionaries}
+
+<section markdown="1">
+
+#### ProducerOptions
+{: #ProducerOptions .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field           | Type    | Description   | Required | Default
+--------------- | ------- | ------------- | -------- | ---------
+`kind`          | String  | Media kind ("audio" or "video"). | Yes |
+`rtpParameters` | [RTCRtpSendParameters](http://draft.ortc.org/#rtcrtpsendparameters*) | RTP parameters defining what the endpoint is sending. | Yes |
+`paused`        | Boolean | Whether the producer must start in paused mode. | No | `false`
+`appData`       | Object  | Custom application data. | No | `{}`
+
+</div>
 
 </section>
 

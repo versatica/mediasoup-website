@@ -14,7 +14,7 @@ An audio level observer monitor the volume of audio producers.
 <section markdown="1">
 
 #### AudioLevelObserverOptions
-{: #AudioLevelObserver-Options .code}
+{: #AudioLevelObserverOptions .code}
 
 <div markdown="1" class="table-wrapper L3">
 

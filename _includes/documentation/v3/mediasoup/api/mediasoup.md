@@ -49,16 +49,17 @@ An event emitter that allows the application (or third party libraries) monitor 
 
 Creates a new worker with the given settings.
 
-> `@async`
-> `@returns` [Worker](#Worker)
-
 <div markdown="1" class="table-wrapper L3">
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`settings` | [WorkerSettings](#Worker-Settings) | Worker settings. | No |
+`settings` | [WorkerSettings](#WorkerSettings) | Worker settings. | No |
 
 </div>
+
+> `@async`
+> 
+> `@returns` [Worker](#Worker)
 
 ```javascript
 const worker = async mediasoup.createWorker(

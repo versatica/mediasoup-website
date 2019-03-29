@@ -14,7 +14,7 @@ A router holds a multiparty RTC (Real-Time Communication) conference by allowing
 <section markdown="1">
 
 #### RouterMediaCodec
-{: #Router-MediaCodec .code}
+{: #RouterMediaCodec .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -91,17 +91,17 @@ Closes the router, including all its transports and RTP observers (such as audio
 
 Creates a new WebRTC transport.
 
-> `@async`
-> 
-> `@returns` [WebRtcTransport](#WebRtcTransport)
-
 <div markdown="1" class="table-wrapper L3">
 
 Argument      | Type    | Description | Required | Default 
 ------------- | ------- | ----------- | -------- | ----------
-`options` | [WebRtcTransportOptions](#WebRtcTransport-Options) | Options. | Yes |
+`options` | [WebRtcTransportOptions](#WebRtcTransportOptions) | WebRTC transport options. | Yes |
 
 </div>
+
+> `@async`
+> 
+> `@returns` [WebRtcTransport](#WebRtcTransport)
 
 ```javascript
 const transport = await router.createWebRtcTransport(
@@ -118,17 +118,17 @@ const transport = await router.createWebRtcTransport(
 
 Creates a new plain RTP transport.
 
-> `@async`
-> 
-> `@returns` [PlainRtpTransport](#PlainRtpTransport)
-
 <div markdown="1" class="table-wrapper L3">
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`options`   | [PlainRtpTransportOptions](#PlainRtpTransport-Options) | Options. | Yes |
+`options`   | [PlainRtpTransportOptions](#PlainRtpTransportOptions) | Plain RTP transport options. | Yes |
 
 </div>
+
+> `@async`
+> 
+> `@returns` [PlainRtpTransport](#PlainRtpTransport)
 
 ```javascript
 const transport = await router.createPlainRtpTransport(
@@ -144,17 +144,17 @@ const transport = await router.createPlainRtpTransport(
 
 Creates a new pipe transport.
 
-> `@async`
-> 
-> `@returns` [PipeTransport](#PipeTransport)
-
 <div markdown="1" class="table-wrapper L3">
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`options`   | [PipeTransportOptions](#PipeTransport-Options) | Options. | Yes |
+`options`   | [PipeTransportOptions](#PipeTransportOptions) | Pipe transport options. | Yes |
 
 </div>
+
+> `@async`
+> 
+> `@returns` [PipeTransport](#PipeTransport)
 
 ```javascript
 const transport = await router.createPipeTransport(
@@ -171,14 +171,6 @@ Pipes the given producer into another router in the same host. It creates an und
 
 This is specially useful to expand broadcasting capabilities (one to many) by interconnecting different routers that run in separate workers (so in different CPU cores).
 
-> `@async`
-> 
-> `@returns` Object:
-> 
-> * `pipeConsumer`  {`@type` [Consumer](#Consumer)} Consumer created in the current router.
->
-> * `pipeProducer`  {`@type` [Producer](#Producer)} Producer created in the destination router.
-
 <div markdown="1" class="table-wrapper L3">
 
 Argument     | Type    | Description | Required | Default 
@@ -188,6 +180,14 @@ Argument     | Type    | Description | Required | Default
 `listenIp`   | String  | Internal IP to connect both routers. | No      | "127.0.0.1"
 
 </div>
+
+> `@async`
+> 
+> `@returns` Object:
+> 
+> * `pipeConsumer` {`@type` [Consumer](#Consumer)} Consumer created in the current router.
+>
+> * `pipeProducer` {`@type` [Producer](#Producer)} Producer created in the destination router.
 
 ```javascript
 // Have two workers.
@@ -215,17 +215,17 @@ const consumer2 = await transport2.consume({ producerId: producer1.id, ... });
 
 Creates a new audio level observer.
 
-> `@async`
-> 
-> `@returns` [AudioLevelObserver](#AudioLevelObserver)
-
 <div markdown="1" class="table-wrapper L3">
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`options`   | [AudioLevelObserverOptions](#AudioLevelObserver-Options) | Options. | Yes |
+`options`   | [AudioLevelObserverOptions](#AudioLevelObserverOptions) | Options. | Yes |
 
 </div>
+
+> `@async`
+> 
+> `@returns` [AudioLevelObserver](#AudioLevelObserver)
 
 ```javascript
 const audioLevelObserver = await router.createAudioLevelObserver(
@@ -241,8 +241,6 @@ const audioLevelObserver = await router.createAudioLevelObserver(
 
 Whether the given RTP capabilities are valid to consume the given producer.
 
-> `@returns` Boolean
-
 <div markdown="1" class="table-wrapper L3">
 
 Argument          | Type    | Description  | Required | Default 
@@ -251,6 +249,8 @@ Argument          | Type    | Description  | Required | Default
 `rtpCapabilities` | [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*) | RTP capabilities of the potential consumer. | Yes |
 
 </div>
+
+> `@returns` Boolean
 
 ```javascript
 if (router.canConsume({ producerId, rtpCapabilities }))
@@ -293,7 +293,7 @@ Emitted when a new transport is created.
 
 Argument    | Type    | Description   
 ----------- | ------- | ----------------
-`transport` | [WebRtcTransport](#WebRtcTransport)\|[PlainRtpTransport](#PlainRtpTransport)\|[PipeTransport](#PipeTransport) | New transport.
+`transport` | [Transport](#Transport) | New transport.
 
 </div>
 
