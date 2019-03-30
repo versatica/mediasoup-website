@@ -3,9 +3,29 @@
 
 <section markdown="1">
 
-A `consumer` represents an audio/video media track sent to a remote client.
+A consumer represents an audio or video media track being forwarded from a mediasoup router. It's created on top of a transport that defines how the media packets are carried.
 
-For more information, check the [Glossary](/documentation/v2/glossary/#Glossary-Consumer) section.
+</section>
+
+
+### Dictionaries
+{: #Consumer-dictionaries}
+
+<section markdown="1">
+
+#### ConsumerOptions
+{: #ConsumerOptions .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field           | Type    | Description   | Required | Default
+--------------- | ------- | ------------- | -------- | ---------
+`producerId`    | String  | The id of the producer to consume. | Yes |
+`rtpCapabilities` | [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*) | RTP capabilities of the consuming endpoint. | Yes |
+`paused`        | Boolean | Whether the consumer must start in paused mode. | No | `false`
+`appData`       | Object  | Custom application data. | No | `{}`
+
+</div>
 
 </section>
 

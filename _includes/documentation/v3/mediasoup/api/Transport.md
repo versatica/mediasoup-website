@@ -76,7 +76,7 @@ Custom data Object provided by the application in the transport factory method. 
 > `@type` Object, read only
 
 ```javascript
-transport.appData.foo = 'bar';
+transport.appData.foo = "bar";
 ```
 
 </section>
@@ -115,7 +115,7 @@ Provides the transport with the remote endpoint's transport parameters. Each tra
 #### transport.produce(options)
 {: #transport-produce .code}
 
-Instructs the transport to receive an audio or video source via RTP (or SRTP depending on the transport type). This is the way to inject media into mediasoup.
+Instructs the transport to receive audio or video RTP (or SRTP depending on the transport type). This is the way to inject media into mediasoup.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -173,6 +173,124 @@ const producer = await transport.produce(
       {
         cname : 'Zjhd656aqfoo'
       }
+    }
+  });
+```
+
+#### transport.consume(options)
+{: #transport-consume .code}
+
+Instructs the transport to send audio or video RTP (or SRTP depending on the transport type). This is the way to extract media from mediasoup.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`options`   | [ConsumerOptions](#ConsumerOptions) | Consumer options. | Yes |
+
+</div>
+
+> `@async`
+> 
+> `@returns` [Consumer](#Consumer)
+
+```javascript
+const consumer = await transport.produce(
+  {
+    producerId      : "a7a955cf-fe67-4327-bd98-bbd85d7e2ba3",
+    rtpCapabilities :
+    {
+      codecs :
+      [
+        {
+          mimeType             : "audio/opus",
+          kind                 : "audio",
+          clockRate            : 48000,
+          preferredPayloadType : 100,
+          channels             : 2
+        },
+        {
+          mimeType             : "video/H264",
+          kind                 : "video",
+          clockRate            : 90000,
+          preferredPayloadType : 101,
+          rtcpFeedback         :
+          [
+            { type: "nack" },
+            { type: "nack", parameter: "pli" },
+            { type: "ccm", parameter: "fir" },
+            { type: "goog-remb" }
+          ],
+          parameters :
+          {
+            "level-asymmetry-allowed" : 1,
+            "packetization-mode"      : 1,
+            "profile-level-id"        : "4d0032"
+          }
+        },
+        {
+          mimeType             : "video/rtx",
+          kind                 : "video",
+          clockRate            : 90000,
+          preferredPayloadType : 102,
+          rtcpFeedback         : [],
+          parameters           :
+          {
+            apt : 101
+          }
+        }
+      ],
+      headerExtensions :
+      [
+        {
+          kind             : "audio",
+          uri              : "urn:ietf:params:rtp-hdrext:ssrc-audio-level",
+          preferredId      : 1,
+          preferredEncrypt : false
+        },
+        {
+          kind             : "video",
+          uri              : "urn:ietf:params:rtp-hdrext:toffset",
+          preferredId      : 2,
+          preferredEncrypt : false
+        },
+        {
+          kind             : "audio",
+          uri              : "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time", // eslint-disable-line max-len
+          preferredId      : 3,
+          preferredEncrypt : false
+        },
+        {
+          kind             : "video",
+          uri              : "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time", // eslint-disable-line max-len
+          preferredId      : 3,
+          preferredEncrypt : false
+        },
+        {
+          kind             : "video",
+          uri              : "urn:3gpp:video-orientation",
+          preferredId      : 4,
+          preferredEncrypt : false
+        },
+        {
+          kind             : "audio",
+          uri              : "urn:ietf:params:rtp-hdrext:sdes:mid",
+          preferredId      : 5,
+          preferredEncrypt : false
+        },
+        {
+          kind             : "video",
+          uri              : "urn:ietf:params:rtp-hdrext:sdes:mid",
+          preferredId      : 5,
+          preferredEncrypt : false
+        },
+        {
+          kind             : "video",
+          uri              : "urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id",
+          preferredId      : 6,
+          preferredEncrypt : false
+        }
+      ],
     }
   });
 ```

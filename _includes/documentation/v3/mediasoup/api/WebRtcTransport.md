@@ -346,9 +346,9 @@ This method can just be called on open `webrtcTransports` with `direction: "send
 Usage example:
 
 ```javascript
-peer.on('newtransport', (webrtcTransport) =>
+peer.on("newtransport", (webrtcTransport) =>
 {
-  if (webrtcTransport.direction === 'send')
+  if (webrtcTransport.direction === "send")
     webrtcTransport.setMaxBitrate(250000);
 });
 ```

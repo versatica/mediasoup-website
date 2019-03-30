@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-A producer represents an audio or video source being injected into a router. It's created on top of a transport that defines how the media packets are carried.
+A producer represents an audio or video source being injected into a mediasoup router. It's created on top of a transport that defines how the media packets are carried.
 
 </section>
 
@@ -21,7 +21,7 @@ A producer represents an audio or video source being injected into a router. It'
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
 `kind`          | String  | Media kind ("audio" or "video"). | Yes |
-`rtpParameters` | [RTCRtpSendParameters](http://draft.ortc.org/#rtcrtpsendparameters*) | RTP parameters defining what the endpoint is sending. | Yes |
+`rtpParameters` | [RTCRtpSendParameters](https://draft.ortc.org/#rtcrtpsendparameters*) | RTP parameters defining what the endpoint is sending. | Yes |
 `paused`        | Boolean | Whether the producer must start in paused mode. | No | `false`
 `appData`       | Object  | Custom application data. | No | `{}`
 
