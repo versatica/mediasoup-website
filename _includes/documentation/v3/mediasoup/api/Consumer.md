@@ -16,6 +16,8 @@ A consumer represents an audio or video media track being forwarded from a media
 #### ConsumerOptions
 {: #ConsumerOptions .code}
 
+*TODO:* Properly document `preferredLayers`.
+
 <div markdown="1" class="table-wrapper L3">
 
 Field           | Type    | Description   | Required | Default
@@ -23,6 +25,7 @@ Field           | Type    | Description   | Required | Default
 `producerId`    | String  | The id of the producer to consume. | Yes |
 `rtpCapabilities` | [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*) | RTP capabilities of the consuming endpoint. | Yes |
 `paused`        | Boolean | Whether the consumer must start in paused mode. | No | `false`
+`preferredLayers` | Object | Object with preferred spatial and temporal layer for simulcast or SVC media sources. | No |
 `appData`       | Object  | Custom application data. | No | `{}`
 
 </div>

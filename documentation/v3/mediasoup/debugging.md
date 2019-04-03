@@ -148,10 +148,10 @@ const worker = await mediasoup.createWorker(
   });
 ```
 
-* Log all the ICE debugs/warnings and any kind of error:
+* Log all ICE debugs/warnings and any kind of error:
 
 ```bash
-$ DEBUG="mediasoup:mediasoup-worker:* *ERROR*" node myapp.js
+$ DEBUG="mediasoup* *ERROR*" node myapp.js
 ```
 
 ```javascript
