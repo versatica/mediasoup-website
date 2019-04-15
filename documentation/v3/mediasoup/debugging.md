@@ -120,7 +120,7 @@ The available list of log tags is the following:
 * **srtp**: Logs about SRTP encryption/decryption
 * **rtcp**: Logs about RTCP
 * **rtx**: Logs about RTP retransmission, including NACK/PLI/FIR
-* **rbe**: Logs about remote bandwidth estimation
+* **bwe**: Logs about transport bandwidth estimation
 * **score**: Logs related to the scores of Producers and Consumers
 * **simulcast**: Logs about video simulcast
 * **svc**: Logs about video SVC

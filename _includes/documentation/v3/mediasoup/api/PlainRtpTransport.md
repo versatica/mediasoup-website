@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-A `plainRtpTransport` represents a network path negotiated on which plain RTP and RTCP (no ICE nor DTLS) is carried.
+A plain RTP transport represents a network path through which plain RTP and RTCP is transmitted.
 
 > `@inherits` [Transport](#Transport)
 
@@ -30,18 +30,6 @@ Field         | Type    | Description   | Required | Default
 
 </div>
 
-#### RemoteParameters
-{: #PlainRtpTransport-RemoteParameters .code}
-
-<div markdown="1" class="table-wrapper L3">
-
-Field        | Type    | Description   | Required | Default
------------- | ------- | ------------- | -------- | ---------
-`ip`   | String  | Destination IP. | Yes |
-`port` | Number | Destination port. | Yes |
-
-</div>
-
 </section>
 
 
@@ -50,40 +38,21 @@ Field        | Type    | Description   | Required | Default
 
 <section markdown="1">
 
-#### plainRtpTransport.id
-{: #plainRtpTransport-id .code}
-
-* Read only
-
-Unique identifier (Number).
-
-#### plainRtpTransport.closed
-{: #plainRtpTransport-closed .code}
-
-* Read only
-
-A Boolean indicating whether the `plainRtpTransport` has been closed.
+See also [Transport Properties](#Transport-properties).
 
 #### plainRtpTransport.tuple
 {: #plainRtpTransport-tuple .code}
 
-* Read only
+The transport tuple. It's set after calling `connect()` method (it's `undefined` otherwise). If RTCP-mux is enabled, this tuple refers to both RTP and RTCP.
 
-The [5-Tuple](#Transport-IceSelectedTuple) indicating information about the connection.
+> `@type` [TransportTuple](#TransportTuple), read only
 
-#### plainRtpTransport.localIP
-{: #plainRtpTransport-localIP .code}
+#### plainRtpTransport.rtcpTuple
+{: #plainRtpTransport-rtcpTuple .code}
 
-* Read only
+The transport tuple for RTCP. It's set after calling `connect()` method just if RTCP-mux is not enabled.
 
-The `local IP address` (String) of the `transport`.
-
-#### plainRtpTransport.localPort
-{: #plainRtpTransport-localPort .code}
-
-* Read only
-
-The `local port` (Number) of the `transport`.
+> `@type` [TransportTuple](#TransportTuple), read only
 
 </section>
 
@@ -93,22 +62,41 @@ The `local port` (Number) of the `transport`.
 
 <section markdown="1">
 
-#### plainRtpTransport.close()
-{: #plainRtpTransport-close .code}
+See also [Transport Methods](#Transport-methods).
 
-Closes the `plainRtpTransport`.
+#### plainRtpTransport.connect({ ip, port, rtcpPort })
+{: #plainRtpTransport-connect .code}
 
-#### plainRtpTransport.setRemoteParameters(parameters)
-{: #plainRtpTransport-setRemoteParameters .code}
-
-Set the `remote IP address` and `port` for the `plainRtpTransport`.
+Provides the plain RTP transport with the endpoint parameters.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`parameters`  | [PlainRtpRemoteParameters](#PlainRtpTransport-RemoteParameters) | Remote parameters. | Yes |
+`ip`       | String  | Remote IPv4 or IPv6.   | Yes |
+`port`     | Number  | Remote port.           | Yes |
+`rtcpPort` | Number  | Remote RTCP port (required if RTCP-mux is not enabled).           | No |
 
 </div>
+
+</section>
+
+
+### Events
+{: #PlainRtpTransport-events}
+
+<section markdown="1">
+
+See also [Transport Events](#Transport-events).
+
+</section>
+
+
+### Observer Events
+{: #PlainRtpTransport-observer-events}
+
+<section markdown="1">
+
+See also [Transport Events](#Transport-observer-events).
 
 </section>

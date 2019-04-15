@@ -29,7 +29,7 @@ mediasoup **v1**.
 
 ##### [Examples](/documentation/examples/)
 
-Projects using mediasoup.
+mediasoup usage samples.
 
 
 ##### [Publications](/documentation/publications/)

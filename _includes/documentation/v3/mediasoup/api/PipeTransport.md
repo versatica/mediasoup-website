@@ -3,10 +3,16 @@
 
 <section markdown="1">
 
-A `plainRtpTransport` represents a network path negotiated on which plain RTP and RTCP (no ICE nor DTLS) is carried.
+A pipe transport represents a network path through which plain RTP and RTCP is transmitted. Pipe transports are intented to intercommunicate two [Router](#Router) instances collocated in the same host or in separate hosts, thus a pipe transport is typically connected with other pipe transport in a different router.
 
 > `@inherits` [Transport](#Transport)
-> 
+
+<div markdown="1" class="note">
+
+When calling [consume()](#transport-consume) on a pipe transport, all RTP streams of the [Producer](#Producer) are transmitted verbatim (in contrast to what happens in [WebRtcTransport](#WebRtcTransport) and [PlainRtpTransport](#PlainRtpTransport) in which a single RTP stream is sent at any time).
+
+</div>
+
 </section>
 
 
@@ -27,18 +33,6 @@ Field         | Type    | Description   | Required | Default
 
 </div>
 
-#### RemoteParameters
-{: #PipeTransport-RemoteParameters .code}
-
-<div markdown="1" class="table-wrapper L3">
-
-Field        | Type    | Description   | Required | Default
------------- | ------- | ------------- | -------- | ---------
-`ip`   | String  | Destination IP. | Yes |
-`port` | Number | Destination port. | Yes |
-
-</div>
-
 </section>
 
 
@@ -47,40 +41,14 @@ Field        | Type    | Description   | Required | Default
 
 <section markdown="1">
 
-#### plainRtpTransport.id
-{: #plainRtpTransport-id .code}
+See also [Transport Properties](#Transport-properties).
 
-* Read only
+#### pipeTransport.tuple
+{: #pipeTransport-tuple .code}
 
-Unique identifier (Number).
+The transport tuple. It's set after calling `connect()` method (it's `undefined` otherwise). This tuple refers to both RTP and RTCP.
 
-#### plainRtpTransport.closed
-{: #plainRtpTransport-closed .code}
-
-* Read only
-
-A Boolean indicating whether the `plainRtpTransport` has been closed.
-
-#### plainRtpTransport.tuple
-{: #plainRtpTransport-tuple .code}
-
-* Read only
-
-The [5-Tuple](#Transport-IceSelectedTuple) indicating information about the connection.
-
-#### plainRtpTransport.localIP
-{: #plainRtpTransport-localIP .code}
-
-* Read only
-
-The `local IP address` (String) of the `transport`.
-
-#### plainRtpTransport.localPort
-{: #plainRtpTransport-localPort .code}
-
-* Read only
-
-The `local port` (Number) of the `transport`.
+> `@type` [TransportTuple](#TransportTuple), read only
 
 </section>
 
@@ -90,22 +58,40 @@ The `local port` (Number) of the `transport`.
 
 <section markdown="1">
 
-#### plainRtpTransport.close()
-{: #plainRtpTransport-close .code}
+See also [Transport Methods](#Transport-methods).
 
-Closes the `plainRtpTransport`.
+#### pipeTransport.connect({ ip, port })
+{: #pipeTransport-connect .code}
 
-#### plainRtpTransport.setRemoteParameters(parameters)
-{: #plainRtpTransport-setRemoteParameters .code}
-
-Set the `remote IP address` and `port` for the `plainRtpTransport`.
+Provides the pipe RTP transport with the remote parameters.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`parameters`  | [PlainRtpRemoteParameters](#PipeTransport-RemoteParameters) | Remote parameters. | Yes |
+`ip`       | String  | Remote IPv4 or IPv6.   | Yes |
+`port`     | Number  | Remote port.           | Yes |
 
 </div>
+
+</section>
+
+
+### Events
+{: #PipeTransport-events}
+
+<section markdown="1">
+
+See also [Transport Events](#Transport-events).
+
+</section>
+
+
+### Observer Events
+{: #PipeTransport-observer-events}
+
+<section markdown="1">
+
+See also [Transport Events](#Transport-observer-events).
 
 </section>

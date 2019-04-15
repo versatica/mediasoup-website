@@ -9,7 +9,7 @@ anchors : true
 Install mediasoup-client within you client application:
 
 ```bash
-$ npm install mediasoup-client@2 --save
+$ npm install mediasoup-client@3 --save
 ```
 
 

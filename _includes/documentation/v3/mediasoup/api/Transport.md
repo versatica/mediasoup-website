@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-A transport makes it possible to inject RTP into a router and forward RTP to endpoints.
+A transport makes it possible to inject RTP into a router and/or forward RTP from a router to endpoints or other routers.
 
 mediasoup implements the following transport types:
 
@@ -54,6 +54,8 @@ Field              | Type    | Description   | Required | Default
 
 <section markdown="1">
 
+These are properties common to all transport types. Each transport type may define new ones.
+
 #### transport.id
 {: #transport-id .code}
 
@@ -79,6 +81,13 @@ Custom data Object provided by the application in the transport factory method. 
 transport.appData.foo = "bar";
 ```
 
+#### transport.observer
+{: #transport-observer .code}
+
+See the [Observer Events](#Transport-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
+
 </section>
 
 
@@ -86,6 +95,8 @@ transport.appData.foo = "bar";
 {: #Transport-methods}
 
 <section markdown="1">
+
+These are methods common to all transport types. Each transport type may define new ones.
 
 #### transport.close()
 {: #transport-close .code}
@@ -95,13 +106,17 @@ Closes the transport, including all its producers and consumers.
 #### transport.getStats()
 {: #transport-getStats .code}
 
-Returns current RTC statistics of the transport. Each transport type produces a different set of statistics. Check the `getStats()` method in each one of them.
+Returns current RTC statistics of the transport. Each transport type produces a different set of statistics.
 
 > `@async`
 > 
 > `@abstract`
 > 
 > `@returns` Array&lt;[RTCStats](https://www.w3.org/TR/webrtc/#dom-rtcstats)&gt;
+
+<div markdown="1" class="note">
+Check the [RTC Statistics](/documentation/v3/rtc-statistics/) section for more details.
+</div>
 
 #### transport.connect()
 {: #transport-connect .code}
@@ -159,9 +174,22 @@ const producer = await transport.produce(
       ],
       headerExtensions :
       [
-        { id: 2, uri: "urn:ietf:params:rtp-hdrext:sdes:mid" },
-        { id: 3, uri: "urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id" },
-        { id: 5, uri: "urn:3gpp:video-orientation" }
+        {
+          id  : 2, 
+          uri : "urn:ietf:params:rtp-hdrext:sdes:mid"
+        },
+        { 
+          id  : 3, 
+          uri : "urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id"
+        },
+        { 
+          id  : 5, 
+          uri: "urn:3gpp:video-orientation" 
+        },
+        { 
+          id  : 6, 
+          uri : "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time"
+        }
       ],
       encodings :
       [
@@ -195,7 +223,7 @@ Argument    | Type    | Description | Required | Default
 > `@returns` [Consumer](#Consumer)
 
 ```javascript
-const consumer = await transport.produce(
+const consumer = await transport.consume(
   {
     producerId      : "a7a955cf-fe67-4327-bd98-bbd85d7e2ba3",
     rtpCapabilities :
@@ -243,56 +271,89 @@ const consumer = await transport.produce(
       headerExtensions :
       [
         {
-          kind             : "audio",
-          uri              : "urn:ietf:params:rtp-hdrext:ssrc-audio-level",
-          preferredId      : 1,
-          preferredEncrypt : false
-        },
-        {
-          kind             : "video",
-          uri              : "urn:ietf:params:rtp-hdrext:toffset",
-          preferredId      : 2,
-          preferredEncrypt : false
-        },
-        {
-          kind             : "audio",
-          uri              : "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time", // eslint-disable-line max-len
-          preferredId      : 3,
-          preferredEncrypt : false
-        },
-        {
           kind             : "video",
           uri              : "http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time", // eslint-disable-line max-len
-          preferredId      : 3,
-          preferredEncrypt : false
-        },
-        {
-          kind             : "video",
-          uri              : "urn:3gpp:video-orientation",
           preferredId      : 4,
           preferredEncrypt : false
         },
         {
           kind             : "audio",
-          uri              : "urn:ietf:params:rtp-hdrext:sdes:mid",
-          preferredId      : 5,
+          uri              : "urn:ietf:params:rtp-hdrext:ssrc-audio-level",
+          preferredId      : 8,
           preferredEncrypt : false
         },
         {
           kind             : "video",
-          uri              : "urn:ietf:params:rtp-hdrext:sdes:mid",
-          preferredId      : 5,
+          uri              : "urn:3gpp:video-orientation",
+          preferredId      : 9,
           preferredEncrypt : false
         },
         {
           kind             : "video",
-          uri              : "urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id",
-          preferredId      : 6,
+          uri              : "urn:ietf:params:rtp-hdrext:toffset",
+          preferredId      : 10,
           preferredEncrypt : false
         }
-      ],
+      ]
     }
   });
 ```
 
 </section>
+
+
+### Events
+{: #Transport-events}
+
+<section markdown="1">
+
+These are events common to all transport types. Each transport type may define new ones.
+
+#### transport.on("routerclose")
+{: #transport-on-routerclose .code}
+
+Emitted when the router this transport belongs to is closed. The transport itself is also closed.
+
+</section>
+
+
+### Observer Events
+{: #Transport-observer-events}
+
+<section markdown="1">
+
+These are observer events common to all transport types. Each transport type may define new ones.
+
+#### transport.observer.on("close")
+{: #transport-observer-on-close .code}
+
+Emitted when the transport is closed.
+
+#### transport.observer.on("newproducer", fn(producer))
+{: #transport-observer-on-newproducer .code}
+
+Emitted when a new producer is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`producer` | [Producer](#Producer) | New producer.
+
+</div>
+
+#### transport.observer.on("newconsumer", fn(consumer))
+{: #transport-observer-on-newconsumer .code}
+
+Emitted when a new consumer is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`consumer` | [Consumer](#Consumer) | New consumer.
+
+</div>
+
+</section>
+

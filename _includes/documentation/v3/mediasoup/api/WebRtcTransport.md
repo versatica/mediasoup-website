@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-A WebRTC transport represents a network path established by both, a WebRTC endpoint and mediasoup, via ICE and DTLS. A WebRTC transport may be used to receive media, to send media or to both receive and send. There is no limitation in mediasoup. However, due to their design, mediasoup-client and libmediasoupclient require separate WebRTC transports for sending and receiving.
+A WebRTC transport represents a network path negotiated by both, a WebRTC endpoint and mediasoup, via ICE and DTLS procedures. A WebRTC transport may be used to receive media, to send media or to both receive and send. There is no limitation in mediasoup. However, due to their design, mediasoup-client and libmediasoupclient require separate WebRTC transports for sending and receiving.
 
 > `@inherits` [Transport](#Transport)
 
@@ -36,7 +36,7 @@ Field        | Type    | Description   | Required | Default
 </div>
 
 #### IceParameters
-{: #WebRtcTransport-IceParameters .code}
+{: #WebRtcTransportIceParameters .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -49,7 +49,7 @@ Field               | Type    | Description   | Required | Default
 </div>
 
 #### IceCandidate
-{: #WebRtcTransport-IceCandidate .code}
+{: #WebRtcTransportIceCandidate .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -66,19 +66,19 @@ Field              | Type    | Description   | Required | Default
 </div>
 
 #### DtlsParameters
-{: #WebRtcTransport-DtlsParameters .code}
+{: #WebRtcTransportDtlsParameters .code}
 
 <div markdown="1" class="table-wrapper L3">
 
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
-`role`          | [DtlsRole](#WebRtcTransport-DtlsRole) | DTLS role. | No | "auto"
-`fingerprints`  | [DtlsFingerprints](#WebRtcTransport-DtlsFingerprints) | DTLS fingerprints. | Yes |
+`role`          | [DtlsRole](#WebRtcTransportDtlsRole) | DTLS role. | No | "auto"
+`fingerprints`  | [DtlsFingerprints](#WebRtcTransportDtlsFingerprints) | DTLS fingerprints. | Yes |
 
 </div>
 
 #### DtlsFingerprints
-{: #WebRtcTransport-DtlsFingerprints .code}
+{: #WebRtcTransportDtlsFingerprints .code}
 
 Map of DTLS algorithms (as defined in the "Hash function Textual Names" registry initially specified in [RFC 4572](https://tools.ietf.org/html/rfc4572#section-8) Section 8) and their corresponding certificate fingerprint values (in lowercase hex string as expressed utilizing the syntax of "fingerprint" in [RFC 4572](https://tools.ietf.org/html/rfc4572#section-5) Section 5).
 
@@ -94,34 +94,6 @@ Field             | Type    | Description   | Required | Default
 
 </div>
 
-#### RemoteDtlsParameters
-{: #WebRtcTransport-RemoteDtlsParameters .code}
-
-**TODO: NO**
-
-<div markdown="1" class="table-wrapper L3">
-
-Field           | Type    | Description   | Required | Default
---------------- | ------- | ------------- | -------- | ---------
-`role`          | [DtlsRole](#WebRtcTransport-DtlsRole) | Remote DTLS role. | No | "auto"
-`fingerprint`   | [RemoteDtlsFingerprint](#WebRtcTransport-RemoteDtlsFingerprint) | Remote DTLS fingerprint. | Yes |
-
-</div>
-
-#### RemoteDtlsFingerprint
-{: #WebRtcTransport-RemoteDtlsFingerprint .code}
-
-**TODO: NO**
-
-<div markdown="1" class="table-wrapper L3">
-
-Field           | Type    | Description   | Required | Default
---------------- | ------- | ------------- | -------- | ---------
-`algorithm`     | String  | Hash function algorithm ("sha-1" / "sha-224" / "sha-256" / "sha-384" / "sha-512"). | Yes |
-`value`         | String  | Certificate fingerprint in lowercase hex. | Yes |
-
-</div>
-
 </section>
 
 
@@ -131,7 +103,7 @@ Field           | Type    | Description   | Required | Default
 <section markdown="1">
 
 #### IceState
-{: #WebRtcTransport-IceState .code}
+{: #WebRtcTransportIceState .code}
 
 <div markdown="1" class="table-wrapper L2">
 
@@ -146,7 +118,7 @@ Value          | Description
 </div>
 
 #### DtlsRole
-{: #WebRtcTransport-DtlsRole .code}
+{: #WebRtcTransportDtlsRole .code}
 
 <div markdown="1" class="table-wrapper L2">
 
@@ -159,7 +131,7 @@ Value          | Description
 </div>
 
 #### DtlsState
-{: #WebRtcTransport-DtlsState .code}
+{: #WebRtcTransportDtlsState .code}
 
 <div markdown="1" class="table-wrapper L2">
 
@@ -181,75 +153,62 @@ Value          | Description
 
 <section markdown="1">
 
-#### webrtcTransport.id
-{: #webrtcTransport-id .code}
+See also [Transport Properties](#Transport-properties).
 
-See [transport.id](#transport-id).
-
-#### webrtcTransport.closed
-{: #webrtcTransport-closed .code}
-
-See [transport.closed](#transport-closed).
-
-#### webrtcTransport.appData
-{: #webrtcTransport-appData .code}
-
-See [transport.appData](#transport-appData).
-
-#### webrtcTransport.iceRole
-{: #webrtcTransport-iceRole .code}
+#### webRtcTransport.iceRole
+{: #webRtcTransport-iceRole .code}
 
 Local ICE role. Due to the mediasoup ICE Lite design, this is always "controlled".
 
 > `@type` String, read only
 
-#### webrtcTransport.iceParameters
-{: #webrtcTransport-iceParameters .code}
+#### webRtcTransport.iceParameters
+{: #webRtcTransport-iceParameters .code}
 
 Local ICE parameters.
 
-> `@type` [IceParameters](#WebRtcTransport-IceParameters), read only
+> `@type` [IceParameters](#WebRtcTransportIceParameters), read only
 
 
-#### webrtcTransport.iceCandidates
-{: #webrtcTransport-iceCandidates .code}
+#### webRtcTransport.iceCandidates
+{: #webRtcTransport-iceCandidates .code}
 
 Local ICE candidates.
 
-> `@type` Array&lt;[IceCandidate](#WebRtcTransport-IceCandidate)&gt;, read only
+> `@type` Array&lt;[IceCandidate](#WebRtcTransportIceCandidate)&gt;, read only
 
-#### webrtcTransport.iceState
-{: #webrtcTransport-iceState .code}
+#### webRtcTransport.iceState
+{: #webRtcTransport-iceState .code}
 
 Current ICE state.
 
-> `@type` [IceState](#WebRtcTransport-IceState), read only
+> `@type` [IceState](#WebRtcTransportIceState), read only
 
-#### webrtcTransport.iceSelectedTuple
-{: #webrtcTransport-iceSelectedTuple .code}
+#### webRtcTransport.iceSelectedTuple
+{: #webRtcTransport-iceSelectedTuple .code}
 
-The selected transport tuple if ICE is in "connected" or "completed" state. It is `undefined` if ICE is not yet established (no working candidate pair was found).
+The selected transport tuple if ICE is in "connected" or "completed" state. It is `undefined` if ICE is not established (no working candidate pair was found).
 
 > `@type` [TransportTuple](#TransportTuple), read only
 
-#### webrtcTransport.dtlsParameters
-{: #webrtcTransport-dtlsParameters .code}
+#### webRtcTransport.dtlsParameters
+{: #webRtcTransport-dtlsParameters .code}
 
 Local DTLS parameters.
 
-> `@type` [DtlsParameters](#WebRtcTransport-DtlsParameters), read only
+> `@type` [DtlsParameters](#WebRtcTransportDtlsParameters), read only
 
-#### webrtcTransport.dtlsState
-{: #webrtcTransport-dtlsState .code}
+#### webRtcTransport.dtlsState
+{: #webRtcTransport-dtlsState .code}
 
 Current DTLS state.
 
-> `@type` [DtlsState](#WebRtcTransport-DtlsState), read only
+> `@type` [DtlsState](#WebRtcTransportDtlsState), read only
 
-#### webrtcTransport.dtlsRemoteCert
-{: #webrtcTransport-dtlsRemoteCert .code}
+#### webRtcTransport.dtlsRemoteCert
+{: #webRtcTransport-dtlsRemoteCert .code}
 
-The remote certificate in PEM format. It is set once [`dtlsState`](#webrtcTransport-dtlsState) becomes "connected".
+The remote certificate in PEM format. It is set once [`dtlsState`](#webRtcTransport-dtlsState) becomes "connected".
 
 > `@type` String, read only
 
@@ -259,13 +218,6 @@ The application may want to inspect the remote certificate for authorization pur
 
 </div>
 
-#### webrtcTransport.observer
-{: #webrtcTransport-observer .code}
-
-See the [Observer Events](#WebRtcTransport-observer-events) section below.
-
-> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
-
 </section>
 
 
@@ -274,40 +226,24 @@ See the [Observer Events](#WebRtcTransport-observer-events) section below.
 
 <section markdown="1">
 
-#### webrtcTransport.close()
-{: #webrtcTransport-close .code}
+See also [Transport Methods](#Transport-methods).
 
-See [transport.close()](#transport-close).
+#### webRtcTransport.connect({ dtlsParameters })
+{: #webRtcTransport-connect .code}
 
-#### webrtcTransport.getStats()
-{: #webrtcTransport-getStats .code}
-
-Returns current RTC statistics of the WebRTC transport.
-
-> `@async`
-> 
-> `@overrides`
-> 
-> `@returns` Array&lt;[RTCStats](https://www.w3.org/TR/webrtc/#dom-rtcstats)&gt;
-
-*TODO:* Write an output example.
-
-#### webrtcTransport.connect({ dtlsParameters })
-{: #webrtcTransport-connect .code}
-
-Provides the WebRTC transport with the remote endpoint parameters.
+Provides the WebRTC transport with the endpoint parameters.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument         | Type    | Description | Required | Default 
 ---------------- | ------- | ----------- | -------- | ----------
-`dtlsParameters` | [DtlsParameters](#WebRtcTransport-DtlsParameters) | Remote DTLS parameters. | Yes |
+`dtlsParameters` | [DtlsParameters](#WebRtcTransportDtlsParameters) | Remote DTLS parameters. | Yes |
 
 </div>
 
 > `@async`
 > 
-> `@abstract`
+> `@overrides`
 
 ```javascript
 await transport.connect(
@@ -326,10 +262,10 @@ await transport.connect(
   });
 ```
 
-#### webrtcTransport.setMaxBitrate(bitrate)
-{: #webrtcTransport-setMaxBitrate .code}
+#### webRtcTransport.setMaxIncomingBitrate(bitrate)
+{: #webRtcTransport-setMaxIncomingBitrate .code}
 
-Set maximum bitrate for media streams sent by the remote endpoint over this `webrtcTransport`. Returns a Promise that resolves to this `webrtcTransport`. 
+Set maximum incoming bitrate for media streams sent by the remote endpoint over this WebRTC transport.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -340,27 +276,31 @@ Argument   | Type    | Description | Required | Default
 </div>
 
 <div markdown="1" class="note warn">
-This method can just be called on open `webrtcTransports` with `direction: "send"` (it will throw otherwise).
+This method just works when REMB is used. It will be deprecated in the future.
 </div>
 
 Usage example:
 
 ```javascript
-peer.on("newtransport", (webrtcTransport) =>
-{
-  if (webrtcTransport.direction === "send")
-    webrtcTransport.setMaxBitrate(250000);
-});
+await webRtcTransport.setMaxIncomingBitrate(3500000);
 ```
 
-#### webrtcTransport.getStats()
-{: #webrtcTransport-getStats .code}
+#### webRtcTransport.restartIce()
+{: #webRtcTransport-restartIce .code}
 
-Returns a Promise resolving to an array of Objects containing RTC stats related to the `webrtcTransport`.
+Restarts the ICE layer by generating new local ICE parameters that must be signaled to the remote endpoint.
 
-<div markdown="1" class="note">
-Check the [RTC stats](/documentation/v2/rtc-stats/) section for more details.
-</div>
+> `@async`
+> 
+> `@returns` [IceParameters](#WebRtcTransportIceParameters)
+
+Usage example:
+
+```javascript
+const iceParameters = await webRtcTransport.restartIce();
+
+// Send the new ICE parameters to the endpoint.
+```
 
 </section>
 
@@ -368,28 +308,27 @@ Check the [RTC stats](/documentation/v2/rtc-stats/) section for more details.
 ### Events
 {: #WebRtcTransport-events}
 
-The `WebRtcTransport` class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
-
 <section markdown="1">
 
-#### webrtcTransport.on("close", fn(originator, appData))
-{: #webrtcTransport-on-close .code}
+See also [Transport Events](#Transport-events).
 
-Emitted when the `webrtcTransport` is closed.
+#### webRtcTransport.on("icestatechange", fn(iceState))
+{: #webRtcTransport-on-icestatechange .code}
+
+Emitted when the transport ICE state changes.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument  | Type    | Description   
 --------- | ------- | ----------------
-`originator` | String | "local" or "remote".
-`appData` | Any     | Custom app data.
+`iceState` | [IceState](#WebRtcTransportIceState) | New ICE state.
 
 </div>
 
-#### webrtcTransport.on("iceselectedtuplechange", fn(iceSelectedTuple))
-{: #webrtcTransport-on-iceselectedtuplechange .code}
+#### webRtcTransport.on("iceselectedtuplechange", fn(iceSelectedTuple))
+{: #webRtcTransport-on-iceselectedtuplechange .code}
 
-Emitted when the ICE selected tuple changes.
+Emitted after ICE state becomes "completed" and when the ICE selected tuple changes.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -399,30 +338,44 @@ Argument | Type    | Description
 
 </div>
 
-#### webrtcTransport.on("icestatechange", fn(iceState))
-{: #webrtcTransport-on-icestatechange .code}
+#### webRtcTransport.on("dtlsstatechange", fn(dtlsState))
+{: #webRtcTransport-on-dtlsstatechange .code}
 
-Emitted when the ICE state changes.
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument | Type    | Description   
------------------ | ------- | ----------------
-`iceState`        | [IceState](#WebRtcTransport-IceState) | The new ICE state.
-
-</div>
-
-#### webrtcTransport.on("dtlsstatechange", fn(dtlsState))
-{: #webrtcTransport-on-dtlsstatechange .code}
-
-Emitted when the DTLS state changes.
+Emitted when the transport DTLS state changes.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument | Type    | Description   
 ----------------- | ------- | ----------------
-`dtlsState`       | [DtlsState](#WebRtcTransport-DtlsState) | The new DTLS state.
+`dtlsState`       | [DtlsState](#WebRtcTransportDtlsState) | The new DTLS state.
 
 </div>
+
+</section>
+
+
+### Observer Events
+{: #WebRtcTransport-observer-events}
+
+<section markdown="1">
+
+See also [Transport Observer Events](#Transport-observer-events).
+
+#### webRtcTransport.observer.on("icestatechange", fn(iceState))
+{: #webRtcTransport-observer-on-icestatechange .code}
+
+Same as the [icestatechange](#webRtcTransport-on-icestatechange) event.
+
+</div>
+
+#### webRtcTransport.observer.on("iceselectedtuplechange", fn(iceSelectedTuple))
+{: #webRtcTransport-observer-on-iceselectedtuplechange .code}
+
+Same as the [iceselectedtuplechange](#webRtcTransport-on-iceselectedtuplechange) event.
+
+#### webRtcTransport.observer.on("dtlsstatechange", fn(dtlsState))
+{: #webRtcTransport-observer-on-dtlsstatechange .code}
+
+Same as the [dtlsstatechange](#webRtcTransport-on-dtlsstatechange) event.
 
 </section>

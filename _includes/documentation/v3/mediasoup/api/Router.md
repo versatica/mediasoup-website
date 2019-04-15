@@ -29,7 +29,7 @@ Field                    | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note warn">
-Feature codecs such as RTX or FEC must **NOT** be placed into Router `mediaCodecs`.
+Feature codecs such as RTX or FEC must **NOT** be placed into the router `mediaCodecs`.
 </div>
 
 </section>
@@ -159,8 +159,7 @@ Argument    | Type    | Description | Required | Default
 ```javascript
 const transport = await router.createPipeTransport(
   {
-    listenIp : "8.9.10.11",
-    appData  : { foo: "bar" }
+    listenIp : "192.168.1.33"
   });
 ```
 
@@ -177,7 +176,7 @@ Argument     | Type    | Description | Required | Default
 ------------ | ------- | ----------- | -------- | ----------
 `producerId` | String  | Producer id | Yes      |
 `router`     | [Router](#Router) | Destination router to pipe the given producer. | Yes |
-`listenIp`   | String  | Internal IP to connect both routers. | No      | "127.0.0.1"
+`listenIp`   | String  | IP to connect both routers in the same host. | No | "127.0.0.1"
 
 </div>
 
@@ -255,7 +254,7 @@ Argument          | Type    | Description  | Required | Default
 ```javascript
 if (router.canConsume({ producerId, rtpCapabilities }))
 {
-  // Consume the producer by calling transport.consume().
+  // Consume the producer by calling transport.consume({ producerId, rtpCapabilities }).
 }
 ```
 
