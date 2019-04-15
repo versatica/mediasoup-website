@@ -69,3 +69,5 @@ In order to run mediasoup in those environments (host with private IP and a mapp
 * Make `rtcAnnouncedIPv4` or `rtcAnnouncedIPv6` point to `HOST_PUBLIC_IP`.
 * Redirect the port range given by `rtcMinPort`-`rtcMaxPort` from `HOST_PUBLIC_IP` to `HOST_PRIVATE_IP`.
 * And, of course, also redirect whichever port your application uses for signaling (HTTP/WebSocket) from `HOST_PUBLIC_IP` to `HOST_PRIVATE_IP`.
+
+In **v3** do the very same with the `rtcMinPort`-`rtcMaxPort` and specify the corresponding `announcedIp` when creating a transport.
