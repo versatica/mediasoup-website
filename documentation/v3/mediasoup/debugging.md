@@ -148,7 +148,7 @@ const worker = await mediasoup.createWorker(
   });
 ```
 
-* Log all ICE debugs/warnings and any kind of error:
+* Log all ICE and DTLS debugs/warnings and any kind of error:
 
 ```bash
 $ DEBUG="mediasoup* *ERROR*" node myapp.js
@@ -159,8 +159,8 @@ const mediasoup = require("mediasoup");
 
 const worker = await mediasoup.createWorker(
   {
-    logLevel : "warn",
-    logTags  : [ "ice" ]
+    logLevel : "debug",
+    logTags  : [ "ice", "dtls" ]
   });
 ```
 
