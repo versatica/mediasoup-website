@@ -275,6 +275,8 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
+> `@async`
+
 <div markdown="1" class="note warn">
 This method just works when REMB is used. It will be deprecated in the future.
 </div>
