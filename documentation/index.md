@@ -12,7 +12,7 @@ title : Documentation
 A brief introduction to mediasoup and its ecosystem.
 
 
-##### [v3 Documentation](/documentation/v3/)
+##### [v3 Documentation](/documentation/v3/) (work in progress)
 
 mediasoup, mediasoup-client and libmediasoupclient **v3**.
 

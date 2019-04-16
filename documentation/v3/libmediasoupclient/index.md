@@ -1,5 +1,5 @@
 ---
-title : mediasoup-client
+title : libmediasoupclient
 ---
 
 
