@@ -194,7 +194,7 @@ worker.on('died', () =>
 #### worker.observer.on("close")
 {: #worker-observer-on-close .code}
 
-Emitted when the worker is closed.
+Emitted when the worker is closed for whatever reason.
 
 #### worker.observer.on("newrouter", fn(router))
 {: #worker-observer-on-newrouter .code}

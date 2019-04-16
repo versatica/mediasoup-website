@@ -198,7 +198,14 @@ Resumes the producer (RTP is sent again to its associated consumers).
 #### producer.on("transportclose")
 {: #producer-on-transportclose .code}
 
-Emitted when the transport this producer belongs to is closed. The producer itself is also closed.
+Emitted when the transport this producer belongs to is closed for whatever reason. The producer itself is also closed.
+
+```javascript
+producer.on('transportclose', () =>
+{
+  console.log("transport closed so producer closed");
+});
+```
 
 #### producer.on("score", fn(score))
 {: #producer-on-score .code}
@@ -237,7 +244,7 @@ Argument           | Type    | Description
 #### producer.observer.on("close")
 {: #producer-observer-on-close .code}
 
-Emitted when the producer is closed.
+Emitted when the producer is closed for whatever reason.
 
 #### producer.observer.on("pause")
 {: #producer-observer-on-pause .code}

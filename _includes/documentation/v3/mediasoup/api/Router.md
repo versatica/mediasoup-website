@@ -269,7 +269,7 @@ if (router.canConsume({ producerId, rtpCapabilities }))
 #### router.on("workerclose")
 {: #router-on-workerclose .code}
 
-Emitted when the worker this router belongs to is closed. The router itself is also closed.
+Emitted when the worker this router belongs to is closed for whatever reason. The router itself is also closed.
 
 ```javascript
 router.on('workerclose', () =>
@@ -289,7 +289,7 @@ router.on('workerclose', () =>
 #### router.observer.on("close")
 {: #router-observer-on-close .code}
 
-Emitted when the router is closed.
+Emitted when the router is closed for whatever reason.
 
 #### router.observer.on("newtransport", fn(transport))
 {: #router-observer-on-newtransport .code}

@@ -35,4 +35,6 @@ class   : h3color
 
 {% include documentation/v3/mediasoup/api/Consumer.md %}
 
+{% include documentation/v3/mediasoup/api/RtpObserver.md %}
+
 {% include documentation/v3/mediasoup/api/AudioLevelObserver.md %}

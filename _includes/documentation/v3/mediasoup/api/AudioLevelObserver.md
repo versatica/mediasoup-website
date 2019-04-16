@@ -1,11 +1,11 @@
 ## AudioLevelObserver
 {: #AudioLevelObserver}
 
-*TODO*
-
 <section markdown="1">
 
 An audio level observer monitors the volume of audio producers.
+
+> `@inherits` [RtpObserver](#RtpObserver)
 
 </section>
 
@@ -28,6 +28,28 @@ Field          | Type    | Description  | Required | Default
 
 </div>
 
+#### AudioLevelObserverVolume
+{: #AudioLevelObserverVolume .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field          | Type    | Description  | Required | Default 
+-------------- | ------- | ------------ | -------- | ----------
+`producer`     | [Producer](#Producer) | The audio producer instance. | Yes |
+`volume`       | Number  | The average volume (in dBvo from -127 to 0) of the audio producer in the last interval. | Yes |
+
+</div>
+
+</section>
+
+
+### Properties
+{: #AudioLevelObserver-properties}
+
+<section markdown="1">
+
+See also [RtpObserver Properties](#RtpObserver-properties).
+
 </section>
 
 
@@ -36,10 +58,7 @@ Field          | Type    | Description  | Required | Default
 
 <section markdown="1">
 
-#### activeSpeakerDetector.close()
-{: #activeSpeakerDetector-close .code}
-
-Closes the audio level observer.
+See also [RtpObserver Methods](#RtpObserver-methods).
 
 </section>
 
@@ -49,27 +68,19 @@ Closes the audio level observer.
 
 <section markdown="1">
 
-#### activeSpeakerDetector.on("close", fn())
-{: #activeSpeakerDetector-on-close .code}
+See also [RtpObserver Events](#RtpObserver-events).
 
-Emitted when the `activeSpeakerDetector` is closed.
+#### audioLevelObserver.on("volumes", fn(volumes))
+{: #audioLevelObserver-on-volumes .code}
 
-#### activeSpeakerDetector.on("activespeakerchange", peer, producer)
-{: #activeSpeakerDetector-on-activespeakerchange .code}
-
-Emitted when a new active speaker is detected.
+Emitted every `interval` ms.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument  | Type    | Description   
 --------- | ------- | ----------------
-`peer`    | [Peer](#Peer) | Associated `peer`.
-`producer`| [Producer](#Producer) | Associated audio `producer`.
+`volumes` | Array&lt;[AudioLevelObserverVolume](#AudioLevelObserverVolume)&gt; | Audio volumes information.
 
-</div>
-
-<div markdown="1" class="note">
-Both `peer` and `producer` can be `undefined` when no active speaker is detected.
 </div>
 
 </section>

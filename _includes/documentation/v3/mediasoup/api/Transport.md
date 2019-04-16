@@ -5,7 +5,7 @@
 
 A transport makes it possible to inject RTP into a router and/or forward RTP from a router to and endpoint or another router.
 
-mediasoup implements the following transport types:
+mediasoup implements the following transport classes:
 
 * [WebRtcTransport](#WebRtcTransport)
 * [PlainRtpTransport](#PlainRtpTransport)
@@ -54,7 +54,7 @@ Field              | Type    | Description   | Required | Default
 
 <section markdown="1">
 
-These are properties common to all transport types. Each transport type may define new ones.
+These are properties common to all transport classes. Each transport class may define new ones.
 
 #### transport.id
 {: #transport-id .code}
@@ -96,7 +96,7 @@ See the [Observer Events](#Transport-observer-events) section below.
 
 <section markdown="1">
 
-These are methods common to all transport types. Each transport type may define new ones.
+These are methods common to all transport classes. Each transport class may define new ones.
 
 #### transport.close()
 {: #transport-close .code}
@@ -106,7 +106,7 @@ Closes the transport, including all its producers and consumers.
 #### transport.getStats()
 {: #transport-getStats .code}
 
-Returns current RTC statistics of the transport. Each transport type produces a different set of statistics.
+Returns current RTC statistics of the transport. Each transport class produces a different set of statistics.
 
 > `@async`
 > 
@@ -121,7 +121,7 @@ Check the [RTC Statistics](/documentation/v3/rtc-statistics/) section for more d
 #### transport.connect()
 {: #transport-connect .code}
 
-Provides the transport with the remote endpoint's transport parameters. Each transport type requires specific arguments in this method. Check the `connect()` method in each one of them.
+Provides the transport with the remote endpoint's transport parameters. Each transport class requires specific arguments in this method. Check the `connect()` method in each one of them.
 
 > `@async`
 > 
@@ -130,7 +130,7 @@ Provides the transport with the remote endpoint's transport parameters. Each tra
 #### transport.produce(options)
 {: #transport-produce .code}
 
-Instructs the transport to receive audio or video RTP (or SRTP depending on the transport type). This is the way to inject media into mediasoup.
+Instructs the transport to receive audio or video RTP (or SRTP depending on the transport class). This is the way to inject media into mediasoup.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -208,7 +208,7 @@ const producer = await transport.produce(
 #### transport.consume(options)
 {: #transport-consume .code}
 
-Instructs the transport to send audio or video RTP (or SRTP depending on the transport type). This is the way to extract media from mediasoup.
+Instructs the transport to send audio or video RTP (or SRTP depending on the transport class). This is the way to extract media from mediasoup.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -307,12 +307,19 @@ const consumer = await transport.consume(
 
 <section markdown="1">
 
-These are events common to all transport types. Each transport type may define new ones.
+These are events common to all transport classes. Each transport class may define new ones.
 
 #### transport.on("routerclose")
 {: #transport-on-routerclose .code}
 
-Emitted when the router this transport belongs to is closed. The transport itself is also closed.
+Emitted when the router this transport belongs to is closed for whatever reason. The transport itself is also closed.
+
+```javascript
+transport.on('routerclose', () =>
+{
+  console.log("router closed so transport closed");
+});
+```
 
 </section>
 
@@ -322,12 +329,12 @@ Emitted when the router this transport belongs to is closed. The transport itsel
 
 <section markdown="1">
 
-These are observer events common to all transport types. Each transport type may define new ones.
+These are observer events common to all transport classes. Each transport class may define new ones.
 
 #### transport.observer.on("close")
 {: #transport-observer-on-close .code}
 
-Emitted when the transport is closed.
+Emitted when the transport is closed for whatever reason.
 
 #### transport.observer.on("newproducer", fn(producer))
 {: #transport-observer-on-newproducer .code}
@@ -342,6 +349,13 @@ Argument    | Type    | Description
 
 </div>
 
+```javascript
+transport.observer.on('newproducer', (producer) =>
+{
+  console.log("new producer created [id:%s]", producer.id);
+});
+```
+
 #### transport.observer.on("newconsumer", fn(consumer))
 {: #transport-observer-on-newconsumer .code}
 
@@ -354,6 +368,13 @@ Argument    | Type    | Description
 `consumer` | [Consumer](#Consumer) | New consumer.
 
 </div>
+
+```javascript
+transport.observer.on('newconsumer', (consumer) =>
+{
+  console.log("new consumer created [id:%s]", consumer.id);
+});
+```
 
 </section>
 

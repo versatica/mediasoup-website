@@ -125,7 +125,7 @@ The RTC transmission type.
 #### consumer.paused
 {: #consumer-paused .code}
 
-Whether the consumer is paused.
+Whether the consumer is paused. It does not take into account whether the associated producer is paused.
 
 > `@type` Boolean, read only
 
@@ -148,7 +148,7 @@ The score of the RTP stream being sent, representing its tranmission quality.
 
 Current spatial and temporal layers (for simulcast and SVC consumers). It's `null` if no layers are being sent to the consuming endpoint.
 
-> `@type` [ConsumerLayers](#ConsumerLayers)\Null, read only
+> `@type` [ConsumerLayers](#ConsumerLayers)\|Null, read only
 
 #### consumer.appData
 {: #consumer-appData .code}
@@ -241,22 +241,36 @@ Request a key frame to the associated producer. Just valid for video consumers.
 #### consumer.on("transportclose")
 {: #consumer-on-transportclose .code}
 
-Emitted when the transport this consumer belongs to is closed. The consumer itself is also closed.
+Emitted when the transport this consumer belongs to is closed for whatever reason. The consumer itself is also closed.
+
+```javascript
+consumer.on('transportclose', () =>
+{
+  console.log("transport closed so consumer closed");
+});
+```
 
 #### consumer.on("producerclose")
 {: #consumer-on-producerclose .code}
 
-Emitted when the producer this consumer is associated to is closed. The consumer itself is also closed.
+Emitted when the associated producer is closed. The consumer itself is also closed.
+
+```javascript
+consumer.on('producerclose', () =>
+{
+  console.log("associated producer closed so consumer closed");
+});
+```
 
 #### consumer.on("producerpause")
 {: #consumer-on-producerpause .code}
 
-Emitted when the producer this consumer is associated to is paused.
+Emitted when the associated producer is paused.
 
 #### consumer.on("producerresume")
 {: #consumer-on-producerresume .code}
 
-Emitted when the producer this consumer is associated to is resumed.
+Emitted when the associated producer is resumed.
 
 #### consumer.on("score", fn(score))
 {: #consumer-on-score .code}
@@ -295,17 +309,17 @@ Argument  | Type    | Description
 #### consumer.observer.on("close")
 {: #consumer-observer-on-close .code}
 
-Emitted when the consumer is closed.
+Emitted when the consumer is closed for whatever reason.
 
 #### consumer.observer.on("pause")
 {: #consumer-observer-on-pause .code}
 
-Emitted when the consumer or its associated producer is paused.
+Emitted when the consumer or its associated producer is paused and, as result, the consumer becomes paused.
 
 #### consumer.observer.on("resume")
 {: #consumer-observer-on-resume .code}
 
-Emitted when the consumer or its associated producer is resumed.
+Emitted when the consumer or its associated producer is resumed and, as result, the consumer is no longer paused.
 
 #### consumer.observer.on("score", fn(score))
 {: #consumer-observer-on-score .code}

@@ -279,8 +279,6 @@ Argument   | Type    | Description | Required | Default
 This method just works when REMB is used. It will be deprecated in the future.
 </div>
 
-Usage example:
-
 ```javascript
 await webRtcTransport.setMaxIncomingBitrate(3500000);
 ```
@@ -293,8 +291,6 @@ Restarts the ICE layer by generating new local ICE parameters that must be signa
 > `@async`
 > 
 > `@returns` [IceParameters](#WebRtcTransportIceParameters)
-
-Usage example:
 
 ```javascript
 const iceParameters = await webRtcTransport.restartIce();
@@ -324,6 +320,13 @@ Argument  | Type    | Description
 `iceState` | [IceState](#WebRtcTransportIceState) | New ICE state.
 
 </div>
+
+```javascript
+webRtcTransport.on('icestatechange', (iceState) =>
+{
+  console.log("ICE state changed to %s", iceState);
+});
+```
 
 #### webRtcTransport.on("iceselectedtuplechange", fn(iceSelectedTuple))
 {: #webRtcTransport-on-iceselectedtuplechange .code}
