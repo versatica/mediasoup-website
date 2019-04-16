@@ -115,7 +115,7 @@ Returns current RTC statistics of the transport. Each transport class produces a
 > `@returns` Array&lt;[RTCStats](https://www.w3.org/TR/webrtc/#dom-rtcstats)&gt;
 
 <div markdown="1" class="note">
-Check the [RTC Statistics](/documentation/v3/rtc-statistics/) section for more details.
+Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section for more details.
 </div>
 
 #### transport.connect()
