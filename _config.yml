@@ -21,7 +21,7 @@ kramdown:
   smart_quotes: [ 'apos', 'apos', 'ldquo', 'rdquo' ]
   syntax_highlighter: rouge
 
-gems:
+plugins:
   - jekyll-compass
   - breakpoint
   - rouge
