@@ -113,6 +113,10 @@ Argument   | Type    | Description | Required | Default
 
 > `@async`
 
+```javascript
+await worker.updateSettings({ logLevel: "warn" });
+```
+
 #### worker.createRouter({ mediaCodecs })
 {: #worker-createRouter .code}
 
@@ -172,6 +176,13 @@ Emitted when the worker process unexpectedly dies.
 This should never happens (if it happens, it's a bug).
 </div>
 
+```javascript
+worker.on('died', () =>
+{
+  console.error("mediasoup worker died!");
+});
+```
+
 </section>
 
 
@@ -197,5 +208,12 @@ Argument | Type    | Description
 `router` | [Router](#Router) | New router.
 
 </div>
+
+```javascript
+worker.observer.on('newrouter', (router) =>
+{
+  console.log("new router created [id:%s]", router.id);
+});
+```
 
 </section>

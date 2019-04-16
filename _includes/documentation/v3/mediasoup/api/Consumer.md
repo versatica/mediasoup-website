@@ -16,8 +16,6 @@ A consumer represents an audio or video media track being forwarded from a media
 #### ConsumerOptions
 {: #ConsumerOptions .code}
 
-*TODO:* Properly document `preferredLayers`.
-
 <div markdown="1" class="table-wrapper L3">
 
 Field           | Type    | Description   | Required | Default
@@ -25,8 +23,54 @@ Field           | Type    | Description   | Required | Default
 `producerId`    | String  | The id of the producer to consume. | Yes |
 `rtpCapabilities` | [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*) | RTP capabilities of the consuming endpoint. | Yes |
 `paused`        | Boolean | Whether the consumer must start in paused mode. | No | `false`
-`preferredLayers` | Object | Object with preferred spatial and temporal layer for simulcast or SVC media sources. | No |
+`preferredLayers` | [ConsumerLayers](#ConsumerLayers) | Preferred spatial and temporal layer for simulcast or SVC media sources. | No |
 `appData`       | Object  | Custom application data. | No | `{}`
+
+</div>
+
+#### ConsumerLayers
+{: #ConsumerLayers .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field           | Type    | Description   | Required | Default
+--------------- | ------- | ------------- | -------- | ---------
+`spatialLayer`  | Number  | The spatial layer index (from 0 to N). | Yes |
+`temporalLayer` | Number  | The temporal layer index (from 0 to N). | No |
+
+</div>
+
+#### ConsumerRtpStreamScore
+{: #ConsumerRtpStreamScore .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field           | Type    | Description   | Required | Default
+--------------- | ------- | ------------- | -------- | ---------
+`producer`      | Number  | Score of the currently selected RTP stream in the associated producer (from 0 to 10) representing its transmission quality. | Yes |
+`consumer`      | Number  | Score of the RTP stream in the consumer (from 0 to 10) representing its transmission quality. | Yes |
+
+</div>
+
+</section>
+
+
+### Enums
+{: #Consumer-enums}
+
+<section markdown="1">
+
+#### ConsumerType
+{: #ConsumerType .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value          | Description  
+-------------- | -------------
+"simple"       | A single RTP stream is sent with no spatial/temporal layers.
+"simulcast"    | Two or more RTP streams are sent, each of them with one or more temporal layers.
+"svc"          | A single RTP stream is sent with spatial/temporal layers.
+"pipe"         | Special type for consumers created on a [PipeTransport](#PipeTransport).
 
 </div>
 
@@ -41,107 +85,84 @@ Field           | Type    | Description   | Required | Default
 #### consumer.id
 {: #consumer-id .code}
 
-* Read only
+Consumer identifier.
 
-Unique identifier (Number).
+> `@type` String, read only
+
+#### consumer.producerId
+{: #consumer-producerId .code}
+
+The associated ponsumer identifier.
+
+> `@type` String, read only
 
 #### consumer.closed
 {: #consumer-closed .code}
 
-* Read only
-
-A Boolean indicating whether the `consumer` has been closed.
-
-#### consumer.appData
-{: #consumer-appData .code}
-
-* Read-write
-
-Custom data set by the application.
+Whether the consumer is closed.
 
 #### consumer.kind
 {: #consumer-kind .code}
 
-* Read only
+The media kind ("audio" or "video").
 
-The media kind ("audio" or "video") handled by the `consumer`.
-
-#### consumer.peer
-{: #consumer-peer .code}
-
-* Read only
-
-The [Peer](#Peer) owner of this `consumer` (if any).
-
-#### consumer.transport
-{: #consumer-transport .code}
-
-* Read only
-
-The [Transport](#Transport) assigned to this `consumer`.
+> `@type` String, read only
 
 #### consumer.rtpParameters
 {: #consumer-rtpParameters .code}
 
-* Read only
+Consumer RTP parameters.
 
-An Object with the effective RTP parameters of the `consumer`, miming the syntax of [RTCRtpParameters](https://draft.ortc.org/#rtcrtpparameters*) in ORTC.
+> `@type` [RTCRtpReceiveParameters](https://draft.ortc.org/#rtcrtpreceiveparameters*), read only
 
-#### consumer.source
-{: #consumer-source .code}
+#### consumer.type
+{: #consumer-type .code}
 
-* Read only
+The RTC transmission type.
 
-The RTP source of this `consumer`. Typically it corresponds to a [Producer](#Producer).
-
-#### consumer.enabled
-{: #consumer-enabled .code}
-
-* Read only
-
-Boolean indicating whether this `consumer` has been enabled (so the endpoint can receive RTP). Being enabled also means that a `transport` has been assigned to this `consumer`.
-
-#### consumer.locallyPaused
-{: #consumer-locallyPaused .code}
-
-* Read only
-
-Boolean indicating whether this `consumer` has been locally paused (in mediasoup).
-
-#### consumer.remotelyPaused
-{: #consumer-remotelyPaused .code}
-
-* Read only
-
-Boolean indicating whether this `consumer` has been remotely paused (by the remote client).
-
-#### consumer.sourcePaused
-{: #consumer-sourcePaused .code}
-
-* Read only
-
-Boolean indicating whether the source of this `consumer` has been paused.
+> `@type` [ConsumerType](#ConsumerType), read only
 
 #### consumer.paused
 {: #consumer-paused .code}
 
-* Read only
+Whether the consumer is paused.
 
-Boolean indicating whether this `consumer` has been locally or remotely paused, or its source has been paused.
+> `@type` Boolean, read only
 
-#### consumer.preferredProfile
-{: #consumer-preferredProfile .code}
+#### consumer.producerPaused
+{: #consumer-producerPaused .code}
 
-* Read only
+Whether the associated proucer is paused.
 
-String indicating the preferred RTP profile set via [`consumer.setPreferredProfile()`](#consumer-setPreferredProfile).
+> `@type` Boolean, read only
 
-#### consumer.effectiveProfile
-{: #consumer-effectiveProfile .code}
+#### consumer.score
+{: #consumer-score .code}
 
-* Read only
+The score of the RTP stream being sent, representing its tranmission quality. 
 
-String indicating the effective current RTP profile of this `consumer`.
+> `@type` [ConsumerRtpStreamScore](#ConsumerRtpStreamScore), read only
+
+#### consumer.currentLayers
+{: #consumer-currentLayers .code}
+
+Current spatial and temporal layers (for simulcast and SVC consumers). It's `null` if no layers are being sent to the consuming endpoint.
+
+> `@type` [ConsumerLayers](#ConsumerLayers)\Null, read only
+
+#### consumer.appData
+{: #consumer-appData .code}
+
+Custom data Object provided by the application in the consumer factory method. The app can modify its content at any time.
+
+> `@type` Object, read only
+
+#### consumer.observer
+{: #consumer-observer .code}
+
+See the [Observer Events](#Consumer-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
 
 </section>
 
@@ -151,77 +172,63 @@ String indicating the effective current RTP profile of this `consumer`.
 
 <section markdown="1">
 
-#### consumer.close([appData])
+#### consumer.close()
 {: #consumer-close .code}
 
-Closes the `consumer` and triggers a [`close`](#consumer-on-close) event.
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument   | Type    | Description | Required | Default 
----------- | ------- | ----------- | -------- | ----------
-`appData`  | Any     | Custom app data. | No |
-
-</div>
-
-#### consumer.pause([appData])
-{: #consumer-pause .code}
-
-Pauses the `consumer` locally, meaning that no RTP will be relayed to the remote client.
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument   | Type    | Description | Required | Default 
----------- | ------- | ----------- | -------- | ----------
-`appData`  | Any     | Custom app data sent to the remote client. | No |
-
-</div>
-
-#### consumer.resume([appData])
-{: #consumer-resume .code}
-
-Resumes the `consumer` locally, meaning that RTP will be relayed again to the remote client (unless the `consumer` was also remotely paused).
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument   | Type    | Description | Required | Default 
----------- | ------- | ----------- | -------- | ----------
-`appData`  | Any     | Custom app data sent to the remote client. | No |
-
-</div>
-
-#### consumer.setPreferredProfile(profile)
-{: #consumer-setPreferredProfile .code}
-
-Set the given RTP `profile` as the desired profile. No profile higher than the given one will become effective profile for this `consumer`.
-
-For more information, check the [Glossary](/documentation/v2/glossary/#Glossary-Profile) section.
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument   | Type    | Description | Required | Default 
----------- | ------- | ----------- | -------- | ----------
-`profile`  | String  | Preffered RTP profile. | Yes |
-
-</div>
-
-<div markdown="1" class="note">
-If no preferred profile is set into a `consumer` (meaning that "default" will be used) and the associated source (`producer`) has a preferred profile, that will be used in the `consumer`.
-</div>
-
-#### consumer.requestKeyFrame()
-{: #consumer-requestKeyFrame .code}
-
-Request a RTCP PLI to the RTP source (if supported).
+Closes the consumer.
 
 #### consumer.getStats()
 {: #consumer-getStats .code}
 
-Returns a Promise resolving to an array of Objects containing RTC stats related to the `consumer`.
+Returns current RTC statistics of the consumer.
+
+> `@async`
+> 
+> `@returns` Array&lt;[RTCStats](https://www.w3.org/TR/webrtc/#dom-rtcstats)&gt;
 
 <div markdown="1" class="note">
-Check the [RTC stats](/documentation/v2/rtc-stats/) section for more details.
+Check the [RTC Statistics](/documentation/v3/rtc-statistics/) section for more details.
 </div>
+
+#### consumer.pause()
+{: #consumer-pause .code}
+
+Pauses the consumer (no RTP is sent to the consuming endpoint).
+
+> `@async`
+
+#### consumer.resume()
+{: #consumer-resume .code}
+
+Resumes the consumer (RTP is sent again to the consuming endpoint).
+
+> `@async`
+
+#### consumer.setPreferredLayers(preferredLayers)
+{: #consumer-setPreferredLayers .code}
+
+Sets the preferred (highest) spatial and temporal layers to be sent to the consuming endpoint. Just valid for simulcast and SVC consumers.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`preferredLayers` | [ConsumerLayers](#ConsumerLayers) | Preferred spatial and temporal layers. The temporal layer is optional (if unset, the highest one is chosen). | Yes |
+
+</div>
+
+> `@async`
+
+```javascript
+await consumer.setPreferredLayers({ spatialLayer: 3 });
+```
+
+#### consumer.requestKeyFrame()
+{: #consumer-requestKeyFrame .code}
+
+Request a key frame to the associated producer. Just valid for video consumers.
+
+> `@async`
 
 </section>
 
@@ -229,73 +236,85 @@ Check the [RTC stats](/documentation/v2/rtc-stats/) section for more details.
 ### Events
 {: #Consumer-events}
 
-The `Consumer` class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+<section markdown="1">
+
+#### consumer.on("transportclose")
+{: #consumer-on-transportclose .code}
+
+Emitted when the transport this consumer belongs to is closed. The consumer itself is also closed.
+
+#### consumer.on("producerclose")
+{: #consumer-on-producerclose .code}
+
+Emitted when the producer this consumer is associated to is closed. The consumer itself is also closed.
+
+#### consumer.on("producerpause")
+{: #consumer-on-producerpause .code}
+
+Emitted when the producer this consumer is associated to is paused.
+
+#### consumer.on("producerresume")
+{: #consumer-on-producerresume .code}
+
+Emitted when the producer this consumer is associated to is resumed.
+
+#### consumer.on("score", fn(score))
+{: #consumer-on-score .code}
+
+Emitted when the consumer score changes.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument  | Type    | Description   
+--------- | ------- | ----------------
+`score`   | [ConsumerRtpStreamScore](#ConsumerRtpStreamScore) | RTP stream score.
+
+</div>
+
+#### consumer.on("layerschange", fn(layers))
+{: #consumer-on-layerschange .code}
+
+Emitted when the spatial/temporal layers being sent to the endpoint change.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument  | Type    | Description   
+--------- | ------- | ----------------
+`layers`   | [ConsumerLayers](#ConsumerLayers)\|Null | Current spatial and temporal layers (or `null` if there are no current layers).
+
+</div>
+
+</section>
+
+
+### Observer Events
+{: #Consumer-observer-events}
 
 <section markdown="1">
 
-#### consumer.on("close", fn(originator, appData))
-{: #consumer-on-close .code}
+#### consumer.observer.on("close")
+{: #consumer-observer-on-close .code}
 
-Emitted when the `consumer` is closed.
+Emitted when the consumer is closed.
 
-<div markdown="1" class="table-wrapper L3">
+#### consumer.observer.on("pause")
+{: #consumer-observer-on-pause .code}
 
-Argument  | Type    | Description   
---------- | ------- | ----------------
-`originator` | String | "local" or "remote".
-`appData` | Any     | Custom app data.
+Emitted when the consumer or its associated producer is paused.
 
-</div>
+#### consumer.observer.on("resume")
+{: #consumer-observer-on-resume .code}
 
-#### consumer.on("pause", fn(originator, appData))
-{: #consumer-on-pause .code}
+Emitted when the consumer or its associated producer is resumed.
 
-Emitted when the `consumer` is locally or remotely paused.
+#### consumer.observer.on("score", fn(score))
+{: #consumer-observer-on-score .code}
 
-<div markdown="1" class="table-wrapper L3">
+Same as the [score](#consumer-on-score) event.
 
-Argument  | Type    | Description   
---------- | ------- | ----------------
-`originator` | String | "local" or "remote".
-`appData` | Any     | Custom app data.
+#### consumer.observer.on("layerschange", fn(layers))
+{: #consumer-observer-on-layerschange .code}
 
-</div>
-
-#### consumer.on("resume", fn(originator, appData))
-{: #consumer-on-resume .code}
-
-Emitted when the `consumer` is locally or remotely resumed.
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument  | Type    | Description   
---------- | ------- | ----------------
-`originator` | String | "local" or "remote".
-`appData` | Any     | Custom app data.
-
-</div>
-
-#### consumer.on("effectiveprofilechange", fn(profile))
-{: #consumer-on-effectiveprofilechange .code}
-
-Emitted when the effective profile changes.
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument  | Type    | Description   
---------- | ------- | ----------------
-`profile` | String | Current effective RTP profile.
-
-</div>
-
-#### consumer.on("handled", fn())
-{: #consumer-on-handled .code}
-
-Emitted when a `transport` is given to this `consumer`.
-
-#### consumer.on("unhandled", fn())
-{: #consumer-on-unhandled .code}
-
-Emitted when the associated `transport` is closed.
+Same as the [layerschange](#consumer-on-layerschange) event.
 
 </section>

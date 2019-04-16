@@ -21,7 +21,7 @@ In order to build the C/C++ component the following packages and libraries must 
 * POSIX based operating system (Windows not supported)
 * Python 2 (`python2` or `python` command must point to the Python 2 executable)
 * `make`
-* `gcc` and `g++`, or `clang`, with C++11 support
+* `gcc` and `g++` >= 4.9 or `clang` (with C++11 support)
 * `cc` command pointing to `gcc` or `clang`
 
 <div markdown="1" class="note">

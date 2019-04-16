@@ -135,4 +135,11 @@ Argument | Type    | Description
 
 </div>
 
+```javascript
+mediasoup.observer.on('newworker', (worker) =>
+{
+  console.log("new worker created [pid:%d]", worker.pid);
+});
+```
+
 </section>

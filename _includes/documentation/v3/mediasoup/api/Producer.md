@@ -70,9 +70,9 @@ Field       | Type    | Description   | Required | Default
 
 Value          | Description  
 -------------- | -------------
-"simple"       | A single RTP stream is sent with no spatial/temporal layers.
-"simulcast"    | Two or more RTP streams are sent, each of them with one or more temporal layers.
-"svc"          | A single RTP stream is sent with spatial/temporal layers.
+"simple"       | A single RTP stream is received with no spatial/temporal layers.
+"simulcast"    | Two or more RTP streams are received, each of them with one or more temporal layers.
+"svc"          | A single RTP stream is received with spatial/temporal layers.
 
 </div>
 
@@ -129,7 +129,7 @@ Whether the producer is paused.
 #### producer.score
 {: #producer-score .code}
 
-The score of each RTP stream being sent, representing their tranmission quality. 
+The score of each RTP stream being received, representing their tranmission quality. 
 
 > `@type` Array&lt;[ProducerRtpStreamScore](#ProducerRtpStreamScore)&gt;, read only
 
@@ -209,7 +209,7 @@ Emitted when the producer score changes.
 
 Argument  | Type    | Description   
 --------- | ------- | ----------------
-`score  ` | Array&lt;[ProducerRtpStreamScore](#ProducerRtpStreamScore)&gt; | RTP streams' scores.
+`score`   | Array&lt;[ProducerRtpStreamScore](#ProducerRtpStreamScore)&gt; | RTP streams' scores.
 
 </div>
 

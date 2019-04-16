@@ -1,9 +1,11 @@
 ## AudioLevelObserver
 {: #AudioLevelObserver}
 
+*TODO*
+
 <section markdown="1">
 
-An audio level observer monitor the volume of audio producers.
+An audio level observer monitors the volume of audio producers.
 
 </section>
 
@@ -37,15 +39,13 @@ Field          | Type    | Description  | Required | Default
 #### activeSpeakerDetector.close()
 {: #activeSpeakerDetector-close .code}
 
-Closes the `activeSpeakerDetector` and triggers a [`close`](#activeSpeakerDetector-on-close) event.
+Closes the audio level observer.
 
 </section>
 
 
 ### Events
 {: #AudioLevelObserver-events}
-
-The `AudioLevelObserver` class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 <section markdown="1">
 
