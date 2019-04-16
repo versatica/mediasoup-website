@@ -104,10 +104,10 @@ Argument   | Type    | Description | Required | Default
 > * `temporalLayers` {`@type` Number} Number of temporal layers (by default 1).
 
 ```javascript
-mediasoup.parseScalabilityMode('L2T3');
+mediasoup.parseScalabilityMode("L2T3");
 // => { spatialLayers: 2, temporalLayers: 3 }
 
-mediasoup.parseScalabilityMode('L4T7_KEY_SHIFT');
+mediasoup.parseScalabilityMode("L4T7_KEY_SHIFT");
 // => { spatialLayers: 4, temporalLayers: 7 }
 
 mediasoup.parseScalabilityMode(undefined);
@@ -136,7 +136,7 @@ Argument | Type    | Description
 </div>
 
 ```javascript
-mediasoup.observer.on('newworker', (worker) =>
+mediasoup.observer.on("newworker", (worker) =>
 {
   console.log("new worker created [pid:%d]", worker.pid);
 });

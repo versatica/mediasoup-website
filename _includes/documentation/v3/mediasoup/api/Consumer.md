@@ -244,7 +244,7 @@ Request a key frame to the associated producer. Just valid for video consumers.
 Emitted when the transport this consumer belongs to is closed for whatever reason. The consumer itself is also closed.
 
 ```javascript
-consumer.on('transportclose', () =>
+consumer.on("transportclose", () =>
 {
   console.log("transport closed so consumer closed");
 });
@@ -256,7 +256,7 @@ consumer.on('transportclose', () =>
 Emitted when the associated producer is closed. The consumer itself is also closed.
 
 ```javascript
-consumer.on('producerclose', () =>
+consumer.on("producerclose", () =>
 {
   console.log("associated producer closed so consumer closed");
 });

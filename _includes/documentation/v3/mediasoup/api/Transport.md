@@ -199,7 +199,7 @@ const producer = await transport.produce(
       ],
       rtcp :
       {
-        cname : 'Zjhd656aqfoo'
+        cname : "Zjhd656aqfoo"
       }
     }
   });
@@ -315,7 +315,7 @@ These are events common to all transport classes. Each transport class may defin
 Emitted when the router this transport belongs to is closed for whatever reason. The transport itself is also closed.
 
 ```javascript
-transport.on('routerclose', () =>
+transport.on("routerclose", () =>
 {
   console.log("router closed so transport closed");
 });
@@ -350,7 +350,7 @@ Argument    | Type    | Description
 </div>
 
 ```javascript
-transport.observer.on('newproducer', (producer) =>
+transport.observer.on("newproducer", (producer) =>
 {
   console.log("new producer created [id:%s]", producer.id);
 });
@@ -370,7 +370,7 @@ Argument    | Type    | Description
 </div>
 
 ```javascript
-transport.observer.on('newconsumer', (consumer) =>
+transport.observer.on("newconsumer", (consumer) =>
 {
   console.log("new consumer created [id:%s]", consumer.id);
 });

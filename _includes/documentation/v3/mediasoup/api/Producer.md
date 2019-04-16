@@ -201,7 +201,7 @@ Resumes the producer (RTP is sent again to its associated consumers).
 Emitted when the transport this producer belongs to is closed for whatever reason. The producer itself is also closed.
 
 ```javascript
-producer.on('transportclose', () =>
+producer.on("transportclose", () =>
 {
   console.log("transport closed so producer closed");
 });

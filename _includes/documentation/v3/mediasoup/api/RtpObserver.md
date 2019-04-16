@@ -115,7 +115,7 @@ These are events common to all RTP observer classes. Each RTP observer class may
 Emitted when the router this RTP observer belongs to is closed for whatever reason. The RTP observer itself is also closed.
 
 ```javascript
-rtpObserver.on('routerclose', () =>
+rtpObserver.on("routerclose", () =>
 {
   console.log("router closed so RTP observer closed");
 });

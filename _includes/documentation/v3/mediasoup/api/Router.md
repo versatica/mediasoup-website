@@ -272,7 +272,7 @@ if (router.canConsume({ producerId, rtpCapabilities }))
 Emitted when the worker this router belongs to is closed for whatever reason. The router itself is also closed.
 
 ```javascript
-router.on('workerclose', () =>
+router.on("workerclose", () =>
 {
   console.log("worker closed so router closed");
 });
@@ -305,7 +305,7 @@ Argument    | Type    | Description
 </div>
 
 ```javascript
-router.observer.on('newtransport', (transport) =>
+router.observer.on("newtransport", (transport) =>
 {
   console.log("new transport created [id:%s]", transport.id);
 });

@@ -322,7 +322,7 @@ Argument  | Type    | Description
 </div>
 
 ```javascript
-webRtcTransport.on('icestatechange', (iceState) =>
+webRtcTransport.on("icestatechange", (iceState) =>
 {
   console.log("ICE state changed to %s", iceState);
 });

@@ -177,7 +177,7 @@ This should never happens (if it happens, it's a bug).
 </div>
 
 ```javascript
-worker.on('died', () =>
+worker.on("died", () =>
 {
   console.error("mediasoup worker died!");
 });
@@ -210,7 +210,7 @@ Argument | Type    | Description
 </div>
 
 ```javascript
-worker.observer.on('newrouter', (router) =>
+worker.observer.on("newrouter", (router) =>
 {
   console.log("new router created [id:%s]", router.id);
 });
