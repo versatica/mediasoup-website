@@ -44,7 +44,7 @@ const stats = await webRtcTransport.getStats():
     "maxIncomingBitrate": 3500000,
     "timestamp": 922749895,
     "transportId": "0b38d662-ea00-4c70-9ae3-b675d6a89e0a",
-    "type": "webrtctransport"
+    "type": "webrtc-transport"
   }
 ]
 ```
@@ -74,7 +74,7 @@ const stats = await plainRtpTransport.getStats():
       "remoteIp": "55.66.77.88",
       "remotePort": 56971
     },
-    "type": "plainrtptransport"
+    "type": "plain-rtp-transport"
   }
 ]
 ```
@@ -101,7 +101,7 @@ const stats = await pipeTransport.getStats():
       "remoteIp": "11.22.33.44",
       "remotePort": 42301
     },
-    "type": "pipetransport"
+    "type": "pipe-transport"
   }
 ]
 ```
