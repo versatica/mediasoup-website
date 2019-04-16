@@ -47,8 +47,8 @@ Field           | Type    | Description   | Required | Default
 
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
-`producer`      | Number  | Score of the currently selected RTP stream in the associated producer (from 0 to 10) representing its transmission quality. | Yes |
-`consumer`      | Number  | Score of the RTP stream in the consumer (from 0 to 10) representing its transmission quality. | Yes |
+`score`         | Number  | Score of the RTP stream in the consumer (from 0 to 10) representing its transmission quality. | Yes |
+`producerScore` | Number  | Score of the currently selected RTP stream in the associated producer (from 0 to 10) representing its transmission quality. | Yes |
 
 </div>
 

@@ -369,8 +369,6 @@ See also [Transport Observer Events](#Transport-observer-events).
 
 Same as the [icestatechange](#webRtcTransport-on-icestatechange) event.
 
-</div>
-
 #### webRtcTransport.observer.on("iceselectedtuplechange", fn(iceSelectedTuple))
 {: #webRtcTransport-observer-on-iceselectedtuplechange .code}
 

@@ -92,6 +92,6 @@ See also [Transport Events](#Transport-events).
 
 <section markdown="1">
 
-See also [Transport Events](#Transport-observer-events).
+See also [Transport Observer Events](#Transport-observer-events).
 
 </section>
