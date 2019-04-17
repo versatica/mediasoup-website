@@ -114,6 +114,10 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note">
+See the [Codec Parameters](#Codec-Parameters) section below for more info about the codec `parameters`.
+</div>
+
 #### RTCRtcpFeedback
 {: #RTCRtcpFeedback .code }
 
@@ -241,6 +245,65 @@ Field              | Type    | Description   | Required | Default
 <div markdown="1" class="note">
 * mediasoup does not currently support encrypted RTP header extensions.
 * The `direction` field is just present in mediasoup RTP capabilities (retrieved via [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) or [mediasoup.getSupportedRtpCapabilities()](/documentation/v3/mediasoup/api/#mediasoup-getSupportedRtpCapabilities)). It's ignored if present in endpoints' RTP capabilities.
+</div>
+
+</section>
+
+
+## Codec Parameters
+{: #Codec-Parameters}
+
+When a producer includes codec parameters into its RTP send parameters, those parameters are passed verbatim to the RTP receive parameters of the consumers associated to that producer.
+
+Some of those parameters are part of the codec settings and are used for codec matching. Some other codec parameters affect the operation of mediasoup for the corresponding producer and consumers.
+
+
+### Parameters for Codec Matching
+{: #Parameters-for-Codec-Matching}
+
+These parameters are part of the codec settings, meaning that their values determine whether an entry in `rtpParameters.codecs` matches or not an entry in the remote `rtpCapabilities.codecs`. These parameters are codec-specific:
+
+<section markdown="1">
+
+#### H264
+{: #H264 }
+
+H264 codec matching rules are complex and involve inspection of the following parameters (see the [RFC 6184](https://tools.ietf.org/html/rfc6184) for more details):
+
+<div markdown="1" class="table-wrapper L3">
+
+Parameter            | Type    | Description   | Required | Default
+-------------------- | ------- | ------------- | -------- | ---------
+"packetization-mode" | Number  | 0 means that the single NAL mode must be used. 1 means that the non-interleaved mode must be used. | No | 0
+"profile-level-id"   | String  | Indicates the default sub-profile and the default level of the stream. | Yes |
+"level-asymmetry-allowed" | Number | Indicates whether level asymmetry is allowed. | No | 0
+
+</div>
+
+<div markdown="1" class="note">
+mediasoup uses the [h264-profile-level-id](https://github.com/ibc/h264-profile-level-id) JavaScript library to evaluate those parameters and perform proper H264 codec matching.
+</div>
+
+</section>
+
+
+### Parameters Affecting mediasoup Operation
+{: #Parameters-Affecting-mediasoup-Operation}
+
+These parameters influence the mediasoup operation by enabling or disabling some features. These parameters are codec-specific:
+
+<section markdown="1">
+
+#### OPUS
+{: #OPUS}
+
+<div markdown="1" class="table-wrapper L3">
+
+Parameter      | Type    | Description   | Required | Default
+-------------- | ------- | ------------- | -------- | ---------
+"useinbandfec" | Number  | If 1, mediasoup will use the worst packet fraction lost in the RTCP Receiver Report received from the consuming endpoints and use it into the Receiver Report that mediasoup sends to the OPUS producer endpoint. This will force it to generate more in-band FEC into the OPUS packets to accomodate to the worst receiver. | No | 0
+"usedtx"        | Number | If 1, mediasoup will not consider the stream as inactive when there is no RTP traffic. Same behavior is achieved by indicating `dtx`: `true` in the corresponding encoding in the RTP send parameters. | No | 0
+
 </div>
 
 </section>
