@@ -81,7 +81,7 @@ Returns a cloned copy of the mediasoup supported RTP capabilities, specifically 
 const rtpCapabilities = mediasoup.getSupportedRtpCapabilities();
 
 console.log(rtpCapabilities);
-// => { codecs: [], headerExtensions: [] }
+// => { codecs: [...], headerExtensions: [...] }
 ```
 
 #### mediasoup.parseScalabilityMode(scalabilityMode)
