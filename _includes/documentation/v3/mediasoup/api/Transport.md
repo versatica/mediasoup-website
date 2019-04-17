@@ -112,7 +112,7 @@ Returns current RTC statistics of the transport. Each transport class produces a
 > 
 > `@abstract`
 > 
-> `@returns` Array&lt;[RTCStats](https://www.w3.org/TR/webrtc/#dom-rtcstats)&gt;
+> `@returns` Array&lt;Object&gt;
 
 <div markdown="1" class="note">
 Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section for more details.
