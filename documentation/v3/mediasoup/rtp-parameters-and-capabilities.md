@@ -12,7 +12,7 @@ The RTP parameters describe the media that an endpoint sends to mediasoup and th
 {: toc}
 
 
-### RTP Negotiation Overview
+## RTP Negotiation Overview
 {: #RTP-Negotiation-Overview}
 
 When a mediasoup [Router](/documentation/v3/mediasoup/api/#Router) is created it's provided with a set of [RouterMediaCodec](/documentation/v3/mediasoup/api/#RouterMediaCodec) that define the audio and video codecs enabled in that router. The application then retrieves the computed [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) (which include the router codecs enhanced with retransmission and RTCP capabilities, and the list of RTP header extensions supported by mediasoup) and provides the endpoints with those RTP capabilities.
@@ -33,28 +33,31 @@ mediasoup is strict in what it sends to endpoints, meaning that the codec `prefe
 </div>
 
 
-### Dictionaries
+## Dictionaries
 {: #Dictionaries}
 
+<section markdown="1">
 
 #### RTCRtpParameters
-{: #RTCRtpParameters}
+{: #RTCRtpParameters .code}
 
 The RTP parameters Object in mediasoup follows the [RTCRtpParameters](https://draft.ortc.org/#dom-rtcrtpparameters) definition in the ORTC specification with some differences.
 
 *TODO*
 
 #### RTCRtpSendParameters
-{: #RTCRtpSendParameters}
+{: #RTCRtpSendParameters .code}
 
 *TODO*
 
 #### RTCRtpReceiveParameters
-{: #RTCRtpReceiveParameters}
+{: #RTCRtpReceiveParameters .code}
 
 *TODO*
 
 #### RTCRtpCapabilities
-{: #RTCRtpCapabilities}
+{: #RTCRtpCapabilities .code}
 
 *TODO*
+
+</section>
