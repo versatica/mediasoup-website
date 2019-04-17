@@ -3,9 +3,9 @@
 
 <section markdown="1">
 
-A plain RTP transport represents a network path through which plain RTP and RTCP is transmitted.
-
 > `@inherits` [Transport](#Transport)
+
+A plain RTP transport represents a network path through which plain RTP and RTCP is transmitted.
 
 </section>
 

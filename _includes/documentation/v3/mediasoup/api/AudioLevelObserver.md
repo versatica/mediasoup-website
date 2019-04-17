@@ -3,9 +3,9 @@
 
 <section markdown="1">
 
-An audio level observer monitors the volume of audio producers.
+> `@inherits` [Transport](#Transport)
 
-> `@inherits` [RtpObserver](#RtpObserver)
+An audio level observer monitors the volume of audio producers.
 
 </section>
 

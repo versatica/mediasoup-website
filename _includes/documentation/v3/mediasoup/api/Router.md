@@ -22,18 +22,20 @@ Developers can think of a mediasoup router as if it were a "multi-party conferen
 
 <div markdown="1" class="table-wrapper L3">
 
-Field                    | Type    | Description   | Required | Default
------------------------- | ------- | ------------- | -------- | ---------
-`kind`                   | String  | Media kind ("audio" or "video"). | Yes |
-`mimeType`               | String  | The codec MIME type, i.e. "audio/opus", "video/VP8". The list of mediasoup supported codecs is available in the [mediasoup/lib/supportedRtpCapabilities.js](https://github.com/versatica/mediasoup/blob/v3/lib/supportedRtpCapabilities.js) file. | Yes |
-`clockRate`              | Number  | Codec clock rate expressed in Hertz. | Yes |
-`channels`               | Number  | The number of channels (mono=1, stereo=2) for audio codecs. | No | 1
-`parameters`             | Object  | Codec specific parameters. Some parameters (such as "packetization-mode" and "profile-level-id" in H264) are critical for codec matching. | No |
+Field                  | Type    | Description   | Required | Default
+---------------------- | ------- | ------------- | -------- | ---------
+`kind`                 | String  | Media kind ("audio" or "video"). | Yes |
+`mimeType`             | String  | The codec MIME type, i.e. "audio/opus", "video/VP8". The list of mediasoup supported codecs is available in the [mediasoup/lib/supportedRtpCapabilities.js](https://github.com/versatica/mediasoup/blob/v3/lib/supportedRtpCapabilities.js) file. | Yes |
+`preferredPayloadType` | Number  | The value that goes in the RTP Payload Type Field. If unset, an auto-generated value is chosen. | No |
+`clockRate`            | Number  | Codec clock rate expressed in Hertz. | Yes |
+`channels`             | Number  | The number of channels (mono=1, stereo=2) for audio codecs. | No | 1
+`parameters`           | Object  | Codec specific parameters. Some parameters (such as "packetization-mode" and "profile-level-id" in H264) are critical for codec matching. | No |
 
 </div>
 
 <div markdown="1" class="note warn">
-Feature codecs such as RTX or FEC must **NOT** be placed into the router `mediaCodecs`.
+* Feature codecs such as RTX or FEC must **NOT** be placed into the router `mediaCodecs`.
+* If `preferredPayloadType` is given (although it is unnecessary) it's extremely recommended to use a value equal or greater than 96 and lower than 128.
 </div>
 
 </section>
