@@ -1,35 +1,35 @@
-'use strict';
-
 const path = require('path');
 const fs = require('fs');
+const del = require('del');
 const gulp = require('gulp');
 const rename = require('gulp-rename');
 const shell = require('gulp-shell');
 const sitemap = require('gulp-sitemap');
 const browserify = require('browserify');
-const vinyl_source_stream = require('vinyl-source-stream');
-const vinyl_buffer = require('vinyl-buffer');
-const uglify = require('gulp-uglify');
+const stream = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+const uglify = require('gulp-uglify-es').default;
 const rsync = require('rsyncwrapper');
 
 const PKG = require('./package.json');
 
-gulp.task('clean', shell.task(
-	[ 'rm -rf _site/ .sass-cache/' ]
-));
+gulp.task('clean', () =>
+{
+	return del([ '_site', '.sass-cache' ], { force: true });
+});
 
-gulp.task('browserify', function()
+gulp.task('browserify', () =>
 {
 	return browserify([path.join(__dirname, PKG.main)])
 		.bundle()
-		.pipe(vinyl_source_stream(PKG.name + '.js'))
-		.pipe(vinyl_buffer())
+		.pipe(stream(PKG.name + '.js'))
+		.pipe(buffer())
 		.pipe(uglify())
 		.pipe(rename('site.js'))
 		.pipe(gulp.dest('./js/'));
 });
 
-gulp.task('sitemap', function()
+gulp.task('sitemap', () =>
 {
 	return gulp.src('_site/**/*.html')
 		.pipe(sitemap(
@@ -47,7 +47,7 @@ gulp.task('jekyll:watch', shell.task(
 	[ 'bundle exec jekyll serve --host 0.0.0.0' ]
 ));
 
-gulp.task('rsync', function(done)
+gulp.task('rsync', (done) =>
 {
 	const options =
 	{
@@ -67,7 +67,7 @@ gulp.task('rsync', function(done)
 		}
 	};
 
-	rsync(options, function(error, stdout, stderr, cmd)
+	rsync(options, (error, stdout, stderr, cmd) =>
 	{
 		if (!error)
 		{
