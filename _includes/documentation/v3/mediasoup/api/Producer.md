@@ -27,6 +27,10 @@ Field           | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note">
+Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+</div>
+
 #### ProducerRtpStreamScore
 {: #ProducerRtpStreamScore .code}
 
@@ -111,6 +115,10 @@ The media kind ("audio" or "video").
 Producer RTP parameters.
 
 > `@type` [RTCRtpSendParameters](https://draft.ortc.org/#rtcrtpsendparameters*), read only
+
+<div markdown="1" class="note">
+Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+</div>
 
 #### producer.type
 {: #producer-type .code}

@@ -205,6 +205,10 @@ const producer = await transport.produce(
   });
 ```
 
+<div markdown="1" class="note">
+Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+</div>
+
 #### transport.consume(options)
 {: #transport-consume .code}
 
@@ -298,6 +302,10 @@ const consumer = await transport.consume(
     }
   });
 ```
+
+<div markdown="1" class="note">
+Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+</div>
 
 </section>
 

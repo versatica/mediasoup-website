@@ -5,6 +5,10 @@
 
 A router holds a multiparty RTC (Real-Time Communication) conference by allowing injection, selection and forwarding of media streams.
 
+<div markdown="1" class="note">
+Developers can think of a mediasoup router as if it were a "multi-party conference room", although mediasoup is much more low level than that and doesn't constrain itself to specific high level use cases (for instance, a "multi-party conference room" may take place within different mediasoup routers, even in different physicals hosts).
+</div>
+
 </section>
 
 
@@ -65,6 +69,10 @@ Whether the router is closed.
 An Object with the RTP capabilities of the router. These capabilities are tipically needed by mediasoup clients to compute their sending RTP parameters.
 
 > `@type` [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*), read only
+
+<div markdown="1" class="note">
+Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+</div>
 
 #### router.observer
 {: #router-observer .code}

@@ -28,6 +28,10 @@ Field           | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note">
+Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+</div>
+
 #### ConsumerLayers
 {: #ConsumerLayers .code}
 
@@ -114,6 +118,10 @@ The media kind ("audio" or "video").
 Consumer RTP parameters.
 
 > `@type` [RTCRtpReceiveParameters](https://draft.ortc.org/#rtcrtpreceiveparameters*), read only
+
+<div markdown="1" class="note">
+Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+</div>
 
 #### consumer.type
 {: #consumer-type .code}
