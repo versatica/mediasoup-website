@@ -144,6 +144,10 @@ Argument    | Type    | Description | Required | Default
 > 
 > `@returns` [Producer](#Producer)
 
+<div markdown="1" class="note">
+Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+</div>
+
 ```javascript
 const producer = await transport.produce(
   {
@@ -205,10 +209,6 @@ const producer = await transport.produce(
   });
 ```
 
-<div markdown="1" class="note">
-Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
-</div>
-
 #### transport.consume(options)
 {: #transport-consume .code}
 
@@ -225,6 +225,10 @@ Argument    | Type    | Description | Required | Default
 > `@async`
 > 
 > `@returns` [Consumer](#Consumer)
+
+<div markdown="1" class="note">
+Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+</div>
 
 ```javascript
 const consumer = await transport.consume(
@@ -302,10 +306,6 @@ const consumer = await transport.consume(
     }
   });
 ```
-
-<div markdown="1" class="note">
-Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
-</div>
 
 </section>
 

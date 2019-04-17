@@ -15,7 +15,7 @@ The RTP parameters describe the media that an endpoint sends to mediasoup (RTP s
 ## RTP Negotiation Overview
 {: #RTP-Negotiation-Overview}
 
-When a mediasoup [Router](/documentation/v3/mediasoup/api/#Router) is created it's provided with a set of [RouterMediaCodec](/documentation/v3/mediasoup/api/#RouterMediaCodec) that define the audio and video codecs enabled in that router. The application then retrieves the computed [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) (which include the router codecs enhanced with retransmission and RTCP capabilities, and the list of RTP header extensions supported by mediasoup) and provides the endpoints with those RTP capabilities.
+When a mediasoup [Router](/documentation/v3/mediasoup/api/#Router) is created it's provided with a set of [RTCRtpCodecCapability](#RTCRtpCodecCapability) that define the audio and video codecs enabled in that router. The application then retrieves the computed [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) (which include the router codecs enhanced with retransmission and RTCP capabilities, and the list of RTP header extensions supported by mediasoup) and provides the endpoints with those RTP capabilities.
 
 The endpoint wishing to send media to mediasoup uses the router's RTP capabilities and its own ones to compute its sending RTP parameters and transmits them to the router (assuming it has already created a transport to send media). The application then creates a [Producer](/documentation/v3/mediasoup/api/#Producer) instance in the router by using the [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) API.
 
@@ -97,13 +97,13 @@ Field              | Type    | Description   | Required | Default
 #### RTCRtpCodecParameters
 {: #RTCRtpCodecParameters .code}
 
-Provides information on codec settings.
+Provides information on codec settings within the RTP parameters. The list of media codecs supported by mediasoup and their settings is defined in the [supportedRtpCapabilities.js](https://github.com/versatica/mediasoup/blob/v3/lib/supportedRtpCapabilities.js) file.
 
 <div markdown="1" class="table-wrapper L3">
 
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
-`mimeType`         | String  | The codec MIME media type/subtype ("audio/opus", "video/VP8", etc). | Yes |
+`mimeType`         | String  | The codec MIME media type/subtype (e.g. "audio/opus", "video/VP8"). | Yes |
 `payloadType`      | Number  | The value that goes in the RTP Payload Type Field. Must be unique. | Yes |
 `clockRate`        | Number  | Codec clock rate expressed in Hertz. | Yes |
 `channels`         | Number  | The number of channels supported (e.g. two for stereo). Just for audio. | No | 1
@@ -112,6 +112,133 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
+#### RTCRtcpFeedback
+{: #RTCRtcpFeedback .code }
 
+Provides information on RTCP feedback messages for a specific codec. Those messages can be transport layer feedback messages or codec-specific feedback messages. The list of RTCP feedbacks supported by mediasoup is defined in the [supportedRtpCapabilities.js](https://github.com/versatica/mediasoup/blob/v3/lib/supportedRtpCapabilities.js) file.
+
+<div markdown="1" class="table-wrapper L3">
+
+Field       | Type    | Description   | Required | Default
+----------- | ------- | ------------- | -------- | ---------
+`type`      | String  | RTCP feedback type. | Yes |
+`parameter` | String  | RTCP feedback parameter. | No |
+
+</div>
+
+
+#### RtpEncodingParameters
+{: RtpEncodingParameters .code}
+
+Provides information relating to an encoding, which represents a media RTP stream and its associated RTX stream (if any).
+
+<div markdown="1" class="table-wrapper L3">
+
+Field             | Type    | Description   | Required | Default
+----------------- | ------- | ------------- | -------- | ---------
+`ssrc`            | Number  | The media SSRC. | No |
+`rid`             | String  | The RID RTP extension value. Must be unique. | No |
+`rtx`             | Object  | RTX stream information. It must contain a numeric `ssrc` field indicating the RTX SSRC. | No.
+`dtx`             | Boolean | For audio. Indicates whether discontinuous RTP transmission will be used. | No | `false`
+`scalabilityMode` | String  | Number of spatial and temporal layers in the RTP stream (e.g. "L1T3"). See [webrtc-svc](https://w3c.github.io/webrtc-svc/). | No |
+
+</div>
+
+<div markdown="1" class="note">
+When creating a mediasoup producer:
+
+* At least `ssrc` or `rid` must be specified.
+* In `encodings` with a single entry, `ssrc` must be given.
+* In `encodings` with multiple entries (simulcast), `ssrc` or `rid` can be used.
+</div>
+
+
+#### RTCRtpHeaderExtensionParameters
+{: #RTCRtpHeaderExtensionParameters .code}
+
+Defines a RTP header extension within the RTP parameters. The list of RTP header extensions supported by mediasoup is defined in the [supportedRtpCapabilities.js](https://github.com/versatica/mediasoup/blob/v3/lib/supportedRtpCapabilities.js) file.
+
+<div markdown="1" class="table-wrapper L3">
+
+Field              | Type    | Description   | Required | Default
+------------------ | ------- | ------------- | -------- | ---------
+`uri`              | String  | The URI of the RTP header extension, as defined in [RFC 5285](https://tools.ietf.org/html/rfc5285). | Yes |
+`id`               | Number  | The numeric identifier that goes in the RTP packet. Must be unique. | Yes |
+`encrypt`          | Boolean | If `true`, the value in the header is encrypted as per [RFC 6904](https://tools.ietf.org/html/rfc6904). | No | `false`
+`parameters`       | Object  | Configuration parameters for the header extension. | No |
+
+</div>
+
+<div markdown="1" class="note">
+* mediasoup does not currently support encrypted RTP header extensions.
+* No `parameters` are currently considered. 
+</div>
+
+#### RTCRtcpParameters
+{: #RTCRtcpParameters .code}
+
+Provides information on RTCP settings within the RTP parameters.
+
+<div markdown="1" class="table-wrapper L3">
+
+Field              | Type    | Description   | Required | Default
+------------------ | ------- | ------------- | -------- | ---------
+`cname`            | String  | The Canonical Name (CNAME) used by RTCP (e.g. in SDES messages). | No |
+`reducedSize`      | Boolean | Whether reduced size RTCP [RFC 5506](https://tools.ietf.org/html/5506) is configured (if `true`) or compound RTCP as specified in [RFC 3550](https://tools.ietf.org/html/3550) (if `false`). | No | `true`
+
+</div>
+
+<div markdown="1" class="note">
+* If no `cname` is given in a producer's RTP parameters, the mediasoup transport will choose a random one that will be used into RTCP SDES messages sent to all its associated consumers.
+* mediasoup assumes `reducedSize` to always be `true`.
+</div>
+
+#### RTCRtpCodecCapability
+{: #RTCRtpCodecCapability .code}
+
+Provides information on the capabilities of a codec within the RTP capabilities. The list of media codecs supported by mediasoup and their settings is defined in the [supportedRtpCapabilities.js](https://github.com/versatica/mediasoup/blob/v3/lib/supportedRtpCapabilities.js) file.
+
+Exactly one `RTCRtpCodecCapability` will be present for each supported combination of parameters that requires a distinct value of `preferredPayloadType`. For example:
+
+* Multiple H264 codecs, each with their own distinct "packetization-mode" and "profile-leve-id" values.
+
+<div markdown="1" class="table-wrapper L3">
+
+Field              | Type    | Description   | Required | Default
+------------------ | ------- | ------------- | -------- | ---------
+`kind`             | String  | Media kind ("audio" or "video"). | Yes |
+`mimeType`         | String  | The codec MIME media type/subtype (e.g. "audio/opus", "video/VP8"). | Yes |
+`preferredPayloadType` | Number  | The preferred RTP payload type. | Yes |
+`clockRate`        | Number  | Codec clock rate expressed in Hertz. | Yes |
+`channels`         | Number  | The number of channels supported (e.g. two for stereo). Just for audio. | No | 1
+`parameters`           | Object  | Codec specific parameters. Some parameters (such as "packetization-mode" and "profile-level-id" in H264) are critical for codec matching. | No |
+
+</div>
+
+<div markdown="1" class="note">
+* `RTCRtpCodecCapability` entries in the `mediaCodecs` argument of [worker.createRouter()](/documentation/v3/mediasoup/api/#worker-createRouter) do not require `preferredPayloadType` field (if unset, mediasoup will choose a random one). If given, make sure it's in the 96-127 range.
+</div>
+
+#### RTCRtpHeaderExtension
+{: #RTCRtpHeaderExtension .code}
+
+Provides information relating to supported header extensions. The list of RTP header extensions supported by mediasoup is defined in the [supportedRtpCapabilities.js](https://github.com/versatica/mediasoup/blob/v3/lib/supportedRtpCapabilities.js) file.
+
+<div markdown="1" class="table-wrapper L3">
+
+Field              | Type    | Description   | Required | Default
+------------------ | ------- | ------------- | -------- | ---------
+`kind`             | String  | Media kind ("audio" or "video"). If unset, it's valid for all kinds. | No |
+`uri`              | String  | The URI of the RTP header extension, as defined in [RFC 5285](https://tools.ietf.org/html/rfc5285). | Yes |
+`preferredId`      | Number  | The preferred numeric identifier that goes in the RTP packet. Must be unique. | Yes |
+`preferredEncrypt` | Boolean | If `true`, it is preferred that the value in the header be encrypted as per [RFC 6904](https://tools.ietf.org/html/rfc6904). | No | `false`
+`direction`        | String  | If "sendrecv", mediasoup supports sending and receiving this RTP extension. "sendonly" means that mediasoup can send (but not receive) it. "recvonly" means that mediasoup can receive (but not send) it. | No |
+
+</div>
+
+<div markdown="1" class="note">
+* mediasoup does not currently support encrypted RTP header extensions.
+* The `direction` field is just present in mediasoup RTP capabilities (retrieved via [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) or [mediasoup.getSupportedRtpCapabilities()](/documentation/v3/mediasoup/api/#mediasoup-getSupportedRtpCapabilities)). It's ignored if present in endpoints' RTP capabilities.
+</div>
 
 </section>

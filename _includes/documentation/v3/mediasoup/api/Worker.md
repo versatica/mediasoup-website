@@ -126,13 +126,18 @@ Creates a new router.
 
 Argument      | Type    | Description | Required | Default 
 ------------- | ------- | ----------- | -------- | ----------
-`mediaCodecs` | Array&lt;[RouterMediaCodec](#RouterMediaCodec)&gt; | Router media codecs. | Yes |
+`mediaCodecs` | Array&lt;[RTCRtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpCodecCapability)&gt; | Router media codecs. | Yes |
 
 </div>
 
 > `@async`
 > 
 > `@returns` [Router](#Router)
+
+<div markdown="1" class="note">
+* Feature codecs such as RTX **MUST NOT** be placed into the `mediaCodecs` list.
+* If `preferredPayloadType` is given in a `RTCRtpCodecCapability` (although it's unnecessary) it's extremely recommended to use a value in the 96-127 range.
+</div>
 
 ```javascript
 const mediaCodecs =
