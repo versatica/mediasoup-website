@@ -356,6 +356,12 @@
 		}
 	}
 
+	// Convert the <hr> (line) into a vertical space.
+	hr {
+		margin: 1rem 0 !important;
+		visibility: hidden;
+	}
+
 	// Remove margin-top for first sibling elements.
 	h1 + h2, h1 + h3, h1 + p, h1 + ul, h1 + pre,
 	h2 + h3, h2 + h4, h2 + p, h2 + ul, h2 + pre,

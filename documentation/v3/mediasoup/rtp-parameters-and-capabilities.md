@@ -8,6 +8,8 @@ anchors : true
 
 The RTP parameters describe the media that an endpoint sends to mediasoup (RTP send parameters) or the media that mediasoup forwards to an endpoint (RTP receive parameters). The RTP capabilities, instead, define what mediasoup or an endpoint can receive, thus RTP parameters depend on (or are constrained to) the remote RTP capabilities.
 
+----
+
 * Will be replaced with the ToC
 {: toc}
 
@@ -216,7 +218,7 @@ Field              | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-* `RTCRtpCodecCapability` entries in the `mediaCodecs` argument of [worker.createRouter()](/documentation/v3/mediasoup/api/#worker-createRouter) do not require `preferredPayloadType` field (if unset, mediasoup will choose a random one). If given, make sure it's in the 96-127 range.
+`RTCRtpCodecCapability` entries in the `mediaCodecs` argument of [worker.createRouter()](/documentation/v3/mediasoup/api/#worker-createRouter) do not require `preferredPayloadType` field (if unset, mediasoup will choose a random one). If given, make sure it's in the 96-127 range.
 </div>
 
 #### RTCRtpHeaderExtension
