@@ -208,7 +208,7 @@ Current DTLS state.
 #### webRtcTransport.dtlsRemoteCert
 {: #webRtcTransport-dtlsRemoteCert .code}
 
-The remote certificate in PEM format. It is set once [`dtlsState`](#webRtcTransport-dtlsState) becomes "connected".
+The remote certificate in PEM format. It is set once the DTLS state becomes "connected".
 
 > `@type` String, read only
 

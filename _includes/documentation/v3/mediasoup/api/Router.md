@@ -68,7 +68,7 @@ Whether the router is closed.
 
 An Object with the RTP capabilities of the router. These capabilities are tipically needed by mediasoup clients to compute their sending RTP parameters.
 
-> `@type` [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*), read only
+> `@type` [RTCRtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpCapabilities), read only
 
 <div markdown="1" class="note">
 Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
@@ -253,7 +253,7 @@ Whether the given RTP capabilities are valid to consume the given producer.
 Argument          | Type    | Description  | Required | Default 
 ----------------- | ------- | ------------ | -------- | ----------
 `producerId`      | String  | Producer id. | Yes |
-`rtpCapabilities` | [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*) | RTP capabilities of the potential consumer. | Yes |
+`rtpCapabilities` | [RTCRtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpCapabilities) | RTP capabilities of the potential consumer. | Yes |
 
 </div>
 

@@ -21,7 +21,7 @@ A consumer represents an audio or video media track being forwarded from a media
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
 `producerId`    | String  | The id of the producer to consume. | Yes |
-`rtpCapabilities` | [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*) | RTP capabilities of the consuming endpoint. | Yes |
+`rtpCapabilities` | [RTCRtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpCapabilities) | RTP capabilities of the consuming endpoint. | Yes |
 `paused`        | Boolean | Whether the consumer must start in paused mode. | No | `false`
 `preferredLayers` | [ConsumerLayers](#ConsumerLayers) | Preferred spatial and temporal layer for simulcast or SVC media sources. | No |
 `appData`       | Object  | Custom application data. | No | `{}`
@@ -117,7 +117,7 @@ The media kind ("audio" or "video").
 
 Consumer RTP parameters.
 
-> `@type` [RTCRtpReceiveParameters](https://draft.ortc.org/#rtcrtpreceiveparameters*), read only
+> `@type` [RTCRtpReceiveParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpReceiveParameters), read only
 
 <div markdown="1" class="note">
 Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.

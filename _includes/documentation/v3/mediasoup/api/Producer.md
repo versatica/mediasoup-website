@@ -21,7 +21,7 @@ A producer represents an audio or video source being injected into a mediasoup r
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
 `kind`          | String  | Media kind ("audio" or "video"). | Yes |
-`rtpParameters` | [RTCRtpSendParameters](https://draft.ortc.org/#rtcrtpsendparameters*) | RTP parameters defining what the endpoint is sending. | Yes |
+`rtpParameters` | [RTCRtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpSendParameters) | RTP parameters defining what the endpoint is sending. | Yes |
 `paused`        | Boolean | Whether the producer must start in paused mode. | No | `false`
 `appData`       | Object  | Custom application data. | No | `{}`
 
@@ -114,7 +114,7 @@ The media kind ("audio" or "video").
 
 Producer RTP parameters.
 
-> `@type` [RTCRtpSendParameters](https://draft.ortc.org/#rtcrtpsendparameters*), read only
+> `@type` [RTCRtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpSendParameters), read only
 
 <div markdown="1" class="note">
 Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
