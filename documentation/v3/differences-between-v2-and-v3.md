@@ -5,7 +5,7 @@ title : Differences Between v2 and v3
 
 # Differences Between v2 and v3
 
-Both mediasoup **v3** and mediasoup-client **v3** (in addition to the new libmediasoup C++ library) are, in short, much more level than their corresponding **v2** versions and come with tons of improvements and new features. The table below just exposes the most attractive ones.
+Both mediasoup **v3** and mediasoup-client **v3** (in addition to the new libmediasoup C++ library) are, in short, much more low level than their corresponding **v2** versions and come with tons of improvements and new features. The table below just exposes the most attractive ones.
 
 ----
 
