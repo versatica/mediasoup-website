@@ -23,7 +23,7 @@ Field           | Type    | Description   | Required | Default
 `producerId`    | String  | The id of the producer to consume. | Yes |
 `rtpCapabilities` | [RTCRtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpCapabilities) | RTP capabilities of the consuming endpoint. | Yes |
 `paused`        | Boolean | Whether the consumer must start in paused mode. | No | `false`
-`preferredLayers` | [ConsumerLayers](#ConsumerLayers) | Preferred spatial and temporal layer for simulcast or SVC media sources. | No |
+`preferredLayers` | [ConsumerLayers](#ConsumerLayers) | Preferred spatial and temporal layer for simulcast or SVC media sources. If unset, the highest ones are selected. | No |
 `appData`       | Object  | Custom application data. | No | `{}`
 
 </div>
