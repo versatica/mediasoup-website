@@ -334,7 +334,7 @@
 		@include flex(0 0 auto);
 		height: 20px;
 		text-align: center;
-		margin: 2rem;
+		margin: 2rem 0;
 
 		@include breakpoint($computer) {
 			@include transition-property(transform);
