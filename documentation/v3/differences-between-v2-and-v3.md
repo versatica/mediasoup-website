@@ -20,6 +20,6 @@ Multiple binding IPs    | ⬜️ | ✅ | In mediasoup v2 just a static IPv4 and 
 Per worker settings     | ⬜️ | ✅ | mediasoup v2 exposes a `Server` class that internally handles N workers (media subprocesses) sharing them all the same settings. In v3 the application creates each worker independently and can assign different settings to them (such as ports range, log level and so on).
 Horizontal scalability  | ⬜️ | ✅ | By using the new pipe transports in v3, two mediasoup routers running in the same or different hosts can be interconnected at media level, increasing the broadcasting capabilities by enabling usage of multiple CPU cores even in different machines.
 Sender side BWE         | ⬜️ | ✅ | mediasoup v3 implements sender side bandwidth estimation to automatically switch between SVC and simulcast layers thus accommodating the total transport bitrate to the bandwidth available in the receiver.
-Unlimited video layers  | ⬜️ | ✅ | mediasoup v2 limits the number of simulcast video streams to 3 ("low", "medium" and "high"). mediasoup v3 can handle unlimited spatial and temporal layers and refers to them by their numeric index (from o to N).
+Unlimited video layers  | ⬜️ | ✅ | mediasoup v2 limits the number of simulcast video streams to 3 ("low", "medium" and "high"). mediasoup v3 can handle unlimited spatial and temporal layers and refers to them by their numeric index (from 0 to N).
 
 </div>
