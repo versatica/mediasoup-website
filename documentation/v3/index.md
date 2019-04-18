@@ -5,9 +5,12 @@ title : v3
 
 # v3 Documentation 
 
-**Work in progress**
+*(work in progress)*
 
-<div markdown="1">
+### General
+{: .h3color}
+
+* [Differences Between v2 and v3](/documentation/v3/differences-between-v2-and-v3/)
 
 ### mediasoup
 {: .h3color}
@@ -37,5 +40,3 @@ C++ library based on libwebrtc.
 * [Installation](/documentation/v3/libmediasoupclient/installation/)
 * [API](/documentation/v3/libmediasoupclient/api/)
 * [Debugging](/documentation/v3/libmediasoupclient/debugging/)
-
-</div>

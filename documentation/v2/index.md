@@ -5,8 +5,6 @@ title : v2
 
 # v2 Documentation
 
-<div markdown="1">
-
 ### General
 {: .h3color}
 
@@ -31,5 +29,3 @@ Client side JavaScript library.
 * [Installation](/documentation/v2/mediasoup-client/installation/)
 * [API](/documentation/v2/mediasoup-client/api/)
 * [Debugging](/documentation/v2/mediasoup-client/debugging/)
-
-</div>
