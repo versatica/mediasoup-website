@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-A worker represents a mediasoup subprocess that handles media realtime-communications. It runs in a single CPU core and can handle many [Router](#Router) instances.
+A worker represents a mediasoup subprocess that runs in a single CPU core and handles [Router](#Router) instances.
 
 </section>
 

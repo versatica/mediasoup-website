@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-A consumer represents an audio or video media track being forwarded from a mediasoup router. It's created on top of a transport that defines how the media packets are carried.
+A consumer represents an audio or video source being forwarded from a mediasoup router to an endpoint. It's created on top of a transport that defines how the media packets are carried.
 
 </section>
 

@@ -5,7 +5,7 @@
 
 > `@inherits` [Transport](#Transport)
 
-An audio level observer monitors the volume of audio producers.
+An audio level observer monitors the volume of the selected audio producers. It just handles audio producers (if [addProducer()](#rtpObserver-addProducer) is called with a video producer it will fail).
 
 </section>
 
@@ -73,7 +73,7 @@ See also [RtpObserver Events](#RtpObserver-events).
 #### audioLevelObserver.on("volumes", fn(volumes))
 {: #audioLevelObserver-on-volumes .code}
 
-Emitted every `interval` ms.
+Emitted at most every `interval` ms (see [AudioLevelObserverOptions](#AudioLevelObserverOptions)).
 
 <div markdown="1" class="table-wrapper L3">
 

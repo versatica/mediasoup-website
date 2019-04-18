@@ -3,10 +3,10 @@
 
 <section markdown="1">
 
-A router holds a multiparty RTC (Real-Time Communication) conference by allowing injection, selection and forwarding of media streams.
+A router enables injection, selection and forwarding of media streams through [Transport](#Transport) instances created on it.
 
 <div markdown="1" class="note">
-Developers can think of a mediasoup router as if it were a "multi-party conference room", although mediasoup is much more low level than that and doesn't constrain itself to specific high level use cases (for instance, a "multi-party conference room" may take place within different mediasoup routers, even in different physicals hosts).
+Developers may think of a mediasoup router as if it were a "multi-party conference room", although mediasoup is much more low level than that and doesn't constrain itself to specific high level use cases (for instance, a "multi-party conference room" could involve various mediasoup routers, even in different physicals hosts).
 </div>
 
 </section>

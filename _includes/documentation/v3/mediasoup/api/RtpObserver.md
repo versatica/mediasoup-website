@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-An RTP observer inspects given producers and emits events.
+An RTP observer inspects the media received by a set of selected producers.
 
 mediasoup implements the following RTP observer classes:
 
@@ -72,7 +72,7 @@ Resumes the RTP observer. RTP is inspected again.
 #### rtpObserver.addProducer(producer)
 {: #rtpObserver-addProducer .code}
 
-Provides the RTP observer with a new Producer whose RTP will be inspected.
+Provides the RTP observer with a new producer to monitor.
 
 <div markdown="1" class="table-wrapper L3">
 

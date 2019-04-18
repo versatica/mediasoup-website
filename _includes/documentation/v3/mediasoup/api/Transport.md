@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-A transport makes it possible to inject RTP into a router and/or forward RTP from a router to and endpoint or another router.
+A transport connects an endpoint with a mediasoup router and enables transmission of media in both directions by means of [Producer](#Producer) and [Consumer](#Consumer) instances created on it.
 
 mediasoup implements the following transport classes:
 

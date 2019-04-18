@@ -5,11 +5,11 @@
 
 > `@inherits` [Transport](#Transport)
 
-A pipe transport represents a network path through which plain RTP and RTCP is transmitted. Pipe transports are intented to intercommunicate two [Router](#Router) instances collocated in the same host or in separate hosts, thus a pipe transport is typically connected with other pipe transport in a different router.
+A pipe transport represents a network path through which plain RTP and RTCP is transmitted. Pipe transports are intented to intercommunicate two [Router](#Router) instances collocated on the same host or on separate hosts.
 
 <div markdown="1" class="note">
 
-When calling [consume()](#transport-consume) on a pipe transport, all RTP streams of the [Producer](#Producer) are transmitted verbatim (in contrast to what happens in [WebRtcTransport](#WebRtcTransport) and [PlainRtpTransport](#PlainRtpTransport) in which a single and continuos RTP stream is sent to the endpoint).
+When calling [consume()](#transport-consume) on a pipe transport, all RTP streams of the [Producer](#Producer) are transmitted verbatim (in contrast to what happens in [WebRtcTransport](#WebRtcTransport) and [PlainRtpTransport](#PlainRtpTransport) in which a single and continuos RTP stream is sent to the consuming endpoint).
 
 </div>
 
