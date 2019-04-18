@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   class="icon"
+   height="512"
+   viewBox="0 0 1024 1024"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="checkbox-on.svg">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1271"
+     inkscape:window-height="648"
+     id="namedview8"
+     showgrid="false"
+     inkscape:zoom="1.1145218"
+     inkscape:cx="511.81417"
+     inkscape:cy="322.99016"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg2" />
+  <path
+     d="M68.266667 170.564267v682.871466A102.4 102.4 0 0 0 170.564267 955.733333h682.871466A102.4 102.4 0 0 0 955.733333 853.435733V170.564267A102.4 102.4 0 0 0 853.435733 68.266667H170.564267A102.4 102.4 0 0 0 68.266667 170.564267z m-34.133334 0A136.533333 136.533333 0 0 1 170.564267 34.133333h682.871466A136.533333 136.533333 0 0 1 989.866667 170.564267v682.871466A136.533333 136.533333 0 0 1 853.435733 989.866667H170.564267A136.533333 136.533333 0 0 1 34.133333 853.435733V170.564267z"
+     fill="#40BB0A"
+     id="path4"
+     style="fill:#00c300;fill-opacity:1;stroke:#00c300;stroke-opacity:1;stroke-width:60;stroke-miterlimit:4;stroke-dasharray:none" />
+  <path
+     d="M170.837333 512c-4.096-4.096 68.266667-68.266667 68.266667-68.266667l174.2848 170.666667L785.237333 238.933333l68.266667 68.266667L413.354667 750.933333l-242.551467-238.933333z"
+     fill="#40BB0A"
+     id="path6"
+     style="fill:#00c300;fill-opacity:1" />
+</svg>
