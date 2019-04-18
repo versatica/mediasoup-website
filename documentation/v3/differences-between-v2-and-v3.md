@@ -21,5 +21,6 @@ Per worker settings     | ⬜️ | ✅ | mediasoup v2 exposes a `Server` class t
 Horizontal scalability  | ⬜️ | ✅ | By using the new pipe transports in v3, two mediasoup routers running in the same or different hosts can be interconnected at media level, increasing the broadcasting capabilities by enabling usage of multiple CPU cores even in different machines.
 Sender side BWE         | ⬜️ | ✅ | mediasoup v3 implements sender side bandwidth estimation to automatically switch between SVC and simulcast layers thus accommodating the total transport bitrate to the bandwidth available in the receiver.
 Unlimited video layers  | ⬜️ | ✅ | mediasoup v2 limits the number of simulcast video streams to 3 ("low", "medium" and "high"). mediasoup v3 can handle unlimited spatial and temporal layers and refers to them by their numeric index (from 0 to N).
+Stream score            | ⬜️ | ✅ | mediasoup v3 notifies the application with scores for every RTP stream (in producers and consumers), allowing the application to know how the overall transmission quality is in every sender and receiver.
 
 </div>
