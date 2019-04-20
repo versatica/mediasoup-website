@@ -52,7 +52,7 @@ gulp.task('rsync', (done) =>
 	const options =
 	{
 		src	      : './_site/',
-		dest      : 'v2:/var/www/mediasoup.org/',
+		dest      : 'vhost1-deploy:/var/www/mediasoup.org/',
 		ssh       : true,
 		recursive : true,
 		deleteAll : true,

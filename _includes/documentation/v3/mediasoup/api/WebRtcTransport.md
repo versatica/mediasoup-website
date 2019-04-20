@@ -31,6 +31,7 @@ Field        | Type    | Description   | Required | Default
 `enableTcp` | Boolean | Listen in TCP. | No | `false`
 `preferUdp` | Boolean | Listen in UDP. | No | `false`
 `preferTcp` | Boolean | Listen in TCP. | No | `false`
+`initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps) when the endpoint supports REMB or Transport-CC. | No | 300000
 `appData`   | Object  | Custom application data. | No | `{}`
 
 </div>
