@@ -44,6 +44,8 @@ const stats = await webRtcTransport.getStats();
     },
     "iceState": "completed",
     "maxIncomingBitrate": 3500000,
+    "recvBitrate": 654388,
+    "sendBitrate": 104,
     "timestamp": 922749895,
     "transportId": "0b38d662-ea00-4c70-9ae3-b675d6a89e0a",
     "type": "webrtc-transport"
@@ -66,6 +68,8 @@ const stats = await plainRtpTransport.getStats();
     "comedia": true,
     "multiSource": false,
     "rtcpMux": true,
+    "recvBitrate": 22006,
+    "sendBitrate": 24,
     "timestamp": 924308648,
     "transportId": "8e7dc219-5cb0-4cca-b1ca-0bbbc584a364",
     "tuple": 
