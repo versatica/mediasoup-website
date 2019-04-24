@@ -145,7 +145,7 @@ Argument        | Type    | Description | Required | Default
 > `@async`
 
 <div markdown="1" class="note">
-This method is specially useful if the TURN server credentials has changed.
+This method is specially useful if the TURN server credentials have changed.
 </div>
 
 ```javascript
@@ -154,6 +154,11 @@ await transport.updateIceServers({ iceServers: [ ... ] });
 
 #### transport.produce(options)
 {: #transport-produce .code}
+
+*TODO*
+
+#### transport.consume(options)
+{: #transport-consume .code}
 
 *TODO*
 
