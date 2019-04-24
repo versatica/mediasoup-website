@@ -1,13 +1,13 @@
 ## Transport
 {: #Transport}
 
-A `transport` represents a path, negotiated via ICE and DTLS, for sending or receiving audio/video RTP.
+<section markdown="1">
 
-For more information, check the [Glossary](/documentation/v2/glossary/#Glossary-Transport) section.
+A WebRTC transport connects a mediasoup-client [Device](#Device) with a mediasoup [Router](/documentation/v3/mediasoup/api/#Router) at media level and enables the sending of media (by means of [Producer](#Producer) instances) **or** the receiving of media (by means of [Consumer](#Consumer) instances).
 
-<div markdown="1" class="note">
-Internally, the `transport` runs a specific handler depending on the underlying browser/device. This may be a `RTCPeerConnection` with Plan-B, or Unified-Plan, using legacy or modern WebRTC API, or even a set of `RTCIceTransport`, `RTCDtlsTransport`, `RTCRtpSender`, `RTCRtpReceiver` instances when the browser/device runs ORTC inside.
-</div>
+Internally, the transport holds a WebRTC [RTCPeerConnection](https://w3c.github.io/webrtc-pc/#dom-rtcpeerconnection) instance.
+
+</section>
 
 
 ### Dictionaries
@@ -16,44 +16,20 @@ Internally, the `transport` runs a specific handler depending on the underlying 
 <section markdown="1">
 
 #### TransportOptions
-{: #Transport-TransportOptions .code}
-
-Options for a [Transport](/documentation/v2/mediasoup/api/#Transport) in mediasoup (server side).
+{: #TransportOptions .code}
 
 <div markdown="1" class="table-wrapper L3">
 
-Field                    | Type    | Description   | Required | Default
------------------------- | ------- | ------------- | -------- | ---------
-`udp`                    | Boolean | Offer UDP ICE candidates. | No | `true`
-`tcp`                    | Boolean | Offer TCP ICE candidates. | No | `true`
-`preferIPv4`             | Boolean | Prefer IPv4 over IPv6 ICE candidates. | No | `false`
-`preferIPv6`             | Boolean | Prefer IPv6 over IPv4 ICE candidates. | No | `false`
-`preferUdp`              | Boolean | Prefer UDP over TCP ICE candidates. | No | `false`
-`preferTcp`              | Boolean | Prefer TCP over UDP ICE candidates. | No | `false`
-
-</div>
-
-</section>
-
-
-### Enums
-{: #Transport-enums}
-
-<section markdown="1">
-
-#### ConnectionState
-{: #Transport-ConnectionState .code}
-
-<div markdown="1" class="table-wrapper L2">
-
-Value          | Description  
--------------- | -------------
-"new"          | ICE procedures not initiated yet.
-"connecting"   | ICE procedures initiated.
-"connected"    | ICE connected.
-"failed"       | ICE procedures failed.
-"disconnected" | ICE connection was temporaty closed.
-"closed"       | ICE state when the `transport` has been closed.
+Field            | Type    | Description   | Required | Default
+---------------- | ------- | ------------- | -------- | ---------
+`id`             | String  | The identifier of the transport in the mediasoup router. | Yes    |
+`iceParameters`  | [IceParameters](/documentation/v3/mediasoup/api/#WebRtcTransportIceParameters) | ICE parameters of the transport in the mediasoup router. | Yes   |
+`iceCandidates`  | Array&lt;[IceCandidate](/documentation/v3/mediasoup/api/#WebRtcTransportIceCandidate)&gt; | ICE candidates of the transport in the mediasoup router. | Yes   |
+`dtlsParameters` | [DtlsParameters](/documentation/v3/mediasoup/api/#WebRtcTransportDtlsParameters) | DTLS parameters of the transport in the mediasoup router. | Yes   |
+`iceServers`     | Array&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver-dictionary)&gt; | List of TURN servers. This setting is given to the local peerconnection. | No   | `[ ]`
+`iceTransportPolicy` | [RTCIceTransportPolicy](https://w3c.github.io/webrtc-pc/#rtcicetransportpolicy-enum) | ICE candidate policy for the local peerconnection. | No   | "all"
+`proprietaryConstraints` | Object  | Browser vendor's proprietary constraints used as second argument in the peerconnection constructor. | No |
+`appData`       | Object  | Custom application data. | No | `{}`
 
 </div>
 
@@ -68,45 +44,41 @@ Value          | Description
 #### transport.id
 {: #transport-id .code}
 
-* Read only
+Transport identifier. It matches the `id` of the transport in the mediasoup router.
 
-Unique identifier (Number).
+> `@type` String, read only
 
 #### transport.closed
 {: #transport-closed .code}
 
-* Read only
+Whether the transport is closed.
 
-A Boolean indicating whether the `transport` has been closed.
-
-#### transport.appData
-{: #transport-appData .code}
-
-* Read-write
-
-Custom data set by the application.
+> `@type` Boolean, read only
 
 #### transport.direction
 {: #transport-direction .code}
 
-* Read only
+The direction of this transport. "send" means that this is a WebRTC transport for sending media. "recv" means that this is a WebRTC transport for receiving media.
 
-A String ("send" or "recv") representing the direction of the media over this `transport`.
+> `@type` String, read only
 
 #### transport.connectionState
 {: #transport-connectionState .code}
 
-* Read only
+The current connection state of the local peerconnection.
 
-The [ConnectionState](#Transport-ConnectionState) of the underlying `RTCPeerConnection` or `RTCIceTransport`.
+> `@type` [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum), read only
 
+#### transport.appData
+{: #transport-appData .code}
 
-#### transport.handler
-{: #transport-handler .code}
+Custom data Object provided by the application in the transport constructor. The app can modify its content at any time.
 
-* Read only
+> `@type` Object, read only
 
-The [DeviceHandler](https://github.com/versatica/mediasoup-client/blob/master/lib/handlers) used by the `transport`.
+```javascript
+transport.appData.foo = "bar";
+```
 
 </section>
 
@@ -116,89 +88,69 @@ The [DeviceHandler](https://github.com/versatica/mediasoup-client/blob/master/li
 
 <section markdown="1">
 
-#### transport.close([appData])
+#### transport.close()
 {: #transport-close .code}
 
-Closes the `transport` and triggers a [`close`](#transport-on-close) event.
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument   | Type    | Description | Required | Default 
----------- | ------- | ----------- | -------- | ----------
-`appData`  | Any     | Custom app data. | No |
-
-</div>
-
-#### transport.enableStats([interval = 1000])
-{: #transport-enableStats .code}
-
-Subscribes the `transport` to RTC stats retrieved via the [`stats`](#transport-on-stats) event.
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument   | Type    | Description | Required | Default 
----------- | ------- | ----------- | -------- | ----------
-`interval` | Number | Stats retrieval interval (in milliseconds). | No | 1000
-
-</div>
+Closes the transport, including all its producers and consumers.
 
 <div markdown="1" class="note">
-Check the [RTC stats](/documentation/v2/rtc-stats/) section for more details.
+This method should be called when the server side transport has been closed (and vice-versa).
 </div>
 
-#### transport.disableStats()
-{: #transport-disableStats .code}
+#### transport.getStats()
+{: #transport-getStats .code}
 
-Closes the subscription to RTC stats for this `transport`.
+Gets the local transport statistics by calling `getStats()` in the underlying peerconnection.
 
-</section>
+> `@async`
+> 
+> `@returns` [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
 
+#### transport.restartIce({ iceParameters })
+{: #transport-restartIce .code}
 
-### Events
-{: #Transport-events}
-
-The `Transport` class inherits from [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
-
-<section markdown="1">
-
-#### transport.on("close", fn(originator, appData))
-{: #transport-on-close .code}
-
-Emitted when the `transport` is closed.
+Instructs the underlying peerconnection to restart ICE by providing it with new remote ICE parameters.
 
 <div markdown="1" class="table-wrapper L3">
 
-Argument  | Type    | Description   
---------- | ------- | ----------------
-`originator` | String | "local" or "remote".
-`appData` | Any     | Custom app data.
+Argument        | Type    | Description | Required | Default 
+--------------- | ------- | ----------- | -------- | ----------
+`iceParameters`  | [IceParameters](/documentation/v3/mediasoup/api/#WebRtcTransportIceParameters) | New ICE parameters of the transport in the mediasoup router. | Yes   |
 
 </div>
 
-#### transport.on("connectionstatechange", fn(connectionstate))
-{: #transport-on-connectionstatechange .code}
+> `@async`
 
-Emitted when the underlying ICE connection state changes.
+<div markdown="1" class="note">
+This method must be called after restarting ICE in server side via [webRtcTransport.restartIce()](/documentation/v3/mediasoup/api/#webRtcTransport-restartIce).
+</div>
+
+```javascript
+await transport.restartIce({ iceParameters: { ... } });
+```
+
+#### transport.updateIceServers({ iceServers })
+{: #transport-updateIceServers .code}
+
+Instructs the underlying peerconnection to restart ICE by providing it with new remote ICE parameters.
 
 <div markdown="1" class="table-wrapper L3">
 
-Argument | Type    | Description   
------------------ | ------- | ----------------
-`connectionstate`| [ConnectionState](#Transport-ConnectionState) | The new connection state.
+Argument        | Type    | Description | Required | Default 
+--------------- | ------- | ----------- | -------- | ----------
+`iceServers`    | Array&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver-dictionary)&gt; | List of TURN servers to provide the local peerconnection with. | No   | `[ ]`
 
 </div>
 
-#### transport.on("stats", fn(stats))
-{: #transport-on-stats .code}
+> `@async`
 
-Emitted when RTC stats are retrieved.
+```javascript
+await transport.updateIceServers({ iceServers: [ ... ] });
+```
 
-<div markdown="1" class="table-wrapper L3">
+#### transport.produce(options)
+{: #transport-produce .code}
 
-Argument | Type    | Description   
----------| ------- | ----------------
-`stats`  | sequence&lt;Object&gt; | RTC stats.
-
-</div>
+*TODO*
 
 </section>
