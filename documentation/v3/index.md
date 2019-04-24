@@ -5,8 +5,6 @@ title : v3
 
 # v3 Documentation 
 
-*(work in progress)*
-
 ### General
 {: .h3color}
 

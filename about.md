@@ -46,6 +46,7 @@ I'm a core author of JsSIP "The JavaScript SIP library" and co-author of the [RF
 mediasoup would not have been possible without the help and advice of:
 
 * [Saúl Ibarra Corretgé][saghul-personal-url]
+* [Gustavo García][gustavo-personal-url]
 
 
 ## Donate
@@ -77,6 +78,7 @@ You can support mediasoup by making a donation [here][paypal-url]{:target="_blan
 
 [rfc7118-url]: https://tools.ietf.org/html/rfc7118
 [saghul-personal-url]: https://about.me/saghul
+[gustavo-personal-url]: http://www.rtcbits.com
 [paypal-url]: https://paypal.me/inakibazcastillo/100
 
 
