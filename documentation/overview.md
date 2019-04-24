@@ -49,6 +49,7 @@ Both components communicate to each other by means of inter-process communicatio
 * ICE / DTLS / RTP / RTCP over UDP and TCP.
 * Simulcast support.
 * Congestion control.
+* Sender and receiver bandwidth estimation and layers distribution algorithm.
 * Extremely powerful (media worker subprocess coded in C++ on top of [libuv](https://libuv.org)).
 
 
