@@ -17,10 +17,14 @@ class   : h3color
 
 # mediasoup-client v3 API
 
-*(work in progress)*
+*TODO: work in progress*
 
 {% include documentation/v3/mediasoup-client/api/mediasoupClient.md %}
 
 {% include documentation/v3/mediasoup-client/api/Device.md %}
 
 {% include documentation/v3/mediasoup-client/api/Transport.md %}
+
+{% include documentation/v3/mediasoup-client/api/Producer.md %}
+
+{% include documentation/v3/mediasoup-client/api/Consumer.md %}

@@ -31,7 +31,7 @@
     "browserify": "^16.2.3",
     "browserify-shim": "^3.8.14",
     "del": "^4.1.0",
-    "gulp": "^4.0.0",
+    "gulp": "^4.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-shell": "^0.7.0",
     "gulp-sitemap": "^6.2.0",
