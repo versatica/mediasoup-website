@@ -13,6 +13,7 @@ Projects below may use different versions of mediasoup. Please check it within e
 
 ### versatica/mediasoup-demo
 
+**mediasoup v3**
 **URL:** [https://github.com/versatica/mediasoup-demo](https://github.com/versatica/mediasoup-demo)
 
 This is the "official" mediasoup demo made by mediasoup authors. Said that, we (the authors) don't want this demo to become the "mediasoup reference" and encourage developers to read the API documentation instead.
@@ -27,6 +28,7 @@ The **mediasoup-demo** has a client side web application and a server side Node.
 
 ### footniko/mediasoup-sample
 
+**mediasoup v2**
 **URL:** [https://github.com/footniko/mediasoup-sample](https://github.com/footniko/mediasoup-sample)
 
 Made by [@footniko](https://github.com/footniko), this demo is born in response to the need of many users to have a simpler mediasoup based application example.
@@ -36,6 +38,7 @@ Both, the client side and server side, have a single `index.js` that include all
 
 ### michaelfig/mediasoup-broadcast-example
 
+**mediasoup v2**
 **URL:** [https://github.com/michaelfig/mediasoup-broadcast-example](https://github.com/michaelfig/mediasoup-broadcast-example)
 
 Made by [@michaelfig](https://github.com/michaelfig), this project is a vanilla Javascript example of how to use mediasoup to support the specific case of one-to-many broadcast audio/video on individual "channels".
