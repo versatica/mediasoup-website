@@ -136,8 +136,8 @@ Closes the producer. No more media is transmitted.
 This method should be called when the server side producer has been closed (and vice-versa).
 </div>
 
-#### transport.getStats()
-{: #transport-getStats .code}
+#### producer.getStats()
+{: #producer-getStats .code}
 
 Gets the local RTP sender statistics by calling `getStats()` in the underlying `RTCRtpSender` instance.
 
