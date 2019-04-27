@@ -41,7 +41,7 @@ Whether the router is closed.
 
 An Object with the RTP capabilities of the router. These capabilities are tipically needed by mediasoup clients to compute their sending RTP parameters.
 
-> `@type` [RTCRtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpCapabilities), read only
+> `@type` [RtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCapabilities), read only
 
 <div markdown="1" class="note">
 Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
@@ -65,7 +65,7 @@ See the [Observer Events](#Router-observer-events) section below.
 #### router.close()
 {: #router-close .code}
 
-Closes the router, including all its transports and RTP observers (such as audio level observers).
+Closes the router. Triggers a ["routerclose"](#transport-on-routerclose) event in all its transports and also ["routerclose"](#rtpObserver-on-routerclose) event in all its RTP observers.
 
 #### router.createWebRtcTransport(options)
 {: #router-createWebRtcTransport .code}
@@ -226,7 +226,7 @@ Whether the given RTP capabilities are valid to consume the given producer.
 Argument          | Type    | Description  | Required | Default 
 ----------------- | ------- | ------------ | -------- | ----------
 `producerId`      | String  | Producer id. | Yes |
-`rtpCapabilities` | [RTCRtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpCapabilities) | RTP capabilities of the potential consumer. | Yes |
+`rtpCapabilities` | [RtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCapabilities) | RTP capabilities of the potential consumer. | Yes |
 
 </div>
 
@@ -250,7 +250,7 @@ if (router.canConsume({ producerId, rtpCapabilities }))
 #### router.on("workerclose")
 {: #router-on-workerclose .code}
 
-Emitted when the worker this router belongs to is closed for whatever reason. The router itself is also closed.
+Emitted when the worker this router belongs to is closed for whatever reason. The router itself is also closed. A ["routerclose"](#transport-on-routerclose) event is triggered in all its transports and a ["routerclose"](#rtpObserver-on-routerclose) event is triggered in all its RTP observers.
 
 ```javascript
 router.on("workerclose", () =>

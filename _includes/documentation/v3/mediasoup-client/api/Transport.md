@@ -29,7 +29,7 @@ Field            | Type    | Description   | Required | Default
 `iceServers`     | Array&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver-dictionary)&gt; | List of TURN servers. This setting is given to the local peerconnection. | No   | `[ ]`
 `iceTransportPolicy` | [RTCIceTransportPolicy](https://w3c.github.io/webrtc-pc/#rtcicetransportpolicy-enum) | ICE candidate policy for the local peerconnection. | No   | "all"
 `proprietaryConstraints` | Object  | Browser vendor's proprietary constraints used as second argument in the peerconnection constructor. | No |
-`appData`       | Object  | Custom application data. | No | `{}`
+`appData`       | Object  | Custom application data. | No | `{ }`
 
 </div>
 
@@ -100,7 +100,7 @@ This method should be called when the server side transport has been closed (and
 #### transport.getStats()
 {: #transport-getStats .code}
 
-Gets the local transport statistics by calling `getStats()` in the underlying peerconnection.
+Gets the local transport statistics by calling `getStats()` in the underlying `RTCPeerConnection` instance.
 
 > `@async`
 > 
@@ -155,11 +155,87 @@ await transport.updateIceServers({ iceServers: [ ... ] });
 #### transport.produce(options)
 {: #transport-produce .code}
 
-*TODO*
+Instructs the transport to send an audio or video track to the mediasoup router.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`options`   | [ProducerOptions](#ProducerOptions) | Producer options. | Yes |
+
+</div>
+
+> `@async`
+> 
+> `@returns` [Producer](#Producer)
+
+```javascript
+// Send webcam video with 3 simulcast streams.
+const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+const videoTrack = stream.getVideoTracks()[0];
+const producer = await transport.produce(
+  {
+    track       : videoTrack,
+    encodings   :
+    [
+      { maxBitrate: 100000 },
+      { maxBitrate: 300000 },
+      { maxBitrate: 900000 }
+    ],
+    codecOptions :
+    {
+      videoGoogleStartBitrate : 1000
+    }
+  });
+```
+
+<div markdown="1" class="note">
+Once the local producer is created, the application must signal its parameters to the server and invoke [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) on the corresponding WebRTC transport.
+
+Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+</div>
 
 #### transport.consume(options)
 {: #transport-consume .code}
 
-*TODO*
+Instructs the transport to receive an audio or video track from the mediasoup router.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`options`   | [ConsumerOptions](#ConsumerOptions) | Consumer options. | Yes |
+
+</div>
+
+> `@async`
+> 
+> `@returns` [Consumer](#Consumer)
+
+```javascript
+// Let's assume we have created a video consumer in server side and signal its
+// parameters to the client app.
+mySignaling.on('newConsumer', (data) =>
+{
+  const consumer = await transport.consume(
+    {
+      id            : data.id,
+      producerId    : data.producerId,
+      kind          : data.kind,
+      rtpParameters : data.rtpParameters
+    });
+
+  // Render the remote video track into a HTML video element.
+  const { track } = consumer;
+
+  videoElem.srcObject = new MediaStream([ track ]);
+});
+```
+
+<div markdown="1" class="note">
+The consumer is created in server side first via [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume) . Then its parameters are signaled to the client application which creates a local replica of the consumer and manages it.
+
+Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+</div>
 
 </section>

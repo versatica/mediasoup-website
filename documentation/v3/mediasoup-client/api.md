@@ -17,8 +17,6 @@ class   : h3color
 
 # mediasoup-client v3 API
 
-*TODO: work in progress*
-
 {% include documentation/v3/mediasoup-client/api/mediasoupClient.md %}
 
 {% include documentation/v3/mediasoup-client/api/Device.md %}

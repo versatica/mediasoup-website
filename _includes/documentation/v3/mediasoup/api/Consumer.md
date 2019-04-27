@@ -21,10 +21,10 @@ A consumer represents an audio or video source being forwarded from a mediasoup 
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
 `producerId`    | String  | The id of the producer to consume. | Yes |
-`rtpCapabilities` | [RTCRtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpCapabilities) | RTP capabilities of the consuming endpoint. | Yes |
+`rtpCapabilities` | [RtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCapabilities) | RTP capabilities of the consuming endpoint. | Yes |
 `paused`        | Boolean | Whether the consumer must start in paused mode. | No | `false`
 `preferredLayers` | [ConsumerLayers](#ConsumerLayers) | Preferred spatial and temporal layer for simulcast or SVC media sources. If unset, the highest ones are selected. | No |
-`appData`       | Object  | Custom application data. | No | `{}`
+`appData`       | Object  | Custom application data. | No | `{ }`
 
 </div>
 
@@ -96,7 +96,7 @@ Consumer identifier.
 #### consumer.producerId
 {: #consumer-producerId .code}
 
-The associated ponsumer identifier.
+The associated producer identifier.
 
 > `@type` String, read only
 
@@ -117,7 +117,7 @@ The media kind ("audio" or "video").
 
 Consumer RTP parameters.
 
-> `@type` [RTCRtpReceiveParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpReceiveParameters), read only
+> `@type` [RtpReceiveParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpReceiveParameters), read only
 
 <div markdown="1" class="note">
 Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
@@ -140,7 +140,7 @@ Whether the consumer is paused. It does not take into account whether the associ
 #### consumer.producerPaused
 {: #consumer-producerPaused .code}
 
-Whether the associated proucer is paused.
+Whether the associated producer is paused.
 
 > `@type` Boolean, read only
 

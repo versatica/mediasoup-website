@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-  The top-level exported module.
+The top-level exported module.
 
 ```javascript
 // Using ES6 import syntax.

@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-> `@inherits` [Transport](#Transport)
+> `@inherits` [RtpObserver](#RtpObserver)
 
 An audio level observer monitors the volume of the selected audio producers. It just handles audio producers (if [addProducer()](#rtpObserver-addProducer) is called with a video producer it will fail).
 

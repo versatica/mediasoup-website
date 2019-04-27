@@ -21,9 +21,9 @@ A producer represents an audio or video source being injected into a mediasoup r
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
 `kind`          | String  | Media kind ("audio" or "video"). | Yes |
-`rtpParameters` | [RTCRtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpSendParameters) | RTP parameters defining what the endpoint is sending. | Yes |
+`rtpParameters` | [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters) | RTP parameters defining what the endpoint is sending. | Yes |
 `paused`        | Boolean | Whether the producer must start in paused mode. | No | `false`
-`appData`       | Object  | Custom application data. | No | `{}`
+`appData`       | Object  | Custom application data. | No | `{ }`
 
 </div>
 
@@ -114,7 +114,7 @@ The media kind ("audio" or "video").
 
 Producer RTP parameters.
 
-> `@type` [RTCRtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RTCRtpSendParameters), read only
+> `@type` [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters), read only
 
 <div markdown="1" class="note">
 Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
@@ -166,7 +166,7 @@ See the [Observer Events](#Producer-observer-events) section below.
 #### producer.close()
 {: #producer-close .code}
 
-Closes the producer.
+Closes the producer. Triggers a ["producerclose"](#consumer-on-producerclose) event in all its associated consumers.
 
 #### producer.getStats()
 {: #producer-getStats .code}
@@ -184,14 +184,16 @@ Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section 
 #### producer.pause()
 {: #producer-pause .code}
 
-Pauses the producer (no RTP is sent to its associated consumers).
+Pauses the producer (no RTP is sent to its associated consumers). Triggers a ["producerpause"](#consumer-on-producerpause) event in all its associated consumers.
+
 
 > `@async`
 
 #### producer.resume()
 {: #producer-resume .code}
 
-Resumes the producer (RTP is sent again to its associated consumers).
+Resumes the producer (RTP is sent again to its associated consumers). Triggers a ["producerresume"](#consumer-on-producerresume) event in all its associated consumers.
+
 
 > `@async`
 
@@ -206,7 +208,7 @@ Resumes the producer (RTP is sent again to its associated consumers).
 #### producer.on("transportclose")
 {: #producer-on-transportclose .code}
 
-Emitted when the transport this producer belongs to is closed for whatever reason. The producer itself is also closed.
+Emitted when the transport this producer belongs to is closed for whatever reason. The producer itself is also closed. A ["producerclose"](#consumer-on-producerclose) event is triggered in all its associated consumers.
 
 ```javascript
 producer.on("transportclose", () =>

@@ -101,7 +101,7 @@ These are methods common to all transport classes. Each transport class may defi
 #### transport.close()
 {: #transport-close .code}
 
-Closes the transport, including all its producers and consumers.
+Closes the transport. Triggers a ["transportclose"](#producer-on-transportclose) event in all its producers and also ["transportclose"](#consumer-on-transportclose) event in all its consumers.
 
 #### transport.getStats()
 {: #transport-getStats .code}
@@ -320,7 +320,7 @@ These are events common to all transport classes. Each transport class may defin
 #### transport.on("routerclose")
 {: #transport-on-routerclose .code}
 
-Emitted when the router this transport belongs to is closed for whatever reason. The transport itself is also closed.
+Emitted when the router this transport belongs to is closed for whatever reason. The transport itself is also closed. A ["transportclose"](#producer-on-transportclose) event is triggered in all its producers and a ["transportclose"](#consumer-on-transportclose) event is triggered in all its consumers.
 
 ```javascript
 transport.on("routerclose", () =>

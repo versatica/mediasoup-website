@@ -29,7 +29,7 @@ When calling [consume()](#transport-consume) on a pipe transport, all RTP stream
 Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
 `listenIp`    | [TransportListenIp](#TransportListenIp)\|String| Listening IP address. | Yes |
-`appData`     | Object  | Custom application data. | No | `{}`
+`appData`     | Object  | Custom application data. | No | `{ }`
 
 </div>
 

@@ -75,7 +75,7 @@ const worker = async mediasoup.createWorker(
 
 Returns a cloned copy of the mediasoup supported RTP capabilities, specifically the content of the [mediasoup/lib/supportedRtpCapabilities.js](https://github.com/versatica/mediasoup/blob/v3/lib/supportedRtpCapabilities.js) file.
 
-> `@returns` [RTCRtpCapabilities](https://draft.ortc.org/#rtcrtpcapabilities*)
+> `@returns` [RtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCapabilities)
 
 ```javascript
 const rtpCapabilities = mediasoup.getSupportedRtpCapabilities();
