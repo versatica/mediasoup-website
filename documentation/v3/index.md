@@ -9,6 +9,7 @@ title : v3
 {: .h3color}
 
 * [Differences Between v2 and v3](/documentation/v3/differences-between-v2-and-v3/)
+* [Message Exchange Between Client and Server](/documentation/v3/message-exchange-between-client-and-server/)
 
 ### mediasoup
 {: .h3color}
