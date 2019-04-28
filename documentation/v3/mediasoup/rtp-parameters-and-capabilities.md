@@ -154,9 +154,8 @@ Field             | Type    | Description   | Required | Default
 <div markdown="1" class="note">
 When creating a mediasoup producer:
 
-* At least `ssrc` or `rid` must be specified.
-* In `encodings` with a single entry, `ssrc` must be given.
-* In `encodings` with multiple entries (simulcast), `ssrc` or `rid` can be used.
+* If `rtpParameters` contains `mid` and `encodings` has a single entry, neither `ssrc` nor `rid` are mandatory in the single encoding.
+* In `encodings` with multiple entries (simulcast), `ssrc` or `rid` must be specified in each encoding.
 </div>
 
 
