@@ -6,7 +6,9 @@ anchors : true
 
 # RTP Parameters and Capabilities
 
-The RTP parameters describe the media that an endpoint sends to mediasoup (RTP send parameters) or the media that mediasoup forwards to an endpoint (RTP receive parameters). The RTP capabilities, instead, define what mediasoup or an endpoint can receive, thus RTP parameters depend on (or are constrained to) the remote RTP capabilities.
+RTP parameters describe the media that an endpoint sends to mediasoup (RTP send parameters) or the media that mediasoup forwards to an endpoint (RTP receive parameters).
+
+RTP capabilities, instead, define what mediasoup or an endpoint can receive, thus RTP parameters depend on (or are constrained to) the remote RTP capabilities.
 
 ----
 
@@ -133,7 +135,6 @@ Field       | Type    | Description   | Required | Default
 
 </div>
 
-
 #### RtpEncodingParameters
 {: #RtpEncodingParameters .code}
 
@@ -157,7 +158,6 @@ When creating a mediasoup producer:
 * If `rtpParameters` contains `mid` and `encodings` has a single entry, neither `ssrc` nor `rid` are mandatory in the single encoding.
 * In `encodings` with multiple entries (simulcast), `ssrc` or `rid` must be specified in each encoding.
 </div>
-
 
 #### RtpHeaderExtensionParameters
 {: #RtpHeaderExtensionParameters .code}
