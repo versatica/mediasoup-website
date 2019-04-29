@@ -94,17 +94,17 @@ As a core principle, calling a method is a mediasoup instance does **not** gener
 
 When a transport, producer or consumer is closed in client or server side (e.g. by calling `close()` on it), the application should signal its closure to the other side which should also call `close()` on the corresponding entity. In addition, the server side application should listen for the following closure events and notify the client about them:
 
-* Transport ["routerclose"](/documentation/v3/mediasoup/api/#transport-on-routerclose).
-* Producer ["transportclose"](/documentation/v3/mediasoup/api/#producer-on-transportclose).
-* Consumer ["transportclose"](/documentation/v3/mediasoup/api/#consumer-on-transportclose).
-* Consumer ["producerclose"](/documentation/v3/mediasoup/api/#consumer-on-producerclose).
+* Transport ["routerclose"](/documentation/v3/mediasoup/api/#transport-on-routerclose). The client should call `close()` on the corresponding local transport.
+* Producer ["transportclose"](/documentation/v3/mediasoup/api/#producer-on-transportclose). The client should call `close()` on the corresponding local producer.
+* Consumer ["transportclose"](/documentation/v3/mediasoup/api/#consumer-on-transportclose). The client should call `close()` on the corresponding local consumer.
+* Consumer ["producerclose"](/documentation/v3/mediasoup/api/#consumer-on-producerclose). The client should call `close()` on the corresponding local consumer.
 
 The same happens when pausing a producer or consumer in client or server side. The action must be signaled to the other side. In addition, the server side application should listen for the following events and notify the client about them:
 
-* Consumer ["producerpause"](/documentation/v3/mediasoup/api/#consumer-on-producerpause).
-* Consumer ["producerresume"](/documentation/v3/mediasoup/api/#consumer-on-producerresume).
+* Consumer ["producerpause"](/documentation/v3/mediasoup/api/#consumer-on-producerpause). The client should call `pause()` on the corresponding local transport.
+* Consumer ["producerresume"](/documentation/v3/mediasoup/api/#consumer-on-producerresume). The client should call `resume()` on the corresponding local transport (unless the consumer itself was also paused on purpose). 
 
-When simulcast or SVC is in use, the application may be interested in signaling desired layers and effective layers between client and server side consumers.
+When simulcast or SVC is in use, the application may be interested in signaling preferred layers and effective layers between client and server side consumers.
 
 * The server side application sets the consumer preferred layers via [consumer.setPreferredLayers()](/documentation/v3/mediasoup/api/#consumer-setPreferredLayers).
 * The server side consumer subscribes to the ["layerschange"](/documentation/v3/mediasoup/api/#consumer-on-layerschange) event and notifies the client application about the effective layers being transmitted.
