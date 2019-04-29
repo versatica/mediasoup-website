@@ -33,6 +33,19 @@ Field            | Type    | Description   | Required | Default
 
 </div>
 
+#### TransportProduceParameters
+{: #TransportProduceParameters .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument        | Type    | Description   
+--------------- | ------- | ----------------
+`kind`          | String  | Producer's media kind ("audio" or "video").
+`rtpParameters` | [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters) | Producer's RTP parameters.
+`appData`       | Object  | Custom application data as given in the `transport.produce()` method.
+
+</div>
+
 </section>
 
 
@@ -246,7 +259,7 @@ Check the [Communication Between Client and Server](/documentation/v3/communicat
 
 <section markdown="1">
 
-#### transport.on("connect", fn({ dtlsParameters })
+#### transport.on("connect", fn({ dtlsParameters }, callback(), errback(error))
 {: #transport-on-connect .code}
 
 Emitted when the transport is about to establish the ICE+DTLS connection and needs to exchange information with the associated server side transport.
@@ -256,6 +269,8 @@ Emitted when the transport is about to establish the ICE+DTLS connection and nee
 Argument    | Type    | Description   
 ----------- | ------- | ----------------
 `dtlsParameters` | [DtlsParameters](/documentation/v3/mediasoup/api/#WebRtcTransportDtlsParameters) | Local DTLS parameters.
+`callback`  | Function | A function that must be called by the application once the parameters have been transmitted to the associated server side transport.
+`errback`   | Function | A function that must be called by the application (with the corresponding error) if the tranmission of parameters to the associated server side transport failed for any reason.
 
 </div>
 
@@ -264,19 +279,30 @@ In server side, the application should call [webRtcTransport.connect()](/documen
 </div>
 
 ```javascript
-transport.on("connect", ({ dtlsParameters }) =>
+transport.on("connect", ({ dtlsParameters }, callback, errback) =>
 {
   // Signal local DTLS parameters to the server side transport.
-  mySignaling.send(
-    "transport-connect",
-    {
-      transportId    : transport.id, 
-      dtlsParameters : dtlsParameters
-    });
+  try
+  {
+    await mySignaling.send(
+      "transport-connect",
+      {
+        transportId    : transport.id, 
+        dtlsParameters : dtlsParameters
+      });
+
+    // Tell the transport that parameters were transmitted.
+    callback();
+  }
+  catch (error)
+  {
+    // Tell the transport that something was wrong.
+    errback(error);
+  }
 });
 ```
 
-#### transport.on("produce", fn({ kind, rtpParameters, appData })
+#### transport.on("produce", fn(parameters, callback({ id }), errback(error))
 {: #transport-on-produce .code}
 
 Emitted when the transport needs to transmit information about a new producer to the associated server side transport. This event occurs before the [produce()](#transport-produce) method completes.
@@ -285,9 +311,7 @@ Emitted when the transport needs to transmit information about a new producer to
 
 Argument        | Type    | Description   
 --------------- | ------- | ----------------
-`kind`          | String  | Producer's media kind ("audio" or "video").
-`rtpParameters` | [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters) | Producer's RTP parameters.
-`appData`       | Object  | Custom application data as given in the `transport.produce()` method.
+`parameters`    | [TransportProduceParameters](#TransportProduceParameters) | Parameters to create a server side producer.
 
 </div>
 
@@ -296,17 +320,34 @@ In server side, the application should call [transport.produce()](/documentation
 </div>
 
 ```javascript
-transport.on("produce", ({ kind, rtpParameters, appData }) =>
+transport.on("produce", (parameters, callback, errback) =>
 {
-  // Signal parameters to the server side transport.
-  mySignaling.send(
-    "transport-produce",
-    {
-      transportId   : transport.id, 
-      kind          : kind,
-      rtpParameters : rtpParameters,
-      appData       : appData
-    });
+  // Signal parameters to the server side transport and retrieve the id of 
+  // the server side new producer.
+  try
+  {
+    const data = await mySignaling.send(
+      "transport-produce",
+      {
+        transportId   : transport.id, 
+        kind          : parameters.kind,
+        rtpParameters : parameters.rtpParameters,
+        appData       : parameters.appData
+      });
+
+    // Let's assume the server included the created producer id in the response
+    // data object.
+    const { id } = data;
+
+    // Tell the transport that parameters were transmitted and provide it with the
+    // server side producer's id.
+    callback({ id });
+  }
+  catch (error)
+  {
+    // Tell the transport that something was wrong.
+    errback(error);
+  }
 });
 ```
 
