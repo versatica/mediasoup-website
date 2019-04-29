@@ -110,17 +110,135 @@ When simulcast or SVC is in use, the application may be interested in signaling 
 * The server side consumer subscribes to the ["layerschange"](/documentation/v3/mediasoup/api/#consumer-on-layerschange) event and notifies the client application about the effective layers being transmitted.
 
 
-## Guidelines for FFmpeg
-{: #guidelines-for-ffmpeg}
+## Guidelines for FFmpeg and GStreamer
+{: #guidelines-for-ffmpeg-and-gstreamer}
 
-*TBD*
+Both, FFmpeg and GStreamer (and any other similar software), can be used to inject media into a mediasoup router or to consume media from a mediasoup router (for recording purposes, transcoding, streaming using HLS, etc).
+
+This can be done by creating a server side plain RTP transport (via [router.createPlainRtpTransport()](/documentation/v3/mediasoup/api/#router-createPlainRtpTransport)) and the calling [produce()](/documentation/v3/mediasoup/api/#transport-produce) or [consume()](/documentation/v3/mediasoup/api/#transport-consume) on it with the appropriate parameters.
 
 <div markdown="1" class="note">
-For now check the [broadcaster example](https://github.com/versatica/mediasoup-demo/tree/v3/broadcasters) in the mediasoup demo application.
+Check the [broadcaster example](https://github.com/versatica/mediasoup-demo/tree/v3/broadcasters) (based on FFmpeg) in the mediasoup demo application.
 </div>
 
+### Resources
 
-## Guidelines for GStreamer
-{: #guidelines-for-gstreamer}
+* [FFmpeg documentation](https://ffmpeg.org/documentation.html)
+* [GStreamer documentation](https://gstreamer.freedesktop.org/documentation/)
+* [libopus encoding options in FFmpeg](http://ffmpeg.org/ffmpeg-codecs.html#libopus-1)
+* [node-fluent-ffmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg)
+* [node-gstreamer-superficial](https://github.com/dturing/node-gstreamer-superficial)
 
-*TBD*
+
+### Example: Inject Audio and Video using FFmpeg
+{: #example-inject-audio-and-video-using-ffmpeg}
+
+Let's assume we have a `/home/foo/party.mp4` file with a stereo audio track and a video track that we want to inject into a mediasoup router. We run FFmpeg in the server host so media transmission takes places in the localhost network.
+
+* Create a plain RTP transport in the mediasoup router to send the audio track:
+
+```javascript
+const audioTransport = await router.createPlainTransport(
+  { 
+    ip       : '127.0.0.1',
+    rtcpMux  : false,
+    comedia  : true
+  });
+
+// Read the transport local RTP port.
+const audioRtpPort = audioTransport.tuple.localPort;
+// => 3301
+
+// Read the transport local RTCP port.
+const audioRtcpPort = audioTransport.rtcpTuple.localPort;
+// => 4502
+```
+
+* Create a plain RTP transport in the mediasoup router to send the video track:
+
+```javascript
+const videoTransport = await router.createPlainTransport(
+  { 
+    ip       : '127.0.0.1',
+    rtcpMux  : false,
+    comedia  : true
+  });
+
+// Read the transport local RTP port.
+const videoRtpPort = videoTransport.tuple.localPort;
+// => 3501
+
+// Read the transport local RTCP port.
+const videoRtcpPort = videoTransport.rtcpTuple.localPort;
+// => 2989
+```
+
+* Create an audio producer on the audio transport:
+
+```js
+const audioProducer = await audioTransport.produce(
+  {
+    kind          : 'audio',
+    rtpParameters :
+    {
+      codecs :
+      [
+        {
+          mimeType     : 'audio/opus',
+          clockRate    : 48000,
+          payloadType  : 101,
+          channels     : 2,
+          rtcpFeedback : [],
+          parameters   : { sprop-stereo: 1 }
+        }
+      ],
+      encodings : [ { ssrc: 11111111 } ]
+    }
+  });
+```
+
+* Create a video audio producer on the video transport:
+
+```js
+const videoProducer = await videoTransport.produce(
+  {
+    kind          : 'video',
+    rtpParameters :
+    {
+      codecs :
+      [
+        {
+          mimeType     : 'video/vp8',
+          clockRate    : 90000,
+          payloadType  : 102,
+          rtcpFeedback : [], // FFmpeg does not support NACK nor PLI/FIR.
+        }
+      ],
+      encodings : [ { ssrc: 22222222 } ]
+    }
+  });
+```
+
+* Instruct FFmpeg to encode the mp4 file into two RTP streams with the above selected codec payload types and SSRC values, and transmit them to the IPs and ports of the audio and video transports:
+
+```bash
+ffmpeg \
+  -re \
+  -v info \
+  -stream_loop -1 \
+  -i /home/foo/party.mp4 \
+  -map 0:a:0 \
+  -acodec libopus -ab 128k -ac 2 -ar 48000 \
+  -map 0:v:0 \
+  -pix_fmt yuv420p -c:v libvpx -b:v 1000k -deadline realtime -cpu-used 4 \
+  -f tee \
+  "[select=a:f=rtp:ssrc=11111111:payload_type=101]rtp://127.0.0.1:3301?rtcpport=4502|[select=v:f=rtp:ssrc=22222222:payload_type=102]rtp://127.0.0.1:3501?rtcpport=2989"
+```
+
+<div markdown="1" class="note">
+The FFmpeg command line arguments above may not be perfect. This is the mediasoup documentation. Check the [FFmpeg documentation](https://ffmpeg.org/documentation.html) or the [GStreamer documentation](https://gstreamer.freedesktop.org/documentation/) to properly use them.
+
+In other words: Please do not make questions about FFmpeg or GStreamer in the [mediasoup mailing list](https://groups.google.com/forum/#!forum/mediasoup).
+</div>
+
+* Once done, other endpoints (WebRTC endpoints or any others) can receive both, the FFmpeg audio track and the FFmpeg video track, by using the [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume) API as usual.
