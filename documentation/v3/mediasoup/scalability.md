@@ -14,7 +14,7 @@ Before entering into details, let's clarify how mediasoup works internally:
 * mediasoup is a Node.js library that exposes a JavaScript ES6 API to manage workers, routers, transports, producers and consumer (among others).
 * A [Worker](/documentation/v3/mediasoup/api/#Worker) represents a mediasoup C++ subprocess that runs in a single CPU core. It can handle N routers.
 * A [Router](/documentation/v3/mediasoup/api/#Router) holds producers and consumers that exchange audio/video RTP between them. In certain common usages, a router can be understood as a "multi-party conference room".
-* In other words: a router just uses a single CPU.
+* In other words: a router uses a single CPU.
 </div>
 
 ----
