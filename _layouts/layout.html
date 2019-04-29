@@ -30,21 +30,6 @@
 		<meta name="theme-color" content="#ffffff">
 
 		<link rel="stylesheet" href="/css/mediasoup.css?v=bar">
-
-		<script>
-			// Page settings.
-			window.siteSettings = {};
-
-			{% if page.anchors %}
-			window.siteSettings.anchors = true;
-			{% endif %}
-
-			{% if page.apiToc %}
-			window.siteSettings.apiToc = true;
-			{% endif %}
-		</script>
-
-		<script src="/js/site.js?v=foo"></script>
 	</head>
 
 	<body>
@@ -81,6 +66,21 @@
 		</div>
 
 		<div class="arrow-up"></div>
+
+		<script>
+			// Page settings.
+			window.siteSettings = {};
+
+			{% if page.anchors %}
+			window.siteSettings.anchors = true;
+			{% endif %}
+
+			{% if page.apiToc %}
+			window.siteSettings.apiToc = true;
+			{% endif %}
+		</script>
+
+		<script src="/js/site.js?v=foo"></script>
 	</body>
 
 </html>
