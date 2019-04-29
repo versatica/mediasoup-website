@@ -188,7 +188,7 @@ const audioProducer = await audioTransport.produce(
           clockRate    : 48000,
           payloadType  : 101,
           channels     : 2,
-          rtcpFeedback : [],
+          rtcpFeedback : [ ],
           parameters   : { sprop-stereo: 1 }
         }
       ],
@@ -211,7 +211,7 @@ const videoProducer = await videoTransport.produce(
           mimeType     : 'video/vp8',
           clockRate    : 90000,
           payloadType  : 102,
-          rtcpFeedback : [], // FFmpeg does not support NACK nor PLI/FIR.
+          rtcpFeedback : [ ], // FFmpeg does not support NACK nor PLI/FIR.
         }
       ],
       encodings : [ { ssrc: 22222222 } ]
