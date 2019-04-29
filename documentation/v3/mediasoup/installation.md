@@ -25,7 +25,8 @@ In order to build the C/C++ component the following packages and libraries must 
 * `cc` command pointing to `gcc` or `clang`
 
 <div markdown="1" class="note">
-In Debian and Ubuntu install the `build-essential` package. It includes both `make` and `gcc`/`g++`.
+* In Debian and Ubuntu install the `build-essential` DEB package. It includes both `make` and `gcc`/`g++`.
+* In YUM based Linux (Red Hat, CentOS) use `yum groupinstall "Development Tools"`.
 </div>
 
 

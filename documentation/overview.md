@@ -15,7 +15,7 @@ Detailed information regarding the architecture of an SFU can be found at RFC 76
 </div>
 
 
-## mediasoup goals
+## mediasoup Goals
 
 * Be a WebRTC [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit).
 * Be a Node.js module in server side.
@@ -25,7 +25,7 @@ Detailed information regarding the architecture of an SFU can be found at RFC 76
 * Do not mandate a specific signaling protocol (be signaling agnostic).
 
 
-## Server side
+## Server Side
 
 Unlike other existing SFU implementations, [mediasoup](https://github.com/versatica/mediasoup) is not a standalone server but an unopinionated [Node.js](https://nodejs.org) module which can be integrated into a larger application:
 
@@ -53,7 +53,7 @@ Both components communicate to each other by means of inter-process communicatio
 * Extremely powerful (media worker subprocess coded in C++ on top of [libuv](https://libuv.org)).
 
 
-## Client side
+## Client Side
 
 [mediasoup-client](https://github.com/versatica/mediasoup-client) is the JavaScript library for building JavaScript client side applications. It's a tiny library exposing a powerful cross-browser API. It supports all current WebRTC browsers with different "handlers" for each browser model/version.
 
