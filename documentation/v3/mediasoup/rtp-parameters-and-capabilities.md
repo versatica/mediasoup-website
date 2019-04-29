@@ -6,9 +6,9 @@ anchors : true
 
 # RTP Parameters and Capabilities
 
-RTP parameters describe the media that an endpoint sends to mediasoup (RTP send parameters) or the media that mediasoup forwards to an endpoint (RTP receive parameters).
+RTP parameters describe the media that a producer endpoint sends to mediasoup (RTP send parameters) or the media that mediasoup forwards to a consumer endpoint (RTP receive parameters).
 
-RTP capabilities, instead, define what mediasoup or an endpoint can receive, thus RTP parameters depend on (or are constrained to) the remote RTP capabilities.
+RTP capabilities, instead, define what mediasoup or a consumer endpoint can receive, thus RTP parameters depend on (or are constrained to) the remote RTP capabilities.
 
 ----
 

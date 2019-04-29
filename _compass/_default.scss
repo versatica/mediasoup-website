@@ -373,6 +373,13 @@
 			margin-top: 1.5em;
 			margin-bottom: 1.5em;
 		}
+
+		&.full-width {
+			width: 100%;
+			height: auto;
+			margin-top: 1em;
+			margin-bottom: 1em;
+		}
 	}
 
 	// Convert the <hr> (line) into a vertical space.

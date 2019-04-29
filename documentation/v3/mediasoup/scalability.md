@@ -13,8 +13,13 @@ Before entering into details, let's clarify how mediasoup works internally:
 
 * mediasoup is a Node.js library that exposes a JavaScript ES6 API to manage workers, routers, transports, producers and consumer (among others).
 * A [Worker](/documentation/v3/mediasoup/api/#Worker) represents a mediasoup C++ subprocess that runs in a single CPU core. It can handle N routers.
-* A [Router](/documentation/v3/mediasoup/api/#Router) holds producers and consumers that exchange audio/video RTP between them. In certain common usages, a router can be understood as a "multi-party conference room".
-* In other words: a router uses a single CPU.
+* A [Router](/documentation/v3/mediasoup/api/#Router) holds producers and consumers that exchange audio/video RTP between them. In certain common usages, a router can be understood as a "multi-party conference room". In other words: a router uses a single CPU.
+* A router behaves as an [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit). This is:
+  * it forwards RTP packets between producers and consumers,
+  * it selects which spatial and temporal layers to forward based on consumer settings and network capability,
+  * it requests RTP packet retransmission to producer endpoints when there is packet lost,
+  * it holds a buffer with packets from producer endpoints and retransmits them to consumer endpoints when requested by those,
+  * however it does neither decode nor transcode media packets, so it can not generate video key frames on demand, but just requests them to the producer endpoints.
 </div>
 
 ----
@@ -41,13 +46,13 @@ If higher capability is required, the application backend should run mediasoup i
 ## One-To-Many Broadcasting
 {: #one-to-many-broadcasting}
 
-In this scenario, a single broadcaster device (or a few of them) produce audio and video and the backend stream the media to hundred of thousands of viewers in real-time (no delay). If there are more than 200-300 viewers (so 400-600 consumers), the capabilities of a single mediasoup router could be exceeded.
+In this scenario, a single broadcaster endpoint (or a few of them) produce audio and video and the backend stream the media to hundred of thousands of viewers in real-time (no delay). If there are more than 200-300 viewers (so 400-600 consumers), the capabilities of a single mediasoup router could be exceeded.
 
 To help with those scenarios, mediasoup provides a mechanism to inter-communicate different mediasoup routers by using the [router.pipeToRouter()](/documentation/v3/mediasoup/api/#router-pipeToRouter) API.
 
 The concept is simple:
 
-* The broadcaster device produces (producer1) its audio/video into a mediasoup router1 created in worker1.
+* The broadcaster endpoint produces (producer1) its audio/video into a mediasoup router1 created in worker1.
 * The server side application creates worker2, worker3, etc. in the same host and also a router (router2, router3, etc.) in each of them.
 * Viewers are connected at transport level to those router2, router3, etc.
 * The application pipes producer1 from router1 to router2 and from router1 to router3, etc.
@@ -58,14 +63,15 @@ It's also perfectly possible to inter-communicate mediasoup routers running in d
 <div markdown="1" class="note warn">
 When broadcasting a video stream to many viewers (hundreds or thousands of consumers) it's important to be aware of how video RTP transmission typically works:
 
-* A viewer may eventually loss video packets so would request packet retransmission to mediasoup. Retranmissions are handled per transport (they do not reach the broadcaster device) so there is no limitation here.
-* A viewer may connect or reconnect, or may change its preferred spatial layer, or may just loss too many packets. Any of those circumstances would imply a video key frame request by means of a RTCP PLI or FIR that reaches the broadcaster device.
-* Upon receipt of a video PLI or FIR, the encoder in the broadcaster device generates a video key frame which is a video packet much bigger than the usual ones.
-* If the encoder receives many PLIs or FIRs (although mediaoup protects the producer by preventing it from receiving more than one PLI or FIR per second) the sending bitrate of the broadcaster device would increase by 2x or 3x. And this could become a problem.
+* A viewer may eventually loss video packets so would request packet retransmission to mediasoup. Retranmissions are handled per transport (they do not reach the broadcaster endpoint) so there is no limitation here.
+* A viewer may connect or reconnect, or may change its preferred spatial layer, or may just loss too many packets. Any of those circumstances would imply a video key frame request by means of a RTCP PLI or FIR that reaches the broadcaster endpoint.
+* Upon receipt of a video PLI or FIR, the encoder in the broadcaster endpoint generates a video key frame which is a video packet much bigger than the usual ones.
+* If the encoder receives many PLIs or FIRs (although mediaoup protects the producer endpoint by preventing it from receiving more than one PLI or FIR per second) the sending bitrate of the broadcaster endpoint would increase by 2x or 3x. This may be a problem for the producer endpoint and also for viewers that will receive much more bits per second.
+* And that is the problem.
 
-In those scenarios, a "re-encoder" in server-side is required. This is, an endpoint that consumes the streams of the broadcaster device, re-encodes those streams and re-produce them into a set of mediasoup routers with hundreds or thousands of consumers. Since such a "re-encoder" runs typically in the backend network, it's not limited by available bandwidth.
+In those scenarios, a "re-encoder" in server-side is required. This is, an endpoint that consumes the streams of the broadcaster endpoint, re-encodes those streams and re-produce them into a set of mediasoup routers with hundreds or thousands of consumers. Since such a "re-encoder" runs typically in the backend network, it's not limited by available bandwidth.
 
-At the end, those scenarios require a proper architecture with distribution of viewers across multiple mediasoup routers (in the same or different hosts) and the placement special "re-encoder" endpoints in the backend that can absorb PLIs and FIRs generated by a subset of those viewsers.
+At the end, those scenarios require a proper architecture with distribution of viewers across multiple mediasoup routers (in the same or different hosts) and the placement special "re-encoder" endpoints in the backend that can absorb PLIs and FIRs generated by a subset of those viewers.
 
 mediasoup comes with [libmediasoupclient](/documentation/v3/libmediasoupclient) which, among others, can be used as a re-encoder (wink, wink).
 </div>
