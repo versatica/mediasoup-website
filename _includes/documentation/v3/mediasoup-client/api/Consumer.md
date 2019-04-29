@@ -69,7 +69,7 @@ Consumer RTP parameters.
 > `@type` [RtpReceiveParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpReceiveParameters), read only
 
 <div markdown="1" class="note">
-Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
 </div>
 
 #### consumer.track
@@ -145,7 +145,7 @@ This method should be called when the server side consumer has been resumed (and
 
 <section markdown="1">
 
-#### consumer.on("transportclose")
+#### consumer.on("transportclose", fn())
 {: #consumer-on-transportclose .code}
 
 Emitted when the transport this consumer belongs to is closed for whatever reason. The consumer itself is also closed.
@@ -157,7 +157,7 @@ consumer.on("transportclose", () =>
 });
 ```
 
-#### consumer.on("trackended")
+#### consumer.on("trackended", fn())
 {: #consumer-on-trackended .code}
 
 Emitted when the audio/video track being received is externally stopped.

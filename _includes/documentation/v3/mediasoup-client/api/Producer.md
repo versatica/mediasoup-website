@@ -95,7 +95,7 @@ Producer RTP parameters. These parameters are internally built by the library an
 > `@type` [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters), read only
 
 <div markdown="1" class="note">
-Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
 </div>
 
 #### producer.paused
@@ -214,7 +214,7 @@ await producer.setMaxSpatialLayer(1);
 
 <section markdown="1">
 
-#### producer.on("transportclose")
+#### producer.on("transportclose", fn())
 {: #producer-on-transportclose .code}
 
 Emitted when the transport this producer belongs to is closed for whatever reason. The producer itself is also closed.
@@ -226,7 +226,7 @@ producer.on("transportclose", () =>
 });
 ```
 
-#### producer.on("trackended")
+#### producer.on("trackended", fn())
 {: #producer-on-trackended .code}
 
 Emitted when the audio/video track being transmitted is externally stopped. This may happen, for instance, if the associated microphone or webcam source is disconnected. This is a good chance for the application to close/pause the producer or replace its track.

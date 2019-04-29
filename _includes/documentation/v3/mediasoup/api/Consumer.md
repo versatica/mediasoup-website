@@ -246,7 +246,7 @@ Request a key frame to the associated producer. Just valid for video consumers.
 
 <section markdown="1">
 
-#### consumer.on("transportclose")
+#### consumer.on("transportclose", fn())
 {: #consumer-on-transportclose .code}
 
 Emitted when the transport this consumer belongs to is closed for whatever reason. The consumer itself is also closed.
@@ -258,7 +258,7 @@ consumer.on("transportclose", () =>
 });
 ```
 
-#### consumer.on("producerclose")
+#### consumer.on("producerclose", fn())
 {: #consumer-on-producerclose .code}
 
 Emitted when the associated producer is closed. The consumer itself is also closed.
@@ -270,12 +270,12 @@ consumer.on("producerclose", () =>
 });
 ```
 
-#### consumer.on("producerpause")
+#### consumer.on("producerpause", fn())
 {: #consumer-on-producerpause .code}
 
 Emitted when the associated producer is paused.
 
-#### consumer.on("producerresume")
+#### consumer.on("producerresume", fn())
 {: #consumer-on-producerresume .code}
 
 Emitted when the associated producer is resumed.
@@ -314,17 +314,17 @@ Argument  | Type    | Description
 
 <section markdown="1">
 
-#### consumer.observer.on("close")
+#### consumer.observer.on("close", fn())
 {: #consumer-observer-on-close .code}
 
 Emitted when the consumer is closed for whatever reason.
 
-#### consumer.observer.on("pause")
+#### consumer.observer.on("pause", fn())
 {: #consumer-observer-on-pause .code}
 
 Emitted when the consumer or its associated producer is paused and, as result, the consumer becomes paused.
 
-#### consumer.observer.on("resume")
+#### consumer.observer.on("resume", fn())
 {: #consumer-observer-on-resume .code}
 
 Emitted when the consumer or its associated producer is resumed and, as result, the consumer is no longer paused.

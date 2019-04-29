@@ -190,9 +190,9 @@ const producer = await transport.produce(
 ```
 
 <div markdown="1" class="note">
-Once the local producer is created, the application must signal its parameters to the server and invoke [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) on the corresponding WebRTC transport.
+Before this method completes, the local transport will emit the ["produce"](#transport-on-produce) event. The application must be subscribed to this event, signal those parameters to the server, and invoke [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) on the corresponding WebRTC transport.
 
-Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
 </div>
 
 #### transport.consume(options)
@@ -233,9 +233,94 @@ mySignaling.on('newConsumer', (data) =>
 ```
 
 <div markdown="1" class="note">
-The consumer is created in server side first via [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume) . Then its parameters are signaled to the client application which creates a local replica of the consumer and manages it.
+The consumer is created in server side first via [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume). Then its parameters are signaled to the client application which creates a local replica of the consumer and manages it.
 
-Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
+</div>
+
+</section>
+
+
+### Events
+{: #Transport-events}
+
+<section markdown="1">
+
+#### transport.on("connect", fn({ dtlsParameters })
+{: #transport-on-connect .code}
+
+Emitted when the transport is about to establish the ICE+DTLS connection and needs to exchange information with the associated server side transport.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`dtlsParameters` | [DtlsParameters](/documentation/v3/mediasoup/api/#WebRtcTransportDtlsParameters) | Local DTLS parameters.
+
+</div>
+
+<div markdown="1" class="note">
+In server side, the application should call [webRtcTransport.connect()](/documentation/v3/mediasoup/api/#webRtcTransport-connect).
+</div>
+
+```javascript
+transport.on("connect", ({ dtlsParameters }) =>
+{
+  // Signal local DTLS parameters to the server side transport.
+  mySignaling.send(
+    "transport-connect",
+    {
+      transportId    : transport.id, 
+      dtlsParameters : dtlsParameters
+    });
+});
+```
+
+#### transport.on("produce", fn({ kind, rtpParameters, appData })
+{: #transport-on-produce .code}
+
+Emitted when the transport needs to transmit information about a new producer to the associated server side transport. This event occurs before the [produce()](#transport-produce) method completes.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument        | Type    | Description   
+--------------- | ------- | ----------------
+`kind`          | String  | Producer's media kind ("audio" or "video").
+`rtpParameters` | [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters) | Producer's RTP parameters.
+`appData`       | Object  | Custom application data as given in the `transport.produce()` method.
+
+</div>
+
+<div markdown="1" class="note">
+In server side, the application should call [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce).
+</div>
+
+```javascript
+transport.on("produce", ({ kind, rtpParameters, appData }) =>
+{
+  // Signal parameters to the server side transport.
+  mySignaling.send(
+    "transport-produce",
+    {
+      transportId   : transport.id, 
+      kind          : kind,
+      rtpParameters : rtpParameters,
+      appData       : appData
+    });
+});
+```
+
+#### transport.on("connectionstatechange", fn(connectionState)
+{: #transport-on-connectionstatechange .code}
+
+Emitted when the local transport connection state changes.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`connectionState` | [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum) | Transport connection state.
+
 </div>
 
 </section>

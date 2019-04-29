@@ -172,7 +172,7 @@ const router = await worker.createRouter({ mediaCodecs });
 
 <section markdown="1">
 
-#### worker.on("died")
+#### worker.on("died", fn())
 {: #worker-on-died .code}
 
 Emitted when the worker process unexpectedly dies.
@@ -196,7 +196,7 @@ worker.on("died", () =>
 
 <section markdown="1">
 
-#### worker.observer.on("close")
+#### worker.observer.on("close", fn())
 {: #worker-observer-on-close .code}
 
 Emitted when the worker is closed for whatever reason.

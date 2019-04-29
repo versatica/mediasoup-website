@@ -247,7 +247,7 @@ if (router.canConsume({ producerId, rtpCapabilities }))
 
 <section markdown="1">
 
-#### router.on("workerclose")
+#### router.on("workerclose", fn())
 {: #router-on-workerclose .code}
 
 Emitted when the worker this router belongs to is closed for whatever reason. The router itself is also closed. A ["routerclose"](#transport-on-routerclose) event is triggered in all its transports and a ["routerclose"](#rtpObserver-on-routerclose) event is triggered in all its RTP observers.
@@ -267,7 +267,7 @@ router.on("workerclose", () =>
 
 <section markdown="1">
 
-#### router.observer.on("close")
+#### router.observer.on("close", fn())
 {: #router-observer-on-close .code}
 
 Emitted when the router is closed for whatever reason.

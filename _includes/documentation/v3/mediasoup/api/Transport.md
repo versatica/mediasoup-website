@@ -317,7 +317,7 @@ const consumer = await transport.consume(
 
 These are events common to all transport classes. Each transport class may define new ones.
 
-#### transport.on("routerclose")
+#### transport.on("routerclose", fn())
 {: #transport-on-routerclose .code}
 
 Emitted when the router this transport belongs to is closed for whatever reason. The transport itself is also closed. A ["transportclose"](#producer-on-transportclose) event is triggered in all its producers and a ["transportclose"](#consumer-on-transportclose) event is triggered in all its consumers.
@@ -339,7 +339,7 @@ transport.on("routerclose", () =>
 
 These are observer events common to all transport classes. Each transport class may define new ones.
 
-#### transport.observer.on("close")
+#### transport.observer.on("close", fn())
 {: #transport-observer-on-close .code}
 
 Emitted when the transport is closed for whatever reason.

@@ -205,7 +205,7 @@ Resumes the producer (RTP is sent again to its associated consumers). Triggers a
 
 <section markdown="1">
 
-#### producer.on("transportclose")
+#### producer.on("transportclose", fn())
 {: #producer-on-transportclose .code}
 
 Emitted when the transport this producer belongs to is closed for whatever reason. The producer itself is also closed. A ["producerclose"](#consumer-on-producerclose) event is triggered in all its associated consumers.
@@ -251,17 +251,17 @@ Argument           | Type    | Description
 
 <section markdown="1">
 
-#### producer.observer.on("close")
+#### producer.observer.on("close", fn())
 {: #producer-observer-on-close .code}
 
 Emitted when the producer is closed for whatever reason.
 
-#### producer.observer.on("pause")
+#### producer.observer.on("pause", fn())
 {: #producer-observer-on-pause .code}
 
 Emitted when the producer is paused.
 
-#### producer.observer.on("resume")
+#### producer.observer.on("resume", fn())
 {: #producer-observer-on-resume .code}
 
 Emitted when the producer is resumed.
