@@ -173,7 +173,7 @@ const videoRtcpPort = videoTransport.rtcpTuple.localPort;
 // => 2989
 ```
 
-* Create an audio producer on the audio transport:
+* Create an audio producer on the first transport:
 
 ```js
 const audioProducer = await audioTransport.produce(
@@ -197,7 +197,7 @@ const audioProducer = await audioTransport.produce(
   });
 ```
 
-* Create a video audio producer on the video transport:
+* Create a video producer on the second transport:
 
 ```js
 const videoProducer = await videoTransport.produce(
@@ -241,4 +241,4 @@ The FFmpeg command line arguments above may not be perfect. This is the mediasou
 In other words: Please do not make questions about FFmpeg or GStreamer in the [mediasoup mailing list](https://groups.google.com/forum/#!forum/mediasoup).
 </div>
 
-* Once done, other endpoints (WebRTC endpoints or any others) can receive both, the FFmpeg audio track and the FFmpeg video track, by using the [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume) API as usual.
+* Once done, other endpoints (WebRTC endpoints or any others) can receive both, the FFmpeg audio and video track, by using the [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume) API as usual.
