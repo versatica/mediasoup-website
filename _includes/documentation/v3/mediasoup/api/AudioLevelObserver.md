@@ -79,7 +79,7 @@ Emitted at most every `interval` ms (see [AudioLevelObserverOptions](#AudioLevel
 
 Argument  | Type    | Description   
 --------- | ------- | ----------------
-`volumes` | Array&lt;[AudioLevelObserverVolume](#AudioLevelObserverVolume)&gt; | Audio volumes information.
+`volumes` | Array&lt;[AudioLevelObserverVolume](#AudioLevelObserverVolume)&gt; | Audio volumes entries ordered by `volume` (louder ones go first).
 
 </div>
 
