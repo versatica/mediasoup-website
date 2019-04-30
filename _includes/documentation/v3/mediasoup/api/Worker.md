@@ -196,6 +196,10 @@ worker.on("died", () =>
 
 <section markdown="1">
 
+<div markdown="1" class="note">
+See the [Observer API](#observer-api) section below.
+</div>
+
 #### worker.observer.on("close", fn())
 {: #worker-observer-on-close .code}
 

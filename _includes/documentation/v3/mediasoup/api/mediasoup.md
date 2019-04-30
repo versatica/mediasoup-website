@@ -122,6 +122,10 @@ mediasoup.parseScalabilityMode(undefined);
 
 <section markdown="1">
 
+<div markdown="1" class="note">
+See the [Observer API](#observer-api) section below.
+</div>
+
 #### mediasoup.observer.on("newworker", fn(worker))
 {: #mediasoup-observer-on-newworker .code}
 

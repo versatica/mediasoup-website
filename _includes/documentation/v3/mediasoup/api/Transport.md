@@ -337,6 +337,10 @@ transport.on("routerclose", () =>
 
 <section markdown="1">
 
+<div markdown="1" class="note">
+See the [Observer API](#observer-api) section below.
+</div>
+
 These are observer events common to all transport classes. Each transport class may define new ones.
 
 #### transport.observer.on("close", fn())

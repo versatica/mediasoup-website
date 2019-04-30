@@ -251,6 +251,10 @@ Argument           | Type    | Description
 
 <section markdown="1">
 
+<div markdown="1" class="note">
+See the [Observer API](#observer-api) section below.
+</div>
+
 #### producer.observer.on("close", fn())
 {: #producer-observer-on-close .code}
 

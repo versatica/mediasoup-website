@@ -267,6 +267,10 @@ router.on("workerclose", () =>
 
 <section markdown="1">
 
+<div markdown="1" class="note">
+See the [Observer API](#observer-api) section below.
+</div>
+
 #### router.observer.on("close", fn())
 {: #router-observer-on-close .code}
 
