@@ -6,13 +6,15 @@ anchors : true
 
 # Overview
 
-An [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit) receives audio and video streams from every participant in a conference room and relays them to everyone else (endpoints send one and receive many). Compared to a mixer or MCU (Multipoint Control Unit), this design leads to a better performance, higher throughput and less latency. It's highly scalable and requires much less resources given that it does not transcode or mix media.
+An [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit) receives audio and video streams from endpoints and relays them to everyone else (endpoints send one and receive many). Compared to a mixer or MCU (Multipoint Control Unit) this design leads to a better performance, higher throughput and less latency. It's highly scalable and requires much less resources given that it does not transcode or mix media.
 
-Since endpoints get the other participants media separately, they can have a personalized layout and choose which streams to render and how to display them.
+Since endpoints get the other endpoints' media separately, they can have a personalized layout and choose which streams to render and how to display them.
 
 <div markdown="1" class="note">
 Detailed information regarding the architecture of an SFU can be found at RFC 7667 "RTP Topologies" [section 3.7](https://tools.ietf.org/html/rfc7667#section-3.7).
 </div>
+
+mediasoup and its client side libraries provide a super low level API. They are intended for enabling different use cases and scenarios, without constraining them to any assumption.
 
 
 ## mediasoup Goals
@@ -21,8 +23,10 @@ Detailed information regarding the architecture of an SFU can be found at RFC 76
 * Be a Node.js module in server side.
 * Be a tiny JavaScript (and C++) library in client side.
 * Be minimalist: just handle the media layer.
-* Support all the existing WebRTC endpoints.
-* Do not mandate a specific signaling protocol (be signaling agnostic).
+* Be signaling agnostic: do not mandate any signaling protocol.
+* Be super low level API.
+* Support all existing WebRTC endpoints.
+* Enable integration with well known multimedia libraries/tools.
 
 
 ## Server Side
@@ -47,9 +51,9 @@ Both components communicate to each other by means of inter-process communicatio
 * Multi-stream: multiple audio/video streams over a single ICE + DTLS transport.
 * IPv6 ready.
 * ICE / DTLS / RTP / RTCP over UDP and TCP.
-* Simulcast support.
+* Simulcast and SVC support.
 * Congestion control.
-* Sender and receiver bandwidth estimation and layers distribution algorithm.
+* Sender and receiver bandwidth estimation with spatial/temporal layers distribution algorithm.
 * Extremely powerful (media worker subprocess coded in C++ on top of [libuv](https://libuv.org)).
 
 
@@ -57,4 +61,4 @@ Both components communicate to each other by means of inter-process communicatio
 
 [mediasoup-client](https://github.com/versatica/mediasoup-client) is the JavaScript library for building JavaScript client side applications. It's a tiny library exposing a powerful cross-browser API. It supports all current WebRTC browsers with different "handlers" for each browser model/version.
 
-[libmediasoupclient](https://github.com/versatica/libmediasoupclient) is a C++ library for building C++ client side applications.
+[libmediasoupclient](https://github.com/versatica/libmediasoupclient) is a C++ library based on [libwebrtc](https://webrtc.org/) for building C++ client side applications.
