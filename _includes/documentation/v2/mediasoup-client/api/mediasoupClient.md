@@ -55,7 +55,7 @@ Current `flag` values can be:
 #### mediasoupClient.internals
 {: #mediasoupClient-internals .code}
 
-Exposes the [internals](https://github.com/versatica/mediasoup-client/blob/master/lib/internals.js) property.
+Exposes the [internals](https://github.com/versatica/mediasoup-client/blob/v2/lib/internals.js) property.
 
 </section>
 
@@ -74,7 +74,7 @@ Set a custom device handler that mediasoup-client will use instead of any builti
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`handler`  | [DeviceHandler](https://github.com/versatica/mediasoup-client/blob/master/lib/handlers) | Custom device handler. | Yes |
+`handler`  | [DeviceHandler](https://github.com/versatica/mediasoup-client/blob/v2/lib/handlers) | Custom device handler. | Yes |
 `metadata` | [DeviceInfo](#mediasoupClient-DeviceInfo) | Custom device info. | Yes |
 
 </div>

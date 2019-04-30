@@ -106,7 +106,7 @@ The [ConnectionState](#Transport-ConnectionState) of the underlying `RTCPeerConn
 
 * Read only
 
-The [DeviceHandler](https://github.com/versatica/mediasoup-client/blob/master/lib/handlers) used by the `transport`.
+The [DeviceHandler](https://github.com/versatica/mediasoup-client/blob/v2/lib/handlers) used by the `transport`.
 
 </section>
 
