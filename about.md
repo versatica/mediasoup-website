@@ -1,10 +1,10 @@
 ---
-title   : About
+title   : About Us
 anchors : true
 ---
 
 
-# About
+# About Us
 
 mediasoup is made with love by a small team of Real-Time addicts.
 

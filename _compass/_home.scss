@@ -228,8 +228,9 @@
 			@include display-flex;
 			@include flex-direction(column);
 			@include justify-content(center);
-			width: 90%;
+			width: 100%;
 			min-width: 1024px;
+			max-width: 1280px;
 			margin: 0 auto;
 			padding: 0 6%;
 			font-size: 1rem;
@@ -262,7 +263,7 @@
 					@include flex(0 10 auto);
 					width: 34%;
 					margin: 0 4px;
-					padding: 1.75rem;
+					padding: 1.5rem 1.75rem 1.25rem;
 					@include transition-property(opacity);
 					@include transition-duration(1s);
 
@@ -281,12 +282,12 @@
 
 				@include breakpoint($mobile) {
 					margin: 10px  0;
-					padding: 2rem 1.5rem 2.5rem 1.5rem;
+					padding: 1.5rem 1.5rem 1.5rem;
 				}
 
 				h3 {
 					line-height: 1.3em;
-					margin-bottom: 1em;
+					margin-bottom: 0.85em;
 					color: $color-dark;
 					font-weight: 400;
 
