@@ -6,11 +6,25 @@
 The top-level exported module.
 
 ```javascript
-// Using ES6 import syntax.
+// Using ES6 import.
 import * as mediasoupClient from "mediasoup-client";
 
-// Using CommonJS syntax.
+// Also using ES6 import with destructuring assignment.
+import {
+  version,
+  Device,
+  parseScalabilityMode
+} from "mediasoup-client";
+
+// Using CommonJS.
 const mediasoupClient = require("mediasoup-client");
+
+// Also using CommonJS with destructuring assignment.
+const {
+  version,
+  Device,
+  parseScalabilityMode
+} = require("mediasoup-client");
 ```
 
 </section>

@@ -15,12 +15,20 @@ $ npm install mediasoup-client@3 --save
 
 ## Usage
 
+mediasoup-client is written in JavaScript ES6 plus CommonJS. This is: it uses `require()` and `module.exports` internally.
+
+This makes it work in the browser by properly using [browserify](http://browserify.org), [webpack](https://webpack.js.org) or similar tools, and also in Node.js (which does not yet implement ES6 `import`/`export`) . It's up to the application developer to decide how to integrate mediasoup-client into his client side application.
+
+<div markdown="1" class="note">
+mediasoup-client does not provide any bundled, minified and/or ES5 transpiled single file. There are tools out there to do that if your application needs it.
+</div>
+
 Depending on how your web application loads libraries (for example, by using a JavaScript module loader) your may need to use one of the following ways to load mediasoup-client:
 
 * Using ES6 `import`:
 
 ```javascript
-import * as mediasoupClient from 'mediasoup-client';
+import * as mediasoupClient from "mediasoup-client";
 ```
 
 * Using CommonJS with [browserify](http://browserify.org) or [webpack](https://webpack.github.io): 

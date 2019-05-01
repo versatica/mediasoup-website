@@ -7,6 +7,15 @@ The top-level exported module.
 
 ```javascript
 const mediasoup = require("mediasoup");
+
+// Or using destructuring assignment.
+const {
+  version,
+  observer,
+  createWorker,
+  getSupportedRtpCapabilities,
+  parseScalabilityMode
+} = require("mediasoup");
 ```
 
 </section>
