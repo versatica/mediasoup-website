@@ -23,10 +23,10 @@ Field           | Type    | Description   | Required | Default
 `opusStereo`    | bool | Enable OPUS stereo (if the audio source is stereo). | No | Browser specific.
 `opusFec`       | bool | Enable OPUS in band FEC. | No | Browser specific.
 `opusDtx`       | bool | Enable OPUS discontinuous transmission. | No | Browser specific.
-`opusMaxPlaybackRate` | Number | Set OPUS maximum playbak rate. | No | Browser specific.
-`videoGoogleStartBitrate` | Number | Just for libwebrtc based browsers. Set video initial bitrate. | No |
-`videoGoogleMaxBitrate` | Number | Just for libwebrtc based browsers. Set video maximum bitrate. | No |
-`videoGoogleMinBitrate` | Number | Just for libwebrtc based browsers. Set video minimum bitrate. | No |
+`opusMaxPlaybackRate` | Unsigned number | Set OPUS maximum playbak rate. | No | Browser specific.
+`videoGoogleStartBitrate` | Unsigned number | Just for libwebrtc based browsers. Set video initial bitrate. | No |
+`videoGoogleMaxBitrate` | Unsigned number | Just for libwebrtc based browsers. Set video maximum bitrate. | No |
+`videoGoogleMinBitrate` | Unsigned number | Just for libwebrtc based browsers. Set video minimum bitrate. | No |
 
 </div>
 
@@ -185,7 +185,7 @@ Executed when the transport this producer belongs to is closed for whatever reas
 
 Argument        | Type    | Description | Required | Default 
 --------------- | ------- | ----------- | -------- | ----------
-`consumer`  | [Producer\*](#Producer)  | The consumer instance executing this method. | Yes |
+`producer`  | [Producer\*](#Producer)  | The producer instance executing this method. | Yes |
 
 </div>
 
