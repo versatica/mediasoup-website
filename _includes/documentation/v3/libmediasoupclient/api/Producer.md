@@ -20,13 +20,13 @@ A producer represents an audio or video source that will be transmitted to the m
 
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
-`opusStereo`    | bool | Enable OPUS stereo (if the audio source is stereo). | No | Browser specific.
-`opusFec`       | bool | Enable OPUS in band FEC. | No | Browser specific.
-`opusDtx`       | bool | Enable OPUS discontinuous transmission. | No | Browser specific.
-`opusMaxPlaybackRate` | Unsigned number | Set OPUS maximum playbak rate. | No | Browser specific.
-`videoGoogleStartBitrate` | Unsigned number | Just for libwebrtc based browsers. Set video initial bitrate. | No |
-`videoGoogleMaxBitrate` | Unsigned number | Just for libwebrtc based browsers. Set video maximum bitrate. | No |
-`videoGoogleMinBitrate` | Unsigned number | Just for libwebrtc based browsers. Set video minimum bitrate. | No |
+`opusStereo`    | bool | Enable OPUS stereo (if the audio source is stereo). | No | libwebrtc default.
+`opusFec`       | bool | Enable OPUS in band FEC. | No | libwebrtc default.
+`opusDtx`       | bool | Enable OPUS discontinuous transmission. | No | libwebrtc default.
+`opusMaxPlaybackRate` | Unsigned number | Set OPUS maximum playbak rate. | No | libwebrtc default.
+`videoGoogleStartBitrate` | Unsigned number | Set video initial bitrate. | No |
+`videoGoogleMaxBitrate` | Unsigned number | Set video maximum bitrate. | No |
+`videoGoogleMinBitrate` | Unsigned number | Set video minimum bitrate. | No |
 
 </div>
 
