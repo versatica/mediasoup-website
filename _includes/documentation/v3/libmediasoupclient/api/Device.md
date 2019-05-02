@@ -127,7 +127,7 @@ Argument         | Type    | Description   | Required | Default
 ```cpp
 auto* transport = device.CreateSendTransport(
   listener,
-  "0b38d662-ea00-4c70-9ae3-b675d6a89e09",
+  id,
   iceParameters,
   iceCandidates,
   dtlsParameters
