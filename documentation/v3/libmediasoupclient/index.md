@@ -5,7 +5,7 @@ title : libmediasoupclient
 
 # Documentation
 
-C++ library using **libwebrtc** internally.
+C++ library based on libwebrtc.
 
 * [Installation](/documentation/v3/libmediasoupclient/installation/)
 * [API](/documentation/v3/libmediasoupclient/api/)
