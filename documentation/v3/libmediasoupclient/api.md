@@ -15,9 +15,9 @@ class   : h3color
 </div>
 
 
-# libmediasoupclient API
+# libmediasoupclient v3 API
 
-{% include documentation/v3/libmediasoupclient/api/mediasoupClient.md %}
+{% include documentation/v3/libmediasoupclient/api/mediasoupclient.md %}
 
 {% include documentation/v3/libmediasoupclient/api/Device.md %}
 

@@ -40,7 +40,7 @@ mediasoupclient::Version();
 #### mediasoupclient::Initialize()
 {: #mediasoupclient-initialize .code}
 
-libmediasoupclient initialization. Initializes **libwebrtc**.
+libmediasoupclient initialization. Initializes libwebrtc.
 
 > `@type` void
 
@@ -51,7 +51,7 @@ mediasoupclient::Initialize();
 #### mediasoupclient::Cleanup()
 {: #mediasoupclient-cleanup .code}
 
-libmediasoupclient cleanup. Cleans up **libwebrtc**.
+libmediasoupclient cleanup. Cleans up libwebrtc.
 
 > `@type` void
 

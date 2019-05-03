@@ -9,3 +9,4 @@ C++ library using **libwebrtc** internally.
 
 * [Installation](/documentation/v3/libmediasoupclient/installation/)
 * [API](/documentation/v3/libmediasoupclient/api/)
+* [Debugging](/documentation/v3/libmediasoupclient/debugging/)

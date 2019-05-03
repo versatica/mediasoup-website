@@ -59,7 +59,7 @@ Argument        | Type    | Description | Required | Default
 #### Logger::SetDefaultHandler()
 {: #Logger::-producerId .code}
 
-Set the default log handler, which prints all log messages to **stdout**.
+Set the default log handler, which prints all log messages to `stdout`.
 
 
 </section>
