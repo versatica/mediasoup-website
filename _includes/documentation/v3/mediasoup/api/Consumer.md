@@ -309,11 +309,12 @@ Argument  | Type    | Description
 <div markdown="1" class="note">
 This event is emitted under various circumstances in SVC or simulcast consumers (assuming the consumer endpoints supports BWE via REMB or Transport-CC):
 
+* When the consumer (or its associated producer) is paused.
+* When all the RTP streams of the associated producer become inactive (no RTP received for a while).
 * When the available bitrate of the BWE makes the consumer upgrade or downgrade the spatial and/or temporal layers.
 * When there is no available bitrate for this consumer (even for the lowest layers) so the event fires with `null` as argument.
-   * The Node.js application can detect this circumstance (consumer deactivated due to not enough bandwidth) when the consumer emits this event with `null` as argument and both `consumer.paused` and `consumer.producerPaused` are falsy.
 
-The event is also emitted when the consumer (or its associated producer) is paused or when all the RTP streams of the producer become inactive (no RTP received for a while).
+The Node.js application can detect the latter (consumer deactivated due to not enough bandwidth) by checking if both `consumer.paused` and `consumer.producerPaused` are falsy after the consumer has emitted this event with `null` as argument.
 </div>
 
 </section>
