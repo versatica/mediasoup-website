@@ -31,10 +31,17 @@ Field        | Type    | Description   | Required | Default
 `enableTcp` | Boolean | Listen in TCP. | No | `false`
 `preferUdp` | Boolean | Listen in UDP. | No | `false`
 `preferTcp` | Boolean | Listen in TCP. | No | `false`
-`initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps) when the endpoint supports REMB or Transport-CC. | No | 600000
+`initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps). | No | 600000
+`minimumAvailableOutgoingBitrate` | Number | Minimum available outgoing bitrate (in bps) to apply when the consumer endpoint reports less than this value. Use it with caution. | No | 100000
 `appData`   | Object  | Custom application data. | No | `{ }`
 
 </div>
+
+<div markdown="1" class="note">
+* Both `initialAvailableOutgoingBitrate` and `minimumAvailableOutgoingBitrate` are just applied when the consumer endpoint supports REMB or Transport-CC.
+* If given, `minimumAvailableOutgoingBitrate` must be higher or equal than `initialAvailableOutgoingBitrate`.
+</div>
+
 
 #### IceParameters
 {: #WebRtcTransportIceParameters .code}
