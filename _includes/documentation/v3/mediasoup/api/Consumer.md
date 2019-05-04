@@ -296,7 +296,7 @@ Argument  | Type    | Description
 #### consumer.on("layerschange", fn(layers))
 {: #consumer-on-layerschange .code}
 
-Emitted when the spatial/temporal layers being sent to the endpoint change.
+Emitted when the spatial/temporal layers being sent to the endpoint change. Just for simulcast or SVC consumers.
 
 <div markdown="1" class="table-wrapper L3">
 
