@@ -1,6 +1,7 @@
 {
   "name": "mediasoup-website",
   "version": "3.0.0",
+  "private": true,
   "description": "mediasoup website",
   "main": "lib/index.js",
   "homepage": "https://mediasoup.org",
@@ -30,7 +31,7 @@
   "devDependencies": {
     "browserify": "^16.2.3",
     "browserify-shim": "^3.8.14",
-    "del": "^4.1.0",
+    "del": "^4.1.1",
     "gulp": "^4.0.1",
     "gulp-rename": "^1.4.0",
     "gulp-shell": "^0.7.0",
