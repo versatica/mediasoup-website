@@ -4,7 +4,7 @@ anchors : true
 ---
 
 
-# Design
+# mediasoup-client v3 Design
 
 mediasoup-client is a JavaScript library for building mediasoup based client side applications (such as web applications). It's a tiny library exposing a powerful cross-browser API and supports all current WebRTC browsers via different [handlers](https://github.com/versatica/mediasoup-client/tree/v3/lib/handlers) for each model/version.
 

@@ -4,7 +4,7 @@ anchors : true
 ---
 
 
-# Installation
+# libmediasoupclient v3 Installation
 
 libmediasoupclient makes use of [WebRTC Native Code](https://webrtc.org/native-code). libwebrtc must be downloaded and compiled in the system. Follow the [official instructions](https://webrtc.org/native-code/development/) and make sure branch `remotes/branch-heads/m73` is checked-out and compiled.
 

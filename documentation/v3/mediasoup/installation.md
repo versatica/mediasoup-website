@@ -4,7 +4,7 @@ anchors : true
 ---
 
 
-# Installation
+# mediasoup v3 Installation
 
 Install the mediasoup Node.js module via NPM within your Node.js application:
 

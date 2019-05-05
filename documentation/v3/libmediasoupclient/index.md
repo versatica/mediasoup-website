@@ -3,7 +3,7 @@ title : libmediasoupclient
 ---
 
 
-# libmediasoupclient Documentation
+# libmediasoupclient v3 Documentation
 
 C++ library based on libwebrtc.
 

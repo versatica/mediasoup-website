@@ -3,7 +3,7 @@ title : mediasoup-client
 ---
 
 
-# mediasoup-client Documentation
+# mediasoup-client v3 Documentation
 
 Client side JavaScript library.
 

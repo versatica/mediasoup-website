@@ -4,8 +4,7 @@ anchors : true
 ---
 
 
-# Debugging
-
+# mediasoup-client v3 Debugging
 
 ## Log levels
 

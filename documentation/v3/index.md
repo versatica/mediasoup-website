@@ -10,6 +10,7 @@ title : v3
 
 * [Differences Between v2 and v3](/documentation/v3/differences-between-v2-and-v3/)
 * [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/)
+* [Scalability](/documentation/v3/scalability/)
 
 ### mediasoup
 {: .h3color}
@@ -22,7 +23,6 @@ C++ SFU and server side Node.js module.
 * [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/)
 * [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/)
 * [Debugging](/documentation/v3/mediasoup/debugging/)
-* [Scalability](/documentation/v3/mediasoup/scalability/)
 
 ### mediasoup-client
 {: .h3color}

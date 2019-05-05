@@ -4,7 +4,7 @@ anchors : true
 ---
 
 
-# Design
+# mediasoup v3 Design
 
 Unlike other existing SFU implementations, mediasoup is not a standalone server but an unopinionated [Node.js](https://nodejs.org) module which can be integrated into a larger application:
 

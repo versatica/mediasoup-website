@@ -4,7 +4,7 @@ anchors : true
 ---
 
 
-# Installation
+# mediasoup-client v3 Installation
 
 Install mediasoup-client within you client application:
 

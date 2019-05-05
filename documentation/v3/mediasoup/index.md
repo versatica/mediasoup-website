@@ -3,7 +3,7 @@ title : mediasoup
 ---
 
 
-# mediasoup Documentation
+# mediasoup v3 Documentation
 
 C++ SFU and server side Node.js module.
 
@@ -13,4 +13,4 @@ C++ SFU and server side Node.js module.
 * [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/)
 * [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/)
 * [Debugging](/documentation/v3/mediasoup/debugging/)
-* [Scalability](/documentation/v3/mediasoup/scalability/)
+
