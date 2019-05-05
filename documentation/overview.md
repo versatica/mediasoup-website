@@ -6,7 +6,7 @@ anchors : true
 
 # Overview
 
-An [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit) receives audio and video streams from endpoints and relays them to everyone else (endpoints send one and receive many). Compared to a mixer or MCU (Multipoint Control Unit) this design leads to a better performance, higher throughput and less latency. It's highly scalable and requires much less resources given that it does not transcode or mix media.
+An [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit) receives audio and video streams from endpoints and relays them to everyone else (endpoints send one and receive many). Each receiver endpoint can select which streams and spatial/temporal layers it receives. Compared to a mixer or MCU (Multipoint Control Unit) this design leads to a better performance, higher throughput and less latency. It's highly scalable and requires much less resources given that it does not transcode or mix media.
 
 Since endpoints get the other endpoints' media separately, they can have a personalized layout and choose which streams to render and how to display them.
 
@@ -15,20 +15,14 @@ Detailed information regarding the architecture of an SFU can be found at RFC 76
 </div>
 
 
-## Use Cases
-
-mediasoup and its client side libraries provide a super low level API. They are intended for enabling different use cases and scenarios, without constraining them to any assumption. Some of those use cases are:
-
-* Group video chat applications.
-* One-to-many (or few-to-many) broadcasting applications in real-time.
-* RTP streaming.
-
-
 ## Design Goals
 
-* Be a WebRTC [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit).
+mediasoup and its client side libraries are designed to accomplish with the following goals:
+
+* Be a [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit).
+* Support both WebRTC and plain RTP input and output.
 * Be a Node.js module in server side.
-* Be a tiny JavaScript (and C++) library in client side.
+* Be a tiny JavaScript and C++ libraries in client side.
 * Be minimalist: just handle the media layer.
 * Be signaling agnostic: do not mandate any signaling protocol.
 * Be super low level API.
@@ -36,36 +30,10 @@ mediasoup and its client side libraries provide a super low level API. They are 
 * Enable integration with well known multimedia libraries/tools.
 
 
-## Server Side
+## Use Cases
 
-Unlike other existing SFU implementations, [mediasoup](https://github.com/versatica/mediasoup) is not a standalone server but an unopinionated [Node.js](https://nodejs.org) module which can be integrated into a larger application:
+mediasoup and its client side libraries provide a super low level API. They are intended to enable different use cases and scenarios, without any constraint or assumption. Some of these use cases are:
 
-```javascript
-const mediasoup = require("mediasoup");
-```
-
-Thus internally, mediasoup can be splitted into two separete components:
-
-* a JavaScript layer exposing a modern ECMAScript 6 API for Node.js, and
-* a set of C/C++ subprocesses that handle the media layer (ICE, DTLS, RTP and so on).
-
-Both components communicate to each other by means of inter-process communication. However, from the point of view of the developer, the application should just care about the JavaScript API integration.
-
-
-#### Features
-
-* ECMAScript 6 API.
-* Multi-stream: multiple audio/video streams over a single ICE + DTLS transport.
-* IPv6 ready.
-* ICE / DTLS / RTP / RTCP over UDP and TCP.
-* Simulcast and SVC support.
-* Congestion control.
-* Sender and receiver bandwidth estimation with spatial/temporal layers distribution algorithm.
-* Extremely powerful (media worker subprocess coded in C++ on top of [libuv](https://libuv.org)).
-
-
-## Client Side
-
-[mediasoup-client](https://github.com/versatica/mediasoup-client) is the JavaScript library for building JavaScript client side applications. It's a tiny library exposing a powerful cross-browser API. It supports all current WebRTC browsers with different "handlers" for each browser model/version.
-
-[libmediasoupclient](https://github.com/versatica/libmediasoupclient) is a C++ library based on [libwebrtc](https://webrtc.org/) for building C++ client side applications.
+* Group video chat applications.
+* One-to-many (or few-to-many) broadcasting applications in real-time.
+* RTP streaming.

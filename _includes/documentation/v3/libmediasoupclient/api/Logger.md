@@ -8,20 +8,26 @@ The Logger is responsible for all the logging in libmediasoupclient.
 </section>
 
 
-### Dictionaries
+### Enums
 {: #Logger-dictionaries}
 
 <section markdown="1">
 
 #### LogLevel
-{: #LogLevel .code}
+{: #LoggerLogLevel .code}
 
-There are four log severities:
+<div markdown="1" class="table-wrapper L2">
 
-* **LOG_DEBUG**
-* **LOG_WARN**
-* **LOG_ERROR**
-* **LOG_NONE**
+Value          | Description  
+-------------- | -------------
+"LOG_DEBUG"    | *TODO*
+"LOG_WARN"     | *TODO*
+"LOG_ERROR"    | *TODO*
+"LOG_NONE"     | *TODO*
+
+</div>
+
+</section>
 
 
 ### Functions
@@ -32,13 +38,13 @@ There are four log severities:
 #### Logger::SetLogLevel(level)
 {: #Logger-setLogLevel .code}
 
-Set the indicated log level.
+Sets log level.
 
 <div markdown="1" class="table-wrapper L3">
 
-Argument        | Type    | Description | Required | Default 
---------------- | ------- | ----------- | -------- | ----------
-`level`  | [LogLevel](#LogLevel)  | The log level to be used for logging. | Yes |
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`level`     | [LogLevel](#LoggerLogLevel)| The log level to be used for logging. | Yes |
 
 </div>
 
@@ -46,20 +52,20 @@ Argument        | Type    | Description | Required | Default
 #### Logger::SetHandler(handler)
 {: #Logger-setHandler .code}
 
-Set the indicated log handler.
+Sets log handler.
 
 <div markdown="1" class="table-wrapper L3">
 
-Argument        | Type    | Description | Required | Default 
---------------- | ------- | ----------- | -------- | ----------
-`level`  | [LogHandlerInterface\*](#LogHandlerInterface)  | The log handler to be used. | Yes |
+Argument | Type    | Description | Required | Default 
+-------- | ------- | ----------- | -------- | ----------
+`level`  | [LogHandlerInterface\*](#LogHandlerInterface) | The log handler to be used. | Yes |
 
 </div>
 
 #### Logger::SetDefaultHandler()
 {: #Logger::-producerId .code}
 
-Set the default log handler, which prints all log messages to `stdout`.
+Sets the default log handler, which prints all log messages to `stdout`.
 
 
 </section>
@@ -78,11 +84,11 @@ Executed for every log.
 
 <div markdown="1" class="table-wrapper L3">
 
-Argument        | Type    | Description | Required | Default 
---------------- | ------- | ----------- | -------- | ----------
-`level`  | [LogLevel](#LogLevel)  | The level this log message belongs to. | Yes |
-`payload`  | char\*  | The log message. | Yes |
-`len`  | size_t  | The log message length. | Yes |
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`level`     | [LogLevel](#LoggerLogLevel)  | The level this log message belongs to. | Yes |
+`payload`  | char\*   | The log message. | Yes |
+`len`      | size_t   | The log message length. | Yes |
 
 </div>
 

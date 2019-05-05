@@ -16,12 +16,12 @@ title : v3
 
 C++ SFU and server side Node.js module.
 
+* [Design](/documentation/v3/mediasoup/design/)
 * [Installation](/documentation/v3/mediasoup/installation/)
 * [API](/documentation/v3/mediasoup/api/)
 * [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/)
 * [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/)
 * [Debugging](/documentation/v3/mediasoup/debugging/)
-* [Architecture](/documentation/v3/mediasoup/architecture/)
 * [Scalability](/documentation/v3/mediasoup/scalability/)
 
 ### mediasoup-client
@@ -29,6 +29,7 @@ C++ SFU and server side Node.js module.
 
 Client side JavaScript library.
 
+* [Design](/documentation/v3/mediasoup-client/design/)
 * [Installation](/documentation/v3/mediasoup-client/installation/)
 * [API](/documentation/v3/mediasoup-client/api/)
 * [Debugging](/documentation/v3/mediasoup-client/debugging/)
@@ -38,6 +39,7 @@ Client side JavaScript library.
 
 C++ library based on libwebrtc.
 
+* [Design](/documentation/v3/libmediasoupclient/design/)
 * [Installation](/documentation/v3/libmediasoupclient/installation/)
 * [API](/documentation/v3/libmediasoupclient/api/)
 * [Debugging](/documentation/v3/libmediasoupclient/debugging/)

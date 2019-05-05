@@ -1,6 +1,13 @@
 ## mediasoupclient
 {: #mediasoupclient}
 
+<section markdown="1">
+
+The main C++ namespace exposed by the libmediasoupclient library.
+
+</section>
+
+
 ### Classes
 {: #mediasoupclient-classes}
 
