@@ -14,12 +14,10 @@ Since endpoints get the other endpoints' media separately, they can have a perso
 Detailed information regarding the architecture of an SFU can be found at RFC 7667 "RTP Topologies" [section 3.7](https://tools.ietf.org/html/rfc7667#section-3.7).
 </div>
 
-mediasoup and its client side libraries provide a super low level API. They are intended for enabling different use cases and scenarios, without constraining them to any assumption.
-
 
 ## Use Cases
 
-mediasoup and its client side libraries make it possible to implement different multi-party scenarios:
+mediasoup and its client side libraries provide a super low level API. They are intended for enabling different use cases and scenarios, without constraining them to any assumption. Some of those use cases are:
 
 * Group video chat applications.
 * One-to-many (or few-to-many) broadcasting applications in real-time.
