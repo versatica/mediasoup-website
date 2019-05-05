@@ -17,7 +17,16 @@ Detailed information regarding the architecture of an SFU can be found at RFC 76
 mediasoup and its client side libraries provide a super low level API. They are intended for enabling different use cases and scenarios, without constraining them to any assumption.
 
 
-## mediasoup Goals
+## Use Cases
+
+mediasoup and its client side libraries make it possible to implement different multi-party scenarios:
+
+* Group video chat applications.
+* One-to-many (or few-to-many) broadcasting applications in real-time.
+* RTP streaming.
+
+
+## Design Goals
 
 * Be a WebRTC [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit).
 * Be a Node.js module in server side.
