@@ -6,25 +6,49 @@ anchors : true
 
 # libmediasoupclient v3 Installation
 
-libmediasoupclient makes use of [WebRTC Native Code](https://webrtc.org/native-code). Follow the [official instructions](https://webrtc.org/native-code/development/) and make sure branch `remotes/branch-heads/m73` is checked-out and compiled.
+
+## Requirements
+
+* POSIX or Windows based operating system
+* `cmake` >= 3.5
+* `gcc` and `g++` >= 4.9 or `clang` (with C++11 support)
+
+
+## Get libwebrtc
+
+libmediasoupclient makes use of [libwebrtc](https://webrtc.org/native-code). Follow the [official instructions](https://webrtc.org/native-code/development/) to build it and make sure the branch `m73` is checked-out and compiled.
+
+<div markdown="1" class="note">
+Future versions of libmediasoupclient will include a more recent version of libwebrtc. For now, `m73` branch is required.
+</div>
+
+
+## Get libmediasoupclient
+
+Get the libmediasoupclient sources via git and check-out the branch `v3`:
 
 ```bash
-# Download libmediasoupclient sources.
 $ git clone https://github.com/versatica/libmediasoupclient.git
-
 $ cd libmediasoupclient/
 $ git checkout v3
+```
 
-# Build the project.
+## Building
+
+Within the `libmediasoupclient/` folder:
+
+```bash
 $ cmake . -Bbuild \
 -DLIBWEBRTC_INCLUDE_PATH:PATH=$PATH_TO_LIBWEBRTC_SOURCES \
 -DLIBWEBRTC_BINARY_PATH:PATH=$PATH_TO_LIBWEBRTC_BINARY
 
-# Compile.
+# Compile libmediasoupclient.
 $ make -C build/ # or: cd build/ && make
 
-# Optionally install.
-$ make install -C build/ # or: cd build/ && make install
+# Optionally install it in the system.
+$ make install -C build/
+# or:
+$ cd build/ && make install
 ```
 
 Depending on the host, it will generate the following static lib and header files:
@@ -33,6 +57,7 @@ Depending on the host, it will generate the following static lib and header file
 -- Installing: /usr/local/lib/libmediasoupclient.a
 -- Up-to-date: /usr/local/include/mediasoupclient/mediasoupclient.hpp
 ```
+
 
 #### Building Flags
 {: #Building-Flags .code}
@@ -72,12 +97,12 @@ cmake . -Bbuild \
 
 ## Usage
 
-Once installed include the library within your C++ application:
+Once installed include the library into your C++ application:
 
 ```c++
 #include "libmediasoupclient/mediasoupclient.hpp"
 ```
 
-The libmediasoupclient API is exposed under the `mediasoupclient` C++ namespace.
+And add the libmediasoupclient static library to your C++ project.
 
-libmediasoupclient integrates the [JSON for Modern C++](https://github.com/nlohmann/json/) library.
+The libmediasoupclient API is exposed under the [mediasoupclient](/documentation/v3/libmediasoupclient/api/#mediasoupclient) C++ namespace. The library also exposes the [nlohmann::json](/documentation/v3/libmediasoupclient/api/#nlohmann-json) C++ namespace.

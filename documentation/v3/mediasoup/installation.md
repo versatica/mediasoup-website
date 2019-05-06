@@ -15,7 +15,7 @@ $ npm install mediasoup@3 --save
 
 ## Requirements
 
-In order to build the C/C++ component the following packages and libraries must be available in the target host:
+In order to build the mediasoup C/C++ components the following packages and libraries must be available in the target host:
 
 * Node.js >= `v8.6.0`
 * POSIX based operating system (Windows not supported)

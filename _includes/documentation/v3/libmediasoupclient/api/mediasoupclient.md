@@ -5,6 +5,10 @@
 
 The main C++ namespace exposed by the libmediasoupclient library.
 
+```c++
+#include "libmediasoupclient/mediasoupclient.hpp"
+```
+
 </section>
 
 

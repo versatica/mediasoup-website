@@ -9,4 +9,8 @@ libmediasoupclient uses the [JSON for Modern C++](https://github.com/nlohmann/js
 The application must use it to construct JSON objects and pass them to the libmediasoupclient API when required.
 </div>
 
+```c++
+#include "nlohmann/json.hpp"
+```
+
 </section>
