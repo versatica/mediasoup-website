@@ -18,28 +18,28 @@ A consumer represents an audio or video remote source being transmitted from the
 
 Consumer identifier.
 
-> `@type` const std::string&
+> `@returns` const std::string&
 
 #### consumer.GetProducerId()
 {: #consumer-GetProducerId .code}
 
 The associated producer identifier.
 
-> `@type` const std::string&
+> `@returns` const std::string&
 
 #### consumer.GetKind()
 {: #consumer-GetKind .code}
 
 The media kind ("audio" or "video").
 
-> `@type` const std::string&
+> `@returns` const std::string&
 
 #### consumer.GetRtpParameters()
 {: #consumer-GetRtpParameters .code}
 
 Consumer RTP parameters.
 
-> `@type` const nlohmann::json& [RtpReceiveParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpReceiveParameters)
+> `@returns` const nlohmann::json& [RtpReceiveParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpReceiveParameters)
 
 <div markdown="1" class="note">
 Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
@@ -50,7 +50,7 @@ Check the [Communication Between Client and Server](/documentation/v3/communicat
 
 The remote audio or video track.
 
-> `@type` webrtc::MediaStreamTrackInterface\*
+> `@returns` webrtc::MediaStreamTrackInterface\*
 
 #### consumer.GetStats()
 {: #consumer-GetStats .code}
@@ -66,21 +66,21 @@ Gets the local RTP receiver statistics by calling `getStats()` in the underlying
 
 Custom data Object provided by the application in the consumer factory method. The app can modify its content at any time.
 
-> `@type` const nlohmann::json&
+> `@returns` const nlohmann::json&
 
 #### consumer.IsClosed()
 {: #consumer-IsClosed .code}
 
 Whether the consumer is closed.
 
-> `@type` bool
+> `@returns` bool
 
 #### consumer.IsPaused()
 {: #consumer-IsPaused .code}
 
 Whether the consumer is paused.
 
-> `@type` bool
+> `@returns` bool
 
 #### consumer.Close()
 {: #consumer-Close .code}

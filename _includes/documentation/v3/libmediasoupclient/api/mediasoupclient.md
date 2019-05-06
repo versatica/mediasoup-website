@@ -18,7 +18,7 @@ The main C++ namespace exposed by the libmediasoupclient library.
 
 The `Device` class.
 
-> `@type` [Device](#Device)
+> `returns` [Device](#Device)
 
 ```javascript
 auto* device = new mediasoupclient::Device();
@@ -37,7 +37,7 @@ auto* device = new mediasoupclient::Device();
 
 The libmediasoupclient version.
 
-> `@type` std::string
+> `returns` std::string
 
 ```c++
 mediasoupclient::Version();
@@ -49,7 +49,7 @@ mediasoupclient::Version();
 
 libmediasoupclient initialization. Initializes libwebrtc.
 
-> `@type` void
+> `returns` void
 
 ```c++
 mediasoupclient::Initialize();
@@ -60,7 +60,7 @@ mediasoupclient::Initialize();
 
 libmediasoupclient cleanup. Cleans up libwebrtc.
 
-> `@type` void
+> `returns` void
 
 ```c++
 mediasoupclient::Cleanup();
@@ -81,9 +81,9 @@ Argument   | Type    | Description | Required | Default
 
 > `@returns` nlohmann::json:
 > 
-> * `spatialLayers` {`@type` uint16_t} Number of spatial layers (by default 1).
+> * `spatialLayers` {`returns` uint16_t} Number of spatial layers (by default 1).
 >
-> * `temporalLayers` {`@type` uint16_t} Number of temporal layers (by default 1).
+> * `temporalLayers` {`returns` uint16_t} Number of temporal layers (by default 1).
 
 ```javascript
 mediasoup::parseScalabilityMode("L2T3");

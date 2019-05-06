@@ -20,14 +20,14 @@ Internally, the transport holds a WebRTC [RTCPeerConnection](https://w3c.github.
 
 Transport identifier. It matches the `id` of the server side transport.
 
-> `@type` const std::string&
+> `@returns` const std::string&
 
 #### transport.GetConnectionState()
 {: #transport-GetConnectionState .code}
 
 The current connection state of the local peerconnection.
 
-> `@type` const std::string& [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum)
+> `@returns` const std::string& [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum)
 
 #### transport.GetStats()
 {: #transport-GetStats .code}
@@ -43,14 +43,14 @@ Gets the local transport statistics by calling `getStats()` in the underlying `R
 
 Custom data Object provided by the application in the transport constructor. The app can modify its content at any time.
 
-> `@type` const nlohmann::json&
+> `@returns` const nlohmann::json&
 
 #### transport.IsClosed()
 {: #transport-IsClosed .code}
 
 Whether the transport is closed.
 
-> `@type` bool
+> `@returns` bool
 
 #### transport.Close()
 {: #transport-Close .code}

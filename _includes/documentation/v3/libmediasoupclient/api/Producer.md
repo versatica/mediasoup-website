@@ -43,28 +43,28 @@ Field           | Type    | Description   | Required | Default
 
 Producer identifier.
 
-> `@type` const std::string&
+> `@returns` const std::string&
 
 #### producer.GetKind()
 {: #producer-GetKind .code}
 
 The media kind ("audio" or "video").
 
-> `@type` std::string
+> `@returns` std::string
 
 #### producer.GetTrack()
 {: #producer-GetTrack .code}
 
 The audio or video track being transmitted.
 
-> `@type` webrtc::MediaStreamTrackInterface\*
+> `@returns` webrtc::MediaStreamTrackInterface\*
 
 #### producer.GetRtpParameters()
 {: #producer-GetRtpParameters .code}
 
 Producer RTP parameters. These parameters are internally built by the library and conform to the syntax and requirements of mediasoup, thus they can be transmitted to the server to invoke [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) with them.
 
-> `@type` const nlohmann::json& [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters)
+> `@returns` const nlohmann::json& [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters)
 
 <div markdown="1" class="note">
 Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
@@ -75,7 +75,7 @@ Check the [Communication Between Client and Server](/documentation/v3/communicat
 
 In case of simulcast, this value determines the highest stream (from 0 to N-1) being transmitted. See the [SetMaxSpatialLayer()](#producer-SetMaxSpatialLayer) method for more about this.
 
-> `@type` const uint8_t
+> `@returns` const uint8_t
 
 #### producer.GetStats()
 {: #producer-GetStats .code}
@@ -91,21 +91,21 @@ Gets the local RTP sender statistics by calling `getStats()` in the underlying `
 
 Custom data Object provided by the application in the producer factory method. The app can modify its content at any time.
 
-> `@type` const nlohmann::json&
+> `@returns` const nlohmann::json&
 
 #### producer.IsClosed()
 {: #producer-IsClosed .code}
 
 Whether the producer is closed.
 
-> `@type` bool
+> `@returns` bool
 
 #### producer.IsPaused()
 {: #producer-IsPaused .code}
 
 Whether the producer is paused.
 
-> `@type` bool
+> `@returns` bool
 
 #### producer.Close()
 {: #producer-Close .code}
