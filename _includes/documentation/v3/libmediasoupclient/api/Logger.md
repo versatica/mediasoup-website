@@ -20,12 +20,19 @@ The Logger is responsible for all the logging in libmediasoupclient.
 
 Value          | Description  
 -------------- | -------------
-"LOG_DEBUG"    | *TODO*
-"LOG_WARN"     | *TODO*
-"LOG_ERROR"    | *TODO*
-"LOG_NONE"     | *TODO*
+"LOG_DEBUG"    | Logs debug level and above.
+"LOG_WARN"     | Logs warning level and above.
+"LOG_ERROR"    | Logs error level.
+"LOG_NONE"     | Logs nothing.
 
 </div>
+
+</section>
+
+
+<section markdown="1">
+
+*LOG_DEBUG* only applies if libmediasoupclient [build process](../installation) is provided with the `MEDIASOUPCLIENT_LOG_DEV` flag.
 
 </section>
 
