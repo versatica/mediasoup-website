@@ -46,7 +46,7 @@ from file '../libmediasoupclient.a(PeerConnection.cpp.o)' means the weak symbol 
 This was likely caused by different translation units being compiled with different visibility settings.
 ```
 
-In order to avoid such warnings make sure the corresponding visibility compilation flags are provided. For example, if `libwebrtc` was built with hidden symbol visibility, libmediasoupclient needs to be provided with the correspoinding compilation flag:
+In order to avoid such warnings make sure the corresponding visibility compilation flags are provided. For example, if libwebrtc was built with hidden symbol visibility, libmediasoupclient needs to be provided with the correspoinding compilation flag:
 
 ```bash
 cmake . -Bbuild \

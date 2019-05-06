@@ -44,7 +44,7 @@ Value          | Description
 #### Logger::LogHandlerInterface
 {: #Logger-LogHandlerInterface .code}
 
-See [LogHandlerInterface](#LogHandlerInterface).
+See [LogHandlerInterface](#LoggerLogHandlerInterface).
 
 </section>
 
@@ -77,7 +77,7 @@ Sets log handler.
 
 Argument | Type    | Description | Required | Default 
 -------- | ------- | ----------- | -------- | ----------
-`level`  | [LogHandlerInterface\*](#LogHandlerInterface) | The log handler to be used. | Yes |
+`level`  | [LogHandlerInterface\*](#LoggerLogHandlerInterface) | The log handler to be used. | Yes |
 
 </div>
 

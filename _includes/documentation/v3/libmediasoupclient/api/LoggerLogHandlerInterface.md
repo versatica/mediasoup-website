@@ -1,5 +1,5 @@
-## LogHandlerInterface
-{: #LogHandlerInterface}
+## Logger::LogHandlerInterface
+{: #LoggerLogHandlerInterface}
 
 <section markdown="1">
 
@@ -11,12 +11,12 @@ This is an abstract class which can be implemented and provided to libmediasoupc
 
 
 ### Events
-{: #LogHandlerInterface-events}
+{: #LoggerLogHandlerInterface-events}
 
 <section markdown="1">
 
 #### LogHandlerInterface::OnLog(level, payload, len)
-{: #LogHandlerInterface-OnLog .code}
+{: #LoggerLogHandlerInterface-OnLog .code}
 
 Executed for every log.
 
