@@ -33,7 +33,7 @@ The `ActiveSpeakerDetector` class inherits from [EventEmitter](https://nodejs.or
 
 Emitted when the `activeSpeakerDetector` is closed.
 
-#### activeSpeakerDetector.on("activespeakerchange", peer, producer)
+#### activeSpeakerDetector.on("activespeakerchange", fn(peer, producer))
 {: #activeSpeakerDetector-on-activespeakerchange .code}
 
 Emitted when a new active speaker is detected.

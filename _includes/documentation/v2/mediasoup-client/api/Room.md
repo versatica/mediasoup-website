@@ -370,7 +370,7 @@ room.on("notify", (notification) =>
 });
 ```
 
-#### room.on("newpeer", peer)
+#### room.on("newpeer", fn(peer))
 {: #room-on-newpeer .code}
 
 Emitted when a new remote `peer` joins the `room`.
