@@ -49,8 +49,6 @@ mediasoupclient::Version();
 
 libmediasoupclient initialization. Initializes libwebrtc.
 
-> `returns` void
-
 ```c++
 mediasoupclient::Initialize();
 ```
@@ -59,8 +57,6 @@ mediasoupclient::Initialize();
 {: #mediasoupclient-Cleanup .code}
 
 libmediasoupclient cleanup. Cleans up libwebrtc.
-
-> `returns` void
 
 ```c++
 mediasoupclient::Cleanup();
