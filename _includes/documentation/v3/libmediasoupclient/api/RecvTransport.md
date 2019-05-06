@@ -35,6 +35,8 @@ Argument    | Type    | Description | Required | Default
 
 </div>
 
+> `@async` blocks current thread.
+>
 > `@returns` [Consumer](#Consumer)
 
 ```c++

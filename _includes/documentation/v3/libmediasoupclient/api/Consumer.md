@@ -57,6 +57,8 @@ The remote audio or video track.
 
 Gets the local RTP receiver statistics by calling `getStats()` in the underlying `RTCRtpReceiver` instance.
 
+> `@async` blocks current thread.
+>
 > `@returns` nlohmann::json  [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
 
 #### consumer.GetAppData()

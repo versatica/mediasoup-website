@@ -34,6 +34,8 @@ Argument    | Type    | Description | Required | Default
 
 </div>
 
+> `@async` blocks current thread.
+
 <div markdown="1" class="note">
 If video simulcast is desired, `encodings` array must be filled with more than one encodings. Each encoding represents a simulcast RTP stream:
 * The order of the encodings is important. The entry with index 0 represents the simulcast stream with lowest bitrate. The entry with index N-1 (being N the number of entries) represents the simulcast stream with highest bitrate. Take this into account when writting per encoding settings such as `maxBitrate`, `maxFramerate` or `scaleResolutionDownBy`.

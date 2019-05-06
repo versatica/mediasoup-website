@@ -82,6 +82,8 @@ In case of simulcast, this value determines the highest stream (from 0 to N-1) b
 
 Gets the local RTP sender statistics by calling `getStats()` in the underlying `RTCRtpSender` instance.
 
+> `@async` blocks current thread.
+>
 > `@returns` nlohmann::json [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
 
 #### producer.GetAppData()
