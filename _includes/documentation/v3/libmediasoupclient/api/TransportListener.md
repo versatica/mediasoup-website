@@ -5,7 +5,7 @@
 
 > `@abstract`
 
-This is an abstract class which must be implemented and used according to the API.
+This is an abstract class inherited by [SendTransport::Listener](#SendTransportListener) and [RecvTransport::Listener](#RecvTransportListener).
 
 </section>
 
