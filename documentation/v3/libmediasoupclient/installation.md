@@ -41,10 +41,10 @@ Depending on the host, it will generate the following static lib and header file
 
 Argument        | Type    | Description | Required | Default 
 --------------- | ------- | ----------- | -------- | ----------
-MEDIASOUPCLIENT_LOG_DEV | Bool | Enable MSC_LOG_DEV (See [Logger](/documentation/v3/libmediasoupclient/api/#Logger)) | No | false
-MEDIASOUPCLIENT_LOG_TRACE | Bool | Enable MSC_LOG_TRACE (See [Logger](/documentation/v3/libmediasoupclient/api/#Logger)) | No | false
-LIBWEBRTC_INCLUDE_PATH | Path | libwebrtc include path | Yes |
-LIBWEBRTC_BINARY_PATH | Path | libwebrtc binary path | Yes |
+LIBWEBRTC_INCLUDE_PATH | Path | libwebrtc include path. | Yes |
+LIBWEBRTC_BINARY_PATH | Path | libwebrtc binary path. | Yes |
+MEDIASOUPCLIENT_LOG_DEV | Bool | Enables `MSC_LOG_DEV` C++ macro. See [Logger](/documentation/v3/libmediasoupclient/api/#Logger). | No | `false`
+MEDIASOUPCLIENT_LOG_TRACE | Bool | Enables `MSC_LOG_TRACE` C++ macro. See [Logger](/documentation/v3/libmediasoupclient/api/#Logger). | No | `false`
 
 </div>
 
