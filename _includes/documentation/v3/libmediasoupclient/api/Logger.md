@@ -31,7 +31,9 @@ Value          | Description
 
 <section markdown="1">
 
-"LOG_DEBUG" only applies if libmediasoupclient [build process](/documentation/v3/libmediasoupclient/installation/) is provided with the `MEDIASOUPCLIENT_LOG_DEV` flag.
+LOG_DEBUG only applies if libmediasoupclient building flag [MEDIASOUP_CLIENT_LOG_DEV](/documentation/v3/libmediasoupclient/installation/#Building-Flags) is provided.
+
+Log trace only applies if libmediasoupclient building flag [MEDIASOUP_CLIENT_LOG_TRACE](/documentation/v3/libmediasoupclient/installation/#Building-Flags) is provided and LogLevel is LOG_DEBUG.
 
 </section>
 

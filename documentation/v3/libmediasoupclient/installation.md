@@ -34,6 +34,21 @@ Depending on the host, it will generate the following static lib and header file
 -- Up-to-date: /usr/local/include/mediasoupclient/mediasoupclient.hpp
 ```
 
+#### Building Flags
+{: #Building-Flags .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument        | Type    | Description | Required | Default 
+--------------- | ------- | ----------- | -------- | ----------
+MEDIASOUPCLIENT_LOG_TRACE | Bool | Enable MSC_LOG_TRACE (See [Logger](/documentation/v3/libmediasoupclient/api/#Logger)) | No | false
+MEDIASOUPCLIENT_LOG_DEV | Bool | Enable MSC_LOG_DEV (See [Logger](/documentation/v3/libmediasoupclient/api/#Logger)) | No | false
+LIBWEBRTC_INCLUDE_PATH | Path | libwebrtc include path | Yes |
+LIBWEBRTC_BINARY_PATH | Path | libwebrtc binary path | Yes |
+
+</div>
+
+
 ## Linkage Considerations
 
 The application is responsible for defining the symbol visibility of the resulting binary. Symbol visibility mismatch among different libraries will generate plenty of linker warnings such us the one below:
