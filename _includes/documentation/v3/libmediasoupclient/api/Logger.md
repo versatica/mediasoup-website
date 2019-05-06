@@ -32,7 +32,7 @@ Value          | Description
 
 <section markdown="1">
 
-*LOG_DEBUG* only applies if libmediasoupclient [build process](../installation) is provided with the `MEDIASOUPCLIENT_LOG_DEV` flag.
+"LOG_DEBUG" only applies if libmediasoupclient [build process](/documentation/v3/libmediasoupclient/installation/) is provided with the `MEDIASOUPCLIENT_LOG_DEV` flag.
 
 </section>
 
@@ -74,13 +74,13 @@ Argument | Type    | Description | Required | Default
 
 Sets the default log handler, which prints all log messages to `stdout`.
 
-
 </section>
+
 
 ## Logger::LogHandlerInterface
 {: #LogHandlerInterface}
 
-This is an abstract class which can be implemented and provided to libmediasoupclient via [Logger::SetHandler](#Logger-setHandler)
+This is an abstract class which can be implemented and provided to libmediasoupclient via [Logger::SetHandler()](#Logger-setHandler)
 
 <section markdown="1">
 
