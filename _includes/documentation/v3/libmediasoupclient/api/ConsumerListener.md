@@ -16,8 +16,8 @@ This is an abstract class which must be implemented and used according to the AP
 
 <section markdown="1">
 
-#### consumer.OnTransportClose(consumer)
-{: #consumer-OnTransportClose .code}
+#### ConsumerListener::OnTransportClose(consumer)
+{: #ConsumerListener-OnTransportClose .code}
 
 Executed when the transport this consumer belongs to is closed for whatever reason. The consumer itself is also closed.
 

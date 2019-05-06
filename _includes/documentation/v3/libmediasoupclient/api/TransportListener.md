@@ -1,7 +1,6 @@
 ## Transport::Listener
 {: #TransportListener}
 
-
 <section markdown="1">
 
 > `@abstract`
@@ -16,8 +15,8 @@ This is an abstract class which must be implemented and used according to the AP
 
 <section markdown="1">
 
-#### listener.OnConnect(transport, dtlsParameters)
-{: #transport-OnConnect .code}
+#### TransportListener::OnConnect(transport, dtlsParameters)
+{: #TransportListener-OnConnect .code}
 
 Called when the transport is about to establish the ICE+DTLS connection and needs to exchange information with the associated server side transport.
 

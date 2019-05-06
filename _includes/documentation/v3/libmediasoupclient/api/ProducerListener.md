@@ -16,8 +16,8 @@ This is an abstract class which must be implemented and used according to the AP
 
 <section markdown="1">
 
-#### listener.OnTransportClose(producer)
-{: #producer-OnTransportClose .code}
+#### ProducerListener::OnTransportClose(producer)
+{: #ProducerListener-OnTransportClose .code}
 
 Executed when the transport this producer belongs to is closed for whatever reason. The producer itself is also closed.
 
