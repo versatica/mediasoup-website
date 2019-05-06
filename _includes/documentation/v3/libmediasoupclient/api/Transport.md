@@ -16,35 +16,35 @@ Internally, the transport holds a WebRTC [RTCPeerConnection](https://w3c.github.
 <section markdown="1">
 
 #### transport.GetId()
-{: #transport-getId .code}
+{: #transport-GetId .code}
 
 Transport identifier. It matches the `id` of the server side transport.
 
 > `@type` const std::string&
 
 #### transport.GetConnectionState()
-{: #transport-connectionState .code}
+{: #transport-GetConnectionState .code}
 
 The current connection state of the local peerconnection.
 
 > `@type` const std::string& [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum)
 
 #### transport.GetAppData()
-{: #transport-appData .code}
+{: #transport-GetAppData .code}
 
 Custom data Object provided by the application in the transport constructor. The app can modify its content at any time.
 
 > `@type` const nlohmann::json&
 
 #### transport.IsClosed()
-{: #transport-closed .code}
+{: #transport-IsClosed .code}
 
 Whether the transport is closed.
 
 > `@type` bool
 
 #### transport.Close()
-{: #transport-close .code}
+{: #transport-Close .code}
 
 Closes the transport, including all its producers and consumers.
 
@@ -53,14 +53,14 @@ This method should be called when the server side transport has been closed (and
 </div>
 
 #### transport.GetStats()
-{: #transport-getStats .code}
+{: #transport-GetStats .code}
 
 Gets the local transport statistics by calling `getStats()` in the underlying `RTCPeerConnection` instance.
 
 > `@returns` nlohmann::json& [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
 
 #### transport.RestartIce(iceParameters)
-{: #transport-restartIce .code}
+{: #transport-RestartIce .code}
 
 Instructs the underlying peerconnection to restart ICE by providing it with new remote ICE parameters.
 
@@ -81,7 +81,7 @@ transport.RestartIce(iceParameters);
 ```
 
 #### transport.UpdateIceServers(iceServers)
-{: #transport-updateIceServers .code}
+{: #transport-UpdateIceServers .code}
 
 Provides the underlying peerconnection with a new list of TURN servers.
 
@@ -107,7 +107,7 @@ transport.updateIceServers(iceServers);
 <section markdown="1">
 
 #### listener.OnConnect(transport, dtlsParameters)
-{: #transport-onconnect .code}
+{: #transport-OnConnect .code}
 
 Called when the transport is about to establish the ICE+DTLS connection and needs to exchange information with the associated server side transport.
 
@@ -146,7 +146,7 @@ std::future<void> TransportListener::OnConnect(
 ```
 
 #### listener.OnConnectionStateChange(transport, connectionState)
-{: #transport-onconnectionstatechange .code}
+{: #transport-OnConnectionStateChange .code}
 
 Emitted when the local transport connection state changes.
 

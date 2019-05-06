@@ -18,7 +18,7 @@ Internally, the transport holds a WebRTC [RTCPeerConnection](https://w3c.github.
 <section markdown="1">
 
 #### recvTransport.Consume(listener, id, producerId, kind, rtpParameters, appData)
-{: #transport-produce .code}
+{: #transport-Consume .code}
 
 Instructs the transport to receive an audio or video track to the mediasoup router.
 
@@ -49,13 +49,6 @@ Receiver::Consume(producerId, kind, rtpParameters)
 	);
 }
 ```
-
-<div markdown="1" class="note">
-Before this method completes, the local transport will call ["OnProduce"](#sendtransport-onproduce) method in the listener. The application must define this method, signal those parameters to the server, and invoke [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) on the corresponding WebRTC transport.
-
-Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
-</div>
-
 
 ## RecvTransport::Listener
 {: #RecvTransportListener}

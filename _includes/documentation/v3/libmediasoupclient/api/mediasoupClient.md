@@ -33,7 +33,7 @@ auto* device = new mediasoupclient::Device();
 <section markdown="1">
 
 #### mediasoupclient::Version()
-{: #mediasoupclient-version .code}
+{: #mediasoupclient-Version .code}
 
 The libmediasoupclient version.
 
@@ -45,7 +45,7 @@ mediasoupclient::Version();
 ```
 
 #### mediasoupclient::Initialize()
-{: #mediasoupclient-initialize .code}
+{: #mediasoupclient-Initialize .code}
 
 libmediasoupclient initialization. Initializes libwebrtc.
 
@@ -56,7 +56,7 @@ mediasoupclient::Initialize();
 ```
 
 #### mediasoupclient::Cleanup()
-{: #mediasoupclient-cleanup .code}
+{: #mediasoupclient-Cleanup .code}
 
 libmediasoupclient cleanup. Cleans up libwebrtc.
 
