@@ -16,21 +16,21 @@ Internally, the transport holds a WebRTC [RTCPeerConnection](https://w3c.github.
 <section markdown="1">
 
 #### transport.GetId()
-{: #transport-GetId .code}
+{: #Transport-GetId .code}
 
 Transport identifier. It matches the `id` of the server side transport.
 
 > `@returns` const std::string&
 
 #### transport.GetConnectionState()
-{: #transport-GetConnectionState .code}
+{: #Transport-GetConnectionState .code}
 
 The current connection state of the local peerconnection.
 
 > `@returns` const std::string& [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum)
 
 #### transport.GetStats()
-{: #transport-GetStats .code}
+{: #Transport-GetStats .code}
 
 Gets the local transport statistics by calling `getStats()` in the underlying `RTCPeerConnection` instance.
 
@@ -39,21 +39,21 @@ Gets the local transport statistics by calling `getStats()` in the underlying `R
 > `@returns` nlohmann::json& [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
 
 #### transport.GetAppData()
-{: #transport-GetAppData .code}
+{: #Transport-GetAppData .code}
 
 Custom data Object provided by the application in the transport constructor. The app can modify its content at any time.
 
 > `@returns` const nlohmann::json&
 
 #### transport.IsClosed()
-{: #transport-IsClosed .code}
+{: #Transport-IsClosed .code}
 
 Whether the transport is closed.
 
 > `@returns` bool
 
 #### transport.Close()
-{: #transport-Close .code}
+{: #Transport-Close .code}
 
 Closes the transport, including all its producers and consumers.
 
@@ -62,7 +62,7 @@ This method should be called when the server side transport has been closed (and
 </div>
 
 #### transport.RestartIce(iceParameters)
-{: #transport-RestartIce .code}
+{: #Transport-RestartIce .code}
 
 Instructs the underlying peerconnection to restart ICE by providing it with new remote ICE parameters.
 
@@ -85,7 +85,7 @@ transport.RestartIce(iceParameters);
 ```
 
 #### transport.UpdateIceServers(iceServers)
-{: #transport-UpdateIceServers .code}
+{: #Transport-UpdateIceServers .code}
 
 Provides the underlying peerconnection with a new list of TURN servers.
 

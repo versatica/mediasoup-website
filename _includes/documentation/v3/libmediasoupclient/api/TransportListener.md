@@ -24,10 +24,12 @@ Called when the transport is about to establish the ICE+DTLS connection and need
 
 Argument    | Type    | Description   
 ----------- | ------- | ----------------
-`transport`      | [Transport\*](#Transport) | send transport instance.
+`transport`      | [Transport\*](#Transport) | Transport instance.
 `dtlsParameters` | const nlohmann::json& [DtlsParameters](/documentation/v3/mediasoup/api/#WebRtcTransportDtlsParameters) | Local DTLS parameters.
 
 </div>
+
+> `@returns` std::future\<void\> when the transport is created in serverside mediasoup
 
 <div markdown="1" class="note">
 In server side, the application should call [webRtcTransport.connect()](/documentation/v3/mediasoup/api/#webRtcTransport-connect).
@@ -63,7 +65,7 @@ Emitted when the local transport connection state changes.
 
 Argument    | Type    | Description   
 ----------- | ------- | ----------------
-`transport`     | [Transport\*](#Transport) | send transport instance.
+`transport`     | [Transport\*](#Transport) | Transport instance.
 `connectionState` | const std::string& [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum) | Transport connection state.
 
 </div>

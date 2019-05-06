@@ -39,28 +39,28 @@ Field           | Type    | Description   | Required | Default
 <section markdown="1">
 
 #### producer.GetId()
-{: #producer-GetId .code}
+{: #Producer-GetId .code}
 
 Producer identifier.
 
 > `@returns` const std::string&
 
 #### producer.GetKind()
-{: #producer-GetKind .code}
+{: #Producer-GetKind .code}
 
 The media kind ("audio" or "video").
 
 > `@returns` std::string
 
 #### producer.GetTrack()
-{: #producer-GetTrack .code}
+{: #Producer-GetTrack .code}
 
 The audio or video track being transmitted.
 
 > `@returns` webrtc::MediaStreamTrackInterface\*
 
 #### producer.GetRtpParameters()
-{: #producer-GetRtpParameters .code}
+{: #Producer-GetRtpParameters .code}
 
 Producer RTP parameters. These parameters are internally built by the library and conform to the syntax and requirements of mediasoup, thus they can be transmitted to the server to invoke [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) with them.
 
@@ -71,14 +71,14 @@ Check the [Communication Between Client and Server](/documentation/v3/communicat
 </div>
 
 #### producer.GetMaxSpatialLayer()
-{: #producer-GetMaxSpatialLayer .code}
+{: #Producer-GetMaxSpatialLayer .code}
 
-In case of simulcast, this value determines the highest stream (from 0 to N-1) being transmitted. See the [SetMaxSpatialLayer()](#producer-SetMaxSpatialLayer) method for more about this.
+In case of simulcast, this value determines the highest stream (from 0 to N-1) being transmitted. See the [SetMaxSpatialLayer()](#Producer-SetMaxSpatialLayer) method for more about this.
 
 > `@returns` const uint8_t
 
 #### producer.GetStats()
-{: #producer-GetStats .code}
+{: #Producer-GetStats .code}
 
 Gets the local RTP sender statistics by calling `getStats()` in the underlying `RTCRtpSender` instance.
 
@@ -87,28 +87,28 @@ Gets the local RTP sender statistics by calling `getStats()` in the underlying `
 > `@returns` nlohmann::json [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
 
 #### producer.GetAppData()
-{: #producer-GetAppData .code}
+{: #Producer-GetAppData .code}
 
 Custom data Object provided by the application in the producer factory method. The app can modify its content at any time.
 
 > `@returns` const nlohmann::json&
 
 #### producer.IsClosed()
-{: #producer-IsClosed .code}
+{: #Producer-IsClosed .code}
 
 Whether the producer is closed.
 
 > `@returns` bool
 
 #### producer.IsPaused()
-{: #producer-IsPaused .code}
+{: #Producer-IsPaused .code}
 
 Whether the producer is paused.
 
 > `@returns` bool
 
 #### producer.Close()
-{: #producer-Close .code}
+{: #Producer-Close .code}
 
 Closes the producer. No more media is transmitted.
 
@@ -117,7 +117,7 @@ This method should be called when the server side producer has been closed (and 
 </div>
 
 #### producer.Pause()
-{: #producer-Pause .code}
+{: #Producer-Pause .code}
 
 Pauses the producer (no RTP is sent to the server).
 
@@ -126,7 +126,7 @@ This method should be called when the server side producer has been paused (and 
 </div>
 
 #### producer.Resume()
-{: #producer-Resume .code}
+{: #Producer-Resume .code}
 
 Resumes the producer (RTP is sent again to the server).
 
@@ -135,7 +135,7 @@ This method should be called when the server side producer has been resumed (and
 </div>
 
 #### producer.ReplaceTrack(track)
-{: #producer-ReplaceTrack .code}
+{: #Producer-ReplaceTrack .code}
 
 Replaces the audio or video track being transmitted. No negotiation with the server is needed.
 
@@ -152,7 +152,7 @@ producer.ReplaceTrack(newVideoTrack);
 ```
 
 #### producer.SetMaxSpatialLayer(spatialLayer)
-{: #producer-SetMaxSpatialLayer .code}
+{: #Producer-SetMaxSpatialLayer .code}
 
 In case of simulcast, this method limits the highest RTP stream being transmitted to the server.
 

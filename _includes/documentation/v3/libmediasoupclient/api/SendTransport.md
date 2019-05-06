@@ -18,7 +18,7 @@ Internally, the transport holds a WebRTC [RTCPeerConnection](https://w3c.github.
 <section markdown="1">
 
 #### sendTransport.Produce(listener, track, encodings, codecOptions, appData)
-{: #transport-Produce .code}
+{: #SendTransport-Produce .code}
 
 Instructs the transport to send an audio or video track to the mediasoup router.
 
@@ -77,7 +77,7 @@ Sender::Produce()
 ```
 
 <div markdown="1" class="note">
-Before this method completes, the local transport will call ["OnProduce"](#sendtransport-OnProduce) method in the listener. The application must define this method, signal those parameters to the server, and invoke [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) on the corresponding WebRTC transport.
+Before this method completes, the local transport will call ["OnProduce"](#SendTransportListener-OnProduce) method in the listener. The application must define this method, signal those parameters to the server, and invoke [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) on the corresponding WebRTC transport.
 
 Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
 </div>

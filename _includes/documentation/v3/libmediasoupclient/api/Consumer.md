@@ -14,28 +14,28 @@ A consumer represents an audio or video remote source being transmitted from the
 <section markdown="1">
 
 #### consumer.GetId()
-{: #consumer-GetId .code}
+{: #Consumer-GetId .code}
 
 Consumer identifier.
 
 > `@returns` const std::string&
 
 #### consumer.GetProducerId()
-{: #consumer-GetProducerId .code}
+{: #Consumer-GetProducerId .code}
 
 The associated producer identifier.
 
 > `@returns` const std::string&
 
 #### consumer.GetKind()
-{: #consumer-GetKind .code}
+{: #Consumer-GetKind .code}
 
 The media kind ("audio" or "video").
 
 > `@returns` const std::string&
 
 #### consumer.GetRtpParameters()
-{: #consumer-GetRtpParameters .code}
+{: #Consumer-GetRtpParameters .code}
 
 Consumer RTP parameters.
 
@@ -46,14 +46,14 @@ Check the [Communication Between Client and Server](/documentation/v3/communicat
 </div>
 
 #### consumer.GetTrack()
-{: #consumer-GetTrack .code}
+{: #Consumer-GetTrack .code}
 
 The remote audio or video track.
 
 > `@returns` webrtc::MediaStreamTrackInterface\*
 
 #### consumer.GetStats()
-{: #consumer-GetStats .code}
+{: #Consumer-GetStats .code}
 
 Gets the local RTP receiver statistics by calling `getStats()` in the underlying `RTCRtpReceiver` instance.
 
@@ -62,28 +62,28 @@ Gets the local RTP receiver statistics by calling `getStats()` in the underlying
 > `@returns` nlohmann::json  [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
 
 #### consumer.GetAppData()
-{: #consumer-GetAppData .code}
+{: #Consumer-GetAppData .code}
 
 Custom data Object provided by the application in the consumer factory method. The app can modify its content at any time.
 
 > `@returns` const nlohmann::json&
 
 #### consumer.IsClosed()
-{: #consumer-IsClosed .code}
+{: #Consumer-IsClosed .code}
 
 Whether the consumer is closed.
 
 > `@returns` bool
 
 #### consumer.IsPaused()
-{: #consumer-IsPaused .code}
+{: #Consumer-IsPaused .code}
 
 Whether the consumer is paused.
 
 > `@returns` bool
 
 #### consumer.Close()
-{: #consumer-Close .code}
+{: #Consumer-Close .code}
 
 Closes the consumer.
 
@@ -92,7 +92,7 @@ This method should be called when the server side consumer has been closed (and 
 </div>
 
 #### consumer.Pause()
-{: #consumer-Pause .code}
+{: #Consumer-Pause .code}
 
 Pauses the consumer. Internally the library executes `track->set_enabled(false)` in the remote track.
 
@@ -101,7 +101,7 @@ This method should be called when the server side consumer has been paused (and 
 </div>
 
 #### consumer.Resume()
-{: #consumer-Resume .code}
+{: #Consumer-Resume .code}
 
 Resumes the consumer Internally the library executes `track->set_enabled(true)` in the remote track.
 
