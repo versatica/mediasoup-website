@@ -28,6 +28,9 @@ Field           | Type    | Description   | Required | Default
 
 </div>
 
+</section>
+
+
 ### Properties
 {: #Consumer-properties}
 
