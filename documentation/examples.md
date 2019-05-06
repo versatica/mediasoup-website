@@ -25,6 +25,14 @@ The **mediasoup-demo** has a client side web application and a server side Node.
   - As an alternative (there are many) readers may be more used to [socket.io](https://socket.io).
 
 
+### versatica/mediasoup-broadcaster-demo
+
+**Project:** [https://github.com/versatica/mediasoup-broadcaster-demo](https://github.com/versatica/mediasoup-broadcaster-demo) (uses libmediasoupclient v3)
+
+Made by [mediasoup authors](https://github.com/versatica), this project is a
+[libmediasoupclient](https://github.com/versatica/libmediasoupclient/) based application that takes the system microphone and webcam and produces the media to the specified room in [mediasoup-demo](https://github.com/versatica/mediasoup-demo/) application.
+
+
 ### footniko/mediasoup-sample
 
 **Project:** [https://github.com/footniko/mediasoup-sample](https://github.com/footniko/mediasoup-sample) (uses mediasoup v2)
