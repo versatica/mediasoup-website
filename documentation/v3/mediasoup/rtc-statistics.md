@@ -116,7 +116,7 @@ const stats = await pipeTransport.getStats();
 ### Producer Statistics
 {: #Producer-Statistics}
 
-The producer's statistics contain an entry for each RTP stream being received so, if simulcast is used, there will be as many entries as discovered RTP streams.
+The producer's statistics contain an entry for each RTP stream being received so, if simulcast is used, there will be as many entries as discovered RTP streams. Note that the producer's statistics show the RTP streams received my mediasoup as they are sent by the producer endpoint, this is, without any packet modification.
 
 ```javascript
 const stats = await producer.getStats();
@@ -273,6 +273,79 @@ const stats = await consumer.getStats();
     "ssrc": 2440984788,
     "timestamp": 925531753,
     "type": "inbound-rtp"
+  }
+]
+```
+
+There is, however, an exception when the consumer has been created on a [PipeTransport](/documentation/v3/mediasoup/api/#PipeTransport). In this case the consumer forwards all producer's RTP streams to its destination. The statistics of this consumer include an entry for each RTP stream being forwarded (`type: "outbound-rtp"`) and does **not** include entries for the associated RTP streams in the producer (`type: "inbound-rtp"`).
+
+```javascript
+const stats = await pipeConsumer.getStats();
+
+// =>
+[
+  {
+    "bitrate": 868184,
+    "byteCount": 19478693,
+    "firCount": 0,
+    "fractionLost": 0,
+    "kind": "video",
+    "mimeType": "video/VP8",
+    "nackCount": 0,
+    "nackPacketCount": 0,
+    "packetCount": 18696,
+    "packetsDiscarded": 0,
+    "packetsLost": 0,
+    "packetsRepaired": 0,
+    "packetsRetransmitted": 0,
+    "pliCount": 0,
+    "roundTripTime": 55690732,
+    "score": 10,
+    "ssrc": 116684231,
+    "timestamp": 514442975,
+    "type": "outbound-rtp"
+  },
+  {
+    "bitrate": 350000,
+    "byteCount": 8393425,
+    "firCount": 0,
+    "fractionLost": 0,
+    "kind": "video",
+    "mimeType": "video/VP8",
+    "nackCount": 0,
+    "nackPacketCount": 0,
+    "packetCount": 9417,
+    "packetsDiscarded": 0,
+    "packetsLost": 0,
+    "packetsRepaired": 0,
+    "packetsRetransmitted": 0,
+    "pliCount": 0,
+    "roundTripTime": 55690732,
+    "score": 10,
+    "ssrc": 116684230,
+    "timestamp": 514442975,
+    "type": "outbound-rtp"
+  },
+  { 
+    "bitrate": 153456,
+    "byteCount": 3442897,
+    "firCount": 0,
+    "fractionLost": 0,
+    "kind": "video",
+    "mimeType": "video/VP8",
+    "nackCount": 0,
+    "nackPacketCount": 0,
+    "packetCount": 5393,
+    "packetsDiscarded": 0,
+    "packetsLost": 0,
+    "packetsRepaired": 0,
+    "packetsRetransmitted": 0,
+    "pliCount": 0,
+    "roundTripTime": 0.0152587890625,
+    "score": 10,
+    "ssrc": 116684229,
+    "timestamp": 514442975,
+    "type": "outbound-rtp"
   }
 ]
 ```
