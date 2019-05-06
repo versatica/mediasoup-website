@@ -12,8 +12,9 @@ Scalability is a vague concept that can apply to different scenarios and require
 Before entering into details, let's clarify how mediasoup works internally:
 
 * mediasoup is a Node.js library that exposes a JavaScript ES6 API to manage workers, routers, transports, producers and consumer (among others).
-* A [Worker](/documentation/v3/mediasoup/api/#Worker) represents a mediasoup C++ subprocess that runs in a single CPU core. It can handle N routers.
-* A [Router](/documentation/v3/mediasoup/api/#Router) holds producers and consumers that exchange audio/video RTP between them. In certain common usages, a router can be understood as a "multi-party conference room". A router uses a single CPU.
+* A [Worker](/documentation/v3/mediasoup/api/#Worker) represents a mediasoup C++ subprocess that runs in a single CPU core. It can handle many routers.
+* A [Router](/documentation/v3/mediasoup/api/#Router) holds producers and consumers that exchange audio/video RTP between them. In certain common usages, a router can be understood as a "multi-party conference room".
+* Since a router belongs to a worker, a router uses a single CPU (and may share it with other routers in the same worker).
 * A router behaves as an [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit). This is:
   * it forwards RTP packets between producers and consumers,
   * it selects which spatial and temporal layers to forward based on consumer settings and network capability,
@@ -46,7 +47,7 @@ If higher capability is required, the application backend should run mediasoup i
 ## One-To-Many Broadcasting
 {: #one-to-many-broadcasting}
 
-In this scenario, a single broadcaster endpoint (or a few of them) produce audio and video and the backend stream the media to hundred of thousands of viewers in real-time (no delay). If there are more than 200-300 viewers (so 400-600 consumers), the capabilities of a single mediasoup router could be exceeded.
+In this scenario, a single broadcaster endpoint (or a few of them) produce audio and video and the server backend stream the media to hundred or thousands of viewers in real-time (no delay). If there are more than 200-300 viewers (so 400-600 consumers), the capabilities of a single mediasoup router could be exceeded.
 
 To help with those scenarios, mediasoup provides a mechanism to inter-communicate different mediasoup routers by using the [router.pipeToRouter()](/documentation/v3/mediasoup/api/#router-pipeToRouter) API.
 
