@@ -45,13 +45,6 @@ Producer identifier.
 
 > `@type` const std::string&
 
-#### producer.IsClosed()
-{: #producer-IsClosed .code}
-
-Whether the producer is closed.
-
-> `@type` bool
-
 #### producer.GetKind()
 {: #producer-GetKind .code}
 
@@ -77,13 +70,6 @@ Producer RTP parameters. These parameters are internally built by the library an
 Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
 </div>
 
-#### producer.IsPaused()
-{: #producer-IsPaused .code}
-
-Whether the producer is paused.
-
-> `@type` bool
-
 #### producer.GetMaxSpatialLayer()
 {: #producer-GetMaxSpatialLayer .code}
 
@@ -98,6 +84,27 @@ Custom data Object provided by the application in the producer factory method. T
 
 > `@type` const nlohmann::json&
 
+#### producer.GetStats()
+{: #producer-GetStats .code}
+
+Gets the local RTP sender statistics by calling `getStats()` in the underlying `RTCRtpSender` instance.
+
+> `@returns` nlohmann::json [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
+
+#### producer.IsClosed()
+{: #producer-IsClosed .code}
+
+Whether the producer is closed.
+
+> `@type` bool
+
+#### producer.IsPaused()
+{: #producer-IsPaused .code}
+
+Whether the producer is paused.
+
+> `@type` bool
+
 #### producer.Close()
 {: #producer-Close .code}
 
@@ -106,13 +113,6 @@ Closes the producer. No more media is transmitted.
 <div markdown="1" class="note">
 This method should be called when the server side producer has been closed (and vice-versa).
 </div>
-
-#### producer.GetStats()
-{: #producer-GetStats .code}
-
-Gets the local RTP sender statistics by calling `getStats()` in the underlying `RTCRtpSender` instance.
-
-> `@returns` nlohmann::json [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
 
 #### producer.Pause()
 {: #producer-Pause .code}
