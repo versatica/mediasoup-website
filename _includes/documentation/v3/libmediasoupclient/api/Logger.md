@@ -28,8 +28,8 @@ Value          | Description
 </div>
 
 <div markdown="1" class="note">
-* "LOG_DEBUG" only applies if libmediasoupclient [MEDIASOUP_CLIENT_LOG_DEV](/documentation/v3/libmediasoupclient/installation/#Building-Flags) building flag is set.
-* Log trace only applies if libmediasoupclient [MEDIASOUP_CLIENT_LOG_TRACE](/documentation/v3/libmediasoupclient/installation/#Building-Flags) building flag is set and `LogLevel` is "LOG_DEBUG".
+* "LOG_DEBUG" only applies if libmediasoupclient [MEDIASOUPCLIENT_LOG_DEV](/documentation/v3/libmediasoupclient/installation/#Building-Flags) building flag is set.
+* Log trace only applies if libmediasoupclient [MEDIASOUPCLIENT_LOG_TRACE](/documentation/v3/libmediasoupclient/installation/#Building-Flags) building flag is set and `LogLevel` is "LOG_DEBUG".
 </div>
 
 </section>
