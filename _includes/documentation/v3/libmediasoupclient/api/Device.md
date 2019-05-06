@@ -29,6 +29,8 @@ Field           | Type    | Description   | Required | Default
 
 </div>
 
+</section>
+
 
 ### Constructor
 {: #Device-constructor}
