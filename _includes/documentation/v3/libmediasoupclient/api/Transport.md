@@ -29,6 +29,13 @@ The current connection state of the local peerconnection.
 
 > `@type` const std::string& [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum)
 
+#### transport.GetStats()
+{: #transport-GetStats .code}
+
+Gets the local transport statistics by calling `getStats()` in the underlying `RTCPeerConnection` instance.
+
+> `@returns` nlohmann::json& [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
+
 #### transport.GetAppData()
 {: #transport-GetAppData .code}
 
@@ -51,13 +58,6 @@ Closes the transport, including all its producers and consumers.
 <div markdown="1" class="note">
 This method should be called when the server side transport has been closed (and vice-versa).
 </div>
-
-#### transport.GetStats()
-{: #transport-GetStats .code}
-
-Gets the local transport statistics by calling `getStats()` in the underlying `RTCPeerConnection` instance.
-
-> `@returns` nlohmann::json& [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
 
 #### transport.RestartIce(iceParameters)
 {: #transport-RestartIce .code}

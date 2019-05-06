@@ -77,19 +77,19 @@ In case of simulcast, this value determines the highest stream (from 0 to N-1) b
 
 > `@type` const uint8_t
 
-#### producer.GetAppData()
-{: #producer-GetAppData .code}
-
-Custom data Object provided by the application in the producer factory method. The app can modify its content at any time.
-
-> `@type` const nlohmann::json&
-
 #### producer.GetStats()
 {: #producer-GetStats .code}
 
 Gets the local RTP sender statistics by calling `getStats()` in the underlying `RTCRtpSender` instance.
 
 > `@returns` nlohmann::json [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
+
+#### producer.GetAppData()
+{: #producer-GetAppData .code}
+
+Custom data Object provided by the application in the producer factory method. The app can modify its content at any time.
+
+> `@type` const nlohmann::json&
 
 #### producer.IsClosed()
 {: #producer-IsClosed .code}
