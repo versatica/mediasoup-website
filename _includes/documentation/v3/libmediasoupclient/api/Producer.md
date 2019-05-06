@@ -174,6 +174,10 @@ producer.setMaxSpatialLayer(1);
 ## Producer::Listener
 {: #ProducerListener}
 
+
+### Methods
+{: #ProducerListener-methods}
+
 <section markdown="1">
 
 #### listener.OnTransportClose(producer)

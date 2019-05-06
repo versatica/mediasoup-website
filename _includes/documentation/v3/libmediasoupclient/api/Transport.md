@@ -104,6 +104,10 @@ transport.updateIceServers(iceServers);
 ## Transport::Listener
 {: #TransportListener}
 
+
+### Methods
+{: #TransportListener-methods}
+
 <section markdown="1">
 
 #### listener.OnConnect(transport, dtlsParameters)

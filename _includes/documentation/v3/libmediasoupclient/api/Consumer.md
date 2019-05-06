@@ -113,6 +113,10 @@ This method should be called when the server side consumer has been resumed (and
 ## Consumer::Listener
 {: #ConsumerListener}
 
+
+### Methods
+{: #ConsumerListener-methods}
+
 <section markdown="1">
 
 #### consumer.OnTransportClose(consumer)
