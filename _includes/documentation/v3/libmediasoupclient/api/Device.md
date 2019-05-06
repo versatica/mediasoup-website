@@ -88,6 +88,8 @@ Argument      | Type    | Description | Required | Default
 
 </div>
 
+> `@throws` mediasoupclient::Exception, if device already loaded
+
 <div markdown="1" class="note">
 The router RTP capabilities are exposed via the [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) getter. Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
 </div>
