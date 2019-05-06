@@ -81,3 +81,5 @@ Before this method completes, the local transport will call ["OnProduce"](#sendt
 
 Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
 </div>
+
+</section>

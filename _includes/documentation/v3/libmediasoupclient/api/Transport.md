@@ -104,3 +104,5 @@ This method is specially useful if the TURN server credentials have changed.
 ```javascript
 transport.updateIceServers(iceServers);
 ```
+
+</section>

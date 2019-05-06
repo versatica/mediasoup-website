@@ -51,3 +51,5 @@ Receiver::Consume(producerId, kind, rtpParameters)
 	);
 }
 ```
+
+</section>
