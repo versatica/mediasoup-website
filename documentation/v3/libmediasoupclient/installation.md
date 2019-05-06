@@ -106,3 +106,8 @@ Once installed include the library into your C++ application:
 And add the libmediasoupclient static library to your C++ project.
 
 The libmediasoupclient API is exposed under the [mediasoupclient](/documentation/v3/libmediasoupclient/api/#mediasoupclient) C++ namespace. The library also exposes the [nlohmann::json](/documentation/v3/libmediasoupclient/api/#nlohmann-json) C++ namespace.
+
+<div markdown="1" class="note">
+The C++ application should also include the required libwebrtc headers.
+</div>
+
