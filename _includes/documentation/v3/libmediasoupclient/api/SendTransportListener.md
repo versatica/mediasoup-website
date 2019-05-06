@@ -34,18 +34,19 @@ Argument        | Type    | Description
 
 </div>
 
-> `@returns` std::future\<std::string\> ID of the producer created in serverside mediasoup
+> `@returns` std::future\<std::string\> ID of the producer created in server side mediasoup
 
 <div markdown="1" class="note">
 In server side, the application should call [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce).
 </div>
 
 ```c++
-std::future<std::string> Sender::OnProduce(
+std::future<std::string> MySendTransportListener::OnProduce(
   mediasoupclient::Transport* transport,
   const std::string& kind,
   json rtpParameters,
-  const json& appData)
+  const json& appData
+)
 {
 	std::promise<std::string> promise;
 
@@ -59,11 +60,19 @@ std::future<std::string> Sender::OnProduce(
 
 	json response = mySignaling.send("transport-produce", body);
 
-	auto it = response.find("id");
-	if (it == response.end())
-		promise.set_exception(std::make_exception_ptr("'id' missing in response"));
+  // [...] Let's assume code execution continues once we get a success response
+  // from the server.
 
-	promise.set_value(it->get<std::string>());
+  // Read the id in the response.
+	auto idIt = response.find("id");
+	if (idIt == response.end() || !idIt->is_string())
+  {
+		promise.set_exception(
+      std::make_exception_ptr("'id' missing/invalid in response"));
+  }
+
+  // Fullfill the promise with the id in the response and return its future.
+	promise.set_value(idIt->get<std::string>());
 
 	return promise.get_future();
 }

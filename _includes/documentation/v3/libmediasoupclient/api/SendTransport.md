@@ -46,33 +46,44 @@ If video simulcast is desired, `encodings` array must be filled with more than o
 </div>
 
 ```c++
-Sender::Produce()
+// Send opus audio track with specific codec options.
+if (device.CanProduce("audio"))
 {
-	// Send opus audio track with specific codec options.
-	if (this->device.CanProduce("audio"))
+	auto* audioTrack = myUtils::createAudioTrack();
+
+	json codecOptions =
 	{
-		auto audioTrack = createAudioTrack();
+		{ "opusStereo", true },
+		{ "opusDtx",    true }
+	};
 
-		json codecOptions = {
-			{ "opusStereo", true },
-			{ "opusDtx",    true }
-		};
+	auto* audioProducerListener = new MyProducerListener();
+	auto* audioProducer = sendTransport->Produce(
+		audioProducerListener, 
+		audioTrack, 
+		nullptr, 
+		&codecOptions);
+}
 
-		audioProducer = sendTransport->Produce(this, audioTrack, nullptr, &codecOptions);
-	}
+// Send video track with 3 simulcast streams.
+if (device.CanProduce("video"))
+{
+	auto* videoTrack = myUtils::createVideoTrack();
 
-	// Send video track with 3 simulcast streams.
-	if (this->device.CanProduce("video"))
-	{
-		auto videoTrack = createVideoTrack();
+	std::vector<webrtc::RtpEncodingParameters> encodings;
+	
+	encodings.emplace_back(webrtc::RtpEncodingParameters());
+	encodings.emplace_back(webrtc::RtpEncodingParameters());
+	encodings.emplace_back(webrtc::RtpEncodingParameters());
 
-		std::vector<webrtc::RtpEncodingParameters> encodings;
-		encodings.emplace_back(webrtc::RtpEncodingParameters());
-		encodings.emplace_back(webrtc::RtpEncodingParameters());
-		encodings.emplace_back(webrtc::RtpEncodingParameters());
+	auto* videoProducerListener = new MyProducerListener();
 
-		videoProducer = sendTransport->Produce(this, videoTrack, &encodings, nullptr);
-	}
+	// This will block the current thread until completion.
+	auto* videoProducer = sendTransport->Produce(
+		videoProducerListener,
+		videoTrack,
+		&encodings,
+		nullptr);
 }
 ```
 

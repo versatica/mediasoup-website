@@ -40,16 +40,15 @@ Argument    | Type    | Description | Required | Default
 > `@returns` [Consumer](#Consumer)
 
 ```c++
-Receiver::Consume(producerId, kind, rtpParameters)
-{
-	auto consumer = recvTransport->Consume(
-		this,
-		std::to_string(rtc::CreateRandomId()),
-		producerId,
-		kind,
-		rtpParameters
-	);
-}
+auto* consumerListener = new MyConsumerListener();
+
+// This will block the current thread until completion.
+auto* consumer = recvTransport->Consume(
+  consumerListener,
+  id, 
+  producerId, 
+  kind,	
+  rtpParameters);
 ```
 
 </section>

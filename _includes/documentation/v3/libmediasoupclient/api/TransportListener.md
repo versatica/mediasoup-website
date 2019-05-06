@@ -29,15 +29,17 @@ Argument    | Type    | Description
 
 </div>
 
-> `@returns` std::future\<void\> when the transport is created in serverside mediasoup
+> `@returns` std::future\<void\> when the transport is created in server side mediasoup
 
 <div markdown="1" class="note">
 In server side, the application should call [webRtcTransport.connect()](/documentation/v3/mediasoup/api/#webRtcTransport-connect).
 </div>
 
 ```c++
-std::future<void> TransportListener::OnConnect(
-  mediasoupclient::Transport transport, const json& dtlsParameters)
+std::future<void> MyTransportListener::OnConnect(
+  mediasoupclient::Transport transport,
+  const json& dtlsParameters
+ )
 {
 	std::promise<void> promise;
 
@@ -50,6 +52,10 @@ std::future<void> TransportListener::OnConnect(
 	// Signal local DTLS parameters to the server side transport.
 	mySignaling.send("transport-connect", body);
 
+	// [...] Let's assume code execution continues once we get a success response
+	// from the server.
+
+	// Fullfill the promise and return its future.
 	promise.set_value();
 
 	return promise.get_future();

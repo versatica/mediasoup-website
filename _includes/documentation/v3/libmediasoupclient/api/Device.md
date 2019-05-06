@@ -125,7 +125,7 @@ if (device.CanProduce("video"))
 }
 ```
 
-#### device.CreateSendTransport(listener, id, iceParameters, iceCandidates, dtlsParameters, peerConectionOptions, appData)
+#### device.CreateSendTransport(listener, id, iceParameters, iceCandidates, dtlsParameters, peerConectionOptions, appData = {})
 {: #device-CreateSendTransport .code}
 
 Creates a new WebRTC transport to **send** media. The transport must be previously created in the mediasoup router via [router.createWebRtcTransport()](/documentation/v3/mediasoup/api/#router-createWebRtcTransport).
@@ -147,16 +147,18 @@ Argument         | Type    | Description   | Required | Default
 > `@returns` [SendTransport\*](#SendTransport)
 
 ```cpp
-auto* transport = device.CreateSendTransport(
-  listener,
+auto* sendTransportListener = new MySendTransportListener();
+
+// This will block the current thread until completion.
+auto* sendTransport = device.CreateSendTransport(
+  sendTransportListener,
   id,
   iceParameters,
   iceCandidates,
-  dtlsParameters
-);
+  dtlsParameters);
 ```
 
-#### device.CreateRecvTransport(listener, id, iceParameters, iceCandidates, dtlsParameters, peerConectionOptions, appData)
+#### device.CreateRecvTransport(listener, id, iceParameters, iceCandidates, dtlsParameters, peerConectionOptions, appData = {})
 {: #device-CreateRecvTransport .code}
 
 Creates a new WebRTC transport to **receive** media. The transport must be previously created in the mediasoup router via [router.createWebRtcTransport()](/documentation/v3/mediasoup/api/#router-createWebRtcTransport).
@@ -179,13 +181,15 @@ Argument         | Type    | Description   | Required | Default
 > `@returns` [RecvTransport\*](#RecvTransport)
 
 ```c++
-auto* transport = device.createRecvTransport(
-  listener,
+auto* recvTransportListener = new MyRecvTransportListener();
+
+// This will block the current thread until completion.
+auto* recvTransport = device.CreateRecvTransport(
+  recvTransportListener,
   id,
   iceParameters,
   iceCandidates,
-  dtlsParameters
-);
+  dtlsParameters);
 ```
 
 </section>

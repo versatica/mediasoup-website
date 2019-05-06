@@ -86,10 +86,10 @@ Argument   | Type    | Description | Required | Default
 > * `temporalLayers` {`@type` uint16_t} Number of temporal layers (by default 1).
 
 ```javascript
-mediasoup::parseScalabilityMode("L2T3");
+mediasoupclient::parseScalabilityMode("L2T3");
 // => { spatialLayers: 2, temporalLayers: 3 }
 
-mediasoup::parseScalabilityMode("L4T7_KEY_SHIFT");
+mediasoupclient::parseScalabilityMode("L4T7_KEY_SHIFT");
 // => { spatialLayers: 4, temporalLayers: 7 }
 ```
 

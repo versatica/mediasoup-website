@@ -30,9 +30,9 @@ Argument        | Type    | Description | Required | Default
 </div>
 
 ```c++
-void Sender::OnTransportClose(mediasoupclient::Producer* /*producer*/)
+void MyProducerListener::OnTransportClose(mediasoupclient::Producer* producer)
 {
-	std::cout << "OnTransportClose" << std::endl;
+	std::cout << "transport closed" << std::endl;
 }
 ```
 

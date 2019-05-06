@@ -30,9 +30,9 @@ Argument        | Type    | Description | Required | Default
 </div>
 
 ```c++
-void Receiver::OnTransportClose(mediasoupclient::Consumer* /*consumer*/)
+void MyConsumerListener::OnTransportClose(mediasoupclient::Consumer* consumer)
 {
-	std::cout << "OnTransportClose" << std::endl;
+	std::cout << "transport closed" << std::endl;
 }
 ```
 
