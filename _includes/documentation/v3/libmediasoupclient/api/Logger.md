@@ -27,13 +27,10 @@ Value          | Description
 
 </div>
 
-</section>
-
-<section markdown="1">
-
-LOG_DEBUG only applies if libmediasoupclient building flag [MEDIASOUP_CLIENT_LOG_DEV](/documentation/v3/libmediasoupclient/installation/#Building-Flags) is provided.
-
-Log trace only applies if libmediasoupclient building flag [MEDIASOUP_CLIENT_LOG_TRACE](/documentation/v3/libmediasoupclient/installation/#Building-Flags) is provided and LogLevel is LOG_DEBUG.
+<div markdown="1" class="note">
+* "LOG_DEBUG" only applies if libmediasoupclient [MEDIASOUP_CLIENT_LOG_DEV](/documentation/v3/libmediasoupclient/installation/#Building-Flags) building flag is set.
+* Log trace only applies if libmediasoupclient [MEDIASOUP_CLIENT_LOG_TRACE](/documentation/v3/libmediasoupclient/installation/#Building-Flags) building flag is set and `LogLevel` is "LOG_DEBUG".
+</div>
 
 </section>
 
@@ -68,7 +65,6 @@ Argument    | Type    | Description | Required | Default
 `level`     | [LogLevel](#LoggerLogLevel)| The log level to be used for logging. | Yes |
 
 </div>
-
 
 #### Logger::SetHandler(handler)
 {: #Logger-SetHandler .code}
