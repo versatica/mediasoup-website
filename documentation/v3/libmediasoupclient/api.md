@@ -23,13 +23,23 @@ class   : h3color
 
 {% include documentation/v3/libmediasoupclient/api/Transport.md %}
 
+{% include documentation/v3/libmediasoupclient/api/TransportListener.md %}
+
 {% include documentation/v3/libmediasoupclient/api/SendTransport.md %}
+
+{% include documentation/v3/libmediasoupclient/api/SendTransportListener.md %}
 
 {% include documentation/v3/libmediasoupclient/api/RecvTransport.md %}
 
+{% include documentation/v3/libmediasoupclient/api/RecvTransportListener.md %}
+
 {% include documentation/v3/libmediasoupclient/api/Producer.md %}
 
+{% include documentation/v3/libmediasoupclient/api/ProducerListener.md %}
+
 {% include documentation/v3/libmediasoupclient/api/Consumer.md %}
+
+{% include documentation/v3/libmediasoupclient/api/ConsumerListener.md %}
 
 {% include documentation/v3/libmediasoupclient/api/Logger.md %}
 
