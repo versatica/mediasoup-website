@@ -39,7 +39,7 @@ In server side, the application should call [webRtcTransport.connect()](/documen
 std::future<void> MyTransportListener::OnConnect(
   mediasoupclient::Transport transport,
   const json& dtlsParameters
- )
+)
 {
 	std::promise<void> promise;
 
