@@ -3,6 +3,8 @@
 
 <section markdown="1">
 
+> `@abstract`
+
 An RTP observer inspects the media received by a set of selected producers.
 
 mediasoup implements the following RTP observer classes:

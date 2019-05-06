@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-The Logger is responsible for all the logging in libmediasoupclient.
+C++ namespace (within `mediasoupclient` namespace) responsible for logging.
 
 </section>
 
@@ -29,10 +29,22 @@ Value          | Description
 
 </section>
 
-
 <section markdown="1">
 
 "LOG_DEBUG" only applies if libmediasoupclient [build process](/documentation/v3/libmediasoupclient/installation/) is provided with the `MEDIASOUPCLIENT_LOG_DEV` flag.
+
+</section>
+
+
+### Classes
+{: #Logger-classes}
+
+<section markdown="1">
+
+#### Logger::LogHandlerInterface
+{: #Logger-LogHandlerInterface .code}
+
+See [LogHandlerInterface](#LogHandlerInterface).
 
 </section>
 
@@ -43,7 +55,7 @@ Value          | Description
 <section markdown="1">
 
 #### Logger::SetLogLevel(level)
-{: #Logger-setLogLevel .code}
+{: #Logger-SetLogLevel .code}
 
 Sets log level.
 
@@ -57,7 +69,7 @@ Argument    | Type    | Description | Required | Default
 
 
 #### Logger::SetHandler(handler)
-{: #Logger-setHandler .code}
+{: #Logger-SetHandler .code}
 
 Sets log handler.
 
@@ -70,40 +82,8 @@ Argument | Type    | Description | Required | Default
 </div>
 
 #### Logger::SetDefaultHandler()
-{: #Logger::-producerId .code}
+{: #Logger-SetDefaultHandler .code}
 
 Sets the default log handler, which prints all log messages to `stdout`.
-
-</section>
-
-
-## Logger::LogHandlerInterface
-{: #LogHandlerInterface}
-
-This is an abstract class which can be implemented and provided to libmediasoupclient via [Logger::SetHandler()](#Logger-setHandler)
-
-<section markdown="1">
-
-#### Logger::LogHandlerInterface::OnLog(level, payload, len)
-{: #loghandlerinterface-on-log .code}
-
-Executed for every log.
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument    | Type    | Description | Required | Default 
------------ | ------- | ----------- | -------- | ----------
-`level`     | [LogLevel](#LoggerLogLevel)  | The level this log message belongs to. | Yes |
-`payload`  | char\*   | The log message. | Yes |
-`len`      | size_t   | The log message length. | Yes |
-
-</div>
-
-```c++
-void LogHandler::OnLog(LogLevel /*level*/, char* payload, size_t /*len*/)
-{
-	std::cout << payload << std::endl;
-}
-```
 
 </section>

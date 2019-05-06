@@ -32,3 +32,5 @@ class   : h3color
 {% include documentation/v3/libmediasoupclient/api/Consumer.md %}
 
 {% include documentation/v3/libmediasoupclient/api/Logger.md %}
+
+{% include documentation/v3/libmediasoupclient/api/LogHandlerInterface.md %}
