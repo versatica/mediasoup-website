@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-C++ namespace (within `mediasoupclient` namespace) responsible for logging.
+C++ namespace (within the `mediasoupclient` namespace) responsible for logging.
 
 </section>
 
