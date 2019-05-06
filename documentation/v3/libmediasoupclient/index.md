@@ -5,7 +5,7 @@ title : libmediasoupclient
 
 # libmediasoupclient v3 Documentation
 
-C++ library based on libwebrtc.
+C++ library built on top of libwebrtc.
 
 * [Design](/documentation/v3/libmediasoupclient/design/)
 * [Installation](/documentation/v3/libmediasoupclient/installation/)

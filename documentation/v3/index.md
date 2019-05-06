@@ -37,7 +37,7 @@ Client side JavaScript library.
 ### libmediasoupclient
 {: .h3color}
 
-C++ library based on libwebrtc.
+C++ library built on top of libwebrtc.
 
 * [Design](/documentation/v3/libmediasoupclient/design/)
 * [Installation](/documentation/v3/libmediasoupclient/installation/)
