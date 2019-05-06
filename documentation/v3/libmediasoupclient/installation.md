@@ -34,7 +34,7 @@ Depending on the host, it will generate the following static lib and header file
 -- Up-to-date: /usr/local/include/mediasoupclient/mediasoupclient.hpp
 ```
 
-## Linkage considerations
+## Linkage Considerations
 
 The application is responsible for defining the symbol visibility of the resulting binary. Symbol visibility mismatch among different libraries will generate plenty of linker warnings such us the one below:
 
@@ -46,7 +46,7 @@ from file '../libmediasoupclient.a(PeerConnection.cpp.o)' means the weak symbol 
 This was likely caused by different translation units being compiled with different visibility settings.
 ```
 
-In order to avoid such warnings make sure the corresponding visibility compilation flags are provided. For example, if `libwebrtc` was built with hidden symbol visibility, `libmediasoupclient` needs to be provided with the correspoinding compilation flag:
+In order to avoid such warnings make sure the corresponding visibility compilation flags are provided. For example, if `libwebrtc` was built with hidden symbol visibility, libmediasoupclient needs to be provided with the correspoinding compilation flag:
 
 ```bash
 cmake . -Bbuild \

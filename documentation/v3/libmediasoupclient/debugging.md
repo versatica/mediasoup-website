@@ -6,4 +6,4 @@ anchors : true
 
 # libmediasoupclient v3 Debugging
 
-*TBD*
+{% include documentation/v3/libmediasoupclient/api/Logger.md %}
