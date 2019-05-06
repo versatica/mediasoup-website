@@ -35,6 +35,8 @@ Argument    | Type    | Description | Required | Default
 </div>
 
 > `@async` blocks current thread
+>
+> `@returns` [Producer](#Producer)
 
 <div markdown="1" class="note">
 If video simulcast is desired, `encodings` array must be filled with more than one encodings. Each encoding represents a simulcast RTP stream:
@@ -42,8 +44,6 @@ If video simulcast is desired, `encodings` array must be filled with more than o
 * `rid` field must not be set. The library will internally add it if the underlying browser supports RID.
 * `active` field must not be set. The library will internally set it to `true`.
 </div>
-
-> `@returns` [Producer](#Producer)
 
 ```c++
 Sender::Produce()
