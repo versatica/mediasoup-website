@@ -34,7 +34,7 @@ Argument    | Type    | Description | Required | Default
 
 </div>
 
-> `@async` blocks current thread.
+> `@async` blocks current thread
 
 <div markdown="1" class="note">
 If video simulcast is desired, `encodings` array must be filled with more than one encodings. Each encoding represents a simulcast RTP stream:

@@ -34,7 +34,7 @@ The current connection state of the local peerconnection.
 
 Gets the local transport statistics by calling `getStats()` in the underlying `RTCPeerConnection` instance.
 
-> `@async` blocks current thread.
+> `@async` blocks current thread
 >
 > `@returns` nlohmann::json& [RTCStatsReport](https://w3c.github.io/webrtc-pc/#dom-rtcstatsreport)
 
@@ -74,7 +74,7 @@ Argument        | Type    | Description | Required | Default
 
 </div>
 
-> `@async` blocks current thread.
+> `@async` blocks current thread
 
 <div markdown="1" class="note">
 This method must be called after restarting ICE in server side via [webRtctransport.restartIce()](/documentation/v3/mediasoup/api/#webRtcTransport-restartIce).
