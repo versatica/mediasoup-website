@@ -15,5 +15,5 @@ mediasoup-client is a JavaScript library for building mediasoup based client sid
 * Works in the browser and Node.js.
 
 <div markdown="1" class="note">
-There is no native WebRTC or RTP engine in Node.js. When running mediasoup-client in Node.js, the application can provide it with a custom handler to control a 3rd party media/RTP library.
+There is no native WebRTC or RTP engine in Node.js. When running in Node.js the application must provide mediasoup-client with a custom [handler](/documentation/v3/mediasoup-client/api/#DeviceOptions) to control a 3rd party media/RTP library.
 </div>
