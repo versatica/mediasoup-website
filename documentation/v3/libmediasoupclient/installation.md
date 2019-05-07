@@ -39,8 +39,8 @@ Within the `libmediasoupclient/` folder:
 
 ```bash
 $ cmake . -Bbuild \
--DLIBWEBRTC_INCLUDE_PATH:PATH=$PATH_TO_LIBWEBRTC_SOURCES \
--DLIBWEBRTC_BINARY_PATH:PATH=$PATH_TO_LIBWEBRTC_BINARY
+-DLIBWEBRTC_INCLUDE_PATH:PATH=PATH_TO_LIBWEBRTC_SOURCES \
+-DLIBWEBRTC_BINARY_PATH:PATH=PATH_TO_LIBWEBRTC_BINARY
 
 # Compile libmediasoupclient.
 $ make -C build/ # or: cd build/ && make
