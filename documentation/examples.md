@@ -33,6 +33,13 @@ Made by [mediasoup authors](https://github.com/versatica), this project is a
 [libmediasoupclient](https://github.com/versatica/libmediasoupclient/) based application that takes the system microphone and webcam and produces the media to the specified room in [mediasoup-demo](https://github.com/versatica/mediasoup-demo/) application.
 
 
+### mkhahani/mediasoup-sample-app
+
+**Project:** [https://github.com/mkhahani/mediasoup-sample-app](https://github.com/mkhahani/mediasoup-sample-app) (uses mediasoup v3)
+
+A minimal Client/Server app based on Mediasoup and Socket.io made by [@mkhahani](https://github.com/mkhahani).
+
+
 ### footniko/mediasoup-sample
 
 **Project:** [https://github.com/footniko/mediasoup-sample](https://github.com/footniko/mediasoup-sample) (uses mediasoup v2)
