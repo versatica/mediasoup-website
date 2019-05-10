@@ -68,7 +68,7 @@ Once the send transport is created, the client side application can produce mult
 * The application obtains a [track](https://www.w3.org/TR/mediacapture-streams/#mediastreamtrack) (e.g. by using the `navigator.mediaDevices.getUserMedia()` API).
 * It calls [transport.produce()](/documentation/v3/mediasoup-client/api/#transport-produce) in the local send transport.
   - The transport will emit ["connect"](/documentation/v3/mediasoup-client/api/#transport-on-connect) if this is the first call to `transport.produce()`.
-  - The transport will emit ["produce"](/documentation/v3/mediasoup-client/api/#transport-on-produce), thus generating a [Producer](/documentation/v3/mediasoup/api/#Producer) instance in server side.
+  - The transport will emit ["produce"](/documentation/v3/mediasoup-client/api/#transport-on-produce) so the application will transmit the event parameters to the server and will create a [Producer](/documentation/v3/mediasoup/api/#Producer) instance in server side.
 * Finally `transport.produce()` will resolve with a [Producer](/documentation/v3/mediasoup-client/api/#Producer) instance in client side.
 
 
@@ -115,7 +115,7 @@ When simulcast or SVC is in use, the application may be interested in signaling 
 
 Both, FFmpeg and GStreamer (and any other similar software), can be used to inject media into a mediasoup router or to consume media from a mediasoup router (for recording purposes, transcoding, streaming using HLS, etc).
 
-This can be done by creating a server side plain RTP transport (via [router.createPlainRtpTransport()](/documentation/v3/mediasoup/api/#router-createPlainRtpTransport)) and the calling [produce()](/documentation/v3/mediasoup/api/#transport-produce) or [consume()](/documentation/v3/mediasoup/api/#transport-consume) on it with the appropriate parameters.
+This can be done by creating a server side plain RTP transport (via [router.createPlainRtpTransport()](/documentation/v3/mediasoup/api/#router-createPlainRtpTransport)) and then calling [produce()](/documentation/v3/mediasoup/api/#transport-produce) or [consume()](/documentation/v3/mediasoup/api/#transport-consume) on it with the appropriate parameters.
 
 <div markdown="1" class="note">
 Check the [broadcaster example](https://github.com/versatica/mediasoup-demo/tree/v3/broadcasters) (based on FFmpeg) in the mediasoup demo application.
