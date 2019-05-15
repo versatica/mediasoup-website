@@ -168,7 +168,7 @@ await transport.updateIceServers({ iceServers: [ ... ] });
 #### transport.produce(options)
 {: #transport-produce .code}
 
-Instructs the transport to send an audio or video track to the mediasoup router.
+Instructs the transport to send an audio or video track to the mediasoup router. 
 
 <div markdown="1" class="table-wrapper L3">
 

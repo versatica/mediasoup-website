@@ -34,6 +34,17 @@ If video simulcast is desired, `encodings` array must be filled with more than o
 * `active` field must not be set. The library will internally set it to `true`.
 </div>
 
+<div markdown="1" class="note warn">
+The given track will be internally handled by mediasoup-client from now on, meaning that mediasoup-client will call `stop()` on it when the producer is closed or when [producer.replaceTrack()](/documentation/v3/mediasoup-client/api/#producer-replaceTrack) is called.
+
+So, if your application needs to use the track after that, it should clone the original track and pass the cloned one to `transport.produce()`.
+
+```javascript
+const clonedTrack = track.clone();
+const producer = await transport.produce(clonedTrack, ...);
+```
+</div>
+
 #### ProducerCodecOptions
 {: #ProducerCodecOptions .code}
 
