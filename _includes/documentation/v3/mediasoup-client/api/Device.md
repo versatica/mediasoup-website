@@ -86,7 +86,7 @@ The selected handler class name.
 
 ```javascript
 console.log(device.handlerName);
-// => "Chrome75"
+// => "Chrome74"
 ```
 
 #### device.loaded
