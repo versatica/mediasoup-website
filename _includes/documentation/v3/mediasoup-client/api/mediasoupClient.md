@@ -97,6 +97,9 @@ Argument   | Type    | Description | Required | Default
 mediasoup.parseScalabilityMode("L2T3");
 // => { spatialLayers: 2, temporalLayers: 3 }
 
+mediasoup.parseScalabilityMode("S3T3");
+// => { spatialLayers: 3, temporalLayers: 3 }
+
 mediasoup.parseScalabilityMode("L4T7_KEY_SHIFT");
 // => { spatialLayers: 4, temporalLayers: 7 }
 
