@@ -333,11 +333,13 @@
 
 	> .shields {
 		@include flex(0 0 auto);
-		height: 20px;
-		text-align: center;
+		display: flex;
+		min-height: 20px;
 		margin: 2rem 0;
 
 		@include breakpoint($computer) {
+			@include flex-direction(row);
+			@include justify-content(center);
 			@include transition-property(transform);
 			@include transition-duration(0.25s);
 
@@ -346,9 +348,15 @@
 			}
 		}
 
+		@include breakpoint($mobile) {
+			@include flex-direction(column);
+			@include justify-content(center);
+			@include align-items(center);
+		}
+
 		> a.shield {
 			display: inline-block;
-			margin: 0 2px;
+			margin: 2px;
 		}
 	}
 }
