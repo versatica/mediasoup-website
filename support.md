@@ -12,9 +12,7 @@ mediasoup is an Open Source project supported on a best effort basis. Before ask
 
 Use the [mediasoup Discourse Group][mediasoup-discourse-group] for questions and doubts regarding mediasoup and its ecosystem.
 
-<div markdown="1" class="note">
 You can also check for historical discussions in the [mediasoup Google Group][mediasoup-google-group] (previously used as mediasoup support forum).
-</div>
 
 
 ### Bug reports and feature requests
