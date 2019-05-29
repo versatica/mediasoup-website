@@ -117,7 +117,7 @@ Argument   | Type    | Description | Required | Default
 await worker.updateSettings({ logLevel: "warn" });
 ```
 
-#### worker.createRouter({ mediaCodecs })
+#### worker.createRouter(options)
 {: #worker-createRouter .code}
 
 Creates a new router.
@@ -126,18 +126,13 @@ Creates a new router.
 
 Argument      | Type    | Description | Required | Default 
 ------------- | ------- | ----------- | -------- | ----------
-`mediaCodecs` | Array&lt;[RtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCodecCapability)&gt; | Router media codecs. | Yes |
+`options`     | [RouterOptions](#RouterOptions) | Router options. | Yes |
 
 </div>
 
 > `@async`
 > 
 > `@returns` [Router](#Router)
-
-<div markdown="1" class="note">
-* Feature codecs such as RTX **MUST NOT** be placed into the `mediaCodecs` list.
-* If `preferredPayloadType` is given in a `RtpCodecCapability` (although it's unnecessary) it's extremely recommended to use a value in the 96-127 range.
-</div>
 
 ```javascript
 const mediaCodecs =

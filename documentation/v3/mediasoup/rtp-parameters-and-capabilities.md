@@ -19,7 +19,7 @@ RTP capabilities, instead, define what mediasoup or a consumer endpoint can rece
 ## RTP Negotiation Overview
 {: #RTP-Negotiation-Overview}
 
-When a mediasoup [Router](/documentation/v3/mediasoup/api/#Router) is created it's provided with a set of [RTCRtpCodecCapability](#RTCRtpCodecCapability) that define the audio and video codecs enabled in that router. The application then retrieves the computed [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) (which include the router codecs enhanced with retransmission and RTCP capabilities, and the list of RTP header extensions supported by mediasoup) and provides the endpoints with those RTP capabilities.
+When a mediasoup [Router](/documentation/v3/mediasoup/api/#Router) is created it's provided with a set of [RtpCodecCapability](#RtpCodecCapability) that define the audio and video codecs enabled in that router. The application then retrieves the computed [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) (which include the router codecs enhanced with retransmission and RTCP capabilities, and the list of RTP header extensions supported by mediasoup) and provides the endpoints with those RTP capabilities.
 
 The endpoint wishing to send media to mediasoup uses the router's RTP capabilities and its own ones to compute its sending RTP parameters and transmits them to the router (assuming it has already created a transport to send media). The application then creates a [Producer](/documentation/v3/mediasoup/api/#Producer) instance in the router by using the [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) API.
 
@@ -112,7 +112,7 @@ Field              | Type    | Description   | Required | Default
 `payloadType`      | Number  | The value that goes in the RTP Payload Type Field. Must be unique. | Yes |
 `clockRate`        | Number  | Codec clock rate expressed in Hertz. | Yes |
 `channels`         | Number  | The number of channels supported (e.g. two for stereo). Just for audio. | No | 1
-`parameters`       | Object  | Codec-specific parameters available for signaling. Some parameters (such as "packetization-mode" and "profile-level-id" in H264) are critical for codec matching. | No |
+`parameters`       | Object  | Codec-specific parameters available for signaling. Some parameters (such as "packetization-mode" and "profile-level-id" in H264 or "profile-id" in VP9) are critical for codec matching. | No |
 `rtcpFeedback`     | Array&lt;[RtcpFeedback](#RtcpFeedback)&gt; | Transport layer and codec-specific feedback messages for this codec. | No | `[ ]`
 
 </div>
@@ -206,7 +206,8 @@ Provides information on the capabilities of a codec within the RTP capabilities.
 
 Exactly one `RtpCodecCapability` will be present for each supported combination of parameters that requires a distinct value of `preferredPayloadType`. For example:
 
-* Multiple H264 codecs, each with their own distinct "packetization-mode" and "profile-leve-id" values.
+* Multiple H264 codecs, each with their own distinct "packetization-mode" and "profile-level-id" values.
+* Multiple VP9 codecs, each with their own distinct "profile-id" value.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -217,12 +218,12 @@ Field              | Type    | Description   | Required | Default
 `preferredPayloadType` | Number  | The preferred RTP payload type. | Yes |
 `clockRate`        | Number  | Codec clock rate expressed in Hertz. | Yes |
 `channels`         | Number  | The number of channels supported (e.g. two for stereo). Just for audio. | No | 1
-`parameters`           | Object  | Codec specific parameters. Some parameters (such as "packetization-mode" and "profile-level-id" in H264) are critical for codec matching. | No |
+`parameters`           | Object  | Codec specific parameters. Some parameters (such as "packetization-mode" and "profile-level-id" in H264 or "profile-id" in VP9) are critical for codec matching. | No |
 
 </div>
 
 <div markdown="1" class="note">
-`RtpCodecCapability` entries in the `mediaCodecs` argument of [worker.createRouter()](/documentation/v3/mediasoup/api/#worker-createRouter) do not require `preferredPayloadType` field (if unset, mediasoup will choose a random one). If given, make sure it's in the 96-127 range.
+`RtpCodecCapability` entries in the `mediaCodecs` array of [RouterOptions](/documentation/v3/mediasoup/api/#RouterOptions) do not require `preferredPayloadType` field (if unset, mediasoup will choose a random one). If given, make sure it's in the 96-127 range.
 </div>
 
 #### RtpHeaderExtension
@@ -282,6 +283,17 @@ Parameter            | Type    | Description   | Required | Default
 
 <div markdown="1" class="note">
 mediasoup uses the [h264-profile-level-id](https://github.com/ibc/h264-profile-level-id) JavaScript library to evaluate those parameters and perform proper H264 codec matching.
+</div>
+
+#### VP9
+{: #VP9 }
+
+<div markdown="1" class="table-wrapper L3">
+
+Parameter            | Type    | Description   | Required | Default
+-------------------- | ------- | ------------- | -------- | ---------
+"profile-id"         | Number  | VP9 coding profile ([more info](https://www.webmproject.org/vp9/profiles/)). Supported values are 0 and 2. | No | 0
+
 </div>
 
 </section>

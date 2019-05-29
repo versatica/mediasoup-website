@@ -12,6 +12,28 @@ Developers may think of a mediasoup router as if it were a "multi-party conferen
 </section>
 
 
+### Dictionaries
+{: #Router-dictionaries}
+
+<section markdown="1">
+
+#### RouterOptions
+{: #RouterOptions .code}
+
+<div markdown="1" class="table-wrapper L3 M5">
+
+Field         | Type               | Description   | Required | Default
+------------- | ------------------ | ------------- | -------- | ---------
+`mediaCodecs` | Array&lt;[RtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCodecCapability)&gt; | Router media codecs. | Yes |
+
+</div>
+
+<div markdown="1" class="note">
+* Feature codecs such as RTX **MUST NOT** be placed into the `mediaCodecs` list.
+* If `preferredPayloadType` is given in a `RtpCodecCapability` (although it's unnecessary) it's extremely recommended to use a value in the 96-127 range.
+</div>
+
+
 ### Properties
 {: #Router-properties}
 
