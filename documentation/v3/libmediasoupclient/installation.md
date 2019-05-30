@@ -14,7 +14,7 @@ anchors : true
 * `gcc` and `g++` >= 4.9 or `clang` (with C++11 support)
 
 
-## Get libwebrtc
+## Build libwebrtc
 
 libmediasoupclient makes use of [libwebrtc](https://webrtc.org/native-code). Follow the [official instructions](https://webrtc.org/native-code/development/) to build it and make sure the branch `m73` is checked-out and compiled.
 
@@ -23,7 +23,7 @@ Future versions of libmediasoupclient will include a more recent version of libw
 </div>
 
 
-## Get libmediasoupclient
+## Build libmediasoupclient
 
 Get the libmediasoupclient sources via git and check-out the branch `v3`:
 
@@ -33,54 +33,51 @@ $ cd libmediasoupclient/
 $ git checkout v3
 ```
 
-## Building
-
 Within the `libmediasoupclient/` folder:
 
 ```bash
 $ cmake . -Bbuild \
--DLIBWEBRTC_INCLUDE_PATH:PATH=PATH_TO_LIBWEBRTC_SOURCES \
--DLIBWEBRTC_BINARY_PATH:PATH=PATH_TO_LIBWEBRTC_BINARY
+  -DLIBWEBRTC_INCLUDE_PATH:PATH=PATH_TO_LIBWEBRTC_SOURCES \
+  -DLIBWEBRTC_BINARY_PATH:PATH=PATH_TO_LIBWEBRTC_BINARY
 
-# Compile libmediasoupclient.
-$ make -C build/ # or: cd build/ && make
-
-# Optionally install it in the system.
-$ make install -C build/
-# or:
-$ cd build/ && make install
+$ make -C build/
 ```
 
-Depending on the host, it will generate the following static lib and header files:
+Optionally install the library in the system:
+
+```bash
+$ make install -C build/
+```
+
+Depending on the host, it will generate the following static library and header files:
 
 ```
 -- Installing: /usr/local/lib/libmediasoupclient.a
 -- Up-to-date: /usr/local/include/mediasoupclient/mediasoupclient.hpp
 ```
 
-
 #### Building Flags
-{: #Building-Flags .code}
+{: #Building-Flags}
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument        | Type    | Description | Required | Default 
 --------------- | ------- | ----------- | -------- | ----------
-LIBWEBRTC_INCLUDE_PATH | Path | libwebrtc include path. | Yes |
-LIBWEBRTC_BINARY_PATH | Path | libwebrtc binary path. | Yes |
-MEDIASOUPCLIENT_LOG_DEV | Bool | Enables `MSC_LOG_DEV` C++ macro. See [Logger](/documentation/v3/libmediasoupclient/api/#Logger). | No | `false`
-MEDIASOUPCLIENT_LOG_TRACE | Bool | Enables `MSC_LOG_TRACE` C++ macro. See [Logger](/documentation/v3/libmediasoupclient/api/#Logger). | No | `false`
+LIBWEBRTC_INCLUDE_PATH | Path | Path to libwebrtc sources (the `src` folder). | Yes |
+LIBWEBRTC_BINARY_PATH | Path | Path to the libwebrtc static library. | Yes |
+MEDIASOUPCLIENT_LOG_DEV | Bool | Enable `MSC_LOG_DEV` C++ macro. See [Logger](/documentation/v3/libmediasoupclient/api/#Logger). | No | `false`
+MEDIASOUPCLIENT_LOG_TRACE | Bool | Enable `MSC_LOG_TRACE` C++ macro. See [Logger](/documentation/v3/libmediasoupclient/api/#Logger). | No | `false`
+CMAKE_CXX_FLAGS | String | C++ flags (see "Linkage Considerations" section below). | No |
 
 </div>
 
-
-## Linkage Considerations
+#### Linkage Considerations
 
 The application is responsible for defining the symbol visibility of the resulting binary. Symbol visibility mismatch among different libraries will generate plenty of linker warnings such us the one below:
 
 ```
 ld: warning: direct access in function 'webrtc::I010Buffer::Rotate(webrtc::I010BufferInterface const&, webrtc::VideoRotation)'
-from file '/Users/jmillan/src/webrtc-checkout/src/out/m73/obj/libwebrtc.a(i010_buffer.o)'
+from file '/home/foo/src/webrtc-checkout/src/out/mybuild-m73/obj/libwebrtc.a(i010_buffer.o)'
 to global weak symbol 'void rtc::webrtc_checks_impl::LogStreamer<>::Call<>(char const*, int, char const*)::t'
 from file '../libmediasoupclient.a(PeerConnection.cpp.o)' means the weak symbol cannot be overridden at runtime.
 This was likely caused by different translation units being compiled with different visibility settings.
@@ -90,14 +87,45 @@ In order to avoid such warnings make sure the corresponding visibility compilati
 
 ```bash
 cmake . -Bbuild \
--DLIBWEBRTC_INCLUDE_PATH:PATH=PATH_TO_LIBWEBRTC_SOURCES \
--DLIBWEBRTC_BINARY_PATH:PATH=PATH_TO_LIBWEBRTC_BINARY \
--DCMAKE_CXX_FLAGS="-fvisibility=hidden"
+  -DLIBWEBRTC_INCLUDE_PATH:PATH=PATH_TO_LIBWEBRTC_SOURCES \
+  -DLIBWEBRTC_BINARY_PATH:PATH=PATH_TO_LIBWEBRTC_BINARY \
+  -DCMAKE_CXX_FLAGS="-fvisibility=hidden"
 ```
+
+## Build Example
+
+Building libwebrtc and libmediasoupclient in OSX may look as follows:
+
+```bash
+$ cd /home/foo/src
+$ mkdir webrtc-checkout
+$ cd webrtc-checkout
+$ fetch --nohooks webrtc
+$ gclient sync
+$ cd src
+$ git checkout -b m73 refs/remotes/branch-heads/m73
+$ gn gen out/mybuild-m73 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.11"'
+$ ninja -C out/mybuild-m73
+```
+
+```bash
+$ cd /home/foo/src/libmediasoupclient
+
+$ cmake . -Bbuild \
+  -DLIBWEBRTC_INCLUDE_PATH:PATH=/home/foo/src/webrtc-checkout/src \
+  -DLIBWEBRTC_BINARY_PATH:PATH=/home/foo/src/webrtc-checkout/src/out/mybuild-m73/obj/libwebrtc.a
+
+$ make -C build/
+```
+
+<div markdown="1" class="note">
+Please, check the [official instructions](https://webrtc.org/native-code/development/) to build libwebrtc and do **NOT** take this example as a reference.
+</div>
+
 
 ## Usage
 
-Once installed include the library into your C++ application:
+Once installed include the libmediasoupclient library into your C++ application:
 
 ```c++
 #include "libmediasoupclient/mediasoupclient.hpp"
