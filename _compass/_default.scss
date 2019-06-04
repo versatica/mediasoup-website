@@ -337,6 +337,27 @@
 		}
 	}
 
+	.computer-icon-text-columns {
+		@include breakpoint($computer) {
+			@include display-flex;
+			@include flex-direction(row);
+			@include justify-content(center);
+			@include align-items(center);
+
+			> .icon {
+				@include flex(0 0 auto);
+
+				* {
+					float: none !important;
+				}
+			}
+
+			> .text {
+				@include flex(100 100 auto);
+			}
+		}
+	}
+
 	img {
 		vertical-align: bottom;
 
@@ -361,6 +382,10 @@
 			height: 64px;
 			margin-top: 1.5em;
 			margin-bottom: 1.5em;
+
+			* {
+				float: none !important;
+			}
 		}
 
 		&.full-width {
@@ -374,6 +399,7 @@
 	// Convert the <hr> (line) into a vertical space.
 	hr {
 		margin: 1rem 0 !important;
+		clear: both;
 		visibility: hidden;
 	}
 
