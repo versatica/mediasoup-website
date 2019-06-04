@@ -348,6 +348,8 @@
 				@include flex(0 0 auto);
 
 				* {
+					margin-top: 0 !important;
+					margin-bottom: 0 !important;
 					float: none !important;
 				}
 			}
