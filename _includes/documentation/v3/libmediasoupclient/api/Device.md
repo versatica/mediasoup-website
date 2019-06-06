@@ -143,7 +143,7 @@ Argument         | Type    | Description   | Required | Default
 `iceParameters`  | const nlohmann::json& [IceParameters](/documentation/v3/mediasoup/api/#WebRtcTransportIceParameters) | ICE parameters of the server side transport. | Yes   |
 `iceCandidates`  | const nlohmann::json& Array&lt;[IceCandidate](/documentation/v3/mediasoup/api/#WebRtcTransportIceCandidate)&gt; | ICE candidates of the server side transport. | Yes   |
 `dtlsParameters` | const nlohmann::json& [DtlsParameters](/documentation/v3/mediasoup/api/#WebRtcTransportDtlsParameters) | DTLS parameters of the server side transport. | Yes   |
-`peerConnectionOptions` | [PeerConnection::Options](#PeerConnectionOptions) | PeerConnection options. | No   |
+`peerConnectionOptions` | [PeerConnection::Options\*](#PeerConnectionOptions) | PeerConnection options. | No   |
 `appData`       | nlohmann::json  | Custom application data. | No | `{ }`
 
 </div>
