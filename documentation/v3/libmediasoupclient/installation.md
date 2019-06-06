@@ -16,10 +16,10 @@ anchors : true
 
 ## Build libwebrtc
 
-libmediasoupclient makes use of [libwebrtc](https://webrtc.org/native-code). Follow the [official instructions](https://webrtc.org/native-code/development/) to build it and make sure the branch `m73` is checked-out and compiled.
+libmediasoupclient makes use of [libwebrtc](https://webrtc.org/native-code). Follow the [official instructions](https://webrtc.org/native-code/development/) to build it and make sure the branch `m74` is checked-out and compiled.
 
 <div markdown="1" class="note">
-Future versions of libmediasoupclient will include a more recent version of libwebrtc. For now, `m73` branch is required.
+Future versions of libmediasoupclient will include a more recent version of libwebrtc. For now, `m74` branch is required.
 </div>
 
 
@@ -71,13 +71,13 @@ CMAKE_CXX_FLAGS | String | C++ flags (see "Linkage Considerations" section below
 
 </div>
 
-#### Linkage Considerations
+#### Linkage Considerations (1)
 
 The application is responsible for defining the symbol visibility of the resulting binary. Symbol visibility mismatch among different libraries will generate plenty of linker warnings such us the one below:
 
 ```
 ld: warning: direct access in function 'webrtc::I010Buffer::Rotate(webrtc::I010BufferInterface const&, webrtc::VideoRotation)'
-from file '/home/foo/src/webrtc-checkout/src/out/mybuild-m73/obj/libwebrtc.a(i010_buffer.o)'
+from file '/home/foo/src/webrtc-checkout/src/out/mybuild-m74/obj/libwebrtc.a(i010_buffer.o)'
 to global weak symbol 'void rtc::webrtc_checks_impl::LogStreamer<>::Call<>(char const*, int, char const*)::t'
 from file '../libmediasoupclient.a(PeerConnection.cpp.o)' means the weak symbol cannot be overridden at runtime.
 This was likely caused by different translation units being compiled with different visibility settings.
@@ -92,6 +92,12 @@ cmake . -Bbuild \
   -DCMAKE_CXX_FLAGS="-fvisibility=hidden"
 ```
 
+#### Linkage Considerations (2)
+
+Linkage errors may happen if libwebrtc and libmediasoupclient are not compiled with the same C++ standard library.
+
+Build libwebrtc with the 'use_custom_libcxx=false' `gn gen` argument to force it use of the system libstdc++.
+
 ## Build Example
 
 Building libwebrtc and libmediasoupclient in OSX may look as follows:
@@ -103,9 +109,9 @@ $ cd webrtc-checkout
 $ fetch --nohooks webrtc
 $ gclient sync
 $ cd src
-$ git checkout -b m73 refs/remotes/branch-heads/m73
-$ gn gen out/mybuild-m73 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.11"'
-$ ninja -C out/mybuild-m73
+$ git checkout -b m74 refs/remotes/branch-heads/m74
+$ gn gen out/mybuild-m74 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.11" use_custom_libcxx=false'
+$ ninja -C out/mybuild-m74
 ```
 
 ```bash
@@ -113,7 +119,7 @@ $ cd /home/foo/src/libmediasoupclient
 
 $ cmake . -Bbuild \
   -DLIBWEBRTC_INCLUDE_PATH:PATH=/home/foo/src/webrtc-checkout/src \
-  -DLIBWEBRTC_BINARY_PATH:PATH=/home/foo/src/webrtc-checkout/src/out/mybuild-m73/obj
+  -DLIBWEBRTC_BINARY_PATH:PATH=/home/foo/src/webrtc-checkout/src/out/mybuild-m74/obj
 
 $ make -C build/
 ```
