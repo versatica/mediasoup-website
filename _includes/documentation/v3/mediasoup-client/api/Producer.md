@@ -28,10 +28,20 @@ Field           | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
+**Simulcast**
+
 If video simulcast is desired, `encodings` array must be filled with more than one encodings. Each encoding represents a simulcast RTP stream:
 * The order of the encodings is important. The entry with index 0 represents the simulcast stream with lowest bitrate. The entry with index N-1 (being N the number of entries) represents the simulcast stream with highest bitrate. Take this into account when writting per encoding settings such as `maxBitrate`, `maxFramerate` or `scaleResolutionDownBy`.
 * `rid` field must not be set. The library will internally add it if the underlying browser supports RID.
 * `active` field must not be set. The library will internally set it to `true`.
+
+Check the mediasoup [Simulcast](/documentation/v3/mediasoup/rtp-parameters-and-capabilities#Simulcast) documentation for for information.
+
+**SVC**
+
+If video SVC is desired, `encodings` array must contain a single entry with `active: true` and `scalabilityMode` indicating the number of spatial and temporal layers.
+
+Check the mediasoup [SVC](/documentation/v3/mediasoup/rtp-parameters-and-capabilities#SVC) documentation for for information.
 </div>
 
 <div markdown="1" class="note warn">
