@@ -321,7 +321,7 @@ Parameter      | Type    | Description   | Required | Default
 ## Simulcast
 {: #Simulcast}
 
-Simulcast involves sending N separate video RTP streams (so N different SSRCs) over the same transport. If RTX is used, there would also be N additional RTP RTX streams, one for each media RTP stream. Each media RTP stream may also contain M temporal layers.
+Simulcast involves sending N separate video RTP streams (so N different SSRCs) representing N different qualities of the same video source. If RTX is used, there would also be N additional RTP RTX streams, one for each media RTP stream. Each media RTP stream may also contain M temporal layers.
 
 <div markdown="1" class="note">
 Currently mediasoup supports simulcast (optionally with M temporal layers) for VP8 and H264 codecs.
