@@ -113,7 +113,7 @@ $ cd /home/foo/src/libmediasoupclient
 
 $ cmake . -Bbuild \
   -DLIBWEBRTC_INCLUDE_PATH:PATH=/home/foo/src/webrtc-checkout/src \
-  -DLIBWEBRTC_BINARY_PATH:PATH=/home/foo/src/webrtc-checkout/src/out/mybuild-m73/obj/libwebrtc.a
+  -DLIBWEBRTC_BINARY_PATH:PATH=/home/foo/src/webrtc-checkout/src/out/mybuild-m73/obj
 
 $ make -C build/
 ```
