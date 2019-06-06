@@ -22,7 +22,7 @@ Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
 `producerId`    | String  | The id of the producer to consume. | Yes |
 `rtpCapabilities` | [RtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCapabilities) | RTP capabilities of the consuming endpoint. | Yes |
-`paused`        | Boolean | Whether the consumer must start in paused mode. | No | `false`
+`paused`        | Boolean | Whether the consumer must start in paused mode. See note below. | No | `false`
 `preferredLayers` | [ConsumerLayers](#ConsumerLayers) | Preferred spatial and temporal layer for simulcast or SVC media sources. If unset, the highest ones are selected. | No |
 `appData`       | Object  | Custom application data. | No | `{ }`
 
@@ -30,6 +30,12 @@ Field           | Type    | Description   | Required | Default
 
 <div markdown="1" class="note">
 Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
+</div>
+
+<div markdown="1" class="note">
+When creating a video consumer, it's recommended to set `paused` to `true`, then transmit the consumer parameters to the consuming endpoint and, once the consuming endpoint has created its local side consumer, unpause the server side consumer using the [resume()](#consumer-resume) method.
+
+This is an optimization to make it possible for the consuming endpoint to render the video as far as possible. If the server side consumer was created with `paused: false`, mediasoup will immediately request a key frame to the producer and that key frame may reach the consuming endpoint even before it's ready to consume it, generating "black" video until the device requests a keyframe by itself. 
 </div>
 
 #### ConsumerLayers

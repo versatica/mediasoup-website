@@ -401,15 +401,15 @@ SVC involves sending a single RTP stream with N spatial layers and M temporal la
 mediasoup implements two types of SVC, full SVC and K-SVC. The main difference is that, in K-SVC, a RTP key frame is required in order to up/down switch the maximun spatial layer that mediasoup forwards to a consumer. For more information about SVC in WebRTC check the [webrtc-svc](https://w3c.github.io/webrtc-svc) specification (work in progress).
 
 <div markdown="1" class="note">
-Currently mediasoup supports SVC for VP9 codec in both, full SVC and K-SVC modes. See below for more information about current state of the art in existing implementations.
+Currently mediasoup supports SVC for VP9 codec in both, full SVC and K-SVC modes. See [below](#SVC-State-of-the-Art) for more information about current state of the art in existing implementations.
 </div>
 
 When creating a SVC producer, the associated [rtpParameters](#RtpSendParameters) given to [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) must conform to the following rules:
 
 * There must be just one entry in the `encodings` array.
-* Such a encoding must must include a [scalabilityMode](https://w3c.github.io/webrtc-svc/#rtcrtpencodingparameters) field.
+* Such a encoding must include a [scalabilityMode](https://w3c.github.io/webrtc-svc/#rtcrtpencodingparameters) field.
 
-SVC consumers will just get a single stream and hence a single entry in their `rtpParameters.encodings` array. Such a encoding entry has a `scalabilityMode` value that determines the number of available spatial and temporal layers.
+SVC consumers will get a single stream and hence a single entry in their `rtpParameters.encodings` array. Such a encoding entry has a `scalabilityMode` value that determines the number of available spatial and temporal layers (same value as in the associated producer).
 
 ### Examples
 {: #SVC-Examples}
@@ -490,13 +490,13 @@ It's important to notice that, currently, libwebrtc uses VP9 K-SVC when transmit
 * Webcam video (K-SVC) with 3 spatial layers and 3 temporal layers:
 
 ```js
-scalabilityMode: 'L3T3_KEY'`
+scalabilityMode: 'L3T3_KEY'
 ```
 
 * Desktop sharing (full SVC) with 3 spatial layers and 3 temporal layers:
 
 ```js
-scalabilityMode: 'L3T3'`
+scalabilityMode: 'L3T3'
 ```
 
 </section>
