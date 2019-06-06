@@ -67,10 +67,10 @@ Field              | Type    | Description   | Required | Default
 The RTP send parameters describe a media stream received by mediasoup from an endpoint through its corresponding mediasoup [Producer](/documentation/v3/mediasoup/api/#Producer).
 
 * These parameters may include a `mid` value that the mediasoup transport will use to match received RTP packets based on their MID RTP extension value.
-* mediasoup allows RTP send parameters with a single encoding and with multiple encodings (simulcast). In the latter case, each entry in the `encodings` array must include a `ssrc` field or a `rid` field (the RID RTP extension value) to help the mediasoup producer identify which RTP stream each packet belongs to.
+* mediasoup allows RTP send parameters with a single encoding and with multiple encodings (simulcast). In the latter case, each entry in the `encodings` array must include a `ssrc` field or a `rid` field (the RID RTP extension value).
 
 <div markdown="1" class="note">
-When simulcast is enabled (there is more than one entry in the `encodings` array) mediasoup assumes that each encoding represents a "spatial layer" and that those entries are ordered from lowest to highest resolution (`encodings[0]` means "spatial layer 0" while `encodings[N]` means "spatial layer N").
+Check the [Simulcast](#Simulcast) and [SVC](#SVC) sections for more information.
 </div>
 
 #### RtpReceiveParameters
@@ -153,10 +153,7 @@ Field             | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-When creating a mediasoup producer:
-
-* If `rtpParameters` contains `mid` and `encodings` has a single entry, neither `ssrc` nor `rid` are mandatory in the single encoding.
-* In `encodings` with multiple entries (simulcast), `ssrc` or `rid` must be specified in each encoding.
+Check the [Simulcast](#Simulcast) and [SVC](#SVC) sections for more information.
 </div>
 
 #### RtpHeaderExtensionParameters
@@ -317,5 +314,189 @@ Parameter      | Type    | Description   | Required | Default
 "usedtx"        | Number | If 1, mediasoup will not consider the stream as inactive when there is no RTP traffic. Same behavior is achieved by indicating `dtx`: `true` in the corresponding encoding in the RTP send parameters. | No | 0
 
 </div>
+
+</section>
+
+
+## Simulcast
+{: #Simulcast}
+
+Simulcast involves sending N separate video RTP streams (so N different SSRCs) over the same transport. If RTX is used, there would also be N additional RTP RTX streams, one for each media RTP stream. Each media RTP stream may also contain M temporal layers.
+
+<div markdown="1" class="note">
+Currently mediasoup supports simulcast (optionally with M temporal layers) for VP8 and H264 codecs.
+</div>
+
+When creating a simulcast producer, the associated [rtpParameters](#RtpSendParameters) given to [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) must conform to the following rules:
+
+* There must be N > 1 entries in the `encodings` array.
+* Each encoding must include a `ssrc` field or a `rid` field (the RID RTP extension value) to help the mediasoup producer identify which RTP stream each packet belongs to.
+* Each encoding represents a "spatial layer". Entries in `encodings` must be ordered from lowest to highest resolution (`encodings[0]` means "spatial layer 0" while `encodings[N-1]` means "spatial layer N-1", being N the number of simulcast streams).
+* If the streams have M temporal layers, those must be signaled in each encoding within the [scalabilityMode](https://w3c.github.io/webrtc-svc/#rtcrtpencodingparameters) field.
+  * Since each stream has a single spatial layer, "S" must be 1.
+
+Simulcast consumers will just get a single stream and hence a single entry in their `rtpParameters.encodings` array. Such a encoding entry has a `scalabilityMode` value that determines the number of spatial layers (number of simulcast streams in the producer) and the number of temporal layers.
+
+
+### Examples
+{: #Simulcast-Examples}
+
+The following examples just show the `rtpParameters.encodings` field and, for simplicity, do not include RTX information.
+
+<section markdown="1">
+
+#### Simulcast with 3 streams using SSRCs
+
+* Producer:
+
+```js
+encodings :
+[
+  { ssrc: 111110 },
+  { ssrc: 111111 },
+  { ssrc: 111112 }
+]
+```
+
+* Consumer:
+
+```js
+encodings :
+[
+  { ssrc: 222220, scalabilityMode: 'S3T1' }
+]
+```
+
+#### Simulcast with 4 streams and 3 temporal layers using RID
+
+Producer:
+
+```js
+encodings :
+[
+  { rid: 'r0', scalabilityMode: 'S1T3' },
+  { rid: 'r1', scalabilityMode: 'S1T3' },
+  { rid: 'r2', scalabilityMode: 'S1T3' },
+  { rid: 'r3', scalabilityMode: 'S1T3' }
+]
+```
+
+Consumer:
+
+```js
+encodings :
+[
+  { ssrc: 222220, scalabilityMode: 'S4T3' }
+]
+```
+
+</section>
+
+
+## SVC
+{: #SVC}
+
+SVC involves sending a single RTP stream with N spatial layers and M temporal layers. If RTX is used, there would also be an additional RTP RTX stream.
+
+mediasoup implements two types of SVC, full SVC and K-SVC. The main difference is that, in K-SVC, a RTP key frame is required in order to up/down switch the maximun spatial layer that mediasoup forwards to a consumer. For more information about SVC in WebRTC check the [webrtc-svc](https://w3c.github.io/webrtc-svc) specification (work in progress).
+
+<div markdown="1" class="note">
+Currently mediasoup supports SVC for VP9 codec in both, full SVC and K-SVC modes. See below for more information about current state of the art in existing implementations.
+</div>
+
+When creating a SVC producer, the associated [rtpParameters](#RtpSendParameters) given to [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) must conform to the following rules:
+
+* There must be just one entry in the `encodings` array.
+* Such a encoding must must include a [scalabilityMode](https://w3c.github.io/webrtc-svc/#rtcrtpencodingparameters) field.
+
+SVC consumers will just get a single stream and hence a single entry in their `rtpParameters.encodings` array. Such a encoding entry has a `scalabilityMode` value that determines the number of available spatial and temporal layers.
+
+### Examples
+{: #SVC-Examples}
+
+The following examples just show the `rtpParameters.encodings` field and, for simplicity, do not include RTX information.
+
+<section markdown="1">
+
+#### Full SVC with 3 spatial layers and 2 temporal layers
+
+Producer:
+
+```js
+encodings :
+[
+  { ssrc: 111110, scalabilityMode: 'L3T2' }
+]
+```
+
+Consumer:
+
+```js
+encodings :
+[
+  { ssrc: 222220, scalabilityMode: 'L3T2' }
+]
+```
+
+#### K-SVC with 4 spatial layers and 5 temporal layers
+
+Producer:
+
+```js
+encodings :
+[
+  { ssrc: 111110, scalabilityMode: 'L4T5_KEY' }
+]
+```
+
+Consumer:
+
+```js
+encodings :
+[
+  { ssrc: 222220, scalabilityMode: 'L4T5_KEY' }
+]
+```
+
+</section>
+
+### State of the Art
+{: #SVC-State-of-the-Art}
+
+SVC is not yet properly defined for WebRTC and it's not covered by the WebRTC 1.0 specification.
+
+<section markdown="1">
+
+#### libwebrtc
+
+VP9 SVC is currently implemented in libwebrtc behind a flag whose value determines the number of spatial and temporal layers:
+
+```
+WebRTC-SupportVP9SVC/EnabledByFlag_3SL3TL/
+```
+
+To enable VP9 SVC in Chrome, the browser must be launched with the following command line argument:
+
+```
+--force-fieldtrials=WebRTC-SupportVP9SVC/EnabledByFlag_3SL3TL/
+```
+
+<div markdown="1" class="note">
+Note that, instead of `EnabledByFlag_3SL3TL`, other variations are valid (such as `EnabledByFlag_2SL1TL`, etc). The thing here is that the `scalabilityMode` value in the producer must match the number of spatial and temporal layers in the flag.
+</div>
+
+It's important to notice that, currently, libwebrtc uses VP9 K-SVC when transmitting the webcam video and full SVC when doing screen sharing. This **must** be properly signaled in the `scalabilityMode` of the mediasoup producer (otherwise things won't work):
+
+* Webcam video (K-SVC) with 3 spatial layers and 3 temporal layers:
+
+```js
+scalabilityMode: 'L3T3_KEY'`
+```
+
+* Desktop sharing (full SVC) with 3 spatial layers and 3 temporal layers:
+
+```js
+scalabilityMode: 'L3T3'`
+```
 
 </section>
