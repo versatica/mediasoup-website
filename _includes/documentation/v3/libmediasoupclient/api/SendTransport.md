@@ -29,7 +29,7 @@ Argument    | Type    | Description | Required | Default
 `listener`      | [Producer::Listener](#ProducerListener) | Producer listener. | Yes |
 `track`         | webrtc::MediaStreamTrackInterface* | An audio or video track. | Yes |
 `encodings`     | const std::vector\<webrtc::RtpEncodingParameters\>* | Encoding settings. | No |
-`codecOptions`  | nlohmann::json* [ProducerCodecOptions](#ProducerCodecOptions) | Per codec specific options. | No | `[ ]`
+`codecOptions`  | [ProducerCodecOptions](#ProducerCodecOptions) | Per codec specific options. | No | `[ ]`
 `appData`       | nlohmann::json  | Custom application data. | No | `{ }`
 
 </div>
