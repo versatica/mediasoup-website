@@ -16,6 +16,8 @@ A producer represents an audio or video source that will be transmitted to the m
 #### ProducerCodecOptions
 {: #ProducerCodecOptions .code}
 
+@type nlohmann::json
+
 <div markdown="1" class="table-wrapper L3">
 
 Field           | Type    | Description   | Required | Default

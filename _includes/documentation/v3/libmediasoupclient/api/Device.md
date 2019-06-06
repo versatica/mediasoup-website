@@ -20,6 +20,8 @@ This is the entry point for C++ client side applications.
 #### PeerConnection::Options
 {: #PeerConnectionOptions .code}
 
+@type nlohmann::json
+
 <div markdown="1" class="table-wrapper L3">
 
 Field           | Type    | Description   | Required | Default
