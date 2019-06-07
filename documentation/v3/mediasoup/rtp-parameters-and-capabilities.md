@@ -492,8 +492,13 @@ To enable VP9 SVC in Chrome, the browser must be launched with the following com
 --force-fieldtrials=WebRTC-SupportVP9SVC/EnabledByFlag_3SL3TL/
 ```
 
-<div markdown="1" class="note">
 Note that, instead of `EnabledByFlag_3SL3TL`, other variations are valid (such as `EnabledByFlag_2SL1TL`, etc). The thing here is that the `scalabilityMode` value in the producer must match the number of spatial and temporal layers in the flag.
+
+<div markdown="1" class="note">
+**NOTE:** If you are Google you don't need to launch Chrome via command line with the "WebRTC-SupportVP9SVC" flag:
+https://twitter.com/ibc_tw/status/1136968240415072256
+
+But you are not Google, right?
 </div>
 
 It's important to notice that, currently, libwebrtc uses VP9 K-SVC when transmitting the webcam video and full SVC when doing screen sharing. This **must** be properly signaled in the `scalabilityMode` of the mediasoup producer (otherwise things won't work):
