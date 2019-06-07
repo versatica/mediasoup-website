@@ -493,7 +493,7 @@ It's important to notice that, currently, libwebrtc uses VP9 K-SVC when transmit
 scalabilityMode: 'L3T3_KEY'
 ```
 
-* Desktop sharing (full SVC) with 3 spatial layers and 3 temporal layers:
+* Screen sharing (full SVC) with 3 spatial layers and 3 temporal layers:
 
 ```js
 scalabilityMode: 'L3T3'
