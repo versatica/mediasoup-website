@@ -332,10 +332,21 @@ When creating a simulcast producer, the associated [rtpParameters](#RtpSendParam
 * There must be N > 1 entries in the `encodings` array.
 * Each encoding must include a `ssrc` field or a `rid` field (the RID RTP extension value) to help the mediasoup producer identify which RTP stream each packet belongs to.
 * Each encoding represents a "spatial layer". Entries in `encodings` must be ordered from lowest to highest resolution (`encodings[0]` means "spatial layer 0" while `encodings[N-1]` means "spatial layer N-1", being N the number of simulcast streams).
-* If the streams have M temporal layers, those must be signaled in each encoding within the [scalabilityMode](https://w3c.github.io/webrtc-svc/#rtcrtpencodingparameters) field.
-  * Since each stream has a single spatial layer, "S" must be 1.
+* If the streams have M temporal layers, those must be signaled in each encoding within the [scalabilityMode](https://w3c.github.io/webrtc-svc/#rtcrtpencodingparameters) field:
+  * Since each stream has a single spatial layer, S must be 1.
+  * If there are not temporal layers, the `scalabilityMode` field can be omitted (it defaults to "S1T1", this is, one spatial layer and one temporal layer).
+
+<div markdown="1" class="note">
+Regarding the `scalabilityMode` syntax, mediasoup uses S for independent spatial layers (simulcast) and L for dependent spatial layers (SVC).
+</div>
 
 Simulcast consumers will just get a single stream and hence a single entry in their `rtpParameters.encodings` array. Such a encoding entry has a `scalabilityMode` value that determines the number of spatial layers (number of simulcast streams in the producer) and the number of temporal layers.
+
+<div markdown="1" class="note">
+To clarify, if the producer uses simulcast with 3 streams (3 SSRCs), mediasoup will forward a single and continuous stream (1 SSRC) to the consumer.
+
+The encoding entry in `rtpParameters.encodings` of the consumer contains a `scalabilityMode` field whose S value (number of independent spatial layers) matches the number of streams in the producer, and whose T value (number of temporal layers) matches the number of temporal layers in each stream in the producer.
+</div>
 
 
 ### Examples
@@ -369,7 +380,7 @@ encodings :
 
 #### Simulcast with 4 streams and 3 temporal layers using RID
 
-Producer:
+* Producer:
 
 ```js
 encodings :
@@ -381,7 +392,7 @@ encodings :
 ]
 ```
 
-Consumer:
+* Consumer:
 
 ```js
 encodings :
@@ -420,7 +431,7 @@ The following examples just show the `rtpParameters.encodings` field and, for si
 
 #### Full SVC with 3 spatial layers and 2 temporal layers
 
-Producer:
+* Producer:
 
 ```js
 encodings :
@@ -429,7 +440,7 @@ encodings :
 ]
 ```
 
-Consumer:
+* Consumer:
 
 ```js
 encodings :
@@ -440,7 +451,7 @@ encodings :
 
 #### K-SVC with 4 spatial layers and 5 temporal layers
 
-Producer:
+* Producer:
 
 ```js
 encodings :
@@ -449,7 +460,7 @@ encodings :
 ]
 ```
 
-Consumer:
+* Consumer:
 
 ```js
 encodings :
