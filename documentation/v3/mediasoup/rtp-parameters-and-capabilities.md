@@ -478,30 +478,14 @@ SVC is not yet properly defined for WebRTC and it's not covered by the WebRTC 1.
 
 <section markdown="1">
 
-#### libwebrtc
+#### Chrome
 
-VP9 SVC is currently implemented in libwebrtc behind a flag whose value determines the number of spatial and temporal layers:
+mediasoup-client >= 3.1.0 enables VP9 SVC in Chrome >= M74 by doing dirty things:
 
-```
-WebRTC-SupportVP9SVC/EnabledByFlag_3SL3TL/
-```
+* [Commit](https://github.com/versatica/mediasoup-client/commit/7fe828181361e30d2157659b2aa7f516366beb69?ts=2)
+* [Discussion in Twitter](https://twitter.com/ibc_tw/status/1136968240415072256)
 
-To enable VP9 SVC in Chrome, the browser must be launched with the following command line argument:
-
-```
---force-fieldtrials=WebRTC-SupportVP9SVC/EnabledByFlag_3SL3TL/
-```
-
-Note that, instead of `EnabledByFlag_3SL3TL`, other variations are valid (such as `EnabledByFlag_2SL1TL`, etc). The thing here is that the `scalabilityMode` value in the producer must match the number of spatial and temporal layers in the flag.
-
-<div markdown="1" class="note">
-**NOTE:** If you are Google you don't need to launch Chrome via command line with the "WebRTC-SupportVP9SVC" flag:
-https://twitter.com/ibc_tw/status/1136968240415072256
-
-But you are not Google, right?
-</div>
-
-It's important to notice that, currently, libwebrtc uses VP9 K-SVC when transmitting the webcam video and full SVC when doing screen sharing. This **must** be properly signaled in the `scalabilityMode` of the mediasoup producer (otherwise things won't work):
+It's important to notice that Chrome uses VP9 K-SVC when transmitting the webcam video and full SVC when doing screen sharing. This **must** be properly signaled in the `scalabilityMode` of the mediasoup producer (otherwise things won't work):
 
 * Webcam video (K-SVC) with 3 spatial layers and 3 temporal layers:
 
@@ -514,5 +498,27 @@ scalabilityMode: 'L3T3_KEY'
 ```js
 scalabilityMode: 'L3T3'
 ```
+
+#### libwebrtc
+
+VP9 SVC can also be enabled in Chrome and in libwebrtc based native apps via a flag whose value determines the number of spatial and temporal layers:
+
+```
+WebRTC-SupportVP9SVC/EnabledByFlag_3SL3TL/
+```
+
+To enable VP9 SVC in Chrome, the browser must be launched with the following command line argument:
+
+```
+--force-fieldtrials=WebRTC-SupportVP9SVC/EnabledByFlag_3SL3TL/
+```
+
+To enable VP9 SVC using the libwebrtc C++ API:
+
+```c++
+webrtc::field_trial::InitFieldTrialsFromString("WebRTC-SupportVP9SVC/EnabledByFlag_3SL3TL/");
+```
+
+Note that, instead of `EnabledByFlag_3SL3TL`, other variations are valid (such as `EnabledByFlag_2SL1TL`, etc). The thing here is that the `scalabilityMode` value in the producer must match the number of spatial and temporal layers in the flag.
 
 </section>
