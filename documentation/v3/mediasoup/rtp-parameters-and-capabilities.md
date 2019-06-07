@@ -480,7 +480,7 @@ SVC is not yet properly defined for WebRTC and it's not covered by the WebRTC 1.
 
 #### Chrome
 
-mediasoup-client >= 3.1.0 enables VP9 SVC in Chrome >= M74 by doing dirty things:
+mediasoup-client >= 3.1.0 enables VP9 SVC in Chrome >= M74 (without any command line flag) by doing dirty things:
 
 * [Commit](https://github.com/versatica/mediasoup-client/commit/7fe828181361e30d2157659b2aa7f516366beb69?ts=2)
 * [Discussion in Twitter](https://twitter.com/ibc_tw/status/1136968240415072256)
