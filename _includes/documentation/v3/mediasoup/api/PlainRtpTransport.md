@@ -31,9 +31,10 @@ Field         | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-Note that `comedia` mode just makes sense when the remote endpoint is gonna produce RTP on this plain RTP transport. Otherwise, if the remote endpoint does not send any RTP packet to mediasoup, there is no way to detect its remote RTP IP and port, so the endpoint won't receive any packet from mediasoup.
+* Note that `comedia` mode just makes sense when the remote endpoint is gonna produce RTP on this plain RTP transport. Otherwise, if the remote endpoint does not send any RTP packet to mediasoup, there is no way to detect its remote RTP IP and port, so the endpoint won't receive any packet from mediasoup.
+  * In other words, do not use `comedia` mode if the remote endpoint is not going to produce RTP but just consume it. In those cases, do not set `comedia` flag and call [connect()](#plainRtpTransport-connect) with the IP and port(s) of the remote endpoint. 
 
-In other words, do not use `comedia` mode if the remote endpoint is not going to produce RTP but just consume it. In those cases, do not set `comedia` flag and call [connect()](#plainRtpTransport-connect) with the IP and port(s) of the remote endpoint. 
+* When `multiSource` is set, the producer endpoint won't receive any RTCP packet from mediasoup. Try to avoid `multiSource` if possible. In case of video, if the producer does not send periodic video key frames, consumers will have problems to render the video (since RTCP PLI or FIR cannot be delivered to the producer if `multiSource` is set).
 </div>
 
 
