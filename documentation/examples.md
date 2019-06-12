@@ -40,6 +40,24 @@ Made by [mediasoup authors](https://github.com/versatica), this project is a
 A minimal Client/Server app based on Mediasoup and Socket.io made by [@mkhahani](https://github.com/mkhahani).
 
 
+### daily-co/mediasoup-sandbox
+
+**Project:** [https://github.com/daily-co/mediasoup-sandbox/tree/master/single-page](https://github.com/daily-co/mediasoup-sandbox/tree/master/single-page) (uses mediasoup v3)
+
+Sample code with the the simplest possible signaling, and fewest possible dependencies, for cross-browser testing of:
+
+* Sending/receiving audio and video tracks
+* Switching to a different input device and replacing a track
+* Screen sharing
+* Subscribing to and unsubscribing from tracks
+* Pausing tracks for sender and receiver independently
+* Simulcast
+* Setting maximum simulcast layer when sending
+* Setting maximum simulcast layer when receiving
+* Display of stats
+* Display of "active speaker"
+
+
 ### footniko/mediasoup-sample
 
 **Project:** [https://github.com/footniko/mediasoup-sample](https://github.com/footniko/mediasoup-sample) (uses mediasoup v2)
