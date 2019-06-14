@@ -282,6 +282,12 @@ Parameter            | Type    | Description   | Required | Default
 mediasoup uses the [h264-profile-level-id](https://github.com/ibc/h264-profile-level-id) JavaScript library to evaluate those parameters and perform proper H264 codec matching.
 </div>
 
+<div markdown="1" class="note warn">
+Depending the negotiated H264 "packetization-mode" and "profile-level-id", Chrome may use OpenH264 software encoder or H264 external hardware encoder. In the latter case, Chrome will **NOT** generate simulcast but a single stream.
+
+See the reported [issue](https://bugs.chromium.org/p/webrtc/issues/detail?id=10747) for for information.
+</div>
+
 #### VP9
 {: #VP9 }
 
