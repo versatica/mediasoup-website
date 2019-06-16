@@ -238,7 +238,7 @@ ffmpeg \
 <div markdown="1" class="note">
 The FFmpeg command line arguments above may not be perfect. This is the mediasoup documentation. Check the [FFmpeg documentation](https://ffmpeg.org/documentation.html) or the [GStreamer documentation](https://gstreamer.freedesktop.org/documentation/) to properly use them.
 
-In other words: Please do not make questions about FFmpeg or GStreamer in the [mediasoup mailing list](https://groups.google.com/forum/#!forum/mediasoup).
+In other words: Please do not make questions about FFmpeg or GStreamer in the [mediasoup Discourse Group](https://mediasoup.discourse.group).
 </div>
 
 * Once done, other endpoints (WebRTC endpoints or any others) can receive both, the FFmpeg audio and video track, by using the [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume) API as usual.
