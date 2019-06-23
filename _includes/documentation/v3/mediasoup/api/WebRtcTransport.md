@@ -32,7 +32,7 @@ Field        | Type    | Description   | Required | Default
 `preferUdp` | Boolean | Listen in UDP. | No | `false`
 `preferTcp` | Boolean | Listen in TCP. | No | `false`
 `initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps). | No | 600000
-`minimumAvailableOutgoingBitrate` | Number | Minimum available outgoing bitrate (in bps) to apply when the consumer endpoint reports less than this value. Use it with caution. | No | 100000
+`minimumAvailableOutgoingBitrate` | Number | Minimum available outgoing bitrate (in bps) to apply when the consumer endpoint reports less than this value. Use it with caution. | No | 300000
 `appData`   | Object  | Custom application data. | No | `{ }`
 
 </div>
