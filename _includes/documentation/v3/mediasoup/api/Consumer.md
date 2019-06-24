@@ -267,7 +267,7 @@ consumer.on("transportclose", () =>
 #### consumer.on("producerclose", fn())
 {: #consumer-on-producerclose .code}
 
-Emitted when the associated producer is closed. The consumer itself is also closed.
+Emitted when the associated producer is closed for whatever reason. The consumer itself is also closed.
 
 ```javascript
 consumer.on("producerclose", () =>
