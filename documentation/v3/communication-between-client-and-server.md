@@ -121,13 +121,38 @@ This can be done by creating a server side plain RTP transport (via [router.crea
 Check the [broadcaster example](https://github.com/versatica/mediasoup-demo/tree/v3/broadcasters) (based on FFmpeg) in the mediasoup demo application.
 </div>
 
-### Resources
+Some useful resources:
 
 * [FFmpeg documentation](https://ffmpeg.org/documentation.html)
 * [GStreamer documentation](https://gstreamer.freedesktop.org/documentation/)
 * [libopus encoding options in FFmpeg](http://ffmpeg.org/ffmpeg-codecs.html#libopus-1)
 * [node-fluent-ffmpeg](https://github.com/fluent-ffmpeg/node-fluent-ffmpeg)
 * [node-gstreamer-superficial](https://github.com/dturing/node-gstreamer-superficial)
+
+
+### Producing Media from an External Endpoint (RTP In)
+{: #producing-media-from-an-external-endpoint}
+
+If you wish to produce media in a mediasoup router by using an external tool (such as FFmpeg or GStreamer) or make mediasoup receive media produced by other RTP source:
+
+* Check your mediasoup [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) as those determine the kind of media (codecs configuration, RTCP capabilities, RTP header extensions, etc) that mediasoup can receive.
+* Create (if not already created) a plain RTP transport in mediasoup and get its local IP and port for RTP (and optionally for RTCP if your external endpoint does not support RTCP-mux).
+* Decide the RTP settings of your external endpoint (SSRC values, codec payload type, RTCP capabilities, etc.) and create a [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters) object. Those RTP parameters must match what your endpoint will send to mediasoup.
+* Create a producer (via `transport.produce()`) on top of the plain RTP transport with those RTP parameters.
+* Instruct your external endpoint to send media to the local IP and port(s) of the mediasoup plain RTP transport.
+
+
+### Consuming Media in an External Endpoint (RTP Out)
+{: #consuming-media-in-an-external-endpoint}
+
+If you wish to route the media of a producer to an external RTP device or endpoint (such as FFmpeg or GStreamer):
+
+* Create (if not already created) a plain RTP transport in mediasoup and get its local IP and port for RTP (and optionally for RTCP if your media endpoint does not support RTCP-mux).
+* Check your mediasoup [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) and create a subset of them with the RTP capabilities supported by your external endpoint. It's critical that you keep the same codec `preferredPayloadType` values and RTP header extension `preferredId` values.
+* Create a consumer (via `transport.consume()`) on top of the plain RTP transport with the corresponding `producerId` and the generated `rtpCapabilities` of your external endpoint.
+* Get the [consumer.rtpParameters](/documentation/v3/mediasoup/api/#consumer-rtpParameters) and the transport local RTP IP and port(s) and instruct your external endpoint to consume RTP based on those parameters.
+  * You may need to build a "remote" SDP offer based on those transport and RTP parameters if your endpoint requires a SDP.
+  * Or you may need to tell your external endpoint about the media source parameters (via FFmpeg or GStreamer command line arguments).
 
 
 ### Example: Inject Audio and Video using FFmpeg
