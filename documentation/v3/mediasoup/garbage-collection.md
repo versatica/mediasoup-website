@@ -16,40 +16,33 @@ The mediasoup [API](/documentation/v3/mediasoup/api/) describes all those action
 
 A [Worker](/documentation/v3/mediasoup/api/#Worker) is closed when:
 
-* `worker.close()` is called.
-* Or `worker.on("died")` event is fired.
-  - Emitted when the worker process unexpectedly dies.
+* `worker.close()` is called, or
+* `worker.on("died")` event is fired (emitted when the worker process unexpectedly).
 
 A [Router](/documentation/v3/mediasoup/api/#Router) is closed when:
 
-* `router.close()` is called.
-* Or `router.on("workerclose")` event is fired.
-  - Emitted when the worker this router belongs to is closed for whatever reason.
+* `router.close()` is called, or
+* `router.on("workerclose")` event is fired (emitted when the worker this router belongs to is closed for whatever reason).
 
 A [Transport](/documentation/v3/mediasoup/api/#Transport) is closed when:
 
-* `transport.close()` is called.
-* Or `transport.on("routerclose")` event is fired.
-  - Emitted when the router this transport belongs to is closed for whatever reason. 
+* `transport.close()` is called, or
+* `transport.on("routerclose")` event is fired (emitted when the router this transport belongs to is closed for whatever reason). 
 
 A [Producer](/documentation/v3/mediasoup/api/#Producer) is closed when:
 
-* `producer.close()` is called.
-* Or `producer.on("transportclose")` event is fired.
-  - Emitted when the transport this producer belongs to is closed for whatever reason. 
+* `producer.close()` is called, or
+* `producer.on("transportclose")` event is fired (emitted when the transport this producer belongs to is closed for whatever reason).
 
 A [Consumer](/documentation/v3/mediasoup/api/#Consumer) is closed when:
 
-* `consumer.close()` is called.
-* Or `consumer.on("transportclose")` event is fired.
-  - Emitted when the transport this consumer belongs to is closed for whatever reason. 
-* Or `consumer.on("producerclose")` event is fired.
-  - Emitted when the associated producer is closed for whatever reason.
+* `consumer.close()` is called, or
+* `consumer.on("transportclose")` event is fired (emitted when the transport this consumer belongs to is closed for whatever reason), or
+* `consumer.on("producerclose")` event is fired (emitted when the associated producer is closed for whatever reason).
 
 A [RtpObserver](/documentation/v3/mediasoup/api/#RtpObserver) is closed when:
 
-* `rtpObserver.close()` is called.
-* Or `rtpObserver.on("routerclose")` event is fired.
-  - Emitted when the router this RTP observer belongs to is closed for whatever reason. 
+* `rtpObserver.close()` is called, or
+* `rtpObserver.on("routerclose")` event is fired (emitted when the router this RTP observer belongs to is closed for whatever reason).
 
 When any of these `close()` methods is called or "xxxxxclose" event is emitted, the corresponding mediasoup object becomes "closed" (its `closed` property is `true` from now on) and the application should clean the reference to that object.
