@@ -24,12 +24,18 @@ This is the entry point for JavaScript client side applications (such as web app
 
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
-`Handler`       | Class   | A class that implements the mediasoup-client handler interface that deals with the browser or device WebRTC engine. | No |
+`Handler`       | Class\|String | A class that implements the mediasoup-client handler interface that deals with the browser or device WebRTC engine. If a string is given, the indicated built-in handler class will be forced (it should match the name without ".js" of one of the existing built-in [handlers](https://github.com/versatica/mediasoup-client/tree/v3/lib/handlers)). | No |
 
 </div>
 
 <div markdown="1" class="note">
-Web applications do not need to provide any `Handler` argument into the `Device` constructor. mediasoup-client detects the underlying browser and chooses a suitable WebRTC handler depending on the browser vendor and version.
+* Web applications do not need to provide any `Handler` argument into the `Device` constructor. mediasoup-client detects the underlying browser and chooses a suitable WebRTC handler depending on the browser vendor and version.
+
+* If the web application wishes to force a specific built-in handler (for example, force `Chrome67` built-in handler in Chrome >= 70 instead of having `Chrome70` auto-detected) the application can do it as follows:
+
+```javascript
+const device = new mediasoup.Device({ Handler: "Chrome67" });
+```
 </div>
 
 </section>
