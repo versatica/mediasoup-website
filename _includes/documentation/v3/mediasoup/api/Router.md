@@ -24,7 +24,7 @@ Developers may think of a mediasoup router as if it were a "multi-party conferen
 
 Field         | Type               | Description   | Required | Default
 ------------- | ------------------ | ------------- | -------- | ---------
-`mediaCodecs` | Array&lt;[RtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCodecCapability)&gt; | Router media codecs. | Yes |
+`mediaCodecs` | Array&lt;[RtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCodecCapability)&gt; | Router media codecs. | No | `[ ]`
 
 </div>
 
