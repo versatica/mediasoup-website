@@ -147,7 +147,7 @@ Field             | Type    | Description   | Required | Default
 `ssrc`            | Number  | The media SSRC. | No |
 `rid`             | String  | The RID RTP extension value. Must be unique. | No |
 `rtx`             | Object  | RTX stream information. It must contain a numeric `ssrc` field indicating the RTX SSRC. | No.
-`dtx`             | Boolean | For audio. Indicates whether discontinuous RTP transmission will be used. | No | `false`
+`dtx`             | Boolean | It indicates whether discontinuous RTP transmission will be used. Useful for audio (if the codec supports it) and for video screen sharing (when static content is being transmitted, this option disables the RTP inactivity checks in mediasoup). | No | `false`
 `scalabilityMode` | String  | Number of spatial and temporal layers in the RTP stream (e.g. "L1T3"). See [webrtc-svc](https://w3c.github.io/webrtc-svc/). | No |
 
 </div>
