@@ -40,7 +40,7 @@ I'm a Real Time Communication passionate and developer. For the last years I've 
 
 As a former VoIP engineer I have many years of experience in SIP and VoIP.
 
-I'm a core author of [JsSIP "The JavaScript SIP library"][jssip-url] and co-author of the [RFC 7118][rfc7118-url]{:target="_blank"} "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)".
+I'm a core author of [JsSIP][jssip-url] "The JavaScript SIP library" and co-author of the [RFC 7118][rfc7118-url]{:target="_blank"} "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)".
 
 
 ## Acknowledgements
