@@ -36,9 +36,11 @@ Since the first days of WebRTC my professional efforts go around it, and this is
 [![][linkedin-icon]][jmillan-linkedin-url]{: .inline-icon }
 [![][twitter-icon]][jmillan-twitter-url]{: .inline-icon }
 
-I'm a Real Time Communication passionate and developer. I have many years of experience in SIP and VoIP, and for the last years I've been focused on WebRTC development in client and server side.
+I'm a Real Time Communication passionate and developer. For the last years I've been focused on WebRTC development. I'm core designer, developer and maintainer of mediasoup. I also have taken part in the specification of Object RTC (ORTC) API for WebRTC.
 
-I'm a core author of JsSIP "The JavaScript SIP library" and co-author of the [RFC 7118][rfc7118-url]{:target="_blank"} "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)" and have taken part in the specification of Object RTC (ORTC) API for WebRTC.
+As a former VoIP engineer I have many years of experience in SIP and VoIP.
+
+I'm a core author of JsSIP "The JavaScript SIP library" and co-author of the [RFC 7118][rfc7118-url]{:target="_blank"} "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)".
 
 
 ## Acknowledgements
