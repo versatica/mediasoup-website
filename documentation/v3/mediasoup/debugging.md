@@ -124,6 +124,7 @@ The available list of log tags is the following:
 * **score**: Logs related to the scores of Producers and Consumers
 * **simulcast**: Logs about video simulcast
 * **svc**: Logs about video SVC
+* **sctp**: Logs about SCTP (DataChannel)
 
 <div markdown="1" class="note">
 Remember: These logs are just generated if their severity is equal or higher than the given [logLevel](/documentation/v3/mediasoup/api/#Worker-Settings), but they are just logged if the value of the `DEBUG` environment variable matches their namespace.
