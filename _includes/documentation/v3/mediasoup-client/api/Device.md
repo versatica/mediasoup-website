@@ -198,7 +198,8 @@ const transport = await device.createSendTransport(
     id             : "0b38d662-ea00-4c70-9ae3-b675d6a89e09",
     iceParameters  : { ... },
     iceCandidates  : [ ... ],
-    dtlsParameters : { ... }
+    dtlsParameters : { ... },
+    sctpParameters : { ... }
   });
 ```
 
@@ -225,7 +226,8 @@ const transport = await device.createRecvTransport(
     id             : "152f60cd-10ac-443b-8529-6474ecba2e44",
     iceParameters  : { ... },
     iceCandidates  : [ ... ],
-    dtlsParameters : { ... }
+    dtlsParameters : { ... },
+    sctpParameters : { ... }
   });
 ```
 

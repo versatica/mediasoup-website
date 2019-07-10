@@ -26,6 +26,7 @@ Field            | Type    | Description   | Required | Default
 `iceParameters`  | [IceParameters](/documentation/v3/mediasoup/api/#WebRtcTransportIceParameters) | ICE parameters of the server side transport. | Yes   |
 `iceCandidates`  | Array&lt;[IceCandidate](/documentation/v3/mediasoup/api/#WebRtcTransportIceCandidate)&gt; | ICE candidates of the server side transport. | Yes   |
 `dtlsParameters` | [DtlsParameters](/documentation/v3/mediasoup/api/#WebRtcTransportDtlsParameters) | DTLS parameters of the server side transport. | Yes   |
+`sctpParameters` | [SctpParameters](#TransportSctpParameters) | SCTP parameters of the server side transport. | Yes   |
 `iceServers`     | Array&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver-dictionary)&gt; | List of TURN servers. This setting is given to the local peerconnection. | No   | `[ ]`
 `iceTransportPolicy` | [RTCIceTransportPolicy](https://w3c.github.io/webrtc-pc/#rtcicetransportpolicy-enum) | ICE candidate policy for the local peerconnection. | No   | "all"
 `proprietaryConstraints` | Object  | Browser vendor's proprietary constraints used as second argument in the peerconnection constructor. | No |
@@ -33,6 +34,14 @@ Field            | Type    | Description   | Required | Default
 
 </div>
 
+#### TransportSctpParameters
+{: #TransportSctpParameters .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+// TODO
+
+</div>
 #### TransportProduceParameters
 {: #TransportProduceParameters .code}
 
@@ -43,6 +52,20 @@ Argument        | Type    | Description
 `kind`          | String  | Producer's media kind ("audio" or "video").
 `rtpParameters` | [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters) | Producer's RTP parameters.
 `appData`       | Object  | Custom application data as given in the `transport.produce()` method.
+
+</div>
+
+#### TransportProduceDataParameters
+{: #TransportProduceDataParameters .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument               | Type    | Description   
+---------------------- | ------- | ----------------
+`sctpStreamParameters` | [SctpStreamParameters](/documentation/v3/mediasoup/sctp-stream-parameters/#SctpStreamParameters)  | Data Producer's SCTP stream parameters.
+`label`                | String | DataChannel label.
+`protocol`             | String | DataChannel protocol.
+`appData`              | Object  | Custom application data as given in the `transport.produceData()` method.
 
 </div>
 
@@ -251,6 +274,71 @@ The consumer is created in server side first via [transport.consume()](/document
 Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
 </div>
 
+#### transport.produceData(options)
+{: #transport-producedata .code}
+
+Instructs the transport to send data via [DataChannel](https://www.w3.org/TR/webrtc/#rtcdatachannel) to the mediasoup router. 
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`options`   | [DataProducerOptions](#DataProducerOptions) | DataProducer options. | No | `{}`
+
+</div>
+
+> `@async`
+> 
+> `@returns` [DataProducer](#DataProducer)
+
+```javascript
+const producer = await transport.produceData();
+```
+
+<div markdown="1" class="note">
+Before this method completes, the local transport will emit the ["produceData"](#transport-on-producedata) event. The application must be subscribed to this event, signal those parameters to the server, and invoke [transport.produceData()](/documentation/v3/mediasoup/api/#transport-producedata) on the corresponding WebRTC transport.
+
+Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
+</div>
+
+#### transport.consumeData(options)
+{: #transport-consumedata .code}
+
+Instructs the transport to receive data via [DataChannel](https://www.w3.org/TR/webrtc/#rtcdatachannel) from the mediasoup router.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`options`   | [DataConsumerOptions](#DataConsumerOptions) | Data Consumer options. | Yes |
+
+</div>
+
+> `@async`
+> 
+> `@returns` [DataConsumer](#DataConsumer)
+
+```javascript
+// Let's assume we have created a data consumer in server side and signal its
+// parameters to the client app.
+mySignaling.on('newDataConsumer', (data) =>
+{
+  const consumer = await transport.consumeData(
+    {
+      id                   : data.id,
+      producerId           : data.producerId,
+      sctpStreamParameters : data.sctpStreamParameters
+      label                : data.label
+      protocol             : data.protocol
+    });
+});
+```
+
+<div markdown="1" class="note">
+The consumer is created in server side first via [transport.consumeData()](/documentation/v3/mediasoup/api/#transport-consumedata). Then its parameters are signaled to the client application which creates a local replica of the consumer and manages it.
+
+Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
+</div>
 </section>
 
 
@@ -333,6 +421,55 @@ transport.on("produce", (parameters, callback, errback) =>
         kind          : parameters.kind,
         rtpParameters : parameters.rtpParameters,
         appData       : parameters.appData
+      });
+
+    // Let's assume the server included the created producer id in the response
+    // data object.
+    const { id } = data;
+
+    // Tell the transport that parameters were transmitted and provide it with the
+    // server side producer's id.
+    callback({ id });
+  }
+  catch (error)
+  {
+    // Tell the transport that something was wrong.
+    errback(error);
+  }
+});
+```
+
+#### transport.on("producedata", fn(parameters, callback({ id }), errback(error))
+{: #transport-on-producedata .code}
+
+Emitted when the transport needs to transmit information about a new data producer to the associated server side transport. This event occurs before the [produceData()](#transport-producedata) method completes.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument        | Type    | Description   
+--------------- | ------- | ----------------
+`parameters`    | [TransportProduceDataParameters](#TransportProduceDataParameters) | Parameters to create a server side data producer.
+
+</div>
+
+<div markdown="1" class="note">
+In server side, the application should call [transport.produceData()](/documentation/v3/mediasoup/api/#transport-producedata).
+</div>
+
+```javascript
+transport.on("producedata", (parameters, callback, errback) =>
+{
+  // Signal parameters to the server side transport and retrieve the id of 
+  // the server side new producer.
+  try
+  {
+    const data = await mySignaling.send(
+      "transport-producedata",
+      {
+        transportId          : transport.id, 
+        sctpStreamParameters : parameters.sctpStreamParameters,
+        label                : parameters.label,
+        protocol             : parameters.protocol
       });
 
     // Let's assume the server included the created producer id in the response

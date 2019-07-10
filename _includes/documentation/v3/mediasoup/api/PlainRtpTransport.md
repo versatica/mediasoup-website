@@ -26,6 +26,9 @@ Field         | Type    | Description   | Required | Default
 `rtcpMux`     | Boolean | Use RTCP-mux (RTP and RTCP in the same port). | No | `true`
 `comedia`     | Boolean | Whether remote IP:port should be auto-detected based on first RTP/RTCP packet received. If enabled, `connect()` method must not be called. This option is ignored if `multiSource` is set. | No | `false`
 `multiSource` | Boolean | Whether RTP/RTCP from different remote IPs:ports is allowed. If set, the transport will just be valid for receiving media (`consume()` cannot be called on it) and `connect()` must not be called. | No | `false`
+`enableSctp`  | Boolean | Create a SCTP association. | No | `false`
+`numSctpStreams`     | [TransportNumSctpStreams](#TransportNumSctpStreams) | SCTP streams number. | No |
+`maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 262144
 `appData`     | Object  | Custom application data. | No | `{ }`
 
 </div>

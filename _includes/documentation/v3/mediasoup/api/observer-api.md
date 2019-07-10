@@ -66,6 +66,30 @@ mediasoup.observer.on('newworker', (worker) =>
           console.log('consumer closed [consumer.id:%s]', consumer.id);
         });
       });
+
+      transport.observer.on('newdataproducer', (dataProducer) =>
+      {
+        console.log(
+          'new data producer created [worker.pid:%d, router.id:%s, transport.id:%s, dataProducer.id:%s]',
+          worker.pid, router.id, transport.id, dataProducer.id);
+
+        dataProducer.observer.on('close', () => 
+        {
+          console.log('data producer closed [dataProducer.id:%s]', dataProducer.id);
+        });
+      });
+
+      transport.observer.on('newdataconsumer', (dataConsumer) =>
+      {
+        console.log(
+          'new data consumer created [worker.pid:%d, router.id:%s, transport.id:%s, dataConsumer.id:%s]',
+          worker.pid, router.id, transport.id, dataConsumer.id);
+
+        dataConsumer.observer.on('close', () => 
+        {
+          console.log('data consumer closed [dataConsumer.id:%s]', dataConsumer.id);
+        });
+      });
     });
   });
 });

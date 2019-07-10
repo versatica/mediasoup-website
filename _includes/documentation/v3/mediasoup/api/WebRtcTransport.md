@@ -26,14 +26,17 @@ The WebRTC transport implementation of mediasoup is [ICE Lite](https://tools.iet
 
 Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
-`listenIps` | Array&lt;[TransportListenIp](#TransportListenIp)&gt;\|[TransportListenIp](#TransportListenIp)\|String| Listening IP address or addresses in order of preference (first one is the preferred one). | Yes |
-`enableUdp` | Boolean | Listen in UDP. | No | `true`
-`enableTcp` | Boolean | Listen in TCP. | No | `false`
-`preferUdp` | Boolean | Listen in UDP. | No | `false`
-`preferTcp` | Boolean | Listen in TCP. | No | `false`
+`listenIps`  | Array&lt;[TransportListenIp](#TransportListenIp)&gt;\|[TransportListenIp](#TransportListenIp)\|String| Listening IP address or addresses in order of preference (first one is the preferred one). | Yes |
+`enableUdp`  | Boolean | Listen in UDP. | No | `true`
+`enableTcp`  | Boolean | Listen in TCP. | No | `false`
+`enableSctp` | Boolean | Create a SCTP association. | No | `false`
+`preferUdp`  | Boolean | Listen in UDP. | No | `false`
+`preferTcp`  | Boolean | Listen in TCP. | No | `false`
 `initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps). | No | 600000
 `minimumAvailableOutgoingBitrate` | Number | Minimum available outgoing bitrate (in bps) to apply when the consumer endpoint reports less than this value. Use it with caution. | No | 300000
-`appData`   | Object  | Custom application data. | No | `{ }`
+`numSctpStreams` | [TransportNumSctpStreams](#TransportNumSctpStreams) | SCTP streams number. | No |
+`maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 262144
+`appData`    | Object  | Custom application data. | No | `{ }`
 
 </div>
 

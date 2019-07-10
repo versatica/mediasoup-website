@@ -85,6 +85,29 @@ Once the receive transport is created, the client side application can consume m
 * Finally `transport.consume()` will resolve with a [Consumer](/documentation/v3/mediasoup-client/api/#Consumer) instance in client side.
 
 
+### Producing Data (DataChannels)
+{: #producing-data}
+
+Once the send transport is created, the client side application can produce multiple [DataChannels](https://www.w3.org/TR/webrtc/#rtcdatachannel) on it.
+
+* The application calls [transport.produceData()](/documentation/v3/mediasoup-client/api/#transport-producedata) in the local send transport.
+  - The transport will emit ["connect"](/documentation/v3/mediasoup-client/api/#transport-on-connect) if this is the first call to `transport.produceData()`.
+  - The transport will emit ["produceData"](/documentation/v3/mediasoup-client/api/#transport-on-producedata) so the application will transmit the event parameters to the server and will create a [DataProducer](/documentation/v3/mediasoup/api/#DataProducer) instance in server side.
+* Finally `transport.produceData()` will resolve with a [DataProducer](/documentation/v3/mediasoup-client/api/#DataProducer) instance in client side.
+
+
+### Consuming Data (DataChannels)
+{: #consuming-data}
+
+Once the receive transport is created, the client side application can consume multiple [DataChannels](https://www.w3.org/TR/webrtc/#rtcdatachannel) on it. However the order is the opposite (here the consumer must be created in the server first).
+
+* The client application signals its [device.sctpCapabilities](/documentation/v3/mediasoup-client/api/#device-sctpCapabilities) to the server (it may have done it in advance).
+* Then the server application calls [transport.consumeData()](/documentation/v3/mediasoup/api/#transport-consumedata) in the WebRTC transport the client created for receiving, thus generating a server side [DataConsumer](/documentation/v3/mediasoup-client/api/#DataConsumer).
+* The server application transmits the consumer information and parameters to the client application, which calls [transport.consumeData()](/documentation/v3/mediasoup-client/api/#transport-consumedata) in the local receive transport.
+  - The transport will emit ["connect"](/documentation/v3/mediasoup-client/api/#transport-on-connect) if this is the first call to `transport.consumeData()`.
+* Finally `transport.consumeData()` will resolve with a [DataConsumer](/documentation/v3/mediasoup-client/api/#Consumer) instance in client side.
+
+
 ### Communicating Actions and Events
 {: #communicating-actions-and-events}
 

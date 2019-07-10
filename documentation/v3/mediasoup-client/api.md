@@ -26,3 +26,7 @@ class   : h3color
 {% include documentation/v3/mediasoup-client/api/Producer.md %}
 
 {% include documentation/v3/mediasoup-client/api/Consumer.md %}
+
+{% include documentation/v3/mediasoup-client/api/DataProducer.md %}
+
+{% include documentation/v3/mediasoup-client/api/DataConsumer.md %}
