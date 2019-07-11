@@ -187,11 +187,8 @@ Argument     | Type    | Description | Required | Default
 </div>
 
 <div markdown="1" class="note">
-Only one of `producerId` and `dataProducerId` must be provided.
-</div>
-
-<div markdown="1" class="note">
-SCTP agruments will only apply the first time the underlying transports are created.
+* Only one of `producerId` and `dataProducerId` must be provided.
+* SCTP agruments will only apply the first time the underlying transports are created.
 </div>
 
 > `@async`
