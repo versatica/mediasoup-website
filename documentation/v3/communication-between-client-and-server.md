@@ -92,7 +92,7 @@ Once the send transport is created, the client side application can produce mult
 
 * The application calls [transport.produceData()](/documentation/v3/mediasoup-client/api/#transport-producedata) in the local send transport.
   - The transport will emit ["connect"](/documentation/v3/mediasoup-client/api/#transport-on-connect) if this is the first call to `transport.produceData()`.
-  - The transport will emit ["produceData"](/documentation/v3/mediasoup-client/api/#transport-on-producedata) so the application will transmit the event parameters to the server and will create a [DataProducer](/documentation/v3/mediasoup/api/#DataProducer) instance in server side.
+  - The transport will emit ["producedata"](/documentation/v3/mediasoup-client/api/#transport-on-producedata) so the application will transmit the event parameters to the server and will create a [DataProducer](/documentation/v3/mediasoup/api/#DataProducer) instance in server side.
 * Finally `transport.produceData()` will resolve with a [DataProducer](/documentation/v3/mediasoup-client/api/#DataProducer) instance in client side.
 
 
