@@ -79,7 +79,7 @@ Value          | Description
 "connecting"   | SCTP connecting.
 "connected"    | SCTP successfully connected.
 "failed"       | SCTP connection failed.
-"closed"       | SCTP state when the `transport` has been closed.
+"closed"       | SCTP state when the transport has been closed.
 
 </div>
 
