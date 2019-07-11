@@ -352,3 +352,36 @@ const stats = await pipeConsumer.getStats();
   }
 ]
 ```
+
+### DataProducer Statistics
+{: #DataProducer-Statistics}
+
+```javascript
+const stats = await producer.getStats();
+
+// =>
+{
+  "type": "data-producer",
+  "label": "nnawjiwbav",
+  "protocol": "app-protocol",
+  "messagesReceived": 3496,
+  "bytesReceived": 65934
+}
+```
+
+
+### DataConsumer Statistics
+{: #DataConsumer-Statistics}
+
+```javascript
+const stats = await consumer.getStats();
+
+// =>
+{
+  "type": "data-consumer",
+  "label": "nnawjiwbav",
+  "protocol": "app-protocol",
+  "messagesSent": 3496,
+  "bytesSent": 65934
+}
+```

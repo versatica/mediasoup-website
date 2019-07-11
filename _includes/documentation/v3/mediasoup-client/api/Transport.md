@@ -26,7 +26,7 @@ Field            | Type    | Description   | Required | Default
 `iceParameters`  | [IceParameters](/documentation/v3/mediasoup/api/#WebRtcTransportIceParameters) | ICE parameters of the server side transport. | Yes   |
 `iceCandidates`  | Array&lt;[IceCandidate](/documentation/v3/mediasoup/api/#WebRtcTransportIceCandidate)&gt; | ICE candidates of the server side transport. | Yes   |
 `dtlsParameters` | [DtlsParameters](/documentation/v3/mediasoup/api/#WebRtcTransportDtlsParameters) | DTLS parameters of the server side transport. | Yes   |
-`sctpParameters` | [SctpParameters](#TransportSctpParameters) | SCTP parameters of the server side transport. | Yes   |
+`sctpParameters` | [SctpParameters](/documentation/v3/mediasoup/api/#TransportSctpParameters) | SCTP parameters of the server side transport. | Yes   |
 `iceServers`     | Array&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver-dictionary)&gt; | List of TURN servers. This setting is given to the local peerconnection. | No   | `[ ]`
 `iceTransportPolicy` | [RTCIceTransportPolicy](https://w3c.github.io/webrtc-pc/#rtcicetransportpolicy-enum) | ICE candidate policy for the local peerconnection. | No   | "all"
 `proprietaryConstraints` | Object  | Browser vendor's proprietary constraints used as second argument in the peerconnection constructor. | No |
@@ -34,14 +34,6 @@ Field            | Type    | Description   | Required | Default
 
 </div>
 
-#### TransportSctpParameters
-{: #TransportSctpParameters .code}
-
-<div markdown="1" class="table-wrapper L3">
-
-// TODO
-
-</div>
 #### TransportProduceParameters
 {: #TransportProduceParameters .code}
 
@@ -283,7 +275,7 @@ Instructs the transport to send data via [DataChannel](https://www.w3.org/TR/web
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`options`   | [DataProducerOptions](#DataProducerOptions) | DataProducer options. | No | `{}`
+`options`   | [DataProducerOptions](#DataProducerOptions) | DataProducer options. | No |
 
 </div>
 

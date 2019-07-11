@@ -95,7 +95,7 @@ See the [Observer Events](#DataProducer-observer-events) section below.
 #### dataProducer.close()
 {: #dataProducer-close .code}
 
-Closes the producer. Triggers a ["producerclose"](#dataConsumer-on-producerclose) event in all its associated consumers.
+Closes the producer. Triggers a ["dataproducerclose"](#dataConsumer-on-dataproducerclose) event in all its associated consumers.
 
 #### dataProducer.getStats()
 {: #dataProducer-getStats .code}
@@ -107,7 +107,7 @@ Returns current SCTP statistics of the producer.
 > `@returns` Object
 
 <div markdown="1" class="note">
-Check the [SCTP Statistics](/documentation/v3/mediasoup/sctp-statistics/) section for more details.
+Check the [SCTP Statistics](/documentation/v3/mediasoup/rtc-statistics/#DataProducer-Statistics) section for more details.
 </div>
 
 </section>
@@ -121,7 +121,7 @@ Check the [SCTP Statistics](/documentation/v3/mediasoup/sctp-statistics/) sectio
 #### dataProducer.on("transportclose", fn())
 {: #dataProducer-on-transportclose .code}
 
-Emitted when the transport this producer belongs to is closed for whatever reason. The producer itself is also closed. A ["producerclose"](#dataConsumer-on-producerclose) event is triggered in all its associated consumers.
+Emitted when the transport this producer belongs to is closed for whatever reason. The producer itself is also closed. A ["dataproducerclose"](#dataConsumer-on-dataproducerclose) event is triggered in all its associated consumers.
 
 ```javascript
 dataProducer.on("transportclose", () =>

@@ -65,6 +65,20 @@ The transport tuple for RTCP. It's set after calling `connect()` method just if 
 
 > `@type` [TransportTuple](#TransportTuple), read only
 
+#### plainRtpTransport.sctpParameters
+{: #plainRtpTransport-sctpParameters .code}
+
+Local SCTP parameters.
+
+> `@type` [SctpParameters](#TransportSctpParameters), read only
+
+#### plainRtpTransport.sctpState
+{: #plainRtpTransport-sctpState .code}
+
+Current SCTP state.
+
+> `@type` [SctpState](#WebRtcTransportSctpState), read only
+
 </section>
 
 
@@ -104,6 +118,19 @@ Argument   | Type    | Description | Required | Default
 
 See also [Transport Events](#Transport-events).
 
+#### plainRtpTransport.on("sctpstatechange", fn(sctpState))
+{: #plainRtpTransport-on-sctpstatechange .code}
+
+Emitted when the transport SCTP state changes.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+----------------- | ------- | ----------------
+`sctpState`       | [SctpState](#WebRtcTransportSctpState) | The new SCTP state.
+
+</div
+
 </section>
 
 
@@ -113,5 +140,10 @@ See also [Transport Events](#Transport-events).
 <section markdown="1">
 
 See also [Transport Observer Events](#Transport-observer-events).
+
+#### plainRtpTransport.observer.on("sctpstatechange", fn(sctpState))
+{: #plainRtpTransport-observer-on-sctpstatechange .code}
+
+Same as the [dtlsstatechange](#plainRtpTransport-on-sctpstatechange) event.
 
 </section>

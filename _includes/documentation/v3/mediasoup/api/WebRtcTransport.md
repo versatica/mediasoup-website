@@ -29,11 +29,11 @@ Field        | Type    | Description   | Required | Default
 `listenIps`  | Array&lt;[TransportListenIp](#TransportListenIp)&gt;\|[TransportListenIp](#TransportListenIp)\|String| Listening IP address or addresses in order of preference (first one is the preferred one). | Yes |
 `enableUdp`  | Boolean | Listen in UDP. | No | `true`
 `enableTcp`  | Boolean | Listen in TCP. | No | `false`
-`enableSctp` | Boolean | Create a SCTP association. | No | `false`
 `preferUdp`  | Boolean | Listen in UDP. | No | `false`
 `preferTcp`  | Boolean | Listen in TCP. | No | `false`
 `initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps). | No | 600000
 `minimumAvailableOutgoingBitrate` | Number | Minimum available outgoing bitrate (in bps) to apply when the consumer endpoint reports less than this value. Use it with caution. | No | 300000
+`enableSctp` | Boolean | Create a SCTP association. | No | `false`
 `numSctpStreams` | [TransportNumSctpStreams](#TransportNumSctpStreams) | SCTP streams number. | No |
 `maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 262144
 `appData`    | Object  | Custom application data. | No | `{ }`
@@ -156,6 +156,21 @@ Value          | Description
 
 </div>
 
+#### SctpState
+{: #WebRtcTransportSctpState .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value          | Description  
+-------------- | -------------
+"new"          | SCTP procedures not yet initiated.
+"connecting"   | SCTP connecting.
+"connected"    | SCTP successfully connected.
+"failed"       | SCTP connection failed.
+"closed"       | SCTP state when the `transport` has been closed.
+
+</div>
+
 </section>
 
 
@@ -228,6 +243,20 @@ The remote certificate in PEM format. It is set once the DTLS state becomes "con
 The application may want to inspect the remote certificate for authorization purposes by using some certificates utility such as the Node [pem](https://www.npmjs.com/package/pem) module.
 
 </div>
+
+#### webRtcTransport.sctpParameters
+{: #webRtcTransport-sctpParameters .code}
+
+Local SCTP parameters.
+
+> `@type` [SctpParameters](#TransportSctpParameters), read only
+
+#### webRtcTransport.sctpState
+{: #webRtcTransport-sctpState .code}
+
+Current SCTP state.
+
+> `@type` [SctpState](#WebRtcTransportSctpState), read only
 
 </section>
 
@@ -367,6 +396,19 @@ Argument | Type    | Description
 
 </div>
 
+#### webRtcTransport.on("sctpstatechange", fn(sctpState))
+{: #webRtcTransport-on-sctpstatechange .code}
+
+Emitted when the transport SCTP state changes.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+----------------- | ------- | ----------------
+`sctpState`       | [SctpState](#WebRtcTransportSctpState) | The new SCTP state.
+
+</div>
+
 </section>
 
 
@@ -391,5 +433,10 @@ Same as the [iceselectedtuplechange](#webRtcTransport-on-iceselectedtuplechange)
 {: #webRtcTransport-observer-on-dtlsstatechange .code}
 
 Same as the [dtlsstatechange](#webRtcTransport-on-dtlsstatechange) event.
+
+#### webRtcTransport.observer.on("sctpstatechange", fn(sctpState))
+{: #webRtcTransport-observer-on-sctpstatechange .code}
+
+Same as the [dtlsstatechange](#webRtcTransport-on-sctpstatechange) event.
 
 </section>

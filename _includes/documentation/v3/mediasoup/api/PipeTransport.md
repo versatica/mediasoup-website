@@ -29,6 +29,9 @@ When calling [consume()](#transport-consume) on a pipe transport, all RTP stream
 Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
 `listenIp`    | [TransportListenIp](#TransportListenIp)\|String| Listening IP address. | Yes |
+`enableSctp` | Boolean | Create a SCTP association. | No | `false`
+`numSctpStreams` | [TransportNumSctpStreams](#TransportNumSctpStreams) | SCTP streams number. | No |
+`maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 1073741823
 `appData`     | Object  | Custom application data. | No | `{ }`
 
 </div>
@@ -50,6 +53,19 @@ The transport tuple. It's set after calling `connect()` method (it's `undefined`
 
 > `@type` [TransportTuple](#TransportTuple), read only
 
+#### pipeTransport.sctpParameters
+{: #pipeTransport-sctpParameters .code}
+
+Local SCTP parameters.
+
+> `@type` [SctpParameters](#TransportSctpParameters), read only
+
+#### pipeTransport.sctpState
+{: #pipeTransport-sctpState .code}
+
+Current SCTP state.
+
+>
 </section>
 
 
@@ -88,6 +104,18 @@ Argument   | Type    | Description | Required | Default
 
 See also [Transport Events](#Transport-events).
 
+#### pipeTransport.on("sctpstatechange", fn(sctpState))
+{: #pipeTransport-on-sctpstatechange .code}
+
+Emitted when the transport SCTP state changes.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+----------------- | ------- | ----------------
+`sctpState`       | [SctpState](#WebRtcTransportSctpState) | The new SCTP state.
+
+</div
 </section>
 
 
@@ -97,5 +125,10 @@ See also [Transport Events](#Transport-events).
 <section markdown="1">
 
 See also [Transport Observer Events](#Transport-observer-events).
+
+#### pipeTransport.observer.on("sctpstatechange", fn(sctpState))
+{: #pipeTransport-observer-on-sctpstatechange .code}
+
+Same as the [dtlsstatechange](#plainRtpTransport-on-sctpstatechange) event.
 
 </section>

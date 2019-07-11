@@ -48,6 +48,20 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
+#### TransportSctpParameters
+{: #TransportSctpParameters .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field            | Type   | Description   | Required  | Default
+---------------- | ------ | ------------- | --------- |
+`port`           | Number | Must always equal 5000. | Yes | 5000
+`OS`             | Number | Initially requested outgoing stream number. | No | 1024
+`MIS`            | Number | Maximum number of incoming streams. | No | 1024
+`maxMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 262144
+
+</div>
+
 #### TransportNumSctpStreams
 {: #TransportNumSctpStreams .code}
 
@@ -446,5 +460,44 @@ transport.observer.on("newconsumer", (consumer) =>
 });
 ```
 
+#### transport.observer.on("newdataproducer", fn(dataProducer))
+{: #transport-observer-on-newdataproducer .code}
+
+Emitted when a new data producer is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`dataProducer` | [DataProducer](#DataProducer) | New producer.
+
+</div>
+
+```javascript
+transport.observer.on("newdataproducer", (dataProducer) =>
+{
+  console.log("new data producer created [id:%s]", dataProducer.id);
+});
+```
+
+#### transport.observer.on("newdataconsumer", fn(dataConsumer))
+{: #transport-observer-on-newdataconsumer .code}
+
+Emitted when a new data consumer is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`dataConsumer` | [DataConsumer](#DataConsumer) | New consumer.
+
+</div>
+
+```javascript
+transport.observer.on("newdataconsumer", (dataConsumer) =>
+{
+  console.log("new data consumer created [id:%s]", dataConsumer.id);
+});
+```
 </section>
 

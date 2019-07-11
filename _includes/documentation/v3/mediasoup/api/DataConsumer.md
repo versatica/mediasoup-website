@@ -133,7 +133,7 @@ dataConsumer.on("transportclose", () =>
 ```
 
 #### dataConsumer.on("dataproducerclose", fn())
-{: #dataConsumer-on-producerclose .code}
+{: #dataConsumer-on-dataproducerclose .code}
 
 Emitted when the associated producer is closed for whatever reason. The consumer itself is also closed.
 
