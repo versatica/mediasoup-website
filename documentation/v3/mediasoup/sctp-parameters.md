@@ -6,10 +6,6 @@ anchors : true
 
 # SCTP Parameters
 
-SCTP parameters describe the reliability of a certain SCTP stream.
-
-----
-
 * Will be replaced with the ToC
 {: toc}
 
@@ -21,6 +17,8 @@ SCTP parameters describe the reliability of a certain SCTP stream.
 
 #### SctpStreamParameters
 {: #SctpStreamParameters .code}
+
+SCTP stream parameters describe the reliability of a certain SCTP stream.
 
 <div markdown="1" class="table-wrapper L3">
 
