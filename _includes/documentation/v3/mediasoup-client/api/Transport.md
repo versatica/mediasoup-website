@@ -118,6 +118,20 @@ The current connection state of the local peerconnection.
 
 > `@type` [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum), read only
 
+#### transport.sctpParameters
+{: #transport-sctpParameters .code}
+
+Local SCTP parameters.
+
+> `@type` [SctpParameters](#TransportSctpParameters), read only
+
+#### transport.sctpState
+{: #transport-sctpState .code}
+
+Current SCTP state.
+
+> `@type` [SctpState](#TransportSctpState), read only
+
 #### transport.appData
 {: #transport-appData .code}
 

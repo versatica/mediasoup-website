@@ -229,20 +229,6 @@ The application may want to inspect the remote certificate for authorization pur
 
 </div>
 
-#### webRtcTransport.sctpParameters
-{: #webRtcTransport-sctpParameters .code}
-
-Local SCTP parameters.
-
-> `@type` [SctpParameters](#TransportSctpParameters), read only
-
-#### webRtcTransport.sctpState
-{: #webRtcTransport-sctpState .code}
-
-Current SCTP state.
-
-> `@type` [SctpState](#TransportSctpState), read only
-
 </section>
 
 
