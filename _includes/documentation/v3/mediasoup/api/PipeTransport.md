@@ -113,7 +113,7 @@ Emitted when the transport SCTP state changes.
 
 Argument | Type    | Description   
 ----------------- | ------- | ----------------
-`sctpState`       | [SctpState](#WebRtcTransportSctpState) | The new SCTP state.
+`sctpState`       | [SctpState](#TransportSctpState) | The new SCTP state.
 
 </div
 </section>

@@ -156,21 +156,6 @@ Value          | Description
 
 </div>
 
-#### SctpState
-{: #WebRtcTransportSctpState .code}
-
-<div markdown="1" class="table-wrapper L2">
-
-Value          | Description  
--------------- | -------------
-"new"          | SCTP procedures not yet initiated.
-"connecting"   | SCTP connecting.
-"connected"    | SCTP successfully connected.
-"failed"       | SCTP connection failed.
-"closed"       | SCTP state when the `transport` has been closed.
-
-</div>
-
 </section>
 
 
@@ -256,7 +241,7 @@ Local SCTP parameters.
 
 Current SCTP state.
 
-> `@type` [SctpState](#WebRtcTransportSctpState), read only
+> `@type` [SctpState](#TransportSctpState), read only
 
 </section>
 
@@ -405,7 +390,7 @@ Emitted when the transport SCTP state changes.
 
 Argument | Type    | Description   
 ----------------- | ------- | ----------------
-`sctpState`       | [SctpState](#WebRtcTransportSctpState) | The new SCTP state.
+`sctpState`       | [SctpState](#TransportSctpState) | The new SCTP state.
 
 </div>
 
