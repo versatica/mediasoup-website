@@ -26,7 +26,7 @@ Field            | Type    | Description   | Required | Default
 `iceParameters`  | [IceParameters](/documentation/v3/mediasoup/api/#WebRtcTransportIceParameters) | ICE parameters of the server side transport. | Yes   |
 `iceCandidates`  | Array&lt;[IceCandidate](/documentation/v3/mediasoup/api/#WebRtcTransportIceCandidate)&gt; | ICE candidates of the server side transport. | Yes   |
 `dtlsParameters` | [DtlsParameters](/documentation/v3/mediasoup/api/#WebRtcTransportDtlsParameters) | DTLS parameters of the server side transport. | Yes   |
-`sctpParameters` | [SctpParameters](/documentation/v3/mediasoup/api/#TransportSctpParameters) | SCTP parameters of the server side transport. | Yes   |
+`sctpParameters` | [SctpParameters](/documentation/v3/mediasoup/api/#TransportSctpParameters) | SCTP parameters of the server side transport. | No   |
 `iceServers`     | Array&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver-dictionary)&gt; | List of TURN servers. This setting is given to the local peerconnection. | No   | `[ ]`
 `iceTransportPolicy` | [RTCIceTransportPolicy](https://w3c.github.io/webrtc-pc/#rtcicetransportpolicy-enum) | ICE candidate policy for the local peerconnection. | No   | "all"
 `proprietaryConstraints` | Object  | Browser vendor's proprietary constraints used as second argument in the peerconnection constructor. | No |
@@ -58,28 +58,6 @@ Argument               | Type    | Description
 `label`                | String | DataChannel label.
 `protocol`             | String | DataChannel protocol.
 `appData`              | Object  | Custom application data as given in the `transport.produceData()` method.
-
-</div>
-
-</section>
-
-### Enums
-{: #Transport-enums}
-
-<section markdown="1">
-
-#### SctpState
-{: #TransportSctpState .code}
-
-<div markdown="1" class="table-wrapper L2">
-
-Value          | Description  
--------------- | -------------
-"new"          | SCTP procedures not yet initiated.
-"connecting"   | SCTP connecting.
-"connected"    | SCTP successfully connected.
-"failed"       | SCTP connection failed.
-"closed"       | SCTP state when the transport has been closed.
 
 </div>
 
@@ -117,20 +95,6 @@ The direction of this transport. "send" means that this is a WebRTC transport fo
 The current connection state of the local peerconnection.
 
 > `@type` [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum), read only
-
-#### transport.sctpParameters
-{: #transport-sctpParameters .code}
-
-Local SCTP parameters.
-
-> `@type` [SctpParameters](#TransportSctpParameters), read only
-
-#### transport.sctpState
-{: #transport-sctpState .code}
-
-Current SCTP state.
-
-> `@type` [SctpState](#TransportSctpState), read only
 
 #### transport.appData
 {: #transport-appData .code}
@@ -362,10 +326,11 @@ mySignaling.on('newDataConsumer', (data) =>
 ```
 
 <div markdown="1" class="note">
-The consumer is created in server side first via [transport.consumeData()](/documentation/v3/mediasoup/api/#transport-consumedata). Then its parameters are signaled to the client application which creates a local replica of the consumer and manages it.
+The data consumer is created in server side first via [transport.consumeData()](/documentation/v3/mediasoup/api/#transport-consumedata). Then its parameters are signaled to the client application which creates a local replica of the data consumer and manages it.
 
 Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
 </div>
+
 </section>
 
 
