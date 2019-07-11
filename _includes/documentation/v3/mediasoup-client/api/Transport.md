@@ -54,7 +54,7 @@ Argument        | Type    | Description
 
 Argument               | Type    | Description   
 ---------------------- | ------- | ----------------
-`sctpStreamParameters` | [SctpStreamParameters](/documentation/v3/mediasoup/sctp-stream-parameters/#SctpStreamParameters)  | Data Producer's SCTP stream parameters.
+`sctpStreamParameters` | [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters)  | Data Producer's SCTP stream parameters.
 `label`                | String | DataChannel label.
 `protocol`             | String | DataChannel protocol.
 `appData`              | Object  | Custom application data as given in the `transport.produceData()` method.

@@ -57,7 +57,7 @@ Whether the producer is closed.
 
 The SCTP stream parameters.
 
-> `@type` [SctpStreamParameters](/documentation/v3/mediasoup/sctp-stream-parameters/#SctpStreamParameters), read only
+> `@type` [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters), read only
 
 #### dataProducer.readyState
 {: #dataProducer-readyState .code}

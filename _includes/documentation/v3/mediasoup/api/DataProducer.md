@@ -20,7 +20,7 @@ A data producer represents a [SCTP](https://tools.ietf.org/html/rfc4960) data so
 
 Field                  | Type    | Description   | Required | Default
 ---------------        | ------- | ------------- | -------- | ---------
-`sctpStreamParameters` | [SctpStreamParameters](/documentation/v3/mediasoup/sctp-stream-parameters/#SctpStreamParameters) | SCTP parameters defining how the endpoint is sending the data. | Yes |
+`sctpStreamParameters` | [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters) | SCTP parameters defining how the endpoint is sending the data. | Yes |
 `label`                | String | A label which can be used to distinguish this DataChannel from others. | No |
 `protocol`             | String | Name of the sub-protocol used by this DataChannel. | No |
 `appData`              | Object  | Custom application data. | No | `{ }`
@@ -54,7 +54,7 @@ Whether the producer is closed.
 
 The SCTP stream parameters.
 
-> `@type` [SctpStreamParameters](/documentation/v3/mediasoup/sctp-stream-parameters/#SctpStreamParameters), read only
+> `@type` [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters), read only
 
 #### dataProducer.label
 {: #dataProducer-label .code}

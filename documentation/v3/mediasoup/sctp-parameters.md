@@ -1,12 +1,12 @@
 ---
-title   : SCTP Stream Parameters
+title   : SCTP Parameters
 anchors : true
 ---
 
 
-# SCTP Stream Parameters
+# SCTP Parameters
 
-SCTP Stream parameters describe the reliability of a certain DataChannel.
+SCTP parameters describe the reliability of a certain SCTP stream.
 
 ----
 

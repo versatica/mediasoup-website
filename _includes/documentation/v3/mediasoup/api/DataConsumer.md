@@ -59,7 +59,7 @@ Whether the consumer is closed.
 
 The SCTP stream parameters.
 
-> `@type` [SctpStreamParameters](/documentation/v3/mediasoup/sctp-stream-parameters/#SctpStreamParameters), read only
+> `@type` [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters), read only
 
 #### dataConsumer.label
 {: #dataConsumer-label .code}
