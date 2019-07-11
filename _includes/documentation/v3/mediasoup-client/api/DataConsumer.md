@@ -63,6 +63,10 @@ Whether the consumer is closed.
 
 The SCTP stream parameters.
 
+<div markdown="1" class="note">
+This data is taken from the associated dataProducer.
+</div>
+
 > `@type` [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters), read only
 
 #### dataConsumer.readyState
@@ -77,12 +81,20 @@ The DataChannel ready state.
 
 The DataChannel label.
 
+<div markdown="1" class="note">
+This data is taken from the associated dataProducer.
+</div>
+
 > `@type` String , read only
 
 #### dataConsumer.protocol
 {: #dataConsumer-protocol .code}
 
 The DataChannel sub-protocol.
+
+<div markdown="1" class="note">
+This data is taken from the associated dataProducer.
+</div>
 
 > `@type` String , read only
 
@@ -149,6 +161,10 @@ Emitted when the DataChannel errors.
 
 #### dataConsumer.on("message", data)
 {: #dataConsumer-on-error .code}
+
+Argument | Type    | Description
+---------| ------- | -----------
+`data`   | String \| Blob \| ArrayBuffer | Data message received.
 
 Emitted when a DataChannel message is received.
 

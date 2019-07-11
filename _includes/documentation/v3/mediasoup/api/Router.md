@@ -166,10 +166,10 @@ const transport = await router.createPipeTransport(
   });
 ```
 
-#### router.pipeToRouter({ producerId, router, listenIp })
+#### router.pipeToRouter({ producerId, dataProducerId, router, listenIp })
 {: #router-pipeToRouter .code}
 
-Pipes the given producer into another router in the same host. It creates an underlying [PipeTransport](#PipeTransport) (if not previously created) that interconnects both routers.
+Pipes the given media or data producer into another router in the same host. It creates an underlying [PipeTransport](#PipeTransport) (if not previously created) that interconnects both routers.
 
 This is specially useful to expand broadcasting capabilities (one to many) by interconnecting different routers that run in separate workers (so in different CPU cores).
 
@@ -177,10 +177,21 @@ This is specially useful to expand broadcasting capabilities (one to many) by in
 
 Argument     | Type    | Description | Required | Default 
 ------------ | ------- | ----------- | -------- | ----------
-`producerId` | String  | Producer id | Yes      |
+`producerId` | String  | Producer id | No      |
+`dataProducerId` | String  | Data producer id | No      |
 `router`     | [Router](#Router) | Destination router to pipe the given producer. | Yes |
 `listenIp`   | String  | IP to connect both routers in the same host. | No | "127.0.0.1"
+`enableSctp` | Boolean | Create a SCTP association. | No | `true`
+`numSctpStreams` | [TransportNumSctpStreams](#TransportNumSctpStreams) | SCTP streams number. | No |
 
+</div>
+
+<div markdown="1" class="note">
+Only one of `producerId` and `dataProducerId` must be provided.
+</div>
+
+<div markdown="1" class="note">
+SCTP agruments will only apply the first time the underlying transports are created.
 </div>
 
 > `@async`
