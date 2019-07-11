@@ -40,6 +40,17 @@ A [Consumer](/documentation/v3/mediasoup/api/#Consumer) is closed when:
 * `consumer.on("transportclose")` event is fired (emitted when the transport this consumer belongs to is closed for whatever reason), or
 * `consumer.on("producerclose")` event is fired (emitted when the associated producer is closed for whatever reason).
 
+A [DataProducer](/documentation/v3/mediasoup/api/#DataProducer) is closed when:
+
+* `dataProducer.close()` is called, or
+* `dataProducer.on("transportclose")` event is fired (emitted when the transport this data producer belongs to is closed for whatever reason).
+
+A [DataConsumer](/documentation/v3/mediasoup/api/#DataConsumer) is closed when:
+
+* `dataConsumer.close()` is called, or
+* `dataConsumer.on("transportclose")` event is fired (emitted when the transport this data consumer belongs to is closed for whatever reason), or
+* `consumer.on("dataproducerclose")` event is fired (emitted when the associated data producer is closed for whatever reason).
+
 A [RtpObserver](/documentation/v3/mediasoup/api/#RtpObserver) is closed when:
 
 * `rtpObserver.close()` is called, or
