@@ -348,7 +348,7 @@ Instructs the transport to receive data via [SCTP](https://tools.ietf.org/html/r
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`options`   | [DataProducerOptions](#DataProducerOptions) | Data Producer options. | No | `{ }`
+`options`   | [DataProducerOptions](#DataProducerOptions) | Data producer options. | No | `{ }`
 
 </div>
 
