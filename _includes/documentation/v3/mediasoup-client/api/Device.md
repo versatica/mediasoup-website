@@ -38,6 +38,17 @@ const device = new mediasoup.Device({ Handler: "Chrome67" });
 ```
 </div>
 
+#### DeviceSctpCapabilities
+{: #DeviceSctpCapabilities .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field            | Type   | Description
+---------------- | ------ | -------------
+`numStreams`     | [TransportNumSctpStreams](/documentation/v3/mediasoup/api/#TransportNumSctpStreams) | Initially requested and supported SCTP streams.
+
+</div>
+
 </section>
 
 
@@ -120,7 +131,7 @@ These RTP capabilities must be given to the mediasoup router in order to consume
 
 The device SCTP capabilities.
 
-> `@returns` [TransportNumSctpStreams](/documentation/v3/mediasoup/api/#TransportNumSctpStreams), read only
+> `@returns` [DeviceSctpCapabilities](#DeviceSctpCapabilities), read only
 > 
 > `@throws` InvalidStateError, if device not loaded
 
