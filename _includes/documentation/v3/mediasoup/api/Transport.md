@@ -55,15 +55,11 @@ Field              | Type    | Description   | Required | Default
 
 Field            | Type   | Description   | Required  | Default
 ---------------- | ------ | ------------- | --------- |
-`port`           | Number | Must always equal 5000. | Yes | 5000
-`OS`             | Number | Initially requested outgoing stream number. | No | 1024
-`MIS`            | Number | Maximum number of incoming streams. | No | 1024
-`maxMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 262144
+`port`           | Number | Must always equal 5000. | Yes |
+`OS`             | Number | Initially requested outgoing stream number. | Yes |
+`MIS`            | Number | Maximum number of incoming streams. | Yes |
+`maxMessageSize` | Number | Maximum allowed size for SCTP messages. | Yes |
 
-</div>
-
-<div markdown="1" class="note">
-// TODO @ibc
 </div>
 
 #### TransportNumSctpStreams
@@ -73,9 +69,13 @@ Field            | Type   | Description   | Required  | Default
 
 Field  | Type   | Description   | Required  | Default
 ------ | ------ | ------------- | --------- |
-`OS`   | Number | Initially requested outgoing stream number. | No | 1024
-`MIS`  | Number | Maximum number of incoming streams. | No | 1024
+`OS`   | Number | Initially requested SCTP outgoing streams number. | No | 1024
+`MIS`  | Number | Maximum number of SCTP incoming streams. | No | 1024
 
+</div>
+
+<div markdown="1" class="note">
+// TODO
 </div>
 
 </section>
