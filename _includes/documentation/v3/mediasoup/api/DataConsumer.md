@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-A consumer represents a [SCTP](https://tools.ietf.org/html/rfc4960) data source being forwarded from a mediasoup router to an endpoint. It's created on top of a transport that defines how the data messages are carried.
+A data consumer represents a [SCTP](https://tools.ietf.org/html/rfc4960) data source being forwarded from a mediasoup router to an endpoint. It's created on top of a transport that defines how the data messages are carried.
 
 </section>
 
@@ -50,7 +50,7 @@ The associated producer identifier.
 #### dataConsumer.closed
 {: #dataConsumer-closed .code}
 
-Whether the consumer is closed.
+Whether the data consumer is closed.
 
 > `@type` Boolean, read only
 
@@ -78,7 +78,7 @@ The producer sub-protocol.
 #### dataConsumer.appData
 {: #dataConsumer-appData .code}
 
-Custom data Object provided by the application in the consumer factory method. The app can modify its content at any time.
+Custom data Object provided by the application in the data consumer factory method. The app can modify its content at any time.
 
 > `@type` Object, read only
 
@@ -100,12 +100,12 @@ See the [Observer Events](#DataConsumer-observer-events) section below.
 #### dataConsumer.close()
 {: #dataConsumer-close .code}
 
-Closes the consumer.
+Closes the data consumer.
 
 #### dataConsumer.getStats()
 {: #dataConsumer-getStats .code}
 
-Returns current SCTP statistics of the consumer.
+Returns current SCTP statistics of the data consumer.
 
 > `@async`
 > 
@@ -123,7 +123,7 @@ Check the [SCTP Statistics](/documentation/v3/mediasoup/sctp-statistics/) sectio
 #### dataConsumer.on("transportclose", fn())
 {: #dataConsumer-on-transportclose .code}
 
-Emitted when the transport this consumer belongs to is closed for whatever reason. The consumer itself is also closed.
+Emitted when the transport this data consumer belongs to is closed for whatever reason. The data consumer itself is also closed.
 
 ```javascript
 dataConsumer.on("transportclose", () =>
@@ -135,7 +135,7 @@ dataConsumer.on("transportclose", () =>
 #### dataConsumer.on("dataproducerclose", fn())
 {: #dataConsumer-on-dataproducerclose .code}
 
-Emitted when the associated producer is closed for whatever reason. The consumer itself is also closed.
+Emitted when the associated data producer is closed for whatever reason. The data consumer itself is also closed.
 
 ```javascript
 dataConsumer.on("dataproducerclose", () =>
@@ -159,6 +159,6 @@ See the [Observer API](#observer-api) section below.
 #### dataConsumer.observer.on("close", fn())
 {: #dataConsumer-observer-on-close .code}
 
-Emitted when the consumer is closed for whatever reason.
+Emitted when the data consumer is closed for whatever reason.
 
 </section>

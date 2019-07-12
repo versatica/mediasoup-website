@@ -45,7 +45,7 @@ Data producer identifier.
 #### dataProducer.closed
 {: #dataProducer-closed .code}
 
-Whether the producer is closed.
+Whether the data producer is closed.
 
 > `@type` Boolean, read only
 
@@ -121,7 +121,7 @@ Check the [SCTP Statistics](/documentation/v3/mediasoup/rtc-statistics/#DataProd
 #### dataProducer.on("transportclose", fn())
 {: #dataProducer-on-transportclose .code}
 
-Emitted when the transport this producer belongs to is closed for whatever reason. The producer itself is also closed. A ["dataproducerclose"](#dataConsumer-on-dataproducerclose) event is triggered in all its associated consumers.
+Emitted when the transport this data producer belongs to is closed for whatever reason. The producer itself is also closed. A ["dataproducerclose"](#dataConsumer-on-dataproducerclose) event is triggered in all its associated consumers.
 
 ```javascript
 dataProducer.on("transportclose", () =>
