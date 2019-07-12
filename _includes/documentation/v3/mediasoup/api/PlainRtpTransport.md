@@ -129,7 +129,7 @@ Argument | Type    | Description
 ----------------- | ------- | ----------------
 `sctpState`       | [SctpState](#TransportSctpState) | The new SCTP state.
 
-</div
+</div>
 
 </section>
 
