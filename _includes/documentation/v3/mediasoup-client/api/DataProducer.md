@@ -127,7 +127,7 @@ Sends the given data over the corresponding DataChannel.
 
 Argument        | Type    | Description | Required | Default 
 --------------- | ------- | ----------- | -------- | ----------
-`data`         | String \| Blob \| ArrayBuffer \| ArrayBufferView | Data message to be sent. | No |
+`data`         | String\|Blob\|ArrayBuffer\|ArrayBufferView | Data message to be sent. | No |
 
 </div>
 

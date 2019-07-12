@@ -162,9 +162,13 @@ Emitted when the DataChannel errors.
 #### dataConsumer.on("message", data)
 {: #dataConsumer-on-error .code}
 
+<div markdown="1" class="table-wrapper L3">
+
 Argument | Type    | Description
 ---------| ------- | -----------
-`data`   | String \| Blob \| ArrayBuffer | Data message received.
+`data`   | String\|Blob\|ArrayBuffer | Data message received.
+
+</div>
 
 Emitted when a DataChannel message is received.
 
