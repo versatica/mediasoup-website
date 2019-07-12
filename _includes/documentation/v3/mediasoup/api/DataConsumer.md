@@ -43,7 +43,7 @@ Data consumer identifier.
 #### dataConsumer.dataProducerId
 {: #dataConsumer-dataProducerId .code}
 
-The associated producer identifier.
+The associated data producer identifier.
 
 > `@type` String, read only
 
@@ -64,14 +64,14 @@ The SCTP stream parameters.
 #### dataConsumer.label
 {: #dataConsumer-label .code}
 
-The producer label.
+The data producer label.
 
 > `@type` String , read only
 
 #### dataConsumer.protocol
 {: #dataConsumer-protocol .code}
 
-The producer sub-protocol.
+The data producer sub-protocol.
 
 > `@type` String , read only
 
@@ -140,7 +140,7 @@ Emitted when the associated data producer is closed for whatever reason. The dat
 ```javascript
 dataConsumer.on("dataproducerclose", () =>
 {
-  console.log("associated producer closed so dataConsumer closed");
+  console.log("associated data producer closed so dataConsumer closed");
 });
 ```
 
