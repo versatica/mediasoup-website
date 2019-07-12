@@ -53,6 +53,20 @@ The transport tuple. It's set after calling `connect()` method (it's `undefined`
 
 > `@type` [TransportTuple](#TransportTuple), read only
 
+#### pipeTransport.sctpParameters
+{: #pipeTransport-sctpParameters .code}
+
+Local SCTP parameters.
+
+> `@type` [SctpParameters](#TransportSctpParameters), read only
+
+#### pipeTransport.sctpState
+{: #pipeTransport-sctpState .code}
+
+Current SCTP state.
+
+> `@type` [SctpState](#TransportSctpState), read only
+
 </section>
 
 
@@ -116,6 +130,6 @@ See also [Transport Observer Events](#Transport-observer-events).
 #### pipeTransport.observer.on("sctpstatechange", fn(sctpState))
 {: #pipeTransport-observer-on-sctpstatechange .code}
 
-Same as the [dtlsstatechange](#plainRtpTransport-on-sctpstatechange) event.
+Same as the [sctpstatechange](#pipeTransport-on-sctpstatechange) event.
 
 </section>

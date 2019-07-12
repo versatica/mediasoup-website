@@ -65,6 +65,20 @@ The transport tuple for RTCP. It's set after calling `connect()` method just if 
 
 > `@type` [TransportTuple](#TransportTuple), read only
 
+#### plainRtpTransport.sctpParameters
+{: #plainRtpTransport-sctpParameters .code}
+
+Local SCTP parameters.
+
+> `@type` [SctpParameters](#TransportSctpParameters), read only
+
+#### plainRtpTransport.sctpState
+{: #plainRtpTransport-sctpState .code}
+
+Current SCTP state.
+
+> `@type` [SctpState](#TransportSctpState), read only
+
 </section>
 
 
@@ -130,6 +144,6 @@ See also [Transport Observer Events](#Transport-observer-events).
 #### plainRtpTransport.observer.on("sctpstatechange", fn(sctpState))
 {: #plainRtpTransport-observer-on-sctpstatechange .code}
 
-Same as the [dtlsstatechange](#plainRtpTransport-on-sctpstatechange) event.
+Same as the [sctptatechange](#plainRtpTransport-on-sctpstatechange) event.
 
 </section>

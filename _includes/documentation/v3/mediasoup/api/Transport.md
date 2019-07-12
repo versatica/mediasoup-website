@@ -85,6 +85,28 @@ Both `OS` and `MIS` are part of the SCTP INIT+ACK handshake. `OS` refers to the 
 </section>
 
 
+### Enums
+{: #Transport-enums}
+
+<section markdown="1">
+
+#### SctpState
+{: #TransportSctpState .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value          | Description
+-------------- | -------------
+"new"          | SCTP procedures not yet initiated.
+"connecting"   | SCTP connecting.
+"connected"    | SCTP successfully connected.
+"failed"       | SCTP connection failed.
+"closed"       | SCTP state when the transport has been closed.
+
+</div>
+
+</section>
+
 ### Properties
 {: #Transport-properties}
 
