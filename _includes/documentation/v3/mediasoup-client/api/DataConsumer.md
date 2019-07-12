@@ -20,8 +20,8 @@ A data consumer represents a data source being transmitted from the mediasoup ro
 
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
-`id`               | String  | The identifier of the server side consumer. | Yes |
-`dataProducerId`   | String  | The identifier of the server side producer being consumed. | Yes |
+`id`               | String  | The identifier of the server side data consumer. | Yes |
+`dataProducerId`   | String  | The identifier of the server side data producer being consumed. | Yes |
 `sctpStreamParameters` | [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters) | Receive SCTP parameters. | Yes |
 `label`            | String | A label which can be used to distinguish this DataChannel from others. | No | `''`
 `protocol`         | String | Name of the sub-protocol used by this DataChannel. | No | `''`
@@ -47,14 +47,14 @@ Data consumer identifier.
 #### dataConsumer.dataProducerId
 {: #dataConsumer-dataProducerId .code}
 
-The associated producer identifier.
+The associated data producer identifier.
 
 > `@type` String, read only
 
 #### dataConsumer.closed
 {: #dataConsumer-closed .code}
 
-Whether the consumer is closed.
+Whether the data consumer is closed.
 
 > `@type` Boolean, read only
 
@@ -108,7 +108,7 @@ The DataChannel binary type: 'blob' or 'arrayBuffer'.
 #### dataConsumer.appData
 {: #dataConsumer-appData .code}
 
-Custom data Object provided by the application in the consumer factory method. The app can modify its content at any time.
+Custom data Object provided by the application in the data consumer factory method. The app can modify its content at any time.
 
 > `@type` Object, read only
 
@@ -123,10 +123,10 @@ Custom data Object provided by the application in the consumer factory method. T
 #### dataConsumer.close()
 {: #dataConsumer-close .code}
 
-Closes the consumer.
+Closes the data consumer.
 
 <div markdown="1" class="note">
-This method should be called when the server side consumer has been closed (and vice-versa).
+This method should be called when the server side data consumer has been closed (and vice-versa).
 </div>
 
 </section>
@@ -140,7 +140,7 @@ This method should be called when the server side consumer has been closed (and 
 #### dataConsumer.on("transportclose", fn())
 {: #dataConsumer-on-transportclose .code}
 
-Emitted when the transport this consumer belongs to is closed for whatever reason. The consumer itself is also closed.
+Emitted when the transport this data consumer belongs to is closed for whatever reason. The data consumer itself is also closed.
 
 ```javascript
 dataConsumer.on("transportclose", () =>

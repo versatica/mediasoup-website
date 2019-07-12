@@ -48,7 +48,7 @@ Data producer identifier.
 #### dataProducer.closed
 {: #dataProducer-closed .code}
 
-Whether the producer is closed.
+Whether the data producer is closed.
 
 > `@type` Boolean, read only
 
@@ -97,7 +97,7 @@ Threshold at which the bufferedAmount is considered to be low.
 #### dataProducer.appData
 {: #dataProducer-appData .code}
 
-Custom data Object provided by the application in the producer factory method. The app can modify its content at any time.
+Custom data Object provided by the application in the data producer factory method. The app can modify its content at any time.
 
 > `@type` Object, read only
 
@@ -112,10 +112,10 @@ Custom data Object provided by the application in the producer factory method. T
 #### dataProducer.close()
 {: #dataProducer-close .code}
 
-Closes the producer. No more media is transmitted.
+Closes the data producer. No more media is transmitted.
 
 <div markdown="1" class="note">
-This method should be called when the server side producer has been closed (and vice-versa).
+This method should be called when the server side data producer has been closed (and vice-versa).
 </div>
 
 #### dataProducer.send(data)
@@ -142,7 +142,7 @@ Argument        | Type    | Description | Required | Default
 #### dataProducer.on("transportclose", fn())
 {: #dataProducer-on-transportclose .code}
 
-Emitted when the transport this producer belongs to is closed for whatever reason. The producer itself is also closed.
+Emitted when the transport this data producer belongs to is closed for whatever reason. The data producer itself is also closed.
 
 ```javascript
 dataProducer.on("transportclose", () =>
