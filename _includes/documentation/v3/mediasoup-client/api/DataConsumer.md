@@ -23,8 +23,8 @@ Field              | Type    | Description   | Required | Default
 `id`               | String  | The identifier of the server side consumer. | Yes |
 `dataProducerId`   | String  | The identifier of the server side producer being consumed. | Yes |
 `sctpStreamParameters` | [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters) | Receive SCTP parameters. | Yes |
-`label`            | String | A label which can be used to distinguish this DataChannel from others. | No | `' '`
-`protocol`         | String | Name of the sub-protocol used by this DataChannel. | No | `' '`
+`label`            | String | A label which can be used to distinguish this DataChannel from others. | No | `''`
+`protocol`         | String | Name of the sub-protocol used by this DataChannel. | No | `''`
 `appData`          | Object  | Custom application data. | No | `{ }`
 
 </div>
