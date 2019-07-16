@@ -122,6 +122,9 @@ When a transport, producer or consumer is closed in client or server side (e.g. 
 * Producer ["transportclose"](/documentation/v3/mediasoup/api/#producer-on-transportclose). The client should call `close()` on the corresponding local producer.
 * Consumer ["transportclose"](/documentation/v3/mediasoup/api/#consumer-on-transportclose). The client should call `close()` on the corresponding local consumer.
 * Consumer ["producerclose"](/documentation/v3/mediasoup/api/#consumer-on-producerclose). The client should call `close()` on the corresponding local consumer.
+* DataProducer ["transportclose"](/documentation/v3/mediasoup/api/#dataProducer-on-transportclose). The client should call `close()` on the corresponding local data producer.
+* DataConsumer ["transportclose"](/documentation/v3/mediasoup/api/#dataConsumer-on-transportclose). The client should call `close()` on the corresponding local data consumer.
+* DataConsumer ["dataproducerclose"](/documentation/v3/mediasoup/api/#dataConsumer-on-dataproducerclose). The client should call `close()` on the corresponding local data consumer.
 
 The same happens when pausing a producer or consumer in client or server side. The action must be signaled to the other side. In addition, the server side application should listen for the following events and notify the client about them:
 
@@ -291,3 +294,20 @@ In other words: Please do not make questions about FFmpeg or GStreamer in the [m
 </div>
 
 * Once done, other endpoints (WebRTC endpoints or any others) can receive both, the FFmpeg audio and video track, by using the [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume) API as usual.
+
+
+## Guidelines for node-sctp (SCTP in Node)
+{: #guidelines-for-node-sctp}
+
+The [node-sctp](https://github.com/latysheff/node-sctp/) library can be used to send and receive SCTP messages into/from a mediasoup router and, hence, interact via DataChannel with WebRTC endpoints. 
+
+mediasoup (also) supports SCTP over plain UDP, which is also supported by node-sctp. Therefore, in order to create a `DataProducer` in Node.js:
+
+* Create a plain RTP transport with SCTP enabled.
+* Create a Node.js UDP socket and connect the mediasoup transport to its local IP:port.
+* Create a SCTP socket using the node-sctp API and make it use the UDP socket as transport.
+* Create a SCTP stream with the desired `streamId`.
+* Create a `DataProducer` on the mediasoup transport via `transport.produceData()` with the same `streamId`.
+* Write data into the SCTP stream with the proper `PPID` value (it must be 51 for WebRTC String and 53 for WebRTC Binary).
+
+See a complete usage example with both, Node.js `DataProducers` and `DataConsumers`, in the [server/lib/Bot.js](https://github.com/versatica/mediasoup-demo/blob/v3/server/lib/Bot.js) file of the mediasoup-demo project.
