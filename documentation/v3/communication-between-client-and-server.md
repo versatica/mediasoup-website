@@ -306,6 +306,7 @@ mediasoup (also) supports SCTP over plain UDP, which is also supported by node-s
 * Create a plain RTP transport with SCTP enabled.
 * Create a Node.js UDP socket and connect the mediasoup transport to its local IP:port.
 * Create a SCTP socket using the node-sctp API and make it use the UDP socket as transport.
+  - The SCTP source and destination ports must be set to 5000. This makes it possible for mediasoup to demultiplex SCTP and RTP/RTCP packets on top of the same UDP 5-tuple.
 * Create a SCTP stream with the desired `streamId`.
 * Create a `DataProducer` on the mediasoup transport via `transport.produceData()` with the same `streamId`.
 * Write data into the SCTP stream with the proper `PPID` value (it must be 51 for WebRTC String and 53 for WebRTC Binary).

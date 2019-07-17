@@ -23,5 +23,6 @@ Horizontal scalability  | <span class="checkbox"/> | <span class="checkbox on"/>
 Sender side BWE         | <span class="checkbox"/> | <span class="checkbox on"/> | mediasoup v3 implements sender side bandwidth estimation to automatically switch between SVC and simulcast spatial/temporal layers in consumers thus accommodating the total transport bitrate to the bandwidth available in the receiver endpoint.
 Unlimited video layers  | <span class="checkbox"/> | <span class="checkbox on"/> | mediasoup v2 limits the number of simulcast video streams to 3 ("low", "medium" and "high"). mediasoup v3 can handle unlimited spatial and temporal layers and refers to them by their numeric index (from 0 to N).
 Stream score            | <span class="checkbox"/> | <span class="checkbox on"/> | mediasoup v3 notifies the application with scores for every RTP stream (in producers and consumers), allowing the application to know how the overall transmission quality is in every sender and receiver.
+DataChannel support     | <span class="checkbox"/> | <span class="checkbox on"/> | mediasoup v3 implements WebRTC DataChannel (SCTP over DTLS over UDP/TCP) and also SCTP over UDP (useful to build server side SCTP connectors that exchange SCTP messages with WebRTC endpoints).
 
 </div>
