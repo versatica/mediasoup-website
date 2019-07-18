@@ -311,4 +311,8 @@ mediasoup (also) supports SCTP over plain UDP, which is also supported by node-s
 * Create a `DataProducer` on the mediasoup transport via `transport.produceData()` with the same `streamId`.
 * Write data into the SCTP stream with the proper `PPID` value (it must be 51 for WebRTC String and 53 for WebRTC Binary).
 
+<div markdown="1" class="note">
+Remember to close the UDP socket (`udpSocket.close()`) once the SCTP socket should be destroyed.
+</div>
+
 See a complete usage example with both, Node.js `DataProducers` and `DataConsumers`, in the [server/lib/Bot.js](https://github.com/versatica/mediasoup-demo/blob/v3/server/lib/Bot.js) file of the mediasoup-demo project.
