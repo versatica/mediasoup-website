@@ -116,7 +116,11 @@ const stats = await pipeTransport.getStats();
 ### Producer Statistics
 {: #Producer-Statistics}
 
-The producer's statistics contain an entry for each RTP stream being received so, if simulcast is used, there will be as many entries as discovered RTP streams. Note that the producer's statistics show the RTP streams received my mediasoup as they are sent by the producer endpoint, this is, without any packet modification.
+The producer's statistics contain an entry for each RTP stream being received. Note that the producer's statistics show the RTP streams received my mediasoup as they are sent by the producer endpoint, this is, without any packet modification.
+
+##### Simulcast Producer
+
+If simulcast is used, there will be as many entries in the producer's statistics as discovered RTP streams. Those streams may have N temporal layers.
 
 ```javascript
 const stats = await producer.getStats();
@@ -211,6 +215,49 @@ const stats = await producer.getStats();
     "score": 10,
     "ssrc": 3060700812,
     "timestamp": 925298114,
+    "type": "inbound-rtp"
+  }
+]
+```
+
+##### SVC Producer
+
+In SVC there will be a single stream in the producer's statistics with N spatial layers and temporal layers.
+
+```javascript
+[
+  {
+    "bitrate": 680020,
+    "bitrateByLayer": {
+      "0.0": 38957,
+      "0.1": 48842,
+      "0.2": 72589,
+      "1.0": 135837,
+      "1.1": 175149,
+      "1.2": 260762,
+      "2.0": 323139,
+      "2.1": 461565,
+      "2.2": 680020
+    },
+    "byteCount": 337978,
+    "firCount": 0,
+    "fractionLost": 0,
+    "jitter": 4,
+    "kind": "video",
+    "mimeType": "video/VP9",
+    "nackCount": 0,
+    "nackPacketCount": 0,
+    "packetCount": 347,
+    "packetsDiscarded": 0,
+    "packetsLost": 0,
+    "packetsRepaired": 0,
+    "packetsRetransmitted": 149,
+    "pliCount": 0,
+    "roundTripTime": 34.57,
+    "rtxSsrc": 4171189299,
+    "score": 10,
+    "ssrc": 518176773,
+    "timestamp": 1205013977,
     "type": "inbound-rtp"
   }
 ]
