@@ -357,7 +357,7 @@ const stats = await pipeConsumer.getStats();
 {: #DataProducer-Statistics}
 
 ```javascript
-const stats = await producer.getStats();
+const stats = await dataProducer.getStats();
 
 // =>
 {
@@ -374,7 +374,7 @@ const stats = await producer.getStats();
 {: #DataConsumer-Statistics}
 
 ```javascript
-const stats = await consumer.getStats();
+const stats = await dataConsumer.getStats();
 
 // =>
 {

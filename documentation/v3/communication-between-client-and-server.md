@@ -33,7 +33,7 @@ Both mediasoup-client (client side JavaScript library) and libmediasoupclient (C
 The application may use WebSocket and associate each authenticated WebSocket connection with a "peer".
 
 <div markdown="1" class="note">
-Notice that there are no "peers" per se in mediasoup. However the application may wish to define "peers", which may identify and associate a specific user account, WebSocket connection, metadata, and a set of mediasoup transports, producers and consumers.
+Notice that there are no "peers" per se in mediasoup. However the application may wish to define "peers", which may identify and associate a specific user account, WebSocket connection, metadata, and a set of mediasoup transports, producers, consumers. data producers and data consumers.
 </div>
 
 ### Device Loading
@@ -113,10 +113,10 @@ Once the receive transport is created, the client side application can consume m
 {: #communicating-actions-and-events}
 
 <div markdown="1" class="note">
-As a core principle, calling a method is a mediasoup instance does **not** generate a direct event in that instance. In summary, this means that calling `close()` on a router, transport, producer or consumer will **not** trigger any event on it.
+As a core principle, calling a method is a mediasoup instance does **not** generate a direct event in that instance. In summary, this means that calling `close()` on a router, transport, producer, consumer, data producer or data consumer will **not** trigger any event on it.
 </div>
 
-When a transport, producer or consumer is closed in client or server side (e.g. by calling `close()` on it), the application should signal its closure to the other side which should also call `close()` on the corresponding entity. In addition, the server side application should listen for the following closure events and notify the client about them:
+When a transport, producer, consumer, data producer or data consumer is closed in client or server side (e.g. by calling `close()` on it), the application should signal its closure to the other side which should also call `close()` on the corresponding entity. In addition, the server side application should listen for the following closure events and notify the client about them:
 
 * Transport ["routerclose"](/documentation/v3/mediasoup/api/#transport-on-routerclose). The client should call `close()` on the corresponding local transport.
 * Producer ["transportclose"](/documentation/v3/mediasoup/api/#producer-on-transportclose). The client should call `close()` on the corresponding local producer.
@@ -126,7 +126,7 @@ When a transport, producer or consumer is closed in client or server side (e.g. 
 * DataConsumer ["transportclose"](/documentation/v3/mediasoup/api/#dataConsumer-on-transportclose). The client should call `close()` on the corresponding local data consumer.
 * DataConsumer ["dataproducerclose"](/documentation/v3/mediasoup/api/#dataConsumer-on-dataproducerclose). The client should call `close()` on the corresponding local data consumer.
 
-The same happens when pausing a producer or consumer in client or server side. The action must be signaled to the other side. In addition, the server side application should listen for the following events and notify the client about them:
+The same happens when pausing a RTP producer or consumer in client or server side. The action must be signaled to the other side. In addition, the server side application should listen for the following events and notify the client about them:
 
 * Consumer ["producerpause"](/documentation/v3/mediasoup/api/#consumer-on-producerpause). The client should call `pause()` on the corresponding local transport.
 * Consumer ["producerresume"](/documentation/v3/mediasoup/api/#consumer-on-producerresume). The client should call `resume()` on the corresponding local transport (unless the consumer itself was also paused on purpose). 
