@@ -67,6 +67,7 @@ LIBWEBRTC_INCLUDE_PATH | Path | Path to libwebrtc sources (the `src` folder). | 
 LIBWEBRTC_BINARY_PATH | Path | Path to the libwebrtc static library. | Yes |
 MEDIASOUPCLIENT_LOG_DEV | Bool | Enable `MSC_LOG_DEV` C++ macro. See [Logger](/documentation/v3/libmediasoupclient/api/#Logger). | No | `false`
 MEDIASOUPCLIENT_LOG_TRACE | Bool | Enable `MSC_LOG_TRACE` C++ macro. See [Logger](/documentation/v3/libmediasoupclient/api/#Logger). | No | `false`
+MEDIASOUPCLIENT_BUILD_TESTS | Bool | Run the unit tests. | No | No |
 CMAKE_CXX_FLAGS | String | C++ flags (see "Linkage Considerations" section below). | No |
 
 </div>
@@ -100,7 +101,7 @@ Build libwebrtc with the 'use_custom_libcxx=false' `gn gen` argument to force it
 
 ## Build Example
 
-Building libwebrtc and libmediasoupclient in OSX may look as follows:
+* Build libwebrtc. Common steps:
 
 ```bash
 $ cd /home/foo/src
@@ -110,9 +111,28 @@ $ fetch --nohooks webrtc
 $ gclient sync
 $ cd src
 $ git checkout -b m74 refs/remotes/branch-heads/m74
-$ gn gen out/mybuild-m74 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.11" use_custom_libcxx=false'
+```
+
+* In OSX 10.14.16 this works:
+
+```bash
+$ gn gen out/mybuild-m74 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.14" use_custom_libcxx=false'
 $ ninja -C out/mybuild-m74
 ```
+
+* In Linux Debian Stretch with GCC 6.3 this works:
+
+```bash
+$ gn gen out/mybuild-m74 --args='is_debug=false is_component_build=false is_clang=false rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true use_custom_libcxx=false treat_warnings_as_errors=false use_ozone=true'
+```
+
+* Then build it:
+
+```bash
+$ ninja -C out/mybuild-m74
+```
+
+* Then build libmediasoupclient:
 
 ```bash
 $ cd /home/foo/src/libmediasoupclient
