@@ -302,8 +302,8 @@ Argument   | Type    | Description | Required | Default
 
 > `@async`
 
-<div markdown="1" class="note warn">
-This method just works when REMB is used. It will be deprecated in the future.
+<div markdown="1" class="note">
+This method just works when REMB is available in the remote sender.
 </div>
 
 ```javascript
