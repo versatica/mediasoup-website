@@ -42,10 +42,14 @@ Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
 `localIP`          | String  | Local IP address. | Yes |
 `localPort`        | Number  | Local port. | Yes |
-`remoteIP`         | String  | Remote IP address. | Yes |
-`remotePort`       | Number  | Remote port. | Yes |
+`remoteIp`         | String  | Remote IP address. | No |
+`remotePort`       | Number  | Remote port. | No |
 `protocol`         | String  | Protocol ("udp" / "tcp"). | Yes |
 
+</div>
+
+<div markdown="1" class="note">
+Both `remoteIp` and `remotePort` are unset until the media address of the remote endpoint is known, which happens after calling `transport.connect()` in `PlainRtpTransport` and `PipeTransport`, or via dynamic detection as it happens in `WebRtcTransport` (in which the remote media address is detected by ICE means), or in `PlainRtpTransport` (when using `comedia` mode).
 </div>
 
 #### TransportSctpParameters
