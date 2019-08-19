@@ -54,14 +54,14 @@ See also [Transport Properties](#Transport-properties).
 #### plainRtpTransport.tuple
 {: #plainRtpTransport-tuple .code}
 
-The transport tuple. It's set after calling `connect()` method (it's `undefined` otherwise). If RTCP-mux is enabled, this tuple refers to both RTP and RTCP.
+The transport tuple. It's set after calling `connect()` method (it's `undefined` otherwise) or via dynamic remote address detection when using `comedia` mode. If RTCP-mux is enabled, this tuple refers to both RTP and RTCP.
 
 > `@type` [TransportTuple](#TransportTuple), read only
 
 #### plainRtpTransport.rtcpTuple
 {: #plainRtpTransport-rtcpTuple .code}
 
-The transport tuple for RTCP. It's set after calling `connect()` method just if RTCP-mux is not enabled.
+The transport tuple for RTCP. It's set after calling `connect()` method or via dynamic remote address detection when using `comedia` mode just if RTCP-mux is not enabled.
 
 > `@type` [TransportTuple](#TransportTuple), read only
 
@@ -92,7 +92,7 @@ See also [Transport Methods](#Transport-methods).
 #### plainRtpTransport.connect({ ip, port, rtcpPort })
 {: #plainRtpTransport-connect .code}
 
-Provides the plain RTP transport with the endpoint parameters.
+Provides the plain RTP transport with the endpoint parameters. It must not be called when `comedia` mode is enabled (in this case the remote media address will be detected dynamically) or when `multiSource` is set.
 
 <div markdown="1" class="table-wrapper L3">
 
