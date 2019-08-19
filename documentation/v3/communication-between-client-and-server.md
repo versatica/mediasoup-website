@@ -190,9 +190,9 @@ Let's assume we have a `/home/foo/party.mp4` file with a stereo audio track and 
 * Create a plain RTP transport in the mediasoup router to send the audio track:
 
 ```javascript
-const audioTransport = await router.createPlainTransport(
+const audioTransport = await router.createPlainRtpTransport(
   { 
-    ip       : '127.0.0.1',
+    listenIp : '127.0.0.1',
     rtcpMux  : false,
     comedia  : true
   });
@@ -209,9 +209,9 @@ const audioRtcpPort = audioTransport.rtcpTuple.localPort;
 * Create a plain RTP transport in the mediasoup router to send the video track:
 
 ```javascript
-const videoTransport = await router.createPlainTransport(
+const videoTransport = await router.createPlainRtpTransport(
   { 
-    ip       : '127.0.0.1',
+    listenIp : '127.0.0.1',
     rtcpMux  : false,
     comedia  : true
   });

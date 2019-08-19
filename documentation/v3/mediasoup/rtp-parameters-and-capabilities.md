@@ -83,7 +83,7 @@ The RTP receive parameters describe a media stream as sent by mediasoup to an en
 * The `mid` value is unset (mediasoup does not include the MID RTP extension into RTP packets being sent to endpoints).
 * There is a single entry in the `encodings` array (even if the corresponding producer uses simulcast). The consumer sends a single and continuous RTP stream to the endpoint and spatial/temporal layer selection is possible via [consumer.setPreferredLayers()](/documentation/v3/mediasoup/api/#consumer-setPreferredLayers).
 * As an exception, previous bullet is not true when consuming a stream over a [PipeTransport](/documentation/v3/mediasoup/api/#PipeTransport), in which all RTP streams from the associated producer are forwarded verbatim through the consumer.
-* No matter the original RTP send parameters of the associated producer have `rid` in each entry in `encodings`, the RTP receive parameters will replace them with entries having a randomly generated `ssrc` value (and optional `rtx: { ssrc: XXXX }` if the endpoint supports RTX). 
+* The RTP receive parameters will always have their `ssrc` values randomly generated for all of its `encodings` (and optional `rtx: { ssrc: XXXX }` if the endpoint supports RTX), regardless of the original RTP send parameters in the associated producer. This applies even if the producer's `encodings` have `rid` set.
 
 #### RtpCapabilities
 {: #RtpCapabilities .code}
