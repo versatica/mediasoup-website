@@ -49,7 +49,12 @@ See also [Transport Properties](#Transport-properties).
 #### pipeTransport.tuple
 {: #pipeTransport-tuple .code}
 
-The transport tuple. It's set after calling `connect()` method (it's `undefined` otherwise). This tuple refers to both RTP and RTCP.
+The transport tuple. It refers to both RTP and RTCP since pipe transports use RTCP-mux by design.
+
+<div markdown="1" class="note">
+* Once the pipe transport is created, `transport.tuple` will contain information about its `localIp`, `localPort` and `protocol`.
+* Information about `remoteIp` and `remotePort` will be set after calling `connect()` method.
+</div>
 
 > `@type` [TransportTuple](#TransportTuple), read only
 
