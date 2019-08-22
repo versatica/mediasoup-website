@@ -33,6 +33,13 @@ Made by [mediasoup authors](https://github.com/versatica), this project is a
 [libmediasoupclient](https://github.com/versatica/libmediasoupclient/) based application that takes the system microphone and webcam and produces the media to the specified room in [mediasoup-demo](https://github.com/versatica/mediasoup-demo/) application.
 
 
+### ethand91/mediasoup3-record-demo
+
+**Project:** [https://github.com/ethand91/mediasoup3-record-demo](https://github.com/ethand91/mediasoup3-record-demo) (uses mediasoup v3)
+
+Simple audio/video record application using mediasoup and GStreamer.
+
+
 ### mkhahani/mediasoup-sample-app
 
 **Project:** [https://github.com/mkhahani/mediasoup-sample-app](https://github.com/mkhahani/mediasoup-sample-app) (uses mediasoup v3)
