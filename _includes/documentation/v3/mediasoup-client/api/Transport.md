@@ -41,7 +41,7 @@ Field            | Type    | Description   | Required | Default
 
 Argument        | Type    | Description   
 --------------- | ------- | ----------------
-`kind`          | String  | Producer's media kind ("audio" or "video").
+`kind`          | [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind) | Producer's media kind ("audio" or "video").
 `rtpParameters` | [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters) | Producer's RTP parameters.
 `appData`       | Object  | Custom application data as given in the `transport.produce()` method.
 

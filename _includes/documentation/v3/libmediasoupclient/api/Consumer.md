@@ -32,7 +32,7 @@ The associated producer identifier.
 
 The media kind ("audio" or "video").
 
-> `@returns` const std::string&
+> `@returns` const std::string& [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind)
 
 #### consumer.GetRtpParameters()
 {: #Consumer-GetRtpParameters .code}

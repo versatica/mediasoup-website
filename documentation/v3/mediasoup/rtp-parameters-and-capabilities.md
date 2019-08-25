@@ -210,7 +210,7 @@ Exactly one `RtpCodecCapability` will be present for each supported combination 
 
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
-`kind`             | String  | Media kind ("audio" or "video"). | Yes |
+`kind`             | [MediaKind](#MediaKind) | Media kind ("audio" or "video"). | Yes |
 `mimeType`         | String  | The codec MIME media type/subtype (e.g. "audio/opus", "video/VP8"). | Yes |
 `preferredPayloadType` | Number  | The preferred RTP payload type. | Yes |
 `clockRate`        | Number  | Codec clock rate expressed in Hertz. | Yes |
@@ -232,7 +232,7 @@ Provides information relating to supported header extensions. The list of RTP he
 
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
-`kind`             | String  | Media kind ("audio" or "video"). If unset, it's valid for all kinds. | No |
+`kind`             | [MediaKind](#MediaKind) | Media kind ("audio" or "video"). If unset, it's valid for all kinds. | No |
 `uri`              | String  | The URI of the RTP header extension, as defined in [RFC 5285](https://tools.ietf.org/html/rfc5285). | Yes |
 `preferredId`      | Number  | The preferred numeric identifier that goes in the RTP packet. Must be unique. | Yes |
 `preferredEncrypt` | Boolean | If `true`, it is preferred that the value in the header be encrypted as per [RFC 6904](https://tools.ietf.org/html/rfc6904). | No | `false`
@@ -246,6 +246,24 @@ Field              | Type    | Description   | Required | Default
 </div>
 
 </section>
+
+
+## Enums
+{: #Enums}
+
+<section markdown="1">
+
+#### MediaKind
+{: #MediaKind .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value          | Description
+-------------- | -------------
+"audio"        | Audio media kind.
+"video"        | Video media kind.
+
+</div>
 
 
 ## Codec Parameters

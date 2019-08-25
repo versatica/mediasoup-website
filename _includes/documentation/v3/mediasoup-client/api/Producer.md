@@ -99,7 +99,7 @@ Whether the producer is closed.
 
 The media kind ("audio" or "video").
 
-> `@type` String, read only
+> `@type` [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind), read only
 
 #### producer.track
 {: #producer-track .code}

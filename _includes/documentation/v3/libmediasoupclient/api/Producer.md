@@ -52,7 +52,7 @@ Producer identifier.
 
 The media kind ("audio" or "video").
 
-> `@returns` std::string
+> `@returns` std::string [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind)
 
 #### producer.GetTrack()
 {: #Producer-GetTrack .code}

@@ -37,7 +37,7 @@ Made by [mediasoup authors](https://github.com/versatica), this project is a
 
 **Project:** [https://github.com/ethand91/mediasoup3-record-demo](https://github.com/ethand91/mediasoup3-record-demo) (uses mediasoup v3)
 
-Simple audio/video record application using mediasoup and GStreamer.
+Simple audio/video record application using mediasoup and GStreamer or FFmpeg.
 
 
 ### mkhahani/mediasoup-sample-app

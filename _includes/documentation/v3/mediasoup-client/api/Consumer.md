@@ -22,7 +22,7 @@ Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
 `id`            | String  | The identifier of the server side consumer. | Yes |
 `producerId`    | String  | The identifier of the server side producer being consumed. | Yes |
-`kind`          | String  | Media kind ("audio" or "video"). | Yes |
+`kind`          | [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind) | Media kind ("audio" or "video"). | Yes |
 `rtpParameters` | [RtpReceiveParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpReceiveParameters) | Receive RTP parameters. | Yes |
 `appData`       | Object  | Custom application data. | No | `{ }`
 
@@ -62,7 +62,7 @@ Whether the consumer is closed.
 
 The media kind ("audio" or "video").
 
-> `@type` String, read only
+> `@type` [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind), read only
 
 #### consumer.rtpParameters
 {: #consumer-rtpParameters .code}
