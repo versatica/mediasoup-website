@@ -208,12 +208,10 @@ Argument    | Type    | Description | Required | Default
 
 </div>
 
-> `@async`
-> 
 > `@returns` [Transport](#Transport)
 
 ```javascript
-const transport = await device.createSendTransport(
+const transport = device.createSendTransport(
   {
     id             : "0b38d662-ea00-4c70-9ae3-b675d6a89e09",
     iceParameters  : { ... },
@@ -236,12 +234,10 @@ Argument    | Type    | Description | Required | Default
 
 </div>
 
-> `@async`
-> 
 > `@returns` [Transport](#Transport)
 
 ```javascript
-const transport = await device.createRecvTransport(
+const transport = device.createRecvTransport(
   {
     id             : "152f60cd-10ac-443b-8529-6474ecba2e44",
     iceParameters  : { ... },
