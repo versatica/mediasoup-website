@@ -94,7 +94,7 @@ Both `OS` and `MIS` are part of the SCTP INIT+ACK handshake. `OS` refers to the 
 
 <section markdown="1">
 
-#### SctpState
+#### TransportSctpState
 {: #TransportSctpState .code}
 
 <div markdown="1" class="table-wrapper L2">

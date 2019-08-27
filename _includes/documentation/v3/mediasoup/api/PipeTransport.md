@@ -63,14 +63,14 @@ The transport tuple. It refers to both RTP and RTCP since pipe transports use RT
 
 Local SCTP parameters.
 
-> `@type` [SctpParameters](#TransportSctpParameters), read only
+> `@type` [TransportSctpParameters](#TransportSctpParameters), read only
 
 #### pipeTransport.sctpState
 {: #pipeTransport-sctpState .code}
 
 Current SCTP state.
 
-> `@type` [SctpState](#TransportSctpState), read only
+> `@type` [TransportSctpState](#TransportSctpState), read only
 
 </section>
 
@@ -119,7 +119,7 @@ Emitted when the transport SCTP state changes.
 
 Argument | Type    | Description   
 ----------------- | ------- | ----------------
-`sctpState`       | [SctpState](#TransportSctpState) | The new SCTP state.
+`sctpState`       | [TransportSctpState](#TransportSctpState) | The new SCTP state.
 
 </div>
 </section>

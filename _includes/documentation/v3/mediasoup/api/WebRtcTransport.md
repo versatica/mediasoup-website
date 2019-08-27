@@ -234,14 +234,14 @@ The application may want to inspect the remote certificate for authorization pur
 
 Local SCTP parameters.
 
-> `@type` [SctpParameters](#TransportSctpParameters), read only
+> `@type` [TransportSctpParameters](#TransportSctpParameters), read only
 
 #### webRtcTransport.sctpState
 {: #webRtcTransport-sctpState .code}
 
 Current SCTP state.
 
-> `@type` [SctpState](#TransportSctpState), read only
+> `@type` [TransportSctpState](#TransportSctpState), read only
 
 </section>
 
@@ -390,7 +390,7 @@ Emitted when the transport SCTP state changes.
 
 Argument | Type    | Description   
 ----------------- | ------- | ----------------
-`sctpState`       | [SctpState](#TransportSctpState) | The new SCTP state.
+`sctpState`       | [TransportSctpState](#TransportSctpState) | The new SCTP state.
 
 </div>
 

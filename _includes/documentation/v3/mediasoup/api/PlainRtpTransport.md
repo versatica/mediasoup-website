@@ -84,14 +84,14 @@ The transport tuple for RTCP. If RTCP-mux is enabled (`rtcpMux` is set), its val
 
 Local SCTP parameters.
 
-> `@type` [SctpParameters](#TransportSctpParameters), read only
+> `@type` [TransportSctpParameters](#TransportSctpParameters), read only
 
 #### plainRtpTransport.sctpState
 {: #plainRtpTransport-sctpState .code}
 
 Current SCTP state.
 
-> `@type` [SctpState](#TransportSctpState), read only
+> `@type` [TransportSctpState](#TransportSctpState), read only
 
 </section>
 
@@ -141,7 +141,7 @@ Emitted when the transport SCTP state changes.
 
 Argument | Type    | Description   
 ----------------- | ------- | ----------------
-`sctpState`       | [SctpState](#TransportSctpState) | The new SCTP state.
+`sctpState`       | [TransportSctpState](#TransportSctpState) | The new SCTP state.
 
 </div>
 
