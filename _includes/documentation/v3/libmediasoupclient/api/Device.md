@@ -77,7 +77,7 @@ Whether the device has been loaded (see the [Load()](#device-Load) method).
 > `@returns` bool
 
 
-#### device.Load(routerRtpCapabilities)
+#### device.Load(routerRtpCapabilities, peerConnectionOptions = nullptr)
 {: #device-Load .code}
 
 Loads the device with the RTP capabilities of the mediasoup router. This is how the device knows about the allowed media codecs and other settings.
@@ -87,6 +87,7 @@ Loads the device with the RTP capabilities of the mediasoup router. This is how 
 Argument      | Type    | Description | Required | Default 
 ------------- | ------- | ----------- | -------- | ----------
 `routerRtpCapabilities` | const nlohmann::json& [RtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCapabilities) | The mediasoup router RTP capabilities. | Yes |
+`peerConnectionOptions` | [PeerConnection::Options\*](#PeerConnectionOptions) | PeerConnection options. | No   |
 
 </div>
 
@@ -127,7 +128,7 @@ if (device.CanProduce("video"))
 }
 ```
 
-#### device.CreateSendTransport(listener, id, iceParameters, iceCandidates, dtlsParameters, peerConectionOptions, appData = {})
+#### device.CreateSendTransport(listener, id, iceParameters, iceCandidates, dtlsParameters, peerConnectionOptions = nullptr, appData = {})
 {: #device-CreateSendTransport .code}
 
 Creates a new WebRTC transport to **send** media. The transport must be previously created in the mediasoup router via [router.createWebRtcTransport()](/documentation/v3/mediasoup/api/#router-createWebRtcTransport).
@@ -160,7 +161,7 @@ auto* sendTransport = device.CreateSendTransport(
   dtlsParameters);
 ```
 
-#### device.CreateRecvTransport(listener, id, iceParameters, iceCandidates, dtlsParameters, peerConectionOptions, appData = {})
+#### device.CreateRecvTransport(listener, id, iceParameters, iceCandidates, dtlsParameters, peerConnectionOptions = nullptr, appData = {})
 {: #device-CreateRecvTransport .code}
 
 Creates a new WebRTC transport to **receive** media. The transport must be previously created in the mediasoup router via [router.createWebRtcTransport()](/documentation/v3/mediasoup/api/#router-createWebRtcTransport).
