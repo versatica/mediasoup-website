@@ -77,7 +77,7 @@ Argument        | Type    | Description | Required | Default
 > `@async` blocks current thread
 
 <div markdown="1" class="note">
-This method must be called after restarting ICE in server side via [webRtctransport.restartIce()](/documentation/v3/mediasoup/api/#webRtcTransport-restartIce).
+This method must be called after restarting ICE in server side via [webRtcTransport.restartIce()](/documentation/v3/mediasoup/api/#webRtcTransport-restartIce).
 </div>
 
 ```c++

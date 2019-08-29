@@ -93,6 +93,10 @@ console.log(rtpCapabilities);
 // => { codecs: [...], headerExtensions: [...] }
 ```
 
+<div markdown="1" class="note warn">
+Those are **NOT** the RTP capabilities needed by mediasoup-client's [device.load()](/documentation/v3/mediasoup-client/api/#device-load) and libmediasoupclient's [device.Load()](/documentation/v3/libmediasoupclient/api/#device-Load) methods. There you must use [router.rtpCapabilities](#router-rtpCapabilities) getter instead.
+</div>
+
 #### mediasoup.parseScalabilityMode(scalabilityMode)
 {: #mediasoup-parseScalabilityMode .code}
 
