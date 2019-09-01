@@ -82,7 +82,8 @@ Once the receive transport is created, the client side application can consume m
 * The client application signals its [device.rtpCapabilities](/documentation/v3/mediasoup-client/api/#device-rtpCapabilities) to the server (it may have done it in advance).
 * The server application should check whether the remote device can consume a specific producer (this is, whether it supports the producer media codecs). It can do it by using the [router.canConsume()](/documentation/v3/mediasoup/api/#router-canConsume) method.
 * Then the server application calls [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume) in the WebRTC transport the client created for receiving media, thus generating a server side [Consumer](/documentation/v3/mediasoup-client/api/#Consumer).
-* The server application transmits the consumer information and parameters to the client application, which calls [transport.consume()](/documentation/v3/mediasoup-client/api/#transport-consume) in the local receive transport.
+  - As explained in the [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume) documentation, it's strongly recommended to create the server side consumer with `paused: true` and resume it once created in the remote endpoint.
+* The server application transmits the consumer information and parameters to the remote client application, which calls [transport.consume()](/documentation/v3/mediasoup-client/api/#transport-consume) in the local receive transport.
   - The transport will emit ["connect"](/documentation/v3/mediasoup-client/api/#transport-on-connect) if this is the first call to `transport.consume()`.
 * Finally `transport.consume()` will resolve with a [Consumer](/documentation/v3/mediasoup-client/api/#Consumer) instance in client side.
 
