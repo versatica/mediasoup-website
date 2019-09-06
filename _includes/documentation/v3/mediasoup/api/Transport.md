@@ -40,7 +40,7 @@ Field         | Type    | Description   | Required | Default
 
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
-`localIP`          | String  | Local IP address. | Yes |
+`localIp`          | String  | Local IP address. | Yes |
 `localPort`        | Number  | Local port. | Yes |
 `remoteIp`         | String  | Remote IP address. | No |
 `remotePort`       | Number  | Remote port. | No |
