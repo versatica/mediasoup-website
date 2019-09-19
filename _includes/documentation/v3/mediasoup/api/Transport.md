@@ -372,7 +372,7 @@ const consumer = await transport.consume(
 #### transport.produceData(options)
 {: #transport-producedata .code}
 
-Instructs the transport to receive data via [SCTP](https://tools.ietf.org/html/rfc4960). This is the way to inject data into mediasoup.
+Instructs the transport to receive data via [SCTP](https://tools.ietf.org/html/rfc4960) stream. This is the way to inject data into mediasoup.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -387,13 +387,13 @@ Argument    | Type    | Description | Required | Default
 > `@returns` [DataProducer](#DataProducer)
 
 ```javascript
-const producer = await transport.produceData();
+const dataProducer = await transport.produceData();
 ```
 
 #### transport.consumeData(options)
 {: #transport-consumedata .code}
 
-Instructs the transport to send data via [SCTP](https://tools.ietf.org/html/rfc4960). This is the way to extract data from mediasoup.
+Instructs the transport to send data via [SCTP](https://tools.ietf.org/html/rfc4960) stream. This is the way to extract data from mediasoup.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -408,7 +408,7 @@ Argument    | Type    | Description | Required | Default
 > `@returns` [DataConsumer](#DataConsumer)
 
 ```javascript
-const consumer = await transport.consumeData(
+const dataConsumer = await transport.consumeData(
   {
     producerId      : "a7a955cf-fe67-4327-bd98-bbd85d7e2ba4"
   });
