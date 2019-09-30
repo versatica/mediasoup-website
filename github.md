@@ -21,6 +21,6 @@ C++ library based on libwebrtc.
 
 Source code of the [mediasoup demo](https://demo.mediasoup.org) application.
 
-##### [mediasoup-broadcaster-demo](https://github.com/versatica/v3-mediasoup-broadcaster-demo/)
+##### [mediasoup-broadcaster-demo](https://github.com/versatica/mediasoup-broadcaster-demo/)
 
 libmediasoupclient based C++ application that produces the system microphone and webcam into the mediasoup demo.
