@@ -17,8 +17,9 @@ $ npm install mediasoup@3 --save
 
 In order to build the mediasoup C/C++ components the following packages and libraries must be available in the target host:
 
+### Linux, OSX and any *NIX system
+
 * Node.js >= `v8.6.0`
-* POSIX based operating system (Windows not supported)
 * `python` version 2 or 3
 * `make`
 * `gcc` and `g++` >= 4.9 or `clang` (with C++11 support)
@@ -36,6 +37,14 @@ If there is not `python` command pointing to Python 2 or 3 executable, set the `
 $ PYTHON=python3 npm install mediasoup@3 --save
 ```
 </div>
+
+### Windows
+
+* Node.js >= `v8.6.0`
+* `python` version 2 or 3
+* Visual Studio >= 2015
+* Add the path of `MSBuild.exe` to System Enviroment (e.g. `C:\Program Files (x86)\MSBuild\14.0\Bin`)
+* Add `GYP_MSVS_VERSION` to System Enviroment (e.g. `2017` for Visual Studio 2017)
 
 
 ## Usage
