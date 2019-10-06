@@ -45,15 +45,16 @@ I'm a core author of [JsSIP][jssip-url] "The JavaScript SIP library" and co-auth
 
 ## Acknowledgements
 
-mediasoup would not have been possible without the help and advice of:
+Special thanks for their contributions, help and advice to:
 
-* [Saúl Ibarra Corretgé][saghul-personal-url]
-* [Gustavo García][gustavo-personal-url]
+* [Saúl Ibarra Corretgé][saghul-personal-url]: Advice on libuv usage and GYP.
+* [Gustavo García][gustavo-personal-url]: The source of WebRTC knowledge.
+* [Haiyang Wu][haiyangwu-personal-url]: Windows support for mediasoup.
 
 
 ## Donate
 
-You can support mediasoup by making a donation [here][paypal-url]{:target="_blank"}. Thanks!
+You can support mediasoup by making a [donation](/sponsors/#become-a-sponsor). Thanks!
 
 
 
@@ -79,10 +80,11 @@ You can support mediasoup by making a donation [here][paypal-url]{:target="_blan
 [upwork-icon]: /images/icon-upwork.svg
 
 [rfc7118-url]: https://tools.ietf.org/html/rfc7118
-[saghul-personal-url]: https://about.me/saghul
-[gustavo-personal-url]: http://www.rtcbits.com
 [paypal-url]: https://paypal.me/inakibazcastillo/100
-[ortc-draft-url]: http://draft.ortc.org
+[ortc-draft-url]: https://draft.ortc.org
 [jssip-url]: https://jssip.net
 
+[saghul-personal-url]: https://about.me/saghul
+[gustavo-personal-url]: https://www.rtcbits.com
+[haiyangwu-personal-url]: https://github.com/haiyangwu
 
