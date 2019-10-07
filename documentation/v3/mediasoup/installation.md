@@ -43,8 +43,10 @@ $ PYTHON=python3 npm install mediasoup@3 --save
 * Node.js >= `v8.6.0`
 * `python` version 2 or 3
 * Visual Studio >= 2015
-* Add the path of `MSBuild.exe` to System Enviroment (e.g. `C:\Program Files (x86)\MSBuild\14.0\Bin`)
-* Add `GYP_MSVS_VERSION` to System Enviroment (e.g. `2017` for Visual Studio 2017)
+
+Append the path of `MSBuild.exe` folder to `PATH` in Windows environment variable (e.g. "C:\Program Files (x86)\MSBuild\14.0\Bin").
+
+Create a new Windows environment variable `GYP_MSVS_VERSION` with the version of Visual Studio as value (e.g. "2017" for Visual Studio 2017).
 
 
 ## Usage
