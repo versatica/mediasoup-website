@@ -19,11 +19,10 @@ In order to build the mediasoup C/C++ components the following packages and libr
 
 ### Linux, OSX and any *NIX system
 
-* Node.js >= `v8.6.0`
+* `node` version >= v8.6.0
 * `python` version 2 or 3
 * `make`
 * `gcc` and `g++` >= 4.9 or `clang` (with C++11 support)
-* `cc` command pointing to `gcc` or `clang`
 
 <div markdown="1" class="note">
 * In Debian and Ubuntu install the `build-essential` DEB package. It includes both `make` and `gcc`/`g++`.
@@ -40,13 +39,14 @@ $ PYTHON=python3 npm install mediasoup@3 --save
 
 ### Windows
 
-* Node.js >= `v8.6.0`
+* `node` version >= v8.6.0
 * `python` version 2 or 3
 * Visual Studio >= 2015
 
-Append the path of `MSBuild.exe` folder to `PATH` in Windows environment variable (e.g. "C:\Program Files (x86)\MSBuild\14.0\Bin").
-
-Create a new Windows environment variable `GYP_MSVS_VERSION` with the version of Visual Studio as value (e.g. "2017" for Visual Studio 2017).
+<div markdown="1" class="note">
+* Append the path of `MSBuild.exe` folder to the Windows `PATH` environment variable (e.g. "C:\Program Files (x86)\MSBuild\14.0\Bin").
+* Create a new Windows environment variable `GYP_MSVS_VERSION` with the version of Visual Studio as value (e.g. "2017" for Visual Studio 2017).
+</div>
 
 
 ## Usage
