@@ -4,27 +4,29 @@ anchors : true
 ---
 
 
+<!--
 # Platinum Sponsors
 
 <div markdown="1" class="computer-icon-text-columns">
 <div markdown="1" class="icon">
 
-[![](/images/46labs-logo.png){: .left.logo }](https://46labs.com)
+[![](/images/company-logo.png){: .left.logo }](https://company.url)
 
 </div>
 <div markdown="1" class="text">
 
-**In A World Where Everything Communicates**
+**Company Slogan**
 
-*"Our telecom products and solutions are deployed inside Service Providers and Enterprises in over 100 countries worldwide, including some orbiting our planet."*
+*"Company description"*
 
-[46labs.com](https://46labs.com)
+[company.url](https://company.url)
 
 </div>
 </div>
+-->
 
 
-### Become a Sponsor
+# Become a Sponsor
 {: #become-a-sponsor}
 
 You can contribute to mediasoup by donating in [Open Collective](https://opencollective.com/mediasoup):
