@@ -23,6 +23,8 @@ Field                    | Type    | Description   | Required | Default
 `transportOptions`       | [TransportOptions](#Transport-TransportOptions) | Options for created `transports`. | No |
 `turnServers`            | sequence&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver-dictionary)&gt; | Array of TURN servers. | No | `[]`
 `iceTransportPolicy`     | String  | The [ICE transport policy](https://w3c.github.io/webrtc-pc/#dom-rtcconfiguration-icetransportpolicy). | No | "all"
+`rtcAudioJitterBufferMaxPackets` | Number | Experimental feature in libwebrtc for audio jitter. | No |
+`rtcAudioJitterBufferMinDelayMs` | Number | Experimental feature in libwebrtc for audio jitter. | No |
 `spy`                    | Boolean | Join as spy peer (other peers won't see this peer) | No | `false`
 
 </div>
