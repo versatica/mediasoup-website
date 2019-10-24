@@ -29,7 +29,8 @@ Field            | Type    | Description   | Required | Default
 `sctpParameters` | [SctpParameters](/documentation/v3/mediasoup/api/#TransportSctpParameters) | SCTP parameters of the server side transport. | No   |
 `iceServers`     | Array&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver-dictionary)&gt; | List of TURN servers. This setting is given to the local peerconnection. | No   | `[ ]`
 `iceTransportPolicy` | [RTCIceTransportPolicy](https://w3c.github.io/webrtc-pc/#rtcicetransportpolicy-enum) | ICE candidate policy for the local peerconnection. | No   | "all"
-`proprietaryConstraints` | Object  | Browser vendor's proprietary constraints used as second argument in the peerconnection constructor. | No |
+`additionalSettings` | Object | Additional [RTCConfiguration](https://www.w3.org/TR/webrtc/#rtcconfiguration-dictionary) settings other than `iceServers`, `iceTransportPolicy`, `bundlePolicy`, `rtcpMuxPolic` and `sdpSemantics`. Use it to enable experimental settings.
+`proprietaryConstraints` | Object  | Browser vendor's proprietary constraints used as second argument in the peerconnection constructor (deprecated in the WebRTC 1.0 API). | No |
 `appData`       | Object  | Custom application data. | No | `{ }`
 
 </div>
