@@ -32,7 +32,6 @@ Field        | Type    | Description   | Required | Default
 `preferUdp`  | Boolean | Listen in UDP. | No | `false`
 `preferTcp`  | Boolean | Listen in TCP. | No | `false`
 `initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps). | No | 600000
-`minimumAvailableOutgoingBitrate` | Number | Minimum available outgoing bitrate (in bps) to apply when the consumer endpoint reports less than this value. Use it with caution. | No | 300000
 `enableSctp` | Boolean | Create a SCTP association. | No | `false`
 `numSctpStreams` | [TransportNumSctpStreams](#TransportNumSctpStreams) | SCTP streams number. | No |
 `maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 262144
@@ -41,8 +40,7 @@ Field        | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-* Both `initialAvailableOutgoingBitrate` and `minimumAvailableOutgoingBitrate` are just applied when the consumer endpoint supports REMB or Transport-CC.
-* If given, `minimumAvailableOutgoingBitrate` must be higher or equal than `initialAvailableOutgoingBitrate`.
+* `initialAvailableOutgoingBitrate` is just applied when the consumer endpoint supports REMB or Transport-CC.
 </div>
 
 
@@ -271,7 +269,7 @@ Argument         | Type    | Description | Required | Default
 > `@overrides`
 
 ```javascript
-await transport.connect(
+await webRtcTransport.connect(
   {
     dtlsParameters :
     {
@@ -285,29 +283,6 @@ await transport.connect(
       ]
     }
   });
-```
-
-#### webRtcTransport.setMaxIncomingBitrate(bitrate)
-{: #webRtcTransport-setMaxIncomingBitrate .code}
-
-Set maximum incoming bitrate for media streams sent by the remote endpoint over this WebRTC transport.
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument   | Type    | Description | Required | Default 
----------- | ------- | ----------- | -------- | ----------
-`bitrate`  | Number | Maximum sending bitrate in `bps`. | Yes | 0 (no limit)
-
-</div>
-
-> `@async`
-
-<div markdown="1" class="note">
-This method just works when REMB is available in the remote sender.
-</div>
-
-```javascript
-await webRtcTransport.setMaxIncomingBitrate(3500000);
 ```
 
 #### webRtcTransport.restartIce()

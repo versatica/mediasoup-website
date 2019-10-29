@@ -52,7 +52,7 @@ mediasoup:Channel[pid:80653] request() [method:router.createWebRtcTransport, id:
 mediasoup:Channel[pid:80653] request succeeded [method:router.createWebRtcTransport, id:3] +4ms
 mediasoup:Transport constructor() +0ms
 mediasoup:WebRtcTransport constructor() +0ms
-mediasoup:WebRtcTransport setMaxIncomingBitrate() [bitrate:1500000] +4ms
+mediasoup:Transport setMaxIncomingBitrate() [bitrate:1500000] +4ms
 mediasoup:Channel[pid:80653] request() [method:transport.setMaxIncomingBitrate, id:4] +8ms
 mediasoup:Channel[pid:80653] request succeeded [method:transport.setMaxIncomingBitrate, id:4] +2ms
 ```
