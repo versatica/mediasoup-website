@@ -50,6 +50,7 @@ Special thanks for their contributions, help and advice to:
 * [Saúl Ibarra Corretgé][saghul-personal-url]: Advice on libuv usage and GYP.
 * [Gustavo García][gustavo-personal-url]: The source of WebRTC knowledge.
 * [Haiyang Wu][haiyangwu-personal-url]: Windows support for mediasoup.
+* [Micael Gallego][micael-gallego-personal-url]: TypeScript contribution for mediasoup.
 
 
 ## Donate
@@ -87,4 +88,5 @@ You can support mediasoup by making a [donation](/sponsors/#become-a-sponsor). T
 [saghul-personal-url]: https://about.me/saghul
 [gustavo-personal-url]: https://www.rtcbits.com
 [haiyangwu-personal-url]: https://github.com/haiyangwu
+[micael-gallego-personal-url]: https://about.me/micael.gallego
 
