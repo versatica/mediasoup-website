@@ -38,11 +38,9 @@ An Object holding all classes and **TypeScript** types exported by mediasoup.
 import { types as mediasoupTypes } from 'mediasoup';
 
 let worker: mediasoupTypes.Worker;
-```
 
-or:
+// or alternatively:
 
-```javascript
 import { Worker } from 'mediasoup/types';
 
 let worker: Worker;
