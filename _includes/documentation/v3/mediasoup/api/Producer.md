@@ -5,14 +5,6 @@
 
 A producer represents an audio or video source being injected into a mediasoup router. It's created on top of a transport that defines how the media packets are carried.
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import Producer from 'mediasoup/lib/Producer';
-```
-</div>
-
 </section>
 
 
@@ -33,14 +25,6 @@ Field           | Type    | Description   | Required | Default
 `paused`        | Boolean | Whether the producer must start in paused mode. | No | `false`
 `appData`       | Object  | Custom application data. | No | `{ }`
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { ProducerOptions } from 'mediasoup/lib/Producer';
-```
 </div>
 
 <div markdown="1" class="note">
@@ -94,14 +78,6 @@ Value          | Description
 "simulcast"    | Two or more RTP streams are received, each of them with one or more temporal layers.
 "svc"          | A single RTP stream is received with spatial/temporal layers.
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { ProducerType } from 'mediasoup/lib/Producer';
-```
 </div>
 
 </section>
@@ -200,14 +176,6 @@ Returns current RTC statistics of the producer.
 > `@async`
 > 
 > `@returns` Array&lt;ProducerStat&gt;
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { ProducerStat } from 'mediasoup/lib/Producer';
-```
-</div>
 
 <div markdown="1" class="note">
 Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section for more details.

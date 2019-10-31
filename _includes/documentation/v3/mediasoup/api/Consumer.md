@@ -5,14 +5,6 @@
 
 A consumer represents an audio or video source being forwarded from a mediasoup router to an endpoint. It's created on top of a transport that defines how the media packets are carried.
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import Consumer from 'mediasoup/lib/Consumer';
-```
-</div>
-
 </section>
 
 
@@ -34,14 +26,6 @@ Field           | Type    | Description   | Required | Default
 `preferredLayers` | [ConsumerLayers](#ConsumerLayers) | Preferred spatial and temporal layer for simulcast or SVC media sources. If unset, the highest ones are selected. | No |
 `appData`       | Object  | Custom application data. | No | `{ }`
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { ConsumerOptions } from 'mediasoup/lib/Consumer';
-```
 </div>
 
 <div markdown="1" class="note">
@@ -69,14 +53,6 @@ Field           | Type    | Description   | Required | Default
 `spatialLayer`  | Number  | The spatial layer index (from 0 to N). | Yes |
 `temporalLayer` | Number  | The temporal layer index (from 0 to N). | No |
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { ConsumerLayers } from 'mediasoup/lib/Consumer';
-```
 </div>
 
 #### ConsumerRtpStreamScore
@@ -111,14 +87,6 @@ Value          | Description
 "svc"          | A single RTP stream is sent with spatial/temporal layers.
 "pipe"         | Special type for consumers created on a [PipeTransport](#PipeTransport).
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { ConsumerType } from 'mediasoup/lib/Consumer';
-```
 </div>
 
 </section>
@@ -236,14 +204,6 @@ Returns current RTC statistics of the consumer.
 > `@async`
 > 
 > `@returns` Array&lt;ConsumerStat&gt;
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { ConsumerStat } from 'mediasoup/lib/Consumer';
-```
-</div>
 
 <div markdown="1" class="note">
 Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section for more details.

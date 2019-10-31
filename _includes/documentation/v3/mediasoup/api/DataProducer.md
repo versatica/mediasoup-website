@@ -5,14 +5,6 @@
 
 A data producer represents a [SCTP](https://tools.ietf.org/html/rfc4960) data source being injected into a mediasoup router. It's created on top of a transport that defines how the data messages are carried.
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import DataProducer from 'mediasoup/lib/DataProducer';
-```
-</div>
-
 </section>
 
 
@@ -33,14 +25,6 @@ Field                  | Type    | Description   | Required | Default
 `protocol`             | String | Name of the sub-protocol used by this DataChannel. | No |
 `appData`              | Object  | Custom application data. | No | `{ }`
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { DataProducerOptions } from 'mediasoup/lib/DataProducer';
-```
 </div>
 
 </section>
@@ -121,14 +105,6 @@ Returns current SCTP statistics of the producer.
 > `@async`
 > 
 > `@returns` Array&lt;DataProducerStat&gt;
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { DataProducerStat } from 'mediasoup/lib/DataProducer';
-```
-</div>
 
 <div markdown="1" class="note">
 Check the [SCTP Statistics](/documentation/v3/mediasoup/rtc-statistics/#DataProducer-Statistics) section for more details.

@@ -5,14 +5,6 @@
 
 A worker represents a mediasoup C++ subprocess that runs in a single CPU core and handles [Router](#Router) instances.
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import Worker from 'mediasoup/lib/Worker';
-```
-</div>
-
 </section>
 
 
@@ -37,14 +29,6 @@ Field                    | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { WorkerSettings } from 'mediasoup/lib/Worker';
-```
-</div>
-
 <div markdown="1" class="note">
 RTC listening IPs are not set at worker level. Instead, they are set per individual transport.
 </div>
@@ -62,15 +46,27 @@ Field                    | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { WorkerUpdateableSettings } from 'mediasoup/lib/Worker';
-```
-</div>
-
 </section>
+
+
+### Enums
+{: #Worker-enums}
+
+<section markdown="1">
+
+#### WorkerLogLevel
+{: #WorkerLogLevel .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value    | Description  
+-------- | -------------
+"debug"  | Log all severities.
+"warn"   | Log "warn" and "error" severities.
+"error"  | Log "error" severity.
+"error"  | Do not log anything.
+
+</div>
 
 
 ### Properties

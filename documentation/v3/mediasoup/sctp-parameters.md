@@ -31,14 +31,6 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { SctpStreamParameters } from 'mediasoup/lib/SctpParameters';
-```
-</div>
-
 <div markdown="1" class="note">
 * If `ordered` is true then `maxPacketLifeTime` and `maxRetransmits` must be false.
 

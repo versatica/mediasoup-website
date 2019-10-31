@@ -5,14 +5,6 @@
 
 A data consumer represents a [SCTP](https://tools.ietf.org/html/rfc4960) data source being forwarded from a mediasoup router to an endpoint. It's created on top of a transport that defines how the data messages are carried.
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import DataConsumer from 'mediasoup/lib/DataConsumer';
-```
-</div>
-
 </section>
 
 
@@ -31,14 +23,6 @@ Field           | Type    | Description   | Required | Default
 `producerId`    | String  | The id of the data producer to consume. | Yes |
 `appData`       | Object  | Custom application data. | No | `{ }`
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { DataConsumerOptions } from 'mediasoup/lib/DataConsumer';
-```
 </div>
 
 </section>
@@ -126,14 +110,6 @@ Returns current SCTP statistics of the data consumer.
 > `@async`
 > 
 > `@returns` Array&lt;DataConsumerStat&gt;
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { DataConsumerStat } from 'mediasoup/lib/DataConsumer';
-```
-</div>
 
 <div markdown="1" class="note">
 Check the [SCTP Statistics](/documentation/v3/mediasoup/sctp-statistics/) section for more details.

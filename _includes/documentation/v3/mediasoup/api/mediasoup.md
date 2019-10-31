@@ -10,6 +10,7 @@ const mediasoup = require("mediasoup");
 
 // Or using destructuring assignment.
 const {
+  types,
   version,
   observer,
   createWorker,
@@ -25,6 +26,27 @@ const {
 {: #mediasoup-properties}
 
 <section markdown="1">
+
+#### mediasoup.types
+{: #mediasoup-types .code}
+
+An Object holding all classes and **TypeScript** types exported by mediasoup.
+
+> `@type` Object, read only
+
+```javascript
+import { types as mediasoupTypes } from 'mediasoup';
+
+let worker: mediasoupTypes.Worker;
+```
+
+or:
+
+```javascript
+import { Worker } from 'mediasoup/types';
+
+let worker: Worker;
+```
 
 #### mediasoup.version
 {: #mediasoup-version .code}
@@ -129,14 +151,6 @@ mediasoup.parseScalabilityMode("L4T7_KEY_SHIFT");
 mediasoup.parseScalabilityMode(undefined);
 // => { spatialLayers: 1, temporalLayers: 1 }
 ```
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { ScalabilityMode } from 'mediasoup/lib/scalabilityModes';
-```
-</div>
 
 </section>
 

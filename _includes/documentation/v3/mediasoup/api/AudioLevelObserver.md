@@ -7,14 +7,6 @@
 
 An audio level observer monitors the volume of the selected audio producers. It just handles audio producers (if [addProducer()](#rtpObserver-addProducer) is called with a video producer it will fail).
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import AudioLevelObserver from 'mediasoup/lib/AudioLevelObserver';
-```
-</div>
-
 </section>
 
 
@@ -34,14 +26,6 @@ Field          | Type    | Description  | Required | Default
 `threshold`    | Number  | Minimum average volume (in dBvo from -127 to 0) for entries in the "volumes" event. | No | -80
 `interval`     | Number  | Interval in ms for checking audio volumes. | No | 1000
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { AudioLevelObserverOptions } from 'mediasoup/lib/AudioLevelObserver';
-```
 </div>
 
 

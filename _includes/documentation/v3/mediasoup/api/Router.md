@@ -9,14 +9,6 @@ A router enables injection, selection and forwarding of media streams through [T
 Developers may think of a mediasoup router as if it were a "multi-party conference room", although mediasoup is much more low level than that and doesn't constrain itself to specific high level use cases (for instance, a "multi-party conference room" could involve various mediasoup routers, even in different physicals hosts).
 </div>
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import Router from 'mediasoup/lib/Router';
-```
-</div>
-
 </section>
 
 
@@ -34,14 +26,6 @@ Field         | Type               | Description   | Required | Default
 ------------- | ------------------ | ------------- | -------- | ---------
 `mediaCodecs` | Array&lt;[RtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCodecCapability)&gt; | Router media codecs. | No | `[ ]`
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { RouterOptions } from 'mediasoup/lib/Router';
-```
 </div>
 
 <div markdown="1" class="note">
@@ -67,14 +51,6 @@ Field         | Type               | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { PipeToRouterOptions } from 'mediasoup/lib/Router';
-```
-</div>
-
 <div markdown="1" class="note">
 * Only one of `producerId` and `dataProducerId` must be provided.
 * SCTP arguments will only apply the first time the underlying transports are created.
@@ -92,14 +68,6 @@ Field               | Type               | Description   | Required | Default
 `pipeDataConsumer`      | [DataConsumer](#DataConsumer) | The data consumer created in the current router. | No | 
 `pipeDataProducer`      | [DataProducer](#DataProducer) | The data producer created in the target router. | No | 
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { PipeToRouterResult } from 'mediasoup/lib/Router';
-```
 </div>
 
 </section>

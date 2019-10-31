@@ -59,14 +59,6 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { RtpParameters } from 'mediasoup/lib/RtpParametersAndCapabilities';
-```
-</div>
-
 
 #### RtpSendParameters
 {: #RtpSendParameters .code}
@@ -110,14 +102,6 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { RtpCapabilities } from 'mediasoup/lib/RtpParametersAndCapabilities';
-```
-</div>
-
 
 #### RtpCodecParameters
 {: #RtpCodecParameters .code}
@@ -135,14 +119,6 @@ Field              | Type    | Description   | Required | Default
 `parameters`       | Object  | Codec-specific parameters available for signaling. Some parameters (such as "packetization-mode" and "profile-level-id" in H264 or "profile-id" in VP9) are critical for codec matching. | No |
 `rtcpFeedback`     | Array&lt;[RtcpFeedback](#RtcpFeedback)&gt; | Transport layer and codec-specific feedback messages for this codec. | No | `[ ]`
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { RtpCodecParameters } from 'mediasoup/lib/RtpParametersAndCapabilities';
-```
 </div>
 
 <div markdown="1" class="note">
@@ -164,14 +140,6 @@ Field       | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { RtcpFeedback } from 'mediasoup/lib/RtpParametersAndCapabilities';
-```
-</div>
-
 
 #### RtpEncodingParameters
 {: #RtpEncodingParameters .code}
@@ -188,14 +156,6 @@ Field             | Type    | Description   | Required | Default
 `dtx`             | Boolean | It indicates whether discontinuous RTP transmission will be used. Useful for audio (if the codec supports it) and for video screen sharing (when static content is being transmitted, this option disables the RTP inactivity checks in mediasoup). | No | `false`
 `scalabilityMode` | String  | Number of spatial and temporal layers in the RTP stream (e.g. "L1T3"). See [webrtc-svc](https://w3c.github.io/webrtc-svc/). | No |
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { RtpEncodingParameters } from 'mediasoup/lib/RtpParametersAndCapabilities';
-```
 </div>
 
 <div markdown="1" class="note">
@@ -219,14 +179,6 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { RtpHeaderExtensionParameters } from 'mediasoup/lib/RtpParametersAndCapabilities';
-```
-</div>
-
 <div markdown="1" class="note">
 * mediasoup does not currently support encrypted RTP header extensions.
 * No `parameters` are currently considered. 
@@ -245,14 +197,6 @@ Field              | Type    | Description   | Required | Default
 `cname`            | String  | The Canonical Name (CNAME) used by RTCP (e.g. in SDES messages). | No |
 `reducedSize`      | Boolean | Whether reduced size RTCP [RFC 5506](https://tools.ietf.org/html/5506) is configured (if `true`) or compound RTCP as specified in [RFC 3550](https://tools.ietf.org/html/3550) (if `false`). | No | `true`
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { RtcpParameters } from 'mediasoup/lib/RtpParametersAndCapabilities';
-```
 </div>
 
 <div markdown="1" class="note">
@@ -284,14 +228,6 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { RtpCodecCapability } from 'mediasoup/lib/RtpParametersAndCapabilities';
-```
-</div>
-
 <div markdown="1" class="note">
 `RtpCodecCapability` entries in the `mediaCodecs` array of [RouterOptions](/documentation/v3/mediasoup/api/#RouterOptions) do not require `preferredPayloadType` field (if unset, mediasoup will choose a random one). If given, make sure it's in the 96-127 range.
 </div>
@@ -312,14 +248,6 @@ Field              | Type    | Description   | Required | Default
 `preferredEncrypt` | Boolean | If `true`, it is preferred that the value in the header be encrypted as per [RFC 6904](https://tools.ietf.org/html/rfc6904). | No | `false`
 `direction`        | String  | If "sendrecv", mediasoup supports sending and receiving this RTP extension. "sendonly" means that mediasoup can send (but not receive) it. "recvonly" means that mediasoup can receive (but not send) it. | No |
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { RtpHeaderExtension } from 'mediasoup/lib/RtpParametersAndCapabilities';
-```
 </div>
 
 <div markdown="1" class="note">
@@ -345,14 +273,6 @@ Value          | Description
 "audio"        | Audio media kind.
 "video"        | Video media kind.
 
-</div>
-
-<div markdown="1" class="note typescript">
-TypeScript definition:
-
-```js
-import { MediaKind } from 'mediasoup/lib/RtpParametersAndCapabilities';
-```
 </div>
 
 
