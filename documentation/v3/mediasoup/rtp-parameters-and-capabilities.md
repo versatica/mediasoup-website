@@ -59,6 +59,15 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { RtpParameters } from 'mediasoup/lib/RtpParametersAndCapabilities';
+```
+</div>
+
+
 #### RtpSendParameters
 {: #RtpSendParameters .code}
 
@@ -73,6 +82,7 @@ The RTP send parameters describe a media stream received by mediasoup from an en
 Check the [Simulcast](#Simulcast) and [SVC](#SVC) sections for more information.
 </div>
 
+
 #### RtpReceiveParameters
 {: #RtpReceiveParameters .code}
 
@@ -84,6 +94,7 @@ The RTP receive parameters describe a media stream as sent by mediasoup to an en
 * There is a single entry in the `encodings` array (even if the corresponding producer uses simulcast). The consumer sends a single and continuous RTP stream to the endpoint and spatial/temporal layer selection is possible via [consumer.setPreferredLayers()](/documentation/v3/mediasoup/api/#consumer-setPreferredLayers).
 * As an exception, previous bullet is not true when consuming a stream over a [PipeTransport](/documentation/v3/mediasoup/api/#PipeTransport), in which all RTP streams from the associated producer are forwarded verbatim through the consumer.
 * The RTP receive parameters will always have their `ssrc` values randomly generated for all of its `encodings` (and optional `rtx: { ssrc: XXXX }` if the endpoint supports RTX), regardless of the original RTP send parameters in the associated producer. This applies even if the producer's `encodings` have `rid` set.
+
 
 #### RtpCapabilities
 {: #RtpCapabilities .code}
@@ -98,6 +109,15 @@ Field              | Type    | Description   | Required | Default
 `headerExtensions` | Array&lt;[RtpHeaderExtension](#RtpHeaderExtension)&gt; | Supported RTP header extensions. | No | `[ ]`
 
 </div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { RtpCapabilities } from 'mediasoup/lib/RtpParametersAndCapabilities';
+```
+</div>
+
 
 #### RtpCodecParameters
 {: #RtpCodecParameters .code}
@@ -117,9 +137,18 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { RtpCodecParameters } from 'mediasoup/lib/RtpParametersAndCapabilities';
+```
+</div>
+
 <div markdown="1" class="note">
 See the [Codec Parameters](#Codec-Parameters) section below for more info about the codec `parameters`.
 </div>
+
 
 #### RtcpFeedback
 {: #RtcpFeedback .code }
@@ -134,6 +163,15 @@ Field       | Type    | Description   | Required | Default
 `parameter` | String  | RTCP feedback parameter. | No |
 
 </div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { RtcpFeedback } from 'mediasoup/lib/RtpParametersAndCapabilities';
+```
+</div>
+
 
 #### RtpEncodingParameters
 {: #RtpEncodingParameters .code}
@@ -152,9 +190,18 @@ Field             | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { RtpEncodingParameters } from 'mediasoup/lib/RtpParametersAndCapabilities';
+```
+</div>
+
 <div markdown="1" class="note">
 Check the [Simulcast](#Simulcast) and [SVC](#SVC) sections for more information.
 </div>
+
 
 #### RtpHeaderExtensionParameters
 {: #RtpHeaderExtensionParameters .code}
@@ -172,10 +219,19 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { RtpHeaderExtensionParameters } from 'mediasoup/lib/RtpParametersAndCapabilities';
+```
+</div>
+
 <div markdown="1" class="note">
 * mediasoup does not currently support encrypted RTP header extensions.
 * No `parameters` are currently considered. 
 </div>
+
 
 #### RtcpParameters
 {: #RtcpParameters .code}
@@ -191,10 +247,19 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { RtcpParameters } from 'mediasoup/lib/RtpParametersAndCapabilities';
+```
+</div>
+
 <div markdown="1" class="note">
 * If no `cname` is given in a producer's RTP parameters, the mediasoup transport will choose a random one that will be used into RTCP SDES messages sent to all its associated consumers.
 * mediasoup assumes `reducedSize` to always be `true`.
 </div>
+
 
 #### RtpCodecCapability
 {: #RtpCodecCapability .code}
@@ -219,9 +284,18 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { RtpCodecCapability } from 'mediasoup/lib/RtpParametersAndCapabilities';
+```
+</div>
+
 <div markdown="1" class="note">
 `RtpCodecCapability` entries in the `mediaCodecs` array of [RouterOptions](/documentation/v3/mediasoup/api/#RouterOptions) do not require `preferredPayloadType` field (if unset, mediasoup will choose a random one). If given, make sure it's in the 96-127 range.
 </div>
+
 
 #### RtpHeaderExtension
 {: #RtpHeaderExtension .code}
@@ -238,6 +312,14 @@ Field              | Type    | Description   | Required | Default
 `preferredEncrypt` | Boolean | If `true`, it is preferred that the value in the header be encrypted as per [RFC 6904](https://tools.ietf.org/html/rfc6904). | No | `false`
 `direction`        | String  | If "sendrecv", mediasoup supports sending and receiving this RTP extension. "sendonly" means that mediasoup can send (but not receive) it. "recvonly" means that mediasoup can receive (but not send) it. | No |
 
+</div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { RtpHeaderExtension } from 'mediasoup/lib/RtpParametersAndCapabilities';
+```
 </div>
 
 <div markdown="1" class="note">
@@ -263,6 +345,14 @@ Value          | Description
 "audio"        | Audio media kind.
 "video"        | Video media kind.
 
+</div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { MediaKind } from 'mediasoup/lib/RtpParametersAndCapabilities';
+```
 </div>
 
 

@@ -255,6 +255,12 @@
 			border-color: #e47474;
 		}
 
+		&.typescript {
+			background-color: rgba($color-dark, 0.85);
+			color: #fff;
+			border: none;
+		}
+
 		@include breakpoint($computer) {
 			width: 92%;
 		}

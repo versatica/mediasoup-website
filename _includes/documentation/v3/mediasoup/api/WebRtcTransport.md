@@ -7,6 +7,14 @@
 
 A WebRTC transport represents a network path negotiated by both, a WebRTC endpoint and mediasoup, via ICE and DTLS procedures. A WebRTC transport may be used to receive media, to send media or to both receive and send. There is no limitation in mediasoup. However, due to their design, mediasoup-client and libmediasoupclient require separate WebRTC transports for sending and receiving.
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import WebRtcTransport from 'mediasoup/lib/WebRtcTransport';
+```
+</div>
+
 <div markdown="1" class="note">
 The WebRTC transport implementation of mediasoup is [ICE Lite](https://tools.ietf.org/html/rfc5245#section-2.7), meaning that it does not initiate ICE connections but expects ICE Binding Requests from endpoints.
 </div>
@@ -39,6 +47,14 @@ Field        | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { WebRtcTransportOptions } from 'mediasoup/lib/WebRtcTransport';
+```
+</div>
+
 <div markdown="1" class="note">
 * `initialAvailableOutgoingBitrate` is just applied when the consumer endpoint supports REMB or Transport-CC.
 </div>
@@ -55,6 +71,14 @@ Field               | Type    | Description   | Required | Default
 `password`          | String  | ICE password. | No |
 `iceLite`           | Boolean | ICE Lite.     | No |
 
+</div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { IceParameters } from 'mediasoup/lib/WebRtcTransport';
+```
 </div>
 
 #### IceCandidate
@@ -74,6 +98,14 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { IceCandidate } from 'mediasoup/lib/WebRtcTransport';
+```
+</div>
+
 #### DtlsParameters
 {: #WebRtcTransportDtlsParameters .code}
 
@@ -84,6 +116,14 @@ Field           | Type    | Description   | Required | Default
 `role`          | [DtlsRole](#WebRtcTransportDtlsRole) | DTLS role. | No | "auto"
 `fingerprints`  | [DtlsFingerprints](#WebRtcTransportDtlsFingerprints) | DTLS fingerprints. | Yes |
 
+</div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { DtlsParameters } from 'mediasoup/lib/WebRtcTransport';
+```
 </div>
 
 #### DtlsFingerprints
@@ -101,6 +141,14 @@ Field             | Type    | Description   | Required | Default
 `sha-384`         | String  | SHA-384 certificate fingerprint. | No |
 `sha-512`         | String  | SHA-512 certificate fingerprint. | No |
 
+</div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { DtlsFingerprints } from 'mediasoup/lib/WebRtcTransport';
+```
 </div>
 
 </section>
@@ -126,6 +174,14 @@ Value          | Description
 
 </div>
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { IceState } from 'mediasoup/lib/WebRtcTransport';
+```
+</div>
+
 #### DtlsRole
 {: #WebRtcTransportDtlsRole .code}
 
@@ -137,6 +193,14 @@ Value          | Description
 "client"       | DTLS client role.
 "server"       | DTLS server role.
 
+</div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { DtlsRole } from 'mediasoup/lib/WebRtcTransport';
+```
 </div>
 
 #### DtlsState
@@ -152,6 +216,14 @@ Value          | Description
 "failed"       | DTLS connection failed.
 "closed"       | DTLS state when the `transport` has been closed.
 
+</div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { DtlsState } from 'mediasoup/lib/WebRtcTransport';
+```
 </div>
 
 </section>
@@ -222,9 +294,7 @@ The remote certificate in PEM format. It is set once the DTLS state becomes "con
 > `@type` String, read only
 
 <div markdown="1" class="note">
-
 The application may want to inspect the remote certificate for authorization purposes by using some certificates utility such as the Node [pem](https://www.npmjs.com/package/pem) module.
-
 </div>
 
 #### webRtcTransport.sctpParameters
@@ -250,6 +320,29 @@ Current SCTP state.
 <section markdown="1">
 
 See also [Transport Methods](#Transport-methods).
+
+#### webRtcTransport.getStats()
+{: #webRtcTransport-getStats .code}
+
+Returns current RTC statistics of the WebRTC transport.
+
+> `@async`
+> 
+> `@override`
+> 
+> `@returns` Array&lt;ProducerStat&gt;
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { WebRtcTransportStat } from 'mediasoup/lib/WebRtcTransport';
+```
+</div>
+
+<div markdown="1" class="note">
+Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section for more details.
+</div>
 
 #### webRtcTransport.connect({ dtlsParameters })
 {: #webRtcTransport-connect .code}

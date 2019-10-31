@@ -9,7 +9,7 @@ A router enables injection, selection and forwarding of media streams through [T
 Developers may think of a mediasoup router as if it were a "multi-party conference room", although mediasoup is much more low level than that and doesn't constrain itself to specific high level use cases (for instance, a "multi-party conference room" could involve various mediasoup routers, even in different physicals hosts).
 </div>
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -36,7 +36,7 @@ Field         | Type               | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -67,7 +67,7 @@ Field         | Type               | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -94,7 +94,7 @@ Field               | Type               | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js

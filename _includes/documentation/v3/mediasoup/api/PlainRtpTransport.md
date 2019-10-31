@@ -7,6 +7,14 @@
 
 A plain RTP transport represents a network path through which plain RTP and RTCP is transmitted.
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import PlainRtpTransport from 'mediasoup/lib/PlainRtpTransport';
+```
+</div>
+
 </section>
 
 
@@ -31,6 +39,14 @@ Field         | Type    | Description   | Required | Default
 `maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 262144
 `appData`     | Object  | Custom application data. | No | `{ }`
 
+</div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { PlainRtpTransportOptions } from 'mediasoup/lib/PlainRtpTransport';
+```
 </div>
 
 <div markdown="1" class="note">
@@ -102,6 +118,25 @@ Current SCTP state.
 <section markdown="1">
 
 See also [Transport Methods](#Transport-methods).
+
+#### plainRtpTransport.getStats()
+{: #plainRtpTransport-getStats .code}
+
+Returns current RTC statistics of the WebRTC transport.
+
+> `@async`
+> 
+> `@override`
+> 
+> `@returns` Array&lt;PlainRtpTransportStat&gt;
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { PlainRtpTransportStat } from 'mediasoup/lib/PlainRtpTransport';
+```
+</div>
 
 #### plainRtpTransport.connect({ ip, port, rtcpPort })
 {: #plainRtpTransport-connect .code}

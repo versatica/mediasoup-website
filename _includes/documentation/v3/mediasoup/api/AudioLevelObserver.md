@@ -7,7 +7,7 @@
 
 An audio level observer monitors the volume of the selected audio producers. It just handles audio producers (if [addProducer()](#rtpObserver-addProducer) is called with a video producer it will fail).
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -36,7 +36,7 @@ Field          | Type    | Description  | Required | Default
 
 </div>
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js

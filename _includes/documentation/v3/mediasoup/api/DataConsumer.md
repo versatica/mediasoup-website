@@ -5,7 +5,7 @@
 
 A data consumer represents a [SCTP](https://tools.ietf.org/html/rfc4960) data source being forwarded from a mediasoup router to an endpoint. It's created on top of a transport that defines how the data messages are carried.
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -33,7 +33,7 @@ Field           | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -127,7 +127,7 @@ Returns current SCTP statistics of the data consumer.
 > 
 > `@returns` Array&lt;DataConsumerStat&gt;
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js

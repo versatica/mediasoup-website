@@ -5,7 +5,7 @@
 
 A producer represents an audio or video source being injected into a mediasoup router. It's created on top of a transport that defines how the media packets are carried.
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -35,7 +35,7 @@ Field           | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -96,7 +96,7 @@ Value          | Description
 
 </div>
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -199,9 +199,9 @@ Returns current RTC statistics of the producer.
 
 > `@async`
 > 
-> `@returns` Array&lt;ProducerStatgt;
+> `@returns` Array&lt;ProducerStat&gt;
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js

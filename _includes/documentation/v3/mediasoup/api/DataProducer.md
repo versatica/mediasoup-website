@@ -5,7 +5,7 @@
 
 A data producer represents a [SCTP](https://tools.ietf.org/html/rfc4960) data source being injected into a mediasoup router. It's created on top of a transport that defines how the data messages are carried.
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -35,7 +35,7 @@ Field                  | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -122,7 +122,7 @@ Returns current SCTP statistics of the producer.
 > 
 > `@returns` Array&lt;DataProducerStat&gt;
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js

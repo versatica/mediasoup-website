@@ -5,7 +5,7 @@
 
 A worker represents a mediasoup C++ subprocess that runs in a single CPU core and handles [Router](#Router) instances.
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -37,7 +37,7 @@ Field                    | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
@@ -62,7 +62,7 @@ Field                    | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js

@@ -130,15 +130,15 @@ mediasoup.parseScalabilityMode(undefined);
 // => { spatialLayers: 1, temporalLayers: 1 }
 ```
 
-</section>
-
-<div markdown="1" class="note">
+<div markdown="1" class="note typescript">
 TypeScript definition:
 
 ```js
 import { ScalabilityMode } from 'mediasoup/lib/scalabilityModes';
 ```
 </div>
+
+</section>
 
 
 ### Observer Events

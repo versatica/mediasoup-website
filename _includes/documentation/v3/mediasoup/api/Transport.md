@@ -13,6 +13,14 @@ mediasoup implements the following transport classes:
 * [PlainRtpTransport](#PlainRtpTransport)
 * [PipeTransport](#PipeTransport)
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import Transport from 'mediasoup/lib/Transport';
+```
+</div>
+
 </section>
 
 
@@ -33,6 +41,14 @@ Field         | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { TransportListenIp } from 'mediasoup/lib/Transport';
+```
+</div>
+
 #### TransportTuple
 {: #TransportTuple .code}
 
@@ -46,6 +62,14 @@ Field              | Type    | Description   | Required | Default
 `remotePort`       | Number  | Remote port. | No |
 `protocol`         | String  | Protocol ("udp" / "tcp"). | Yes |
 
+</div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { TransportTuple } from 'mediasoup/lib/Transport';
+```
 </div>
 
 <div markdown="1" class="note">
@@ -66,6 +90,14 @@ Field            | Type   | Description   | Required  | Default
 
 </div>
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { TransportSctpParameters } from 'mediasoup/lib/Transport';
+```
+</div>
+
 #### TransportNumSctpStreams
 {: #TransportNumSctpStreams .code}
 
@@ -76,6 +108,14 @@ Field  | Type   | Description   | Required  | Default
 `OS`   | Number | Initially requested number of outgoing SCTP streams (from 1 to 65535). | No | 1024
 `MIS`  | Number | Maximum number of incoming SCTP streams (from 1 to 65535). | No | 1024
 
+</div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { TransportNumSctpStreams } from 'mediasoup/lib/Transport';
+```
 </div>
 
 <div markdown="1" class="note">
@@ -107,6 +147,14 @@ Value          | Description
 "failed"       | SCTP connection failed.
 "closed"       | SCTP state when the transport has been closed.
 
+</div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { SctpState } from 'mediasoup/lib/Transport';
+```
 </div>
 
 </section>

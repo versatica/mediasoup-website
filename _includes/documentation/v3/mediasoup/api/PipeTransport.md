@@ -7,10 +7,16 @@
 
 A pipe transport represents a network path through which plain RTP and RTCP is transmitted. Pipe transports are intented to intercommunicate two [Router](#Router) instances collocated on the same host or on separate hosts.
 
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import PipeTransport from 'mediasoup/lib/PipeTransport';
+```
+</div>
+
 <div markdown="1" class="note">
-
 When calling [consume()](#transport-consume) on a pipe transport, all RTP streams of the [Producer](#Producer) are transmitted verbatim (in contrast to what happens in [WebRtcTransport](#WebRtcTransport) and [PlainRtpTransport](#PlainRtpTransport) in which a single and continuos RTP stream is sent to the consuming endpoint).
-
 </div>
 
 </section>
@@ -34,6 +40,14 @@ Field         | Type    | Description   | Required | Default
 `maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 1073741823
 `appData`     | Object  | Custom application data. | No | `{ }`
 
+</div>
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { PipeTransportOptions } from 'mediasoup/lib/PipeTransport';
+```
 </div>
 
 </section>
@@ -81,6 +95,25 @@ Current SCTP state.
 <section markdown="1">
 
 See also [Transport Methods](#Transport-methods).
+
+#### pipeTransport.getStats()
+{: #pipeTransport-getStats .code}
+
+Returns current RTC statistics of the pipe transport.
+
+> `@async`
+> 
+> `@override`
+> 
+> `@returns` Array&lt;PipeTransportStat&gt;
+
+<div markdown="1" class="note typescript">
+TypeScript definition:
+
+```js
+import { PipeTransportStat } from 'mediasoup/lib/PipeTransport';
+```
+</div>
 
 #### pipeTransport.connect({ ip, port })
 {: #pipeTransport-connect .code}
