@@ -34,16 +34,18 @@ An Object holding all classes and **TypeScript** types exported by mediasoup.
 
 > `@type` Object, read only
 
-```javascript
+```typescript
 import { types as mediasoupTypes } from "mediasoup";
 
 let worker: mediasoupTypes.Worker;
+let rtpParameters: mediasoupTypes.RtpParameters;
 
 // or alternatively:
 
 import { Worker } from "mediasoup/types";
 
 let worker: Worker;
+let rtpParameters: RtpParameters;
 ```
 
 #### mediasoup.version
