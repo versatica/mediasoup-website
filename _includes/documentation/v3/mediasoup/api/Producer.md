@@ -5,6 +5,14 @@
 
 A producer represents an audio or video source being injected into a mediasoup router. It's created on top of a transport that defines how the media packets are carried.
 
+<div markdown="1" class="note">
+TypeScript definition:
+
+```js
+import Producer from 'mediasoup/lib/Producer';
+```
+</div>
+
 </section>
 
 
@@ -25,6 +33,14 @@ Field           | Type    | Description   | Required | Default
 `paused`        | Boolean | Whether the producer must start in paused mode. | No | `false`
 `appData`       | Object  | Custom application data. | No | `{ }`
 
+</div>
+
+<div markdown="1" class="note">
+TypeScript definition:
+
+```js
+import { ProducerOptions } from 'mediasoup/lib/Producer';
+```
 </div>
 
 <div markdown="1" class="note">
@@ -80,6 +96,14 @@ Value          | Description
 
 </div>
 
+<div markdown="1" class="note">
+TypeScript definition:
+
+```js
+import { ProducerType } from 'mediasoup/lib/Producer';
+```
+</div>
+
 </section>
 
 
@@ -123,7 +147,7 @@ Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-para
 #### producer.type
 {: #producer-type .code}
 
-The RTC transmission type.
+Producer type.
 
 > `@type` [ProducerType](#ProducerType), read only
 
@@ -175,7 +199,15 @@ Returns current RTC statistics of the producer.
 
 > `@async`
 > 
-> `@returns` Array&lt;Object&gt;
+> `@returns` Array&lt;ProducerStatgt;
+
+<div markdown="1" class="note">
+TypeScript definition:
+
+```js
+import { ProducerStat } from 'mediasoup/lib/Producer';
+```
+</div>
 
 <div markdown="1" class="note">
 Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section for more details.

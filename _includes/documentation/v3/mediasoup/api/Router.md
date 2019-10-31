@@ -9,6 +9,14 @@ A router enables injection, selection and forwarding of media streams through [T
 Developers may think of a mediasoup router as if it were a "multi-party conference room", although mediasoup is much more low level than that and doesn't constrain itself to specific high level use cases (for instance, a "multi-party conference room" could involve various mediasoup routers, even in different physicals hosts).
 </div>
 
+<div markdown="1" class="note">
+TypeScript definition:
+
+```js
+import Router from 'mediasoup/lib/Router';
+```
+</div>
+
 </section>
 
 
@@ -29,9 +37,72 @@ Field         | Type               | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
+TypeScript definition:
+
+```js
+import { RouterOptions } from 'mediasoup/lib/Router';
+```
+</div>
+
+<div markdown="1" class="note">
 * Feature codecs such as RTX **MUST NOT** be placed into the `mediaCodecs` list.
 * If `preferredPayloadType` is given in a `RtpCodecCapability` (although it's unnecessary) it's extremely recommended to use a value in the 96-127 range.
 </div>
+
+#### PipeToRouterOptions
+{: #PipeToRouterOptions .code}
+
+<div markdown="1" class="table-wrapper L3 M5">
+
+Field         | Type               | Description   | Required | Default
+------------- | ------------------ | ------------- | -------- | ---------
+`mediaCodecs` | Array&lt;[RtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCodecCapability)&gt; | Router media codecs. | No | `[ ]`
+
+`producerId` | String  | Producer id | No      |
+`dataProducerId` | String  | Data producer id | No      |
+`router`     | [Router](#Router) | Destination router to pipe the given producer. | Yes |
+`listenIp`   | String  | IP to connect both routers in the same host. | No | "127.0.0.1"
+`enableSctp` | Boolean | Create a SCTP association. | No | `true`
+`numSctpStreams` | [TransportNumSctpStreams](#TransportNumSctpStreams) | SCTP streams number. | No |
+
+</div>
+
+<div markdown="1" class="note">
+TypeScript definition:
+
+```js
+import { PipeToRouterOptions } from 'mediasoup/lib/Router';
+```
+</div>
+
+<div markdown="1" class="note">
+* Only one of `producerId` and `dataProducerId` must be provided.
+* SCTP arguments will only apply the first time the underlying transports are created.
+</div>
+
+#### PipeToRouterResult
+{: #PipeToRouterResult .code}
+
+<div markdown="1" class="table-wrapper L3 M5">
+
+Field               | Type               | Description   | Required | Default
+------------------- | ------------------ | ------------- | -------- | ---------
+`pipeConsumer`      | [Consumer](#Consumer) | The consumer created in the current router. | No | 
+`pipeProducer`      | [Producer](#Producer) | The producer created in the target router. | No | 
+`pipeDataConsumer`      | [DataConsumer](#DataConsumer) | The data consumer created in the current router. | No | 
+`pipeDataProducer`      | [DataProducer](#DataProducer) | The data producer created in the target router. | No | 
+
+</div>
+
+<div markdown="1" class="note">
+TypeScript definition:
+
+```js
+import { PipeToRouterResult } from 'mediasoup/lib/Router';
+```
+</div>
+
+</section>
 
 
 ### Properties
@@ -177,27 +248,13 @@ This is specially useful to expand broadcasting capabilities (one to many) by in
 
 Argument     | Type    | Description | Required | Default 
 ------------ | ------- | ----------- | -------- | ----------
-`producerId` | String  | Producer id | No      |
-`dataProducerId` | String  | Data producer id | No      |
-`router`     | [Router](#Router) | Destination router to pipe the given producer. | Yes |
-`listenIp`   | String  | IP to connect both routers in the same host. | No | "127.0.0.1"
-`enableSctp` | Boolean | Create a SCTP association. | No | `true`
-`numSctpStreams` | [TransportNumSctpStreams](#TransportNumSctpStreams) | SCTP streams number. | No |
+`options`    | [PipeToRouterOptions](#PipeToRouterOptions) | Options | Yes |
 
-</div>
-
-<div markdown="1" class="note">
-* Only one of `producerId` and `dataProducerId` must be provided.
-* SCTP agruments will only apply the first time the underlying transports are created.
 </div>
 
 > `@async`
 > 
-> `@returns` Object:
-> 
-> * `pipeConsumer` {`@type` [Consumer](#Consumer)} Consumer created in the current router.
->
-> * `pipeProducer` {`@type` [Producer](#Producer)} Producer created in the destination router.
+> `@returns` [PipeToRouterResult](#PipeToRouterResult)
 
 ```javascript
 // Have two workers.

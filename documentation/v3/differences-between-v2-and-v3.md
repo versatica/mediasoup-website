@@ -20,9 +20,40 @@ Plain RTP injection     | <span class="checkbox"/> | <span class="checkbox on"/>
 Multiple binding IPs    | <span class="checkbox"/> | <span class="checkbox on"/> | In mediasoup v2 just a static IPv4 and IPv6 pair can be assigned to all transports. In v3, instead, each transport can be provided with multiple and different IPv4 and/or IPv6 addresses. This enables scenarios in which media is conveyed through public and private network interfaces.
 Per worker settings     | <span class="checkbox"/> | <span class="checkbox on"/> | mediasoup v2 exposes a `Server` class that internally handles N workers (media subprocesses) sharing them all the same settings. In v3 the application creates each worker independently and can assign different settings to them (such as ports range, log level and so on).
 Horizontal scalability  | <span class="checkbox"/> | <span class="checkbox on"/> | By using the new pipe transports in v3, two mediasoup routers running in the same or different hosts can be interconnected at media level, increasing the broadcasting capabilities by enabling usage of multiple CPU cores even in different machines. More info about this [here](/documentation/v3/scalability/).
-Sender side BWE         | <span class="checkbox"/> | <span class="checkbox on"/> | mediasoup v3 implements sender side bandwidth estimation to automatically switch between SVC and simulcast spatial/temporal layers in consumers thus accommodating the total transport bitrate to the bandwidth available in the receiver endpoint.
+Sender side BWE         | <span class="checkbox"/> | <span class="checkbox on"/> | mediasoup v3 implements sender side bandwidth estimation to automatically switch between spatial/temporal layers in consumers thus accommodating the total transport bitrate to the bandwidth available in the receiver endpoint.
 Unlimited video layers  | <span class="checkbox"/> | <span class="checkbox on"/> | mediasoup v2 limits the number of simulcast video streams to 3 ("low", "medium" and "high"). mediasoup v3 can handle unlimited spatial and temporal layers and refers to them by their numeric index (from 0 to N).
 Stream score            | <span class="checkbox"/> | <span class="checkbox on"/> | mediasoup v3 notifies the application with scores for every RTP stream (in producers and consumers), allowing the application to know how the overall transmission quality is in every sender and receiver.
+
+</div>
+
+#### Starting from version 3.1.0
+
+<div markdown="1" class="table-wrapper L1-small L4">
+
+Feature                 | v2 | v3 | Description
+----------------------- | -- | -- | -------------------------------
+VP9 SVC support         | <span class="checkbox"/> | <span class="checkbox on"/> | In addition to VP8 and H264 simulcast, mediasoup v3 also supports VP9 SVC.
+
+</div>
+
+#### Starting from version 3.2.0
+
+<div markdown="1" class="table-wrapper L1-small L4">
+
+Feature                 | v2 | v3 | Description
+----------------------- | -- | -- | -------------------------------
 DataChannel support     | <span class="checkbox"/> | <span class="checkbox on"/> | mediasoup v3 implements WebRTC DataChannel (SCTP over DTLS over UDP/TCP) and also SCTP over UDP (useful to build server side SCTP connectors that exchange SCTP messages with WebRTC endpoints).
+
+</div>
+
+#### Starting from version 3.3.0
+
+<div markdown="1" class="table-wrapper L1-small L4">
+
+Feature                 | v2 | v3 | Description
+----------------------- | -- | -- | -------------------------------
+transport-cc BWE        | <span class="checkbox"/> | <span class="checkbox on"/> | Support for transport-cc bandwidth estimation in receiver and sender sides.
+Windows support         | <span class="checkbox"/> | <span class="checkbox on"/> | Yes, mediasoup now works in Linux, BSD, OSX and Windows.
+TypeScript              | <span class="checkbox"/> | <span class="checkbox on"/> | Written in TypeScript, mediasoup now exposes all TypeScript types, interfaces and method signatures.
 
 </div>

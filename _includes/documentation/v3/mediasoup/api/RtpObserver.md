@@ -11,6 +11,14 @@ mediasoup implements the following RTP observer classes:
 
 * [AudioLevelObserver](#AudioLevelObserver)
 
+<div markdown="1" class="note">
+TypeScript definition:
+
+```js
+import RtpObserver from 'mediasoup/lib/RtpObserver';
+```
+</div>
+
 </section>
 
 

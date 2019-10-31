@@ -110,7 +110,7 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
-> `@returns` Object:
+> `@returns` ScalabilityMode:
 > 
 > * `spatialLayers` {`@type` Number} Number of spatial layers (by default 1).
 >
@@ -131,6 +131,14 @@ mediasoup.parseScalabilityMode(undefined);
 ```
 
 </section>
+
+<div markdown="1" class="note">
+TypeScript definition:
+
+```js
+import { ScalabilityMode } from 'mediasoup/lib/scalabilityModes';
+```
+</div>
 
 
 ### Observer Events
