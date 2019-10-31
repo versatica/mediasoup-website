@@ -35,13 +35,13 @@ An Object holding all classes and **TypeScript** types exported by mediasoup.
 > `@type` Object, read only
 
 ```javascript
-import { types as mediasoupTypes } from 'mediasoup';
+import { types as mediasoupTypes } from "mediasoup";
 
 let worker: mediasoupTypes.Worker;
 
 // or alternatively:
 
-import { Worker } from 'mediasoup/types';
+import { Worker } from "mediasoup/types";
 
 let worker: Worker;
 ```

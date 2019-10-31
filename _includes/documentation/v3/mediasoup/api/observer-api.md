@@ -10,84 +10,84 @@ The observer API should not be directly used by the application itself, but by s
 Usage example:
 
 ```javascript
-const mediasoup = require('mediasoup');
+const mediasoup = require("mediasoup");
 
-mediasoup.observer.on('newworker', (worker) =>
+mediasoup.observer.on("newworker", (worker) =>
 {
-  console.log('new worker created [worke.pid:%d]', worker.pid);
+  console.log("new worker created [worke.pid:%d]", worker.pid);
 
-  worker.observer.on('close', () => 
+  worker.observer.on("close", () => 
   {
-    console.log('worker closed [worker.pid:%d]', worker.pid);
+    console.log("worker closed [worker.pid:%d]", worker.pid);
   });
 
-  worker.observer.on('newrouter', (router) =>
+  worker.observer.on("newrouter", (router) =>
   {
     console.log(
-      'new router created [worker.pid:%d, router.id:%s]',
+      "new router created [worker.pid:%d, router.id:%s]",
       worker.pid, router.id);
 
-    router.observer.on('close', () => 
+    router.observer.on("close", () => 
     {
-      console.log('router closed [router.id:%s]', router.id);
+      console.log("router closed [router.id:%s]", router.id);
     });
 
-    router.observer.on('newtransport', (transport) =>
+    router.observer.on("newtransport", (transport) =>
     {
       console.log(
-        'new transport created [worker.pid:%d, router.id:%s, transport.id:%s]',
+        "new transport created [worker.pid:%d, router.id:%s, transport.id:%s]",
         worker.pid, router.id, transport.id);
 
-      transport.observer.on('close', () => 
+      transport.observer.on("close", () => 
       {
-        console.log('transport closed [transport.id:%s]', transport.id);
+        console.log("transport closed [transport.id:%s]", transport.id);
       });
 
-      transport.observer.on('newproducer', (producer) =>
+      transport.observer.on("newproducer", (producer) =>
       {
         console.log(
-          'new producer created [worker.pid:%d, router.id:%s, transport.id:%s, producer.id:%s]',
+          "new producer created [worker.pid:%d, router.id:%s, transport.id:%s, producer.id:%s]",
           worker.pid, router.id, transport.id, producer.id);
 
-        producer.observer.on('close', () => 
+        producer.observer.on("close", () => 
         {
-          console.log('producer closed [producer.id:%s]', producer.id);
+          console.log("producer closed [producer.id:%s]", producer.id);
         });
       });
 
-      transport.observer.on('newconsumer', (consumer) =>
+      transport.observer.on("newconsumer", (consumer) =>
       {
         console.log(
-          'new consumer created [worker.pid:%d, router.id:%s, transport.id:%s, consumer.id:%s]',
+          "new consumer created [worker.pid:%d, router.id:%s, transport.id:%s, consumer.id:%s]",
           worker.pid, router.id, transport.id, consumer.id);
 
-        consumer.observer.on('close', () => 
+        consumer.observer.on("close", () => 
         {
-          console.log('consumer closed [consumer.id:%s]', consumer.id);
+          console.log("consumer closed [consumer.id:%s]", consumer.id);
         });
       });
 
-      transport.observer.on('newdataproducer', (dataProducer) =>
+      transport.observer.on("newdataproducer", (dataProducer) =>
       {
         console.log(
-          'new data producer created [worker.pid:%d, router.id:%s, transport.id:%s, dataProducer.id:%s]',
+          "new data producer created [worker.pid:%d, router.id:%s, transport.id:%s, dataProducer.id:%s]",
           worker.pid, router.id, transport.id, dataProducer.id);
 
-        dataProducer.observer.on('close', () => 
+        dataProducer.observer.on("close", () => 
         {
-          console.log('data producer closed [dataProducer.id:%s]', dataProducer.id);
+          console.log("data producer closed [dataProducer.id:%s]", dataProducer.id);
         });
       });
 
-      transport.observer.on('newdataconsumer', (dataConsumer) =>
+      transport.observer.on("newdataconsumer", (dataConsumer) =>
       {
         console.log(
-          'new data consumer created [worker.pid:%d, router.id:%s, transport.id:%s, dataConsumer.id:%s]',
+          "new data consumer created [worker.pid:%d, router.id:%s, transport.id:%s, dataConsumer.id:%s]",
           worker.pid, router.id, transport.id, dataConsumer.id);
 
-        dataConsumer.observer.on('close', () => 
+        dataConsumer.observer.on("close", () => 
         {
-          console.log('data consumer closed [dataConsumer.id:%s]', dataConsumer.id);
+          console.log("data consumer closed [dataConsumer.id:%s]", dataConsumer.id);
         });
       });
     });
