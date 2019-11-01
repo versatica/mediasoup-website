@@ -82,24 +82,21 @@ Field              | Type    | Description   | Required | Default
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
 `role`          | [DtlsRole](#WebRtcTransportDtlsRole) | DTLS role. | No | "auto"
-`fingerprints`  | [DtlsFingerprints](#WebRtcTransportDtlsFingerprints) | DTLS fingerprints. | Yes |
+`fingerprints`  | Array&lt;[DtlsFingerprint](#WebRtcTransportDtlsFingerprint)&gt; | DTLS fingerprints. | Yes |
 
 </div>
 
-#### DtlsFingerprints
-{: #WebRtcTransportDtlsFingerprints .code}
+#### DtlsFingerprint
+{: #WebRtcTransportDtlsFingerprint .code}
 
-Map of DTLS algorithms (as defined in the "Hash function Textual Names" registry initially specified in [RFC 4572](https://tools.ietf.org/html/rfc4572#section-8) Section 8) and their corresponding certificate fingerprint values (in lowercase hex string as expressed utilizing the syntax of "fingerprint" in [RFC 4572](https://tools.ietf.org/html/rfc4572#section-5) Section 5).
+The hash function algorithm (as defined in the "Hash function Textual Names" registry initially specified in [RFC 4572](https://tools.ietf.org/html/rfc4572#section-8) Section 8) and its corresponding certificate fingerprint value (in lowercase hex string as expressed utilizing the syntax of "fingerprint" in [RFC 4572](https://tools.ietf.org/html/rfc4572#section-5) Section 5).
 
 <div markdown="1" class="table-wrapper L3">
 
-Field             | Type    | Description   | Required | Default
------------------ | ------- | ------------- | -------- | ---------
-`sha-1`           | String  | SHA-1 certificate fingerprint.   | No |
-`sha-224`         | String  | SHA-224 certificate fingerprint. | No |
-`sha-256`         | String  | SHA-256 certificate fingerprint. | No |
-`sha-384`         | String  | SHA-384 certificate fingerprint. | No |
-`sha-512`         | String  | SHA-512 certificate fingerprint. | No |
+Field       | Type    | Description   | Required | Default
+----------- | ------- | ------------- | -------- | ---------
+`algorithm` | String  | Hash function algorithm.   | Yes |
+`value `    | String  | Certificate fingerprint value. | Yes |
 
 </div>
 
