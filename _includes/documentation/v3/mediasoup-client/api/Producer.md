@@ -227,6 +227,26 @@ Argument        | Type    | Description | Required | Default
 await producer.setMaxSpatialLayer(1);
 ```
 
+#### producer.setRtpEncodingParameters(params)
+{: #producer-setRtpEncodingParameters .code}
+
+Add parameters to all `encodings` in the `RTCRtpSender` of the producer. Use with caution.
+
+> `@async`
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument        | Type    | Description | Required | Default 
+--------------- | ------- | ----------- | -------- | ----------
+`params`        | Object  | Object with key-value pairs. | Yes |
+
+</div>
+
+```javascript
+// Set IP DSCP field.
+await producer.setRtpEncodingParameters({ networkPriority: 'high' });
+```
+
 </section>
 
 
