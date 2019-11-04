@@ -47,7 +47,7 @@ Field         | Type               | Description   | Required | Default
 `router`     | [Router](#Router) | Destination router to pipe the given producer. | Yes |
 `listenIp`   | String  | IP to connect both routers in the same host. | No | "127.0.0.1"
 `enableSctp` | Boolean | Create a SCTP association. | No | `true`
-`numSctpStreams` | [TransportNumSctpStreams](#TransportNumSctpStreams) | SCTP streams number. | No |
+`numSctpStreams` | [NumSctpStreams](#NumSctpStreams) | SCTP streams number. | No |
 
 </div>
 

@@ -28,7 +28,7 @@ Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
 `listenIp`    | [TransportListenIp](#TransportListenIp)\|String| Listening IP address. | Yes |
 `enableSctp` | Boolean | Create a SCTP association. | No | `false`
-`numSctpStreams` | [TransportNumSctpStreams](#TransportNumSctpStreams) | SCTP streams number. | No |
+`numSctpStreams` | [NumSctpStreams](#NumSctpStreams) | SCTP streams number. | No |
 `maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 1073741823
 `appData`     | Object  | Custom application data. | No | `{ }`
 
@@ -61,7 +61,7 @@ The transport tuple. It refers to both RTP and RTCP since pipe transports use RT
 
 Local SCTP parameters.
 
-> `@type` [TransportSctpParameters](#TransportSctpParameters), read only
+> `@type` [SctpParameters](#SctpParameters), read only
 
 #### pipeTransport.sctpState
 {: #pipeTransport-sctpState .code}

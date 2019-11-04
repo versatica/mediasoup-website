@@ -52,8 +52,8 @@ Field              | Type    | Description   | Required | Default
 Both `remoteIp` and `remotePort` are unset until the media address of the remote endpoint is known, which happens after calling `transport.connect()` in `PlainRtpTransport` and `PipeTransport`, or via dynamic detection as it happens in `WebRtcTransport` (in which the remote media address is detected by ICE means), or in `PlainRtpTransport` (when using `comedia` mode).
 </div>
 
-#### TransportSctpParameters
-{: #TransportSctpParameters .code}
+#### SctpParameters
+{: #SctpParameters .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -66,8 +66,8 @@ Field            | Type   | Description   | Required  | Default
 
 </div>
 
-#### TransportNumSctpStreams
-{: #TransportNumSctpStreams .code}
+#### NumSctpStreams
+{: #NumSctpStreams .code}
 
 <div markdown="1" class="table-wrapper L3">
 
