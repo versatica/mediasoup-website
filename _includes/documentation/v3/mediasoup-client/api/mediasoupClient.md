@@ -11,6 +11,7 @@ import * as mediasoupClient from "mediasoup-client";
 
 // Also using ES6 import with destructuring assignment.
 import {
+  types,
   version,
   Device,
   parseScalabilityMode
@@ -21,6 +22,7 @@ const mediasoupClient = require("mediasoup-client");
 
 // Also using CommonJS with destructuring assignment.
 const {
+  types,
   version,
   Device,
   parseScalabilityMode
@@ -34,6 +36,27 @@ const {
 {: #mediasoupClient-properties}
 
 <section markdown="1">
+
+#### mediasoupClient.types
+{: #mediasoupClient-types .code}
+
+An Object holding all classes and **TypeScript** types exported by mediasoup-client.
+
+> `@type` Object, read only
+
+```typescript
+import { types as mediasoupTypes } from "mediasoup-client";
+
+let producer: mediasoupTypes.Producer;
+let rtpParameters: mediasoupTypes.RtpParameters;
+
+// or alternatively:
+
+import { Producer, RtpParameters } from "mediasoup-client/lib/types";
+
+let producer: Producer;
+let rtpParameters: RtpParameters;
+```
 
 #### mediasoupClient.version
 {: #mediasoupClient-version .code}
