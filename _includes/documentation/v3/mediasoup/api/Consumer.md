@@ -165,7 +165,7 @@ The score of the RTP stream being sent, representing its tranmission quality.
 #### consumer.currentLayers
 {: #consumer-currentLayers .code}
 
-Current spatial and temporal layers (for simulcast and SVC consumers). It's `null` if no layers are being sent to the consuming endpoint.
+Current spatial and temporal layers (for simulcast and SVC consumers). It's `null` if no layers are being sent to the consuming endpoint at this time.
 
 > `@type` [ConsumerLayers](#ConsumerLayers)\|Null, read only
 
