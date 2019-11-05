@@ -33,7 +33,7 @@ Field        | Type    | Description   | Required | Default
 `preferTcp`  | Boolean | Listen in TCP. | No | `false`
 `initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps). | No | 600000
 `enableSctp` | Boolean | Create a SCTP association. | No | `false`
-`numSctpStreams` | [NumSctpStreams](#NumSctpStreams) | SCTP streams number. | No |
+`numSctpStreams` | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
 `maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 262144
 `appData`    | Object  | Custom application data. | No | `{ }`
 
@@ -227,7 +227,7 @@ The application may want to inspect the remote certificate for authorization pur
 
 Local SCTP parameters.
 
-> `@type` [SctpParameters](#SctpParameters), read only
+> `@type` [SctpParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpParameters), read only
 
 #### webRtcTransport.sctpState
 {: #webRtcTransport-sctpState .code}

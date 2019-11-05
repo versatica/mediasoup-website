@@ -27,7 +27,7 @@ Field         | Type    | Description   | Required | Default
 `comedia`     | Boolean | Whether remote IP:port should be auto-detected based on first RTP/RTCP packet received. If enabled, `connect()` method must not be called. This option is ignored if `multiSource` is set. | No | `false`
 `multiSource` | Boolean | Whether RTP/RTCP from different remote IPs:ports is allowed. If set, the transport will just be valid for receiving media (`consume()` cannot be called on it) and `connect()` must not be called. | No | `false`
 `enableSctp`  | Boolean | Create a SCTP association. | No | `false`
-`numSctpStreams`     | [NumSctpStreams](#NumSctpStreams) | SCTP streams number. | No |
+`numSctpStreams`     | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
 `maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 262144
 `appData`     | Object  | Custom application data. | No | `{ }`
 
@@ -84,7 +84,8 @@ The transport tuple for RTCP. If RTCP-mux is enabled (`rtcpMux` is set), its val
 
 Local SCTP parameters.
 
-> `@type` [SctpParameters](#SctpParameters), read only
+> `@type` [SctpParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpParameters), read only
+
 
 #### plainRtpTransport.sctpState
 {: #plainRtpTransport-sctpState .code}
