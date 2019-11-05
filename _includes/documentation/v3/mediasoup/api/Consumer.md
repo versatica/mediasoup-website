@@ -55,8 +55,8 @@ Field           | Type    | Description   | Required | Default
 
 </div>
 
-#### ConsumerRtpStreamScore
-{: #ConsumerRtpStreamScore .code}
+#### ConsumerScore
+{: #ConsumerScore .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -160,7 +160,7 @@ Whether the associated producer is paused.
 
 The score of the RTP stream being sent, representing its tranmission quality. 
 
-> `@type` [ConsumerRtpStreamScore](#ConsumerRtpStreamScore), read only
+> `@type` [ConsumerScore](#ConsumerScore), read only
 
 #### consumer.currentLayers
 {: #consumer-currentLayers .code}
@@ -300,7 +300,7 @@ Emitted when the consumer score changes.
 
 Argument  | Type    | Description   
 --------- | ------- | ----------------
-`score`   | [ConsumerRtpStreamScore](#ConsumerRtpStreamScore) | RTP stream score.
+`score`   | [ConsumerScore](#ConsumerScore) | RTP stream score.
 
 </div>
 

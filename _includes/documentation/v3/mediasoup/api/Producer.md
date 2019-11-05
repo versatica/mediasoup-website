@@ -31,8 +31,8 @@ Field           | Type    | Description   | Required | Default
 Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
 </div>
 
-#### ProducerRtpStreamScore
-{: #ProducerRtpStreamScore .code}
+#### ProducerScore
+{: #ProducerScore .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -139,7 +139,7 @@ Whether the producer is paused.
 
 The score of each RTP stream being received, representing their tranmission quality. 
 
-> `@type` Array&lt;[ProducerRtpStreamScore](#ProducerRtpStreamScore)&gt;, read only
+> `@type` Array&lt;[ProducerScore](#ProducerScore)&gt;, read only
 
 #### producer.appData
 {: #producer-appData .code}
@@ -226,7 +226,7 @@ Emitted when the producer score changes.
 
 Argument  | Type    | Description   
 --------- | ------- | ----------------
-`score`   | Array&lt;[ProducerRtpStreamScore](#ProducerRtpStreamScore)&gt; | RTP streams' scores.
+`score`   | Array&lt;[ProducerScore](#ProducerScore)&gt; | RTP streams' scores.
 
 </div>
 
