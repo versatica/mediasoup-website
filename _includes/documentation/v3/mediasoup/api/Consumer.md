@@ -67,6 +67,19 @@ Field           | Type    | Description   | Required | Default
 
 </div>
 
+#### ConsumerPacketEventData
+{: #ConsumerPacketEventData .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field              | Type    | Description   | Required | Default
+------------------ | ------- | ------------- | -------- | ---------
+`type`             | [ConsumerPacketEventType](#ConsumerPacketEventType) | Packet event type. | Yes |
+`direction`        | String  | "in" (packet received by mediasoup) or "out" (packet sent by mediasoup). | Yes |
+`info`             | Object  | Per type specific information. | Yes |
+
+</div>
+
 </section>
 
 
@@ -86,6 +99,20 @@ Value          | Description
 "simulcast"    | Two or more RTP streams are sent, each of them with one or more temporal layers.
 "svc"          | A single RTP stream is sent with spatial/temporal layers.
 "pipe"         | Special type for consumers created on a [PipeTransport](#PipeTransport).
+
+</div>
+
+#### ConsumerPacketEventType
+{: #ConsumerPacketEventType .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value          | Description
+-------------- | -------------
+"rtp"          | RTP packet.
+"nack"         | RTCP NACK packet.
+"pli"          | RTCP PLI packet.
+"fir"          | RTCP FIR packet.
 
 </div>
 
@@ -249,6 +276,30 @@ Request a key frame to the associated producer. Just valid for video consumers.
 
 > `@async`
 
+#### consumer.enablePacketEvent(types)
+{: #consumer-enablePacketEvent .code}
+
+Instructs the consumer to emit "packet" events. For monitoring purposes. Use with caution.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`types`     | Array&lt;[ConsumerPacketEventType](#ConsumerPacketEventType)&gt; | Enabled types. | No | Unset (so disabled)
+
+</div>
+
+> `@async`
+
+```javascript
+await consumer.enablePacketEvent([ "rtp", "pli", "fir" ]);
+
+consumer.on("packet", (packet) =>
+{
+  // packet.type can be "rtp" or "pli" or "fir".
+});
+```
+
 </section>
 
 
@@ -328,6 +379,26 @@ This event is emitted under various circumstances in SVC or simulcast consumers 
 The Node.js application can detect the latter (consumer deactivated due to not enough bandwidth) by checking if both `consumer.paused` and `consumer.producerPaused` are falsy after the consumer has emitted this event with `null` as argument.
 </div>
 
+#### consumer.on("packet", fn(packet))
+{: #consumer-on-packet .code}
+
+See [enablePacketEvent()](#consumer-enablePacketEvent) method.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`packet`    | [ConsumerPacketEventData](#ConsumerPacketEventData) | Packet data.
+
+</div>
+
+```javascript
+consumer.on("packet", (packet) =>
+{
+  console.log(packet);
+});
+```
+
 </section>
 
 
@@ -364,5 +435,10 @@ Same as the [score](#consumer-on-score) event.
 {: #consumer-observer-on-layerschange .code}
 
 Same as the [layerschange](#consumer-on-layerschange) event.
+
+#### consumer.observer.on("packet", fn(packet))
+{: #consumer-observer-on-packet .code}
+
+Same as the [packet](#consumer-on-packet) event.
 
 </section>

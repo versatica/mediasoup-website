@@ -59,6 +59,19 @@ Both `remoteIp` and `remotePort` are unset until the media address of the remote
 
 </div>
 
+#### TransportPacketEventData
+{: #TransportPacketEventData .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field              | Type    | Description   | Required | Default
+------------------ | ------- | ------------- | -------- | ---------
+`type`             | [TransportPacketEventType](#TransportPacketEventType) | Packet event type. | Yes |
+`direction`        | String  | "in" (packet received by mediasoup) or "out" (packet sent by mediasoup). | Yes |
+`info`             | Object  | Per type specific information. | Yes |
+
+</div>
+
 </section>
 
 
@@ -66,6 +79,17 @@ Both `remoteIp` and `remotePort` are unset until the media address of the remote
 {: #Transport-enums}
 
 <section markdown="1">
+
+#### TransportPacketEventType
+{: #TransportPacketEventType .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value          | Description
+-------------- | -------------
+"probation"    | RTP probation packet.
+
+</div>
 
 #### TransportSctpState
 {: #TransportSctpState .code}
@@ -409,6 +433,31 @@ const dataConsumer = await transport.consumeData(
     producerId : "a7a955cf-fe67-4327-bd98-bbd85d7e2ba4"
   });
 ```
+
+#### transport.enablePacketEvent(types)
+{: #transport-enablePacketEvent .code}
+
+Instructs the transport to emit "packet" events. For monitoring purposes. Use with caution.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`types`     | Array&lt;[TransportPacketEventType](#TransportPacketEventType)&gt; | Enabled types. | No | Unset (so disabled)
+
+</div>
+
+> `@async`
+
+```javascript
+await transport.enablePacketEvent([ "probation" ]);
+
+transport.on("packet", (packet) =>
+{
+  // packet.type can just be "probation".
+});
+```
+
 </section>
 
 
@@ -428,6 +477,26 @@ Emitted when the router this transport belongs to is closed for whatever reason.
 transport.on("routerclose", () =>
 {
   console.log("router closed so transport closed");
+});
+```
+
+#### transport.on("packet", fn(packet))
+{: #transport-on-packet .code}
+
+See [enablePacketEvent()](#transport-enablePacketEvent) method.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`packet`    | [TransportPacketEventData](#TransportPacketEventData) | Packet data.
+
+</div>
+
+```javascript
+transport.on("packet", (packet) =>
+{
+  console.log(packet);
 });
 ```
 
@@ -529,5 +598,11 @@ transport.observer.on("newdataconsumer", (dataConsumer) =>
   console.log("new data consumer created [id:%s]", dataConsumer.id);
 });
 ```
+
+#### transport.observer.on("packet", fn(packet))
+{: #transport-observer-on-packet .code}
+
+Same as the [packet](#transport-on-packet) event.
+
 </section>
 

@@ -59,6 +59,19 @@ Field       | Type    | Description   | Required | Default
 
 </div>
 
+#### ProducerPacketEventData
+{: #ProducerPacketEventData .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field              | Type    | Description   | Required | Default
+------------------ | ------- | ------------- | -------- | ---------
+`type`             | [ProducerPacketEventType](#ProducerPacketEventType) | Packet event type. | Yes |
+`direction`        | String  | "in" (packet received by mediasoup) or "out" (packet sent by mediasoup). | Yes |
+`info`             | Object  | Per type specific information. | Yes |
+
+</div>
+
 </section>
 
 
@@ -77,6 +90,20 @@ Value          | Description
 "simple"       | A single RTP stream is received with no spatial/temporal layers.
 "simulcast"    | Two or more RTP streams are received, each of them with one or more temporal layers.
 "svc"          | A single RTP stream is received with spatial/temporal layers.
+
+</div>
+
+#### ProducerPacketEventType
+{: #ProducerPacketEventType .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value          | Description
+-------------- | -------------
+"rtp"          | RTP packet.
+"nack"         | RTCP NACK packet.
+"pli"          | RTCP PLI packet.
+"fir"          | RTCP FIR packet.
 
 </div>
 
@@ -197,6 +224,30 @@ Resumes the producer (RTP is sent again to its associated consumers). Triggers a
 
 > `@async`
 
+#### producer.enablePacketEvent(types)
+{: #producer-enablePacketEvent .code}
+
+Instructs the producer to emit "packet" events. For monitoring purposes. Use with caution.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`types`     | Array&lt;[ProducerPacketEventType](#ProducerPacketEventType)&gt; | Enabled types. | No | Unset (so disabled)
+
+</div>
+
+> `@async`
+
+```javascript
+await producer.enablePacketEvent([ "rtp", "pli" ]);
+
+producer.on("packet", (packet) =>
+{
+  // packet.type can be "rtp" or "pli".
+});
+```
+
 </section>
 
 
@@ -243,6 +294,26 @@ Argument           | Type    | Description
 
 </div>
 
+#### producer.on("packet", fn(packet))
+{: #producer-on-packet .code}
+
+See [enablePacketEvent()](#producer-enablePacketEvent) method.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`packet`    | [ProducerPacketEventData](#ProducerPacketEventData) | Packet data.
+
+</div>
+
+```javascript
+producer.on("packet", (packet) =>
+{
+  console.log(packet);
+});
+```
+
 </section>
 
 
@@ -279,5 +350,10 @@ Same as the [score](#producer-on-score) event.
 {: #producer-observer-on-videoorientationchange .code}
 
 Same as the [videoorientationchange](#producer-on-videoorientationchange) event.
+
+#### producer.observer.on("packet", fn(packet))
+{: #producer-observer-on-packet .code}
+
+Same as the [packet](#producer-on-packet) event.
 
 </section>
