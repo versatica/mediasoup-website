@@ -26,6 +26,7 @@ Field                    | Type    | Description   | Required | Default
 `rtcMaxPort`             | Number  | Maximum RTC port for ICE, DTLS, RTP, etc. | No | 59999
 `dtlsCertificateFile`    | String  | Path to the DTLS public certificate file in PEM format. If unset, a certificate is dynamically created. | No |
 `dtlsPrivateKeyFile`     | String  | Path to the DTLS certificate private key file in PEM format. If unset, a certificate is dynamically created. | No |
+appData`                 | Object  | Custom application data. | No | `{ }`
 
 </div>
 
@@ -97,6 +98,13 @@ Whether the worker is closed.
 console.log(worker.closed);
 // => false
 ```
+
+#### worker.appData
+{: #worker-appData .code}
+
+Custom data Object provided by the application in the worker factory method. The app can modify its content at any time.
+
+> `@type` Object, read only
 
 #### worker.observer
 {: #worker-observer .code}

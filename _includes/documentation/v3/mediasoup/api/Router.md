@@ -25,6 +25,7 @@ Developers may think of a mediasoup router as if it were a "multi-party conferen
 Field         | Type               | Description   | Required | Default
 ------------- | ------------------ | ------------- | -------- | ---------
 `mediaCodecs` | Array&lt;[RtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCodecCapability)&gt; | Router media codecs. | No | `[ ]`
+appData`      | Object  | Custom application data. | No | `{ }`
 
 </div>
 
@@ -107,6 +108,13 @@ An Object with the RTP capabilities of the router. These capabilities are tipica
 <div markdown="1" class="note">
 Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
 </div>
+
+#### router.appData
+{: #router-appData .code}
+
+Custom data Object provided by the application in the router factory method. The app can modify its content at any time.
+
+> `@type` Object, read only
 
 #### router.observer
 {: #router-observer .code}
