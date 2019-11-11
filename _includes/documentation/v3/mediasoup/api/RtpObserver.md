@@ -42,6 +42,13 @@ Whether the RTP observer is paused.
 
 > `@type` Boolean, read only
 
+#### rtpObserver.appData
+{: #rtpObserver-appData .code}
+
+Custom data Object provided by the application in the RTP observer factory method. The app can modify its content at any time.
+
+> `@type` Object, read only
+
 </section>
 
 
