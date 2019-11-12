@@ -13,6 +13,7 @@ import * as mediasoupClient from "mediasoup-client";
 import {
   types,
   version,
+  detectDevice,
   Device,
   parseScalabilityMode
 } from "mediasoup-client";
@@ -68,6 +69,26 @@ The mediasoup-client version.
 ```javascript
 console.log(mediasoupClient.version);
 // => "3.0.0"
+```
+
+#### mediasoupClient.detectDevice()
+{: #mediasoupClient-detectDevice .code}
+
+Performs current browser/device detection and returns the corresponding mediasoup-client WebRTC handler class.
+
+</div>
+
+> `@async`
+> 
+> `@returns` Class
+
+```javascript
+const Handler = mediasoup.detectDevice();
+
+if (Handler)
+  console.log("detected Handler class: %s", Handler.name);
+else
+  console.log("no suitable Handler class found for current browser/device");
 ```
 
 </section>

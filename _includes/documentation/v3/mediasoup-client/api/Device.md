@@ -77,7 +77,7 @@ let device;
 
 try
 {
-  device = new mediasoup.Device();
+  device = new mediasoupClient.Device();
 }
 catch (error)
 {
