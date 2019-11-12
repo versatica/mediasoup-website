@@ -25,7 +25,7 @@ Developers may think of a mediasoup router as if it were a "multi-party conferen
 Field         | Type               | Description   | Required | Default
 ------------- | ------------------ | ------------- | -------- | ---------
 `mediaCodecs` | Array&lt;[RtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCodecCapability)&gt; | Router media codecs. | No | `[ ]`
-appData`      | Object  | Custom application data. | No | `{ }`
+`appData`      | Object  | Custom application data. | No | `{ }`
 
 </div>
 
@@ -356,6 +356,26 @@ Argument    | Type    | Description
 router.observer.on("newtransport", (transport) =>
 {
   console.log("new transport created [id:%s]", transport.id);
+});
+```
+
+#### router.observer.on("newrtpobserver", fn(rtpObserver))
+{: #router-observer-on-newrtpobserver .code}
+
+Emitted when a new RTP observer is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`rtpObserver` | [RtpObserver](#RtpObserver) | New RTP observer.
+
+</div>
+
+```javascript
+router.observer.on("newrtpobserver", (rtpObserver) =>
+{
+  console.log("new RTP observer created [id:%s]", rtpObserver.id);
 });
 ```
 

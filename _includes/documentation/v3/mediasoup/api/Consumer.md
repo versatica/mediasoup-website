@@ -75,6 +75,7 @@ Field           | Type    | Description   | Required | Default
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
 `type`             | [ConsumerPacketEventType](#ConsumerPacketEventType) | Packet event type. | Yes |
+`timestamp`        | Number  | Event timestamp. | Yes | 
 `direction`        | String  | "in" (packet received by mediasoup) or "out" (packet sent by mediasoup). | Yes |
 `info`             | Object  | Per type specific information. | Yes |
 

@@ -26,14 +26,13 @@ Field                    | Type    | Description   | Required | Default
 `rtcMaxPort`             | Number  | Maximum RTC port for ICE, DTLS, RTP, etc. | No | 59999
 `dtlsCertificateFile`    | String  | Path to the DTLS public certificate file in PEM format. If unset, a certificate is dynamically created. | No |
 `dtlsPrivateKeyFile`     | String  | Path to the DTLS certificate private key file in PEM format. If unset, a certificate is dynamically created. | No |
-appData`                 | Object  | Custom application data. | No | `{ }`
+`appData`                 | Object  | Custom application data. | No | `{ }` |
 
 </div>
 
 <div markdown="1" class="note">
 RTC listening IPs are not set at worker level. Instead, they are set per individual transport.
 </div>
-
 
 #### WorkerUpdateableSettings
 {: #WorkerUpdateableSettings .code}
@@ -69,6 +68,7 @@ Value    | Description
 
 </div>
 
+</section>
 
 ### Properties
 {: #Worker-properties}

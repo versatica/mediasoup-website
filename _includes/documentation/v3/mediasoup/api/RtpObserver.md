@@ -49,6 +49,13 @@ Custom data Object provided by the application in the RTP observer factory metho
 
 > `@type` Object, read only
 
+#### rtpObserver.observer
+{: #rtpObserver-observer .code}
+
+See the [Observer Events](#RtpObserver-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
+
 </section>
 
 
@@ -132,3 +139,57 @@ rtpObserver.on("routerclose", () =>
 
 </section>
 
+
+### Observer Events
+{: #RtpObserver-observer-events}
+
+<section markdown="1">
+
+<div markdown="1" class="note">
+See the [Observer API](#observer-api) section below.
+</div>
+
+These are observer events common to all RTP observer classes. Each transport class may define new ones.
+
+#### rtpObserver.observer.on("close", fn())
+{: #rtpObserver-observer-on-close .code}
+
+Emitted when the RTP observer is closed for whatever reason.
+
+#### rtpObserver.observer.on("pause", fn())
+{: #rtpObserver-observer-on-pause .code}
+
+Emitted when the RTP observer is paused.
+
+#### rtpObserver.observer.on("resume", fn())
+{: #rtpObserver-observer-on-resume .code}
+
+Emitted when the RTP observer is resumed.
+
+#### rtpObserver.observer.on("addproducer", fn(producer))
+{: #rtpObserver-observer-on-addproducer .code}
+
+Emitted when a new producer is added into the RTP observer.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`producer` | [Producer](#Producer) | New producer.
+
+</div>
+
+#### rtpObserver.observer.on("removeproducer", fn(producer))
+{: #rtpObserver-observer-on-removeproducer .code}
+
+Emitted when a producer is removed from the RTP observer.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`producer` | [Producer](#Producer) | New producer.
+
+</div>
+
+</section>

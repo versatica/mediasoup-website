@@ -67,6 +67,7 @@ Both `remoteIp` and `remotePort` are unset until the media address of the remote
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
 `type`             | [TransportPacketEventType](#TransportPacketEventType) | Packet event type. | Yes |
+`timestamp`        | Number  | Event timestamp. | Yes | 
 `direction`        | String  | "in" (packet received by mediasoup) or "out" (packet sent by mediasoup). | Yes |
 `info`             | Object  | Per type specific information. | Yes |
 

@@ -85,4 +85,29 @@ Argument  | Type    | Description
 
 </div>
 
+#### audioLevelObserver.on("silence")
+{: #audioLevelObserver-on-silence .code}
+
+Emitted when no one of the producers in this RTP observer is generating audio with a volume beyond the given threshold.
+
+</section>
+
+
+### Observer Events
+{: #AudioLevelObserver-observer-events}
+
+<section markdown="1">
+
+See also [RTP Observer Observer Events](#RtpObserver-observer-events).
+
+#### audioLevelObserver.observer.on("volumes", fn(volumes))
+{: #audioLevelObserver-observer-on-volumes .code}
+
+Same as the [volumes](#audioLevelObserver-on-volumes) event.
+
+#### audioLevelObserver.observer.on("silence")
+{: #audioLevelObserver-observer-on-silence .code}
+
+Same as the [silence](#audioLevelObserver-on-silence) event.
+
 </section>
