@@ -41,4 +41,3 @@ if (supportsVideoOrientationHeaderExtension)
 // Finally apply the router RTP capabilities to the device.
 await device.load({ routerRtpCapabilities });
 ```
-
