@@ -72,3 +72,9 @@ In order to run mediasoup in those environments (host with private IP and a mapp
    * Make `rtcAnnouncedIPv4` or `rtcAnnouncedIPv6` point to `HOST_PUBLIC_IP`.
 * In mediasoup **v3**:
    * Specify the corresponding `announcedIp` (pointing to `HOST_PUBLIC_IP`) when creating a transport.
+
+
+### When consuming a video in Firefox it does not properly rotate
+{: #when-consuming-a-video-in-firefox-it-does-not-properly-rotate}
+
+Check the mediasoup v3 [tricks](/documentation/v3/mediasoup/tricks/#rtp-capabilities-filtering) section.
