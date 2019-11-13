@@ -33,6 +33,13 @@ Made by [mediasoup authors](https://github.com/versatica), this project is a
 [libmediasoupclient](https://github.com/versatica/libmediasoupclient/) based application that takes the system microphone and webcam and produces the media to the specified room in [mediasoup-demo](https://github.com/versatica/mediasoup-demo/) application.
 
 
+### Kurento/mediasoup-demos
+
+**Project:** [https://github.com/Kurento/mediasoup-demos](https://github.com/Kurento/mediasoup-demos) (uses mediasoup v3)
+
+Contains mediasoup + Kurento integration projects.
+
+
 ### ethand91/mediasoup3-record-demo
 
 **Project:** [https://github.com/ethand91/mediasoup3-record-demo](https://github.com/ethand91/mediasoup3-record-demo) (uses mediasoup v3)
@@ -44,7 +51,7 @@ Simple audio/video record application using mediasoup and GStreamer or FFmpeg.
 
 **Project:** [https://github.com/mkhahani/mediasoup-sample-app](https://github.com/mkhahani/mediasoup-sample-app) (uses mediasoup v3)
 
-A minimal Client/Server app based on Mediasoup and Socket.io made by [@mkhahani](https://github.com/mkhahani).
+A minimal client/server app based on Mediasoup and Socket.io made by [@mkhahani](https://github.com/mkhahani).
 
 
 ### daily-co/mediasoup-sandbox
