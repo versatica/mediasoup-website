@@ -77,4 +77,4 @@ In order to run mediasoup in those environments (host with private IP and a mapp
 ### When consuming a video in Firefox it does not properly rotate
 {: #when-consuming-a-video-in-firefox-it-does-not-properly-rotate}
 
-Check the mediasoup v3 [tricks](/documentation/v3/mediasoup/tricks/#rtp-capabilities-filtering) section.
+Check the mediasoup v3 [Tricks](/documentation/v3/mediasoup/tricks/#rtp-capabilities-filtering) section.
