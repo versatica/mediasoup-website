@@ -18,10 +18,10 @@ A data consumer represents a [SCTP](https://tools.ietf.org/html/rfc4960) data so
 
 <div markdown="1" class="table-wrapper L3">
 
-Field           | Type    | Description   | Required | Default
---------------- | ------- | ------------- | -------- | ---------
-`producerId`    | String  | The id of the data producer to consume. | Yes |
-`appData`       | Object  | Custom application data. | No | `{ }`
+Field            | Type    | Description   | Required | Default
+---------------- | ------- | ------------- | -------- | ---------
+`dataProducerId` | String  | The id of the data producer to consume. | Yes |
+`appData`        | Object  | Custom application data. | No | `{ }`
 
 </div>
 
