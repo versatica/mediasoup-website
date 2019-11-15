@@ -29,25 +29,33 @@ const stats = await webRtcTransport.getStats();
 // =>
 [
   {
-    "availableIncomingBitrate": 4230170,
-    "bytesReceived": 5282775,
-    "bytesSent": 8229,
+    "bytesReceived": 5360091,
+    "bytesSent": 20988,
     "dtlsState": "connected",
     "iceRole": "controlled",
-    "iceSelectedTuple": 
-    {
+    "iceSelectedTuple": {
       "localIp": "11.22.33.44",
-      "localPort": 48151,
+      "localPort": 56726,
       "protocol": "udp",
       "remoteIp": "55.66.77.88",
-      "remotePort": 54628
+      "remotePort": 52320
     },
     "iceState": "completed",
-    "maxIncomingBitrate": 3500000,
-    "recvBitrate": 654388,
-    "sendBitrate": 104,
-    "timestamp": 922749895,
-    "transportId": "0b38d662-ea00-4c70-9ae3-b675d6a89e0a",
+    "probationBytesSent": 0,
+    "probationSendBitrate": 0,
+    "recvBitrate": 1802072,
+    "rtpBytesReceived": 5104571,
+    "rtpBytesSent": 0,
+    "rtpRecvBitrate": 1835651,
+    "rtpSendBitrate": 0,
+    "rtxBytesReceived": 179934,
+    "rtxBytesSent": 0,
+    "rtxRecvBitrate": 0,
+    "rtxSendBitrate": 0,
+    "sctpState": "connected",
+    "sendBitrate": 4992,
+    "timestamp": 18079607138,
+    "transportId": "a00746bd-0758-4dfc-9f5f-c0ad4eb326d5",
     "type": "webrtc-transport"
   }
 ]
@@ -64,11 +72,21 @@ const stats = await plainRtpTransport.getStats();
 [
   {
     "bytesReceived": 467406,
-    "bytesSent": 0,
+    "bytesSent": 2550,
     "comedia": true,
     "multiSource": false,
     "rtcpMux": true,
-    "recvBitrate": 22006,
+    "probationBytesSent": 0,
+    "probationSendBitrate": 0,
+    "recvBitrate": 1802072,
+    "rtpBytesReceived": 5104571,
+    "rtpBytesSent": 0,
+    "rtpRecvBitrate": 1835651,
+    "rtpSendBitrate": 0,
+    "rtxBytesReceived": 0,
+    "rtxBytesSent": 0,
+    "rtxRecvBitrate": 0,
+    "rtxSendBitrate": 0,
     "sendBitrate": 24,
     "timestamp": 924308648,
     "transportId": "8e7dc219-5cb0-4cca-b1ca-0bbbc584a364",
@@ -95,8 +113,18 @@ const stats = await pipeTransport.getStats();
 // =>
 [
   {
-    "bytesReceived": 35785508,
-    "bytesSent": 1200458,
+    "probationBytesSent": 0,
+    "probationSendBitrate": 0,
+    "recvBitrate": 1802072,
+    "rtpBytesReceived": 5104571,
+    "rtpBytesSent": 0,
+    "rtpRecvBitrate": 1835651,
+    "rtpSendBitrate": 0,
+    "rtxBytesReceived": 0,
+    "rtxBytesSent": 0,
+    "rtxRecvBitrate": 0,
+    "rtxSendBitrate": 0,
+    "sendBitrate": 24,
     "timestamp": 924308980,
     "transportId": "352f60cd-10ac-443b-8529-6474ecba2e46",
     "tuple": 
