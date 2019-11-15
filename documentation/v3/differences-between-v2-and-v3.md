@@ -55,5 +55,6 @@ Feature                 | v2 | v3 | Description
 transport-cc BWE        | <span class="checkbox"/> | <span class="checkbox on"/> | Support for transport-cc bandwidth estimation in receiver and sender sides.
 Windows support         | <span class="checkbox"/> | <span class="checkbox on"/> | Yes, mediasoup now works in Linux, BSD, OSX and Windows.
 TypeScript              | <span class="checkbox"/> | <span class="checkbox on"/> | Written in TypeScript, mediasoup now exposes all TypeScript types, interfaces and method signatures.
+RTP and RTCP monitoring | <span class="checkbox"/> | <span class="checkbox on"/> | Ability to subscribe form the Node.js app to RTP and RTCP events (the new "packet" event).
 
 </div>
