@@ -52,13 +52,6 @@ Field              | Type    | Description   | Required | Default
 Both `remoteIp` and `remotePort` are unset until the media address of the remote endpoint is known, which happens after calling `transport.connect()` in `PlainRtpTransport` and `PipeTransport`, or via dynamic detection as it happens in `WebRtcTransport` (in which the remote media address is detected by ICE means), or in `PlainRtpTransport` (when using `comedia` mode).
 </div>
 
-`port`           | Number | Must always equal 5000. | Yes |
-`OS`             | Number | Initially requested number of outgoing SCTP streams. | Yes |
-`MIS`            | Number | Maximum number of incoming SCTP streams. | Yes |
-`maxMessageSize` | Number | Maximum allowed size for SCTP messages. | Yes |
-
-</div>
-
 #### TransportPacketEventData
 {: #TransportPacketEventData .code}
 
