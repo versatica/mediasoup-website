@@ -151,7 +151,7 @@ Custom data Object provided by the application in the producer factory method. T
 #### producer.close()
 {: #producer-close .code}
 
-Closes the producer. No more media is transmitted.
+Closes the producer. No more media is transmitted. The producer's track is internally stopped by calling `stop()` on it, meaning that it becomes no longer usable.
 
 <div markdown="1" class="note">
 This method should be called when the server side producer has been closed (and vice-versa).
