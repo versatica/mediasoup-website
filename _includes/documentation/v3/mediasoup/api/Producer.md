@@ -73,6 +73,10 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note">
+See also "packet" Event in the [Debugging](/documentation/v3/mediasoup/debugging#packet-Event) section.
+</div>
+
 </section>
 
 

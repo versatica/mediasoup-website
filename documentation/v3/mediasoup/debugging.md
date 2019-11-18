@@ -174,3 +174,295 @@ worker.updateSettings(
     logTags  : [ "ice", "dtls" ]
   });
 ```
+
+
+## "packet" Event
+{: #packet-Event}
+
+Transports, producers and consumers provide a `enablePacketEvent()` method to enable the "packet" event for RTP/RTCP monitoring purposes:
+
+* [transport.enablePacketEvent()](/documentation/v3/mediasoup/api/#transport-enablePacketEvent).
+* [producer.enablePacketEvent()](/documentation/v3/mediasoup/api/#producer-enablePacketEvent).
+* [consumer.enablePacketEvent()](/documentation/v3/mediasoup/api/#consumer-enablePacketEvent).
+
+Based on enabled `types`, here the information the "packet" event provides with:
+
+
+#### transport.enablePacketEvent([ 'probation' ])
+{: .code}
+
+```javascript
+transport.on('packet', (packet) =>
+{
+  console.log(packet);
+
+  // =>
+  {
+    "direction": "out",
+    "info": {
+      "isKeyFrame": false,
+      "marker": "false",
+      "payloadSize": 360,
+      "payloadType": 127,
+      "sequenceNumber": 19244,
+      "size": 384,
+      "spatialLayer": 0,
+      "ssrc": 1234,
+      "temporalLayer": 0,
+      "timestamp": 239090504,
+      "wideSequenceNumber": 166
+    },
+    "timestamp": 1513191082,
+    "type": "probation"
+  }
+});
+```
+
+#### producer.enablePacketEvent([ 'rtp' ])
+{: .code}
+
+```javascript
+producer.on('packet', (packet) =>
+{
+  console.log(packet);
+
+  // =>
+  {
+    "direction": "in",
+    "info": {
+      "isKeyFrame": false,
+      "marker": "true",
+      "mid": "6",
+      "payloadSize": 914,
+      "payloadType": 96,
+      "rid": "r1",
+      "rrid": "r1",
+      "sequenceNumber": 19694,
+      "size": 942,
+      "spatialLayer": 0,
+      "ssrc": 27777256,
+      "temporalLayer": 1,
+      "timestamp": 1227771600,
+      "wideSequenceNumber": 2413
+    },
+    "timestamp": 1513714260,
+    "type": "rtp"
+  }
+});
+```
+
+#### producer.enablePacketEvent([ 'keyframe' ])
+{: .code}
+
+```javascript
+producer.on('packet', (packet) =>
+{
+  console.log(packet);
+
+  // =>
+  {
+    "direction": "in",
+    "info": {
+      "isKeyFrame": true,
+      "marker": "false",
+      "mid": "2",
+      "payloadSize": 1088,
+      "payloadType": 96,
+      "rid": "r2",
+      "rrid": "r2",
+      "sequenceNumber": 14176,
+      "size": 1116,
+      "spatialLayer": 0,
+      "ssrc": 3838709357,
+      "temporalLayer": 0,
+      "timestamp": 3003475216,
+      "wideSequenceNumber": 62
+    },
+    "timestamp": 1513798049,
+    "type": "keyframe"
+  }
+});
+```
+
+<div markdown="1" class="note">
+When "keyframe" type is set, there won't be "packet" events with type "rtp" for keyframe packets but just with type "keyframe".
+</div>
+
+#### producer.enablePacketEvent([ 'nack' ])
+{: .code}
+
+```javascript
+producer.on('packet', (packet) =>
+{
+  console.log(packet);
+
+  // =>
+  {
+    "direction": "out",
+    "info": {}
+    "timestamp": 1544498146,
+    "type": "nack"
+  }
+});
+```
+
+#### producer.enablePacketEvent([ 'pli' ])
+{: .code}
+
+```javascript
+producer.on('packet', (packet) =>
+{
+  console.log(packet);
+
+  // =>
+  {
+    "direction": "out",
+    "info": {
+      "ssrc": 87654321
+    }
+    "timestamp": 1544498146,
+    "type": "pli"
+  }
+});
+```
+
+#### producer.enablePacketEvent([ 'fir' ])
+{: .code}
+
+```javascript
+producer.on('packet', (packet) =>
+{
+  console.log(packet);
+
+  // =>
+  {
+    "direction": "out",
+    "info": {
+      "ssrc": 95438003
+    }
+    "timestamp": 1544498155,
+    "type": "fir"
+  }
+});
+```
+
+#### consumer.enablePacketEvent([ 'rtp' ])
+{: .code}
+
+```javascript
+consumer.on('packet', (packet) =>
+{
+  console.log(packet);
+
+  // =>
+  {
+    "direction": "out",
+    "info": {
+      "isKeyFrame": false,
+      "marker": "false",
+      "payloadSize": 1,
+      "payloadType": 100,
+      "sequenceNumber": 6,
+      "size": 21,
+      "spatialLayer": 0,
+      "ssrc": 198373608,
+      "temporalLayer": 0,
+      "timestamp": 54740510
+    },
+    "timestamp": 1514273430,
+    "type": "rtp"
+  }
+});
+```
+
+#### consumer.enablePacketEvent([ 'keyframe' ])
+{: .code}
+
+```javascript
+consumer.on('packet', (packet) =>
+{
+  console.log(packet);
+
+  // =>
+  {
+    "direction": "out",
+    "info": {
+      "isKeyFrame": true,
+      "marker": "true",
+      "payloadSize": 437,
+      "payloadType": 101,
+      "sequenceNumber": 1,
+      "size": 465,
+      "spatialLayer": 0,
+      "ssrc": 185272966,
+      "temporalLayer": 0,
+      "timestamp": 936997226,
+      "wideSequenceNumber": 17
+    },
+    "timestamp": 1514298020,
+    "type": "keyframe"
+  }
+});
+```
+
+<div markdown="1" class="note">
+When "keyframe" type is set, there won't be "packet" events with type "rtp" for keyframe packets but just with type "keyframe".
+</div>
+
+#### consumer.enablePacketEvent([ 'nack' ])
+{: .code}
+
+```javascript
+consumer.on('packet', (packet) =>
+{
+  console.log(packet);
+
+  // =>
+  {
+    "direction": "in",
+    "info": {}
+    "timestamp": 1546498145,
+    "type": "nack"
+  }
+});
+```
+
+#### consumer.enablePacketEvent([ 'pli' ])
+{: .code}
+
+```javascript
+consumer.on('packet', (packet) =>
+{
+  console.log(packet);
+
+  // =>
+  {
+    "direction": "in",
+    "info": {
+      "ssrc": 5698432
+    }
+    "timestamp": 1544798444,
+    "type": "pli"
+  }
+});
+```
+
+#### consumer.enablePacketEvent([ 'fir' ])
+{: .code}
+
+```javascript
+consumer.on('packet', (packet) =>
+{
+  console.log(packet);
+
+  // =>
+  {
+    "direction": "in",
+    "info": {
+      "ssrc": 776452943
+    }
+    "timestamp": 1543498101,
+    "type": "fir"
+  }
+});
+```
