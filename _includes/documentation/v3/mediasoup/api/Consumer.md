@@ -111,6 +111,7 @@ Value          | Description
 Value          | Description
 -------------- | -------------
 "rtp"          | RTP packet.
+"keyframe"     | RTP video keyframe packet.
 "nack"         | RTCP NACK packet.
 "pli"          | RTCP PLI packet.
 "fir"          | RTCP FIR packet.
