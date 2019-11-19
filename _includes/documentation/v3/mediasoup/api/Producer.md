@@ -59,22 +59,22 @@ Field       | Type    | Description   | Required | Default
 
 </div>
 
-#### ProducerPacketEventData
-{: #ProducerPacketEventData .code}
+#### ProducerTraceEventData
+{: #ProducerTraceEventData .code}
 
 <div markdown="1" class="table-wrapper L3">
 
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
-`type`             | [ProducerPacketEventType](#ProducerPacketEventType) | Packet event type. | Yes |
+`type`             | [ProducerTraceEventType](#ProducerTraceEventType) | Trace event type. | Yes |
 `timestamp`        | Number  | Event timestamp. | Yes | 
-`direction`        | String  | "in" (packet received by mediasoup) or "out" (packet sent by mediasoup). | Yes |
+`direction`        | String  | "in" (icoming direction) or "out" (outgoing direction). | Yes |
 `info`             | Object  | Per type specific information. | Yes |
 
 </div>
 
 <div markdown="1" class="note">
-See also "packet" Event in the [Debugging](/documentation/v3/mediasoup/debugging#packet-Event) section.
+See also "trace" Event in the [Debugging](/documentation/v3/mediasoup/debugging#trace-Event) section.
 </div>
 
 </section>
@@ -98,8 +98,8 @@ Value          | Description
 
 </div>
 
-#### ProducerPacketEventType
-{: #ProducerPacketEventType .code}
+#### ProducerTraceEventType
+{: #ProducerTraceEventType .code}
 
 <div markdown="1" class="table-wrapper L2">
 
@@ -230,27 +230,27 @@ Resumes the producer (RTP is sent again to its associated consumers). Triggers a
 
 > `@async`
 
-#### producer.enablePacketEvent(types)
-{: #producer-enablePacketEvent .code}
+#### producer.enableTraceEvent(types)
+{: #producer-enableTraceEvent .code}
 
-Instructs the producer to emit "packet" events. For monitoring purposes. Use with caution.
+Instructs the producer to emit "trace" events. For monitoring purposes. Use with caution.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`types`     | Array&lt;[ProducerPacketEventType](#ProducerPacketEventType)&gt; | Enabled types. | No | Unset (so disabled)
+`types`     | Array&lt;[ProducerTraceEventDataEventType](#ProducerTraceEventType)&gt; | Enabled types. | No | Unset (so disabled)
 
 </div>
 
 > `@async`
 
 ```javascript
-await producer.enablePacketEvent([ "rtp", "pli" ]);
+await producer.enableTraceEvent([ "rtp", "pli" ]);
 
-producer.on("packet", (packet) =>
+producer.on("trace", (trace) =>
 {
-  // packet.type can be "rtp" or "pli".
+  // trace.type can be "rtp" or "pli".
 });
 ```
 
@@ -300,23 +300,23 @@ Argument           | Type    | Description
 
 </div>
 
-#### producer.on("packet", fn(packet))
-{: #producer-on-packet .code}
+#### producer.on("trace", fn(trace))
+{: #producer-on-trace .code}
 
-See [enablePacketEvent()](#producer-enablePacketEvent) method.
+See [enableTraceEvent()](#producer-enableTraceEvent) method.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument    | Type    | Description   
 ----------- | ------- | ----------------
-`packet`    | [ProducerPacketEventData](#ProducerPacketEventData) | Packet data.
+`trace`     | [ProducerTraceEventData](#ProducerTraceEventData) | Trace data.
 
 </div>
 
 ```javascript
-producer.on("packet", (packet) =>
+producer.on("trace", (trace) =>
 {
-  console.log(packet);
+  console.log(trace);
 });
 ```
 
@@ -357,9 +357,9 @@ Same as the [score](#producer-on-score) event.
 
 Same as the [videoorientationchange](#producer-on-videoorientationchange) event.
 
-#### producer.observer.on("packet", fn(packet))
-{: #producer-observer-on-packet .code}
+#### producer.observer.on("trace", fn(trace))
+{: #producer-observer-on-trace .code}
 
-Same as the [packet](#producer-on-packet) event.
+Same as the [trace](#producer-on-trace) event.
 
 </section>

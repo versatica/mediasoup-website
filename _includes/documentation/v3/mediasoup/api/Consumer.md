@@ -67,22 +67,22 @@ Field           | Type    | Description   | Required | Default
 
 </div>
 
-#### ConsumerPacketEventData
-{: #ConsumerPacketEventData .code}
+#### ConsumerTraceEventData
+{: #ConsumerTraceEventData .code}
 
 <div markdown="1" class="table-wrapper L3">
 
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
-`type`             | [ConsumerPacketEventType](#ConsumerPacketEventType) | Packet event type. | Yes |
+`type`             | [ConsumerTraceEventType](#ConsumerTraceEventType) | Trace event type. | Yes |
 `timestamp`        | Number  | Event timestamp. | Yes | 
-`direction`        | String  | "in" (packet received by mediasoup) or "out" (packet sent by mediasoup). | Yes |
+`direction`        | String  | "in" (icoming direction) or "out" (outgoing direction). | Yes |
 `info`             | Object  | Per type specific information. | Yes |
 
 </div>
 
 <div markdown="1" class="note">
-See also "packet" Event in the [Debugging](/documentation/v3/mediasoup/debugging#packet-Event) section.
+See also "trace" Event in the [Debugging](/documentation/v3/mediasoup/debugging#trace-Event) section.
 </div>
 
 </section>
@@ -107,8 +107,8 @@ Value          | Description
 
 </div>
 
-#### ConsumerPacketEventType
-{: #ConsumerPacketEventType .code}
+#### ConsumerTraceEventType
+{: #ConsumerTraceEventType .code}
 
 <div markdown="1" class="table-wrapper L2">
 
@@ -289,27 +289,27 @@ Request a key frame to the associated producer. Just valid for video consumers.
 
 > `@async`
 
-#### consumer.enablePacketEvent(types)
-{: #consumer-enablePacketEvent .code}
+#### consumer.enableTraceEvent(types)
+{: #consumer-enableTraceEvent .code}
 
-Instructs the consumer to emit "packet" events. For monitoring purposes. Use with caution.
+Instructs the consumer to emit "trace" events. For monitoring purposes. Use with caution.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`types`     | Array&lt;[ConsumerPacketEventType](#ConsumerPacketEventType)&gt; | Enabled types. | No | Unset (so disabled)
+`types`     | Array&lt;[ConsumerTraceEventType](#ConsumerTraceEventType)&gt; | Enabled types. | No | Unset (so disabled)
 
 </div>
 
 > `@async`
 
 ```javascript
-await consumer.enablePacketEvent([ "rtp", "pli", "fir" ]);
+await consumer.enableTraceEvent([ "rtp", "pli", "fir" ]);
 
-consumer.on("packet", (packet) =>
+consumer.on("trace", (trace) =>
 {
-  // packet.type can be "rtp" or "pli" or "fir".
+  // trace.type can be "rtp" or "pli" or "fir".
 });
 ```
 
@@ -392,23 +392,23 @@ This event is emitted under various circumstances in SVC or simulcast consumers 
 The Node.js application can detect the latter (consumer deactivated due to not enough bandwidth) by checking if both `consumer.paused` and `consumer.producerPaused` are falsy after the consumer has emitted this event with `null` as argument.
 </div>
 
-#### consumer.on("packet", fn(packet))
-{: #consumer-on-packet .code}
+#### consumer.on("trace", fn(trace))
+{: #consumer-on-trace .code}
 
-See [enablePacketEvent()](#consumer-enablePacketEvent) method.
+See [enableTraceEvent()](#consumer-enableTraceEvent) method.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument    | Type    | Description   
 ----------- | ------- | ----------------
-`packet`    | [ConsumerPacketEventData](#ConsumerPacketEventData) | Packet data.
+`trace`    | [ConsumerTraceEventData](#ConsumerTraceEventData) | Trace data.
 
 </div>
 
 ```javascript
-consumer.on("packet", (packet) =>
+consumer.on("trace", (trace) =>
 {
-  console.log(packet);
+  console.log(trace);
 });
 ```
 
@@ -449,9 +449,9 @@ Same as the [score](#consumer-on-score) event.
 
 Same as the [layerschange](#consumer-on-layerschange) event.
 
-#### consumer.observer.on("packet", fn(packet))
-{: #consumer-observer-on-packet .code}
+#### consumer.observer.on("trace", fn(trace))
+{: #consumer-observer-on-trace .code}
 
-Same as the [packet](#consumer-on-packet) event.
+Same as the [trace](#consumer-on-trace) event.
 
 </section>

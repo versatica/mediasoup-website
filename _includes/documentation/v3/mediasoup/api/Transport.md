@@ -52,22 +52,22 @@ Field              | Type    | Description   | Required | Default
 Both `remoteIp` and `remotePort` are unset until the media address of the remote endpoint is known, which happens after calling `transport.connect()` in `PlainRtpTransport` and `PipeTransport`, or via dynamic detection as it happens in `WebRtcTransport` (in which the remote media address is detected by ICE means), or in `PlainRtpTransport` (when using `comedia` mode).
 </div>
 
-#### TransportPacketEventData
-{: #TransportPacketEventData .code}
+#### TransportTraceEventData
+{: #TransportTraceEventData .code}
 
 <div markdown="1" class="table-wrapper L3">
 
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
-`type`             | [TransportPacketEventType](#TransportPacketEventType) | Packet event type. | Yes |
+`type`             | [TransportTraceEventType](#TransportTraceEventType) | Trace event type. | Yes |
 `timestamp`        | Number  | Event timestamp. | Yes | 
-`direction`        | String  | "in" (packet received by mediasoup) or "out" (packet sent by mediasoup). | Yes |
+`direction`        | String  | "in" (icoming direction) or "out" (outgoing direction). | Yes |
 `info`             | Object  | Per type specific information. | Yes |
 
 </div>
 
 <div markdown="1" class="note">
-See also "packet" Event in the [Debugging](/documentation/v3/mediasoup/debugging#packet-Event) section.
+See also "trace" Event in the [Debugging](/documentation/v3/mediasoup/debugging#trace-Event) section.
 </div>
 
 </section>
@@ -78,8 +78,8 @@ See also "packet" Event in the [Debugging](/documentation/v3/mediasoup/debugging
 
 <section markdown="1">
 
-#### TransportPacketEventType
-{: #TransportPacketEventType .code}
+#### TransportTraceEventType
+{: #TransportTraceEventType .code}
 
 <div markdown="1" class="table-wrapper L2">
 
@@ -433,27 +433,27 @@ const dataConsumer = await transport.consumeData(
   });
 ```
 
-#### transport.enablePacketEvent(types)
-{: #transport-enablePacketEvent .code}
+#### transport.enableTraceEvent(types)
+{: #transport-enableTraceEvent .code}
 
-Instructs the transport to emit "packet" events. For monitoring purposes. Use with caution.
+Instructs the transport to emit "trace" events. For monitoring purposes. Use with caution.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`types`     | Array&lt;[TransportPacketEventType](#TransportPacketEventType)&gt; | Enabled types. | No | Unset (so disabled)
+`types`     | Array&lt;[TransportTraceEventType](#TransportTraceEventType)&gt; | Enabled types. | No | Unset (so disabled)
 
 </div>
 
 > `@async`
 
 ```javascript
-await transport.enablePacketEvent([ "probation" ]);
+await transport.enableTraceEvent([ "probation" ]);
 
-transport.on("packet", (packet) =>
+transport.on("trace", (trace) =>
 {
-  // packet.type can just be "probation".
+  // trace.type can just be "probation".
 });
 ```
 
@@ -479,23 +479,23 @@ transport.on("routerclose", () =>
 });
 ```
 
-#### transport.on("packet", fn(packet))
-{: #transport-on-packet .code}
+#### transport.on("trace", fn(trace))
+{: #transport-on-trace .code}
 
-See [enablePacketEvent()](#transport-enablePacketEvent) method.
+See [enableTraceEvent()](#transport-enableTraceEvent) method.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument    | Type    | Description   
 ----------- | ------- | ----------------
-`packet`    | [TransportPacketEventData](#TransportPacketEventData) | Packet data.
+`trace`     | [TransportTraceEventData](#TransportTraceEventData) | Trace data.
 
 </div>
 
 ```javascript
-transport.on("packet", (packet) =>
+transport.on("trace", (trace) =>
 {
-  console.log(packet);
+  console.log(trace);
 });
 ```
 
@@ -598,10 +598,10 @@ transport.observer.on("newdataconsumer", (dataConsumer) =>
 });
 ```
 
-#### transport.observer.on("packet", fn(packet))
-{: #transport-observer-on-packet .code}
+#### transport.observer.on("trace", fn(trace))
+{: #transport-observer-on-trace .code}
 
-Same as the [packet](#transport-on-packet) event.
+Same as the [trace](#transport-on-trace) event.
 
 </section>
 

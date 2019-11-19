@@ -184,30 +184,28 @@ worker.updateSettings(
 ```
 
 
-## "packet" Event
-{: #packet-Event}
+## "trace" Event
+{: #trace-Event}
 
-Transports, producers and consumers provide a `enablePacketEvent()` method to enable the "packet" event for RTP/RTCP monitoring purposes:
+Transports, producers and consumers provide a `enableTraceEvent()` method to enable the "trace" event for RTP/RTCP monitoring purposes:
 
-* [transport.enablePacketEvent()](/documentation/v3/mediasoup/api/#transport-enablePacketEvent).
-* [producer.enablePacketEvent()](/documentation/v3/mediasoup/api/#producer-enablePacketEvent).
-* [consumer.enablePacketEvent()](/documentation/v3/mediasoup/api/#consumer-enablePacketEvent).
+* [transport.enableTraceEvent()](/documentation/v3/mediasoup/api/#transport-enableTraceEvent).
+* [producer.enableTraceEvent()](/documentation/v3/mediasoup/api/#producer-enableTraceEvent).
+* [consumer.enableTraceEvent()](/documentation/v3/mediasoup/api/#consumer-enableTraceEvent).
 
-Based on enabled `types`, here the information the "packet" event provides with:
+Based on enabled `types`, here the information the "trace" event provides with:
 
 
 ### Transport
-{: #packet-Event-Transport}
+{: #trace-Event-Transport}
 
-#### transport.enablePacketEvent([ 'probation' ])
+#### transport.enableTraceEvent([ 'probation' ])
 {: .code}
 
 ```javascript
-transport.on('packet', (packet) =>
+transport.on('trace', (trace) =>
 {
-  console.log(packet);
-
-  // =>
+  // trace =>
   {
     "direction": "out",
     "info": {
@@ -229,20 +227,28 @@ transport.on('packet', (packet) =>
 });
 ```
 
-#### transport.enablePacketEvent([ 'bwe' ])
+#### transport.enableTraceEvent([ 'bwe' ])
 {: .code}
 
 ```javascript
-transport.on('packet', (packet) =>
+transport.on('trace', (trace) =>
 {
-  console.log(packet);
-
-  // =>
+  // trace =>
   {
     "direction": "out",
     "info": {
       "availableBitrate": 1951550,
       "type": "transport-cc"
+    },
+    "info": {
+      "availableBitrate": 1981250,
+      "desiredBitrate": 1483574, 
+      "effectiveDesiredBitrate": 1483574, 
+      "maxBitrate": 2002824, 
+      "maxPaddingBitrate": 1702400, 
+      "minBitrate": 30000, 
+      "startBitrate": 1981250, 
+      "type": 'transport-cc'
     },
     "1539180741,": 1513191082,
     "type": "bwe"
@@ -251,17 +257,15 @@ transport.on('packet', (packet) =>
 ```
 
 ### Producer
-{: #packet-Event-Producer}
+{: #trace-Event-Producer}
 
-#### producer.enablePacketEvent([ 'rtp' ])
+#### producer.enableTraceEvent([ 'rtp' ])
 {: .code}
 
 ```javascript
-producer.on('packet', (packet) =>
+producer.on('trace', (trace) =>
 {
-  console.log(packet);
-
-  // =>
+  // trace =>
   {
     "direction": "in",
     "info": {
@@ -286,15 +290,13 @@ producer.on('packet', (packet) =>
 });
 ```
 
-#### producer.enablePacketEvent([ 'keyframe' ])
+#### producer.enableTraceEvent([ 'keyframe' ])
 {: .code}
 
 ```javascript
-producer.on('packet', (packet) =>
+producer.on('trace', (trace) =>
 {
-  console.log(packet);
-
-  // =>
+  // trace =>
   {
     "direction": "in",
     "info": {
@@ -320,18 +322,16 @@ producer.on('packet', (packet) =>
 ```
 
 <div markdown="1" class="note">
-When "keyframe" type is set, there won't be "packet" events with type "rtp" for keyframe packets but just with type "keyframe".
+When "keyframe" type is set, there won't be "trace" events with type "rtp" for keyframe packets but just with type "keyframe".
 </div>
 
-#### producer.enablePacketEvent([ 'nack' ])
+#### producer.enableTraceEvent([ 'nack' ])
 {: .code}
 
 ```javascript
-producer.on('packet', (packet) =>
+producer.on('trace', (trace) =>
 {
-  console.log(packet);
-
-  // =>
+  // trace =>
   {
     "direction": "out",
     "info": {}
@@ -341,15 +341,13 @@ producer.on('packet', (packet) =>
 });
 ```
 
-#### producer.enablePacketEvent([ 'pli' ])
+#### producer.enableTraceEvent([ 'pli' ])
 {: .code}
 
 ```javascript
-producer.on('packet', (packet) =>
+producer.on('trace', (trace) =>
 {
-  console.log(packet);
-
-  // =>
+  // trace =>
   {
     "direction": "out",
     "info": {
@@ -361,15 +359,13 @@ producer.on('packet', (packet) =>
 });
 ```
 
-#### producer.enablePacketEvent([ 'fir' ])
+#### producer.enableTraceEvent([ 'fir' ])
 {: .code}
 
 ```javascript
-producer.on('packet', (packet) =>
+producer.on('trace', (trace) =>
 {
-  console.log(packet);
-
-  // =>
+  // trace =>
   {
     "direction": "out",
     "info": {
@@ -382,17 +378,15 @@ producer.on('packet', (packet) =>
 ```
 
 ### Consumer
-{: #packet-Event-Consumer}
+{: #trace-Event-Consumer}
 
-#### consumer.enablePacketEvent([ 'rtp' ])
+#### consumer.enableTraceEvent([ 'rtp' ])
 {: .code}
 
 ```javascript
-consumer.on('packet', (packet) =>
+consumer.on('trace', (trace) =>
 {
-  console.log(packet);
-
-  // =>
+  // trace =>
   {
     "direction": "out",
     "info": {
@@ -413,15 +407,13 @@ consumer.on('packet', (packet) =>
 });
 ```
 
-#### consumer.enablePacketEvent([ 'keyframe' ])
+#### consumer.enableTraceEvent([ 'keyframe' ])
 {: .code}
 
 ```javascript
-consumer.on('packet', (packet) =>
+consumer.on('trace', (trace) =>
 {
-  console.log(packet);
-
-  // =>
+  // trace =>
   {
     "direction": "out",
     "info": {
@@ -444,18 +436,16 @@ consumer.on('packet', (packet) =>
 ```
 
 <div markdown="1" class="note">
-When "keyframe" type is set, there won't be "packet" events with type "rtp" for keyframe packets but just with type "keyframe".
+When "keyframe" type is set, there won't be "trace" events with type "rtp" for keyframe packets but just with type "keyframe".
 </div>
 
-#### consumer.enablePacketEvent([ 'nack' ])
+#### consumer.enableTraceEvent([ 'nack' ])
 {: .code}
 
 ```javascript
-consumer.on('packet', (packet) =>
+consumer.on('trace', (trace) =>
 {
-  console.log(packet);
-
-  // =>
+  // trace =>
   {
     "direction": "in",
     "info": {}
@@ -465,15 +455,13 @@ consumer.on('packet', (packet) =>
 });
 ```
 
-#### consumer.enablePacketEvent([ 'pli' ])
+#### consumer.enableTraceEvent([ 'pli' ])
 {: .code}
 
 ```javascript
-consumer.on('packet', (packet) =>
+consumer.on('trace', (trace) =>
 {
-  console.log(packet);
-
-  // =>
+  // trace =>
   {
     "direction": "in",
     "info": {
@@ -485,15 +473,13 @@ consumer.on('packet', (packet) =>
 });
 ```
 
-#### consumer.enablePacketEvent([ 'fir' ])
+#### consumer.enableTraceEvent([ 'fir' ])
 {: .code}
 
 ```javascript
-consumer.on('packet', (packet) =>
+consumer.on('trace', (trace) =>
 {
-  console.log(packet);
-
-  // =>
+  // trace =>
   {
     "direction": "in",
     "info": {
