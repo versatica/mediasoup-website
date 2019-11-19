@@ -195,10 +195,17 @@ The score of the RTP stream being sent, representing its tranmission quality.
 
 > `@type` [ConsumerScore](#ConsumerScore), read only
 
+#### consumer.preferredLayers
+{: #consumer-preferredLayers .code}
+
+Preferred spatial and temporal layers. For simulcast and SVC consumers (`null` otherwise).
+
+> `@type` [ConsumerLayers](#ConsumerLayers)\|Null, read only
+
 #### consumer.currentLayers
 {: #consumer-currentLayers .code}
 
-Current spatial and temporal layers (for simulcast and SVC consumers). It's `null` if no layers are being sent to the consuming endpoint at this time.
+Currently active spatial and temporal layers (for simulcast and SVC consumers). It's `null` if no layers are being sent to the consuming endpoint at this time.
 
 > `@type` [ConsumerLayers](#ConsumerLayers)\|Null, read only
 
