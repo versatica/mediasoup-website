@@ -86,6 +86,7 @@ See also "packet" Event in the [Debugging](/documentation/v3/mediasoup/debugging
 Value          | Description
 -------------- | -------------
 "probation"    | RTP probation packet.
+"bwe"          | Transport bandwidth estiamtion changed.
 
 </div>
 

@@ -229,6 +229,26 @@ transport.on('packet', (packet) =>
 });
 ```
 
+#### transport.enablePacketEvent([ 'bwe' ])
+{: .code}
+
+```javascript
+transport.on('packet', (packet) =>
+{
+  console.log(packet);
+
+  // =>
+  {
+    "direction": "out",
+    "info": {
+      "availableBitrate": 1951550
+    },
+    "1539180741,": 1513191082,
+    "type": "bwe"
+  }
+});
+```
+
 ### Producer
 {: #packet-Event-Producer}
 
