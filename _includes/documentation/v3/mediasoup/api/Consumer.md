@@ -198,7 +198,7 @@ The score of the RTP stream being sent, representing its tranmission quality.
 #### consumer.preferredLayers
 {: #consumer-preferredLayers .code}
 
-Preferred spatial and temporal layers. For simulcast and SVC consumers (`null` otherwise).
+Preferred spatial and temporal layers (see [setPreferredLayers()](#consumer-setPreferredLayers) method). For simulcast and SVC consumers, `null` otherwise.
 
 > `@type` [ConsumerLayers](#ConsumerLayers)\|Null, read only
 
@@ -208,6 +208,13 @@ Preferred spatial and temporal layers. For simulcast and SVC consumers (`null` o
 Currently active spatial and temporal layers (for simulcast and SVC consumers). It's `null` if no layers are being sent to the consuming endpoint at this time.
 
 > `@type` [ConsumerLayers](#ConsumerLayers)\|Null, read only
+
+#### consumer.priority
+{: #consumer-priority .code}
+
+Consumer priority (see [setPriority()](#consumer-setPriority) method).
+
+> `@type` Number, read only
 
 #### consumer.appData
 {: #consumer-appData .code}
@@ -291,7 +298,7 @@ Sets the priority for this consumer. It affects how the estimated outgoing bitra
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`priority` | Number  | From 1 (default) to 255 (maximum). | Yes |
+`priority` | Number  | From 1 (minimum) to 255 (maximum). | Yes |
 
 </div>
 
