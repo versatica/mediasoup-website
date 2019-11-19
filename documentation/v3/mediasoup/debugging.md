@@ -241,7 +241,8 @@ transport.on('packet', (packet) =>
   {
     "direction": "out",
     "info": {
-      "availableBitrate": 1951550
+      "availableBitrate": 1951550,
+      "type": "transport-cc"
     },
     "1539180741,": 1513191082,
     "type": "bwe"
