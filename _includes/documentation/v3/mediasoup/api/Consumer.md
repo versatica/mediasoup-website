@@ -282,6 +282,40 @@ Argument   | Type    | Description | Required | Default
 await consumer.setPreferredLayers({ spatialLayer: 3 });
 ```
 
+#### consumer.setPriority(priority)
+{: #consumer-setPriority .code}
+
+Sets the priority for this consumer. It affects how the estimated outgoing bitrate in the transport (obtained via transport-cc or REMB) is distributed among all video consumers, by priorizing those with higher priority.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`priority` | Number  | From 1 (default) to 255 (maximum). | Yes |
+
+</div>
+
+> `@async`
+
+<div markdown="1" class="note">
+Consumers' priority is only appreciable when there is not enough estimated outgoing bitrate to satisfy the needs of all video consumers.
+</div>
+
+```javascript
+await consumer.setPriority(2);
+```
+
+#### consumer.unsetPriority()
+{: #consumer-unsetPriority .code}
+
+UInsets the priority for this consumer (it sets it to its default value 1).
+
+> `@async`
+
+```javascript
+await consumer.unsetPriority();
+```
+
 #### consumer.requestKeyFrame()
 {: #consumer-requestKeyFrame .code}
 
