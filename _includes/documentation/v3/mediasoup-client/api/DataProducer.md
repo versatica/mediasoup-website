@@ -90,7 +90,7 @@ The number of bytes of application data (UTF-8 text and binary data) that have b
 #### dataProducer.bufferedAmountLowThreshold
 {: #dataProducer-bufferedAmountLowThreshold .code}
 
-Threshold at which the bufferedAmount is considered to be low.
+Threshold at which the buffered amount of bytes is considered to be low.
 
 > `@type` Number
 
@@ -150,5 +150,33 @@ dataProducer.on("transportclose", () =>
   console.log("transport closed so dataProducer closed");
 });
 ```
+
+#### dataProducer.on("open")
+{: #dataProducer-on-open .code}
+
+Emitted when the underlying DataChannel is open.
+
+#### dataProducer.on("error", fn(error))
+{: #dataProducer-on-error .code}
+
+Emitted when the underlying DataChannel fails to connect.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description
+---------| ------- | -----------
+`error`  | Error   | Originating error.
+
+</div>
+
+#### dataProducer.on("close")
+{: #dataProducer-on-close .code}
+
+Emitted when the underlying DataChannel is closed for unknown reasons.
+
+#### dataProducer.on("bufferedamountlow")
+{: #dataProducer-on-bufferedamountlow .code}
+
+Emitted when the DataChannel buffered ammount of bytes decreases from above the ` bufferedAmountLowThreshold` value.
 
 </section>

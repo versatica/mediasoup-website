@@ -152,15 +152,30 @@ dataConsumer.on("transportclose", () =>
 #### dataConsumer.on("open")
 {: #dataConsumer-on-open .code}
 
-Emitted when the DataChannel opens.
+Emitted when the underlying DataChannel is open.
 
-#### dataConsumer.on("error", error)
+#### dataConsumer.on("error", fn(error))
 {: #dataConsumer-on-error .code}
 
-Emitted when the DataChannel errors.
+Emitted when the underlying DataChannel fails to connect.
 
-#### dataConsumer.on("message", data)
-{: #dataConsumer-on-error .code}
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description
+---------| ------- | -----------
+`error`  | Error   | Originating error
+
+</div>
+
+#### dataConsumer.on("close")
+{: #dataConsumer-on-close .code}
+
+Emitted when the underlying DataChannel is closed for unknown reasons.
+
+#### dataConsumer.on("message", fn(data))
+{: #dataConsumer-on-message .code}
+
+Emitted when a DataChannel message is received.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -169,7 +184,5 @@ Argument | Type    | Description
 `data`   | String\|Blob\|ArrayBuffer | Data message received.
 
 </div>
-
-Emitted when a DataChannel message is received.
 
 </section>
