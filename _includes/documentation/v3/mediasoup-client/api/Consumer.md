@@ -64,6 +64,20 @@ The media kind ("audio" or "video").
 
 > `@type` [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind), read only
 
+#### consumer.rtpReceiver
+{: #consumer-rtpReceiver .code}
+
+The associated WebRTC [RTCRtpReceiver](https://www.w3.org/TR/webrtc/#rtcrtpreceiver-interface) for this consumer. It may be `undefined` for non modern WebRTC implementations.
+
+> `@type` [RTCRtpReceiver](https://www.w3.org/TR/webrtc/#rtcrtpreceiver-interface)\|Undefined, read only
+
+#### consumer.track
+{: #consumer-track .code}
+
+The remote audio or video track.
+
+> `@type` [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#mediastreamtrack), read only
+
 #### consumer.rtpParameters
 {: #consumer-rtpParameters .code}
 
@@ -74,13 +88,6 @@ Consumer RTP parameters.
 <div markdown="1" class="note">
 Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
 </div>
-
-#### consumer.track
-{: #consumer-track .code}
-
-The remote audio or video track.
-
-> `@type` [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#mediastreamtrack), read only
 
 #### consumer.paused
 {: #consumer-paused .code}

@@ -101,6 +101,13 @@ The media kind ("audio" or "video").
 
 > `@type` [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind), read only
 
+#### producer.rtpSender
+{: #producer-rtpSender .code}
+
+The associated WebRTC [RTCRtpSender](https://www.w3.org/TR/webrtc/#rtcrtpsender-interface) for this producer. It may be `undefined` for non modern WebRTC implementations.
+
+> `@type` [RTCRtpSender](https://www.w3.org/TR/webrtc/#rtcrtpsender-interface)\|Undefined, read only
+
 #### producer.track
 {: #producer-track .code}
 
