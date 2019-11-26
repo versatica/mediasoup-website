@@ -71,6 +71,10 @@ The associated WebRTC [RTCRtpReceiver](https://www.w3.org/TR/webrtc/#rtcrtprecei
 
 > `@type` [RTCRtpReceiver](https://www.w3.org/TR/webrtc/#rtcrtpreceiver-interface)\|Undefined, read only
 
+<div markdown="1" class="note">
+By getting access to the `RTCRtpReceiver` the application can directly modify its parameters or members. Use it with caution.
+</div>
+
 #### consumer.track
 {: #consumer-track .code}
 

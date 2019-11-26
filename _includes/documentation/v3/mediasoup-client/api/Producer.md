@@ -108,6 +108,10 @@ The associated WebRTC [RTCRtpSender](https://www.w3.org/TR/webrtc/#rtcrtpsender-
 
 > `@type` [RTCRtpSender](https://www.w3.org/TR/webrtc/#rtcrtpsender-interface)\|Undefined, read only
 
+<div markdown="1" class="note">
+By getting access to the `RTCRtpSender` the application can directly modify its parameters or members. Use it with caution.
+</div>
+
 #### producer.track
 {: #producer-track .code}
 
