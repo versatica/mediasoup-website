@@ -40,7 +40,8 @@ $ PYTHON=python3 npm install mediasoup@3 --save
 ### Windows
 
 * `node` version >= v8.6.0
-* `python` version 2 or 3
+* `python` version 2
+  - `python` version 3 will be supported once GYP project fixes [this issue](https://bugs.chromium.org/p/gyp/issues/detail?id=556)
 * Visual Studio >= 2015
 
 <div markdown="1" class="note">
