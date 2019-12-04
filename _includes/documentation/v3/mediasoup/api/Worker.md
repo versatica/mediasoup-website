@@ -46,6 +46,15 @@ Field                    | Type    | Description   | Required | Default
 
 </div>
 
+#### WorkerResourceUsage
+{: #WorkerResourceUsage .code}
+
+An object with the fields of the [uv_rusage_t](http://docs.libuv.org/en/v1.x/misc.html#c.uv_rusage_t) struct.
+
+<div markdown="1" class="note">
+Both `ru_utime` and `ru_stime` values are given in milliseconds.
+</div>
+
 </section>
 
 
@@ -125,6 +134,39 @@ See the [Observer Events](#Worker-observer-events) section below.
 {: #worker-close .code}
 
 Closes the worker. Triggers a ["workerclose"](#router-on-workerclose) event in all its routers.
+
+#### worker.getResourceUsage()
+{: #worker-getResourceUsage .code}
+
+Provides resource usage of the mediasoup-worker subprocess.
+
+> `@async`
+> 
+> `@returns` [WorkerResourceUsage](#WorkerResourceUsage)
+
+```javascript
+const usage = await worker.getResourceUsage();
+
+// =>
+{
+  ru_idrss: 0,
+  ru_inblock: 0,
+  ru_isrss: 0,
+  ru_ixrss: 0,
+  ru_majflt: 0,
+  ru_maxrss: 46047232,
+  ru_minflt: 11446,
+  ru_msgrcv: 23641,
+  ru_msgsnd: 40005,
+  ru_nivcsw: 27926,
+  ru_nsignals: 0,
+  ru_nswap: 0,
+  ru_nvcsw: 0,
+  ru_oublock: 0,
+  ru_stime: 1026,
+  ru_utime: 3066
+}
+```
 
 #### worker.updateSettings(settings)
 {: #worker-updateSettings .code}

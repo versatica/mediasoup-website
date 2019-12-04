@@ -26,7 +26,7 @@ Stream score            | <span class="checkbox"/> | <span class="checkbox on"/>
 
 </div>
 
-#### Starting from version 3.1.0
+#### In mediasoup >= 3.1.X
 
 <div markdown="1" class="table-wrapper L1-small L4">
 
@@ -36,7 +36,7 @@ VP9 SVC support         | <span class="checkbox"/> | <span class="checkbox on"/>
 
 </div>
 
-#### Starting from version 3.2.0
+#### In mediasoup >= 3.2.X
 
 <div markdown="1" class="table-wrapper L1-small L4">
 
@@ -46,7 +46,7 @@ DataChannel support     | <span class="checkbox"/> | <span class="checkbox on"/>
 
 </div>
 
-#### Starting from version 3.3.0
+#### In mediasoup >= 3.3.X
 
 <div markdown="1" class="table-wrapper L1-small L4">
 
@@ -56,5 +56,15 @@ transport-cc BWE        | <span class="checkbox"/> | <span class="checkbox on"/>
 Windows support         | <span class="checkbox"/> | <span class="checkbox on"/> | Yes, mediasoup now works in Linux, BSD, OSX and Windows.
 TypeScript              | <span class="checkbox"/> | <span class="checkbox on"/> | Written in TypeScript, mediasoup now exposes all TypeScript types, interfaces and method signatures.
 RTP and RTCP tracing    | <span class="checkbox"/> | <span class="checkbox on"/> | Ability to subscribe from the Node.js app to RTP and RTCP events (the new "trace" event).
+
+</div>
+
+#### In mediasoup >= 3.4.X
+
+<div markdown="1" class="table-wrapper L1-small L4">
+
+Feature                   | v2 | v3 | Description
+------------------------- | -- | -- | -------------------------------
+Per worker resource usage | <span class="checkbox"/> | <span class="checkbox on"/> | New API `worker.getResourceUsage()` to get resource usage of a mediasoup-worker subprocess..
 
 </div>
