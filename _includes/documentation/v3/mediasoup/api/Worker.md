@@ -237,19 +237,27 @@ const router = await worker.createRouter({ mediaCodecs });
 
 <section markdown="1">
 
-#### worker.on("died", fn())
+#### worker.on("died", fn(error))
 {: #worker-on-died .code}
 
 Emitted when the worker process unexpectedly dies.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description
+---------| ------- | -----------
+`error`  | Error   | Originating error.
+
+</div>
 
 <div markdown="1" class="note warn">
 This should never happens (if it happens, it's a bug).
 </div>
 
 ```javascript
-worker.on("died", () =>
+worker.on("died", (error) =>
 {
-  console.error("mediasoup worker died!");
+  console.error("mediasoup worker died!: %o", error);
 });
 ```
 
