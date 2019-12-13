@@ -6,14 +6,10 @@ anchors : true
 
 # Examples
 
-<div markdown="1" class="note">
-Projects below may use different versions of mediasoup. Please check it within each project.
-</div>
-
 
 ### versatica/mediasoup-demo
 
-**Project:** [https://github.com/versatica/mediasoup-demo](https://github.com/versatica/mediasoup-demo) (uses mediasoup v3)
+**Project:** [https://github.com/versatica/mediasoup-demo](https://github.com/versatica/mediasoup-demo)
 
 This is the "official" mediasoup demo made by mediasoup authors. Said that, we (the authors) don't want this demo to become the "mediasoup reference" and encourage developers to read the API documentation instead.
 
@@ -27,7 +23,7 @@ The **mediasoup-demo** has a client side web application and a server side Node.
 
 ### versatica/mediasoup-broadcaster-demo
 
-**Project:** [https://github.com/versatica/mediasoup-broadcaster-demo](https://github.com/versatica/mediasoup-broadcaster-demo) (uses libmediasoupclient v3)
+**Project:** [https://github.com/versatica/mediasoup-broadcaster-demo](https://github.com/versatica/mediasoup-broadcaster-demo)
 
 Made by [mediasoup authors](https://github.com/versatica), this project is a
 [libmediasoupclient](https://github.com/versatica/libmediasoupclient/) based application that takes the system microphone and webcam and produces the media to the specified room in [mediasoup-demo](https://github.com/versatica/mediasoup-demo/) application.
@@ -35,28 +31,35 @@ Made by [mediasoup authors](https://github.com/versatica), this project is a
 
 ### Kurento/mediasoup-demos
 
-**Project:** [https://github.com/Kurento/mediasoup-demos](https://github.com/Kurento/mediasoup-demos) (uses mediasoup v3)
+**Project:** [https://github.com/Kurento/mediasoup-demos](https://github.com/Kurento/mediasoup-demos)
 
 Contains mediasoup + Kurento integration projects.
 
 
+### vpalmisano/mediasoupbin
+
+**Project:** [https://github.com/vpalmisano/mediasoupbin](https://github.com/vpalmisano/mediasoupbin)
+
+GStreamer plugin for mediasoup-demo.
+
+
 ### ethand91/mediasoup3-record-demo
 
-**Project:** [https://github.com/ethand91/mediasoup3-record-demo](https://github.com/ethand91/mediasoup3-record-demo) (uses mediasoup v3)
+**Project:** [https://github.com/ethand91/mediasoup3-record-demo](https://github.com/ethand91/mediasoup3-record-demo)
 
 Simple audio/video record application using mediasoup and GStreamer or FFmpeg.
 
 
 ### mkhahani/mediasoup-sample-app
 
-**Project:** [https://github.com/mkhahani/mediasoup-sample-app](https://github.com/mkhahani/mediasoup-sample-app) (uses mediasoup v3)
+**Project:** [https://github.com/mkhahani/mediasoup-sample-app](https://github.com/mkhahani/mediasoup-sample-app)
 
 A minimal client/server app based on Mediasoup and Socket.io made by [@mkhahani](https://github.com/mkhahani).
 
 
 ### daily-co/mediasoup-sandbox
 
-**Project:** [https://github.com/daily-co/mediasoup-sandbox/tree/master/single-page](https://github.com/daily-co/mediasoup-sandbox/tree/master/single-page) (uses mediasoup v3)
+**Project:** [https://github.com/daily-co/mediasoup-sandbox/tree/master/single-page](https://github.com/daily-co/mediasoup-sandbox/tree/master/single-page)
 
 Sample code with the the simplest possible signaling, and fewest possible dependencies, for cross-browser testing of:
 
@@ -70,22 +73,6 @@ Sample code with the the simplest possible signaling, and fewest possible depend
 * Setting maximum simulcast layer when receiving
 * Display of stats
 * Display of "active speaker"
-
-
-### footniko/mediasoup-sample
-
-**Project:** [https://github.com/footniko/mediasoup-sample](https://github.com/footniko/mediasoup-sample) (uses mediasoup v2)
-
-Made by [@footniko](https://github.com/footniko), this demo is born in response to the need of many users to have a simpler mediasoup based application example.
-
-Both, the client side and server side, have a single `index.js` that include all the needed mediasoup API. The application uses [socket.io](https://socket.io) as signaling solution.
-
-
-### michaelfig/mediasoup-broadcast-example
-
-**Project:** [https://github.com/michaelfig/mediasoup-broadcast-example](https://github.com/michaelfig/mediasoup-broadcast-example) (uses mediasoup v2)
-
-Made by [@michaelfig](https://github.com/michaelfig), this project is a vanilla Javascript example of how to use mediasoup to support the specific case of one-to-many broadcast audio/video on individual "channels".
 
 
 ### Others

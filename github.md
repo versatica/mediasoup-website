@@ -28,3 +28,8 @@ libmediasoupclient based C++ application that produces the system microphone and
 ##### [mediasoup-website](https://github.com/versatica/mediasoup-website/)
 
 The mediasoup project website at [https://mediasoup.org](https://mediasoup.org).
+
+
+## Examples
+
+Check out some projects and examples using mediasoup, mediasoup-client and libmediasoup client in the [Examples](/documentation/examples/) section.
