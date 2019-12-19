@@ -1,5 +1,6 @@
 ---
-title : GitHub
+title   : GitHub
+anchors : true
 ---
 
 
