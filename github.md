@@ -20,8 +20,8 @@ Client side JavaScript library.
 
 C++ library based on libwebrtc.
 
-##### [mediasoup-demo](https://github.com/versatica/mediasoup-demo/)
 
+##### [mediasoup-demo](https://github.com/versatica/mediasoup-demo/)
 
 Source code of the [mediasoup demo](https://demo.mediasoup.org) application.
 
@@ -49,6 +49,11 @@ Objective-C wrapper library for libmediasoupclient for building mediasoup based 
 ##### [haiyangwu/mediasoup-client-android](https://github.com/haiyangwu/mediasoup-client-android)
 
 Java wrapper library for libmediasoupclient for building mediasoup based **native** Android based applications.
+
+
+##### [haiyangwu/mediasoup-demo-android](https://github.com/haiyangwu/mediasoup-demo-android)
+
+mediasoup-client-android based Android app to connect to the [mediasoup demo](https://demo.mediasoup.org).
 
 
 ## Examples
