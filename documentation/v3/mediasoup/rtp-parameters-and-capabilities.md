@@ -225,11 +225,12 @@ Field              | Type    | Description   | Required | Default
 `clockRate`        | Number  | Codec clock rate expressed in Hertz. | Yes |
 `channels`         | Number  | The number of channels supported (e.g. two for stereo). Just for audio. | No | 1
 `parameters`           | Object  | Codec specific parameters. Some parameters (such as "packetization-mode" and "profile-level-id" in H264 or "profile-id" in VP9) are critical for codec matching. | No |
+`rtcpFeedback`     | Array&lt;[RtcpFeedback](#RtcpFeedback)&gt; | Transport layer and codec-specific feedback messages for this codec. | No | `[ ]`
 
 </div>
 
 <div markdown="1" class="note">
-`RtpCodecCapability` entries in the `mediaCodecs` array of [RouterOptions](/documentation/v3/mediasoup/api/#RouterOptions) do not require `preferredPayloadType` field (if unset, mediasoup will choose a random one). If given, make sure it's in the 96-127 range.
+`RtpCodecCapability` entries in the `mediaCodecs` array of [RouterOptions](/documentation/v3/mediasoup/api/#RouterOptions) do not require `preferredPayloadType` field (if unset, mediasoup will choose a random one). If given, make sure it's in the 96-127 range. Neither it requires `rtcpFeedback`.
 </div>
 
 
