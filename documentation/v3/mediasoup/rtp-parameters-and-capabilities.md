@@ -97,7 +97,7 @@ The RTP capabilities define what mediasoup or an endpoint can receive at media l
 
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
-`codecs`           | Array&lt;[RtpCodecCapability](#RtpCodecCapability)&gt; | Supported media and RTX codecs. | Yes |
+`codecs`           | Array&lt;[RtpCodecCapability](#RtpCodecCapability)&gt; | Supported media and RTX codecs. | No | `[ ]`
 `headerExtensions` | Array&lt;[RtpHeaderExtension](#RtpHeaderExtension)&gt; | Supported RTP header extensions. | No | `[ ]`
 
 </div>
