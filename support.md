@@ -1,5 +1,6 @@
 ---
-title : Support
+title   : Support
+anchors : true
 ---
 
 
@@ -59,7 +60,7 @@ If you get a crash in mediasoup server, this is, if you get an error log as foll
 
 or if the [worker.on("died")](/documentation/v3/mediasoup/api/#worker-on-died) event fires, this is a bug in mediasoup that should not happen.
 
-If so, please report the issue in GitHub and also enable core dumps in your host. If you run mediasoup in Linux, do it as follows **before** running your mediasoup application again:
+If so, please report the issue in [GitHub][mediasoup-github-issues] and also enable core dumps in your host. If you run mediasoup in Linux, do it as follows **before** running your mediasoup application again:
 
 ```bash
 $ mkdir /tmp/cores
