@@ -49,6 +49,27 @@ If you find an issue or bug in the software, or want to propose a new feature or
 Please do **NOT** open an issue in GitHub for questions or doubts. Use the **[mediasoup Discourse Group][mediasoup-discourse-group]** instead.
 </div>
 
+#### Crashes in mediasoup (get a core dump)
+
+If you get a crash in mediasoup server, this is, if you get an error log as follows:
+
+```
+2020-01-06T16:02:57.965Z mediasoup:ERROR:Worker worker process died unexpectedly [pid:22, code:null, signal:SIGABRT]
+```
+
+or if the [worker.on("died")](/documentation/v3/mediasoup/api/#worker-on-died) event fires, this is a bug in mediasoup that should not happen.
+
+If so, please report the issue in GitHub and also enable core dumps in your host. If you run mediasoup in Linux, do it as follows **before** running your mediasoup application again:
+
+```bash
+$ mkdir /tmp/cores
+$ chmod 777 /tmp/cores
+$ echo "/tmp/cores/core.%e.sig%s.%p" > /proc/sys/kernel/core_pattern
+$ ulimit -c unlimited
+```
+
+Then run your mediasoup application. If the crash happens again you should get a core dump in the `/tmp/cores` folder. Please attach it into the issue reported in GitHub.
+
 
 
 
