@@ -76,8 +76,6 @@ console.log(mediasoupClient.version);
 
 Performs current browser/device detection and returns the corresponding mediasoup-client WebRTC handler class.
 
-</div>
-
 > `@async`
 > 
 > `@returns` Class
