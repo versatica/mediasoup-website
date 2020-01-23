@@ -23,6 +23,7 @@ Field           | Type    | Description   | Required | Default
 `track`         | [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#mediastreamtrack) | An audio or video track. | Yes |
 `encodings`     | Array&lt;[RTCRtpEncodingParameters](https://w3c.github.io/webrtc-pc/#rtcrtpencodingparameters)&gt; | Encoding settings. | No |
 `codecOptions`  | [ProducerCodecOptions](#ProducerCodecOptions) | Per codec specific options. | No | `[ ]`
+`stopTracks`    | Boolean | Whether mediasoup-client should call `stop()` on tracks handled by this Producer. If set to `false`, the app is responsible of stopping tracks given to `transport.produce()` or `produce.replaceTrack()`. | No | `true`
 `appData`       | Object  | Custom application data. | No | `{ }`
 
 </div>
@@ -45,9 +46,9 @@ Check the mediasoup [SVC](/documentation/v3/mediasoup/rtp-parameters-and-capabil
 </div>
 
 <div markdown="1" class="note warn">
-The given track will be internally handled by mediasoup-client from now on, meaning that mediasoup-client will call `stop()` on it when the producer is closed or when [producer.replaceTrack()](/documentation/v3/mediasoup-client/api/#producer-replaceTrack) is called.
+The given track will be internally handled by mediasoup-client from now on, meaning that mediasoup-client will call `stop()` on it when the producer is closed or when [producer.replaceTrack()](/documentation/v3/mediasoup-client/api/#producer-replaceTrack) is called **unless** `stopTracks` is set to `false` in `transport.produce()` options.
 
-So, if your application needs to use the track after that, it should clone the original track and pass the cloned one to `transport.produce()`.
+So, if your application needs to use the track after that, it should set `stopTracks: false` or clone the original track and pass the cloned one to `transport.produce()`.
 
 ```javascript
 const clonedTrack = track.clone();
