@@ -32,17 +32,6 @@ Field           | Type    | Description   | Required | Default
 Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
 </div>
 
-<div markdown="1" class="note">
-When creating a consumer it's recommended to set `paused` to `true`, then transmit the consumer parameters to the consuming endpoint and, once the consuming endpoint has created its local side consumer, unpause the server side consumer using the [resume()](#consumer-resume) method.
-
-Reasons for create the server side consumer in `paused` mode:
-
-* If the remote endpoint is a WebRTC browser or application and it receives a RTP packet of the new consumer **before** the remote `RTCPeerConnection` is ready to process it (this is, before the remote consumer is created in the remote endpoint) it may happen that the `RTCPeerConnection` will wrongly associate the SSRC of the received packet to an already existing SDP `m=` section, so the imminent creation of the new consumer and its associated `m=` section will fail.
-  * Related [issue](https://github.com/versatica/libmediasoupclient/issues/57).
-
-* Also, when creating a video consumer, this is an optimization to make it possible for the consuming endpoint to render the video as far as possible. If the server side consumer was created with `paused: false`, mediasoup will immediately request a key frame to the producer and that key frame may reach the consuming endpoint even before it's ready to consume it, generating "black" video until the device requests a keyframe by itself. 
-</div>
-
 #### ConsumerLayers
 {: #ConsumerLayers .code}
 
