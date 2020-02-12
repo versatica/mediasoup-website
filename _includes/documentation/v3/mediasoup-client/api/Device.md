@@ -22,19 +22,20 @@ This is the entry point for JavaScript client side applications (such as web app
 
 <div markdown="1" class="table-wrapper L3">
 
-Field           | Type    | Description   | Required | Default
---------------- | ------- | ------------- | -------- | ---------
-`Handler`       | Class\|String | A class that implements the mediasoup-client handler interface that deals with the browser or device WebRTC engine. If a string is given, the indicated built-in handler class will be forced (it should match the name without ".js" of one of the existing built-in [handlers](https://github.com/versatica/mediasoup-client/tree/v3/lib/handlers)). | No |
+Field            | Type     | Description   | Required | Default
+---------------- | -------- | ------------- | -------- | ---------
+`handlerName`    | [BuiltinHandlerName](#BuiltinHandlerName) | The name of one of the builtin handlers.
+`handlerFactory` | Function | A function that returns an instance of a handler. Check the [HandlerInterface](https://github.com/versatica/mediasoup-client/tree/v3/src/handlers/HandlerInterface.ts) parent class from which any valid handler must inherit. | No |
 
 </div>
 
 <div markdown="1" class="note">
-* Web applications do not need to provide any `Handler` argument into the `Device` constructor. mediasoup-client detects the underlying browser and chooses a suitable WebRTC handler depending on the browser vendor and version.
+* Web applications do not need to provide any `handlerName` or `handlerFactory` arguments into the `Device` constructor. mediasoup-client detects the underlying browser and chooses a suitable WebRTC handler depending on the browser vendor and version.
 
 * If the web application wishes to force a specific built-in handler (for example, force `Chrome67` built-in handler in Chrome >= 70 instead of having `Chrome70` auto-detected) the application can do it as follows:
 
 ```javascript
-const device = new mediasoup.Device({ Handler: "Chrome67" });
+const device = new mediasoup.Device({ handlerName: "Chrome67" });
 ```
 </div>
 
@@ -46,6 +47,33 @@ const device = new mediasoup.Device({ Handler: "Chrome67" });
 Field            | Type   | Description
 ---------------- | ------ | -------------
 `numStreams`     | [TransportNumSctpStreams](/documentation/v3/mediasoup/api/#TransportNumSctpStreams) | Initially requested and supported SCTP streams.
+
+</div>
+
+</section>
+
+
+### Enums
+{: #Device-enums}
+
+<section markdown="1">
+
+#### BuiltinHandlerName
+{: #BuiltinHandlerName .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value          | Description  
+-------------- | -------------
+"Chrome74"     | Chrome/Chromium >= 74.
+"Chrome70"     | Chrome/Chromium >= 70.
+"Chrome67"     | Chrome/Chromium >= 67.
+"Chrome55"     | Chrome/Chromium >= 55.
+"Firefox60"    | Firefox >= 60.
+"Safari12"     | Safari >= 12.
+"Safari11"     | Safari >= 11.
+"Edge11"       | Edge >= 11 && <= 18.
+"ReactNative"  | React-Native environment with `react-native-webrtc`.
 
 </div>
 
