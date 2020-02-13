@@ -24,7 +24,7 @@ This is the entry point for JavaScript client side applications (such as web app
 
 Field            | Type     | Description   | Required | Default
 ---------------- | -------- | ------------- | -------- | ---------
-`handlerName`    | [BuiltinHandlerName](#BuiltinHandlerName) | The name of one of the builtin handlers.
+`handlerName`    | [BuiltinHandlerName](#BuiltinHandlerName) | The name of one of the builtin handlers. | No |
 `handlerFactory` | Function | A function that returns an instance of a handler. Check the [HandlerInterface](https://github.com/versatica/mediasoup-client/tree/v3/src/handlers/HandlerInterface.ts) parent class from which any valid handler must inherit. | No |
 
 </div>
