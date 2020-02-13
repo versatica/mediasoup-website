@@ -46,7 +46,7 @@ const device = new mediasoup.Device({ handlerName: "Chrome67" });
 
 Field            | Type   | Description
 ---------------- | ------ | -------------
-`numStreams`     | [TransportNumSctpStreams](/documentation/v3/mediasoup/api/#TransportNumSctpStreams) | Initially requested and supported SCTP streams.
+`numStreams`     | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | Initially requested and supported SCTP streams.
 
 </div>
 
