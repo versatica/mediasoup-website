@@ -243,7 +243,7 @@ Argument    | Type    | Description | Required | Default
 ```javascript
 // Let's assume we have created a video consumer in server side and signal its
 // parameters to the client app.
-mySignaling.on('newConsumer', (data) =>
+mySignaling.on('newConsumer', async (data) =>
 {
   const consumer = await transport.consume(
     {
@@ -313,7 +313,7 @@ Argument    | Type    | Description | Required | Default
 ```javascript
 // Let's assume we have created a data consumer in server side and signal its
 // parameters to the client app.
-mySignaling.on('newDataConsumer', (data) =>
+mySignaling.on('newDataConsumer', async (data) =>
 {
   const consumer = await transport.consumeData(
     {
@@ -360,7 +360,7 @@ In server side, the application should call [webRtcTransport.connect()](/documen
 </div>
 
 ```javascript
-transport.on("connect", ({ dtlsParameters }, callback, errback) =>
+transport.on("connect", async ({ dtlsParameters }, callback, errback) =>
 {
   // Signal local DTLS parameters to the server side transport.
   try
@@ -401,7 +401,7 @@ In server side, the application should call [transport.produce()](/documentation
 </div>
 
 ```javascript
-transport.on("produce", (parameters, callback, errback) =>
+transport.on("produce", async (parameters, callback, errback) =>
 {
   // Signal parameters to the server side transport and retrieve the id of 
   // the server side new producer.
@@ -450,7 +450,7 @@ In server side, the application should call [transport.produceData()](/documenta
 </div>
 
 ```javascript
-transport.on("producedata", (parameters, callback, errback) =>
+transport.on("producedata", async (parameters, callback, errback) =>
 {
   // Signal parameters to the server side transport and retrieve the id of 
   // the server side new producer.
