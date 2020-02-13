@@ -81,7 +81,7 @@ Performs current browser/device detection and returns the corresponding mediasou
 > `@returns` [BuiltinHandlerName](#BuiltinHandlerName) \| undefined
 
 ```javascript
-const handlerName = mediasoup.detectDevice();
+const handlerName = mediasoupClient.detectDevice();
 
 if (handlerName) {
   console.log("detected handler: %s", handlerName);
@@ -106,7 +106,7 @@ The main `Device` class.
 > `@type` [Device](#Device), read only
 
 ```javascript
-const device = new mediasoup.Device();
+const device = new mediasoupClient.Device();
 ```
 
 </section>
@@ -137,16 +137,16 @@ Argument   | Type    | Description | Required | Default
 > * `temporalLayers` {`@type` Number} Number of temporal layers (by default 1).
 
 ```javascript
-mediasoup.parseScalabilityMode("L2T3");
+mediasoupClient.parseScalabilityMode("L2T3");
 // => { spatialLayers: 2, temporalLayers: 3 }
 
-mediasoup.parseScalabilityMode("S3T3");
+mediasoupClient.parseScalabilityMode("S3T3");
 // => { spatialLayers: 3, temporalLayers: 3 }
 
-mediasoup.parseScalabilityMode("L4T7_KEY_SHIFT");
+mediasoupClient.parseScalabilityMode("L4T7_KEY_SHIFT");
 // => { spatialLayers: 4, temporalLayers: 7 }
 
-mediasoup.parseScalabilityMode(undefined);
+mediasoupClient.parseScalabilityMode(undefined);
 // => { spatialLayers: 1, temporalLayers: 1 }
 ```
 

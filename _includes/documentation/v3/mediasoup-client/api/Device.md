@@ -35,7 +35,7 @@ Field            | Type     | Description   | Required | Default
 * If the web application wishes to force a specific built-in handler (for example, force `Chrome67` built-in handler in Chrome >= 70 instead of having `Chrome70` auto-detected) the application can do it as follows:
 
 ```javascript
-const device = new mediasoup.Device({ handlerName: "Chrome67" });
+const device = new mediasoupClient.Device({ handlerName: "Chrome67" });
 ```
 </div>
 
