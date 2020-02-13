@@ -210,7 +210,7 @@ Whether the device can produce media of the given kind. This depends on the medi
 
 Argument  | Type    | Description | Required | Default 
 --------- | ------- | ----------- | -------- | ----------
-`kind`    | String  | [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind). | Yes |
+`kind`    | String  | [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind) | Yes |
 
 </div>
 
