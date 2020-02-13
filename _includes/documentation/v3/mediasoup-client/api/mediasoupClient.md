@@ -74,11 +74,11 @@ console.log(mediasoupClient.version);
 #### mediasoupClient.detectDevice()
 {: #mediasoupClient-detectDevice .code}
 
-Performs current browser/device detection and returns the corresponding mediasoup-client WebRTC handler name.
+Performs current browser/device detection and returns the corresponding mediasoup-client WebRTC handler name (or nothing if the browser/device is not supported).
 
 > `@async`
 > 
-> `@returns` [BuiltinHandlerName](#BuiltinHandlerName)
+> `@returns` [BuiltinHandlerName](#BuiltinHandlerName) \| undefined
 
 ```javascript
 const handlerName = mediasoup.detectDevice();
