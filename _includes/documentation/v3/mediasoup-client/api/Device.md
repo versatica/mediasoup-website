@@ -72,7 +72,7 @@ Value          | Description
 "Firefox60"    | Firefox >= 60.
 "Safari12"     | Safari >= 12.
 "Safari11"     | Safari >= 11.
-"Edge11"       | Edge >= 11 && <= 18.
+"Edge11"       | Edge >= 11 && <= 18 (higher versions use Chromium).
 "ReactNative"  | React-Native environment with `react-native-webrtc`.
 
 </div>
