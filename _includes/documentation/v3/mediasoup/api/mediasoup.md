@@ -93,7 +93,7 @@ Argument   | Type    | Description | Required | Default
 > `@returns` [Worker](#Worker)
 
 ```javascript
-const worker = async mediasoup.createWorker(
+const worker = await mediasoup.createWorker(
   {
     logLevel            : "warn",
     dtlsCertificateFile : "/home/foo/dtls-cert.pem",
