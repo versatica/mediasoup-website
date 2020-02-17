@@ -23,7 +23,7 @@ Field           | Type    | Description   | Required | Default
 `kind`          | [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind) | Media kind ("audio" or "video"). | Yes |
 `rtpParameters` | [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters) | RTP parameters defining what the endpoint is sending. | Yes |
 `paused`        | Boolean | Whether the producer must start in paused mode. | No | `false`
-`keyFrameWaitTime` | Number | Just for video. Time (in ms) before asking the sender for a new key frame after having asked a previous one. Minimum valid value is 500. | No | 1000
+`keyFrameRequestDelay` | Number | Just for video. Time (in ms) before asking the sender for a new key frame after having asked a previous one. If 0 there is no delay. | No | 0
 `appData`       | Object  | Custom application data. | No | `{ }`
 
 </div>

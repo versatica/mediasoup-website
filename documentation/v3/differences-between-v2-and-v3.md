@@ -65,6 +65,6 @@ RTP and RTCP tracing    | <span class="checkbox"/> | <span class="checkbox on"/>
 
 Feature                   | v2 | v3 | Description
 ------------------------- | -- | -- | -------------------------------
-Per worker resource usage | <span class="checkbox"/> | <span class="checkbox on"/> | New API `worker.getResourceUsage()` to get resource usage of a mediasoup-worker subprocess..
+Per worker resource usage | <span class="checkbox"/> | <span class="checkbox on"/> | New API `worker.getResourceUsage()` to get resource usage of a mediasoup-worker subprocess.
 
 </div>
