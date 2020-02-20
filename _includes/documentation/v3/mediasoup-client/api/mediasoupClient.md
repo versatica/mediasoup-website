@@ -6,10 +6,10 @@
 The top-level exported module.
 
 ```javascript
-// Using ES6 import.
+// Using import.
 import * as mediasoupClient from "mediasoup-client";
 
-// Also using ES6 import with destructuring assignment.
+// Also using import with destructuring assignment.
 import {
   types,
   version,

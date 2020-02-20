@@ -11,7 +11,7 @@ Scalability is a vague concept that can apply to different scenarios and require
 <div markdown="1" class="note">
 Before entering into details, let's clarify how mediasoup works internally:
 
-* mediasoup is a Node.js library that exposes a JavaScript ES6 API to manage workers, routers, transports, producers and consumer (among others).
+* mediasoup is a Node.js library that exposes a JavaScript API to manage workers, routers, transports, producers and consumer (among others).
 * A [Worker](/documentation/v3/mediasoup/api/#Worker) represents a mediasoup C++ subprocess that runs in a single CPU core. It can handle many routers.
 * A [Router](/documentation/v3/mediasoup/api/#Router) holds producers and consumers that exchange audio/video RTP between them. In certain common usages, a router can be understood as a "multi-party conference room".
 * Since a router belongs to a worker, a router uses a single CPU (and may share it with other routers in the same worker).

@@ -17,7 +17,7 @@ $ npm install mediasoup-client@2 --save
 
 Depending on how your web application loads libraries (for example, by using a JavaScript module loader) your may need to use one of the following ways to load mediasoup-client:
 
-* Using ES6 `import`:
+* Using `import`:
 
 ```javascript
 import * as mediasoupClient from "mediasoup-client";
