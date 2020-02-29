@@ -30,6 +30,8 @@ Field         | Type    | Description   | Required | Default
 `enableSctp` | Boolean | Create a SCTP association. | No | `false`
 `numSctpStreams` | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
 `maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 1073741823
+`enableRtx`   | Boolean | Enable RTX and NACK for RTP retransmission. Useful if both `pipeTransports` run in different hosts. If enabled, the paired `pipeTransport` must also enable this setting. | No | `false`
+`enableSrtp`  | Boolean | Enable SRTP to encrypt RTP and SRTP. If enabled, the paired `pipeTransport` must also enable this setting. | No | `false`
 `appData`     | Object  | Custom application data. | No | `{ }`
 
 </div>
@@ -70,6 +72,13 @@ Current SCTP state.
 
 > `@type` [TransportSctpState](#TransportSctpState), read only
 
+#### pipeTransport.srtpParameters
+{: #pipeTransport-srtpParameters .code}
+
+Local SRTP parameters representing the crypto suite and key material used to encrypt sending RTP and SRTP. Those parameters must be given to the paired `pipeTransport` in the `connect()` method.
+
+> `@type` [SrtpParameters](/documentation/v3/mediasoup/srtp-parameters/#SrtpParameters), read only
+
 </section>
 
 
@@ -102,12 +111,26 @@ Argument   | Type    | Description | Required | Default
 ---------- | ------- | ----------- | -------- | ----------
 `ip`       | String  | Remote IPv4 or IPv6.   | Yes |
 `port`     | Number  | Remote port.           | Yes |
+`srtpParameters` | [SrtpParameters](/documentation/v3/mediasoup/srtp-parameters/#SrtpParameters) | SRTP parameters used by the paired `pipeTransport` to encrypt its RTP and RTCP. | No |
 
 </div>
 
 > `@async`
 > 
 > `@overrides`
+
+```javascript
+await pipeTransport.connect(
+  {
+    ip             : '1.2.3.4',
+    port           : 9999,
+    srtpParameters :
+    {
+      cryptoSuite : 'AES_CM_128_HMAC_SHA1_80',
+      keyBase64   : 'ZnQ3eWJraDg0d3ZoYzM5cXN1Y2pnaHU5NWxrZTVv'
+    }
+  });
+```
 
 </section>
 
@@ -131,6 +154,7 @@ Argument | Type    | Description
 `sctpState`       | [TransportSctpState](#TransportSctpState) | The new SCTP state.
 
 </div>
+
 </section>
 
 

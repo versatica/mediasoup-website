@@ -24,11 +24,13 @@ Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
 `listenIp`    | [TransportListenIp](#TransportListenIp)\|String| Listening IP address. | Yes |
 `rtcpMux`     | Boolean | Use RTCP-mux (RTP and RTCP in the same port). | No | `true`
-`comedia`     | Boolean | Whether remote IP:port should be auto-detected based on first RTP/RTCP packet received. If enabled, `connect()` method must not be called. This option is ignored if `multiSource` is set. | No | `false`
-`multiSource` | Boolean | Whether RTP/RTCP from different remote IPs:ports is allowed. If set, the transport will just be valid for receiving media (`consume()` cannot be called on it) and `connect()` must not be called. | No | `false`
+`comedia`     | Boolean | Whether remote IP:port should be auto-detected based on first RTP/RTCP packet received. If enabled, `connect()` must only be called if SRTP is enabled by providing the remote `srtpParameters`. This option is ignored if `multiSource` is set. | No | `false`
+`multiSource` | Boolean | Whether RTP/RTCP from different remote IPs:ports is allowed. If set, the transport will just be valid for receiving media (`consume()` cannot be called on it) and `connect()` must only be called if SRTP is enabled by providing the remote `srtpParameters`. | No | `false`
 `enableSctp`  | Boolean | Create a SCTP association. | No | `false`
 `numSctpStreams`     | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
 `maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 262144
+`enableSrtp`  | Boolean | Enable SRTP to encrypt RTP and SRTP. If enabled, the remote must also enable SRTP. | No | `false`
+`srtpCryptoSuite` | [SrtpCryptoSuite](/documentation/v3/mediasoup/srtp-parameters/#SrtpCryptoSuite) | Just valid if `enableSrtp` is set. | No | "AES_CM_128_HMAC_SHA1_80"
 `appData`     | Object  | Custom application data. | No | `{ }`
 
 </div>
@@ -94,6 +96,13 @@ Current SCTP state.
 
 > `@type` [TransportSctpState](#TransportSctpState), read only
 
+#### plainRtpTransport.srtpParameters
+{: #plainRtpTransport-srtpParameters .code}
+
+Local SRTP parameters representing the crypto suite and key material used to encrypt sending RTP and SRTP. Note that, if `comedia` mode is set, these local SRTP parameters may change after calling `connect()` with the remote SRTP parameters (to override the local SRTP crypto suite with the one given in `connect()`).
+
+> `@type` [SrtpParameters](/documentation/v3/mediasoup/srtp-parameters/#SrtpParameters), read only
+
 </section>
 
 
@@ -118,21 +127,58 @@ Returns current RTC statistics of the WebRTC transport.
 #### plainRtpTransport.connect({ ip, port, rtcpPort })
 {: #plainRtpTransport-connect .code}
 
-Provides the plain RTP transport with the endpoint parameters. It must not be called when `comedia` mode is enabled (in this case the remote media address will be detected dynamically) or when `multiSource` is set.
+Provides the plain RTP transport with the endpoint parameters. It must not be called when `comedia` mode is enabled (in this case the remote media address will be detected dynamically) or when `multiSource` is set, **unless SRTP is enabled**.
+
+If SRTP is enabled (`enableSrtp` was set in the `router.createPlainRtpTransport()` options) then `connect()` must be called with the remote `srtpParameters` no matter `comedia` or `multiSource` is set. However, if any of them is set, `ip`, `port` and `rtcpPort` must **not** be given into `connect()` options.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`ip`       | String  | Remote IPv4 or IPv6.   | Yes |
-`port`     | Number  | Remote port.           | Yes |
-`rtcpPort` | Number  | Remote RTCP port (required if RTCP-mux is not enabled).           | No |
+`ip`       | String  | Remote IPv4 or IPv6. Required if neither `comedia` nor `multiSource` are set. | No |
+`port`     | Number  | Remote port.  Required if neither `comedia` nor `multiSource` are set. | No |
+`rtcpPort` | Number  | Remote RTCP port. Required if neither `comedia` nor `multiSource` are set and RTCP-mux is not enabled. | No |
+`srtpParameters` | [SrtpParameters](/documentation/v3/mediasoup/srtp-parameters/#SrtpParameters) | SRTP parameters used by the remote endpoint to encrypt its RTP and RTCP. Local [srtpParameters](#plainRtpTransport-srtpParameters) gets also updated after `connect()` resolves. Required if `enableSrtp` was set. | No |
 
 </div>
 
 > `@async`
 > 
 > `@overrides`
+
+```javascript
+// Calling connect() on a PlainRtpTransport created with comedia and
+// multiSource unset and rtcpMux set.
+await plainRtpTransport.connect(
+  {
+    ip   : '1.2.3.4',
+    port : 9998
+  });
+```
+
+```javascript
+// Calling connect() on a PlainRtpTransport created with comedia and
+// multiSource unset and rtcpMux also unset.
+await plainRtpTransport.connect(
+  {
+    ip       : '1.2.3.4',
+    port     : 9998,
+    rtcpPort : 9999
+  });
+```
+
+```javascript
+// Calling connect() on a PlainRtpTransport created with comedia or multiSource
+// set and enableSrtp also set.
+await plainRtpTransport.connect(
+  {
+    srtpParameters :
+    {
+      cryptoSuite : 'AES_CM_128_HMAC_SHA1_80',
+      keyBase64   : 'ZnQ3eWJraDg0d3ZoYzM5cXN1Y2pnaHU5NWxrZTVv'
+    }
+  });
+```
 
 </section>
 
@@ -143,6 +189,32 @@ Argument   | Type    | Description | Required | Default
 <section markdown="1">
 
 See also [Transport Events](#Transport-events).
+
+#### plainRtpTransport.on("tuple", fn(tuple))
+{: #plainRtpTransport-on-tuple .code}
+
+Emitted after the remote RTP origin has been discovered. Just emitted if `comedia` mode was set.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+----------------- | ------- | ----------------
+`tuple`  | [TransportTuple](#TransportTuple) | The updated transport tuple.
+
+</div>
+
+#### plainRtpTransport.on("rtcpTuple", fn(rtcpTuple))
+{: #plainRtpTransport-on-rtcpTuple .code}
+
+Emitted after the remote RTCP origin has been discovered. Just emitted if `comedia` mode was set and `rtcpMux` was not.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+----------------- | ------- | ----------------
+`tuple`  | [TransportTuple](#TransportTuple) | The updated transport tuple.
+
+</div>
 
 #### plainRtpTransport.on("sctpstatechange", fn(sctpState))
 {: #plainRtpTransport-on-sctpstatechange .code}
@@ -167,9 +239,23 @@ Argument | Type    | Description
 
 See also [Transport Observer Events](#Transport-observer-events).
 
+#### plainRtpTransport.observer.on("tuple", fn(tuple))
+{: #plainRtpTransport-observer-on-tuple .code}
+
+Same as the [tuple](#plainRtpTransport-on-tuple) event.
+
+</div>
+
+#### plainRtpTransport.observer.on("rtcpTuple", fn(rtcpTuple))
+{: #plainRtpTransport-observer-on-rtcpTuple .code}
+
+Same as the [rtcpTuple](#plainRtpTransport-on-rtcpTuple) event.
+
+</div>
+
 #### plainRtpTransport.observer.on("sctpstatechange", fn(sctpState))
 {: #plainRtpTransport-observer-on-sctpstatechange .code}
 
-Same as the [sctptatechange](#plainRtpTransport-on-sctpstatechange) event.
+Same as the [sctpstatechange](#plainRtpTransport-on-sctpstatechange) event.
 
 </section>

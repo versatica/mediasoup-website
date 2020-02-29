@@ -30,9 +30,9 @@ Stream score            | <span class="checkbox"/> | <span class="checkbox on"/>
 
 <div markdown="1" class="table-wrapper L1-small L4">
 
-Feature                 | v2 | v3 | Description
------------------------ | -- | -- | -------------------------------
-VP9 SVC support         | <span class="checkbox"/> | <span class="checkbox on"/> | In addition to VP8 and H264 simulcast, mediasoup v3 also supports VP9 SVC.
+Feature                 |  Description
+----------------------- | -------------------------------
+VP9 SVC support         | In addition to VP8 and H264 simulcast, mediasoup v3 also supports VP9 SVC.
 
 </div>
 
@@ -40,9 +40,9 @@ VP9 SVC support         | <span class="checkbox"/> | <span class="checkbox on"/>
 
 <div markdown="1" class="table-wrapper L1-small L4">
 
-Feature                 | v2 | v3 | Description
------------------------ | -- | -- | -------------------------------
-DataChannel support     | <span class="checkbox"/> | <span class="checkbox on"/> | mediasoup v3 implements WebRTC DataChannel (SCTP over DTLS over UDP/TCP) and also SCTP over UDP (useful to build server side SCTP connectors that exchange SCTP messages with WebRTC endpoints).
+Feature                 | Description
+----------------------- | -------------------------------
+DataChannel support     | mediasoup v3 implements WebRTC DataChannel (SCTP over DTLS over UDP/TCP) and also SCTP over UDP (useful to build server side SCTP connectors that exchange SCTP messages with WebRTC endpoints).
 
 </div>
 
@@ -50,12 +50,12 @@ DataChannel support     | <span class="checkbox"/> | <span class="checkbox on"/>
 
 <div markdown="1" class="table-wrapper L1-small L4">
 
-Feature                 | v2 | v3 | Description
------------------------ | -- | -- | -------------------------------
-transport-cc BWE        | <span class="checkbox"/> | <span class="checkbox on"/> | Support for transport-cc bandwidth estimation in receiver and sender sides.
-Windows support         | <span class="checkbox"/> | <span class="checkbox on"/> | Yes, mediasoup now works in Linux, BSD, OSX and Windows.
-TypeScript              | <span class="checkbox"/> | <span class="checkbox on"/> | Written in TypeScript, mediasoup now exposes all TypeScript types, interfaces and method signatures.
-RTP and RTCP tracing    | <span class="checkbox"/> | <span class="checkbox on"/> | Ability to subscribe from the Node.js app to RTP and RTCP events (the new "trace" event).
+Feature                 | Description
+----------------------- | -------------------------------
+transport-cc BWE        | Support for transport-cc bandwidth estimation in receiver and sender sides.
+Windows support         | Yes, mediasoup now works in Linux, BSD, OSX and Windows.
+TypeScript              | Written in TypeScript, mediasoup now exposes all TypeScript types, interfaces and method signatures.
+RTP and RTCP tracing    | Ability to subscribe from the Node.js app to RTP and RTCP events (the new "trace" event).
 
 </div>
 
@@ -63,8 +63,21 @@ RTP and RTCP tracing    | <span class="checkbox"/> | <span class="checkbox on"/>
 
 <div markdown="1" class="table-wrapper L1-small L4">
 
-Feature                   | v2 | v3 | Description
-------------------------- | -- | -- | -------------------------------
-Per worker resource usage | <span class="checkbox"/> | <span class="checkbox on"/> | New API `worker.getResourceUsage()` to get resource usage of a mediasoup-worker subprocess.
+Feature                   | Description
+------------------------- | -------------------------------
+Per worker resource usage | New API `worker.getResourceUsage()` to get resource usage of a mediasoup-worker subprocess.
+
+</div>
+
+#### In mediasoup >= 3.5.X
+
+<div markdown="1" class="table-wrapper L1-small L4">
+
+Feature                   | Description
+------------------------- | -------------------------------
+RTX and NACK (RTP retransmission) in pipe transport | Useful if both `pipeTransports` are located in different hosts and there is packet lost in the link.
+SRTP in pipe transport | Also useful if both `pipeTransports` are located in different hosts, so the RTP and RTCP in both directions is encrypted.
+SRTP in pipe transport | Useful for non WebRTC endpoints supporting SRTP.
+New "tuple" and "rtcpTuple" events in plain RTP transport | They tell the application when the remote RTP/RTCP origin has been discovered (if comedia mode is set).
 
 </div>

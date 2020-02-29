@@ -22,6 +22,7 @@ C++ SFU and server side Node.js module.
 * [API](/documentation/v3/mediasoup/api/)
 * [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/)
 * [SCTP Parameters](/documentation/v3/mediasoup/sctp-parameters/)
+* [SRTP Parameters](/documentation/v3/mediasoup/srtp-parameters/)
 * [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/)
 * [Garbage Collection](/documentation/v3/mediasoup/garbage-collection/)
 * [Tricks](/documentation/v3/mediasoup/tricks/)
