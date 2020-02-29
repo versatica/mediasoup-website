@@ -224,7 +224,7 @@ Emitted after the remote RTCP origin has been discovered. Just emitted if `comed
 
 Argument | Type    | Description   
 ----------------- | ------- | ----------------
-`tuple`  | [TransportTuple](#TransportTuple) | The updated transport tuple.
+`rtcpTuple` | [TransportTuple](#TransportTuple) | The updated RTCP transport tuple.
 
 </div>
 
@@ -256,14 +256,10 @@ See also [Transport Observer Events](#Transport-observer-events).
 
 Same as the [tuple](#plainTransport-on-tuple) event.
 
-</div>
-
 #### plainTransport.observer.on("rtcpTuple", fn(rtcpTuple))
 {: #plainTransport-observer-on-rtcpTuple .code}
 
 Same as the [rtcpTuple](#plainTransport-on-rtcpTuple) event.
-
-</div>
 
 #### plainTransport.observer.on("sctpstatechange", fn(sctpState))
 {: #plainTransport-observer-on-sctpstatechange .code}
