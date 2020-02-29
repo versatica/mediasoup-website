@@ -62,11 +62,11 @@ const stats = await webRtcTransport.getStats();
 ```
 
 
-### PlainRtpTransport Statistics
-{: #PlainRtpTransport-Statistics}
+### PlainTransport Statistics
+{: #PlainTransport-Statistics}
 
 ```javascript
-const stats = await plainRtpTransport.getStats();
+const stats = await plainTransport.getStats();
 
 // =>
 [

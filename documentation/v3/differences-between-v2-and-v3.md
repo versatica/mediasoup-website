@@ -75,9 +75,10 @@ Per worker resource usage | New API `worker.getResourceUsage()` to get resource 
 
 Feature                   | Description
 ------------------------- | -------------------------------
-RTX and NACK (RTP retransmission) in pipe transport | Useful if both `pipeTransports` are located in different hosts and there is packet lost in the link.
-SRTP in pipe transport | Also useful if both `pipeTransports` are located in different hosts, so the RTP and RTCP in both directions is encrypted.
-SRTP in pipe transport | Useful for non WebRTC endpoints supporting SRTP.
-New "tuple" and "rtcpTuple" events in plain RTP transport | They tell the application when the remote RTP/RTCP origin has been discovered (if comedia mode is set).
+`PlainRtpTransport` is now `PlainTransport` | Old naming still exists and is marked as DEPRECATED.
+RTX and NACK (RTP retransmission) in pipe transport | Useful if both pipe transports are located in different hosts and there is packet lost in the link.
+SRTP in pipe transport | Also useful if both pipe transports are located in different hosts, so the RTP and RTCP in both directions is encrypted.
+SRTP in plain transport | Useful for non WebRTC endpoints supporting SRTP.
+New "tuple" and "rtcpTuple" events in plain transport | They tell the application when the remote RTP/RTCP origin has been discovered (if comedia mode is set).
 
 </div>

@@ -143,7 +143,7 @@ When simulcast or SVC is in use, the application may be interested in signaling 
 
 Both, FFmpeg and GStreamer (and any other similar software), can be used to inject media into a mediasoup router or to consume media from a mediasoup router (for recording purposes, transcoding, streaming using HLS, etc).
 
-This can be done by creating a server side plain RTP transport (via [router.createPlainRtpTransport()](/documentation/v3/mediasoup/api/#router-createPlainRtpTransport)) and then calling [produce()](/documentation/v3/mediasoup/api/#transport-produce) or [consume()](/documentation/v3/mediasoup/api/#transport-consume) on it with the appropriate parameters.
+This can be done by creating a server side plain transport (via [router.createPlainTransport()](/documentation/v3/mediasoup/api/#router-createPlainTransport)) and then calling [produce()](/documentation/v3/mediasoup/api/#transport-produce) or [consume()](/documentation/v3/mediasoup/api/#transport-consume) on it with the appropriate parameters.
 
 <div markdown="1" class="note">
 Check the [broadcaster example](https://github.com/versatica/mediasoup-demo/tree/v3/broadcasters) (based on FFmpeg) in the mediasoup demo application.
@@ -164,10 +164,10 @@ Some useful resources:
 If you wish to produce media in a mediasoup router by using an external tool (such as FFmpeg or GStreamer) or make mediasoup receive media produced by other RTP source:
 
 * Check your mediasoup [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) as those determine the kind of media (codecs configuration, RTCP capabilities, RTP header extensions, etc) that mediasoup can receive.
-* Create (if not already created) a plain RTP transport in mediasoup and get its local IP and port for RTP (and optionally for RTCP if your external endpoint does not support RTCP-mux).
+* Create (if not already created) a plain transport in mediasoup and get its local IP and port for RTP (and optionally for RTCP if your external endpoint does not support RTCP-mux).
 * Decide the RTP settings of your external endpoint (SSRC values, codec payload type, RTCP capabilities, etc.) and create a [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters) object. Those RTP parameters must match what your endpoint will send to mediasoup.
-* Create a producer (via `transport.produce()`) on top of the plain RTP transport with those RTP parameters.
-* Instruct your external endpoint to send media to the local IP and port(s) of the mediasoup plain RTP transport.
+* Create a producer (via `transport.produce()`) on top of the plain transport with those RTP parameters.
+* Instruct your external endpoint to send media to the local IP and port(s) of the mediasoup plain transport.
 
 
 ### Consuming Media in an External Endpoint (RTP Out)
@@ -175,9 +175,9 @@ If you wish to produce media in a mediasoup router by using an external tool (su
 
 If you wish to route the media of a producer to an external RTP device or endpoint (such as FFmpeg or GStreamer):
 
-* Create (if not already created) a plain RTP transport in mediasoup and get its local IP and port for RTP (and optionally for RTCP if your media endpoint does not support RTCP-mux).
+* Create (if not already created) a plain transport in mediasoup and get its local IP and port for RTP (and optionally for RTCP if your media endpoint does not support RTCP-mux).
 * Check your mediasoup [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) and create a subset of them with the RTP capabilities supported by your external endpoint. It's critical that you keep the same codec `preferredPayloadType` values and RTP header extension `preferredId` values.
-* Create a consumer (via `transport.consume()`) on top of the plain RTP transport with the corresponding `producerId` and the generated `rtpCapabilities` of your external endpoint.
+* Create a consumer (via `transport.consume()`) on top of the plain transport with the corresponding `producerId` and the generated `rtpCapabilities` of your external endpoint.
 * Get the [consumer.rtpParameters](/documentation/v3/mediasoup/api/#consumer-rtpParameters) and the transport local RTP IP and port(s) and instruct your external endpoint to consume RTP based on those parameters.
   * You may need to build a "remote" SDP offer based on those transport and RTP parameters if your endpoint requires a SDP.
   * Or you may need to tell your external endpoint about the media source parameters (via FFmpeg or GStreamer command line arguments).
@@ -188,10 +188,10 @@ If you wish to route the media of a producer to an external RTP device or endpoi
 
 Let's assume we have a `/home/foo/party.mp4` file with a stereo audio track and a video track that we want to inject into a mediasoup router. We run FFmpeg in the server host so media transmission takes places in the localhost network.
 
-* Create a plain RTP transport in the mediasoup router to send the audio track:
+* Create a plain transport in the mediasoup router to send the audio track:
 
 ```javascript
-const audioTransport = await router.createPlainRtpTransport(
+const audioTransport = await router.createPlainTransport(
   { 
     listenIp : '127.0.0.1',
     rtcpMux  : false,
@@ -207,10 +207,10 @@ const audioRtcpPort = audioTransport.rtcpTuple.localPort;
 // => 4502
 ```
 
-* Create a plain RTP transport in the mediasoup router to send the video track:
+* Create a plain transport in the mediasoup router to send the video track:
 
 ```javascript
-const videoTransport = await router.createPlainRtpTransport(
+const videoTransport = await router.createPlainTransport(
   { 
     listenIp : '127.0.0.1',
     rtcpMux  : false,
@@ -304,7 +304,7 @@ The [node-sctp](https://github.com/latysheff/node-sctp/) library can be used to 
 
 mediasoup (also) supports SCTP over plain UDP, which is also supported by node-sctp. Therefore, in order to create a `DataProducer` in Node.js:
 
-* Create a plain RTP transport with SCTP enabled.
+* Create a plain transport with SCTP enabled.
 * Create a Node.js UDP socket and connect the mediasoup transport to its local IP:port.
 * Create a SCTP socket using the node-sctp API and make it use the UDP socket as transport.
   - The SCTP source and destination ports must be set to 5000. This makes it possible for mediasoup to demultiplex SCTP and RTP/RTCP packets on top of the same UDP 5-tuple.

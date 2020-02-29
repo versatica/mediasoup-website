@@ -10,7 +10,7 @@ A transport connects an endpoint with a mediasoup router and enables transmissio
 mediasoup implements the following transport classes:
 
 * [WebRtcTransport](#WebRtcTransport)
-* [PlainRtpTransport](#PlainRtpTransport)
+* [PlainTransport](#PlainTransport)
 * [PipeTransport](#PipeTransport)
 
 </section>
@@ -49,7 +49,7 @@ Field              | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-Both `remoteIp` and `remotePort` are unset until the media address of the remote endpoint is known, which happens after calling `transport.connect()` in `PlainRtpTransport` and `PipeTransport`, or via dynamic detection as it happens in `WebRtcTransport` (in which the remote media address is detected by ICE means), or in `PlainRtpTransport` (when using `comedia` mode).
+Both `remoteIp` and `remotePort` are unset until the media address of the remote endpoint is known, which happens after calling `transport.connect()` in `PlainTransport` and `PipeTransport`, or via dynamic detection as it happens in `WebRtcTransport` (in which the remote media address is detected by ICE means), or in `PlainTransport` (when using `comedia` mode).
 </div>
 
 #### TransportTraceEventData

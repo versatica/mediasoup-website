@@ -6,7 +6,7 @@ anchors : true
 
 # SRTP Parameters
 
-Actually these SRTP parameters just apply to `PlainRtpTransport` and `PipeTransport` which has optional SRTP support.
+Actually these SRTP parameters just apply to `PlainTransport` and `PipeTransport` which has optional SRTP support.
 
 ----
 

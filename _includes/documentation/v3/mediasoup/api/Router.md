@@ -49,6 +49,8 @@ Field         | Type               | Description   | Required | Default
 `listenIp`   | String  | IP to connect both routers in the same host. | No | "127.0.0.1"
 `enableSctp` | Boolean | Create a SCTP association. | No | `true`
 `numSctpStreams` | [NumSctpStreams](#NumSctpStreams) | SCTP streams number. | No |
+`enableRtx` | Boolean | Enable RTX and NACK for RTP retransmission. Typically not needed since the link is typically localhost. | No | `false`
+`enableSrtp` | Boolean | Enable SRTP. | No | `false`
 
 </div>
 
@@ -165,25 +167,32 @@ const transport = await router.createWebRtcTransport(
   });
 ```
 
-#### router.createPlainRtpTransport(options)
+#### router.createPlainRtpTransport(options) (DEPRECATED)
 {: #router-createPlainRtpTransport .code}
 
-Creates a new plain RTP transport.
+<div markdown="1" class="note warn">
+`createPlainRtpTransport()` has been renamed to [createPlainTransport()](#router-createPlainTransport) since mediasoup version 3.5.0.
+</div>
+
+#### router.createPlainTransport(options)
+{: #router-createPlainTransport .code}
+
+Creates a new plain transport.
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`options`   | [PlainRtpTransportOptions](#PlainRtpTransportOptions) | Plain RTP transport options. | Yes |
+`options`   | [PlainTransportOptions](#PlainTransportOptions) | Plain transport options. | Yes |
 
 </div>
 
 > `@async`
 > 
-> `@returns` [PlainRtpTransport](#PlainRtpTransport)
+> `@returns` [PlainTransport](#PlainTransport)
 
 ```javascript
-const transport = await router.createPlainRtpTransport(
+const transport = await router.createPlainTransport(
   {
     listenIp : "a1:22:aA::08",
     rtcpMux  : true,

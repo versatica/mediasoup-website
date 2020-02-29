@@ -27,7 +27,7 @@ class   : h3color
 
 {% include documentation/v3/mediasoup/api/WebRtcTransport.md %}
 
-{% include documentation/v3/mediasoup/api/PlainRtpTransport.md %}
+{% include documentation/v3/mediasoup/api/PlainTransport.md %}
 
 {% include documentation/v3/mediasoup/api/PipeTransport.md %}
 
