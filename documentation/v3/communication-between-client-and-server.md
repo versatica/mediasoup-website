@@ -298,10 +298,12 @@ In other words: Please do not make questions about FFmpeg or GStreamer in the [m
 
 
 ## Guidelines for SRTP Capable Endpoints
+{: #guidelines-for-srtp-capable-endpoints}
 
-Since mediasoup 3.5.0, both pipe and plain transports support SRTP. There are endpoints that do not support WebRTC but do support SRTP. Those endpoints can be connected to mediasoup via a plain transport as follows:
+Since mediasoup 3.5.0, both pipe and plain transports support SRTP. There are endpoints that do not support WebRTC but do support SRTP. Those endpoints can be connected to mediasoup via a plain transport by enabling SRTP for encrypted RTP transmission.
 
 ### SRTP Endpoint as SDP Offerer
+{: #srtp-endpointas-sdp-offerer}
 
 Let's assume RTCP-mux support in the SRTP Endpoint and also comedia mode (read the [PlainTransportOptions](/documentation/v3/mediasoup/api#PlainTransportOptions) API documentation in mediasoup for more information about it).
 
@@ -323,6 +325,7 @@ await plainTransport.connect(
 * The SRTP device needs now a SDP anwer with SRTP enabled. Among others, read the new `plainTransport.srtpParameters` and build the SDP answer with a `a=crypto` attribute containing the `cryptoSuite` and `keyBase64` fields of `plainTransport.srtpParameters`.
 
 ### SRTP Endpoint as SDP Answerer
+{: #srtp-endpointas-sdp-answerer}
 
 In this case (if the SRPT endpoint won't send RTP but just receive it), `comedia: true` is not valid.
 
