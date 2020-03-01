@@ -308,8 +308,8 @@ Since mediasoup 3.5.0, both pipe and plain transports support SRTP. There are en
 Let's assume RTCP-mux support in the SRTP Endpoint and also comedia mode (read the [PlainTransportOptions](/documentation/v3/mediasoup/api#PlainTransportOptions) API documentation in mediasoup for more information about it).
 
 * In mediasoup, create a plain transport via `router.createPlainTransport(options)` with `comedia: true`, `rtcpMux: true` and `enable: true`.
-* Get the SDP offer from the SRTP endpoint. Such a SDP should have a media attribute similar to `a=crypto:1 AES_CM_128_HMAC_SHA1_80
-inline:PS1uQCVeeCFCanVmcjkpPywjNWhcYD0mXXtxaVBR|2^20|1:32`:
+* Get the SDP offer from the SRTP endpoint. Such a SDP should have a media attribute similar to "a=crypto:1 AES_CM_128_HMAC_SHA1_80
+inline:PS1uQCVeeCFCanVmcjkpPywjNWhcYD0mXXtxaVBR|2^20|1:32":
   * Get the crypto suite: "AES_CM_128_HMAC_SHA1_80".
   * Get the key material in Base64: "PS1uQCVeeCFCanVmcjkpPywjNWhcYD0mXXtxaVBR" (must be 40 bytes long).
 * In mediasoup, call `plainTransport.connect({ srtpParameters })`:
@@ -322,7 +322,7 @@ await plainTransport.connect(
   });
 ```
 
-* The SRTP device needs now a SDP anwer with SRTP enabled. Among others, read the new `plainTransport.srtpParameters` and build the SDP answer with a `a=crypto` attribute containing the `cryptoSuite` and `keyBase64` fields of `plainTransport.srtpParameters`.
+* The SRTP device needs now a SDP anwer with SRTP enabled. Among others, read the new `plainTransport.srtpParameters` and build the SDP answer with a "a=crypto" attribute containing the `cryptoSuite` and `keyBase64` fields of `plainTransport.srtpParameters`.
 
 ### SRTP Endpoint as SDP Answerer
 {: #srtp-endpointas-sdp-answerer}
@@ -330,8 +330,8 @@ await plainTransport.connect(
 In this case (if the SRPT endpoint won't send RTP but just receive it), `comedia: true` is not valid.
 
 * In mediasoup, create a plain transport via `router.createPlainTransport(options)` with `comedia: true`, `rtcpMux: true` and `enable: true` (and optionally with `srtpCryptoSuite: "AES_CM_128_HMAC_SHA1_32"` if the SRTP endpoint does not support "AES_CM_128_HMAC_SHA1_80" crypto suite).
-* Generate the remote SDP offer to be sent to the SRTP endpoint by reading `plainTransport.srtpParameters` and adding the corresponding `a=crypto` line with them.
-* Get the SDP answer from the SRTP endpoint and parse the crypto suite and the key material in Base64 (40 bytes long) from its `a=crypto` attribute.
+* Generate the remote SDP offer to be sent to the SRTP endpoint by reading `plainTransport.srtpParameters` and adding the corresponding "a=crypto" line with them.
+* Get the SDP answer from the SRTP endpoint and parse the crypto suite and the key material in Base64 (40 bytes long) from its "a=crypto" attribute.
 * In mediasoup, call `plainTransport.connect({ ip, port, srtpParameters })`.
 
 
