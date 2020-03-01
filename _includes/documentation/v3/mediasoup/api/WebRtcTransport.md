@@ -40,6 +40,7 @@ Field        | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
+* Do not use "0.0.0.0" into `listenIps`. Values in `listenIps` must be specific bindable IPs in the host.
 * `initialAvailableOutgoingBitrate` is just applied when the consumer endpoint supports REMB or Transport-CC.
 </div>
 

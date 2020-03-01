@@ -33,6 +33,10 @@ Field         | Type    | Description   | Required | Default
 
 </div>
 
+<div markdown="1" class="note">
+Do not use "0.0.0.0" as `ip` value. It must be a specific bindable IP in the host.
+</div>
+
 #### TransportTuple
 {: #TransportTuple .code}
 
