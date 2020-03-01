@@ -228,7 +228,7 @@ const videoRtcpPort = videoTransport.rtcpTuple.localPort;
 
 * Create an audio producer on the first transport:
 
-```js
+```javascript
 const audioProducer = await audioTransport.produce(
   {
     kind          : 'audio',
@@ -252,7 +252,7 @@ const audioProducer = await audioTransport.produce(
 
 * Create a video producer on the second transport:
 
-```js
+```javascript
 const videoProducer = await videoTransport.produce(
   {
     kind          : 'video',
@@ -297,7 +297,42 @@ In other words: Please do not make questions about FFmpeg or GStreamer in the [m
 * Once done, other endpoints (WebRTC endpoints or any others) can receive both, the FFmpeg audio and video track, by using the [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume) API as usual.
 
 
-## Guidelines for node-sctp (SCTP in Node)
+## Guidelines for SRTP Capable Endpoints
+
+Since mediasoup 3.5.0, both pipe and plain transports support SRTP. There are endpoints that do not support WebRTC but do support SRTP. Those endpoints can be connected to mediasoup via a plain transport as follows:
+
+### SRTP Endpoint as SDP Offerer
+
+Let's assume RTCP-mux support in the SRTP Endpoint and also comedia mode (read the [PlainTransportOptions](/documentation/v3/mediasoup/api#PlainTransportOptions) API documentation in mediasoup for more information about it).
+
+* In mediasoup, create a plain transport via `router.createPlainTransport(options)` with `comedia: true`, `rtcpMux: true` and `enable: true`.
+* Get the SDP offer from the SRTP endpoint. Such a SDP should have a media attribute similar to `a=crypto:1 AES_CM_128_HMAC_SHA1_80
+inline:PS1uQCVeeCFCanVmcjkpPywjNWhcYD0mXXtxaVBR|2^20|1:32`:
+  * Get the crypto suite: "AES_CM_128_HMAC_SHA1_80".
+  * Get the key material in Base64: "PS1uQCVeeCFCanVmcjkpPywjNWhcYD0mXXtxaVBR" (must be 40 bytes long).
+* In mediasoup, call `plainTransport.connect({ srtpParameters })`:
+
+```javascript
+await plainTransport.connect(
+  {
+    cryptoSuite: "AES_CM_128_HMAC_SHA1_80",
+    keyBase64: "PS1uQCVeeCFCanVmcjkpPywjNWhcYD0mXXtxaVBR"
+  });
+```
+
+* The SRTP device needs now a SDP anwer with SRTP enabled. Among others, read the new `plainTransport.srtpParameters` and build the SDP answer with a `a=crypto` attribute containing the `cryptoSuite` and `keyBase64` fields of `plainTransport.srtpParameters`.
+
+### SRTP Endpoint as SDP Answerer
+
+In this case (if the SRPT endpoint won't send RTP but just receive it), `comedia: true` is not valid.
+
+* In mediasoup, create a plain transport via `router.createPlainTransport(options)` with `comedia: true`, `rtcpMux: true` and `enable: true` (and optionally with `srtpCryptoSuite: "AES_CM_128_HMAC_SHA1_32"` if the SRTP endpoint does not support "AES_CM_128_HMAC_SHA1_80" crypto suite).
+* Generate the remote SDP offer to be sent to the SRTP endpoint by reading `plainTransport.srtpParameters` and adding the corresponding `a=crypto` line with them.
+* Get the SDP answer from the SRTP endpoint and parse the crypto suite and the key material in Base64 (40 bytes long) from its `a=crypto` attribute.
+* In mediasoup, call `plainTransport.connect({ ip, port, srtpParameters })`.
+
+
+## Guidelines for node-sctp (SCTP/DataChannel in Node)
 {: #guidelines-for-node-sctp}
 
 The [node-sctp](https://github.com/latysheff/node-sctp/) library can be used to send and receive SCTP messages into/from a mediasoup router and, hence, interact via DataChannel with WebRTC endpoints. 
