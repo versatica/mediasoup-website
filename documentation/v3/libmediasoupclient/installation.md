@@ -16,7 +16,7 @@ anchors : true
 
 ## Build libwebrtc
 
-libmediasoupclient makes use of [libwebrtc](https://webrtc.org/native-code). Follow the [official instructions](https://webrtc.org/native-code/development/) to build it and make sure the branch `m73` or `m74` is checked-out and compiled.
+libmediasoupclient makes use of [libwebrtc](https://webrtc.org/native-code). Follow the [official instructions](https://webrtc.org/native-code/development/) to build it and make sure the branch `m79` is checked-out and compiled.
 
 <div markdown="1" class="note">
 Future versions of libmediasoupclient will include a more recent version of libwebrtc. For now, supported bersions are `m73` and `m74` branch.
