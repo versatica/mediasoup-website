@@ -96,7 +96,7 @@ The transport tuple for RTCP. If RTCP-mux is enabled (`rtcpMux` is set), its val
 #### plainTransport.sctpParameters
 {: #plainTransport-sctpParameters .code}
 
-Local SCTP parameters.
+Local SCTP parameters. Or `undefined` if SCTP is not enabled.
 
 > `@type` [SctpParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpParameters), read only
 
@@ -104,7 +104,7 @@ Local SCTP parameters.
 #### plainTransport.sctpState
 {: #plainTransport-sctpState .code}
 
-Current SCTP state.
+Current SCTP state. Or `undefined` if SCTP is not enabled.
 
 > `@type` [TransportSctpState](#TransportSctpState), read only
 
@@ -215,8 +215,8 @@ Argument | Type    | Description
 
 </div>
 
-#### plainTransport.on("rtcpTuple", fn(rtcpTuple))
-{: #plainTransport-on-rtcpTuple .code}
+#### plainTransport.on("rtcptuple", fn(rtcpTuple))
+{: #plainTransport-on-rtcptuple .code}
 
 Emitted after the remote RTCP origin has been discovered. Just emitted if `comedia` mode was set and `rtcpMux` was not.
 
@@ -256,8 +256,8 @@ See also [Transport Observer Events](#Transport-observer-events).
 
 Same as the [tuple](#plainTransport-on-tuple) event.
 
-#### plainTransport.observer.on("rtcpTuple", fn(rtcpTuple))
-{: #plainTransport-observer-on-rtcpTuple .code}
+#### plainTransport.observer.on("rtcptuple", fn(rtcpTuple))
+{: #plainTransport-observer-on-rtcptuple .code}
 
 Same as the [rtcpTuple](#plainTransport-on-rtcpTuple) event.
 

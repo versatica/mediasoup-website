@@ -61,14 +61,14 @@ The transport tuple. It refers to both RTP and RTCP since pipe transports use RT
 #### pipeTransport.sctpParameters
 {: #pipeTransport-sctpParameters .code}
 
-Local SCTP parameters.
+Local SCTP parameters. Or `undefined` if SCTP is not enabled.
 
 > `@type` [SctpParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpParameters), read only
 
 #### pipeTransport.sctpState
 {: #pipeTransport-sctpState .code}
 
-Current SCTP state.
+Current SCTP state. Or `undefined` if SCTP is not enabled.
 
 > `@type` [TransportSctpState](#TransportSctpState), read only
 

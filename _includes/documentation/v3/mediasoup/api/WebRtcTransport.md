@@ -226,14 +226,14 @@ The application may want to inspect the remote certificate for authorization pur
 #### webRtcTransport.sctpParameters
 {: #webRtcTransport-sctpParameters .code}
 
-Local SCTP parameters.
+Local SCTP parameters. Or `undefined` if SCTP is not enabled.
 
 > `@type` [SctpParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpParameters), read only
 
 #### webRtcTransport.sctpState
 {: #webRtcTransport-sctpState .code}
 
-Current SCTP state.
+Current SCTP state. Or `undefined` if SCTP is not enabled.
 
 > `@type` [TransportSctpState](#TransportSctpState), read only
 
