@@ -237,10 +237,6 @@ transport.on('trace', (trace) =>
   {
     "direction": "out",
     "info": {
-      "availableBitrate": 1951550,
-      "type": "transport-cc"
-    },
-    "info": {
       "availableBitrate": 1981250,
       "desiredBitrate": 1483574, 
       "effectiveDesiredBitrate": 1483574, 
