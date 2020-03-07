@@ -16,7 +16,7 @@ anchors : true
 
 ## Build libwebrtc
 
-libmediasoupclient makes use of Google's libwebrtc C++ library. Follow the official instructions to build it and make sure the branch `m79` is checked-out and compiled.
+libmediasoupclient makes use of Google's libwebrtc C++ library. Follow the [official instructions](https://webrtc.github.io/webrtc-org/native-code/development/) by checking out branch `m74` and build it.
 
 <div markdown="1" class="note">
 Future versions of libmediasoupclient will include a more recent version of libwebrtc. For now, supported bersions are `m73` and `m74` branch.

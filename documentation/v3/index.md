@@ -31,7 +31,7 @@ C++ SFU and server side Node.js module.
 ### mediasoup-client
 {: .h3color}
 
-Client side JavaScript library.
+Client side JavaScript library for browsers and Node.js clients.
 
 * [Design](/documentation/v3/mediasoup-client/design/)
 * [Installation](/documentation/v3/mediasoup-client/installation/)
@@ -41,7 +41,7 @@ Client side JavaScript library.
 ### libmediasoupclient
 {: .h3color}
 
-C++ library built on top of libwebrtc.
+C++ library built on top of libwebrtc. It exposes the same API than mediasoup-client.
 
 * [Design](/documentation/v3/libmediasoupclient/design/)
 * [Installation](/documentation/v3/libmediasoupclient/installation/)
