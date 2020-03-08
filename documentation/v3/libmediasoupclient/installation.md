@@ -19,18 +19,25 @@ anchors : true
 libmediasoupclient makes use of Google's libwebrtc C++ library. Follow the [official instructions](https://webrtc.github.io/webrtc-org/native-code/development/) by checking out branch `m74` and build it.
 
 <div markdown="1" class="note">
-Future versions of libmediasoupclient will include a more recent version of libwebrtc. For now, supported bersions are `m73` and `m74` branch.
+* Future versions of libmediasoupclient will include a more recent version of libwebrtc. For now, supported bersions are `m73` and `m74` branch.
+* The [Build Examples](#Build-Examples) section below provides some hints about how to build libwebrtc and libmediasoup client in different platforms.
+* When building libwebrtc, you may want to include `rtc_include_tests=true` into arguments given to `gn gen`. This is needed for some unit tests in libmediasoupclient.
+</div>
+
+<div markdown="1" class="note warn">
+* The link to the libwebrtc "official instructions" above may be broken in the future. If so, please don't ask the mediasoup authors about it. Google is your friend.
+* If you encounter any issue building libwebrtc in a specific platform, check the libwebrtc documentation (wherever it is). We, the mediasoup authors, do not provide support about libwebrtc and our expertise is not for free.
 </div>
 
 
 ## Build libmediasoupclient
 
-Get the libmediasoupclient sources via git and check-out the branch `v3`:
+Get the libmediasoupclient sources via git and check-out the latest version (git tag):
 
 ```bash
 $ git clone https://github.com/versatica/libmediasoupclient.git
 $ cd libmediasoupclient/
-$ git checkout v3
+$ git checkout 3.X.Y.
 ```
 
 Within the `libmediasoupclient/` folder:
@@ -99,7 +106,8 @@ Linkage errors may happen if libwebrtc and libmediasoupclient are not compiled w
 
 Build libwebrtc with the 'use_custom_libcxx=false' `gn gen` argument to force it use of the system libstdc++.
 
-## Build Example
+
+## Build Examples
 
 * Build libwebrtc. Common steps:
 
@@ -143,10 +151,6 @@ $ cmake . -Bbuild \
 
 $ make -C build/
 ```
-
-<div markdown="1" class="note">
-Please, check the [official instructions](https://webrtc.org/native-code/development/) to build libwebrtc and do **NOT** take this example as a reference.
-</div>
 
 
 ## Usage
