@@ -74,7 +74,6 @@ const stats = await plainTransport.getStats();
     "bytesReceived": 467406,
     "bytesSent": 2550,
     "comedia": true,
-    "multiSource": false,
     "rtcpMux": true,
     "probationBytesSent": 0,
     "probationSendBitrate": 0,
