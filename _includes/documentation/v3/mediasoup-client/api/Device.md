@@ -6,7 +6,8 @@
 A device represents an endpoint that connects to a mediasoup [Router](/documentation/v3/mediasoup/api/#Router) to send and/or receive media.
 
 <div markdown="1" class="note">
-This is the entry point for JavaScript client side applications (such as web applications).
+* This is the entry point for JavaScript client side applications (such as web applications).
+* If you are developing a React Native app, take a look to the [React Native](/documentation/v3/mediasoup-client/react-native/) section.
 </div>
 
 </section>

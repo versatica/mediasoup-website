@@ -15,38 +15,17 @@ title : v3
 ### mediasoup
 {: .h3color}
 
-C++ SFU and server side Node.js module.
-
-* [Design](/documentation/v3/mediasoup/design/)
-* [Installation](/documentation/v3/mediasoup/installation/)
-* [API](/documentation/v3/mediasoup/api/)
-* [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/)
-* [SCTP Parameters](/documentation/v3/mediasoup/sctp-parameters/)
-* [SRTP Parameters](/documentation/v3/mediasoup/srtp-parameters/)
-* [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/)
-* [Garbage Collection](/documentation/v3/mediasoup/garbage-collection/)
-* [Tricks](/documentation/v3/mediasoup/tricks/)
-* [Debugging](/documentation/v3/mediasoup/debugging/)
+{% include documentation/v3/mediasoup/index.md %}
 
 ### mediasoup-client
 {: .h3color}
 
-Client side JavaScript library for browsers and Node.js clients.
-
-* [Design](/documentation/v3/mediasoup-client/design/)
-* [Installation](/documentation/v3/mediasoup-client/installation/)
-* [API](/documentation/v3/mediasoup-client/api/)
-* [Debugging](/documentation/v3/mediasoup-client/debugging/)
+{% include documentation/v3/mediasoup-client/index.md %}
 
 ### libmediasoupclient
 {: .h3color}
 
-C++ library built on top of libwebrtc. It exposes the same API than mediasoup-client.
-
-* [Design](/documentation/v3/libmediasoupclient/design/)
-* [Installation](/documentation/v3/libmediasoupclient/installation/)
-* [API](/documentation/v3/libmediasoupclient/api/)
-* [Debugging](/documentation/v3/libmediasoupclient/debugging/)
+{% include documentation/v3/libmediasoupclient/index.md %}
 
 ### mediasoup-client-aiortc
 {: .h3color}

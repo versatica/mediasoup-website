@@ -14,7 +14,7 @@ const mediasoup = require("mediasoup");
 
 Thus internally, mediasoup can be splitted into two separete components:
 
-* a JavaScript layer exposing a modern ECMAScript 6 API for Node.js, and
+* a JavaScript layer exposing a modern ECMAScript API for Node.js, and
 * a set of C/C++ subprocesses that handle the media layer (ICE, DTLS, RTP and so on).
 
 Both components communicate to each other by means of inter-process communication. However, from the point of view of the developer, the application should just care about the JavaScript API integration.
@@ -22,7 +22,7 @@ Both components communicate to each other by means of inter-process communicatio
 
 ## Features
 
-* ECMAScript 6 low level API.
+* ECMAScript low level API.
 * Multi-stream: multiple audio/video streams over a single ICE + DTLS transport.
 * IPv6 ready.
 * ICE / DTLS / RTP / RTCP over UDP and TCP.

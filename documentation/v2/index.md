@@ -15,17 +15,9 @@ title : v2
 ### mediasoup
 {: .h3color}
 
-C++ SFU and server side Node.js module.
-
-* [Installation](/documentation/v2/mediasoup/installation/)
-* [API](/documentation/v2/mediasoup/api/)
-* [Debugging](/documentation/v2/mediasoup/debugging/)
+{% include documentation/v2/mediasoup/index.md %}
 
 ### mediasoup-client
 {: .h3color}
 
-Client side JavaScript library.
-
-* [Installation](/documentation/v2/mediasoup-client/installation/)
-* [API](/documentation/v2/mediasoup-client/api/)
-* [Debugging](/documentation/v2/mediasoup-client/debugging/)
+{% include documentation/v2/mediasoup-client/index.md %}

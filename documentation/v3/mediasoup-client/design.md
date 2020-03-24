@@ -11,7 +11,7 @@ mediasoup-client is a JavaScript library for building mediasoup based client sid
 
 ## Features
 
-* ECMAScript 6 low level API.
+* ECMAScript low level API.
 * Works in the browser and Node.js.
 
 <div markdown="1" class="note">
