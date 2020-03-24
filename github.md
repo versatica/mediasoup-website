@@ -23,7 +23,7 @@ C++ library based on libwebrtc.
 
 ##### [mediasoup-client-aiortc](https://github.com/versatica/mediasoup-client-aiortc/)
 
-handler for [aiortc](https://github.com/aiortc/aiortc/) Python library. Suitable for building Node.js applications that connect to a mediasoup server using WebRTC and exchange real audio, video and DataChannel messages with it.
+handler for [aiortc](https://github.com/aiortc/aiortc/) Python library. Suitable for building Python applications that connect to a mediasoup server using WebRTC and exchange real audio, video and DataChannel messages with it.
 
 
 ##### [mediasoup-demo](https://github.com/versatica/mediasoup-demo/)
