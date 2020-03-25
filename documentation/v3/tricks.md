@@ -6,10 +6,34 @@ anchors : true
 
 # mediasoup v3 Tricks
 
-Here some tricks for mediasoup.
+Some useful tricks for mediasoup and client libraries.
 
 
-## RTP Capabilities Filtering
+## Using a different video codec in each Producer
+{: #using-a-different-video-codec-in-each-producer}
+
+Sometimes it's useful to use, for instance, H264 for webcam and VP8 for screen sharing. Starting from mediasoup-client 3.6.0, this is possible by using the new `codec` option in [ProducerOptions](/documentation/v3/mediasoup-client/api/#ProducerOptions). Example:
+
+```javascript
+// Assuming that the mediasoup Router has been provided with both VP8 and H264
+// video codecs, let's use H264 for webcam and VP8 for screen sharing.
+
+const webcamProducer = await sendTransport.produce(
+  {
+    track: videoTrack,
+    codec : device.rtpCapabilities.codecs
+      .find((codec) => codec.mimeType.toLowerCase() === 'video/h264')
+  });
+
+const sharingProducer = await sendTransport.produce(
+  {
+    track: sharingTrack,
+    codec : device.rtpCapabilities.codecs
+      .find((codec) => codec.mimeType.toLowerCase() === 'video/vp8')
+  });
+```
+
+## RTP capabilities filtering
 {: #rtp-capabilities-filtering}
 
 **Related issue:**

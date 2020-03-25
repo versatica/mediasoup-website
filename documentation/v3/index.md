@@ -11,6 +11,7 @@ title : v3
 * [Differences Between v2 and v3](/documentation/v3/differences-between-v2-and-v3/)
 * [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/)
 * [Scalability](/documentation/v3/scalability/)
+* [Tricks](/documentation/v3/tricks/)
 
 ### mediasoup
 {: .h3color}

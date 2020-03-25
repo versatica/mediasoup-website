@@ -8,5 +8,4 @@ C++ SFU and server side Node.js module.
 * [SRTP Parameters](/documentation/v3/mediasoup/srtp-parameters/)
 * [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/)
 * [Garbage Collection](/documentation/v3/mediasoup/garbage-collection/)
-* [Tricks](/documentation/v3/mediasoup/tricks/)
 * [Debugging](/documentation/v3/mediasoup/debugging/)

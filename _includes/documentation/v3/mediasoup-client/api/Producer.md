@@ -23,6 +23,7 @@ Field           | Type    | Description   | Required | Default
 `track`         | [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#mediastreamtrack) | An audio or video track. | Yes |
 `encodings`     | Array&lt;[RTCRtpEncodingParameters](https://w3c.github.io/webrtc-pc/#rtcrtpencodingparameters)&gt; | Encoding settings. | No |
 `codecOptions`  | [ProducerCodecOptions](#ProducerCodecOptions) | Per codec specific options. | No | `[ ]`
+`codec`         | [RtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCodecCapability) | Specific media codec to use. If given, it must be a media codec in [device.rtpCapabilities.codecs](#device-rtpCapabilities). If not given, first suitable codec will be used. | No |
 `stopTracks`    | Boolean | Whether mediasoup-client should call `stop()` on tracks handled by this Producer. If set to `false`, the app is responsible of stopping tracks given to `transport.produce()` or `produce.replaceTrack()`. | No | `true`
 `appData`       | Object  | Custom application data. | No | `{ }`
 

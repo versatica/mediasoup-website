@@ -110,7 +110,7 @@ An Object with the RTP capabilities of the router. These capabilities are tipica
 <div markdown="1" class="note">
 * Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/) section for more details.
 
-* See also how to [filter these RTP capabilities](/documentation/v3/mediasoup/tricks/#rtp-capabilities-filtering) before using them into a client.
+* See also how to [filter these RTP capabilities](/documentation/v3/tricks/#rtp-capabilities-filtering) before using them into a client.
 </div>
 
 #### router.appData

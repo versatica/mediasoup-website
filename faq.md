@@ -73,8 +73,12 @@ In order to run mediasoup in those environments (host with private IP and a mapp
 * In mediasoup **v3**:
    * Specify the corresponding `announcedIp` (pointing to `HOST_PUBLIC_IP`) when creating a transport.
 
+### How to use H264 for webcam and VP8 for screen sharing
+{: #how-to-use-h264-for-webcam-and-vp8-for-screen-sharing}
+
+Check the [Tricks](/documentation/v3/tricks/#using-a-different-video-codec-in-each-producer) section.
 
 ### When consuming a video in Firefox it does not properly rotate
 {: #when-consuming-a-video-in-firefox-it-does-not-properly-rotate}
 
-Check the mediasoup v3 [Tricks](/documentation/v3/mediasoup/tricks/#rtp-capabilities-filtering) section.
+Check the [Tricks](/documentation/v3/tricks/#rtp-capabilities-filtering) section.
