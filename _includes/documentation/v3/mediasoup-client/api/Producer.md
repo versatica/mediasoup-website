@@ -30,6 +30,10 @@ Field           | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
+The `codec` selection feature just works in modern browsers (it requires WebRTC Unified-Plan) and hance, mediasoup-client handlers such as `Chrome55` (Plan-B) do not enable this feature.
+</div>
+
+<div markdown="1" class="note">
 **Simulcast**
 
 If video simulcast is desired, `encodings` array must be filled with more than one encodings. Each encoding represents a simulcast RTP stream:
