@@ -444,7 +444,7 @@ Argument    | Type    | Description | Required | Default
 ```javascript
 const dataConsumer = await transport.consumeData(
   {
-    producerId : "a7a955cf-fe67-4327-bd98-bbd85d7e2ba4"
+    dataProducerId : "a7a955cf-fe67-4327-bd98-bbd85d7e2ba4"
   });
 ```
 
