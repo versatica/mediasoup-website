@@ -30,7 +30,7 @@ Field           | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-The `codec` selection feature just works in modern browsers (it requires WebRTC Unified-Plan) and hance, mediasoup-client handlers such as `Chrome55` (Plan-B) do not enable this feature.
+The `codec` selection feature just works in modern browsers (it requires WebRTC Unified-Plan) and hence, mediasoup-client handlers such as `Chrome55` (Plan-B) do not enable this feature.
 </div>
 
 <div markdown="1" class="note">
