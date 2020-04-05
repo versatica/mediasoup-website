@@ -46,6 +46,7 @@ GStreamer plugin for mediasoup-demo.
 ### havfo/multiparty-meeting
 
 **Project:** [https://github.com/mkhahani/mediasoup-sample-app](https://github.com/mkhahani/mediasoup-sample-app)
+
 **Web:** [https://letsmeet.no](https://letsmeet.no)
 
 Multiparty web-meetings using mediasoup and WebRTC. It started as a fork of mediasoup-demo but has evolved quite a bit.
