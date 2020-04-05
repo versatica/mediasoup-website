@@ -45,7 +45,7 @@ GStreamer plugin for mediasoup-demo.
 
 ### havfo/multiparty-meeting
 
-**Project:** [https://github.com/mkhahani/mediasoup-sample-app](https://github.com/mkhahani/mediasoup-sample-app)
+**Project:** [https://github.com/havfo/multiparty-meeting](https://github.com/havfo/multiparty-meeting)
 
 **Web:** [https://letsmeet.no](https://letsmeet.no)
 
