@@ -92,9 +92,9 @@ Provides the RTP observer with a new producer to monitor.
 
 <div markdown="1" class="table-wrapper L3">
 
-Argument    | Type    | Description | Required | Default 
------------ | ------- | ----------- | -------- | ----------
-`producer`  | [Producer](#Producer) | Producer. | Yes |
+Argument     | Type    | Description | Required | Default 
+------------ | ------- | ----------- | -------- | ----------
+`producerId` | String  | The id of the producer to monitor. | Yes |
 
 </div>
 
