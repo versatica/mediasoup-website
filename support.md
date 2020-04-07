@@ -77,11 +77,11 @@ Then run your mediasoup application. If the crash happens again you should get a
 
 ##### Enabling core dumps in OSX
 
-Crashing processes in OSX got automatically a crash report in `/Users/USER/Library/Logs/DiagnosticReports` folder.
+Crashing processes in OSX automatically got a crash report in `/Users/USER/Library/Logs/DiagnosticReports` folder.
 
-##### Forcing a core dump
+##### Forcing a core dump or crash report
 
-You can check whether the core dump setup works by manually generating one as follows:
+You can check whether your setup works by manually generating one as follows:
 
 ```bash
 $ pidof mediasoup-worker
@@ -90,7 +90,7 @@ $ pidof mediasoup-worker
 $ kill -s SIGSEGV 46717
 ```
 
-Then check the generated core dump file in the corresponding folder.
+Then check the generated core dump or crash report file in the corresponding folder.
 
 
 
