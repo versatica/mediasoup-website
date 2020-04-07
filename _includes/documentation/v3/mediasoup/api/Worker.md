@@ -251,7 +251,7 @@ Argument | Type    | Description
 </div>
 
 <div markdown="1" class="note warn">
-This should never happens (if it happens, it's a bug).
+This should never happens. If it happens, it's a bug. Please report it following these [instructions](/support/#crashes-in-mediasoup-get-a-core-dump).
 </div>
 
 ```javascript
