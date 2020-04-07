@@ -60,7 +60,11 @@ If you get a crash in mediasoup server, this is, if you get an error log as foll
 
 or if the [worker.on("died")](/documentation/v3/mediasoup/api/#worker-on-died) event fires, this is a bug in mediasoup that should not happen.
 
-If so, please report the issue in [GitHub][mediasoup-github-issues] and also enable core dumps in your host. If you run mediasoup in Linux, do it as follows **before** running your mediasoup application again:
+If so, please report the issue in [GitHub][mediasoup-github-issues] and also enable core dumps in your host.
+
+##### Enabling core dumps in Linux
+
+If you run mediasoup in Linux, do the following **before** running your mediasoup application again:
 
 ```bash
 $ mkdir /tmp/cores
@@ -70,6 +74,23 @@ $ ulimit -c unlimited
 ```
 
 Then run your mediasoup application. If the crash happens again you should get a core dump in the `/tmp/cores` folder. Please attach it into the issue reported in GitHub.
+
+##### Enabling core dumps in OSX
+
+Crashing processes in OSX got automatically a crash report in `/Users/USER/Library/Logs/DiagnosticReports` folder.
+
+##### Forcing a core dump
+
+You can check whether the core dump setup works by manually generating one as follows:
+
+```bash
+$ pidof mediasoup-worker
+46717 46718 46719 46720
+
+$ kill -s SIGSEGV 46717
+```
+
+Then check the generated core dump file in the corresponding folder.
 
 
 
