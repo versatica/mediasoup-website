@@ -73,7 +73,17 @@ $ echo "/tmp/cores/core.%e.sig%s.%p" > /proc/sys/kernel/core_pattern
 $ ulimit -c unlimited
 ```
 
-Then run your mediasoup application. If the crash happens again you should get a core dump in the `/tmp/cores` folder. Please attach it into the issue reported in GitHub.
+Then run your mediasoup application. If the crash happens again you should get a core dump in the `/tmp/cores` folder. Open it with `gdb` and attach it into the issue reported in GitHub:
+
+```bash
+$ gdb PATH_TO_YOUR_NODE_APP/node_modules/mediasoup/worker/out/Release/mediasoup-worker PATH_TO_COREFILE
+```
+
+Then, within the `gdb` terminal:
+
+```bash
+gdb> bt full
+```
 
 ##### Enabling core dumps in OSX
 
