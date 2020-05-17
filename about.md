@@ -51,6 +51,7 @@ Special thanks for their contributions, help and advice to:
 * [Gustavo García][gustavo-personal-url]: The source of WebRTC knowledge.
 * [Haiyang Wu][haiyangwu-personal-url]: Windows support for mediasoup.
 * [Micael Gallego][micael-gallego-personal-url]: TypeScript contribution for mediasoup.
+* [JunLong Zou][junlong-zou-personal-url]: Optimizations and fixes ad C++ level.
 
 
 ## Donate
@@ -89,4 +90,5 @@ You can support mediasoup by making a [donation](/sponsors/#become-a-sponsor). T
 [gustavo-personal-url]: https://www.rtcbits.com
 [haiyangwu-personal-url]: https://github.com/haiyangwu
 [micael-gallego-personal-url]: https://about.me/micael.gallego
+[junlong-zou-personal-url]: https://lonny.me/wp/
 
