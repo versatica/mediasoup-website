@@ -154,6 +154,7 @@ Field             | Type    | Description   | Required | Default
 `rtx`             | Object  | RTX stream information. It must contain a numeric `ssrc` field indicating the RTX SSRC. | No.
 `dtx`             | Boolean | It indicates whether discontinuous RTP transmission will be used. Useful for audio (if the codec supports it) and for video screen sharing (when static content is being transmitted, this option disables the RTP inactivity checks in mediasoup). | No | `false`
 `scalabilityMode` | String  | Number of spatial and temporal layers in the RTP stream (e.g. "L1T3"). See [webrtc-svc](https://w3c.github.io/webrtc-svc/). | No |
+`maxBitrate`      | Number  | Maximum bitrate the sender will produce for this stream. | No |
 
 </div>
 
