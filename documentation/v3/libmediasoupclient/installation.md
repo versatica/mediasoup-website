@@ -16,10 +16,10 @@ anchors : true
 
 ## Build libwebrtc
 
-libmediasoupclient makes use of Google's libwebrtc C++ library. Follow the [official instructions](https://webrtc.github.io/webrtc-org/native-code/development/) by checking out branch `branch-heads/4085` (m82) and build it.
+libmediasoupclient makes use of Google's libwebrtc C++ library. Follow the [official instructions](https://webrtc.github.io/webrtc-org/native-code/development/) by checking out branch `branch-heads/4103` (m83) and build it.
 
 <div markdown="1" class="note">
-* Future versions of libmediasoupclient will include a more recent version of libwebrtc. For now, supported version is `m82` branch.
+* Future versions of libmediasoupclient will include a more recent version of libwebrtc. For now, supported version is `m83` branch.
 * The [Build Examples](#Build-Examples) section below provides some hints about how to build libwebrtc and libmediasoup client in different platforms.
 * When building libwebrtc, you may want to include `rtc_include_tests=true` into arguments given to `gn gen`. This is needed for some unit tests in libmediasoupclient.
 </div>
@@ -118,26 +118,26 @@ $ cd webrtc-checkout
 $ fetch --nohooks webrtc
 $ gclient sync
 $ cd src
-$ git checkout -b m82 refs/remotes/branch-heads/4085
+$ git checkout -b m83 refs/remotes/branch-heads/4103
 $ gclient sync
 ```
 
 * In OSX 10.14.16 this works:
 
 ```bash
-$ gn gen out/m82 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.11" use_custom_libcxx=false'
+$ gn gen out/m83 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true mac_deployment_target="10.11" use_custom_libcxx=false'
 ```
 
 * In Linux Debian Stretch with GCC 6.3 this works:
 
 ```bash
-$ gn gen out/m82 --args='is_debug=false is_component_build=false is_clang=false rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true use_custom_libcxx=false treat_warnings_as_errors=false use_ozone=true'
+$ gn gen out/m83 --args='is_debug=false is_component_build=false is_clang=false rtc_include_tests=false rtc_use_h264=true rtc_enable_protobuf=false use_rtti=true use_custom_libcxx=false treat_warnings_as_errors=false use_ozone=true'
 ```
 
 * Then build it:
 
 ```bash
-$ ninja -C out/m82
+$ ninja -C out/m83
 ```
 
 * Then build libmediasoupclient:
@@ -147,7 +147,7 @@ $ cd /home/foo/src/libmediasoupclient
 
 $ cmake . -Bbuild \
   -DLIBWEBRTC_INCLUDE_PATH:PATH=/home/foo/src/webrtc-checkout/src \
-  -DLIBWEBRTC_BINARY_PATH:PATH=/home/foo/src/webrtc-checkout/src/out/m82/obj
+  -DLIBWEBRTC_BINARY_PATH:PATH=/home/foo/src/webrtc-checkout/src/out/m83/obj
 
 $ make -C build/
 ```
