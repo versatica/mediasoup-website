@@ -90,7 +90,7 @@ See also "trace" Event in the [Debugging](/documentation/v3/mediasoup/debugging#
 Value          | Description
 -------------- | -------------
 "probation"    | RTP probation packet.
-"bwe"          | Transport bandwidth estiamtion changed.
+"bwe"          | Transport bandwidth estimation changed.
 
 </div>
 
