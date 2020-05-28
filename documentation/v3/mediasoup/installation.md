@@ -19,7 +19,7 @@ In order to build the mediasoup C/C++ components the following packages and libr
 
 ### Linux, OSX and any *NIX system
 
-* `node` version >= v8.6.0
+* `node` version >= v10.0.0
 * `python` version 2 or 3
 * `make`
 * `gcc` and `g++` >= 4.9 or `clang` (with C++11 support)
