@@ -59,7 +59,7 @@ For receiving media:
 * And then replicated in the client side application: [device.createRecvTransport()](/documentation/v3/mediasoup-client/api/#device-createRecvTransport).
 * The client application must subscribe to the "connect" event in the local transport.
 
-If SCTP (WebRTC DataChannels) are desired on those transports, `enableSctp` must be enabled in the server side WebRTC transport (with proper [numSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams)) and other SCTP related settings.
+If SCTP (AKA DataChannel in WebRTC) are desired on those transports, `enableSctp` must be enabled in them (with proper [numSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams)) and other SCTP related settings.
 
 
 ### Producing Media
@@ -335,8 +335,21 @@ In this case (if the SRPT endpoint won't send RTP but just receive it), `comedia
 * In mediasoup, call `plainTransport.connect({ ip, port, srtpParameters })`.
 
 
-## Guidelines for node-sctp (SCTP/DataChannel in Node)
+## Guidelines for DataChannel termination in Node.js
+{: #guidelines-for-datachannel-termination-in-node}
+
+* Just use `router.createDirectTransport()` to create a `DirectTransport` and then create use `directTransport.consumeData()` on it to create a `DataConsumer` that will receive the data messages sent by WebRTC endpoints.
+* The new `dataConsumer.on('message')` event will trigger with those received messages so the Node.js application can handle them.
+* In the other direction, use `directTransport.produceData()` to create a `DataProducer` in Node.js and make the WebRTC peers consume it as usual.
+* Then use `dataProducer.send()` method to send text or binary messages to them.
+
+
+## Guidelines for node-sctp (SCTP/DataChannel in Node.js)
 {: #guidelines-for-node-sctp}
+
+<div markdown="1" class="note">
+Probably you want to avoid this and focus on [Guidelines for DataChannel termination in Node.js](#guidelines-for-datachannel-termination-in-node) instead.
+</div>
 
 The [node-sctp](https://github.com/latysheff/node-sctp/) library can be used to send and receive SCTP messages into/from a mediasoup router and, hence, interact via DataChannel with WebRTC endpoints. 
 

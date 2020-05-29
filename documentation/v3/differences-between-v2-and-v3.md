@@ -82,3 +82,14 @@ SRTP in plain transport | Useful for non WebRTC endpoints supporting SRTP.
 New "tuple" and "rtcpTuple" events in plain transport | They tell the application when the remote RTP/RTCP origin has been discovered (if comedia mode is set).
 
 </div>
+
+#### In mediasoup >= 3.6.X
+
+<div markdown="1" class="table-wrapper L1-small L4">
+
+Feature                   | Description
+------------------------- | -------------------------------
+New `DirectTransport`     | It represents a direct connection between the mediasoup Node.js process and a `Router` instance in a mediasoup-worker subprocess. It enables direct transmission of data messages between the Node.js application and the mediasoup `Router` by using `DataProducers` and `DataConsumers`.
+DataChannel termination   | Thanks to the new `DirectTransport` it's no longer needed to use a complex setup with the Node.js [node-sctp](https://github.com/latysheff/node-sctp/) library to send and receive DataChannels within the Node.js application.
+
+</div>

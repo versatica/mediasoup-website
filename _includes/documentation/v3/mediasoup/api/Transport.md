@@ -217,7 +217,7 @@ await transport.setMaxIncomingBitrate(3500000);
 #### transport.produce(options)
 {: #transport-produce .code}
 
-Instructs the transport to receive audio or video RTP (or SRTP depending on the transport class). This is the way to inject media into mediasoup.
+Instructs the router to receive audio or video RTP (or SRTP depending on the transport class). This is the way to inject media into mediasoup.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -299,7 +299,7 @@ const producer = await transport.produce(
 #### transport.consume(options)
 {: #transport-consume .code}
 
-Instructs the transport to send audio or video RTP (or SRTP depending on the transport class). This is the way to extract media from mediasoup.
+Instructs the router to send audio or video RTP (or SRTP depending on the transport class). This is the way to extract media from mediasoup.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -408,7 +408,7 @@ const consumer = await transport.consume(
 #### transport.produceData(options)
 {: #transport-producedata .code}
 
-Instructs the transport to receive data via [SCTP](https://tools.ietf.org/html/rfc4960) stream. This is the way to inject data into mediasoup.
+Instructs the router to receive data messages. Those messages can be delivered by an endpoint via [SCTP](https://tools.ietf.org/html/rfc4960) protocol (AKA DataChannel in WebRTC) or can be directly sent from the Node.js application if the transport is a `DirectTransport`.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -423,13 +423,25 @@ Argument    | Type    | Description | Required | Default
 > `@returns` [DataProducer](#DataProducer)
 
 ```javascript
+// Using SCTP:
+const dataProducer = await transport.produceData(
+  {
+    sctpStreamParameters :
+    {
+      streamId : 4,
+      ordered  : true
+    },
+    label : 'foo'
+  });
+
+// Using a direct transport:
 const dataProducer = await transport.produceData();
 ```
 
 #### transport.consumeData(options)
 {: #transport-consumedata .code}
 
-Instructs the transport to send data via [SCTP](https://tools.ietf.org/html/rfc4960) stream. This is the way to extract data from mediasoup.
+Instructs the router to send data messages to the endpoint via [SCTP](https://tools.ietf.org/html/rfc4960) protocol (AKA DataChannel in WebRTC) or directly to the Node.js process if the transport is a `DirectTransport`.
 
 <div markdown="1" class="table-wrapper L3">
 
