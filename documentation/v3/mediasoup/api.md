@@ -31,6 +31,8 @@ class   : h3color
 
 {% include documentation/v3/mediasoup/api/PipeTransport.md %}
 
+{% include documentation/v3/mediasoup/api/DirectTransport.md %}
+
 {% include documentation/v3/mediasoup/api/Producer.md %}
 
 {% include documentation/v3/mediasoup/api/Consumer.md %}

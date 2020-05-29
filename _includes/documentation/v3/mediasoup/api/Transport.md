@@ -12,6 +12,7 @@ mediasoup implements the following transport classes:
 * [WebRtcTransport](#WebRtcTransport)
 * [PlainTransport](#PlainTransport)
 * [PipeTransport](#PipeTransport)
+* [DirectTransport](#DirectTransport)
 
 </section>
 
@@ -110,6 +111,7 @@ Value          | Description
 </div>
 
 </section>
+
 
 ### Properties
 {: #Transport-properties}

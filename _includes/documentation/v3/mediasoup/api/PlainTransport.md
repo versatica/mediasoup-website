@@ -39,7 +39,7 @@ Field         | Type    | Description   | Required | Default
 `comedia`     | Boolean | Whether remote IP:port should be auto-detected based on first RTP/RTCP packet received. If enabled, `connect()` must only be called if SRTP is enabled by providing the remote `srtpParameters` and nothing else. | No | `false`
 `enableSctp`  | Boolean | Create a SCTP association. | No | `false`
 `numSctpStreams`     | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
-`maxSctpMessageSize` | Number | Maximum size of data that can be passed to DataProducer's send() method. | No | 262144
+`maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers`. | No | 262144
 `enableSrtp`  | Boolean | Enable SRTP to encrypt RTP and SRTP. If enabled, the remote must also enable SRTP. | No | `false`
 `srtpCryptoSuite` | [SrtpCryptoSuite](/documentation/v3/mediasoup/srtp-parameters/#SrtpCryptoSuite) | Just valid if `enableSrtp` is set. | No | "AES_CM_128_HMAC_SHA1_80"
 `appData`     | Object  | Custom application data. | No | `{ }`
@@ -131,6 +131,10 @@ Returns current RTC statistics of the WebRTC transport.
 > `@override`
 > 
 > `@returns` Array&lt;PlainTransportStat&gt;
+
+<div markdown="1" class="note">
+Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section for more details.
+</div>
 
 #### plainTransport.connect({ ip, port, rtcpPort, srtpParameters })
 {: #plainTransport-connect .code}

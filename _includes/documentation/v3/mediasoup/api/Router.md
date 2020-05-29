@@ -224,6 +224,27 @@ const transport = await router.createPipeTransport(
   });
 ```
 
+#### router.createDirectTransport(options)
+{: #router-createDirectTransport .code}
+
+Creates a new direct transport.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`options`   | [DirectTransportOptions](#DirectTransportOptions) | Plain transport options. | Yes |
+
+</div>
+
+> `@async`
+> 
+> `@returns` [DirectTransport](#DirectTransport)
+
+```javascript
+const transport = await router.createDirectTransport();
+```
+
 #### router.pipeToRouter({ producerId, dataProducerId, router, listenIp })
 {: #router-pipeToRouter .code}
 

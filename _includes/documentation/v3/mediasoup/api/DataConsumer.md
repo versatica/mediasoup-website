@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-A data consumer represents a [SCTP](https://tools.ietf.org/html/rfc4960) data source being forwarded from a mediasoup router to an endpoint. It's created on top of a transport that defines how the data messages are carried.
+A data copnsumer represents an endpoint capable of receiving data messages from a mediasoup `Router`. A data consumer can use [SCTP](https://tools.ietf.org/html/rfc4960) (AKA DataChannel) to receive those messages, or can directly receive them in the Node.js application if the data consumer was created on top of a `DirectTransport`.
 
 </section>
 
@@ -22,6 +22,26 @@ Field            | Type    | Description   | Required | Default
 ---------------- | ------- | ------------- | -------- | ---------
 `dataProducerId` | String  | The id of the data producer to consume. | Yes |
 `appData`        | Object  | Custom application data. | No | `{ }`
+
+</div>
+
+</section>
+
+
+### Enums
+{: #DataConsumer-enums}
+
+<section markdown="1">
+
+#### DataConsumerType
+{: #DataConsumerType .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value    | Description
+-------- | -------------
+"sctp"   | The endpoint receives messages using the SCTP protocol.
+"direct" | Messages are received directly by the Node.js process over a direct transport.
 
 </div>
 
@@ -54,12 +74,19 @@ Whether the data consumer is closed.
 
 > `@type` Boolean, read only
 
+#### dataConsumer.type
+{: #dataConsumer-type .code}
+
+The type of the data consumer.
+
+> `@type` [DataProducerType](#DataProducerType), read only
+
 #### dataConsumer.sctpStreamParameters
 {: #dataConsumer-sctpStreamParameters .code}
 
-The SCTP stream parameters.
+The SCTP stream parameters (just if the data producer `type` is 'sctp').
 
-> `@type` [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters), read only
+> `@type` [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters)\|Undefined, read only
 
 #### dataConsumer.label
 {: #dataConsumer-label .code}
@@ -105,14 +132,14 @@ Closes the data consumer.
 #### dataConsumer.getStats()
 {: #dataConsumer-getStats .code}
 
-Returns current SCTP statistics of the data consumer.
+Returns current statistics of the data consumer.
 
 > `@async`
 > 
 > `@returns` Array&lt;DataConsumerStat&gt;
 
 <div markdown="1" class="note">
-Check the [SCTP Statistics](/documentation/v3/mediasoup/sctp-statistics/) section for more details.
+Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section for more details.
 </div>
 
 </section>
@@ -144,6 +171,34 @@ Emitted when the associated data producer is closed for whatever reason. The dat
 dataConsumer.on("dataproducerclose", () =>
 {
   console.log("associated data producer closed so dataConsumer closed");
+});
+```
+
+#### dataConsumer.on("message", fn(message, ppid))
+{: #dataConsumer-on-message .code}
+
+Emitted when a message has been received from the corresponding data producer,
+
+<div markdown="1" class="note">
+Just available in direct transports, this is, those created via `router.createDirectTransport()`.
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`message`   | Buffer  | Received message. It's always a Node.js Buffer.
+`ppid`      | Number  | Mimics the [SCTP Payload Protocol Identifier](https://www.iana.org/assignments/sctp-parameters/sctp-parameters.xhtml#sctp-parameters-25). Typically it's 51 (`WebRTC String`) if `message` is a String and 53 (`WebRTC Binary`) if it's a Buffer.
+
+</div>
+
+```javascript
+dataConsumer.on("message", (message, ppid) =>
+{
+  if (ppid === 51)
+    console.log("text message received:", message.toString("utf-8"));
+  else if (ppid === 53)
+    console.log("binary message received");
 });
 ```
 

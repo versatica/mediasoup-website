@@ -140,6 +140,35 @@ const stats = await pipeTransport.getStats();
 ```
 
 
+### DirectTransport Statistics
+{: #DirectTransport-Statistics}
+
+```javascript
+const stats = await directTransport.getStats();
+
+// =>
+[
+  {
+    "probationBytesSent": 0,
+    "probationSendBitrate": 0,
+    "recvBitrate": 5672,
+    "rtpBytesReceived": 0,
+    "rtpBytesSent": 0,
+    "rtpRecvBitrate": 0,
+    "rtpSendBitrate": 0,
+    "rtxBytesReceived": 0,
+    "rtxBytesSent": 0,
+    "rtxRecvBitrate": 0,
+    "rtxSendBitrate": 0,
+    "sendBitrate": 3204,
+    "timestamp": 894308981,
+    "transportId": "huif60cd-10ac-443b-8529-6474ecba2123",
+    "type": "direct-transport"
+  }
+]
+```
+
+
 ### Producer Statistics
 {: #Producer-Statistics}
 

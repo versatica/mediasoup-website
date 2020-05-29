@@ -1,0 +1,133 @@
+## DirectTransport
+{: #DirectTransport}
+
+<section markdown="1">
+
+> `@inherits` [Transport](#Transport)
+
+A direct transport represents a direct connection between the mediasoup Node.js process and a `Router` instance in a mediasoup-worker subprocess.
+
+Currently a direct transport can be used to directly send and receive data messages from/to Node.js by means of `DataProducers` and `DataConsumers` of type 'direct' created on a direct transport. Direct messages sent by a `DataProducer` in a direct transport can be consumed by endpoints connected through a SCTP capable transport (`WebRtcTransport`, `PlainTransport`, `PipeTransport`) and also by the Node.js application by means of a `DataConsumer` creaged on a `DirectTransport` (and vice-versa: messages sent over SCTP/DataChannel can be consumed by the Node.js application by means of a `DataConsumer` creaged on a `DirectTransport`).
+
+</section>
+
+
+### Dictionaries
+{: #DirectTransport-dictionaries}
+
+<section markdown="1">
+
+#### DirectTransportOptions
+{: #DirectTransportOptions .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field         | Type    | Description   | Required | Default
+------------- | ------- | ------------- | -------- | ---------
+`maxMessageSize` | Number | Maximum allowed size for direct messages sent by `DataProducers`. | No | 262144
+`appData`     | Object  | Custom application data. | No | `{ }`
+
+</div>
+
+</section>
+
+
+### Properties
+{: #DirectTransport-properties}
+
+<section markdown="1">
+
+See also [Transport Properties](#Transport-properties).
+
+</section>
+
+
+### Methods
+{: #DirectTransport-methods}
+
+<section markdown="1">
+
+See also [Transport Methods](#Transport-methods).
+
+#### directTransport.getStats()
+{: #directTransport-getStats .code}
+
+Returns current RTC statistics of the direct transport.
+
+> `@async`
+> 
+> `@override`
+> 
+> `@returns` Array&lt;DirectTransportStat&gt;
+
+<div markdown="1" class="note">
+Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section for more details.
+</div>
+
+#### directTransport.connect()
+{: #directTransport-connect .code}
+
+It's a no-op. There is no need to call this method on direct transports (since they are always connected).
+
+> `@async`
+> 
+> `@overrides`
+
+#### directTransport.setMaxIncomingBitrate(options)
+{: #directTransport-setMaxIncomingBitrate .code}
+
+<div markdown="1" class="note warn">
+Not implemented in direct transports. If called, it will reject with `UnsupportedError`.
+</div>
+
+> `@async`
+> 
+> `@overrides`
+
+</section>
+
+#### directTransport.produce(options)
+{: #directTransport-produce .code}
+
+<div markdown="1" class="note warn">
+A direct transport cannot produce RTP. If called, it will reject with `UnsupportedError`.
+</div>
+
+> `@async`
+> 
+> `@overrides`
+
+#### directTransport.consume(options)
+{: #directTransport-consume .code}
+
+<div markdown="1" class="note warn">
+A direct transport cannot consume RTP. If called, it will reject with `UnsupportedError`.
+</div>
+
+> `@async`
+> 
+> `@overrides`
+
+</section>
+
+
+### Events
+{: #DirectTransport-events}
+
+<section markdown="1">
+
+See also [Transport Events](#Transport-events).
+
+</div>
+
+</section>
+
+
+### Observer Events
+{: #DirectTransport-observer-events}
+
+<section markdown="1">
+
+See also [Transport Observer Events](#Transport-observer-events).
+
+</section>
