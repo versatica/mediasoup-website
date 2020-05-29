@@ -343,6 +343,10 @@ In this case (if the SRPT endpoint won't send RTP but just receive it), `comedia
 * In the other direction, use `directTransport.produceData()` to create a `DataProducer` in Node.js and make the WebRTC peers consume it as usual.
 * Then use `dataProducer.send()` method to send text or binary messages to them.
 
+Related:
+
+* [mediasoup-demo: Refactor the message Bot with new DataChannel termination in mediasoup](https://github.com/versatica/mediasoup-demo/pull/99)
+
 
 ## Guidelines for node-sctp (SCTP/DataChannel in Node.js)
 {: #guidelines-for-node-sctp}
