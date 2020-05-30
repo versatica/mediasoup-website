@@ -7,7 +7,7 @@
 
 A direct transport represents a direct connection between the mediasoup Node.js process and a `Router` instance in a mediasoup-worker subprocess.
 
-Currently a direct transport can be used to directly send and receive data messages from/to Node.js by means of `DataProducers` and `DataConsumers` of type 'direct' created on a direct transport. Direct messages sent by a `DataProducer` in a direct transport can be consumed by endpoints connected through a SCTP capable transport (`WebRtcTransport`, `PlainTransport`, `PipeTransport`) and also by the Node.js application by means of a `DataConsumer` creaged on a `DirectTransport` (and vice-versa: messages sent over SCTP/DataChannel can be consumed by the Node.js application by means of a `DataConsumer` creaged on a `DirectTransport`).
+Currently a direct transport can be used to directly send and receive data messages from/to Node.js by means of `DataProducers` and `DataConsumers` of type 'direct' created on a direct transport. Direct messages sent by a `DataProducer` in a direct transport can be consumed by endpoints connected through a SCTP capable transport (`WebRtcTransport`, `PlainTransport`, `PipeTransport`) and also by the Node.js application by means of a `DataConsumer` created on a `DirectTransport` (and vice-versa: messages sent over SCTP/DataChannel can be consumed by the Node.js application by means of a `DataConsumer` created on a `DirectTransport`).
 
 </section>
 
@@ -117,8 +117,6 @@ A direct transport cannot consume RTP. If called, it will reject with `Unsupport
 <section markdown="1">
 
 See also [Transport Events](#Transport-events).
-
-</div>
 
 </section>
 
