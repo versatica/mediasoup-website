@@ -187,16 +187,16 @@ The score of the RTP stream being sent, representing its tranmission quality.
 #### consumer.preferredLayers
 {: #consumer-preferredLayers .code}
 
-Preferred spatial and temporal layers (see [setPreferredLayers()](#consumer-setPreferredLayers) method). For simulcast and SVC consumers, `null` otherwise.
+Preferred spatial and temporal layers (see [setPreferredLayers()](#consumer-setPreferredLayers) method). For simulcast and SVC consumers, `undefined` otherwise.
 
-> `@type` [ConsumerLayers](#ConsumerLayers)\|Null, read only
+> `@type` [ConsumerLayers](#ConsumerLayers)\|Undefined, read only
 
 #### consumer.currentLayers
 {: #consumer-currentLayers .code}
 
-Currently active spatial and temporal layers (for simulcast and SVC consumers). It's `null` if no layers are being sent to the consuming endpoint at this time.
+Currently active spatial and temporal layers (for simulcast and SVC consumers only). It's `undefined` if no layers are being sent to the consuming endpoint at this time (or if the consumer is consuming from a simulcast or svc producer).
 
-> `@type` [ConsumerLayers](#ConsumerLayers)\|Null, read only
+> `@type` [ConsumerLayers](#ConsumerLayers)\|Undefined, read only
 
 #### consumer.priority
 {: #consumer-priority .code}
@@ -407,7 +407,7 @@ Emitted when the spatial/temporal layers being sent to the endpoint change. Just
 
 Argument  | Type    | Description   
 --------- | ------- | ----------------
-`layers`   | [ConsumerLayers](#ConsumerLayers)\|Null | Current spatial and temporal layers (or `null` if there are no current layers).
+`layers`   | [ConsumerLayers](#ConsumerLayers)\|Undefined | Current spatial and temporal layers (or `undefined` if there are no current layers).
 
 </div>
 
