@@ -20,9 +20,11 @@ anchors : false
 
 ❝ _Ship 1-click video chat faster and smarter._ ❞
 
+<!--
 ### Mozilla Hubs / [hubs.mozilla.com](https://hubs.mozilla.com)
 
 ❝ _Share a virtual room with friends. Watch videos, play with 3D objects, or just hang out._ ❞
+-->
 
 ### PornHub / [pornhub.com](https://pornhub.com)
 
