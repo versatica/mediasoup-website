@@ -27,7 +27,6 @@ anchors : true
 
 
 # Become a Sponsor
-{: #become-a-sponsor}
 
 You can contribute to mediasoup by sponsoring it in [Open Collective](https://opencollective.com/mediasoup):
 
