@@ -1,11 +1,11 @@
 ---
-title   : Sponsors
+title   : Sponsor
 anchors : true
 ---
 
 
 <!--
-# Platinum Sponsors
+# Sponsors
 
 <div markdown="1" class="computer-icon-text-columns">
 <div markdown="1" class="icon">
@@ -29,7 +29,7 @@ anchors : true
 # Become a Sponsor
 {: #become-a-sponsor}
 
-You can contribute to mediasoup by donating in [Open Collective](https://opencollective.com/mediasoup):
+You can contribute to mediasoup by sponsoring it in [Open Collective](https://opencollective.com/mediasoup):
 
 * Become a recurring [backer](https://opencollective.com/mediasoup/contribute/backer-7720/checkout).
 * Become a recurring [sponsor](https://opencollective.com/mediasoup/contribute/sponsor-7721/checkout).
