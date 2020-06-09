@@ -41,6 +41,7 @@ Field        | Type    | Description   | Required | Default
 
 <div markdown="1" class="note">
 * Do not use "0.0.0.0" into `listenIps`. Values in `listenIps` must be specific bindable IPs in the host.
+* If you use "0.0.0.0" or "::" into `listenIps`, then you need to also provide `announcedIp` in the corresponding entry in `listenIps`.
 * `initialAvailableOutgoingBitrate` is just applied when the consumer endpoint supports REMB or Transport-CC.
 </div>
 

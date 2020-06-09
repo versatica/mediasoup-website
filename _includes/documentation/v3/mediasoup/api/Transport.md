@@ -35,7 +35,7 @@ Field         | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-Do not use "0.0.0.0" as `ip` value. It must be a specific bindable IP in the host.
+If you use "0.0.0.0" or "::" as `ip` value, then you need to also provide `announcedIp`.
 </div>
 
 #### TransportTuple
