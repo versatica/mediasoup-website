@@ -63,15 +63,10 @@ Those environments run virtual hosts with private IP and provide mechanisms to r
 
 In order to run mediasoup in those environments (host with private IP and a mapped public IP):
 
-* Let `HOST_PRIVATE_IP` be the internal private IP of the host.
-* Let `HOST_PUBLIC_IP` be the external public IP mapped to `HOST_PRIVATE_IP`.
-* Redirect the port range given by `rtcMinPort`-`rtcMaxPort` from `HOST_PUBLIC_IP` to `HOST_PRIVATE_IP`.
-* Of course, also redirect whichever port your application uses for signaling (HTTP/WebSocket) from `HOST_PUBLIC_IP` to `HOST_PRIVATE_IP`.
-* In mediasoup **v2**:
-   * Make `rtcIPv4` or `rtcIPv6` (in [ServerSettings](/documentation/v2/mediasoup/api/#Server-ServerSettings)) point to `HOST_PRIVATE_IP`.
-   * Make `rtcAnnouncedIPv4` or `rtcAnnouncedIPv6` point to `HOST_PUBLIC_IP`.
-* In mediasoup **v3**:
-   * Specify the corresponding `announcedIp` (pointing to `HOST_PUBLIC_IP`) when creating a transport.
+* Let `HOST_PUBLIC_IP` be the external public IP mapped to your host.
+* Redirect the port range given by `rtcMinPort`-`rtcMaxPort` from `HOST_PUBLIC_IP` to your host.
+* Of course, also redirect whichever port your application uses for signaling (HTTP/WebSocket) from `HOST_PUBLIC_IP` to your host.
+* Use `ip: '0.0.0.0'` and `announcedIp: HOST_PUBLIC_IP` when creating a transport.
 
 ### How to use H264 for webcam and VP8 for screen sharing
 {: #how-to-use-h264-for-webcam-and-vp8-for-screen-sharing}
