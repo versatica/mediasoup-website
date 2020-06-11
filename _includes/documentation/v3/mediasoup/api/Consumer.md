@@ -53,6 +53,7 @@ Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
 `score`         | Number  | Score of the RTP stream in the consumer (from 0 to 10) representing its transmission quality. | Yes |
 `producerScore` | Number  | Score of the currently selected RTP stream in the associated producer (from 0 to 10) representing its transmission quality. | Yes |
+`producerScores` | Array&lt;Number&gt;  | The scores of all RTP streams in the producer (just useful when the producer uses simulcast). | Yes |
 
 </div>
 

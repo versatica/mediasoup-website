@@ -39,6 +39,7 @@ Check the [RTP Parameters and Capabilities](/documentation/v3/mediasoup/rtp-para
 
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
+`encodingIdx`   | Number  | Index of the RTP stream in the `rtpParameters.encodings` array of the producer. | Yes |
 `ssrc`          | Number  | RTP stream SSRC. | Yes |
 `rid`           | String  | RTP stream RID value. | No |
 `score`         | Number  | RTP stream score (from 0 to 10) representing the transmission quality. | Yes |
