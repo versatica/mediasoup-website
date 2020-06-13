@@ -161,9 +161,7 @@ Field             | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-* `scalabilityMode` is defined in the [Scalable Video Coding (SVC) Extension for WebRTC](https://www.w3.org/TR/webrtc-svc/) specification.
-  - Check the [Simulcast](#Simulcast) and [SVC](#SVC) sections for more information.
-
+* `scalabilityMode` is defined in the [Scalable Video Coding (SVC) Extension for WebRTC](https://www.w3.org/TR/webrtc-svc/) specification (check the [Simulcast](#Simulcast) and [SVC](#SVC) sections for more information).
 * `maxFramerate` and `adaptivePtime` are defined in the [WebRTC Extensions](https://w3c.github.io/webrtc-extensions/) specification.
 </div>
 
