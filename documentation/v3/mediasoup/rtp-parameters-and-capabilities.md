@@ -155,11 +155,16 @@ Field             | Type    | Description   | Required | Default
 `dtx`             | Boolean | It indicates whether discontinuous RTP transmission will be used. Useful for audio (if the codec supports it) and for video screen sharing (when static content is being transmitted, this option disables the RTP inactivity checks in mediasoup). | No | `false`
 `scalabilityMode` | String  | Number of spatial and temporal layers in the RTP stream (e.g. "L1T3"). See [webrtc-svc](https://w3c.github.io/webrtc-svc/). | No |
 `maxBitrate`      | Number  | Maximum bitrate the sender will produce for this stream. | No |
+`maxFramerate`    | Double  | Maximum video frame rate (in frames per second) the sender will produce for this stream. | No |
+`adaptivePtime`   | Boolean | Whether this encoding may dynamically change the frame length. | No | `false`
 
 </div>
 
 <div markdown="1" class="note">
-Check the [Simulcast](#Simulcast) and [SVC](#SVC) sections for more information.
+* `scalabilityMode` is defined in the [Scalable Video Coding (SVC) Extension for WebRTC](https://www.w3.org/TR/webrtc-svc/) specification.
+  - Check the [Simulcast](#Simulcast) and [SVC](#SVC) sections for more information.
+
+* `maxFramerate` and `adaptivePtime` are defined in the [WebRTC Extensions](https://w3c.github.io/webrtc-extensions/) specification.
 </div>
 
 
