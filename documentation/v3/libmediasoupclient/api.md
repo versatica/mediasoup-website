@@ -41,6 +41,14 @@ class   : h3color
 
 {% include documentation/v3/libmediasoupclient/api/ConsumerListener.md %}
 
+{% include documentation/v3/libmediasoupclient/api/DataProducer.md %}
+
+{% include documentation/v3/libmediasoupclient/api/DataProducerListener.md %}
+
+{% include documentation/v3/libmediasoupclient/api/DataConsumer.md %}
+
+{% include documentation/v3/libmediasoupclient/api/DataConsumerListener.md %}
+
 {% include documentation/v3/libmediasoupclient/api/Logger.md %}
 
 {% include documentation/v3/libmediasoupclient/api/LoggerLogHandlerInterface.md %}

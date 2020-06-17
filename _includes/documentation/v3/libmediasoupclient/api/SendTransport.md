@@ -93,4 +93,32 @@ Before this method completes, the local transport will call ["OnProduce"](#SendT
 Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
 </div>
 
+#### sendTransport.ProduceData(listener, label, protocol, order, maxRetransmits, maxPacketLifeTime, appData)
+{: #SendTransport-ProduceData .code}
+
+Instructs the transport to send data via [DataChannel](https://www.w3.org/TR/webrtc/#rtcdatachannel) to the mediasoup router. 
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument           | Type    | Description | Required | Default 
+-----------        | ------- | ----------- | -------- | ----------
+`listener`         | [DataProducer::Listener\*](#DataProducerListener) | DataProducer listener. | Yes |
+`label`            | const std::string& | A label which can be used to distinguish this DataChannel from others. | No |
+`protocol`         | const std::string& | Name of the sub-protocol used by this DataChannel. | No |
+`ordered`          | bool | Whether data messages must be received in order. if true the messages will be sent reliably. | No | true
+`maxPacketLifeTime`| int | When `ordered` is false indicates the time (in milliseconds) after which a SCTP packet will stop being retransmitted. | No |
+`maxRetransmits`   | int | When `ordered` is false indicates the maximum number of times a packet will be retransmitted. | No |
+`appData`          | const nlohmann::json&  | Custom application data. | No | `{ }`
+
+</div>
+
+> `@async` blocks current thread
+>
+> `@returns` [DataProducer](#DataProducer)
+
+<div markdown="1" class="note">
+Before this method completes, the local transport will call ["OnProduceData"](#SendTransportListener-OnProduceData) method in the listener. The application must define this method, signal those parameters to the server, and invoke [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) on the corresponding WebRTC transport.
+
+Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
+</div>
 </section>

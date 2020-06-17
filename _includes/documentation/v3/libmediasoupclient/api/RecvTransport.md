@@ -51,4 +51,37 @@ auto* consumer = recvTransport->Consume(
   rtpParameters);
 ```
 
+#### recvTransport.ConsumeData(listener, id, producerId, label, protocol, appData)
+{: #transport-ConsumeData .code}
+
+Instructs the transport to receive data via [DataChannel](https://www.w3.org/TR/webrtc/#rtcdatachannel) from the mediasoup router.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`listener`      | [DataConsumer::Listener](#DataConsumerListener) | Consumer listener. | Yes |
+`id`            | const std::string&  | The identifier of the server side consumer. | Yes |
+`producerId`    | const std::string&  | The identifier of the server side producer being consumed. | Yes |
+`label`         | const std::string& | A label which can be used to distinguish this DataChannel from others. | Yes |
+`protocol`      | const std::string& | Name of the sub-protocol used by this DataChannel. | No |
+`appData`       | nlohmann::json  | Custom application data. | No | `{ }`
+
+</div>
+
+> `@async` blocks current thread
+>
+> `@returns` [DataConsumer](#DataConsumer)
+
+```c++
+auto* consumerListener = new MyConsumerListener();
+
+// This will block the current thread until completion.
+auto* consumer = recvTransport->Consume(
+  consumerListener,
+  id, 
+  "dataChannelLabel", 
+  "dataChannelProtocol");
+```
+
 </section>
