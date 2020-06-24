@@ -34,3 +34,10 @@ You can contribute to mediasoup by sponsoring it in [Open Collective](https://op
 * Become a recurring [sponsor](https://opencollective.com/mediasoup/contribute/sponsor-7721/checkout).
 * Make a [one time donation](https://opencollective.com/mediasoup/donate).
 * Or [contact us](/about/).
+
+
+## Sponsors
+
+Check the list of individuals and organizations already contributing to mediasoup in Open Collective:
+
+* [opencollective.com/mediasoup](https://opencollective.com/mediasoup#section-contributors)
