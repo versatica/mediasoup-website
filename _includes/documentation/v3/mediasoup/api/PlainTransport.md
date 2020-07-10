@@ -40,6 +40,7 @@ Field         | Type    | Description   | Required | Default
 `enableSctp`  | Boolean | Create a SCTP association. | No | `false`
 `numSctpStreams`     | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
 `maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers`. | No | 262144
+`sctpSendBufferSize` | Number | SCTP send buffer size used by usrsctp. | NO | 262144 |
 `enableSrtp`  | Boolean | Enable SRTP to encrypt RTP and SRTP. If enabled, the remote must also enable SRTP. | No | `false`
 `srtpCryptoSuite` | [SrtpCryptoSuite](/documentation/v3/mediasoup/srtp-parameters/#SrtpCryptoSuite) | Just valid if `enableSrtp` is set. | No | "AES_CM_128_HMAC_SHA1_80"
 `appData`     | Object  | Custom application data. | No | `{ }`

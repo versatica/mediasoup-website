@@ -29,7 +29,8 @@ Field         | Type    | Description   | Required | Default
 `listenIp`    | [TransportListenIp](#TransportListenIp)\|String| Listening IP address. | Yes |
 `enableSctp` | Boolean | Create a SCTP association. | No | `false`
 `numSctpStreams` | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
-`maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers`. | No | 1073741823
+`maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers`. | No | 268435456
+`sctpSendBufferSize` | Number | SCTP send buffer size used by usrsctp. | NO | 268435456 |
 `enableRtx`   | Boolean | Enable RTX and NACK for RTP retransmission. Useful if both `pipeTransports` run in different hosts. If enabled, the paired `pipeTransport` must also enable this setting. | No | `false`
 `enableSrtp`  | Boolean | Enable SRTP to encrypt RTP and SRTP. If enabled, the paired `pipeTransport` must also enable this setting. | No | `false`
 `appData`     | Object  | Custom application data. | No | `{ }`

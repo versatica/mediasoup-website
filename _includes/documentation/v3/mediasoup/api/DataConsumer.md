@@ -205,6 +205,11 @@ dataConsumer.on("message", (message, ppid) =>
 });
 ```
 
+#### dataConsumer.on("sctpsendbufferfull")
+{: #dataConsumer-on-sctpsendbufferfull .code}
+
+Emitted when a message could not be sent because the SCTP send buffer was full.
+
 </section>
 
 
@@ -221,5 +226,10 @@ See the [Observer API](#observer-api) section below.
 {: #dataConsumer-observer-on-close .code}
 
 Emitted when the data consumer is closed for whatever reason.
+
+#### dataConsumer.on("sctpsendbufferfull")
+{: #dataConsumer-observer-on-sctpsendbufferfull .code}
+
+Emitted when a message could not be sent because the SCTP send buffer was full.
 
 </section>
