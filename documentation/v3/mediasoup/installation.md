@@ -33,7 +33,7 @@ In order to build the mediasoup C/C++ components the following packages and libr
 If there is not `python` command pointing to Python 2 or 3 executable, set the `PYTHON` environment variable during mediasoup installation:
 
 ```bash
-$ PYTHON=python3 npm install mediasoup@3 --save
+$ export PYTHON=python3 && npm install mediasoup@3 --save
 ```
 </div>
 
