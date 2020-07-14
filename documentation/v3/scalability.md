@@ -34,7 +34,7 @@ Before entering into details, let's clarify how mediasoup works internally:
 
 A good example of this scenario is an application that provides multi-party conference rooms. Each room uses a single mediasoup router thus each mediasoup worker (which uses a single CPU) may hold multiple "rooms".
 
-Depending on the host CPU capabilities, a mediasoup C++ subprocess can tipically handle over ~500 consumers in total. If for example there are 4 peers in a room, all them sending audio and video and all them consuming the audio and video of the other peers, this would mean that:
+Depending on the host CPU capabilities, a mediasoup C++ subprocess can typically handle over ~500 consumers in total. If for example there are 4 peers in a room, all them sending audio and video and all them consuming the audio and video of the other peers, this would mean that:
 
 * Each peer receives audio and video from 3 peers, so 3x2 = 6 consumers in total.
 * There are 4 peers, so 4x6 = 24 consumers in total.
