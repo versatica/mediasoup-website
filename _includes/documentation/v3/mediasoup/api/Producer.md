@@ -256,6 +256,34 @@ producer.on("trace", (trace) =>
 });
 ```
 
+#### producer.send(rtpPacket)
+{: #producer-send .code}
+
+Sends a RTP packet from the Node.js process.
+
+<div markdown="1" class="note">
+Just available in direct transports, this is, those created via `router.createDirectTransport()`.
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument  | Type    | Description | Required | Default 
+--------- | ------- | ----------- | -------- | ----------
+`rtpPacket` | Buffer | A Node.js Buffer containing a valid RTP packet (according to the `RtpParameters` of the producer). | Yes |
+
+</div>
+
+```javascript
+const producer = await directTransport.produce(
+  {
+    kind          : "audio", 
+    rtpParameters : { ... },
+  });
+
+// Send a RTP packet.
+producer.send(rtpPacket);
+```
+
 </section>
 
 
