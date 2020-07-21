@@ -108,6 +108,28 @@ A direct transport cannot consume RTP. If called, it will reject with `Unsupport
 > 
 > `@overrides`
 
+#### directTransport.sendRtcp(rtcpPacket)
+{: #directTransport-sendRtcp .code}
+
+Sends a RTCP packet from the Node.js process.
+
+<div markdown="1" class="note">
+Just available in direct transports, this is, those created via `router.createDirectTransport()`.
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument  | Type    | Description | Required | Default 
+--------- | ------- | ----------- | -------- | ----------
+`rtcpPacket` | Buffer | A Node.js Buffer containing a valid RTCP packet (can be a compound packet). | Yes |
+
+</div>
+
+```javascript
+// Send a RTCP packet.
+directTransport.sendRtcp(rtcpPacket);
+```
+
 </section>
 
 
@@ -117,6 +139,30 @@ A direct transport cannot consume RTP. If called, it will reject with `Unsupport
 <section markdown="1">
 
 See also [Transport Events](#Transport-events).
+
+#### directTransport.on("rtcp", fn(rtcpPacket))
+{: #directTransport-on-rtcp .code}
+
+Emitted when the direct transport receives a RTCP packet from its router.
+
+<div markdown="1" class="note">
+Just available in direct transports, this is, those created via `router.createDirectTransport()`.
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`rtcpPacket` | Buffer  | Received RTP packet. It's always a Node.js Buffer. It may be a compound RTCP packet or a standalone RTCP packet.
+
+</div>
+
+```javascript
+directTransport.on("rtcp", (rtcpPacket) =>
+{
+  // Do stuff with the binary RTCP packet.
+});
+```
 
 </section>
 

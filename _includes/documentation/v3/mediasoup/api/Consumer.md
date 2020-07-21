@@ -443,6 +443,30 @@ consumer.on("trace", (trace) =>
 });
 ```
 
+#### consumer.on("rtp", fn(rtpPacket))
+{: #consumer-on-rtp .code}
+
+Emitted when the consumer receives through its router a RTP packet from the associated producer.
+
+<div markdown="1" class="note">
+Just available in direct transports, this is, those created via `router.createDirectTransport()`.
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`rtpPacket` | Buffer  | Received RTP packet. It's always a Node.js Buffer.
+
+</div>
+
+```javascript
+consumer.on("rtp", (rtpPacket) =>
+{
+  // Do stuff with the binary RTP packet.
+});
+```
+
 </section>
 
 
