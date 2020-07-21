@@ -7,7 +7,9 @@
 
 A direct transport represents a direct connection between the mediasoup Node.js process and a `Router` instance in a mediasoup-worker subprocess.
 
-Currently a direct transport can be used to directly send and receive data messages from/to Node.js by means of `DataProducers` and `DataConsumers` of type 'direct' created on a direct transport. Direct messages sent by a `DataProducer` in a direct transport can be consumed by endpoints connected through a SCTP capable transport (`WebRtcTransport`, `PlainTransport`, `PipeTransport`) and also by the Node.js application by means of a `DataConsumer` created on a `DirectTransport` (and vice-versa: messages sent over SCTP/DataChannel can be consumed by the Node.js application by means of a `DataConsumer` created on a `DirectTransport`).
+A direct transport can be used to directly send and receive data messages from/to Node.js by means of `DataProducers` and `DataConsumers` of type 'direct' created on a direct transport. Direct messages sent by a `DataProducer` in a direct transport can be consumed by endpoints connected through a SCTP capable transport (`WebRtcTransport`, `PlainTransport`, `PipeTransport`) and also by the Node.js application by means of a `DataConsumer` created on a `DirectTransport` (and vice-versa: messages sent over SCTP/DataChannel can be consumed by the Node.js application by means of a `DataConsumer` created on a `DirectTransport`).
+
+A direct transport can also be used to inject and directly consume RTP and RTCP packets in Node.js by using the `producer.send(rtpPacket)` and `consumer.on('rtp')` API (plus `directTransport.sendRtcp(rtcpPacket)` and `directTransport.on('rtcp')` API).
 
 </section>
 
@@ -67,7 +69,7 @@ Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section 
 #### directTransport.connect()
 {: #directTransport-connect .code}
 
-It's a no-op. There is no need to call this method on direct transports (since they are always connected).
+It's a no-op. There is no need to call this method on direct transports (they are always connected).
 
 > `@async`
 > 
@@ -85,28 +87,6 @@ Not implemented in direct transports. If called, it will reject with `Unsupporte
 > `@overrides`
 
 </section>
-
-#### directTransport.produce(options)
-{: #directTransport-produce .code}
-
-<div markdown="1" class="note warn">
-A direct transport cannot produce RTP. If called, it will reject with `UnsupportedError`.
-</div>
-
-> `@async`
-> 
-> `@overrides`
-
-#### directTransport.consume(options)
-{: #directTransport-consume .code}
-
-<div markdown="1" class="note warn">
-A direct transport cannot consume RTP. If called, it will reject with `UnsupportedError`.
-</div>
-
-> `@async`
-> 
-> `@overrides`
 
 #### directTransport.sendRtcp(rtcpPacket)
 {: #directTransport-sendRtcp .code}

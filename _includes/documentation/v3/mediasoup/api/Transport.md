@@ -5,7 +5,7 @@
 
 > `@abstract`
 
-A transport connects an endpoint with a mediasoup router and enables transmission of media in both directions by means of [Producer](#Producer) and [Consumer](#Consumer) instances created on it.
+A transport connects an endpoint with a mediasoup router and enables transmission of media in both directions by means of [Producer](#Producer), [Consumer](#Consumer), [DataProducer](#DataProducer) and [DataConsumer](#DataConsumer) instances created on it.
 
 mediasoup implements the following transport classes:
 
