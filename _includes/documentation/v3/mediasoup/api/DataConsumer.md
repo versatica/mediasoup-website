@@ -269,21 +269,4 @@ Emitted when the data consumer is closed for whatever reason.
 
 Emitted when a message could not be sent because the SCTP send buffer was full.
 
-#### dataConsumer.on("bufferedamountlow", fn(bufferedAmount))
-{: #dataConsumer-observer-on-bufferedamountlow .code}
-
-Emitted when the underlaying SCTP association buffered bytes drop down to [bufferedAmountLowThreshold](#dataConsumer-bufferedAmountLowThreshold).
-
-<div markdown="1" class="table-wrapper L3">
-
-Argument    | Type    | Description   
------------ | ------- | ----------------
-`bufferedAmount`   | Number  | Number of bytes buffered in the underlaying SCTP association.
-
-</div>
-
-<div markdown="1" class="note">
-Only applicable for consumers of type 'sctp'.
-</div>
-
 </section>
