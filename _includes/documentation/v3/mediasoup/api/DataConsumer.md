@@ -70,6 +70,13 @@ The associated data producer identifier.
 
 > `@type` String, read only
 
+#### dataConsumer.bufferedAmountLowThreshold
+{: #dataConsumer-bufferedAmountLowThreshold .code}
+
+Number of bytes of buffered outgoing data that is considered low. Whenever the underlaying SCTP association buffered bytes drop to this value, [bufferedamountlow](#dataConsumer-on-bufferedamountlow) event is fired.
+
+> `@type` Number (by deafult 0)
+
 #### dataConsumer.closed
 {: #dataConsumer-closed .code}
 
@@ -145,6 +152,19 @@ Returns current statistics of the data consumer.
 Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section for more details.
 </div>
 
+#### dataConsumer.getBufferedAmount()
+{: #dataConsumer-getBufferedAmount .code}
+
+Returns the number of bytes of data currently buffered to be sent over the underlaying SCTP association.
+
+<div markdown="1" class="note">
+The underlaying SCTP association uses a common send buffer for all data consumers, hence the value given by this method indicates the data buffered for all data consumers in the transport.
+</div>
+
+> `@async`
+> 
+> `@returns` Number;
+
 </section>
 
 
@@ -210,6 +230,23 @@ dataConsumer.on("message", (message, ppid) =>
 
 Emitted when a message could not be sent because the SCTP send buffer was full.
 
+#### dataConsumer.on("bufferedamountlow", fn(bufferedAmount))
+{: #dataConsumer-on-bufferedamountlow .code}
+
+Emitted when the underlaying SCTP association buffered bytes drop down to [bufferedAmountLowThreshold](#dataConsumer-bufferedAmountLowThreshold).
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`bufferedAmount`   | Number  | Number of bytes buffered in the underlaying SCTP association.
+
+</div>
+
+<div markdown="1" class="note">
+Only applicable when for consumers of type 'sctp' .
+</div>
+
 </section>
 
 
@@ -231,5 +268,22 @@ Emitted when the data consumer is closed for whatever reason.
 {: #dataConsumer-observer-on-sctpsendbufferfull .code}
 
 Emitted when a message could not be sent because the SCTP send buffer was full.
+
+#### dataConsumer.on("bufferedamountlow", fn(bufferedAmount))
+{: #dataConsumer-observer-on-bufferedamountlow .code}
+
+Emitted when the underlaying SCTP association buffered bytes drop down to [bufferedAmountLowThreshold](#dataConsumer-bufferedAmountLowThreshold).
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`bufferedAmount`   | Number  | Number of bytes buffered in the underlaying SCTP association.
+
+</div>
+
+<div markdown="1" class="note">
+Only applicable when for consumers of type 'sctp' .
+</div>
 
 </section>
