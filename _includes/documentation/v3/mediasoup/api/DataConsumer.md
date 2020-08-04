@@ -244,7 +244,7 @@ Argument    | Type    | Description
 </div>
 
 <div markdown="1" class="note">
-Only applicable when for consumers of type 'sctp' .
+Only applicable for consumers of type 'sctp'.
 </div>
 
 </section>
@@ -283,7 +283,7 @@ Argument    | Type    | Description
 </div>
 
 <div markdown="1" class="note">
-Only applicable when for consumers of type 'sctp' .
+Only applicable for consumers of type 'sctp'.
 </div>
 
 </section>
