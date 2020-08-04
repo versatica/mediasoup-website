@@ -264,9 +264,4 @@ See the [Observer API](#observer-api) section below.
 
 Emitted when the data consumer is closed for whatever reason.
 
-#### dataConsumer.on("sctpsendbufferfull")
-{: #dataConsumer-observer-on-sctpsendbufferfull .code}
-
-Emitted when a message could not be sent because the SCTP send buffer was full.
-
 </section>
