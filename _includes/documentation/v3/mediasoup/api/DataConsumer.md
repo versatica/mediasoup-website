@@ -165,6 +165,51 @@ The underlaying SCTP association uses a common send buffer for all data consumer
 > 
 > `@returns` Number;
 
+#### dataConsumer.setBufferedAmountLowThreshold()
+{: #dataConsumer-setBufferedAmountLowThreshold .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field            | Type    | Description   | Required | Default
+---------------- | ------- | ------------- | -------- | ---------
+`bufferedAmountLowThreshold`   | Number  | Bytes of buffered outgoing data that is considered low.| No | 0
+
+</div>
+
+<div markdown="1" class="note">
+Whenever the underlaying SCTP association buffered bytes drop to this value, [bufferedamountlow](#dataConsumer-on-bufferedamountlow) event is fired.
+</div>
+
+> `@async`
+
+#### dataConsumer.send(message, ppid)
+{: #dataConsumer-send .code}
+
+Sends direct messages from the Node.js process.
+
+<div markdown="1" class="note">
+Just available in data consumers of type "SCTP".
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument  | Type    | Description | Required | Default 
+--------- | ------- | ----------- | -------- | ----------
+`message` | String\|Buffer | Message to be sent (can be binary by using a Node.js Buffer). | Yes |
+`ppid`    | Number | Mimics the [SCTP Payload Protocol Identifier](https://www.iana.org/assignments/sctp-parameters/sctp-parameters.xhtml#sctp-parameters-25). In most cases it must not be set. | No | 51 (`WebRTC String`) if `message` is a String and 53 (`WebRTC Binary`) if it's a Buffer.
+
+</div>
+
+```javascript
+const stringMessage = "hello";
+const binaryMessage = Buffer.from([ 1, 2, 3, 4 ]);
+
+dataConsumer.send(stringMessage);
+dataConsumer.send(binaryMessage);
+```
+
+> `@async`
+
 </section>
 
 
