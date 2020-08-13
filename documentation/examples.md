@@ -84,6 +84,13 @@ Sample code with the the simplest possible signaling, and fewest possible depend
 * Display of "active speaker"
 
 
+### Dirvann/mediasoup-sfu-webrtc-video-rooms
+
+**Project:** [https://github.com/Dirvann/mediasoup-sfu-webrtc-video-rooms](https://github.com/Dirvann/mediasoup-sfu-webrtc-video-rooms)
+
+Example website for multi-party video/audio/screen conferencing using mediasoup. This project is intended to better understand how mediasoup works with a simple example.
+
+
 ### Others
 
 Other public projects using mediasoup can be found in [GitHub](https://github.com/versatica/mediasoup/network/dependents).
