@@ -13,6 +13,13 @@ anchors : true
 
 * Illinois Institute of Technology, Chicago, USA
 * October 2018
-* **PDF:** [download from CoSMo site](https://www.cosmosoftware.io/publications/andre2018_Comparative_Study_of_SFUs.pdf)
+* [Download PDF](/resources/CoSMo_ComparativeStudyOfWebrtcOpenSourceSfusForVideoConferencing.pdf)
 
 This study used mediasoup v2.
+
+
+### Performance Testing with mediasoup: 1:many video broadcasting
+
+Topic in the [mediasoup Discourse Group](https://mediasoup.discourse.group/) about performance of mediasoup v3 for 1:many video broadcasting using various mediasoup `workers` and `pipeToRouter()`. It includes performance testing numbers:
+
+* [Link to the topic](https://mediasoup.discourse.group/t/experience-with-mediasoup/1578)
