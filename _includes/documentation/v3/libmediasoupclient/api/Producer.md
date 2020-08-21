@@ -29,6 +29,7 @@ Field           | Type    | Description   | Required | Default
 `videoGoogleStartBitrate` | Unsigned number | Set video initial bitrate. | No |
 `videoGoogleMaxBitrate` | Unsigned number | Set video maximum bitrate. | No |
 `videoGoogleMinBitrate` | Unsigned number | Set video minimum bitrate. | No |
+`opusPtime`     | Unsigned number | Set OPUS frame size. | No | libwebrtc default.
 
 </div>
 
