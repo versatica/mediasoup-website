@@ -14,6 +14,25 @@ mediasoup implements the following RTP observer classes:
 </section>
 
 
+### Dictionaries
+{: #RtpObserver-dictionaries}
+
+<section markdown="1">
+
+#### RtpObserverAddRemoveProducerOptions
+{: #RtpObserverAddRemoveProducerOptions .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field           | Type    | Description   | Required | Default
+--------------- | ------- | ------------- | -------- | ---------
+`producerId`    | String  | Id of the producer to add or remove. | Yes |
+
+</div>
+
+</section>
+
+
 ### Properties
 {: #RtpObserver-properties}
 
@@ -85,7 +104,7 @@ Resumes the RTP observer. RTP is inspected again.
 
 > `@async`
 
-#### rtpObserver.addProducer(producer)
+#### rtpObserver.addProducer(options)
 {: #rtpObserver-addProducer .code}
 
 Provides the RTP observer with a new producer to monitor.
@@ -94,13 +113,13 @@ Provides the RTP observer with a new producer to monitor.
 
 Argument     | Type    | Description | Required | Default 
 ------------ | ------- | ----------- | -------- | ----------
-`producerId` | String  | The id of the producer to monitor. | Yes |
+`options`    | [RtpObserverAddRemoveProducerOptions](#RtpObserverAddRemoveProducerOptions) | Options. | Yes |
 
 </div>
 
 > `@async`
 
-#### rtpObserver.removeProducer(producer)
+#### rtpObserver.removeProducer(options)
 {: #rtpObserver-removeProducer .code}
 
 Removes the given producer from the RTP observer.
@@ -109,7 +128,7 @@ Removes the given producer from the RTP observer.
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`producer`  | [Producer](#Producer) | Producer. | Yes |
+`options`    | [RtpObserverAddRemoveProducerOptions](#RtpObserverAddRemoveProducerOptions) | Options. | Yes |
 
 </div>
 
