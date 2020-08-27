@@ -94,7 +94,7 @@ Provides the RTP observer with a new producer to monitor.
 
 Argument     | Type    | Description | Required | Default 
 ------------ | ------- | ----------- | -------- | ----------
-`producerId` | String  | The id of the producer to monitor. | Yes |
+`producer`   | { producerId: string }  | The Producer Id to monitor. | Yes |
 
 </div>
 
@@ -109,7 +109,7 @@ Removes the given producer from the RTP observer.
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`producer`  | [Producer](#Producer) | Producer. | Yes |
+`producer`  | { producerId: string } | The Producer Id to remove. | Yes |
 
 </div>
 
