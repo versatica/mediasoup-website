@@ -23,6 +23,7 @@ In order to build the mediasoup C/C++ components the following packages and libr
 * `python` version 2 or 3
 * `make`
 * `gcc` and `g++` >= 4.9 or `clang` (with C++11 support)
+* `cc` and `c++` commands (symlinks) pointing to the corresponding `gcc`/`g++` or `clang`/`clang++` executables.
 
 <div markdown="1" class="note">
 * In Debian and Ubuntu install the `build-essential` DEB package. It includes both `make` and `gcc`/`g++`.
