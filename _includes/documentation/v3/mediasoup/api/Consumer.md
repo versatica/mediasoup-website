@@ -305,7 +305,7 @@ await consumer.setPriority(2);
 #### consumer.unsetPriority()
 {: #consumer-unsetPriority .code}
 
-UInsets the priority for this consumer (it sets it to its default value 1).
+Unsets the priority for this consumer (it sets it to its default value 1).
 
 > `@async`
 
