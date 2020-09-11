@@ -38,6 +38,11 @@ $ PYTHON=python3 npm install mediasoup@3 --save
 ```
 </div>
 
+<div markdown="1" class="note">
+If the `MEDIASOUP_MAX_CORES` environment variable is set, the build process will use that number of CPU cores. Otherwise it will auto-detect the number of cores in the machine.
+</div>
+
+
 ### Windows
 
 * `node` version >= v8.6.0
