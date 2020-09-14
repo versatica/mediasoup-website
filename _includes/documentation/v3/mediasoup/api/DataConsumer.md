@@ -94,21 +94,21 @@ The type of the data consumer.
 #### dataConsumer.sctpStreamParameters
 {: #dataConsumer-sctpStreamParameters .code}
 
-The SCTP stream parameters (just if the data producer `type` is 'sctp').
+The SCTP stream parameters (just if the data consumer `type` is 'sctp').
 
 > `@type` [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters)\|Undefined, read only
 
 #### dataConsumer.label
 {: #dataConsumer-label .code}
 
-The data producer label.
+The data consumer label.
 
 > `@type` String , read only
 
 #### dataConsumer.protocol
 {: #dataConsumer-protocol .code}
 
-The data producer sub-protocol.
+The data consumer sub-protocol.
 
 > `@type` String , read only
 
