@@ -7,6 +7,8 @@
 
 An audio level observer monitors the volume of the selected audio producers. It just handles audio producers (if [addProducer()](#rtpObserver-addProducer) is called with a video producer it will fail).
 
+Audio levels are read from an RTP header extension. No decoding of audio data is done. See [RFC6464](https://tools.ietf.org/html/rfc6464) for more information.
+
 </section>
 
 
