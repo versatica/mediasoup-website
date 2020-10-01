@@ -30,3 +30,5 @@ class   : h3color
 {% include documentation/v3/mediasoup-client/api/DataProducer.md %}
 
 {% include documentation/v3/mediasoup-client/api/DataConsumer.md %}
+
+{% include documentation/v3/mediasoup-client/api/observer-api.md %}

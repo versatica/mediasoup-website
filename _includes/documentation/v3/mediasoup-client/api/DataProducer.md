@@ -101,6 +101,13 @@ Custom data Object provided by the application in the data producer factory meth
 
 > `@type` Object, read only
 
+#### dataProducer.observer
+{: #dataProducer-observer .code}
+
+See the [Observer Events](#DataProducer-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
+
 </section>
 
 
@@ -178,5 +185,22 @@ Emitted when the underlying DataChannel is closed for unknown reasons.
 {: #dataProducer-on-bufferedamountlow .code}
 
 Emitted when the DataChannel buffered ammount of bytes decreases from above the ` bufferedAmountLowThreshold` value.
+
+</section>
+
+
+### Observer Events
+{: #DataProducer-observer-events}
+
+<section markdown="1">
+
+<div markdown="1" class="note">
+See the [Observer API](#observer-api) section below.
+</div>
+
+#### dataProducer.observer.on("close", fn())
+{: #dataProducer-observer-on-close .code}
+
+Emitted when the producer is closed for whatever reason.
 
 </section>

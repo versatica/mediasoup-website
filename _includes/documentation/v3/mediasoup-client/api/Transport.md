@@ -108,6 +108,13 @@ Custom data Object provided by the application in the transport constructor. The
 transport.appData.foo = "bar";
 ```
 
+#### transport.observer
+{: #transport-observer .code}
+
+See the [Observer Events](#Transport-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
+
 </section>
 
 
@@ -493,5 +500,104 @@ Argument    | Type    | Description
 `connectionState` | [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum) | Transport connection state.
 
 </div>
+
+</section>
+
+
+### Observer Events
+{: #Transport-observer-events}
+
+<section markdown="1">
+
+<div markdown="1" class="note">
+See the [Observer API](#observer-api) section below.
+</div>
+
+These are observer events common to all transport classes. Each transport class may define new ones.
+
+#### transport.observer.on("close", fn())
+{: #transport-observer-on-close .code}
+
+Emitted when the transport is closed for whatever reason.
+
+#### transport.observer.on("newproducer", fn(producer))
+{: #transport-observer-on-newproducer .code}
+
+Emitted when a new producer is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`producer` | [Producer](#Producer) | New producer.
+
+</div>
+
+```javascript
+transport.observer.on("newproducer", (producer) =>
+{
+  console.log("new producer created [id:%s]", producer.id);
+});
+```
+
+#### transport.observer.on("newconsumer", fn(consumer))
+{: #transport-observer-on-newconsumer .code}
+
+Emitted when a new consumer is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`consumer` | [Consumer](#Consumer) | New consumer.
+
+</div>
+
+```javascript
+transport.observer.on("newconsumer", (consumer) =>
+{
+  console.log("new consumer created [id:%s]", consumer.id);
+});
+```
+
+#### transport.observer.on("newdataproducer", fn(dataProducer))
+{: #transport-observer-on-newdataproducer .code}
+
+Emitted when a new data producer is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`dataProducer` | [DataProducer](#DataProducer) | New producer.
+
+</div>
+
+```javascript
+transport.observer.on("newdataproducer", (dataProducer) =>
+{
+  console.log("new data producer created [id:%s]", dataProducer.id);
+});
+```
+
+#### transport.observer.on("newdataconsumer", fn(dataConsumer))
+{: #transport-observer-on-newdataconsumer .code}
+
+Emitted when a new data consumer is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`dataConsumer` | [DataConsumer](#DataConsumer) | New consumer.
+
+</div>
+
+```javascript
+transport.observer.on("newdataconsumer", (dataConsumer) =>
+{
+  console.log("new data consumer created [id:%s]", dataConsumer.id);
+});
+```
 
 </section>

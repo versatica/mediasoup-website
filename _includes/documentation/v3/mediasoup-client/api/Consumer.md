@@ -107,6 +107,13 @@ Custom data Object provided by the application in the consumer factory method. T
 
 > `@type` Object, read only
 
+#### consumer.observer
+{: #consumer-observer .code}
+
+See the [Observer Events](#Consumer-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
+
 </section>
 
 
@@ -173,6 +180,38 @@ consumer.on("transportclose", () =>
 
 #### consumer.on("trackended", fn())
 {: #consumer-on-trackended .code}
+
+Emitted when the audio/video track being received is externally stopped.
+
+</section>
+
+
+### Observer Events
+{: #Consumer-observer-events}
+
+<section markdown="1">
+
+<div markdown="1" class="note">
+See the [Observer API](#observer-api) section below.
+</div>
+
+#### consumer.observer.on("close", fn())
+{: #consumer-observer-on-close .code}
+
+Emitted when the consumer is closed for whatever reason.
+
+#### consumer.observer.on("pause", fn())
+{: #consumer-observer-on-pause .code}
+
+Emitted when the consumer or its associated producer is paused and, as result, the consumer becomes paused.
+
+#### consumer.observer.on("resume", fn())
+{: #consumer-observer-on-resume .code}
+
+Emitted when the consumer or its associated producer is resumed and, as result, the consumer is no longer paused.
+
+#### consumer.observer.on("trackended", fn())
+{: #consumer-observer-on-trackended .code}
 
 Emitted when the audio/video track being received is externally stopped.
 

@@ -112,6 +112,13 @@ Custom data Object provided by the application in the data consumer factory meth
 
 > `@type` Object, read only
 
+#### dataConsumer.observer
+{: #dataConsumer-observer .code}
+
+See the [Observer Events](#DataConsumer-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
+
 </section>
 
 
@@ -184,5 +191,22 @@ Argument | Type    | Description
 `data`   | String\|Blob\|ArrayBuffer | Data message received.
 
 </div>
+
+</section>
+
+
+### Observer Events
+{: #DataConsumer-observer-events}
+
+<section markdown="1">
+
+<div markdown="1" class="note">
+See the [Observer API](#observer-api) section below.
+</div>
+
+#### dataConsumer.observer.on("close", fn())
+{: #dataConsumer-observer-on-close .code}
+
+Emitted when the data consumer is closed for whatever reason.
 
 </section>

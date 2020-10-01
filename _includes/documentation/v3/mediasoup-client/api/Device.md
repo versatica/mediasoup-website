@@ -164,6 +164,13 @@ The device SCTP capabilities.
 > 
 > `@throws` InvalidStateError, if device not loaded
 
+#### device.observer
+{: #device-observer .code}
+
+See the [Observer Events](#Device-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
+
 </section>
 
 
@@ -286,6 +293,43 @@ const transport = device.createRecvTransport(
     dtlsParameters : { ... },
     sctpParameters : { ... }
   });
+```
+
+</section>
+
+
+### Observer Events
+{: #Device-observer-events}
+
+<section markdown="1">
+
+<div markdown="1" class="note">
+See the [Observer API](#observer-api) section below.
+</div>
+
+#### device.observer.on("close", fn())
+{: #router-observer-on-close .code}
+
+Emitted when the router is closed for whatever reason.
+
+#### device.observer.on("newtransport", fn(transport))
+{: #router-observer-on-newtransport .code}
+
+Emitted when a new transport is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`transport` | [Transport](#Transport) | New transport.
+
+</div>
+
+```javascript
+device.observer.on("newtransport", (transport) =>
+{
+  console.log("new transport created [id:%s]", transport.id);
+});
 ```
 
 </section>

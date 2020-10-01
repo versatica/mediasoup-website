@@ -160,6 +160,14 @@ Custom data Object provided by the application in the producer factory method. T
 
 > `@type` Object, read only
 
+
+#### producer.observer
+{: #producer-observer .code}
+
+See the [Observer Events](#Producer-observer-events) section below.
+
+> `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
+
 </section>
 
 
@@ -298,5 +306,37 @@ producer.on("trackended", () =>
   console.log("track ended");
 });
 ```
+
+</section>
+
+
+### Observer Events
+{: #Producer-observer-events}
+
+<section markdown="1">
+
+<div markdown="1" class="note">
+See the [Observer API](#observer-api) section below.
+</div>
+
+#### producer.observer.on("close", fn())
+{: #producer-observer-on-close .code}
+
+Emitted when the producer is closed for whatever reason.
+
+#### producer.observer.on("pause", fn())
+{: #producer-observer-on-pause .code}
+
+Emitted when the producer is paused.
+
+#### producer.observer.on("resume", fn())
+{: #producer-observer-on-resume .code}
+
+Emitted when the producer is resumed.
+
+#### producer.observer.on("trackended", fn())
+{: #producer-observer-on-trackended .code}
+
+Emitted when the audio/video track being transmitted is externally stopped. This may happen, for instance, if the associated microphone or webcam source is disconnected. This is a good chance for the application to close/pause the producer or replace its track.
 
 </section>
