@@ -73,7 +73,7 @@ Value    | Description
 "debug"  | Log all severities.
 "warn"   | Log "warn" and "error" severities.
 "error"  | Log "error" severity.
-"error"  | Do not log anything.
+"none"   | Do not log anything.
 
 </div>
 
