@@ -59,7 +59,7 @@ The concept is simple:
 * The application pipes producer1 from router1 to router2 and from router1 to router3, etc.
 * Viewers consume producer1 from their respective routers.
 
-It's also perfectly possible to inter-communicate mediasoup routers running in different physical hosts. However, since mediasoup does not provide any signaling protocol, it's up to the application to implement the required information exchange to accomplish with that goal. As a good reference, in order to pipe a producer into a router in a different host, the application should implement something similar to what the [router.pipeToRouter()](https://github.com/versatica/mediasoup/blob/v3/lib/Router.js#L538) method already does, but taking into account that in this case both routers are not co-located in the same host so network signaling is needed.
+It's also perfectly possible to inter-communicate mediasoup routers running in different physical hosts. However, since mediasoup does not provide any signaling protocol, it's up to the application to implement the required information exchange to accomplish with that goal. As a good reference, in order to pipe a producer into a router in a different host, the application should implement something similar to what the [router.pipeToRouter()](https://github.com/versatica/mediasoup/blob/v3/src/Router.ts#L683) method already does, but taking into account that in this case both routers are not co-located in the same host so network signaling is needed.
 
 <div markdown="1" class="note warn">
 When broadcasting a video stream to many viewers (hundreds or thousands of consumers) it's important to be aware of how video RTP transmission typically works:
