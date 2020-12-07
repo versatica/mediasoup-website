@@ -39,7 +39,7 @@ Depending on the host CPU capabilities, a mediasoup C++ subprocess can typically
 * Each peer receives audio and video from 3 peers, so 3x2 = 6 consumers in total.
 * There are 4 peers, so 4x6 = 24 consumers in total.
 
-Depending on the needed capability, the server side application using mediasoup should launch as many workers as required (no more than the number of CPU cores in the host) and distribute "rooms" (mediasoup routers) accross them.
+Depending on the needed capability, the server side application using mediasoup should launch as many workers as required (no more than the number of CPU cores in the host) and distribute "rooms" (mediasoup routers) across them.
 
 If higher capability is required, the application backend should run mediasoup in multiple hosts and distribute "rooms" across them.
 
