@@ -70,13 +70,6 @@ The associated data producer identifier.
 
 > `@type` String, read only
 
-#### dataConsumer.bufferedAmountLowThreshold
-{: #dataConsumer-bufferedAmountLowThreshold .code}
-
-Number of bytes of buffered outgoing data that is considered low. Whenever the underlaying SCTP association buffered bytes drop to this value, [bufferedamountlow](#dataConsumer-on-bufferedamountlow) event is fired.
-
-> `@type` Number (by deafult 0)
-
 #### dataConsumer.closed
 {: #dataConsumer-closed .code}
 
