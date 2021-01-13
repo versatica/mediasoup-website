@@ -56,7 +56,7 @@ Special thanks for their contributions, help and advice to:
 
 ## Donate
 
-You can support mediasoup by [sponsoring](/sponsors/#become-a-sponsor) it. Thanks!
+You can support mediasoup by [sponsoring](/sponsor/#become-a-sponsor) it. Thanks!
 
 
 
