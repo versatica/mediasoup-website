@@ -73,7 +73,8 @@ Field           | Type    | Description   | Required | Default
 `opusStereo`    | Boolean | Enable OPUS stereo (if the audio source is stereo). | No | Browser specific.
 `opusFec`       | Boolean | Enable OPUS in band FEC. | No | Browser specific.
 `opusDtx`       | Boolean | Enable OPUS discontinuous transmission. | No | Browser specific.
-`opusMaxPlaybackRate` | Number | Set OPUS maximum playbak rate. | No | Browser specific.
+`opusMaxPlaybackRate` | Number | Set OPUS maximum playback rate. | No | Browser specific.
+`opusMaxAverageBitrate` | Number | Set OPUS maximum average bitrate. | No | Browser specific.
 `opusPtime`     | Number | Set OPUS preferred duration of media represented by a packet. | No | Browser specific.
 `videoGoogleStartBitrate` | Number | Just for libwebrtc based browsers. Set video initial bitrate. | No |
 `videoGoogleMaxBitrate` | Number | Just for libwebrtc based browsers. Set video maximum bitrate. | No |
