@@ -11,7 +11,7 @@ A brief introduction to mediasoup and its ecosystem.
 
 ##### [v3 Documentation](/documentation/v3/)
 
-mediasoup, mediasoup-client and libmediasoupclient v3.
+mediasoup, mediasoup-rust, mediasoup-client and libmediasoupclient v3.
 
 ##### [v2 Documentation](/documentation/v2/)
 
