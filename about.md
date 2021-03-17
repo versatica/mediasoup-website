@@ -47,6 +47,7 @@ I'm a core author of [JsSIP][jssip-url] "The JavaScript SIP library" and co-auth
 
 Special thanks for their contributions, help and advice to:
 
+* [Nazar Mokrynskyi][nazar-personal-url]: Rust version of mediasoup and various improvements.
 * [Saúl Ibarra Corretgé][saghul-personal-url]: Advice on libuv usage and GYP.
 * [Gustavo García][gustavo-personal-url]: The source of WebRTC knowledge.
 * [Haiyang Wu][haiyangwu-personal-url]: Windows support for mediasoup.
@@ -86,6 +87,7 @@ You can support mediasoup by [sponsoring](/sponsor/#become-a-sponsor) it. Thanks
 [ortc-draft-url]: https://draft.ortc.org
 [jssip-url]: https://jssip.net
 
+[nazar-personal-url]: https://github.com/nazar-pc
 [saghul-personal-url]: https://about.me/saghul
 [gustavo-personal-url]: https://www.rtcbits.com
 [haiyangwu-personal-url]: https://github.com/haiyangwu
