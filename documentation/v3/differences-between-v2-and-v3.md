@@ -92,5 +92,14 @@ Feature                   | Description
 New `DirectTransport`     | It represents a direct connection between the mediasoup Node.js process and a `Router` instance in a mediasoup-worker subprocess. It enables direct transmission of data messages between the Node.js application and the mediasoup `Router` by using `DataProducers` and `DataConsumers`. It also enables direct injection on RTP and RTCP packet from Node.js by using the `producer.send(rtpPacket)` and `consumer.on('rtp')` API (plus `directTransport.sendRtcp(rtcpPacket)` and `directTransport.on('rtcp')`).
 DataChannel termination   | Thanks to the new `DirectTransport` it's no longer needed to use a complex setup with the Node.js [node-sctp](https://github.com/latysheff/node-sctp/) library to send and receive DataChannels within the Node.js application.
 
+</div>
+
+#### In mediasoup >= 3.7.X
+
+<div markdown="1" class="table-wrapper L1-small L4">
+
+Feature                   | Description
+------------------------- | -------------------------------
+New mediasoup-rust        | Now you can run mediasoup within your Rust application.
 
 </div>
