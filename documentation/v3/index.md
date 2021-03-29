@@ -18,6 +18,14 @@ title : v3
 
 {% include documentation/v3/mediasoup/index.md %}
 
+### mediasoup-rust
+{: .h3color}
+
+Brings the same powerful C++ SFU to the Rust ecosystem, shares design philosophy with Node.js module.
+
+* [Documentation on docs.rs](https://docs.rs/mediasoup)
+* [Crate on crates.io](https://crates.io/crates/mediasoup)
+
 ### mediasoup-client
 {: .h3color}
 

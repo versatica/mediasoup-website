@@ -37,7 +37,7 @@ gulp.task('jekyll:build', shell.task(
 ));
 
 gulp.task('jekyll:watch', shell.task(
-	[ 'bundle exec jekyll serve --host 0.0.0.0' ]
+	[ 'bundle exec jekyll serve --host 0.0.0.0 -P 3001' ]
 ));
 
 gulp.task('shields', async () =>
