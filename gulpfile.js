@@ -16,6 +16,14 @@ const rsync = require('rsyncwrapper');
 const pkg = require('./package.json');
 const octokit = Octokit();
 
+/**
+ * Filter tags with just X.Y.Z content.
+ */
+function getSemverTags(tags)
+{
+	return tags.filter(tag => /^\d+\.\d+\.\d+$/.test(tag.name));
+}
+
 gulp.task('clean', () =>
 {
 	return del([ '_site', '.sass-cache' ], { force: true });
@@ -46,15 +54,18 @@ gulp.task('shields', async () =>
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup' });
 
-	const mediasoupVersion = tags.data[0].name;
+	const mediasoupVersion = getSemverTags(tags.data)[0].name;
+	console.log('"shields" task | mediasoup:', mediasoupVersion);
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client' });
 
-	const mediasoupClientVersion = tags.data[0].name;
+	const mediasoupClientVersion = getSemverTags(tags.data)[0].name;
+	console.log('"shields" task | mediasoup-client:', mediasoupClientVersion);
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'libmediasoupclient' });
 
-	const libmediasoupclientVersion = tags.data[0].name;
+	const libmediasoupclientVersion = getSemverTags(tags.data)[0].name;
+	console.log('"shields" task | libmediasoupclient:', libmediasoupclientVersion);
 
 	return gulp.src('_site/index.html')
 		.pipe(replace(
