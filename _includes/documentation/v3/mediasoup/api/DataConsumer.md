@@ -201,6 +201,10 @@ dataConsumer.send(stringMessage);
 dataConsumer.send(binaryMessage);
 ```
 
+<div markdown="1" class="note">
+If the data cannot be sent due to the underlying SCTP send buffer being full, the method will fail with an Error instance which `message` equals `sctpsendbufferfull`.
+</div>
+
 > `@async`
 
 </section>
