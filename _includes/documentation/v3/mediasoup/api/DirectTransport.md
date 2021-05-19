@@ -86,6 +86,17 @@ Not implemented in direct transports. If called, it will reject with `Unsupporte
 > 
 > `@overrides`
 
+#### directTransport.setMaxOutgoingBitrate(options)
+{: #directTransport-setMaxOutgoingBitrate .code}
+
+<div markdown="1" class="note warn">
+Not implemented in direct transports. If called, it will reject with `UnsupportedError`.
+</div>
+
+> `@async`
+> 
+> `@overrides`
+
 </section>
 
 #### directTransport.sendRtcp(rtcpPacket)

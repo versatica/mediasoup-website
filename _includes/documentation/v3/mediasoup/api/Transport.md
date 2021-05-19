@@ -200,7 +200,7 @@ Set maximum incoming bitrate for media streams sent by the remote endpoint over 
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`bitrate`  | Number | Maximum sending bitrate in `bps`. | Yes | 0 (no limit)
+`bitrate`  | Number | Maximum incoming bitrate in `bps`. | Yes | 0 (no limit)
 
 </div>
 
@@ -212,6 +212,29 @@ This method just works when REMB is available in the remote sender, which is typ
 
 ```javascript
 await transport.setMaxIncomingBitrate(3500000);
+```
+
+#### transport.setMaxOutgoingBitrate(bitrate)
+{: #transport-setMaxOutgoingBitrate .code}
+
+Set maximum outgoing bitrate for media streams sent by mediasoup to the remote endpoint over this transport.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`bitrate`  | Number | Maximum outgoing bitrate in `bps`. | Yes | 0 (no limit)
+
+</div>
+
+> `@async`
+
+<div markdown="1" class="note">
+This method just works when transport congestion control is available in the remote receiver, which is typically just supported in WebRTC.
+</div>
+
+```javascript
+await transport.setMaxOutgoingBitrate(2000000);
 ```
 
 #### transport.produce(options)
