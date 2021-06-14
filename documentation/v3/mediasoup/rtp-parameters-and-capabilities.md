@@ -246,7 +246,7 @@ Provides information relating to supported header extensions. The list of RTP he
 
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
-`kind`             | [MediaKind](#MediaKind) | Media kind ("audio" or "video"). If unset, it's valid for all kinds. | No |
+`kind`             | [MediaKind](#MediaKind) | Media kind ("audio" or "video"). | Yes |
 `uri`              | String  | The URI of the RTP header extension, as defined in [RFC 5285](https://tools.ietf.org/html/rfc5285). | Yes |
 `preferredId`      | Number  | The preferred numeric identifier that goes in the RTP packet. Must be unique. | Yes |
 `preferredEncrypt` | Boolean | If `true`, it is preferred that the value in the header be encrypted as per [RFC 6904](https://tools.ietf.org/html/rfc6904). | No | `false`
