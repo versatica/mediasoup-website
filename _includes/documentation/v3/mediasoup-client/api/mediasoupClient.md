@@ -13,9 +13,10 @@ import * as mediasoupClient from "mediasoup-client";
 import {
   types,
   version,
-  detectDevice,
   Device,
-  parseScalabilityMode
+  detectDevice,
+  parseScalabilityMode,
+  debug
 } from "mediasoup-client";
 
 // Using CommonJS.
@@ -26,7 +27,9 @@ const {
   types,
   version,
   Device,
-  parseScalabilityMode
+  detectDevice,
+  parseScalabilityMode,
+  debug
 } = require("mediasoup-client");
 ```
 
@@ -71,24 +74,10 @@ console.log(mediasoupClient.version);
 // => "3.0.0"
 ```
 
-#### mediasoupClient.detectDevice()
-{: #mediasoupClient-detectDevice .code}
+#### mediasoupClient.debug
+{: #mediasoupClient-debug .code}
 
-Performs current browser/device detection and returns the corresponding mediasoup-client WebRTC handler name (or nothing if the browser/device is not supported).
-
-> `@async`
-> 
-> `@returns` [BuiltinHandlerName](#BuiltinHandlerName) \| undefined
-
-```javascript
-const handlerName = mediasoupClient.detectDevice();
-
-if (handlerName) {
-  console.log("detected handler: %s", handlerName);
-} else {
-  console.warn("no suitable handler found for current browser/device");
-}
-```
+Exposes the [debug](https://www.npmjs.com/package/debug) dependency used by mediasoup-client. Useful if you need to enable/disable `debug` namespaces programatically.  
 
 </section>
 
@@ -116,6 +105,25 @@ const device = new mediasoupClient.Device();
 {: #mediasoupClient-functions}
 
 <section markdown="1">
+
+#### mediasoupClient.detectDevice()
+{: #mediasoupClient-detectDevice .code}
+
+Performs current browser/device detection and returns the corresponding mediasoup-client WebRTC handler name (or nothing if the browser/device is not supported).
+
+> `@async`
+> 
+> `@returns` [BuiltinHandlerName](#BuiltinHandlerName) \| undefined
+
+```javascript
+const handlerName = mediasoupClient.detectDevice();
+
+if (handlerName) {
+  console.log("detected handler: %s", handlerName);
+} else {
+  console.warn("no suitable handler found for current browser/device");
+}
+```
 
 #### mediasoupClient.parseScalabilityMode(scalabilityMode)
 {: #mediasoupClient-parseScalabilityMode .code}
