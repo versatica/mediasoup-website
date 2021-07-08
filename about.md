@@ -17,7 +17,6 @@ mediasoup is made with love by a small team of Real-Time addicts.
 [![][github-icon]][ibc-github-url]{: .inline-icon }
 [![][github-icon]][versatica-github-url]{: .inline-icon }
 [![][linkedin-icon]][ibc-linkedin-url]{: .inline-icon }
-[![][twitter-icon]][ibc-twitter-url]{: .inline-icon }
 <!-- [![][upwork-icon]][ibc-upwork-url]{: .inline-icon } -->
 
 I'm passionate about new technologies, Open Source, WebRTC, modern Web development, Node.js, C++ and, above all, Real-Time Communications.
