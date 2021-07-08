@@ -20,6 +20,7 @@ A producer represents an audio or video source being injected into a mediasoup r
 
 Field           | Type    | Description   | Required | Default
 --------------- | ------- | ------------- | -------- | ---------
+`id`            | String  | Useful for `PipeTransport` usages when connecting mediasoup instances running in different hosts. Not needed otherwise (a random UUID v4 is auto-generated). | No |
 `kind`          | [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind) | Media kind ("audio" or "video"). | Yes |
 `rtpParameters` | [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters) | RTP parameters defining what the endpoint is sending. | Yes |
 `paused`        | Boolean | Whether the producer must start in paused mode. | No | `false`
