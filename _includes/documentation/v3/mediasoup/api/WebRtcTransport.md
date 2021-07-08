@@ -27,6 +27,7 @@ The WebRTC transport implementation of mediasoup is [ICE Lite](https://tools.iet
 Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
 `listenIps`  | Array&lt;[TransportListenIp](#TransportListenIp)\|String&gt; | Listening IP address or addresses in order of preference (first one is the preferred one). | Yes |
+`port`       | Number  | Fixed port to listen on instead of selecting automatically from Worker's port range. | No |
 `enableUdp`  | Boolean | Listen in UDP. | No | `true`
 `enableTcp`  | Boolean | Listen in TCP. | No | `false`
 `preferUdp`  | Boolean | Listen in UDP. | No | `false`

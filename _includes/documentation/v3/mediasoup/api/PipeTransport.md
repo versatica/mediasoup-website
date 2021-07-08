@@ -27,7 +27,8 @@ When calling [consume()](#transport-consume) on a pipe transport, all RTP stream
 Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
 `listenIp`    | [TransportListenIp](#TransportListenIp)\|String| Listening IP address. | Yes |
-`enableSctp` | Boolean | Create a SCTP association. | No | `false`
+`port`        | Number  | Fixed port to listen on instead of selecting automatically from Worker's port range. | No |
+`enableSctp`  | Boolean | Create a SCTP association. | No | `false`
 `numSctpStreams` | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
 `maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers`. | No | 268435456
 `sctpSendBufferSize` | Number | SCTP send buffer size used by usrsctp. | NO | 268435456 |

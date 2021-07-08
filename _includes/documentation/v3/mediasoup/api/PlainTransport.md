@@ -35,6 +35,7 @@ A plain transport represents a network path through which RTP, RTCP (optionally 
 Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
 `listenIp`    | [TransportListenIp](#TransportListenIp)\|String| Listening IP address. | Yes |
+`port`        | Number  | Fixed port to listen on instead of selecting automatically from Worker's port range. | No |
 `rtcpMux`     | Boolean | Use RTCP-mux (RTP and RTCP in the same port). | No | `true`
 `comedia`     | Boolean | Whether remote IP:port should be auto-detected based on first RTP/RTCP packet received. If enabled, `connect()` must only be called if SRTP is enabled by providing the remote `srtpParameters` and nothing else. | No | `false`
 `enableSctp`  | Boolean | Create a SCTP association. | No | `false`
