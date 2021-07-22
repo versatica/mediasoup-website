@@ -363,6 +363,12 @@
 	img {
 		vertical-align: bottom;
 
+		&.photo {
+			height: 215px;
+			width: 215px;
+			object-fit: cover;
+		}
+
 		&.round {
 			border-radius: 50%;
 		}

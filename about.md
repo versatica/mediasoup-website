@@ -9,9 +9,11 @@ anchors : true
 mediasoup is made with love by a small team of Real-Time addicts.
 
 
-## Iñaki Baz Castillo
+## Authors
 
-![Iñaki Baz Castillo][ibc-photo]{: .left.round }
+### Iñaki Baz Castillo
+
+![Iñaki Baz Castillo][ibc-photo]{: .photo.left.round }
 
 [![][website-icon]][ibc-website-url]{: .inline-icon }
 [![][github-icon]][ibc-github-url]{: .inline-icon }
@@ -26,9 +28,9 @@ During the last years of my life I've been deeply involved in Voice over IP tech
 Since the first days of WebRTC my professional efforts go around it, and this is where mediasoup takes place. Made with love, this is by far my largest Open Source project, combining several of my preferred technical fields plus so many sleepless nights coding and reading specifications.
 
 
-## José Luis Millán
+### José Luis Millán
 
-![José Luis Millán][jmillan-photo]{: .left.round }
+![José Luis Millán][jmillan-photo]{: .photo.left.round }
 
 [![][github-icon]][jmillan-github-url]{: .inline-icon }
 [![][github-icon]][versatica-github-url]{: .inline-icon }
@@ -42,11 +44,23 @@ As a former VoIP engineer I have many years of experience in SIP and VoIP.
 I'm a core author of [JsSIP][jssip-url] "The JavaScript SIP library" and co-author of the [RFC 7118][rfc7118-url]{:target="_blank"} "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)".
 
 
+## Core Contributors
+
+### Nazar Mokynskyi
+
+![Nazar Mokynskyi][nazar-photo]{: .photo.left.round }
+
+[![][github-icon]][nazar-github-url]{: .inline-icon }
+
+I’m an Open Source enthusiast with over 10 years of contributions ranging from jQuery to Emscripten to Linux kernel.
+
+Passionate about open web-related technologies, especially WebAssembly, WebRTC, Web Audio API and Web Components. Lately enjoy working with Rust programming language, helping others to get more productive in it as well as writing useful libraries for the community.
+
+
 ## Acknowledgements
 
 Special thanks for their contributions, help and advice to:
 
-* [Nazar Mokrynskyi][nazar-personal-url]: Rust version of mediasoup and various improvements.
 * [Saúl Ibarra Corretgé][saghul-personal-url]: Advice on libuv usage and GYP.
 * [Gustavo García][gustavo-personal-url]: The source of WebRTC knowledge.
 * [Haiyang Wu][haiyangwu-personal-url]: Windows support for mediasoup.
@@ -61,7 +75,7 @@ You can support mediasoup by [sponsoring](/sponsor/#become-a-sponsor) it. Thanks
 
 
 
-[ibc-photo]: /images/ibc.jpg
+[ibc-photo]: /images/ibc.png
 [ibc-website-url]: https://inakibaz.me
 [ibc-github-url]: https://github.com/ibc
 [ibc-linkedin-url]: https://linkedin.com/in/inakibaz
@@ -72,6 +86,9 @@ You can support mediasoup by [sponsoring](/sponsor/#become-a-sponsor) it. Thanks
 [jmillan-github-url]: https://github.com/jmillan
 [jmillan-linkedin-url]: https://www.linkedin.com/in/jos%C3%A9-luis-mill%C3%A1n-a423683b/
 [jmillan-twitter-url]: https://twitter.com/jomivi
+
+[nazar-photo]: /images/nazar.jpg
+[nazar-github-url]: https://github.com/nazar-pc
 
 [versatica-github-url]: https://github.com/versatica
 
@@ -86,7 +103,6 @@ You can support mediasoup by [sponsoring](/sponsor/#become-a-sponsor) it. Thanks
 [ortc-draft-url]: https://draft.ortc.org
 [jssip-url]: https://jssip.net
 
-[nazar-personal-url]: https://github.com/nazar-pc
 [saghul-personal-url]: https://about.me/saghul
 [gustavo-personal-url]: https://www.rtcbits.com
 [haiyangwu-personal-url]: https://github.com/haiyangwu
