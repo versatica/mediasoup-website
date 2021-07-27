@@ -303,7 +303,7 @@ Argument    | Type    | Description | Required | Default
 > `@returns` [ActiveSpakerObserver](#ActiveSpeakerObserver)
 
 ```javascript
-const audioLevelObserver = await router.createAudioLevelObserver(
+const activeSpeakerObserver = await router.createActiveSpeakerObserver(
 	{
 		interval   : 500
 	});
