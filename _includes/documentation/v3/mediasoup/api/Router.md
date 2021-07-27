@@ -285,6 +285,30 @@ const transport2 = await router2.createWebRtcTransport({ ... });
 const consumer2 = await transport2.consume({ producerId: producer1.id, ... });
 ```
 
+#### router.createActiveSpeakerObserver(options)
+{: #router-createActiveSpeakerObserver .code}
+
+Creates a new audio level observer.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default
+----------- | ------- | ----------- | -------- | ----------
+`options`   | [ActiveSpeakerObserverOptions](#ActiveSpeakerObserverOptions) | Options. | Yes |
+
+</div>
+
+> `@async`
+>
+> `@returns` [ActiveSpakerObserver](#ActiveSpeakerObserver)
+
+```javascript
+const audioLevelObserver = await router.createAudioLevelObserver(
+	{
+		interval   : 500
+	});
+```
+
 #### router.createAudioLevelObserver(options)
 {: #router-createAudioLevelObserver .code}
 
