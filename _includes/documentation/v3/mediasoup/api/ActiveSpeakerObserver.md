@@ -7,7 +7,7 @@
 
 An active speaker observer monitors the speech activity of the selected audio producers. It just handles audio producers (if [addProducer()](#rtpObserver-addProducer) is called with a video producer it will fail).
 
-Audio levels used for speech detection are read from an RTP header extension. No decoding of audio data is done. See [RFC6464](https://tools.ietf.org/html/rfc6464) for more information.
+Implementation of Dominant Speaker Identification for Multipoint Videoconferencing by Ilana Volfin and Israel Cohen. This implementation uses the RTP Audio Level extension from RFC-6464 for the input signal. This has been ported from [DominantSpeakerIdentification.java](https://github.com/jitsi/jitsi-utils/blob/master/src/main/java/org/jitsi/utils/dsi/DominantSpeakerIdentification.java) in Jitsi. Audio levels used for speech detection are read from an RTP header extension. No decoding of audio data is done. See [RFC6464](https://tools.ietf.org/html/rfc6464) for more information.
 
 </section>
 
@@ -80,7 +80,7 @@ Emitted when a new dominant speaker is detected.
 
 Argument  | Type    | Description   
 --------- | ------- | ----------------
-`dominantspeaker` | property&lt;[Producer](#Producer)&gt; | Producer Object
+`dominantSpeaker` | [Producer](#Producer) | Audio producer with most dominant audio in the last interval.
 
 </div>
 

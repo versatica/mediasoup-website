@@ -294,7 +294,7 @@ Creates a new active speaker observer.
 
 Argument    | Type    | Description | Required | Default
 ----------- | ------- | ----------- | -------- | ----------
-`options`   | [ActiveSpeakerObserverOptions](#ActiveSpeakerObserverOptions) | Options. | Yes |
+`options`   | [ActiveSpeakerObserverOptions](#ActiveSpeakerObserverOptions) | Options. | No |
 
 </div>
 
