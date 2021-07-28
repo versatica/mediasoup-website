@@ -288,7 +288,7 @@ const consumer2 = await transport2.consume({ producerId: producer1.id, ... });
 #### router.createActiveSpeakerObserver(options)
 {: #router-createActiveSpeakerObserver .code}
 
-Creates a new audio level observer.
+Creates a new active speaker observer.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -304,9 +304,9 @@ Argument    | Type    | Description | Required | Default
 
 ```javascript
 const activeSpeakerObserver = await router.createActiveSpeakerObserver(
-	{
-		interval   : 500
-	});
+  {
+    interval   : 500
+  });
 ```
 
 #### router.createAudioLevelObserver(options)
