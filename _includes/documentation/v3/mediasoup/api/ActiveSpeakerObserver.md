@@ -71,8 +71,8 @@ See also [RtpObserver Methods](#RtpObserver-methods).
 
 See also [RtpObserver Events](#RtpObserver-events).
 
-#### ActiveSpeakerObserver.on("dominantspeaker", fn(dominantSpeaker))
-{: #ActiveSpeakerObserver-on-dominantspeaker .code}
+#### activeSpeakerObserver.on("dominantspeaker", fn(dominantSpeaker))
+{: #activeSpeakerObserver-on-dominantspeaker .code}
 
 Emitted when a new dominant speaker is detected.
 
@@ -94,9 +94,9 @@ Argument  | Type    | Description
 
 See also [RTP Observer Observer Events](#RtpObserver-observer-events).
 
-#### ActiveSpeakerObserver.observer.on("dominantspeaker", fn(event))
-{: #ActiveSpeakerObserver-observer-on-dominantspeaker .code}
+#### activeSpeakerObserver.observer.on("dominantspeaker", fn(event))
+{: #activeSpeakerObserver-observer-on-dominantspeaker .code}
 
-Same as the [dominantspeaker](#ActiveSpeakerObserver-on-dominantspeaker) event.
+Same as the [dominantspeaker](#activeSpeakerObserver-on-dominantspeaker) event.
 
 </section>
