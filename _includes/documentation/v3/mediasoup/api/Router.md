@@ -294,7 +294,7 @@ Creates a new audio level observer.
 
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`options`   | [AudioLevelObserverOptions](#AudioLevelObserverOptions) | Options. | Yes |
+`options`   | [AudioLevelObserverOptions](#AudioLevelObserverOptions) | Options. | No |
 
 </div>
 
