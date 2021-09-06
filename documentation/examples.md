@@ -21,7 +21,7 @@ The **mediasoup-demo** has a client side web application and a server side Node.
 
 * The client side is a [React](https://reactjs.org) application that uses [mediasoup-client](https://github.com/versatica/mediasoup-client) and [protoo-client](https://www.npmjs.com/package/protoo-client) among other libraries.
 * The server side is a Node.js application that uses [mediasoup](https://github.com/versatica/mediasoup) and [protoo-server](https://www.npmjs.com/package/protoo-server).
-* [protoo](https://protoojs.org) is a JavaScript library for both, client and server sides, that provides an easy way for clients to connect via WebSocket to a shared room. The API offers request/response transactions and notifications in both directions.
+* [protoo](https://protoo.versatica.com/) is a JavaScript library for both, client and server sides, that provides an easy way for clients to connect via WebSocket to a shared room. The API offers request/response transactions and notifications in both directions.
   - As an alternative (there are many) readers may be more used to [socket.io](https://socket.io).
 
 
