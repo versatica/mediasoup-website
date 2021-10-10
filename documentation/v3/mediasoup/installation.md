@@ -17,42 +17,43 @@ $ npm install mediasoup@3 --save
 
 In order to build the mediasoup C/C++ components the following packages and libraries must be available in the target host:
 
+### All platforms
+
+* `node` version >= v12.0.0
+* `python` version >= 3.6 with PIP
+
 ### Linux, OSX and any *NIX system
 
-* `node` version >= v10.0.0
-* `python` version 2 or 3
-* `make`
+* GNU `make`
 * `gcc` and `g++` >= 4.9 or `clang` (with C++11 support)
 * `cc` and `c++` commands (symlinks) pointing to the corresponding `gcc`/`g++` or `clang`/`clang++` executables.
 
 <div markdown="1" class="note">
+* In Debian and Ubuntu install the `python3-pip` DEB package, otherwise PIP package manager might be unavailable.
 * In Debian and Ubuntu install the `build-essential` DEB package. It includes both `make` and `gcc`/`g++`.
 * In YUM based Linux (Red Hat, CentOS) use `yum groupinstall "Development Tools"`.
 </div>
 
 <div markdown="1" class="note">
-If there is not `python` command pointing to Python 2 or 3 executable, set the `PYTHON` environment variable during mediasoup installation:
+If there is neither `python3` nor `python` command pointing to Python 3 executable, set the `PYTHON` environment variable during mediasoup installation:
 
 ```bash
-$ PYTHON=python3 npm install mediasoup@3 --save
+$ PYTHON=python3.9 npm install mediasoup@3 --save
 ```
 </div>
 
 <div markdown="1" class="note">
-If the `MEDIASOUP_MAX_CORES` environment variable is set, the build process will use that number of CPU cores. Otherwise it will auto-detect the number of cores in the machine.
+If the `MEDIASOUP_MAX_CORES` environment variable is set, the build process will use that number of CPU cores. Otherwise, it will auto-detect the number of cores in the machine.
 </div>
 
 
 ### Windows
 
-* `node` version >= v8.6.0
-* `python` version 2
-  - `python` version 3 will be supported once GYP project fixes [this issue](https://bugs.chromium.org/p/gyp/issues/detail?id=556)
-* Visual Studio >= 2015
+* GNU `make` (from MSYS project, can be installed with [MinGW](https://sourceforge.net/projects/mingw/))
+* Microsoft C++ (MSVC) compiler (with C++11 support)
 
 <div markdown="1" class="note">
-* Append the path of `MSBuild.exe` folder to the Windows `PATH` environment variable (e.g. "C:\Program Files (x86)\MSBuild\14.0\Bin").
-* Create a new Windows environment variable `GYP_MSVS_VERSION` with the version of Visual Studio as value (e.g. "2017" for Visual Studio 2017).
+* Append the path of folder containing MSVC `cl` compiler executable to the Windows `PATH` environment variable (e.g. "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\bin\Hostx64\x64").
 </div>
 
 
