@@ -42,7 +42,7 @@ let rtpParameters: mediasoupTypes.RtpParameters;
 
 // or alternatively:
 
-import { Worker, RtpParameters } from "mediasoup/lib/types";
+import { Worker, RtpParameters } from "mediasoup/node/lib/types";
 
 let worker: Worker;
 let rtpParameters: RtpParameters;
