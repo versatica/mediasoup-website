@@ -49,11 +49,11 @@ If the `MEDIASOUP_MAX_CORES` environment variable is set, the build process will
 
 ### Windows
 
-* Microsoft Visual Studio environment with MSVC compiler (with C++11 support)
+* Microsoft Visual Studio environment with MSVC compiler (with C++11 support).
 
 <div markdown="1" class="note">
 * GNU `make` can be installed with MSYS from [MinGW](https://sourceforge.net/projects/mingw/) and make sure to append the path of folder containing `make` to the Windows `Path` environment variable (e.g. `C:\MinGW\msys\1.0\bin`).
-* Configure Microsoft Visual Studio environment using **Command Prompt** (instructions given for MSVS 2017 v15.2 or newer)
+* Configure Microsoft Visual Studio environment using **Command Prompt** (instructions given for MSVS 2017 v15.2 or newer).
   * Find `vsvars64.bat` that corresponds to the version you want, for instance:
     ```
     "%ProgramFiles(x86)%\Microsoft Visual Studio\Installer\vswhere.exe" -latest -find VC\Auxiliary\Build\vcvars64.bat
@@ -62,7 +62,7 @@ If the `MEDIASOUP_MAX_CORES` environment variable is set, the build process will
     ```
     "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvars64.bat"
     ```
-* **Or** configure Microsoft Visual Studio environment using **PowerShell** (instructions given for MSVS 2017 v15.2 or newer)
+* **Or** configure Microsoft Visual Studio environment using **PowerShell** (instructions given for MSVS 2017 v15.2 or newer).
   * Find `vsvars64.bat` that corresponds to the version you want, for instance:
     ```
     & "C:\Program Files (x86)\Microsoft Visual Studio\Installer\vswhere.exe" -latest -find VC\Auxiliary\Build\vcvars64.bat
@@ -77,8 +77,8 @@ If the `MEDIASOUP_MAX_CORES` environment variable is set, the build process will
       }
     }
     ```
-* Make sure to have **ISRG Root X1** certificate installed, or you will get errors while downloading OpenSSL (whose website is secured with Let's Encrypt), you can import it from <https://letsencrypt.org/certs/isrgrootx1.der> (install to Local computer)
-* If you have Python-related errors, search for "App execution aliases" in system settings and disable everything Python-related from there
+* Make sure to have **ISRG Root X1** certificate installed, or you will get errors while downloading OpenSSL (whose website is secured with Let's Encrypt), you can import it from <https://letsencrypt.org/certs/isrgrootx1.der> (install to Local computer).
+* If you have Python-related errors, search for "App execution aliases" in system settings and disable everything Python-related from there.
 </div>
 
 
