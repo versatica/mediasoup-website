@@ -2,6 +2,8 @@
 title : Differences Between v2 and v3
 ---
 
+**NOTE:** This section is unmaintained and hence no longer exposed in the website.
+
 
 # Differences Between v2 and v3
 
