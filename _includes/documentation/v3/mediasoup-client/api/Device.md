@@ -255,7 +255,7 @@ Argument    | Type    | Description | Required | Default
 > `@throws` TypeError, if invalid arguments
 
 <div markdown="1" class="note">
-* mediasoup server side WebRTC transports have DTLS role "auto" by default. mediasoup-client will decide which local DTLS role to use based on internal logic, however local DTLS role can be forced by overriding remote `dtlsParameters.role` value with "server" to force the local DTLS role be "client" or vice-versa.
+mediasoup server side WebRTC transports have DTLS role "auto" by default. mediasoup-client will decide which local DTLS role to use based on internal logic, however local DTLS role can be forced by overriding remote `dtlsParameters.role` value with "server" to force the local DTLS role be "client" or vice-versa.
 </div>
 
 ```javascript
@@ -289,7 +289,7 @@ Argument    | Type    | Description | Required | Default
 > `@throws` TypeError, if invalid arguments
 
 <div markdown="1" class="note">
-* mediasoup server side WebRTC transports have DTLS role "auto" by default. mediasoup-client will decide which local DTLS role to use based on internal logic, however local DTLS role can be forced by overriding remote `dtlsParameters.role` value with "server" to force the local DTLS role be "client" or vice-versa.
+mediasoup server side WebRTC transports have DTLS role "auto" by default. mediasoup-client will decide which local DTLS role to use based on internal logic, however local DTLS role can be forced by overriding remote `dtlsParameters.role` value with "server" to force the local DTLS role be "client" or vice-versa.
 </div>
 
 ```javascript
