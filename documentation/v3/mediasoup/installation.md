@@ -32,6 +32,7 @@ In order to build the mediasoup C/C++ components the following packages and libr
 * On Debian and Ubuntu install the `python3-pip` DEB package, otherwise PIP package manager might be unavailable.
 * On Debian and Ubuntu install the `build-essential` DEB package. It includes both `make` and `gcc`/`g++`.
 * On YUM based Linux (Red Hat, CentOS) use `yum groupinstall "Development Tools"`.
+* On OSX M1 ensure that you have a M1 version of `node`.
 </div>
 
 <div markdown="1" class="note">
