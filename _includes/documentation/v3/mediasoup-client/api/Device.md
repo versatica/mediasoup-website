@@ -315,11 +315,6 @@ const transport = device.createRecvTransport(
 See the [Observer API](#observer-api) section below.
 </div>
 
-#### device.observer.on("close", fn())
-{: #router-observer-on-close .code}
-
-Emitted when the router is closed for whatever reason.
-
 #### device.observer.on("newtransport", fn(transport))
 {: #router-observer-on-newtransport .code}
 
