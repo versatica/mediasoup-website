@@ -231,7 +231,7 @@ transport.on('trace', (trace) =>
       "startBitrate": 1981250, 
       "type": 'transport-cc'
     },
-    "1539180741,": 1513191082,
+    "timestamp": 1513191082,
     "type": "bwe"
   }
 });
