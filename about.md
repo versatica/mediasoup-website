@@ -75,7 +75,7 @@ You can support mediasoup by [sponsoring](/sponsor/#become-a-sponsor) it. Thanks
 
 
 
-[ibc-photo]: /images/ibc.png
+[ibc-photo]: /images/ibc.jpg
 [ibc-website-url]: https://inakibaz.me
 [ibc-github-url]: https://github.com/ibc
 [ibc-linkedin-url]: https://linkedin.com/in/inakibaz
