@@ -48,7 +48,7 @@ const stats = await webRtcTransport.getStats();
     "recvBitrate": 1802072,
     "rtpBytesReceived": 5104571,
     "rtpBytesSent": 0,
-    "rtpcPacketLossSent": 0,
+    "rtpPacketLossSent": 0,
     "rtpRecvBitrate": 1835651,
     "rtpSendBitrate": 0,
     "rtxBytesReceived": 179934,
