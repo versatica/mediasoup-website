@@ -29,6 +29,7 @@ const stats = await webRtcTransport.getStats();
 // =>
 [
   {
+    "availableOutgoingBitrate": 6750000,
     "bytesReceived": 5360091,
     "bytesSent": 20988,
     "dtlsState": "connected",
@@ -41,11 +42,13 @@ const stats = await webRtcTransport.getStats();
       "remotePort": 52320
     },
     "iceState": "completed",
+    "maxIncomingBitrate": 5500000,
     "probationBytesSent": 0,
     "probationSendBitrate": 0,
     "recvBitrate": 1802072,
     "rtpBytesReceived": 5104571,
     "rtpBytesSent": 0,
+    "rtpPacketLossSent": 0,
     "rtpRecvBitrate": 1835651,
     "rtpSendBitrate": 0,
     "rtxBytesReceived": 179934,
