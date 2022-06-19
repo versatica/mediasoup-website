@@ -252,6 +252,42 @@ const mediaCodecs =
 const router = await worker.createRouter({ mediaCodecs });
 ```
 
+#### worker.createWebRtcServer(options)
+{: #worker-createWebRtcServer .code}
+
+Creates a new WebRTC server.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument      | Type    | Description | Required | Default 
+------------- | ------- | ----------- | -------- | ----------
+`options`     | [WebRtcServerOptions](#WebRtcServerOptions) | WebRTC server options. | Yes |
+
+</div>
+
+> `@async`
+> 
+> `@returns` [WebRtcServer](#WebRtcServer)
+
+```javascript
+const webRtcServer = await worker.createWebRtcServer(
+  {
+    listenInfos :
+    [
+      {
+        protocol : 'udp',
+        ip       : '9.9.9.9',
+        port     : 20000
+      },
+      {
+        protocol : 'tcp',
+        ip       : '9.9.9.9',
+        port     : 20000
+      }
+    ]
+  });
+```
+
 </section>
 
 
@@ -318,6 +354,26 @@ Argument | Type    | Description
 worker.observer.on("newrouter", (router) =>
 {
   console.log("new router created [id:%s]", router.id);
+});
+```
+
+#### worker.observer.on("newwebrtcserver", fn(router))
+{: #worker-observer-on-newwebrtcserver .code}
+
+Emitted when a new router is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument | Type    | Description   
+-------- | ------- | ----------------
+`webRtcServer` | [WebRtcServer](#WebRtcServer) | New WebRTC server.
+
+</div>
+
+```javascript
+worker.observer.on("newwebrtcserver", (webRtcServer) =>
+{
+  console.log("new WebRTC server created [id:%s]", webRtcServer.id);
 });
 ```
 

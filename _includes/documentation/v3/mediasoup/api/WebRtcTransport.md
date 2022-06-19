@@ -26,7 +26,8 @@ The WebRTC transport implementation of mediasoup is [ICE Lite](https://tools.iet
 
 Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
-`listenIps`  | Array&lt;[TransportListenIp](#TransportListenIp)\|String&gt; | Listening IP address or addresses in order of preference (first one is the preferred one). | Yes |
+`webRtcServer` | [WebRtcServer](#WebRtcServer) | Instead of opening its own listening port(s) let a WebRTC server handle the network traffic of this transport. | No |
+`listenIps`  | Array&lt;[TransportListenIp](#TransportListenIp)\|String&gt; | Listening IP address or addresses in order of preference (first one is the preferred one). | No |
 `port`       | Number  | Fixed port to listen on instead of selecting automatically from Worker's port range. | No |
 `enableUdp`  | Boolean | Listen in UDP. | No | `true`
 `enableTcp`  | Boolean | Listen in TCP. | No | `false`
@@ -42,8 +43,9 @@ Field        | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-* Do not use "0.0.0.0" into `listenIps`. Values in `listenIps` must be specific bindable IPs in the host.
-* If you use "0.0.0.0" or "::" into `listenIps`, then you need to also provide `announcedIp` in the corresponding entry in `listenIps`.
+* One of `webRtcServer` or `listenIps` must be given when creating a WebRTC transport.
+* The IP in each entry in `listenIps` must be a bindable IP in the host.
+* If you use "0.0.0.0" or "::" in an entry in `listenIps`, then you need to also provide `announcedIp` in the corresponding entry in `listenIps`.
 * `initialAvailableOutgoingBitrate` is just applied when the consumer endpoint supports REMB or Transport-CC.
 </div>
 

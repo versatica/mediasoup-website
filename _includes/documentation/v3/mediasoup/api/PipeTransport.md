@@ -132,8 +132,8 @@ await pipeTransport.connect(
     port           : 9999,
     srtpParameters :
     {
-      cryptoSuite : 'AES_CM_128_HMAC_SHA1_80',
-      keyBase64   : 'ZnQ3eWJraDg0d3ZoYzM5cXN1Y2pnaHU5NWxrZTVv'
+      cryptoSuite : 'AEAD_AES_256_GCM',
+      keyBase64   : 'YTdjcDBvY2JoMGY5YXNlNDc0eDJsdGgwaWRvNnJsamRrdG16aWVpZHphdHo='
     }
   });
 ```

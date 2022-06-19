@@ -92,6 +92,18 @@ mediasoup.observer.on("newworker", (worker) =>
       });
     });
   });
+
+  worker.observer.on("newwebrtcserver", (webRtcServer) =>
+  {
+    console.log(
+      "new WebRTC server created [worker.pid:%d, webRtcServer.id:%s]",
+      worker.pid, webRtcServer.id);
+
+    webRtcServer.observer.on("close", () => 
+    {
+      console.log("WebRTC server closed [webRtcServer.id:%s]", webRtcServer.id);
+    });
+  });
 });
 ```
 

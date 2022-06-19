@@ -46,6 +46,8 @@ Field         | Type   | Description   | Required  | Default
 
 Value                     | Description
 ------------------------- | -------------
+"AEAD_AES_256_GCM"        | It requires SRTP keying material of 44 bytes (60 bytes in Base64).
+"AEAD_AES_128_GCM"        | It requires SRTP keying material of 28 bytes (40 bytes in Base64).
 "AES_CM_128_HMAC_SHA1_80" | It requires SRTP keying material of 30 bytes (40 bytes in Base64).
 "AES_CM_128_HMAC_SHA1_32" | It requires SRTP keying material of 30 bytes (40 bytes in Base64).
 

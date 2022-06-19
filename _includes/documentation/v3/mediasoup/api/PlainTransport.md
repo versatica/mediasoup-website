@@ -154,8 +154,12 @@ Argument   | Type    | Description | Required | Default
 `ip`       | String  | Remote IPv4 or IPv6. Required if `comedia` is not set. | No |
 `port`     | Number  | Remote port.  Required if `comedia` is not set. | No |
 `rtcpPort` | Number  | Remote RTCP port. Required if `comedia` is not set and RTCP-mux is not enabled. | No |
-`srtpParameters` | [SrtpParameters](/documentation/v3/mediasoup/srtp-parameters/#SrtpParameters) | SRTP parameters used by the remote endpoint to encrypt its RTP and RTCP. The SRTP crypto suite of the local [srtpParameters](#plainTransport-srtpParameters) gets also updated after `connect()` resolves. Required if `enableSrtp` was set. | No |
+`srtpParameters` | [SrtpParameters](/documentation/v3/mediasoup/srtp-parameters/#SrtpParameters) | SRTP parameters used by the remote endpoint to encrypt its RTP and RTCP. Required if `enableSrtp` was set. | No |
 
+</div>
+
+<div markdown="1" class="note warn">
+The SRTP crypto suite (`cryptoSuite`) and SRTP key (`keyBase64`) of the local [srtpParameters](#plainTransport-srtpParameters) could be updated after `connect()` resolves in case `connect()` was called with a SRTP crypto suite different than the one used to create the plain RTP transport.
 </div>
 
 > `@async`
@@ -204,8 +208,8 @@ await plainTransport.connect(
     port           : 9998,
     srtpParameters :
     {
-      cryptoSuite : 'AES_CM_128_HMAC_SHA1_80',
-      keyBase64   : 'ZnQ3eWJraDg0d3ZoYzM5cXN1Y2pnaHU5NWxrZTVv'
+      cryptoSuite : 'AEAD_AES_256_GCM',
+      keyBase64   : 'YTdjcDBvY2JoMGY5YXNlNDc0eDJsdGgwaWRvNnJsamRrdG16aWVpZHphdHo='
     }
   });
 ```

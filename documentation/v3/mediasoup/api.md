@@ -23,6 +23,8 @@ class   : h3color
 
 {% include documentation/v3/mediasoup/api/Router.md %}
 
+{% include documentation/v3/mediasoup/api/WebRtcServer.md %}
+
 {% include documentation/v3/mediasoup/api/Transport.md %}
 
 {% include documentation/v3/mediasoup/api/WebRtcTransport.md %}

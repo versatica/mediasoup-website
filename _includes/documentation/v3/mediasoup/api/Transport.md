@@ -531,6 +531,18 @@ transport.on("routerclose", () =>
 });
 ```
 
+#### transport.on("listenserverclose", fn())
+{: #transport-on-listenserverclose .code}
+
+Just emitted in WebRTC transports when the WebRTC server the transport uses is closed for whatever reason. The transport itself is also closed. A ["transportclose"](#producer-on-transportclose) event is triggered in all its producers and a ["transportclose"](#consumer-on-transportclose) event is triggered in all its consumers.
+
+```javascript
+transport.on("listenserverclose", () =>
+{
+  console.log("WebRTC server closed so transport closed");
+});
+```
+
 #### transport.on("trace", fn(trace))
 {: #transport-on-trace .code}
 

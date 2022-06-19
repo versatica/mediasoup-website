@@ -160,10 +160,12 @@ Argument      | Type    | Description | Required | Default
 ```javascript
 const transport = await router.createWebRtcTransport(
   {
-    listenIps : [ { ip: "192.168.0.111", announcedIp: "88.12.10.41" } ],
-    enableUdp : true,
-    enableTcp : true,
-    preferUdp : true
+    // Use webRtcServer or listenIps
+    webRtcServer : webRtcServer
+    listenIps    : [ { ip: "192.168.0.111", announcedIp: "88.12.10.41" } ],
+    enableUdp    : true,
+    enableTcp    : true,
+    preferUdp    : true
   });
 ```
 
@@ -378,8 +380,8 @@ router.on("workerclose", () =>
 });
 ```
 
-
 </section>
+
 
 ### Observer Events
 {: #Router-observer-events}
