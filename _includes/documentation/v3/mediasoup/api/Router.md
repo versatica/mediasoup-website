@@ -169,13 +169,6 @@ const transport = await router.createWebRtcTransport(
   });
 ```
 
-#### router.createPlainRtpTransport(options) (DEPRECATED)
-{: #router-createPlainRtpTransport .code}
-
-<div markdown="1" class="note warn">
-`createPlainRtpTransport()` has been renamed to [createPlainTransport()](#router-createPlainTransport) since mediasoup version 3.5.0.
-</div>
-
 #### router.createPlainTransport(options)
 {: #router-createPlainTransport .code}
 

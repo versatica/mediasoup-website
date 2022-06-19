@@ -6,11 +6,8 @@
 A WebRTC server brings the ability to listen on a single UDP/TCP port to [WebRtcTransports](#WebRtcTransport). Instead of passing `listenIps` to [router.createWebRtcTransport()](#router-createWebRtcTransport) pass `webRtcServer` with an instance of a `WebRtcServer` so the new WebRTC transport will not listen on its own IP:port(s) but will have its network traffic handled by the WebRTC server instead.
 
 <div markdown="1" class="note">
-A WebRTC server exists within the context of a [Worker](#Worker), meaning that if your app launches N workers it also needs to create N WebRTC servers listening on different ports (to not collide).
-</div>
- 
-<div markdown="1" class="note">
-The WebRTC transport implementation of mediasoup is [ICE Lite](https://tools.ietf.org/html/rfc5245#section-2.7), meaning that it does not initiate ICE connections but expects ICE Binding Requests from endpoints.
+* A WebRTC server exists within the context of a [Worker](#Worker), meaning that if your app launches N workers it also needs to create N WebRTC servers listening on different ports (to not collide).
+* The WebRTC transport implementation of mediasoup is [ICE Lite](https://tools.ietf.org/html/rfc5245#section-2.7), meaning that it does not initiate ICE connections but expects ICE Binding Requests from endpoints.
 </div>
 
 </section>
