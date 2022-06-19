@@ -50,7 +50,6 @@ Field        | Type    | Description   | Required | Default
 <div markdown="1" class="note">
 * The IP in each entry in `listenInfos` must be a bindable IP in the host.
 * If you use "0.0.0.0" or "::" in an entry in `listenInfos`, then you need to also provide `announcedIp` in the corresponding entry in `listenInfos`.
-* `initialAvailableOutgoingBitrate` is just applied when the consumer endpoint supports REMB or Transport-CC.
 </div>
 
 </section>
