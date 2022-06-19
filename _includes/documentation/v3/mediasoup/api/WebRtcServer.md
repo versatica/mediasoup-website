@@ -135,4 +135,30 @@ See the [Observer API](#observer-api) section below.
 
 Emitted when the WebRTC server is closed for whatever reason.
 
+#### webRtcServer.observer.on("webrtctransporthandled", fn(webRtcTransport))
+{: #webRtcServer-observer-on-webrtctransporthandled .code}
+
+Emitted when a new WebRTC transport that uses this WebRTC server is created.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`webRtcTransport` | [WebRtcTransport](#WebRtcTransport) | Handled WebRTC transport.
+
+</div>
+
+#### webRtcServer.observer.on("webrtctransportunhandled", fn(webRtcTransport))
+{: #webRtcServer-observer-on-webrtctransportunhandled .code}
+
+Emitted when a new WebRTC transport that uses this WebRTC server is closed. It's also emitted for all WebRTC transports handled by this WebRTC server when the latter is closed.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`webRtcTransport` | [WebRtcTransport](#WebRtcTransport) | Unhandled WebRTC transport.
+
+</div>
+
 </section>
