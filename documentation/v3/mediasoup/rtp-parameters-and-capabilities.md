@@ -348,7 +348,7 @@ These parameters influence the mediasoup operation by enabling or disabling some
 
 Parameter      | Type    | Description   | Required | Default
 -------------- | ------- | ------------- | -------- | ---------
-"useinbandfec" | Number  | If 1, mediasoup will use the worst packet fraction lost in the RTCP Receiver Report received from the consuming endpoints and use it into the Receiver Report that mediasoup sends to the OPUS producer endpoint. This will force it to generate more in-band FEC into the OPUS packets to accomodate to the worst receiver. | No | 0
+"useinbandfec" | Number  | If 1, mediasoup will use the worst packet fraction lost in the RTCP Receiver Report received from the consuming endpoints and use it into the Receiver Report that mediasoup sends to the OPUS producer endpoint. This will force it to generate more in-band FEC into the OPUS packets to accommodate to the worst receiver. | No | 0
 "usedtx"        | Number | If 1, mediasoup will not consider the stream as inactive when there is no RTP traffic. Same behavior is achieved by indicating `dtx`: `true` in the corresponding encoding in the RTP send parameters. | No | 0
 
 </div>

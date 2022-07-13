@@ -71,7 +71,7 @@ std::future<std::string> MySendTransportListener::OnProduce(
       std::make_exception_ptr("'id' missing/invalid in response"));
   }
 
-  // Fullfill the promise with the id in the response and return its future.
+  // Fulfil the promise with the id in the response and return its future.
 	promise.set_value(idIt->get<std::string>());
 
 	return promise.get_future();
@@ -135,7 +135,7 @@ std::future<std::string> MySendTransportListener::OnProduceData(
       std::make_exception_ptr("'id' missing/invalid in response"));
   }
 
-  // Fullfill the promise with the id in the response and return its future.
+  // Fulfil the promise with the id in the response and return its future.
 	promise.set_value(idIt->get<std::string>());
 
 	return promise.get_future();

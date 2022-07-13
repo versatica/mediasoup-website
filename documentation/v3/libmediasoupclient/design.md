@@ -32,4 +32,4 @@ Examples:
 
 * [device.GetRtpCapabilities()](/documentation/v3/libmediasoupclient/api/#device-GetRtpCapabilities) blocks the current thread until capabilities are internally retrieved and returns them.
 * [sendTransport.Produce()](/documentation/v3/libmediasoupclient/api/#SendTransport-Produce) internally performs SDP offer/answer in the underlaying `RTCPeerConnection` instance and blocks the thread until done.
-* The [SendTransport::Listener::OnProduce](/documentation/v3/libmediasoupclient/api/#SendTransportListener-OnProduce) event returns a `std::future` and waits for the application to fullfill it (once it communicates to the server).
+* The [SendTransport::Listener::OnProduce](/documentation/v3/libmediasoupclient/api/#SendTransportListener-OnProduce) event returns a `std::future` and waits for the application to fulfil it (once it communicates to the server).

@@ -64,10 +64,10 @@ It's also perfectly possible to inter-communicate mediasoup routers running in d
 <div markdown="1" class="note warn">
 When broadcasting a video stream to many viewers (hundreds or thousands of consumers) it's important to be aware of how video RTP transmission typically works:
 
-* A viewer may eventually loose video packets so would request packet retransmission to mediasoup. Retranmissions are handled per transport (they do not reach the broadcaster endpoint) so there is no limitation here.
+* A viewer may eventually loose video packets so would request packet retransmission to mediasoup. Retransmissions are handled per transport (they do not reach the broadcaster endpoint) so there is no limitation here.
 * A viewer may connect or reconnect, or may change its preferred spatial layer, or may just loose too many packets. Any of those circumstances would imply a video key frame request by means of a RTCP PLI or FIR that reaches the broadcaster endpoint.
 * Upon receipt of a video PLI or FIR, the encoder in the broadcaster endpoint generates a video key frame which is a video packet much bigger than the usual ones.
-* If the encoder receives many PLIs or FIRs (although mediaoup protects the producer endpoint by preventing it from receiving more than one PLI or FIR per second) the sending bitrate of the broadcaster endpoint would increase by 2x or 3x. This may be a problem for the producer endpoint and also for viewers that will receive much more bits per second.
+* If the encoder receives many PLIs or FIRs (although mediasoup protects the producer endpoint by preventing it from receiving more than one PLI or FIR per second) the sending bitrate of the broadcaster endpoint would increase by 2x or 3x. This may be a problem for the producer endpoint and also for viewers that will receive much more bits per second.
   - *NOTE:* This may be mitigated by increasing the default [keyFrameRequestDelay](/documentation/v3/mediasoup/api/#ProducerOptions) value, although that would cause longer "black-video" periods. 
 * And that is the problem.
 
