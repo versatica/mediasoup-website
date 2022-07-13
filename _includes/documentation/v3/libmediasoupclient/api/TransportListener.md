@@ -55,7 +55,7 @@ std::future<void> MyTransportListener::OnConnect(
 	// [...] Let's assume code execution continues once we get a success response
 	// from the server.
 
-	// Fullfill the promise and return its future.
+	// Fulfil the promise and return its future.
 	promise.set_value();
 
 	return promise.get_future();

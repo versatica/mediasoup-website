@@ -6,7 +6,7 @@ anchors : true
 
 # Overview
 
-An [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit) receives audio and video streams from endpoints and relays them to everyone else (endpoints send one and receive many). Each receiver endpoint can select which streams and spatial/temporal layers it receives. Compared to a mixer or [MCU](https://webrtcglossary.com/mcu/) (Multipoint Control Unit) this design leads to a better performance, higher throughput and less latency. It's highly scalable and requires much less resources given that it does not transcode or mix media.
+An [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit) receives audio and video streams from endpoints and relays them to everyone else (endpoints send one and receive many). Each receiver endpoint can select which streams and spatial/temporal layers it receives. Compared to a mixer or [MCU](https://webrtcglossary.com/mcu/) (Multipoint Conferencing Unit) this design leads to a better performance, higher throughput and less latency. It's highly scalable and requires much less resources given that it does not transcode or mix media.
 
 Since endpoints get the other endpoints' media separately, they can have a personalized layout and choose which streams to render and how to display them.
 

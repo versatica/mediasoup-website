@@ -12,7 +12,7 @@ Unlike other existing SFU implementations, mediasoup is not a standalone server 
 const mediasoup = require("mediasoup");
 ```
 
-Thus internally, mediasoup can be splitted into two separete components:
+Thus internally, mediasoup can be splitted into two separate components:
 
 * a JavaScript layer exposing a modern ECMAScript API for Node.js, and
 * a set of C/C++ subprocesses that handle the media layer (ICE, DTLS, RTP and so on).
