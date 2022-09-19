@@ -175,7 +175,7 @@ const stats = await directTransport.getStats();
 ### Producer Statistics
 {: #Producer-Statistics}
 
-The producer's statistics contain an entry for each RTP stream being received. Note that the producer's statistics show the RTP streams received my mediasoup as they are sent by the producer endpoint, this is, without any packet modification.
+The producer's statistics contain an entry for each RTP stream being received. Note that the producer's statistics show the RTP streams received by mediasoup as they are sent by the producer endpoint, this is, without any packet modification.
 
 ##### Simulcast Producer
 
