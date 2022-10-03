@@ -28,7 +28,7 @@ Field         | Type    | Description   | Required | Default
 `protocol`    | String  | Protocol ("udp" / "tcp"). | Yes |
 `ip`          | String  | Listening IPv4 or IPv6. | Yes      |
 `announcedIp` | String  | Announced IPv4 or IPv6 (useful when running mediasoup behind NAT with private IP). | No      |
-`port`        | Number  | Listening port. | Yes |
+`port`        | Number  | Listening port. | No | If not given, a random available port from the Worker's port range will be used.
 
 </div>
 
