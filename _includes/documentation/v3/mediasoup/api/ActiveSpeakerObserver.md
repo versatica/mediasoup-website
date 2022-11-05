@@ -30,8 +30,8 @@ Field          | Type    | Description  | Required | Default
 </div>
 
 
-#### ActiveSpeakerObserverActivity
-{: #ActiveSpeakerObserverActivity .code}
+#### ActiveSpeakerObserverDominantSpeaker
+{: #ActiveSpeakerObserverDominantSpeaker .code}
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -71,7 +71,7 @@ See also [RtpObserver Methods](#RtpObserver-methods).
 
 See also [RtpObserver Events](#RtpObserver-events).
 
-#### activeSpeakerObserver.on("dominantspeaker", fn(producer))
+#### activeSpeakerObserver.on("dominantspeaker", fn(dominantSpeaker))
 {: #activeSpeakerObserver-on-producer .code}
 
 Emitted when a new dominant speaker is detected.
@@ -80,7 +80,7 @@ Emitted when a new dominant speaker is detected.
 
 Argument  | Type    | Description   
 --------- | ------- | ----------------
-`producer` | [Producer](#Producer) | Audio producer with most dominant audio in the last interval.
+`dominantSpeaker` | [ActiveSpeakerObserverDominantSpeaker](#ActiveSpeakerObserverDominantSpeaker) | Speaker with most dominant audio in the last interval.
 
 </div>
 
@@ -94,7 +94,7 @@ Argument  | Type    | Description
 
 See also [RTP Observer Observer Events](#RtpObserver-observer-events).
 
-#### activeSpeakerObserver.observer.on("producer", fn(event))
+#### activeSpeakerObserver.observer.on("dominantspeaker", fn(dominantSpeaker))
 {: #activeSpeakerObserver-observer-on-producer .code}
 
 Same as the [producer](#activeSpeakerObserver-on-dominantspeaker) event.
