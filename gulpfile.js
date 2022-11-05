@@ -19,9 +19,17 @@ const octokit = Octokit();
 /**
  * Filter tags with just X.Y.Z content.
  */
-function getSemverTags(tags)
+function getSemverVersions(tags)
 {
 	return tags.filter(tag => /^\d+\.\d+\.\d+$/.test(tag.name));
+}
+
+/**
+ * Filter tags with just rust-X.Y.Z content.
+ */
+function getRustSemverVersions(tags)
+{
+	return tags.filter(tag => /^rust-\d+\.\d+\.\d+$/.test(tag.name));
 }
 
 gulp.task('clean', () =>
@@ -54,31 +62,41 @@ gulp.task('shields', async () =>
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup' });
 
-	const mediasoupVersion = getSemverTags(tags.data)[0].name;
-	console.log('"shields" task | mediasoup:', mediasoupVersion);
+	const mediasoupNodeVersion = getSemverVersions(tags.data)[0].name;
+	console.log('"shields" task | mediasoup node:', mediasoupNodeVersion);
+
+	const mediasoupRustVersion = getRustSemverVersions(tags.data)[0].name.replace(/^rust-/, '');
+	console.log('"shields" task | mediasoup rust:', mediasoupRustVersion);
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client' });
 
-	const mediasoupClientVersion = getSemverTags(tags.data)[0].name;
+	const mediasoupClientVersion = getSemverVersions(tags.data)[0].name;
 	console.log('"shields" task | mediasoup-client:', mediasoupClientVersion);
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'libmediasoupclient' });
 
-	const libmediasoupclientVersion = getSemverTags(tags.data)[0].name;
+	const libmediasoupclientVersion = getSemverVersions(tags.data)[0].name;
 	console.log('"shields" task | libmediasoupclient:', libmediasoupclientVersion);
+
+	// NOTE: If the library name contains a dash (-) don't use it below but use
+	// this Unicode symbol instead: –
 
 	return gulp.src('_site/index.html')
 		.pipe(replace(
-			/__MEDIASOUP_VERSION_SHIELD__/g,
-			`https://img.shields.io/badge/mediasoup-v${mediasoupVersion}-blue.svg`
+			/__MEDIASOUP_NODE_VERSION_SHIELD__/g,
+			`https://img.shields.io/badge/mediasoup%20node-v${mediasoupNodeVersion}-1A9FC9`
+		))
+		.pipe(replace(
+			/__MEDIASOUP_RUST_VERSION_SHIELD__/g,
+			`https://img.shields.io/badge/mediasoup%20rust-v${mediasoupRustVersion}-1A9FC9`
 		))
 		.pipe(replace(
 			/__MEDIASOUP_CLIENT_VERSION_SHIELD__/g,
-			`https://img.shields.io/badge/mediasoup--client-v${mediasoupClientVersion}-blue.svg`
+			`https://img.shields.io/badge/mediasoup–client-v${mediasoupClientVersion}-1A9FC9`
 		))
 		.pipe(replace(
 			/__LIBMEDIASOUPCLIENT_VERSION_SHIELD__/g,
-			`https://img.shields.io/badge/libmediasoupclient-v${libmediasoupclientVersion}-blue.svg`
+			`https://img.shields.io/badge/libmediasoupclient-v${libmediasoupclientVersion}-1A9FC9`
 		))
 		.pipe(gulp.dest('./_site'));
 });
