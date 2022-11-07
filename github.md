@@ -43,18 +43,29 @@ The mediasoup project website at [https://mediasoup.org](https://mediasoup.org).
 
 ## 3rd Party Contributions
 
-Here some libraries and SDKs contributed by non mediasoup authors that may be adopted in the future by the team behind mediasoup.
+Here some libraries and SDKs contributed by non mediasoup authors. 
 
+<div markdown="1" class="note">
+Those are just some of the libraries/SDKs that exist. Not all them are covered here.
+</div>
 
 ##### [ethand91/mediasoup-ios-client](https://github.com/ethand91/mediasoup-ios-client)
 
 Objective-C wrapper library for libmediasoupclient for building mediasoup based **native** iOS based applications.
 
+##### [VLprojects/mediasoup-ios-client](https://github.com/VLprojects/mediasoup-ios-client)
+
+Objective-C wrapper library for libmediasoupclient for building mediasoup iOS based applications.
+
+A more updated fock of ethand91/mediasoup-ios-client.
+
+##### [VLprojects/mediasoup-client-swift](https://github.com/VLprojects/mediasoup-client-swift)
+
+Swift wrapper for libmediasoupclient with iOS support.
 
 ##### [haiyangwu/mediasoup-client-android](https://github.com/haiyangwu/mediasoup-client-android)
 
 Java wrapper library for libmediasoupclient for building mediasoup based **native** Android based applications.
-
 
 ##### [haiyangwu/mediasoup-demo-android](https://github.com/haiyangwu/mediasoup-demo-android)
 
