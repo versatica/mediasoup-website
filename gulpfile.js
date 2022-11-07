@@ -78,6 +78,11 @@ gulp.task('shields', async () =>
 	const libmediasoupclientVersion = getSemverVersions(tags.data)[0].name;
 	console.log('"shields" task | libmediasoupclient:', libmediasoupclientVersion);
 
+	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client-aiortc' });
+
+	const mediasoupClientAiortcVersion = getSemverVersions(tags.data)[0].name;
+	console.log('"shields" task | mediasoup-client-aiortc:', mediasoupClientAiortcVersion);
+
 	// NOTE: If the library name contains a dash (-) don't use it below but use
 	// this Unicode symbol instead: –
 
@@ -97,6 +102,10 @@ gulp.task('shields', async () =>
 		.pipe(replace(
 			/__LIBMEDIASOUPCLIENT_VERSION_SHIELD__/g,
 			`https://img.shields.io/badge/libmediasoupclient-v${libmediasoupclientVersion}-1A9FC9`
+		))
+		.pipe(replace(
+			/__MEDIASOUP_CLIENT_AIORTC_VERSION_SHIELD__/g,
+			`https://img.shields.io/badge/mediasoup–client–aiortc-v${mediasoupClientAiortcVersion}-1A9FC9`
 		))
 		.pipe(gulp.dest('./_site'));
 });
