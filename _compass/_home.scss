@@ -220,6 +220,7 @@
 	}
 
 	> .github-stars {
+		height: 20px;
 		@include flex(100 0 auto);
 		@include display-flex;
 		@include flex-direction(column);
