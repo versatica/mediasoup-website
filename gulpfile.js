@@ -56,32 +56,32 @@ gulp.task('jekyll:watch', shell.task(
 	[ 'bundle exec jekyll serve --host 0.0.0.0 -P 3001' ]
 ));
 
-gulp.task('versions', async () =>
+gulp.task('replace', async () =>
 {
 	let tags;
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup' });
 
 	const mediasoupNodeVersion = getSemverVersions(tags.data)[0].name;
-	console.log('"versions" task | mediasoup node:', mediasoupNodeVersion);
+	console.log('"replace" task | mediasoup node:', mediasoupNodeVersion);
 
 	const mediasoupRustVersion = getRustSemverVersions(tags.data)[0].name.replace(/^rust-/, '');
-	console.log('"versions" task | mediasoup rust:', mediasoupRustVersion);
+	console.log('"replace" task | mediasoup rust:', mediasoupRustVersion);
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client' });
 
 	const mediasoupClientVersion = getSemverVersions(tags.data)[0].name;
-	console.log('"versions" task | mediasoup-client:', mediasoupClientVersion);
+	console.log('"replace" task | mediasoup-client:', mediasoupClientVersion);
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'libmediasoupclient' });
 
 	const libmediasoupclientVersion = getSemverVersions(tags.data)[0].name;
-	console.log('"versions" task | libmediasoupclient:', libmediasoupclientVersion);
+	console.log('"replace" task | libmediasoupclient:', libmediasoupclientVersion);
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client-aiortc' });
 
 	const mediasoupClientAiortcVersion = getSemverVersions(tags.data)[0].name;
-	console.log('"versions" task | mediasoup-client-aiortc:', mediasoupClientAiortcVersion);
+	console.log('"replace" task | mediasoup-client-aiortc:', mediasoupClientAiortcVersion);
 
 	return gulp.src('_site/index.html')
 		.pipe(replace(/__MEDIASOUP_NODE_VERSION__/g, `v${mediasoupNodeVersion}`))
@@ -89,6 +89,7 @@ gulp.task('versions', async () =>
 		.pipe(replace(/__MEDIASOUP_CLIENT_VERSION__/g, `v${mediasoupClientVersion}`))
 		.pipe(replace(/__LIBMEDIASOUPCLIENT_VERSION__/g, `v${libmediasoupclientVersion}`))
 		.pipe(replace(/__MEDIASOUP_CLIENT_AIORTC_VERSION__/g, `v${mediasoupClientAiortcVersion}`))
+		.pipe(replace(/__CACHE_AVOIDER__/g, `v${Math.random()}`))
 		.pipe(gulp.dest('./_site'));
 });
 
@@ -134,9 +135,9 @@ gulp.task('rsync', (done) =>
 	});
 });
 
-gulp.task('build', gulp.series('clean', 'browserify', 'jekyll:build', 'versions', 'sitemap'));
+gulp.task('build', gulp.series('clean', 'browserify', 'jekyll:build', 'replace', 'sitemap'));
 
-gulp.task('live', gulp.series('clean', 'browserify', 'jekyll:watch', 'versions'));
+gulp.task('live', gulp.series('clean', 'browserify', 'jekyll:watch'));
 
 gulp.task('deploy', gulp.series('build', 'rsync'));
 

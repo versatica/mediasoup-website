@@ -40,15 +40,15 @@
 		> p.description {
 			margin: 0.1em 0 0.1em 2px;
 			font-family: 'Poiret One';
-			color: rgba(#fff, 0.35);
-			font-weight: 400;
 			line-height: 1.5em;
 
 			@include breakpoint($computer) {
+				color: rgba(#fff, 0.35);
 				font-size: 0.35em;
 			}
 
 			@include breakpoint($mobile) {
+				color: rgba(#fff, 0.5);
 				font-size: 0.35em;
 			}
 		}
@@ -131,7 +131,7 @@
 			padding: 10px 5%;
 			background: rgba(#fff, 0.05);
 			background: radial-gradient(circle, rgba(#fff, 0.12) 0%, rgba($color-dark-2, 0.15) 100%);
-			color: rgba($color-white-2, 0.5);
+			color: rgba($color-white-2, 0.6);
 
 			&.loading {
 				opacity: 0;
@@ -162,7 +162,7 @@
 					text-align: left;
 					font-family: 'Monaco', 'Andale Mono', monospace;
 					white-space: pre;
-					color: inherit;
+					color: rgba($color-white-2, 0.6);
 					text-shadow: inherit;
 
 					@include breakpoint($computer) {
