@@ -183,10 +183,10 @@ body {
 				@include justify-content(center);
 			}
 
-			> a, iframe {
+			> a {
 				display: block;
-				color: rgba($color-white-2, 0.6);
-				font-weight: 300;
+				color: rgba($color-white-2, 0.5);
+				font-weight: 400;
 				border-bottom: 1px solid rgba($color-white-2, 0.2);
 				font-size: 0.90rem;
 				text-align: center;
