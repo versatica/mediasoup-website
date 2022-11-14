@@ -40,7 +40,7 @@
 		> p.description {
 			margin: 0.1em 0 0.1em 2px;
 			font-family: 'Poiret One';
-			color: #000;
+			color: rgba(#fff, 0.25);
 			line-height: 1.5em;
 
 			@include breakpoint($computer) {
@@ -67,9 +67,9 @@
 			width: 38px;
 			height: 38px;
 			background-size: contain;
-			background-image: url('/images/menu.svg');
-			border-radius: 5px;
+			background-image: url('/images/menu-white.svg');
 			opacity: 0.85;
+			border-radius: 5px;
 			@include transition-property(transform);
 			@include transition-duration(.75s);
 
@@ -98,7 +98,7 @@
 			width: 32px;
 			height: 32px;
 			background-size: contain;
-			background-image: url('/images/menu.svg');
+			background-image: url('/images/menu-white.svg');
 			opacity: 0.9;
 			@include transition-property(opacity);
 			@include transition-duration(.25s);
@@ -128,8 +128,15 @@
 			display: block;
 			width: 100%;
 			padding: 10px 5%;
-			background-color: rgba(#7C8073, 0.15);
-			color: #666;
+			background: rgba(#fff, 0.05);
+			background: radial-gradient(circle, rgba(#fff, 0.08) 0%, rgba($color-dark-2, 0.15) 100%);
+			color: rgba($color-white-2, 0.35);
+
+			&.loading {
+				opacity: 0;
+				@include transform(scale(1.5));
+				color: #fff;
+			}
 
 			@include breakpoint($computer) {
 				@include display-flex;
@@ -138,26 +145,12 @@
 				@include transition-property(opacity, transform, background-color, color);
 				@include transition-delay(1.5s);
 				@include transition-duration(1s);
-
-				&.loading {
-					opacity: 0;
-					@include transform(scale(1.5));
-					background-color: rgba(#fff, 0.5);
-					color: #fff;
-				}
 			}
 
 			@include breakpoint($mobile) {
 				@include transition-property(opacity, transform, background-color, color);
 				@include transition-delay(0.25s);
 				@include transition-duration(1s);
-
-				&.loading {
-					opacity: 0;
-					@include transform(scale(1.5));
-					background-color: rgba(#fff, 0.5);
-					color: #fff;
-				}
 			}
 
 			> .code-container {
@@ -173,7 +166,7 @@
 
 					@include breakpoint($computer) {
 						font-size: 0.9em;
-						line-height: 1.6em;
+						line-height: 1.8em;
 					}
 
 					@include breakpoint($mobile) {
@@ -182,7 +175,7 @@
 					}
 
 					span.no-select {
-						color: $color-dark;
+						color: $color-white-2;
 						@include user-select(none);
 					}
 				}
@@ -209,7 +202,7 @@
 			right: 15%;
 			height: 400px;
 			width: 400px;
-			opacity: 0.1;
+			opacity: 0.5;
 			@include transition-property(opacity, transform);
 			@include transition-delay(1s);
 			@include transition-duration(1.5s);
@@ -224,6 +217,14 @@
 		@include breakpoint($mobile) {
 			display: none;
 		}
+	}
+
+	> .github-stars {
+		@include flex(100 0 auto);
+		@include display-flex;
+		@include flex-direction(column);
+		@include justify-content(center);
+		margin-bottom: 2rem;
 	}
 
 	> .boxes {
@@ -261,13 +262,14 @@
 			}
 
 			.box {
-				background-color: #fff;
-				box-shadow: 0 4px 8px 0 rgba(#0e0e0f, 0.2);
+				background-color: rgba(#fff, 0.02);
+				border: 1px solid rgba(#fff, 0.1);
+				border-radius: 6px;
 
 				@include breakpoint($computer) {
 					@include flex(0 10 auto);
 					width: 34%;
-					margin: 0 4px;
+					margin: 0 6px;
 					padding: 1.5rem 1.75rem 1.25rem;
 					@include transition-property(opacity);
 					@include transition-duration(1s);
@@ -293,7 +295,7 @@
 				h3 {
 					line-height: 1.3em;
 					margin-bottom: 0.85em;
-					color: $color-dark;
+					color: $color-white-2;
 					font-weight: 400;
 
 					@include breakpoint($computer) {
@@ -309,7 +311,8 @@
 
 				p {
 					line-height: 1.4em;
-					color: #666;
+					color: rgba(#fff, 0.30);
+					font-weight: 400;
 					margin-bottom: 1em;
 
 					@include breakpoint($computer) {
@@ -327,8 +330,8 @@
 						border-bottom: 1px solid transparent;
 
 						&:hover {
-							color: $color-highlight;
-							border-color: $color-highlight;
+							color: $color-highlight-1;
+							border-color: $color-highlight-1;
 						}
 					}
 				}
@@ -336,10 +339,39 @@
 		}
 	}
 
-	> .shields {
+	// > .shields {
+	// 	@include flex(0 0 auto);
+	// 	display: flex;
+	// 	min-height: 20px;
+	// 	margin: 2rem 0;
+	// 	opacity: 0.65;
+
+	// 	@include breakpoint($computer) {
+	// 		@include flex-direction(row);
+	// 		@include justify-content(center);
+	// 		@include transition-property(transform);
+	// 		@include transition-duration(0.25s);
+
+	// 		&.loading {
+	// 			@include transform(scale(0));
+	// 		}
+	// 	}
+
+	// 	@include breakpoint($mobile) {
+	// 		@include flex-direction(column);
+	// 		@include justify-content(center);
+	// 		@include align-items(center);
+	// 	}
+
+	// 	> a.shield {
+	// 		display: inline-block;
+	// 		margin: 2px 4px;
+	// 	}
+	// }
+
+	> .versions {
 		@include flex(0 0 auto);
 		display: flex;
-		min-height: 20px;
 		margin: 2rem 0;
 
 		@include breakpoint($computer) {
@@ -359,9 +391,35 @@
 			@include align-items(center);
 		}
 
-		> a.shield {
+		> a.version {
 			display: inline-block;
-			margin: 2px;
+			margin: 2px 4px;
+			text-decoration: none;
+			background-color: $color-dark-2;
+			border-radius: 4px;
+			overflow: hidden;
+			// Trick to remove horizotal space between inline-block elements.
+			font-size: 0;
+
+			&:hover {
+				background-color: lighten($color-dark-2, 5%);
+			}
+
+			> span {
+				font-size: 0.75rem;
+				line-height: 1.5rem;
+				padding: 6px;
+
+				&.name {
+					padding-right: 3px;
+					color: rgba($color-white-2, 0.75);
+				}
+
+				&.version {
+					padding-left: 3px;
+					@include mediasoup-gradient();
+				}
+			}
 		}
 	}
 }

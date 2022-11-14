@@ -41,10 +41,8 @@ Field         | Type               | Description   | Required | Default
 
 Field         | Type               | Description   | Required | Default
 ------------- | ------------------ | ------------- | -------- | ---------
-`mediaCodecs` | Array&lt;[RtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCodecCapability)&gt; | Router media codecs. | No | `[ ]`
-
-`producerId` | String  | Producer id | No      |
-`dataProducerId` | String  | Data producer id | No      |
+`producerId` | String  | Producer id. | No      |
+`dataProducerId` | String  | Data producer id. | No      |
 `router`     | [Router](#Router) | Destination router to pipe the given producer. | Yes |
 `listenIp`   | String  | IP to connect both routers in the same host. | No | "127.0.0.1"
 `enableSctp` | Boolean | Create a SCTP association. | No | `true`

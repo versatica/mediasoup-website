@@ -4,7 +4,8 @@ pre.highlight {
 	margin: 0 auto;
 	padding: 1.2em;
 	border-radius: 4px;
-	background: rgba(#000, 0.75);
+	background: $color-dark;
+	border: 1px solid rgba($color-white-2, 0.15);
 	font-size: 0.85em;
 	font-family: 'Monaco', 'Andale Mono', monospace;
 	text-align: left;
@@ -19,6 +20,7 @@ pre.highlight {
 	@include hyphens(none);
 	// Default color.
 	color: #d7d7d7;
+	opacity: 0.75;
 
 	.hll { background-color: #49483e }
 	.c   { color: #908d7f; } /* comment */

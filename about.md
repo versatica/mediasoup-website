@@ -12,6 +12,7 @@ mediasoup is made with love by a small team of Real-Time addicts.
 ## Authors
 
 ### Iñaki Baz Castillo
+{: .no-border.h3color}
 
 ![Iñaki Baz Castillo][ibc-photo]{: .photo.left.round }
 
@@ -29,6 +30,7 @@ Since the first days of WebRTC my professional efforts go around it, and this is
 
 
 ### José Luis Millán
+{: .no-border.h3color}
 
 ![José Luis Millán][jmillan-photo]{: .photo.left.round }
 
@@ -47,6 +49,7 @@ I'm a core author of [JsSIP][jssip-url] "The JavaScript SIP library" and co-auth
 ## Core Contributors
 
 ### Nazar Mokynskyi
+{: .no-border.h3color}
 
 ![Nazar Mokynskyi][nazar-photo]{: .photo.left.round }
 

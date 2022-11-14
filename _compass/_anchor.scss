@@ -10,7 +10,7 @@
 	@include transition(color .16s linear);
 }
 
-.anchorjs-link:link    { color: $color-dark; }
-.anchorjs-link:visited { color: $color-dark; }
-.anchorjs-link:hover   { color: $color-highlight; }
-.anchorjs-link:active  { color: $color-highlight; }
+.anchorjs-link:link    { color: $color-text; }
+.anchorjs-link:visited { color: $color-text; }
+.anchorjs-link:hover   { color: $color-highlight-2; }
+.anchorjs-link:active  { color: $color-highlight-2; }

@@ -43,7 +43,7 @@
 
 	h1 {
 		font-family: 'Poiret One';
-		color: #000;
+		color: $color-white-2;
 		text-align: left;
 		margin-bottom: 1em;
 		clear: both;
@@ -59,9 +59,9 @@
 	}
 
 	h2 {
-		color: #444;
+		color: $color-white-2;
 		text-align: left;
-		border-bottom: 4px solid rgba(#333, 0.1);
+		border-bottom: 4px solid rgba($color-white-2, 0.15);
 		margin-top: 2.5em;
 		margin-bottom: 1.5em;
 		clear: both;
@@ -81,22 +81,26 @@
 	h3 {
 		font-size: 1.4em;
 		line-height: 1.5em;
-		color: #151515;
-		border-bottom: 1px solid rgba($color-dark, 0.75);
+		color: $color-white-2;
+		border-bottom: 1px solid rgba($color-highlight-2, 0.75);
 		text-align: left;
 		margin-top: 2.5em;
 		margin-bottom: 1.5em;
 		clear: both;
 		overflow-wrap: break-word;
-	}
 
-	&.h3color h3 {
-		color: $color-dark;
+		&.h3color {
+			color: $color-highlight-2;
+		}
+
+		&.no-border {
+			border-bottom: none;
+		}
 	}
 
 	h4 {
 		font-size: 1.25em;
-		color: #262626;
+		color: $color-white-2;
 		text-align: left;
 		margin-top: 2.5em;
 		margin-bottom: 1.5em;
@@ -149,7 +153,7 @@
 	}
 
 	blockquote {
-		border-left: 6px solid #d6d6d6;
+		border-left: 6px solid $color-dark-2;
 		padding-left: 8px;
 
 		p, ul {
@@ -160,7 +164,7 @@
 
 	a {
 		text-decoration: none;
-		color: $color-dark;
+		color: $color-highlight-2;
 
 		&:hover {
 			text-decoration: underline;
@@ -192,13 +196,13 @@
 		}
 
 		> code {
-			color: $color-dark !important;
+			color: $color-white-2 !important;
 		}
 	}
 
 	strong {
 		font-weight: 400;
-		color: #000;
+		color: $color-white-2;
 	}
 
 	em {
@@ -222,10 +226,10 @@
 
 	:not(pre) > code {
 		font-family: 'Monaco', 'Andale Mono', monospace;
-		font-size: 0.9em;
-		color: #444;
+		font-size: 0.85em;
+		color: darken($color-white-2, 10%);
 		white-space: pre;
-		background-color: rgba(#fff, 0.25);
+		background-color: rgba(#fff, 0.08);
 		border-radius: 4px;
 		padding: 1px 2px;
 	}
@@ -246,13 +250,12 @@
 		margin: 2em auto;
 		padding: 1em;
 		font-size: 0.95em;
-		color: shade($color-text, 60%);
-		background-color: rgba(#aaa, 0.1);
+		background-color: rgba(#000, 0.2);
 		border-radius: 4px;
-		border: 2px solid $color-highlight;
+		border: 1px solid rgba($color-white-2, 0.1);
 
 		&.warn {
-			border-color: #e47474;
+			border-color: rgba(#e47474, 0.5);
 		}
 
 		@include breakpoint($computer) {
@@ -280,13 +283,12 @@
 			width: 100%;
 			margin: 0 auto;
 			border-collapse: collapse;
-			background-color: rgba(#333, 0.075);
+			background-color: rgba(#fff, 0.025);
 			font-size: 0.9em;
 
 			th {
 				padding: 0.75em;
 				text-align: center;
-				color: rgba(#fff, 0.9);
 				background-color: rgba($color-dark, 0.85);
 			}
 
@@ -297,7 +299,7 @@
 			}
 
 			th, td {
-				border: 1px solid #fff;
+				border: 1px solid rgba($color-white-2, 0.2);
 			}
 		}
 

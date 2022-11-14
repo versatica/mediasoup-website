@@ -56,57 +56,39 @@ gulp.task('jekyll:watch', shell.task(
 	[ 'bundle exec jekyll serve --host 0.0.0.0 -P 3001' ]
 ));
 
-gulp.task('shields', async () =>
+gulp.task('versions', async () =>
 {
 	let tags;
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup' });
 
 	const mediasoupNodeVersion = getSemverVersions(tags.data)[0].name;
-	console.log('"shields" task | mediasoup node:', mediasoupNodeVersion);
+	console.log('"versions" task | mediasoup node:', mediasoupNodeVersion);
 
 	const mediasoupRustVersion = getRustSemverVersions(tags.data)[0].name.replace(/^rust-/, '');
-	console.log('"shields" task | mediasoup rust:', mediasoupRustVersion);
+	console.log('"versions" task | mediasoup rust:', mediasoupRustVersion);
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client' });
 
 	const mediasoupClientVersion = getSemverVersions(tags.data)[0].name;
-	console.log('"shields" task | mediasoup-client:', mediasoupClientVersion);
+	console.log('"versions" task | mediasoup-client:', mediasoupClientVersion);
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'libmediasoupclient' });
 
 	const libmediasoupclientVersion = getSemverVersions(tags.data)[0].name;
-	console.log('"shields" task | libmediasoupclient:', libmediasoupclientVersion);
+	console.log('"versions" task | libmediasoupclient:', libmediasoupclientVersion);
 
 	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client-aiortc' });
 
 	const mediasoupClientAiortcVersion = getSemverVersions(tags.data)[0].name;
-	console.log('"shields" task | mediasoup-client-aiortc:', mediasoupClientAiortcVersion);
-
-	// NOTE: If the library name contains a dash (-) don't use it below but use
-	// this Unicode symbol instead: –
+	console.log('"versions" task | mediasoup-client-aiortc:', mediasoupClientAiortcVersion);
 
 	return gulp.src('_site/index.html')
-		.pipe(replace(
-			/__MEDIASOUP_NODE_VERSION_SHIELD__/g,
-			`https://img.shields.io/badge/mediasoup%20node-v${mediasoupNodeVersion}-1A9FC9`
-		))
-		.pipe(replace(
-			/__MEDIASOUP_RUST_VERSION_SHIELD__/g,
-			`https://img.shields.io/badge/mediasoup%20rust-v${mediasoupRustVersion}-1A9FC9`
-		))
-		.pipe(replace(
-			/__MEDIASOUP_CLIENT_VERSION_SHIELD__/g,
-			`https://img.shields.io/badge/mediasoup–client-v${mediasoupClientVersion}-1A9FC9`
-		))
-		.pipe(replace(
-			/__LIBMEDIASOUPCLIENT_VERSION_SHIELD__/g,
-			`https://img.shields.io/badge/libmediasoupclient-v${libmediasoupclientVersion}-1A9FC9`
-		))
-		.pipe(replace(
-			/__MEDIASOUP_CLIENT_AIORTC_VERSION_SHIELD__/g,
-			`https://img.shields.io/badge/mediasoup–client–aiortc-v${mediasoupClientAiortcVersion}-1A9FC9`
-		))
+		.pipe(replace(/__MEDIASOUP_NODE_VERSION__/g, `v${mediasoupNodeVersion}`))
+		.pipe(replace(/__MEDIASOUP_RUST_VERSION__/g, `v${mediasoupRustVersion}`))
+		.pipe(replace(/__MEDIASOUP_CLIENT_VERSION__/g, `v${mediasoupClientVersion}`))
+		.pipe(replace(/__LIBMEDIASOUPCLIENT_VERSION__/g, `v${libmediasoupclientVersion}`))
+		.pipe(replace(/__MEDIASOUP_CLIENT_AIORTC_VERSION__/g, `v${mediasoupClientAiortcVersion}`))
 		.pipe(gulp.dest('./_site'));
 });
 
@@ -152,9 +134,9 @@ gulp.task('rsync', (done) =>
 	});
 });
 
-gulp.task('build', gulp.series('clean', 'browserify', 'jekyll:build', 'shields', 'sitemap'));
+gulp.task('build', gulp.series('clean', 'browserify', 'jekyll:build', 'versions', 'sitemap'));
 
-gulp.task('live', gulp.series('clean', 'browserify', 'jekyll:watch', 'shields'));
+gulp.task('live', gulp.series('clean', 'browserify', 'jekyll:watch', 'versions'));
 
 gulp.task('deploy', gulp.series('build', 'rsync'));
 

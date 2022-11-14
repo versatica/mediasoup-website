@@ -20,9 +20,12 @@ $mobile: max-width 900px;
 $header-height-computer: 64px;
 $header-height-mobile: 56px;
 
-$color-text: #222;
-$color-highlight: #1fb7e8;
-$color-dark: #1B9FC9;
+$color-white-2: #ccc;
+$color-dark: #000211;
+$color-dark-2: #11142C;
+$color-highlight-1: #9335DB;
+$color-highlight-2: #1EB6E8;
+$color-text: #999;
 
 * {
 	@include box-sizing(border-box);
@@ -52,12 +55,8 @@ body {
 	@include flex-direction(column);
 	@include align-items(center);
 	background-repeat: no-repeat;
-	@include background-image(linear-gradient(110deg,
-		#fff 0%,
-		#dddfdf 25%,
-		#f4f4f4 25%,
-		#f4f4f4 100%));
-	background-color: #f4f4f4;
+	background: radial-gradient($color-dark-2, $color-dark);
+	background-color: $color-dark;
 
 	@include breakpoint($computer) {
 		// Just set fixed background on computer (it's not supported in iOS Safari
@@ -82,6 +81,8 @@ body {
 		top: 0;
 		left: 0;
 		right: 0;
+		background-color: rgba($color-dark, 0.85);
+		backdrop-filter: blur(4px);
 		@include display-flex;
 		@include flex-direction(row);
 		@include justify-content(space-between);
@@ -91,17 +92,10 @@ body {
 			height: $header-height-computer;
 			padding: 0 3.5rem;
 			font-size: 2.5rem;
-			@include background-image(linear-gradient(110deg,
-				rgba(#000, 0.9) 0%,
-				rgba(#282828, 0.9) 25%,
-				rgba(#060606, 0.9) 25%,
-				rgba(#111, 0.9) 100%));
-			background-attachment: fixed;
 
-			// iOS devices (iPad) do not support background-attachment: fixed.
-			&.ios {
-				@include background-image(none);
-				background-color: rgba(#222, 0.9);
+			&::before {
+			 transform: translateY(-100%) translateY(7rem);
+			 transform: translateY(-100%) translateY(7rem) translateZ(0);
 			}
 		}
 
@@ -109,7 +103,6 @@ body {
 			height: $header-height-mobile;
 			padding: 0 16px;
 			font-size: 2rem;
-			background-color: rgba(#222, 0.9);
 		}
 
 		h1 {
@@ -128,6 +121,7 @@ body {
 			cursor: pointer;
 			background-image: url('/images/menu-white.svg');
 			background-size: contain;
+			opacity: 0.85;
 			@include transition-property(opacity);
 			@include transition-duration(0.25s);
 			-webkit-tap-highlight-color: transparent;
@@ -180,7 +174,7 @@ body {
 		@include flex(0 0 auto);
 		width: 100%;
 		padding: 1.75rem 2rem 2.25rem 2rem;
-		background-color: rgba(#111, 0.85);
+		background-color: $color-dark;
 
 		> .links {
 			@include breakpoint($computer) {
@@ -189,20 +183,21 @@ body {
 				@include justify-content(center);
 			}
 
-			> a {
+			> a, iframe {
 				display: block;
-				color: rgba(#fff, 0.5);
-				border-bottom: 1px solid rgba(#fff, 0.1);
-				font-size: 0.85rem;
+				color: rgba($color-white-2, 0.6);
+				font-weight: 300;
+				border-bottom: 1px solid rgba($color-white-2, 0.2);
+				font-size: 0.90rem;
 				text-align: center;
 				text-decoration: none;
-				@include transition-property(color, border-bottom);
-				@include transition-duration(0.05s);
 				-webkit-tap-highlight-color: transparent;
+				@include transition-property(color, border-bottom);
+				@include transition-duration(0.1s);
 
 				&:hover {
-					color: $color-highlight;
-					border-color: $color-highlight;
+					color: $color-white-2;
+					border-color: $color-white-2;
 				}
 
 				@include breakpoint($computer) {
