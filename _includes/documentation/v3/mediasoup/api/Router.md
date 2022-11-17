@@ -245,6 +245,10 @@ Pipes the given media or data producer into another router in the same host. It 
 
 This is specially useful to expand broadcasting capabilities (one to many) by interconnecting different routers that run in separate workers (so in different CPU cores).
 
+<div markdown="1" class="note warn">
+Due to a internal design optimization in C++, the origin router and target router cannot be in the same worker. In other words, `router1.pipeToRouter({ router: router2, etc })` will throw if both `router1` and `router2` were created in the same mediasoup [Worker](#Worker) instance.
+</div>
+
 <div markdown="1" class="table-wrapper L3">
 
 Argument     | Type    | Description | Required | Default 
