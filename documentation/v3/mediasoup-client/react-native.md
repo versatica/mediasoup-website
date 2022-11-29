@@ -13,5 +13,5 @@ In order to use mediasoup-client in React Native (for building Android and iOS a
 
 <div markdown="1" class="note">
 * By calling `registerGlobals()`, classes such as `RTCPeerConnection` and `MediaStream` (among others) will be exposed in the global scope.
-* Those classes are required for the `ReactNative` handler of mediasoup-client to work.
+* Those classes are required for the `ReactNative` handler (or the new `ReactNativeUnifiedPlan` handler) of mediasoup-client to work.
 </div>
