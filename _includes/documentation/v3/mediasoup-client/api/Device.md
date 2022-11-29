@@ -74,7 +74,7 @@ Value          | Description
 "Safari12"     | Safari >= 12.
 "Safari11"     | Safari >= 11.
 "Edge11"       | Edge >= 11 && <= 18 (higher versions use Chromium).
-"ReactNativeUnifiedPlan" | React-Native environment with `react-native-webrtc` >= 106.0.0.
+"ReactNativeUnifiedPlan" | React-Native environment with `react-native-webrtc` >= 106.0.0 with Unified-Plan support.
 "ReactNative"  | React-Native environment with `react-native-webrtc` previous versions with Plan-B support.
 
 </div>
