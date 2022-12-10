@@ -5,10 +5,24 @@
 
 The top-level exported module.
 
-```javascript
+```typescript
+// Using ES6 import:
+import * as mediasoup from "mediasoup";
+
+// Or using destructuring assignment:
+import {
+  types,
+  version,
+  observer,
+  createWorker,
+  getSupportedRtpCapabilities,
+  parseScalabilityMode
+} from "mediasoup";
+
+// Using CommonJS:
 const mediasoup = require("mediasoup");
 
-// Or using destructuring assignment.
+// Or using destructuring assignment:
 const {
   types,
   version,

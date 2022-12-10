@@ -3,7 +3,7 @@
 
 The top-level module exported by the mediasoup-client library.
 
-```javascript
+```typescript
 import * as mediasoupClient from "mediasoup-client";
 ```
 

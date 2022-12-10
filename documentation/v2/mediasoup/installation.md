@@ -9,7 +9,7 @@ anchors : true
 Install the mediasoup Node.js module via NPM within your Node.js application:
 
 ```bash
-$ npm install mediasoup@2 --save
+$ npm install mediasoup@2
 ```
 
 
@@ -27,13 +27,5 @@ In order to build the C/C++ component the following packages and libraries must 
 <div markdown="1" class="note">
 * In Debian and Ubuntu install the `build-essential` DEB package. It includes both `make` and `gcc`/`g++`.
 * In YUM based Linux (Red Hat, CentOS) use `yum groupinstall "Development Tools"`.
+* The installation path MUST NOT contain whitespaces.
 </div>
-
-
-## Usage
-
-Within your Node.js application:
-
-```javascript
-const mediasoup = require("mediasoup");
-```

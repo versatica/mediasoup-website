@@ -5,11 +5,11 @@
 
 The top-level exported module.
 
-```javascript
-// Using import.
+```typescript
+// Using ES6 import.
 import * as mediasoupClient from "mediasoup-client";
 
-// Also using import with destructuring assignment.
+// Or using destructuring assignment:
 import {
   types,
   version,
@@ -22,7 +22,7 @@ import {
 // Using CommonJS.
 const mediasoupClient = require("mediasoup-client");
 
-// Also using CommonJS with destructuring assignment.
+// Or using destructuring assignment:
 const {
   types,
   version,

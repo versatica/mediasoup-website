@@ -6,10 +6,16 @@ anchors : true
 
 # mediasoup v3 Installation
 
-Install the mediasoup Node.js module via NPM within your Node.js application:
+In Node.js, install mediasoup via NPM within your Node.js application:
 
 ```bash
-$ npm install mediasoup@3 --save
+$ npm install mediasoup@3
+```
+
+In Rust, install it within your Rust application:
+
+```bash
+cargo add mediasoup
 ```
 
 
@@ -17,18 +23,18 @@ $ npm install mediasoup@3 --save
 
 In order to build the mediasoup C/C++ components the following packages and libraries must be available in the target host:
 
-### All platforms
+### All Platforms
 
 * `node` version >= v16.0.0
 * `python` version >= 3.6 with PIP
 * GNU `make`
 
-<div markdown="1" class="note">
+<div markdown="1" class="note warn">
 The installation path MUST NOT contain whitespaces.
 </div>
 
 
-### Linux, OSX and any *NIX system
+### Linux, OSX and Any *NIX System
 
 * `gcc` and `g++` >= 4.9 or `clang` (with C++11 support)
 * `cc` and `c++` commands (symlinks) pointing to the corresponding `gcc`/`g++` or `clang`/`clang++` executables.
@@ -62,12 +68,3 @@ If the `MEDIASOUP_MAX_CORES` environment variable is set, the build process will
 * Make sure to have **ISRG Root X1** certificate installed, or you will get errors while downloading OpenSSL (whose website is secured with Let's Encrypt), you can import it from <https://letsencrypt.org/certs/isrgrootx1.der> (install to Local computer).
 * If you have Python-related errors, search for "App execution aliases" in system settings and disable everything Python-related from there.
 </div>
-
-
-## Usage
-
-Within your Node.js application:
-
-```javascript
-const mediasoup = require("mediasoup");
-```
