@@ -23,6 +23,11 @@ In order to build the mediasoup C/C++ components the following packages and libr
 * `python` version >= 3.6 with PIP
 * GNU `make`
 
+<div markdown="1" class="note">
+The installation path MUST NOT contain whitespaces.
+</div>
+
+
 ### Linux, OSX and any *NIX system
 
 * `gcc` and `g++` >= 4.9 or `clang` (with C++11 support)
