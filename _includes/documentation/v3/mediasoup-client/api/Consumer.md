@@ -24,7 +24,7 @@ Field           | Type    | Description   | Required | Default
 `producerId`    | String  | The identifier of the server side producer being consumed. | Yes |
 `kind`          | [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind) | Media kind ("audio" or "video"). | Yes |
 `rtpParameters` | [RtpReceiveParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpReceiveParameters) | Receive RTP parameters. | Yes |
-`streamId`      | String  | Stream id. Useful to limit the inbound RTP streams that the underlying should try to synchonize when rendering them. | No | The RTCP CNAME of the remote producer.
+`streamId`      | String  | Stream id. Useful to limit the inbound RTP streams that the underlying RTC stack should try to synchonize when rendering them. | No | The RTCP CNAME of the remote producer.
 `appData`       | Object  | Custom application data. | No | `{ }`
 
 </div>
