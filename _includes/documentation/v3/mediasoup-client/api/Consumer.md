@@ -24,7 +24,23 @@ Field           | Type    | Description   | Required | Default
 `producerId`    | String  | The identifier of the server side producer being consumed. | Yes |
 `kind`          | [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind) | Media kind ("audio" or "video"). | Yes |
 `rtpParameters` | [RtpReceiveParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpReceiveParameters) | Receive RTP parameters. | Yes |
+`streamId`      | String  | Stream id. Useful to limit the inbound RTP streams that the underlying should try to synchonize when rendering them. | No | The RTCP CNAME of the remote producer.
 `appData`       | Object  | Custom application data. | No | `{ }`
+
+</div>
+
+<div markdown="1" class="note">
+About `streamId`:
+
+libwebrtc based devices can just synchonize up to one inbound audio stream and one inbound video stream. If `streamId` is not given, it will have the same value for all consumers belonging to the same producer. However, the application may wish to ensure that inbound microphone and camera streams produced by a remote peer are synchonized (instead of synchronizing, for instance, microphone and screen sharing streams). 
+
+Usage example:
+
+```typescript
+micConsumer = await transport.consume({ streamId: `${remotePeerId}-mic-webcam` });
+webcamConsumer = await transport.consume({ streamId: `${remotePeerId}-mic-webcam` });
+screensharingConsumer = await transport.consume({ streamId: `${remotePeerId}-screensharing` });
+```
 
 </div>
 
