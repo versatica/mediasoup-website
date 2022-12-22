@@ -11,7 +11,7 @@ anchors : true
 
 * POSIX or Windows based operating system
 * `cmake` >= 3.5
-* `gcc` and `g++` >= 4.9 or `clang` (with C++11 support)
+* `gcc` and `g++` >= 4.9 or `clang` (with C++14 support)
 
 
 ## Build libwebrtc
