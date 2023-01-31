@@ -36,3 +36,7 @@ import * as mediasoupClient from "mediasoup-client";
 ```javascript
 const mediasoupClient = require("mediasoup-client");
 ```
+
+<div markdown="1" class="note">
+If you are developing a React Native application also follow steps in [React Native](/documentation/v3/mediasoup-client/react-native/).
+</div>
