@@ -362,28 +362,26 @@ Parameter      | Type    | Description   | Required | Default
 Simulcast involves sending N separate video RTP streams (so N different SSRCs) representing N different qualities of the same video source. If RTX is used, there would also be N additional RTP RTX streams, one for each media RTP stream. Each media RTP stream may also contain M temporal layers.
 
 <div markdown="1" class="note">
-Currently mediasoup supports simulcast (optionally with M temporal layers) for VP8 and H264 codecs.
+* Currently mediasoup supports simulcast (optionally with M temporal layers) for VP8 and H264 codecs.
+* Starting from Chrome/Chromium M111 it's possible to use a single VP8/H264 stream with temporal layers by setting a proper `scalabilityMode` in the `encoding`.
 </div>
 
 When creating a simulcast producer, the associated [rtpParameters](#RtpSendParameters) given to [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) must conform to the following rules:
 
-* There must be N > 1 entries in the `encodings` array.
-* Each encoding must include a `ssrc` field or a `rid` field (the RID RTP extension value) to help the mediasoup producer identify which RTP stream each packet belongs to.
+* There must be N > 1 entries in the `encodings` array or a single entry with `scalabilityMode` indicating 1 spatial layer and more than 1 temporal layer.
+* If there are more than 1 encoding, each encoding must include a `ssrc` field or a `rid` field (the RID RTP extension value) to help the mediasoup producer identify which RTP stream each packet belongs to.
 * Each encoding represents a "spatial layer". Entries in `encodings` must be ordered from lowest to highest resolution (`encodings[0]` means "spatial layer 0" while `encodings[N-1]` means "spatial layer N-1", being N the number of simulcast streams).
 * If the streams have M temporal layers, those must be signaled in each encoding within the [scalabilityMode](https://w3c.github.io/webrtc-svc/#rtcrtpencodingparameters) field:
-  * Since each stream has a single spatial layer, S must be 1.
-  * If there are not temporal layers, the `scalabilityMode` field can be omitted (it defaults to "S1T1", this is, one spatial layer and one temporal layer).
-
-<div markdown="1" class="note">
-Regarding the `scalabilityMode` syntax, mediasoup uses S for independent spatial layers (simulcast) and L for dependent spatial layers (SVC).
-</div>
+  * Since each stream has a single spatial layer,  the number of spatial layers indicated in `scalabilityMode` in each encoding must be 1.
+  * If there are not temporal layers, the `scalabilityMode` field can be omitted (it defaults to "L1T1", this is, one spatial layer and one temporal layer).
+  * All encodings must have same number of temporal layers.
 
 Simulcast consumers will just get a single stream and hence a single entry in their `rtpParameters.encodings` array. Such a encoding entry has a `scalabilityMode` value that determines the number of spatial layers (number of simulcast streams in the producer) and the number of temporal layers.
 
 <div markdown="1" class="note">
 To clarify, if the producer uses simulcast with 3 streams (3 SSRCs), mediasoup will forward a single and continuous stream (1 SSRC) to the consumer.
 
-The encoding entry in `rtpParameters.encodings` of the consumer contains a `scalabilityMode` field whose S value (number of independent spatial layers) matches the number of streams in the producer, and whose T value (number of temporal layers) matches the number of temporal layers in each stream in the producer.
+The encoding entry in `rtpParameters.encodings` of the consumer contains a `scalabilityMode` field whose L value (number of spatial layers) matches the number of streams in the producer, and whose T value (number of temporal layers) matches the number of temporal layers in each stream in the producer.
 </div>
 
 
@@ -412,7 +410,7 @@ encodings :
 ```js
 encodings :
 [
-  { ssrc: 222220, scalabilityMode: 'S3T1' }
+  { ssrc: 222220, scalabilityMode: 'L3T1' }
 ]
 ```
 
@@ -423,10 +421,10 @@ encodings :
 ```js
 encodings :
 [
-  { rid: 'r0', scalabilityMode: 'S1T3' },
-  { rid: 'r1', scalabilityMode: 'S1T3' },
-  { rid: 'r2', scalabilityMode: 'S1T3' },
-  { rid: 'r3', scalabilityMode: 'S1T3' }
+  { rid: 'r0', scalabilityMode: 'L1T3' },
+  { rid: 'r1', scalabilityMode: 'L1T3' },
+  { rid: 'r2', scalabilityMode: 'L1T3' },
+  { rid: 'r3', scalabilityMode: 'L1T3' }
 ]
 ```
 
@@ -435,7 +433,7 @@ encodings :
 ```js
 encodings :
 [
-  { ssrc: 222220, scalabilityMode: 'S4T3' }
+  { ssrc: 222220, scalabilityMode: 'L4T3' }
 ]
 ```
 
@@ -450,8 +448,7 @@ SVC involves sending a single RTP stream with N spatial layers and M temporal la
 mediasoup implements two types of SVC, full SVC and K-SVC. The main difference is that, in K-SVC, a RTP key frame is required in order to up/down switch the maximun spatial layer that mediasoup forwards to a consumer. For more information about SVC in WebRTC check the [webrtc-svc](https://w3c.github.io/webrtc-svc) specification (work in progress).
 
 <div markdown="1" class="note">
-Currently mediasoup supports SVC for VP9 codec in both, full SVC and K-SVC modes. See [below](#SVC-State-of-the-Art) for more information about current state of the art in existing implementations.
-</div>
+Currently mediasoup supports SVC for VP9 codec in both, full SVC and K-SVC modes. </div>
 
 When creating a SVC producer, the associated [rtpParameters](#RtpSendParameters) given to [transport.produce()](/documentation/v3/mediasoup/api/#transport-produce) must conform to the following rules:
 
@@ -506,57 +503,5 @@ encodings :
   { ssrc: 222220, scalabilityMode: 'L4T5_KEY' }
 ]
 ```
-
-</section>
-
-### State of the Art
-{: #SVC-State-of-the-Art}
-
-SVC is not yet properly defined for WebRTC and it's not covered by the WebRTC 1.0 specification.
-
-<section markdown="1">
-
-#### Chrome
-
-mediasoup-client >= 3.1.0 enables VP9 SVC in Chrome >= M74 (without any command line flag) by doing dirty things:
-
-* [Commit](https://github.com/versatica/mediasoup-client/commit/7fe828181361e30d2157659b2aa7f516366beb69?ts=2)
-* [Discussion in Twitter](https://twitter.com/ibc_tw/status/1136968240415072256)
-
-It's important to notice that Chrome uses VP9 K-SVC when transmitting the webcam video and full SVC when doing screen sharing. This **must** be properly signaled in the `scalabilityMode` of the mediasoup producer (otherwise things won't work):
-
-* Webcam video (K-SVC) with 3 spatial layers and 3 temporal layers:
-
-```js
-scalabilityMode: 'L3T3_KEY'
-```
-
-* Screen sharing (full SVC) with 3 spatial layers and 3 temporal layers:
-
-```js
-scalabilityMode: 'L3T3'
-```
-
-#### libwebrtc
-
-VP9 SVC can also be enabled in Chrome and in libwebrtc based native apps via a flag whose value determines the number of spatial and temporal layers:
-
-```
-WebRTC-SupportVP9SVC/EnabledByFlag_3SL3TL/
-```
-
-To enable VP9 SVC in Chrome, the browser must be launched with the following command line argument:
-
-```
---force-fieldtrials=WebRTC-SupportVP9SVC/EnabledByFlag_3SL3TL/
-```
-
-To enable VP9 SVC using the libwebrtc C++ API:
-
-```c++
-webrtc::field_trial::InitFieldTrialsFromString("WebRTC-SupportVP9SVC/EnabledByFlag_3SL3TL/");
-```
-
-Note that, instead of `EnabledByFlag_3SL3TL`, other variations are valid (such as `EnabledByFlag_2SL1TL`, etc). The thing here is that the `scalabilityMode` value in the producer must match the number of spatial and temporal layers in the flag.
 
 </section>
