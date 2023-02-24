@@ -76,6 +76,7 @@ Field           | Type    | Description   | Required | Default
 `opusMaxPlaybackRate` | Number | Set OPUS maximum playback rate. | No | Browser specific.
 `opusMaxAverageBitrate` | Number | Set OPUS maximum average bitrate. | No | Browser specific.
 `opusPtime`     | Number | Set OPUS preferred duration of media represented by a packet. | No | Browser specific.
+`opusNack`      | Boolean | Enable retransmission of lost OPUS RTP packets via negotiated RTCP NACK. Only available in modern libwebrtc based handlers. | No | `false`
 `videoGoogleStartBitrate` | Number | Just for libwebrtc based browsers. Set video initial bitrate. | No |
 `videoGoogleMaxBitrate` | Number | Just for libwebrtc based browsers. Set video maximum bitrate. | No |
 `videoGoogleMinBitrate` | Number | Just for libwebrtc based browsers. Set video minimum bitrate. | No |
