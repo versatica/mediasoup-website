@@ -69,6 +69,7 @@ The RTP send parameters describe a media stream received by mediasoup from an en
 
 * These parameters may include a `mid` value that the mediasoup transport will use to match received RTP packets based on their MID RTP extension value.
 * mediasoup allows RTP send parameters with a single encoding and with multiple encodings (simulcast). In the latter case, each entry in the `encodings` array must include a `ssrc` field or a `rid` field (the RID RTP extension value).
+* If a single encoding is given, RTP send parameters must include `mid` value or the encoding must indicate the `ssrc` of the stream.
 
 <div markdown="1" class="note">
 Check the [Simulcast](#Simulcast) and [SVC](#SVC) sections for more information.
