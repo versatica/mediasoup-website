@@ -207,7 +207,8 @@ Argument   | Type    | Description | Required | Default
 > `@async`
 
 <div markdown="1" class="note">
-This method just works when REMB is available in the remote sender, which is typically just supported in WebRTC.
+* This method just works when REMB is available in the remote sender, which is typically just supported in WebRTC.
+* In order to reset the limit, call the method with argument 0.
 </div>
 
 ```javascript
@@ -217,24 +218,51 @@ await transport.setMaxIncomingBitrate(3500000);
 #### transport.setMaxOutgoingBitrate(bitrate)
 {: #transport-setMaxOutgoingBitrate .code}
 
-Set maximum outgoing bitrate for media streams sent by mediasoup to the remote endpoint over this transport.
+Set maximum outgoing bitrate for media streams sent by mediasoup to the remote endpoint over this transport. By calling this method, the estimated outgoing bitrate is overridden if given value is lower than the estimated one.
+
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`bitrate`  | Number | Maximum outgoing bitrate in `bps`. | Yes | 0 (no limit)
+`bitrate`  | Number | Maximum outgoing bitrate in `bps`. Must be given than 30000. | Yes | 0 (no limit)
 
 </div>
 
 > `@async`
 
 <div markdown="1" class="note">
-This method just works when transport congestion control is available in the remote receiver, which is typically just supported in WebRTC.
+* This method just works when transport congestion control is available in the remote receiver, which is typically just supported in WebRTC.
+* In order to reset the limit, call the method with argument 0.
 </div>
 
 ```javascript
 await transport.setMaxOutgoingBitrate(2000000);
+```
+
+#### transport.setMinOutgoingBitrate(bitrate)
+{: #transport-setMinOutgoingBitrate .code}
+
+Set minimum outgoing bitrate for media streams sent by mediasoup to the remote endpoint over this transport. By calling this method, the estimated outgoing bitrate is overridden if given value is higher than the estimated one.
+
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument   | Type    | Description | Required | Default 
+---------- | ------- | ----------- | -------- | ----------
+`bitrate`  | Number | Minimum outgoing bitrate in `bps`. Must be given than 30000. | Yes | 0 (no limit)
+
+</div>
+
+> `@async`
+
+<div markdown="1" class="note">
+* This method just works when transport congestion control is available in the remote receiver, which is typically just supported in WebRTC.
+* In order to reset the limit, call the method with argument 0.
+</div>
+
+```javascript
+await transport.setMinOutgoingBitrate(1000000);
 ```
 
 #### transport.produce(options)

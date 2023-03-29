@@ -97,6 +97,17 @@ Not implemented in direct transports. If called, it will reject with `Unsupporte
 > 
 > `@overrides`
 
+#### directTransport.setMinOutgoingBitrate(options)
+{: #directTransport-setMinOutgoingBitrate .code}
+
+<div markdown="1" class="note warn">
+Not implemented in direct transports. If called, it will reject with `UnsupportedError`.
+</div>
+
+> `@async`
+> 
+> `@overrides`
+
 </section>
 
 #### directTransport.sendRtcp(rtcpPacket)
