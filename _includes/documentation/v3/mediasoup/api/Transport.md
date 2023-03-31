@@ -267,7 +267,7 @@ Argument   | Type    | Description | Required | Default
 await transport.setMinOutgoingBitrate(1000000);
 ```
 
-#### transport.produce&lt;ProducerAppData&gt(options)
+#### transport.produce&lt;ProducerAppData&gt;(options)
 {: #transport-produce .code}
 
 Instructs the router to receive audio or video RTP (or SRTP depending on the transport class). This is the way to inject media into mediasoup.
@@ -357,7 +357,7 @@ const producer = await transport.produce(
   });
 ```
 
-#### transport.consume&lt;ConsumerAppData&gt(options)
+#### transport.consume&lt;ConsumerAppData&gt;(options)
 {: #transport-consume .code}
 
 Instructs the router to send audio or video RTP (or SRTP depending on the transport class). This is the way to extract media from mediasoup.
@@ -474,7 +474,7 @@ const consumer = await transport.consume(
   });
 ```
 
-#### transport.produceData&lt;DataProducerAppData&gt(options)
+#### transport.produceData&lt;DataProducerAppData&gt;(options)
 {: #transport-producedata .code}
 
 Instructs the router to receive data messages. Those messages can be delivered by an endpoint via [SCTP](https://tools.ietf.org/html/rfc4960) protocol (AKA DataChannel in WebRTC) or can be directly sent from the Node.js application if the transport is a `DirectTransport`.
@@ -516,7 +516,7 @@ const dataProducer = await transport.produceData(
 const dataProducer = await transport.produceData();
 ```
 
-#### transport.consumeData&lt;DataConsumerAppData&gt(options)
+#### transport.consumeData&lt;DataConsumerAppData&gt;(options)
 {: #transport-consumedata .code}
 
 Instructs the router to send data messages to the endpoint via [SCTP](https://tools.ietf.org/html/rfc4960) protocol (AKA DataChannel in WebRTC) or directly to the Node.js process if the transport is a `DirectTransport`.

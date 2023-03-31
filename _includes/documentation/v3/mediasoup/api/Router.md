@@ -350,7 +350,7 @@ const activeSpeakerObserver = await router.createActiveSpeakerObserver(
   });
 ```
 
-#### router.createAudioLevelObserver&lt;AudioLevelObserverAppData&gt(options)
+#### router.createAudioLevelObserver&lt;AudioLevelObserverAppData&gt;(options)
 {: #router-createAudioLevelObserver .code}
 
 Creates a new audio level observer.

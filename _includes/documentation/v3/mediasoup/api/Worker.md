@@ -210,7 +210,7 @@ Argument   | Type    | Description | Required | Default
 await worker.updateSettings({ logLevel: "warn" });
 ```
 
-#### worker.createRouter&lt;RouterAppData&gt(options)
+#### worker.createRouter&lt;RouterAppData&gt;(options)
 {: #worker-createRouter .code}
 
 Creates a new router.
@@ -260,7 +260,7 @@ const mediaCodecs =
 const router = await worker.createRouter({ mediaCodecs });
 ```
 
-#### worker.createWebRtcServer&lt;WebRtcServerAppData&gt(options)
+#### worker.createWebRtcServer&lt;WebRtcServerAppData&gt;(options)
 {: #worker-createWebRtcServer .code}
 
 Creates a new WebRTC server.

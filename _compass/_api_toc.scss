@@ -49,8 +49,8 @@
 	overscroll-behavior: contain;
 
 	@include breakpoint($computer) {
-		right: -400px;
-		width: 380px;
+		right: -500px;
+		width: 480px;
 		padding: 2rem 1rem;
 	}
 
