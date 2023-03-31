@@ -65,9 +65,9 @@ Whether the RTP observer is paused.
 #### rtpObserver.appData
 {: #rtpObserver-appData .code}
 
-Custom data Object provided by the application in the RTP observer factory method. The app can modify its content at any time.
+Custom data provided by the application in the worker factory method. The app can modify it at any  time.
 
-> `@type` Object, read only
+> `@type` [AppData](#AppData)
 
 #### rtpObserver.observer
 {: #rtpObserver-observer .code}

@@ -27,7 +27,7 @@ Field          | Type    | Description  | Required | Default
 `maxEntries`   | Number  | Maximum number of entries in the "volumes" event. | No | 1
 `threshold`    | Number  | Minimum average volume (in dBvo from -127 to 0) for entries in the "volumes" event. | No | -80
 `interval`     | Number  | Interval in ms for checking audio volumes. | No | 1000
-`appData`      | Object  | Custom application data. | No | `{ }`
+`appData`      | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
 

@@ -27,7 +27,7 @@ A direct transport can also be used to inject and directly consume RTP and RTCP 
 Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
 `maxMessageSize` | Number | Maximum allowed size for direct messages sent by `DataProducers`. | No | 262144
-`appData`     | Object  | Custom application data. | No | `{ }`
+`appData`     | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
 

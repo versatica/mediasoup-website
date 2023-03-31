@@ -26,7 +26,7 @@ Field                    | Type    | Description   | Required | Default
 `rtcMaxPort`             | Number  | Maximum RTC port for ICE, DTLS, RTP, etc. | No | 59999
 `dtlsCertificateFile`    | String  | Path to the DTLS public certificate file in PEM format. If unset, a certificate is dynamically created. | No |
 `dtlsPrivateKeyFile`     | String  | Path to the DTLS certificate private key file in PEM format. If unset, a certificate is dynamically created. | No |
-`appData`                 | Object  | Custom application data. | No | `{ }` |
+`appData`                 | [AppData](#AppData) | Custom application data. | No | `{ }` |
 
 </div>
 
@@ -134,9 +134,9 @@ console.log(worker.closed);
 #### worker.appData
 {: #worker-appData .code}
 
-Custom data Object provided by the application in the worker factory method. The app can modify its content at any time.
+Custom data provided by the application in the worker factory method. The app can modify it at any time.
 
-> `@type` Object, read only
+> `@type` [AppData](#AppData)
 
 #### worker.observer
 {: #worker-observer .code}
@@ -210,7 +210,7 @@ Argument   | Type    | Description | Required | Default
 await worker.updateSettings({ logLevel: "warn" });
 ```
 
-#### worker.createRouter(options)
+#### worker.createRouter&lt;RouterAppData&gt(options)
 {: #worker-createRouter .code}
 
 Creates a new router.
@@ -220,6 +220,14 @@ Creates a new router.
 Argument      | Type    | Description | Required | Default 
 ------------- | ------- | ----------- | -------- | ----------
 `options`     | [RouterOptions](#RouterOptions) | Router options. | Yes |
+
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`RouterAppData`     | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
 
 </div>
 
@@ -252,7 +260,7 @@ const mediaCodecs =
 const router = await worker.createRouter({ mediaCodecs });
 ```
 
-#### worker.createWebRtcServer(options)
+#### worker.createWebRtcServer&lt;WebRtcServerAppData&gt(options)
 {: #worker-createWebRtcServer .code}
 
 Creates a new WebRTC server.
@@ -264,6 +272,15 @@ Argument      | Type    | Description | Required | Default
 `options`     | [WebRtcServerOptions](#WebRtcServerOptions) | WebRTC server options. | Yes |
 
 </div>
+
+<div markdown="1" class="table-wrapper L3">
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`WorkerAppData`     | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
+
+</div>
+
 
 > `@async`
 > 

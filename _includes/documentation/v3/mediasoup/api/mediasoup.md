@@ -46,6 +46,7 @@ const {
 
 An Object holding all classes and **TypeScript** types exported by mediasoup.
 
+
 > `@type` Object, read only
 
 ```typescript
@@ -61,6 +62,20 @@ import { Worker, RtpParameters } from "mediasoup/node/lib/types";
 let worker: Worker;
 let rtpParameters: RtpParameters;
 ```
+
+In addition to those types it also exports `AppData` TypeScript type, which can be used to specify the custom `appData` content of each mediasoup entity.
+{: #AppData .code}
+
+<div markdown="1">
+
+```typescript
+export type AppData =
+{
+  [key: string]: unknown;
+};
+```
+
+</div>
 
 #### mediasoup.version
 {: #mediasoup-version .code}
@@ -89,7 +104,7 @@ An event emitter that allows the application (or third party libraries) monitor 
 
 <section markdown="1">
 
-#### mediasoup.createWorker(settings)
+#### mediasoup.createWorker&lt;WorkerAppData&gt;(settings)
 {: #mediasoup-createWorker .code}
 
 Creates a new worker with the given settings.
@@ -102,16 +117,25 @@ Argument   | Type    | Description | Required | Default
 
 </div>
 
+<div markdown="1" class="table-wrapper L3">
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`WorkerAppData`     | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
+
+</div>
+
 > `@async`
 > 
 > `@returns` [Worker](#Worker)
 
 ```javascript
-const worker = await mediasoup.createWorker(
+const worker = await mediasoup.createWorker<{ foo: number }>(
   {
     logLevel            : "warn",
     dtlsCertificateFile : "/home/foo/dtls-cert.pem",
-    dtlsPrivateKeyFile  : "/home/foo/dtls-key.pem"
+    dtlsPrivateKeyFile  : "/home/foo/dtls-key.pem",
+    appData             : { foo: 123 }
   });
 ```
 

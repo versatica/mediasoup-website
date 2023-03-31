@@ -137,12 +137,14 @@ Whether the transport is closed.
 #### transport.appData
 {: #transport-appData .code}
 
-Custom data Object provided by the application in the transport factory method. The app can modify its content at any time.
+Custom data provided by the application in the worker factory method. The app can modify it at any time.
 
-> `@type` Object, read only
+> `@type` [AppData](#AppData)
 
 ```javascript
 transport.appData.foo = "bar";
+
+transport.appData = { foo: "bar", bar: 123 };
 ```
 
 #### transport.observer
@@ -265,7 +267,7 @@ Argument   | Type    | Description | Required | Default
 await transport.setMinOutgoingBitrate(1000000);
 ```
 
-#### transport.produce(options)
+#### transport.produce&lt;ProducerAppData&gt(options)
 {: #transport-produce .code}
 
 Instructs the router to receive audio or video RTP (or SRTP depending on the transport class). This is the way to inject media into mediasoup.
@@ -275,6 +277,14 @@ Instructs the router to receive audio or video RTP (or SRTP depending on the tra
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
 `options`   | [ProducerOptions](#ProducerOptions) | Producer options. | Yes |
+
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`ProducerAppData` | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
 
 </div>
 
@@ -347,7 +357,7 @@ const producer = await transport.produce(
   });
 ```
 
-#### transport.consume(options)
+#### transport.consume&lt;ConsumerAppData&gt(options)
 {: #transport-consume .code}
 
 Instructs the router to send audio or video RTP (or SRTP depending on the transport class). This is the way to extract media from mediasoup.
@@ -357,6 +367,14 @@ Instructs the router to send audio or video RTP (or SRTP depending on the transp
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
 `options`   | [ConsumerOptions](#ConsumerOptions) | Consumer options. | Yes |
+
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`ConsumerAppData` | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
 
 </div>
 
@@ -456,7 +474,7 @@ const consumer = await transport.consume(
   });
 ```
 
-#### transport.produceData(options)
+#### transport.produceData&lt;DataProducerAppData&gt(options)
 {: #transport-producedata .code}
 
 Instructs the router to receive data messages. Those messages can be delivered by an endpoint via [SCTP](https://tools.ietf.org/html/rfc4960) protocol (AKA DataChannel in WebRTC) or can be directly sent from the Node.js application if the transport is a `DirectTransport`.
@@ -468,6 +486,15 @@ Argument    | Type    | Description | Required | Default
 `options`   | [DataProducerOptions](#DataProducerOptions) | Data producer options. | No | `{ }`
 
 </div>
+
+<div markdown="1" class="table-wrapper L3">
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`DataProducerAppData` | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
+
+</div>
+
 
 > `@async`
 > 
@@ -489,7 +516,7 @@ const dataProducer = await transport.produceData(
 const dataProducer = await transport.produceData();
 ```
 
-#### transport.consumeData(options)
+#### transport.consumeData&lt;DataConsumerAppData&gt(options)
 {: #transport-consumedata .code}
 
 Instructs the router to send data messages to the endpoint via [SCTP](https://tools.ietf.org/html/rfc4960) protocol (AKA DataChannel in WebRTC) or directly to the Node.js process if the transport is a `DirectTransport`.
@@ -499,6 +526,14 @@ Instructs the router to send data messages to the endpoint via [SCTP](https://to
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
 `options`   | [DataConsumerOptions](#DataConsumerOptions) | Data Consumer options. | Yes |
+
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`DataConsumerAppData` | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
 
 </div>
 

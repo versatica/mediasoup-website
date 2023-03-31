@@ -23,7 +23,7 @@ Field                  | Type    | Description   | Required | Default
 `sctpStreamParameters` | [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters) | SCTP parameters defining how the endpoint is sending the data. Required if SCTP/DataChannel is used. Must not be given if the data producer is created on a `DirectTransport`. | No |
 `label`                | String | A label which can be used to distinguish this DataChannel from others. | No |
 `protocol`             | String | Name of the sub-protocol used by this DataChannel. | No |
-`appData`              | Object  | Custom application data. | No | `{ }`
+`appData`              | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
 
@@ -100,9 +100,9 @@ The data producer sub-protocol.
 #### dataProducer.appData
 {: #dataProducer-appData .code}
 
-Custom data Object provided by the application in the producer factory method. The app can modify its content at any time.
+Custom data provided by the application in the worker factory method. The app can modify it at any time.
 
-> `@type` Object, read only
+> `@type` [AppData](#AppData)
 
 #### dataProducer.observer
 {: #dataProducer-observer .code}

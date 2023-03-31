@@ -40,7 +40,7 @@ Field         | Type    | Description   | Required | Default
 Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
 `listenInfos`  | Array&lt;[WebRtcServerListenInfo](#WebRtcServerListenInfo)&gt; | Listening protocol, IP and port objects in order of preference (first one is the preferred one). | Yes |
-`appData`    | Object  | Custom application data. | No | `{ }`
+`appData`    | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
 
@@ -75,13 +75,9 @@ Whether the WebRTC server is closed.
 #### webRtcServer.appData
 {: #webRtcServer-appData .code}
 
-Custom data Object provided by the application in the WebRTC server factory method. The app can modify its content at any time.
+Custom data provided by the application in the worker factory method. The app can modify it at any time.
 
-> `@type` Object, read only
-
-```javascript
-webRtcServer.appData.foo = "bar";
-```
+> `@type` [AppData](#AppData)
 
 #### webRtcServer.observer
 {: #webRtcServer-observer .code}

@@ -24,7 +24,7 @@ Field            | Type    | Description   | Required | Default
 `ordered`        | Boolean | Just if consuming over SCTP. Whether data messages must be received in order. If `true` the messages will be sent reliably. | No | The value in the data producer (if it's of type 'sctp') or `true` (if it's of type 'direct').
 `maxPacketLifeTime` | Number | Just if consuming over SCTP. When `ordered` is `false`, it indicates the time (in milliseconds) after which a SCTP packet will stop being retransmitted. | No | The value in the data producer (if it's of type 'sctp') or unset (if it's of type 'direct').
 `maxRetransmits` | Number | Just if consuming over SCTP. When `ordered` is `false`, it indicates the maximum number of times a packet will be retransmitted. | No | The value in the data producer (if it's of type 'sctp') or unset (if it's of type 'direct').
-`appData`        | Object  | Custom application data. | No | `{ }`
+`appData`        | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
 
@@ -108,9 +108,9 @@ The data consumer sub-protocol.
 #### dataConsumer.appData
 {: #dataConsumer-appData .code}
 
-Custom data Object provided by the application in the data consumer factory method. The app can modify its content at any time.
+Custom data provided by the application in the worker factory method. The app can modify it at any time.
 
-> `@type` Object, read only
+> `@type` [AppData](#AppData)
 
 #### dataConsumer.observer
 {: #dataConsumer-observer .code}

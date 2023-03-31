@@ -25,7 +25,7 @@ Implementation of Dominant Speaker Identification for Multipoint Videoconferenci
 Field          | Type    | Description  | Required | Default 
 -------------- | ------- | ------------ | -------- | ----------
 `interval`     | Number  | Interval in ms for checking audio volumes. | No | 300
-`appData`      | Object  | Custom application data. | No | `{ }`
+`appData`      | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
 

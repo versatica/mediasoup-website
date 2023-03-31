@@ -44,7 +44,7 @@ Field         | Type    | Description   | Required | Default
 `sctpSendBufferSize` | Number | SCTP send buffer size used by usrsctp. | NO | 262144 |
 `enableSrtp`  | Boolean | Enable SRTP to encrypt RTP and SRTP. If enabled, the remote must also enable SRTP. | No | `false`
 `srtpCryptoSuite` | [SrtpCryptoSuite](/documentation/v3/mediasoup/srtp-parameters/#SrtpCryptoSuite) | Just valid if `enableSrtp` is set. | No | "AES_CM_128_HMAC_SHA1_80"
-`appData`     | Object  | Custom application data. | No | `{ }`
+`appData`     | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
 

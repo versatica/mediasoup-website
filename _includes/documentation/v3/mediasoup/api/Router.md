@@ -25,7 +25,7 @@ Developers may think of a mediasoup router as if it were a "multi-party conferen
 Field         | Type               | Description   | Required | Default
 ------------- | ------------------ | ------------- | -------- | ---------
 `mediaCodecs` | Array&lt;[RtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCodecCapability)&gt; | Router media codecs. | No | `[ ]`
-`appData`      | Object  | Custom application data. | No | `{ }`
+`appData`      | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
 
@@ -114,9 +114,9 @@ An Object with the RTP capabilities of the router. These capabilities are tipica
 #### router.appData
 {: #router-appData .code}
 
-Custom data Object provided by the application in the router factory method. The app can modify its content at any time.
+Custom data provided by the application in the worker factory method. The app can modify it at any time.
 
-> `@type` Object, read only
+>`@type` [AppData](#AppData)
 
 #### router.observer
 {: #router-observer .code}
@@ -138,7 +138,7 @@ See the [Observer Events](#Router-observer-events) section below.
 
 Closes the router. Triggers a ["routerclose"](#transport-on-routerclose) event in all its transports and also ["routerclose"](#rtpObserver-on-routerclose) event in all its RTP observers.
 
-#### router.createWebRtcTransport(options)
+#### router.createWebRtcTransport&lt;WebRtcTransportAppData&gt;(options)
 {: #router-createWebRtcTransport .code}
 
 Creates a new WebRTC transport.
@@ -148,6 +148,15 @@ Creates a new WebRTC transport.
 Argument      | Type    | Description | Required | Default 
 ------------- | ------- | ----------- | -------- | ----------
 `options` | [WebRtcTransportOptions](#WebRtcTransportOptions) | WebRTC transport options. | Yes |
+
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`WebRtcTransportAppData` | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
 
 </div>
 
@@ -167,7 +176,7 @@ const transport = await router.createWebRtcTransport(
   });
 ```
 
-#### router.createPlainTransport(options)
+#### router.createPlainTransport&lt;PlainTransportAppData&gt;(options)
 {: #router-createPlainTransport .code}
 
 Creates a new plain transport.
@@ -177,6 +186,15 @@ Creates a new plain transport.
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
 `options`   | [PlainTransportOptions](#PlainTransportOptions) | Plain transport options. | Yes |
+
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`PlainTransportAppData` | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
 
 </div>
 
@@ -193,7 +211,7 @@ const transport = await router.createPlainTransport(
   });
 ```
 
-#### router.createPipeTransport(options)
+#### router.createPipeTransport&lt;PipeTransportAppData&gt;(options)
 {: #router-createPipeTransport .code}
 
 Creates a new pipe transport.
@@ -203,6 +221,15 @@ Creates a new pipe transport.
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
 `options`   | [PipeTransportOptions](#PipeTransportOptions) | Pipe transport options. | Yes |
+
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`PipeTransportAppData` | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
 
 </div>
 
@@ -217,7 +244,7 @@ const transport = await router.createPipeTransport(
   });
 ```
 
-#### router.createDirectTransport(options)
+#### router.createDirectTransport&lt;DirectTransportAppData&gt;(options)
 {: #router-createDirectTransport .code}
 
 Creates a new direct transport.
@@ -227,6 +254,15 @@ Creates a new direct transport.
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
 `options`   | [DirectTransportOptions](#DirectTransportOptions) | Plain transport options. | Yes |
+
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`DirectTransportAppData` | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
 
 </div>
 
@@ -282,7 +318,7 @@ const transport2 = await router2.createWebRtcTransport({ ... });
 const consumer2 = await transport2.consume({ producerId: producer1.id, ... });
 ```
 
-#### router.createActiveSpeakerObserver(options)
+#### router.createActiveSpeakerObserver&lt;ActiveSpeakerObserverAppData&gt;(options)
 {: #router-createActiveSpeakerObserver .code}
 
 Creates a new active speaker observer.
@@ -292,6 +328,14 @@ Creates a new active speaker observer.
 Argument    | Type    | Description | Required | Default
 ----------- | ------- | ----------- | -------- | ----------
 `options`   | [ActiveSpeakerObserverOptions](#ActiveSpeakerObserverOptions) | Options. | No |
+
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`ActiveSpeakerObserverAppData` | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
 
 </div>
 
@@ -306,7 +350,7 @@ const activeSpeakerObserver = await router.createActiveSpeakerObserver(
   });
 ```
 
-#### router.createAudioLevelObserver(options)
+#### router.createAudioLevelObserver&lt;AudioLevelObserverAppData&gt(options)
 {: #router-createAudioLevelObserver .code}
 
 Creates a new audio level observer.
@@ -316,6 +360,14 @@ Creates a new audio level observer.
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
 `options`   | [AudioLevelObserverOptions](#AudioLevelObserverOptions) | Options. | No |
+
+</div>
+
+<div markdown="1" class="table-wrapper L3">
+
+TypeScript argument | Type    | Description | Required | Default 
+------------------- | ------- | ----------- | -------- | ----------
+`AudioLevelObserverAppData` | [AppData](#AppData) | Custom `appData` definition. | No | `{ }`
 
 </div>
 

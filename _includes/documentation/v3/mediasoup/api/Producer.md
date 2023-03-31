@@ -25,7 +25,7 @@ Field           | Type    | Description   | Required | Default
 `rtpParameters` | [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters) | RTP parameters defining what the endpoint is sending. | Yes |
 `paused`        | Boolean | Whether the producer must start in paused mode. | No | `false`
 `keyFrameRequestDelay` | Number | Just for video. Time (in ms) before asking the sender for a new key frame after having asked a previous one. If 0 there is no delay. | No | 0
-`appData`       | Object  | Custom application data. | No | `{ }`
+`appData`       | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
 
@@ -180,9 +180,9 @@ The score of each RTP stream being received, representing their tranmission qual
 #### producer.appData
 {: #producer-appData .code}
 
-Custom data Object provided by the application in the producer factory method. The app can modify its content at any time.
+Custom data provided by the application in the worker factory method. The app can modify it at any time.
 
-> `@type` Object, read only
+> `@type` [AppData](#AppData)
 
 #### producer.observer
 {: #producer-observer .code}

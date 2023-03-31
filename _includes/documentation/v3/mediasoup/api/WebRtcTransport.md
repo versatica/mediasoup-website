@@ -38,7 +38,7 @@ Field        | Type    | Description   | Required | Default
 `numSctpStreams` | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
 `maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers`. | No | 262144
 `sctpSendBufferSize` | Number | SCTP send buffer size used by usrsctp. | NO | 262144 |
-`appData`    | Object  | Custom application data. | No | `{ }`
+`appData`    | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
 
