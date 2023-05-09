@@ -346,7 +346,7 @@ const producer = await transport.produce(
       encodings :
       [
         { rid: "r0", active: true, maxBitrate: 100000 },
-        { rid: "r1", active: true, maxBitrate: 300000 }
+        { rid: "r1", active: true, maxBitrate: 300000 },
         { rid: "r2", active: true, maxBitrate: 900000 }
       ],
       rtcp :
@@ -731,4 +731,3 @@ transport.observer.on("newdataconsumer", (dataConsumer) =>
 Same as the [trace](#transport-on-trace) event.
 
 </section>
-
