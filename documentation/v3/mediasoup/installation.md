@@ -25,8 +25,8 @@ In order to build the mediasoup C/C++ components the following packages and libr
 
 ### All Platforms
 
-* `node` version >= v16.0.0
-* `python` version >= 3.7 with PIP
+* Node.js version >= v16.0.0
+* Python version >= 3.7 with PIP
 * GNU `make`
 
 <div markdown="1" class="note warn">
@@ -43,7 +43,7 @@ The installation path MUST NOT contain whitespaces.
 * On Debian and Ubuntu install the `python3-pip` DEB package, otherwise PIP package manager might be unavailable.
 * On Debian and Ubuntu install the `build-essential` DEB package. It includes both `make` and `gcc`/`g++`.
 * On YUM based Linux (Red Hat, CentOS) use `yum groupinstall "Development Tools"`.
-* On OSX M1 ensure that you have a M1 version of `node`.
+* On OSX M1 ensure that you have a M1 version of Node.js.
 </div>
 
 <div markdown="1" class="note">
