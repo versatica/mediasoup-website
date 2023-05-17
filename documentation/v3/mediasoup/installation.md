@@ -26,7 +26,7 @@ In order to build the mediasoup C/C++ components the following packages and libr
 ### All Platforms
 
 * `node` version >= v16.0.0
-* `python` version >= 3.6 with PIP
+* `python` version >= 3.7 with PIP
 * GNU `make`
 
 <div markdown="1" class="note warn">
@@ -36,8 +36,8 @@ The installation path MUST NOT contain whitespaces.
 
 ### Linux, OSX and Any *NIX System
 
-* `gcc` and `g++` >= 4.9 or `clang` (with C++11 support)
-* `cc` and `c++` commands (symlinks) pointing to the corresponding `gcc`/`g++` or `clang`/`clang++` executables.
+* `gcc` and `g++` >= 8 or `clang` (with C++17 support)
+* `cc` and `c++` commands (symlinks) pointing to the corresponding `gcc`/`g++` or `clang`/`clang++` executables
 
 <div markdown="1" class="note">
 * On Debian and Ubuntu install the `python3-pip` DEB package, otherwise PIP package manager might be unavailable.
@@ -61,7 +61,7 @@ If the `MEDIASOUP_MAX_CORES` environment variable is set, the build process will
 
 ### Windows
 
-* Microsoft Visual Studio environment with MSVC compiler (with C++11 support).
+* Microsoft Visual Studio environment with MSVC compiler (with C++17 support).
 
 <div markdown="1" class="note">
 * GNU `make` can be installed with MSYS from [MinGW](https://sourceforge.net/projects/mingw/) and make sure to append the path of folder containing `make` to the Windows `Path` environment variable (e.g. `C:\MinGW\msys\1.0\bin`).
