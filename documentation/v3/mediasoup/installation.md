@@ -34,7 +34,7 @@ The installation path MUST NOT contain whitespaces.
 </div>
 
 
-### Linux, OSX and Any *NIX System
+### Linux, OSX and *NIX Systems
 
 * `gcc` and `g++` >= 8 or `clang` (with C++17 support)
 * `cc` and `c++` commands (symlinks) pointing to the corresponding `gcc`/`g++` or `clang`/`clang++` executables
