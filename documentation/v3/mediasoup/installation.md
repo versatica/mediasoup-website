@@ -6,17 +6,28 @@ anchors : true
 
 # mediasoup v3 Installation
 
-In Node.js, install mediasoup via NPM within your Node.js application:
+Install mediasoup via NPM within your Node.js application:
 
 ```bash
 $ npm install mediasoup@3
 ```
 
-In Rust, install it within your Rust application:
+During the installation process, the mediasoup NPM package will try to fetch a prebuilt mediasoup-worker binary appropriate for current platform and architecture. If not found, it will locally build the mediasoup-worker binary.
+
+<div markdown="1" class="note">
+* If "MEDIASOUP_SKIP_WORKER_PREBUILT_DOWNLOAD" or "MEDIASOUP_LOCAL_DEV" environment variables are set, or if mediasoup package is being installed via `git+ssh` (instead of via `npm`), and if "MEDIASOUP_FORCE_WORKER_PREBUILT_DOWNLOAD" environment variable is not set, the installation process won't attempt to fetch any prebuilt mediasoup-worker binary and it will build it locally instead.
 
 ```bash
-cargo add mediasoup
+MEDIASOUP_SKIP_WORKER_PREBUILT_DOWNLOAD="true" npm install mediasoup@3
 ```
+
+* If "MEDIASOUP_WORKER_BIN" environment variable is set during mediasoup package installation, mediasoup will use the the value of such an environment variable as mediasoup-worker binary and **won't** compile it locally. And if same environment variable is set when running your Node.js app, mediasoup will use it as mediasoup-worker binary (instead of looking for it in the `mediasoup/worker/out/Release` path).
+
+```bash
+MEDIASOUP_WORKER_BIN="/home/xxx/src/foo/mediasoup-worker" npm install mediasoup@3
+MEDIASOUP_WORKER_BIN="/home/xxx/src/foo/mediasoup-worker" node myapp.js
+```
+</div>
 
 
 ## Requirements
@@ -28,6 +39,10 @@ In order to build the mediasoup C/C++ components the following packages and libr
 * Node.js version >= v16.0.0
 * Python version >= 3.7 with PIP
 * GNU `make`
+
+<div markdown="1" class="note">
+Python and `make` are just needed in case no prebuilt mediasoup-worker binary was downloaded during the installation process.
+</div>
 
 <div markdown="1" class="note warn">
 The installation path MUST NOT contain whitespaces.
