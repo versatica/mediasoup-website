@@ -129,8 +129,8 @@ When a transport, producer, consumer, data producer or data consumer is closed i
 
 The same happens when pausing a RTP producer or consumer in client or server side. The action must be signaled to the other side. In addition, the server side application should listen for the following events and notify the client about them:
 
-* Consumer ["producerpause"](/documentation/v3/mediasoup/api/#consumer-on-producerpause). The client should call `pause()` on the corresponding local transport.
-* Consumer ["producerresume"](/documentation/v3/mediasoup/api/#consumer-on-producerresume). The client should call `resume()` on the corresponding local transport (unless the consumer itself was also paused on purpose). 
+* Consumer ["producerpause"](/documentation/v3/mediasoup/api/#consumer-on-producerpause). The client should call `pause()` on the corresponding local consumer.
+* Consumer ["producerresume"](/documentation/v3/mediasoup/api/#consumer-on-producerresume). The client should call `resume()` on the corresponding local consumer (unless the consumer itself was also paused on purpose). 
 
 When simulcast or SVC is in use, the application may be interested in signaling preferred layers and effective layers between client and server side consumers.
 
