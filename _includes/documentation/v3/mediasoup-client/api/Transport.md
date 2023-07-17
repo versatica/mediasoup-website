@@ -90,12 +90,19 @@ The direction of this transport. "send" means that this is a WebRTC transport fo
 
 > `@type` String, read only
 
+#### transport.iceGatheringState
+{: #transport-iceGatheringState .code}
+
+The current ICE gathering state of the local peerconnection.
+
+> `@type` [RTCIceGatheringState](https://www.w3.org/TR/webrtc/#rtcicegatheringstate-enum), read only
+
 #### transport.connectionState
 {: #transport-connectionState .code}
 
 The current connection state of the local peerconnection.
 
-> `@type` [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum), read only
+> `@type` [RTCPeerConnectionState](https://www.w3.org/TR/webrtc/#rtcpeerconnectionstate-enum), read only
 
 #### transport.appData
 {: #transport-appData .code}
@@ -488,6 +495,19 @@ transport.on("producedata", async (parameters, callback, errback) =>
 });
 ```
 
+#### transport.on("icegatheringstatechange", fn(iceGatheringState)
+{: #transport-on-icegatheringstatechange .code}
+
+Emitted when the local transport ICE gathering state changes.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`iceGatheringState` | [[RTCIceGatheringState](https://www.w3.org/TR/webrtc/#rtcicegatheringstate-enum) | Transport ICE gathering state.
+
+</div>
+
 #### transport.on("connectionstatechange", fn(connectionState)
 {: #transport-on-connectionstatechange .code}
 
@@ -497,7 +517,7 @@ Emitted when the local transport connection state changes.
 
 Argument    | Type    | Description   
 ----------- | ------- | ----------------
-`connectionState` | [RTCPeerConnectionState](https://w3c.github.io/webrtc-pc/#rtcpeerconnectionstate-enum) | Transport connection state.
+`connectionState` | [RTCPeerConnectionState](https://www.w3.org/TR/webrtc/#rtcpeerconnectionstate-enum) | Transport connection state.
 
 </div>
 
