@@ -1,20 +1,23 @@
-const path = require('path');
-const fs = require('fs');
-const del = require('del');
-const gulp = require('gulp');
-const rename = require('gulp-rename');
-const shell = require('gulp-shell');
-const replace = require('gulp-replace');
-const sitemap = require('gulp-sitemap');
-const browserify = require('browserify');
-const stream = require('vinyl-source-stream');
-const buffer = require('vinyl-buffer');
-const uglify = require('gulp-uglify-es').default;
-const Octokit = require('@octokit/rest');
-const rsync = require('rsyncwrapper');
+import { fileURLToPath } from 'url';
+import * as path from 'path';
+import * as fs from 'fs';
+import { deleteAsync } from 'del';
+import { default as gulp } from 'gulp';
+import rename from 'gulp-rename';
+import { default as shell } from 'gulp-shell';
+import replace from 'gulp-replace';
+import sitemap from 'gulp-sitemap';
+import browserify from 'browserify';
+import stream from 'vinyl-source-stream';
+import buffer from 'vinyl-buffer';
+import uglify from 'gulp-uglify-es';
+import { Octokit } from '@octokit/rest';
+import rsync from 'rsyncwrapper';
 
-const pkg = require('./package.json');
-const octokit = Octokit();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const pkg = JSON.parse(fs.readFileSync('./package.json').toString());
+const octokit = new Octokit();
 
 /**
  * Filter tags with just X.Y.Z content.
@@ -32,9 +35,9 @@ function getRustSemverVersions(tags)
 	return tags.filter(tag => /^rust-\d+\.\d+\.\d+$/.test(tag.name));
 }
 
-gulp.task('clean', () =>
+gulp.task('clean', async () =>
 {
-	return del([ '_site', '.sass-cache' ], { force: true });
+	return deleteAsync([ '_site', '.sass-cache' ], { force: true });
 });
 
 gulp.task('browserify', () =>
@@ -43,7 +46,8 @@ gulp.task('browserify', () =>
 		.bundle()
 		.pipe(stream(pkg.name + '.js'))
 		.pipe(buffer())
-		.pipe(uglify())
+		// TODO: Yes, this sucks.
+		.pipe(uglify.default())
 		.pipe(rename('site.js'))
 		.pipe(gulp.dest('./js/'));
 });
