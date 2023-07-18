@@ -11,6 +11,9 @@
   },
   "author": "Iñaki Baz Castillo <ibc@aliax.net>",
   "license": "LicenseRef-LICENSE",
+  "engines": {
+    "node": ">=18"
+  },
   "browserify": {
     "transform": [
       "browserify-shim"
