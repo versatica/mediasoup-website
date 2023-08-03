@@ -131,6 +131,14 @@ console.log(worker.closed);
 // => false
 ```
 
+#### worker.died
+{: #worker-died .code}
+
+Whether the worker unexpectedly died. This flag is set when ['died'](#worker-on-died) event fires.
+
+> `@type` Boolean, read only
+
+
 #### worker.appData
 {: #worker-appData .code}
 
