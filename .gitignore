@@ -1,6 +1,5 @@
-/Gemfile.lock
-/node_modules/
+/node_modules
 /js/site.js
-/_site/
-/.sass-cache/
+/_site
+/.sass-cache
 /.jekyll-metadata
