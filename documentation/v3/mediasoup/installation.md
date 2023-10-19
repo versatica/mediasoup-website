@@ -38,7 +38,6 @@ In order to build the mediasoup C/C++ components the following packages and libr
 
 * Node.js version >= v16.0.0
 * Python version >= 3.7 with PIP
-* GNU `make`
 
 <div markdown="1" class="note">
 Python and `make` are just needed in case no prebuilt mediasoup-worker binary was downloaded during the installation process.
@@ -53,6 +52,7 @@ The installation path MUST NOT contain whitespaces.
 
 * `gcc` and `g++` >= 8 or `clang` (with C++17 support)
 * `cc` and `c++` commands (symlinks) pointing to the corresponding `gcc`/`g++` or `clang`/`clang++` executables
+* GNU `make`
 
 <div markdown="1" class="note">
 * On Debian and Ubuntu install the `python3-pip` DEB package, otherwise PIP package manager might be unavailable.
@@ -79,7 +79,6 @@ If the `MEDIASOUP_MAX_CORES` environment variable is set, the build process will
 * Microsoft Visual Studio environment with MSVC compiler (with C++17 support).
 
 <div markdown="1" class="note">
-* GNU `make` can be installed with MSYS from [MinGW](https://sourceforge.net/projects/mingw/) and make sure to append the path of folder containing `make` to the Windows `Path` environment variable (e.g. `C:\MinGW\msys\1.0\bin`).
 * Make sure to have **ISRG Root X1** certificate installed, or you will get errors while downloading OpenSSL (whose website is secured with Let's Encrypt), you can import it from <https://letsencrypt.org/certs/isrgrootx1.der> (install to Local computer).
 * If you have Python-related errors, search for "App execution aliases" in system settings and disable everything Python-related from there.
 </div>
