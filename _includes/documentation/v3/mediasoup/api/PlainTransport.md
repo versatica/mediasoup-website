@@ -1,15 +1,3 @@
-## PlainRtpTransport (DEPRECATED)
-{: #PlainRtpTransport}
-
-<section markdown="1">
-
-<div markdown="1" class="note warn">
-`PlainRtpTransport` has been renamed to [PlainTransport](#PlainTransport) since mediasoup version 3.5.0.
-</div>
-
-</section>
-
-
 ## PlainTransport
 {: #PlainTransport}
 

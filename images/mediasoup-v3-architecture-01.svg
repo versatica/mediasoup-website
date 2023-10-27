@@ -376,7 +376,7 @@
           <xhtml:div
              style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(102, 102, 102); line-height: 1.2; vertical-align: top; width: 129px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
             <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">PlainRtpTransport</xhtml:div>
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">PlainTransport</xhtml:div>
           </xhtml:div>
         </foreignObject>
         <text
@@ -386,7 +386,7 @@
            text-anchor="middle"
            font-size="16px"
            font-family="Helvetica"
-           id="text2581">PlainRtpTransport</text>
+           id="text2581">PlainTransport</text>
       </switch>
     </g>
     <path
@@ -2141,7 +2141,7 @@
           <xhtml:div
              style="display: inline-block; font-size: 16px; font-family: Helvetica; color: rgb(102, 102, 102); line-height: 1.2; vertical-align: top; width: 130px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
             <xhtml:div
-               style="display:inline-block;text-align:inherit;text-decoration:inherit;">PlainRtpTransport</xhtml:div>
+               style="display:inline-block;text-align:inherit;text-decoration:inherit;">PlainTransport</xhtml:div>
           </xhtml:div>
         </foreignObject>
         <text
@@ -2151,7 +2151,7 @@
            text-anchor="middle"
            font-size="16px"
            font-family="Helvetica"
-           id="text2997">PlainRtpTransport</text>
+           id="text2997">PlainTransport</text>
       </switch>
     </g>
     <path
