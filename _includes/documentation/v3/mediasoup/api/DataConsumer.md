@@ -24,6 +24,7 @@ Field            | Type    | Description   | Required | Default
 `ordered`        | Boolean | Just if consuming over SCTP. Whether data messages must be received in order. If `true` the messages will be sent reliably. | No | The value in the data producer (if it's of type 'sctp') or `true` (if it's of type 'direct').
 `maxPacketLifeTime` | Number | Just if consuming over SCTP. When `ordered` is `false`, it indicates the time (in milliseconds) after which a SCTP packet will stop being retransmitted. | No | The value in the data producer (if it's of type 'sctp') or unset (if it's of type 'direct').
 `maxRetransmits` | Number | Just if consuming over SCTP. When `ordered` is `false`, it indicates the maximum number of times a packet will be retransmitted. | No | The value in the data producer (if it's of type 'sctp') or unset (if it's of type 'direct').
+`paused`         | Boolean | Whether the data consumer must start in paused mode. | No | `false`
 `appData`        | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
@@ -104,6 +105,20 @@ The data consumer label.
 The data consumer sub-protocol.
 
 > `@type` String , read only
+
+#### dataConsumer.paused
+{: #dataConsumer-paused .code}
+
+Whether the data consumer is paused.
+
+> `@type` Boolean, read only
+
+#### dataConsumer.dataProducerPaused
+{: #dataConsumer-dataProducerPaused .code}
+
+Whether the associated data producer is paused.
+
+> `@type` Boolean, read only
 
 #### dataConsumer.appData
 {: #dataConsumer-appData .code}
@@ -207,6 +222,20 @@ If the data cannot be sent due to the underlying SCTP send buffer being full, th
 
 > `@async`
 
+#### dataConsumer.pause()
+{: #dataConsumer-pause .code}
+
+Pauses the data consumer (no messages are sent to the consuming endpoint).
+
+> `@async`
+
+#### dataConsumer.resume()
+{: #dataConsumer-resume .code}
+
+Resumes the data consumer (messages are sent again to the consuming endpoint).
+
+> `@async`
+
 </section>
 
 
@@ -238,6 +267,16 @@ dataConsumer.on("dataproducerclose", () =>
   console.log("associated data producer closed so dataConsumer closed");
 });
 ```
+
+#### dataConsumer.on("dataproducerpause", fn())
+{: #dataConsumer-on-dataproducerpause .code}
+
+Emitted when the associated data producer is paused.
+
+#### dataConsumer.on("dataproducerresume", fn())
+{: #dataConsumer-on-dataproducerresume .code}
+
+Emitted when the associated data producer is resumed.
 
 #### dataConsumer.on("message", fn(message, ppid))
 {: #dataConsumer-on-message .code}
@@ -305,5 +344,15 @@ See the [Observer API](#observer-api) section below.
 {: #dataConsumer-observer-on-close .code}
 
 Emitted when the data consumer is closed for whatever reason.
+
+#### dataConsumer.observer.on("pause", fn())
+{: #dataConsumer-observer-on-dataproducerpause .code}
+
+Emitted when the data consumer is paused.
+
+#### dataConsumer.observer.on("resume", fn())
+{: #dataConsumer-observer-on-dataproducerresume .code}
+
+Emitted when the data consumer is resumed.
 
 </section>

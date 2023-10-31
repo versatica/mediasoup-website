@@ -23,6 +23,7 @@ Field                  | Type    | Description   | Required | Default
 `sctpStreamParameters` | [SctpStreamParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpStreamParameters) | SCTP parameters defining how the endpoint is sending the data. Required if SCTP/DataChannel is used. Must not be given if the data producer is created on a `DirectTransport`. | No |
 `label`                | String | A label which can be used to distinguish this DataChannel from others. | No |
 `protocol`             | String | Name of the sub-protocol used by this DataChannel. | No |
+`paused`               | Boolean | Whether the data producer must start in paused mode. | No | `false`
 `appData`              | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
@@ -97,6 +98,13 @@ The data producer sub-protocol.
 
 > `@type` String , read only
 
+#### dataProducer.paused
+{: #dataProducer-paused .code}
+
+Whether the data producer is paused.
+
+> `@type` Boolean, read only
+
 #### dataProducer.appData
 {: #dataProducer-appData .code}
 
@@ -163,6 +171,20 @@ dataProducer.send(stringMessage);
 dataProducer.send(binaryMessage);
 ```
 
+#### dataProducer.pause()
+{: #dataProducer-pause .code}
+
+Pauses the data producer (no messages are sent to its associated data consumers). Triggers a ["dataproducerpause"](#dataConsumer-on-dataproducerpause) event in all its associated data consumers.
+
+> `@async`
+
+#### dataProducer.resume()
+{: #dataProducer-resume .code}
+
+Resumes the data producer (messages are sent again to its associated data consumers). Triggers a ["dataproducerresume"](#dataConsumer-on-dataproducerresume) event in all its associated data consumers.
+
+> `@async`
+
 </section>
 
 
@@ -199,5 +221,15 @@ See the [Observer API](#observer-api) section below.
 {: #dataProducer-observer-on-close .code}
 
 Emitted when the producer is closed for whatever reason.
+
+#### dataProducer.observer.on("pause", fn())
+{: #dataProducer-observer-on-pause .code}
+
+Emitted when the data producer is paused.
+
+#### dataProducer.observer.on("resume", fn())
+{: #dataProducer-observer-on-resume .code}
+
+Emitted when the data producer is resumed.
 
 </section>
