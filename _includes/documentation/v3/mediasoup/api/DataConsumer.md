@@ -346,12 +346,12 @@ See the [Observer API](#observer-api) section below.
 Emitted when the data consumer is closed for whatever reason.
 
 #### dataConsumer.observer.on("pause", fn())
-{: #dataConsumer-observer-on-dataproducerpause .code}
+{: #dataConsumer-observer-on-pause .code}
 
 Emitted when the data consumer is paused.
 
 #### dataConsumer.observer.on("resume", fn())
-{: #dataConsumer-observer-on-dataproducerresume .code}
+{: #dataConsumer-observer-on-resume .code}
 
 Emitted when the data consumer is resumed.
 
