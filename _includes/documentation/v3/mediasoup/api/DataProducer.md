@@ -145,14 +145,10 @@ Returns current statistics of the data producer.
 Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section for more details.
 </div>
 
-#### dataProducer.send(message, ppid)
+#### dataProducer.send(message, ppid, subchannels, requiredSubchannel)
 {: #dataProducer-send .code}
 
 Sends direct messages from the Node.js process.
-
-<div markdown="1" class="note">
-Just available in direct transports, this is, those created via `router.createDirectTransport()`.
-</div>
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -160,7 +156,13 @@ Argument  | Type    | Description | Required | Default
 --------- | ------- | ----------- | -------- | ----------
 `message` | String\|Buffer | Message to be sent (can be binary by using a Node.js Buffer). | Yes |
 `ppid`    | Number | Mimics the [SCTP Payload Protocol Identifier](https://www.iana.org/assignments/sctp-parameters/sctp-parameters.xhtml#sctp-parameters-25). In most cases it must not be set. | No | 51 (`WebRTC String`) if `message` is a String and 53 (`WebRTC Binary`) if it's a Buffer.
+`subchannels` | Array&lt;Number&gt; | Only data consumers subscribed to at least one of these subchannels (unsigned 16 bit integers) will receive the message. | No |
+`requiredSubchannel` | Number | Only data consumers subscribed to this subchannel (unsigned 16 bit integer) will receive the message. | No |
 
+</div>
+
+<div markdown="1" class="note">
+Just available in direct transports, this is, those created via `router.createDirectTransport()`.
 </div>
 
 ```javascript
@@ -169,6 +171,10 @@ const binaryMessage = Buffer.from([ 1, 2, 3, 4 ]);
 
 dataProducer.send(stringMessage);
 dataProducer.send(binaryMessage);
+```
+
+```javascript
+dataProducer.send("bye", /*ppid*/ undefined, /*subchannels*/ [ 24 ]);
 ```
 
 #### dataProducer.pause()
