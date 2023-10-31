@@ -3,7 +3,7 @@
 
 <section markdown="1">
 
-A WebRTC server brings the ability to listen on a single UDP/TCP port to [WebRtcTransports](#WebRtcTransport). Instead of passing `listenIps` to [router.createWebRtcTransport()](#router-createWebRtcTransport) pass `webRtcServer` with an instance of a `WebRtcServer` so the new WebRTC transport will not listen on its own IP:port(s) but will have its network traffic handled by the WebRTC server instead.
+A WebRTC server brings the ability to listen on a single UDP/TCP port to [WebRtcTransports](#WebRtcTransport). Instead of passing `listenInfos` to [router.createWebRtcTransport()](#router-createWebRtcTransport) pass `webRtcServer` with an instance of a `WebRtcServer` so the new WebRTC transport will not listen on its own IP:port(s) but will have its network traffic handled by the WebRTC server instead.
 
 <div markdown="1" class="note">
 * A WebRTC server exists within the context of a [Worker](#Worker), meaning that if your app launches N workers it also needs to create N WebRTC servers listening on different ports (to not collide).
@@ -12,26 +12,6 @@ A WebRTC server brings the ability to listen on a single UDP/TCP port to [WebRtc
 
 </section>
 
-
-### Dictionaries
-{: #WebRtcServer-dictionaries}
-
-<section markdown="1">
-
-#### WebRtcServerListenInfo
-{: #WebRtcServerListenInfo .code}
-
-<div markdown="1" class="table-wrapper L3">
-
-Field         | Type    | Description   | Required | Default
-------------- | ------- | ------------- | -------- | ---------
-`protocol`    | String  | Protocol ("udp" / "tcp"). | Yes |
-`ip`          | String  | Listening IPv4 or IPv6. | Yes      |
-`announcedIp` | String  | Announced IPv4 or IPv6 (useful when running mediasoup behind NAT with private IP). | No      |
-`port`        | Number  | Listening port. | No | If not given, a random available port from the Worker's port range will be used.
-
-</div>
-
 #### WebRtcServerOptions
 {: #WebRtcServerOptions .code}
 
@@ -39,7 +19,7 @@ Field         | Type    | Description   | Required | Default
 
 Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
-`listenInfos`  | Array&lt;[WebRtcServerListenInfo](#WebRtcServerListenInfo)&gt; | Listening protocol, IP and port objects in order of preference (first one is the preferred one). | Yes |
+`listenInfos` | Array&lt;[TransportListenInfo](#TransportListenInfo)\|String&gt; | Listening information in order of preference (first one is the preferred one). | No |
 `appData`    | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>

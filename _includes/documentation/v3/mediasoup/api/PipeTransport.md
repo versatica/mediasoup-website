@@ -26,6 +26,7 @@ When calling [consume()](#transport-consume) on a pipe transport, all RTP stream
 
 Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
+`listenInfo`  | [TransportListenInfo](#TransportListenInfo)| Listening information. | Yes |
 `listenIp`    | [TransportListenIp](#TransportListenIp)\|String| Listening IP address. | Yes |
 `port`        | Number  | Fixed port to listen on instead of selecting automatically from Worker's port range. | No |
 `enableSctp`  | Boolean | Create a SCTP association. | No | `false`
@@ -36,6 +37,10 @@ Field         | Type    | Description   | Required | Default
 `enableSrtp`  | Boolean | Enable SRTP to encrypt RTP and SRTP. If enabled, the paired `pipeTransport` must also enable this setting. | No | `false`
 `appData`     | [AppData](#AppData) | Custom application data. | No | `{ }`
 
+</div>
+
+<div markdown="1" class="note">
+* `listenIp` and `port` are **DEPRECATED**. Use `listenInfo` instead.
 </div>
 
 </section>

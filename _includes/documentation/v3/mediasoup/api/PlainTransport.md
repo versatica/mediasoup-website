@@ -22,6 +22,7 @@ A plain transport represents a network path through which RTP, RTCP (optionally 
 
 Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
+`listenInfo`  | [TransportListenInfo](#TransportListenInfo)| Listening information. | Yes |
 `listenIp`    | [TransportListenIp](#TransportListenIp)\|String| Listening IP address. | Yes |
 `port`        | Number  | Fixed port to listen on instead of selecting automatically from Worker's port range. | No |
 `rtcpMux`     | Boolean | Use RTCP-mux (RTP and RTCP in the same port). | No | `true`
@@ -37,6 +38,7 @@ Field         | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
+* `listenIp` and `port` are **DEPRECATED**. Use `listenInfo` instead.
 * Note that `comedia` mode just makes sense when the remote endpoint is gonna produce RTP on this plain transport. Otherwise, if the remote endpoint does not send any RTP (or SCTP) packet to mediasoup, there is no way to detect its remote RTP IP and port, so the endpoint won't receive any packet from mediasoup.
 * In other words, do not use `comedia` mode if the remote endpoint is not going to produce RTP but just consume it. In those cases, do not set `comedia` flag and call [connect()](#plainTransport-connect) with the IP and port(s) of the remote endpoint. 
 </div>

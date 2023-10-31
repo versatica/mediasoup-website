@@ -22,6 +22,28 @@ mediasoup implements the following transport classes:
 
 <section markdown="1">
 
+#### TransportListenInfo
+{: #TransportListenInfo .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field         | Type    | Description   | Required | Default
+------------- | ------- | ------------- | -------- | ---------
+`protocol`    | String  | Protocol ("udp" / "tcp"). | Yes |
+`ip`          | String  | Listening IPv4 or IPv6. | Yes      |
+`announcedIp` | String  | Announced IPv4 or IPv6 (useful when running mediasoup behind NAT with private IP). | No      |
+`port`        | Number  | Listening port. | No | If not given, a random available port from the Worker's port range will be used.
+`sendBufferSize` | Number  | Send buffer size (in bytes). | No |
+`recvBufferSize` | Number  | Receive buffer size (in bytes). | No |
+
+</div>
+
+<div markdown="1" class="note">
+If you use "0.0.0.0" or "::" as `ip` value, then you need to also provide `announcedIp`.
+</div>
+
+<section markdown="1">
+
 #### TransportListenIp
 {: #TransportListenIp .code}
 
@@ -35,7 +57,8 @@ Field         | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-If you use "0.0.0.0" or "::" as `ip` value, then you need to also provide `announcedIp`.
+* **DEPRECATED:** Use [TransportListenInfo](#TransportListenInfo) instead.
+* If you use "0.0.0.0" or "::" as `ip` value, then you need to also provide `announcedIp`.
 </div>
 
 #### TransportTuple

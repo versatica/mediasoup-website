@@ -44,6 +44,7 @@ Field         | Type               | Description   | Required | Default
 `producerId` | String  | Producer id. | No      |
 `dataProducerId` | String  | Data producer id. | No      |
 `router`     | [Router](#Router) | Destination router to pipe the given producer. | Yes |
+`listenInfo` | [TransportListenInfo](#TransportListenInfo)| Listening information to connect both routers in the same host. | No | `{ protocol: "udp", ip: "127.0.0.1" }`
 `listenIp`   | String  | IP to connect both routers in the same host. | No | "127.0.0.1"
 `enableSctp` | Boolean | Create a SCTP association. | No | `true`
 `numSctpStreams` | [NumSctpStreams](#NumSctpStreams) | SCTP streams number. | No |
@@ -53,6 +54,7 @@ Field         | Type               | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
+* `listenIp` is **DEPRECATED**. Use `listenInfo` instead.
 * Only one of `producerId` and `dataProducerId` must be provided.
 * SCTP arguments will only apply the first time the underlying transports are created.
 </div>
@@ -167,12 +169,23 @@ TypeScript argument | Type    | Description | Required | Default
 ```javascript
 const transport = await router.createWebRtcTransport(
   {
-    // Use webRtcServer or listenIps
     webRtcServer : webRtcServer
-    listenIps    : [ { ip: "192.168.0.111", announcedIp: "88.12.10.41" } ],
     enableUdp    : true,
-    enableTcp    : true,
-    preferUdp    : true
+    enableTcp    : false
+  });
+```
+
+```javascript
+const transport = await router.createWebRtcTransport(
+  {
+    listenInfos :
+    [
+      {
+        protocol    : "udp", 
+        ip          : "192.168.0.111", 
+        announcedIp : "88.12.10.41"
+      }
+    ]
   });
 ```
 
@@ -205,9 +218,9 @@ TypeScript argument | Type    | Description | Required | Default
 ```javascript
 const transport = await router.createPlainTransport(
   {
-    listenIp : "a1:22:aA::08",
-    rtcpMux  : true,
-    comedia  : true
+    listenInfo : { protocol: "udp", ip: "a1:22:aA::08" },
+    rtcpMux    : true,
+    comedia    : true
   });
 ```
 
@@ -240,7 +253,7 @@ TypeScript argument | Type    | Description | Required | Default
 ```javascript
 const transport = await router.createPipeTransport(
   {
-    listenIp : "192.168.1.33"
+    listenInfo : { protocol: "udp", ip: "192.168.1.33" },
   });
 ```
 
@@ -274,7 +287,7 @@ TypeScript argument | Type    | Description | Required | Default
 const transport = await router.createDirectTransport();
 ```
 
-#### router.pipeToRouter({ producerId, dataProducerId, router, listenIp })
+#### router.pipeToRouter(options)
 {: #router-pipeToRouter .code}
 
 Pipes the given media or data producer into another router in the same host. It creates an underlying [PipeTransport](#PipeTransport) (if not previously created) that interconnects both routers.
