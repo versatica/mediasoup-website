@@ -54,7 +54,7 @@ Field              | Type    | Description   | Required | Default
 `mid`              | String  | The MID RTP extension value as defined in the [BUNDLE](https://tools.ietf.org/html/draft-ietf-mmusic-sdp-bundle-negotiation) specification. | No |
 `codecs`           | Array&lt;[RtpCodecParameters](#RtpCodecParameters)&gt; | Media and RTX codecs in use. | Yes |
 `headerExtensions` | Array&lt;[RtpHeaderExtensionParameters](#RtpHeaderExtensionParameters)&gt; | RTP header extensions in use. | No | `[ ]`
-`encodings`        | Array&lt;[RtpEncodingParameters](#RtpEncodingParameters)&gt; | Transmitted RTP streams and their settings. | Yes |
+`encodings`        | Array&lt;[RtpEncodingParameters](#RtpEncodingParameters)&gt; | Transmitted RTP streams and their settings. | No |
 `rtcp`             | [RtcpParameters](#RtcpParameters) | Parameters used for RTCP. | No |
 
 </div>
@@ -70,6 +70,7 @@ The RTP send parameters describe a media stream received by mediasoup from an en
 * These parameters may include a `mid` value that the mediasoup transport will use to match received RTP packets based on their MID RTP extension value.
 * mediasoup allows RTP send parameters with a single encoding and with multiple encodings (simulcast). In the latter case, each entry in the `encodings` array must include a `ssrc` field or a `rid` field (the RID RTP extension value).
 * If a single encoding is given, RTP send parameters must include `mid` value or the encoding must indicate the `ssrc` of the stream.
+* If no encoding is given (so this is a simple stream without layers), then RTP send parameters must include `mid` value.
 
 <div markdown="1" class="note">
 Check the [Simulcast](#Simulcast) and [SVC](#SVC) sections for more information.
