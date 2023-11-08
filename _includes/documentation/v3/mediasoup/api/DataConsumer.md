@@ -24,8 +24,14 @@ Field            | Type    | Description   | Required | Default
 `ordered`        | Boolean | Just if consuming over SCTP. Whether data messages must be received in order. If `true` the messages will be sent reliably. | No | The value in the data producer (if it's of type 'sctp') or `true` (if it's of type 'direct').
 `maxPacketLifeTime` | Number | Just if consuming over SCTP. When `ordered` is `false`, it indicates the time (in milliseconds) after which a SCTP packet will stop being retransmitted. | No | The value in the data producer (if it's of type 'sctp') or unset (if it's of type 'direct').
 `maxRetransmits` | Number | Just if consuming over SCTP. When `ordered` is `false`, it indicates the maximum number of times a packet will be retransmitted. | No | The value in the data producer (if it's of type 'sctp') or unset (if it's of type 'direct').
+`paused`         | Boolean | Whether the data consumer must start in paused mode. | No | `false`
+`subchannels`    | Array&lt;Number&gt; | Subchannels (unsigned 16 bit integers) this data consumer initially subscribes to. | No |
 `appData`        | [AppData](#AppData) | Custom application data. | No | `{ }`
 
+</div>
+
+<div markdown="1" class="note">
+`subchannels` are only used in case this data consumer receives messages from a data producer created on a direct transport that specifies subchannel(s) when calling [dataProducer.send()](#dataProducer-send).
 </div>
 
 </section>
@@ -105,6 +111,31 @@ The data consumer sub-protocol.
 
 > `@type` String , read only
 
+#### dataConsumer.paused
+{: #dataConsumer-paused .code}
+
+Whether the data consumer is paused.
+
+> `@type` Boolean, read only
+
+#### dataConsumer.dataProducerPaused
+{: #dataConsumer-dataProducerPaused .code}
+
+Whether the associated data producer is paused.
+
+> `@type` Boolean, read only
+
+#### dataConsumer.subchannels
+{: #dataConsumer-subchannels .code}
+
+Subchannels (unsigned 16 bit integers) this data consumer is currently subscribed to.
+
+> `@type` Array&lt;Number&gt;, read only
+
+<div markdown="1" class="note">
+`subchannels` are only used in case this data consumer receives messages from a data producer created on a direct transport that specifies subchannel(s) when calling [dataProducer.send()](#dataProducer-send).
+</div>
+
 #### dataConsumer.appData
 {: #dataConsumer-appData .code}
 
@@ -181,7 +212,8 @@ Whenever the underlaying SCTP association buffered bytes drop to this value, [bu
 Sends direct messages from the Node.js process.
 
 <div markdown="1" class="note">
-Just available in data consumers of type "SCTP".
+- Just available in data consumers of type "SCTP".
+- If the data cannot be sent due to the underlying SCTP send buffer being full, the method will fail with an Error instance which `message` equals `sctpsendbufferfull`.
 </div>
 
 <div markdown="1" class="table-wrapper L3">
@@ -201,11 +233,44 @@ dataConsumer.send(stringMessage);
 dataConsumer.send(binaryMessage);
 ```
 
-<div markdown="1" class="note">
-If the data cannot be sent due to the underlying SCTP send buffer being full, the method will fail with an Error instance which `message` equals `sctpsendbufferfull`.
+> `@async`
+
+#### dataConsumer.pause()
+{: #dataConsumer-pause .code}
+
+Pauses the data consumer (no messages are sent to the consuming endpoint).
+
+> `@async`
+
+#### dataConsumer.resume()
+{: #dataConsumer-resume .code}
+
+Resumes the data consumer (messages are sent again to the consuming endpoint).
+
+> `@async`
+
+#### dataConsumer.setSubchannels(subchannels)
+{: #dataConsumer-setSubchannels .code}
+
+Update subchannels this data consumer is subscribed to.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument  | Type    | Description | Required | Default 
+--------- | ------- | ----------- | -------- | ----------
+`subchannels` | Array&lt;Number&gt; | Subchannels (unsigned 16 bit integers) this data consumer is subscribed to. | Yes |
+
 </div>
 
 > `@async`
+
+<div markdown="1" class="note">
+`subchannels` are only used in case this data consumer receives messages from a data producer created on a direct transport that specifies subchannel(s) when calling [dataProducer.send()](#dataProducer-send).
+</div>
+
+```javascript
+dataConsumer.setSubchannels([ 1, 4 ]);
+```
 
 </section>
 
@@ -238,6 +303,16 @@ dataConsumer.on("dataproducerclose", () =>
   console.log("associated data producer closed so dataConsumer closed");
 });
 ```
+
+#### dataConsumer.on("dataproducerpause", fn())
+{: #dataConsumer-on-dataproducerpause .code}
+
+Emitted when the associated data producer is paused.
+
+#### dataConsumer.on("dataproducerresume", fn())
+{: #dataConsumer-on-dataproducerresume .code}
+
+Emitted when the associated data producer is resumed.
 
 #### dataConsumer.on("message", fn(message, ppid))
 {: #dataConsumer-on-message .code}
@@ -305,5 +380,15 @@ See the [Observer API](#observer-api) section below.
 {: #dataConsumer-observer-on-close .code}
 
 Emitted when the data consumer is closed for whatever reason.
+
+#### dataConsumer.observer.on("pause", fn())
+{: #dataConsumer-observer-on-pause .code}
+
+Emitted when the data consumer is paused.
+
+#### dataConsumer.observer.on("resume", fn())
+{: #dataConsumer-observer-on-resume .code}
+
+Emitted when the data consumer is resumed.
 
 </section>

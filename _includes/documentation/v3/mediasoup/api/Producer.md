@@ -222,14 +222,12 @@ Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section 
 
 Pauses the producer (no RTP is sent to its associated consumers). Triggers a ["producerpause"](#consumer-on-producerpause) event in all its associated consumers.
 
-
 > `@async`
 
 #### producer.resume()
 {: #producer-resume .code}
 
 Resumes the producer (RTP is sent again to its associated consumers). Triggers a ["producerresume"](#consumer-on-producerresume) event in all its associated consumers.
-
 
 > `@async`
 

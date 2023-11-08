@@ -27,6 +27,7 @@ The WebRTC transport implementation of mediasoup is [ICE Lite](https://tools.iet
 Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
 `webRtcServer` | [WebRtcServer](#WebRtcServer) | Instead of opening its own listening port(s) let a WebRTC server handle the network traffic of this transport. | No |
+`listenInfos` | Array&lt;[TransportListenInfo](#TransportListenInfo)\|String&gt; | Listening information in order of preference (first one is the preferred one). | No |
 `listenIps`  | Array&lt;[TransportListenIp](#TransportListenIp)\|String&gt; | Listening IP address or addresses in order of preference (first one is the preferred one). | No |
 `port`       | Number  | Fixed port to listen on instead of selecting automatically from Worker's port range. | No |
 `enableUdp`  | Boolean | Listen in UDP. | No | `true`
@@ -43,10 +44,12 @@ Field        | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-* One of `webRtcServer` or `listenIps` must be given when creating a WebRTC transport.
-* The IP in each entry in `listenIps` must be a bindable IP in the host.
-* If you use "0.0.0.0" or "::" in an entry in `listenIps`, then you need to also provide `announcedIp` in the corresponding entry in `listenIps`.
+* `listenIps` is **DEPRECATED**. Use `listenInfos` instead.
+* One of `webRtcServer` or `listenInfos` or `listenIps` must be given when creating a WebRTC transport.
+* The IP in each entry in `listenInfos` or `listenIps` must be a bindable IP in the host.
+* If you use "0.0.0.0" or "::" in an entry in `listenInfos` or `listenIps`, then you need to also provide `announcedIp` in the corresponding entry.
 * `initialAvailableOutgoingBitrate` is just applied when the consumer endpoint supports REMB or Transport-CC.
+* `enableUdp`, `enableTcp`, `preferUdp` and `preferTcp` are only processed if `webRtcServer` is given, and they filter and define the priority of the ICE candidates available in the `webRtcServer`.
 </div>
 
 
