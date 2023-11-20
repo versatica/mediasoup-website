@@ -40,7 +40,7 @@ const sharingProducer = await sendTransport.produce(
 
 * Wrong received video orientation in Firefox and FFmpeg.
 
-The mediasoup [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) represent the RTP capabilities that the router supports. While the `codecs` list depends on the [RouterOptions](/documentation/v3/mediasoup/api/#RouterOptions) given by during the router creation, other RTP capabilities such as the `headerExtensions` are fixed and are basically a copy of the `headerExtensions` in the [supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/src/supportedRtpCapabilities.ts) file of mediasoup.
+The mediasoup [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) represent the RTP capabilities that the router supports. While the `codecs` list depends on the [RouterOptions](/documentation/v3/mediasoup/api/#RouterOptions) given by during the router creation, other RTP capabilities such as the `headerExtensions` are fixed and are basically a copy of the `headerExtensions` in the [supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/node/src/supportedRtpCapabilities.ts) file of mediasoup.
 
 For instance, some of those RTP header extensions can affect the behaviour of the client. A good example is the "urn:3gpp:video-orientation" extension which, if supported by both the client and mediasoup, will make the client to not rotate its sending video (for instance when moving the mobile from portrait to landscape) but, instead, set an orientation value into a RTP header extension. This is supported by Chrome and any libwebrtc based endpoint (such as libmediasoupclient).
 

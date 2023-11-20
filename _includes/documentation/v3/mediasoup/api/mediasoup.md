@@ -142,7 +142,7 @@ const worker = await mediasoup.createWorker<{ foo: number }>(
 #### mediasoup.getSupportedRtpCapabilities()
 {: #mediasoup-getSupportedRtpCapabilities .code}
 
-Returns a cloned copy of the mediasoup supported RTP capabilities, specifically the content of the [mediasoup/src/supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/src/supportedRtpCapabilities.ts) file.
+Returns a cloned copy of the mediasoup supported RTP capabilities, specifically the content of the [mediasoup/node/src/supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/node/src/supportedRtpCapabilities.ts) file.
 
 > `@returns` [RtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCapabilities)
 

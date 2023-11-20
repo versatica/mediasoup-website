@@ -107,7 +107,7 @@ Field              | Type    | Description   | Required | Default
 #### RtpCodecParameters
 {: #RtpCodecParameters .code}
 
-Provides information on codec settings within the RTP parameters. The list of media codecs supported by mediasoup and their settings is defined in the [supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/src/supportedRtpCapabilities.ts) file.
+Provides information on codec settings within the RTP parameters. The list of media codecs supported by mediasoup and their settings is defined in the [supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/node/src/supportedRtpCapabilities.ts) file.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -130,7 +130,7 @@ See the [Codec Parameters](#Codec-Parameters) section below for more info about 
 #### RtcpFeedback
 {: #RtcpFeedback .code }
 
-Provides information on RTCP feedback messages for a specific codec. Those messages can be transport layer feedback messages or codec-specific feedback messages. The list of RTCP feedbacks supported by mediasoup is defined in the [supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/src/supportedRtpCapabilities.ts) file.
+Provides information on RTCP feedback messages for a specific codec. Those messages can be transport layer feedback messages or codec-specific feedback messages. The list of RTCP feedbacks supported by mediasoup is defined in the [supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/node/src/supportedRtpCapabilities.ts) file.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -171,7 +171,7 @@ Field             | Type    | Description   | Required | Default
 #### RtpHeaderExtensionParameters
 {: #RtpHeaderExtensionParameters .code}
 
-Defines a RTP header extension within the RTP parameters. The list of RTP header extensions supported by mediasoup is defined in the [supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/src/supportedRtpCapabilities.ts) file.
+Defines a RTP header extension within the RTP parameters. The list of RTP header extensions supported by mediasoup is defined in the [supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/node/src/supportedRtpCapabilities.ts) file.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -213,7 +213,7 @@ Field              | Type    | Description   | Required | Default
 #### RtpCodecCapability
 {: #RtpCodecCapability .code}
 
-Provides information on the capabilities of a codec within the RTP capabilities. The list of media codecs supported by mediasoup and their settings is defined in the [supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/src/supportedRtpCapabilities.ts) file.
+Provides information on the capabilities of a codec within the RTP capabilities. The list of media codecs supported by mediasoup and their settings is defined in the [supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/node/src/supportedRtpCapabilities.ts) file.
 
 Exactly one `RtpCodecCapability` will be present for each supported combination of parameters that requires a distinct value of `preferredPayloadType`. For example:
 
@@ -242,7 +242,7 @@ Field              | Type    | Description   | Required | Default
 #### RtpHeaderExtension
 {: #RtpHeaderExtension .code}
 
-Provides information relating to supported header extensions. The list of RTP header extensions supported by mediasoup is defined in the [supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/src/supportedRtpCapabilities.ts) file.
+Provides information relating to supported header extensions. The list of RTP header extensions supported by mediasoup is defined in the [supportedRtpCapabilities.ts](https://github.com/versatica/mediasoup/blob/v3/node/src/supportedRtpCapabilities.ts) file.
 
 <div markdown="1" class="table-wrapper L3">
 
