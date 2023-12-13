@@ -272,6 +272,44 @@ Argument  | Type    | Description | Required | Default
 dataConsumer.setSubchannels([ 1, 4 ]);
 ```
 
+#### dataConsumer.addSubchannel(subchannel)
+{: #dataConsumer-addSubchannel .code}
+
+Add a subchannel to the list of subchannels this data consumer is subscribed to.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument  | Type    | Description | Required | Default 
+--------- | ------- | ----------- | -------- | ----------
+`subchannel` | Number | Subchannel (unsigned 16 bit integer). | Yes |
+
+</div>
+
+> `@async`
+
+<div markdown="1" class="note">
+`subchannels` are only used in case this data consumer receives messages from a data producer created on a direct transport that specifies subchannel(s) when calling [dataProducer.send()](#dataProducer-send).
+</div>
+
+#### dataConsumer.removeSubchannel(subchannel)
+{: #dataConsumer-removeSubchannel .code}
+
+Remove a subchannel from the list of subchannels this data consumer is subscribed to.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument  | Type    | Description | Required | Default 
+--------- | ------- | ----------- | -------- | ----------
+`subchannel` | Number | Subchannel (unsigned 16 bit integer). | Yes |
+
+</div>
+
+> `@async`
+
+<div markdown="1" class="note">
+`subchannels` are only used in case this data consumer receives messages from a data producer created on a direct transport that specifies subchannel(s) when calling [dataProducer.send()](#dataProducer-send).
+</div>
+
 </section>
 
 
