@@ -39,6 +39,10 @@ In order to build the mediasoup C/C++ components the following packages and libr
 * Node.js version >= v16.0.0
 * Python version >= 3.7 with PIP
 
+<div markdown="1" class="note">
+Python is only required if no prebuilt mediasoup-worker binary was fetched.
+</div>
+
 
 ### Linux, OSX and *NIX Systems
 
