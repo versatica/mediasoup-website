@@ -53,7 +53,7 @@ Python is only required if no prebuilt mediasoup-worker binary was fetched.
 * On Debian and Ubuntu install the `python3-pip` DEB package, otherwise PIP package manager might be unavailable.
 * On Debian and Ubuntu install the `build-essential` DEB package. It includes `gcc`/`g++`.
 * On YUM based Linux (Red Hat, CentOS) use `yum groupinstall "Development Tools"`.
-* On macOS ARM ensure that you have an ARM version of Node.js.
+* On musl based systems (such as Alpine Linux) `linux-headers` package must be installed, otherwise abseil-cpp C++ subproject fails to build due to "linux/futex.h: No such file or directory".
 </div>
 
 <div markdown="1" class="note">
