@@ -358,6 +358,29 @@ producer.on('trace', (trace) =>
 });
 ```
 
+#### producer.enableTraceEvent([ 'sr' ])
+{: .code}
+
+```javascript
+producer.on('trace', (trace) =>
+{
+  // trace =>
+  {
+    "direction": "out",
+    "info": {
+      "ssrc": 15438003,
+      "ntp_sec": 768723434,
+      "ntp_frac": 87876,
+      "rtp_ts": 23768,
+      "packet_count": 100,
+      "octet_count": 200
+    }
+    "timestamp": 164498155,
+    "type": "sr"
+  }
+});
+```
+
 ### Consumer
 {: #trace-Event-Consumer}
 

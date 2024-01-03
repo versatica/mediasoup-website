@@ -113,6 +113,7 @@ Value          | Description
 "nack"         | RTCP NACK packet.
 "pli"          | RTCP PLI packet.
 "fir"          | RTCP FIR packet.
+"sr"           | RTCP Sender Report.
 
 </div>
 
