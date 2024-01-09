@@ -110,7 +110,7 @@ Value       | Description
 #### worker.pid
 {: #worker-pid .code}
 
-The PID of the worker process.
+The PID of the worker subprocess.
 
 > `@type` Number, read only
 
@@ -135,6 +135,14 @@ console.log(worker.closed);
 {: #worker-died .code}
 
 Whether the worker unexpectedly died. This flag is set when ['died'](#worker-on-died) event fires.
+
+> `@type` Boolean, read only
+
+
+#### worker.subprocessClosed
+{: #worker-subprocessClosed .code}
+
+Whether the worker subprocessed is closed. It becomes `true` once the worker subprocess is completely closed and ['subprocessclose'](#worker-on-subprocessclose) event fires.
 
 > `@type` Boolean, read only
 
@@ -169,7 +177,7 @@ Closes the worker. Triggers a ["workerclose"](#router-on-workerclose) event in a
 #### worker.getResourceUsage()
 {: #worker-getResourceUsage .code}
 
-Provides resource usage of the mediasoup-worker subprocess.
+Provides resource usage of the worker subprocess.
 
 > `@async`
 > 
@@ -324,7 +332,7 @@ const webRtcServer = await worker.createWebRtcServer(
 #### worker.on("died", fn(error))
 {: #worker-on-died .code}
 
-Emitted when the worker process unexpectedly dies.
+Emitted when the worker subprocess unexpectedly dies.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -344,6 +352,15 @@ worker.on("died", (error) =>
   console.error("mediasoup worker died!: %o", error);
 });
 ```
+
+#### worker.on("subprocessclose", fn())
+{: #worker-on-subprocessclose .code}
+
+Emitted when the worker subprocess has closed completely. This event is emitted asynchronously once [worker.close()](#worker-close) has been called (or after ['died'](#worker-on-died) event in case the worker subprocess abnormally died.
+
+<div markdown="1" class="note">
+Await for this event if you can to be sure that no Node handler is still open/running after you close a worker.
+</div>
 
 </section>
 
