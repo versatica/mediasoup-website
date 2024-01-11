@@ -356,7 +356,7 @@ worker.on("died", (error) =>
 #### worker.on("subprocessclose", fn())
 {: #worker-on-subprocessclose .code}
 
-Emitted when the worker subprocess has closed completely. This event is emitted asynchronously once [worker.close()](#worker-close) has been called (or after ['died'](#worker-on-died) event in case the worker subprocess abnormally died.
+Emitted when the worker subprocess has closed completely. This event is emitted asynchronously once [worker.close()](#worker-close) has been called (or after ['died'](#worker-on-died) event in case the worker subprocess abnormally died).
 
 <div markdown="1" class="note">
 Await for this event if you can to be sure that no Node handler is still open/running after you close a worker.
