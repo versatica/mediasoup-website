@@ -31,7 +31,7 @@ Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
 `protocol`    | String  | Protocol ("udp" / "tcp"). | Yes |
 `ip`          | String  | Listening IPv4 or IPv6. | Yes |
-`announcedIp` | String  | Announced IPv4 or IPv6 (useful when running mediasoup behind NAT with private IP). | No |
+`announcedIp` | String  | Announced IPv4, IPv6 or hostname (useful when running mediasoup behind NAT with private IP). | No |
 `port`        | Number  | Listening port. | No | If not given, a random available port from the Worker's port range will be used.
 `flags`       | [TransportSocketFlags](#TransportSocketFlags) | UDP/TCP socke flags. | No | All flags are disabled.
 `sendBufferSize` | Number  | Send buffer size (in bytes). | No |
@@ -51,7 +51,7 @@ If you use "0.0.0.0" or "::" as `ip` value, then you need to also provide `annou
 Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
 `ip`          | String  | Listening IPv4 or IPv6. | Yes      |
-`announcedIp` | String  | Announced IPv4 or IPv6 (useful when running mediasoup behind NAT with private IP). | No      |
+`announcedIp` | String  | Announced IPv4, IPv6 or hostname (useful when running mediasoup behind NAT with private IP). | No      |
 
 </div>
 
