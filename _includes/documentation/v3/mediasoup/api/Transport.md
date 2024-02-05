@@ -31,7 +31,7 @@ Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
 `protocol`    | String  | Protocol ("udp" / "tcp"). | Yes |
 `ip`          | String  | Listening IPv4 or IPv6. | Yes |
-`announcedIp` | String  | Announced IPv4, IPv6 or hostname (useful when running mediasoup behind NAT with private IP). | No |
+`announcedAddress` | String  | Announced IPv4, IPv6 or hostname (useful when running mediasoup behind NAT with private IP). | No |
 `port`        | Number  | Listening port. | No | If not given, a random available port from the Worker's port range will be used.
 `flags`       | [TransportSocketFlags](#TransportSocketFlags) | UDP/TCP socke flags. | No | All flags are disabled.
 `sendBufferSize` | Number  | Send buffer size (in bytes). | No |
@@ -40,7 +40,7 @@ Field         | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-If you use "0.0.0.0" or "::" as `ip` value, then you need to also provide `announcedIp`.
+If you use "0.0.0.0" or "::" as `ip` value, then you need to also provide `announcedAddress`.
 </div>
 
 #### TransportListenIp
@@ -51,7 +51,7 @@ If you use "0.0.0.0" or "::" as `ip` value, then you need to also provide `annou
 Field         | Type    | Description   | Required | Default
 ------------- | ------- | ------------- | -------- | ---------
 `ip`          | String  | Listening IPv4 or IPv6. | Yes      |
-`announcedIp` | String  | Announced IPv4, IPv6 or hostname (useful when running mediasoup behind NAT with private IP). | No      |
+`announcedIp` | String  | Announced IPv4 or IPv6 (useful when running mediasoup behind NAT with private IP). | No      |
 
 </div>
 
@@ -79,7 +79,7 @@ Field          | Type    | Description   | Required | Default
 
 Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
-`localIp`          | String  | Local IP address. | Yes |
+`localAddress`     | String  | Local IP address or announced IP or hostname. | Yes |
 `localPort`        | Number  | Local port. | Yes |
 `remoteIp`         | String  | Remote IP address. | No |
 `remotePort`       | Number  | Remote port. | No |

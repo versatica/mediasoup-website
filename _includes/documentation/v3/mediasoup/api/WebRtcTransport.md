@@ -47,7 +47,7 @@ Field        | Type    | Description   | Required | Default
 * `listenIps` is **DEPRECATED**. Use `listenInfos` instead.
 * One of `webRtcServer` or `listenInfos` or `listenIps` must be given when creating a WebRTC transport.
 * The IP in each entry in `listenInfos` or `listenIps` must be a bindable IP in the host.
-* If you use "0.0.0.0" or "::" in an entry in `listenInfos` or `listenIps`, then you need to also provide `announcedIp` in the corresponding entry.
+* If you use "0.0.0.0" or "::" in an entry in `listenInfos` or `listenIps`, then you need to also provide `announcedAddress` or `announcedIp` in the corresponding entry.
 * `initialAvailableOutgoingBitrate` is just applied when the consumer endpoint supports REMB or Transport-CC.
 * `enableUdp`, `enableTcp`, `preferUdp` and `preferTcp` are only processed if `webRtcServer` is given, and they filter and define the priority of the ICE candidates available in the `webRtcServer`.
 </div>
@@ -75,7 +75,7 @@ Field              | Type    | Description   | Required | Default
 ------------------ | ------- | ------------- | -------- | ---------
 `foundation`       | String  | Unique identifier that allows ICE to correlate candidates that appear on multiple `transports`. | Yes |
 `priority`         | Number | The assigned priority of the candidate. | Yes |
-`ip`               | String  | The IP address of the candidate. | Yes |
+`address`          | String  | The IP address or hostname of the candidate. | Yes |
 `protocol`         | String  | The protocol of the candidate ("udp" / "tcp"). | Yes |
 `port`             | Number | The port for the candidate. | Yes |
 `type`             | String  | The type of candidate (always "host"). | Yes |

@@ -181,9 +181,9 @@ const transport = await router.createWebRtcTransport(
     listenInfos :
     [
       {
-        protocol    : "udp", 
-        ip          : "192.168.0.111", 
-        announcedIp : "88.12.10.41"
+        protocol         : "udp", 
+        ip               : "192.168.0.111", 
+        announcedAddress : "88.12.10.41"
       }
     ]
   });

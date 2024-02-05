@@ -59,7 +59,7 @@ See also [Transport Properties](#Transport-properties).
 The transport tuple. It refers to both RTP and RTCP since pipe transports use RTCP-mux by design.
 
 <div markdown="1" class="note">
-* Once the pipe transport is created, `transport.tuple` will contain information about its `localIp`, `localPort` and `protocol`.
+* Once the pipe transport is created, `transport.tuple` will contain information about its `localAddress`, `localPort` and `protocol`.
 * Information about `remoteIp` and `remotePort` will be set after calling `connect()` method.
 </div>
 

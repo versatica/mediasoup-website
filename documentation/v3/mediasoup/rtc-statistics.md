@@ -35,7 +35,7 @@ const stats = await webRtcTransport.getStats();
     "dtlsState": "connected",
     "iceRole": "controlled",
     "iceSelectedTuple": {
-      "localIp": "11.22.33.44",
+      "localAddress": "11.22.33.44",
       "localPort": 56726,
       "protocol": "udp",
       "remoteIp": "55.66.77.88",
@@ -94,7 +94,7 @@ const stats = await plainTransport.getStats();
     "transportId": "8e7dc219-5cb0-4cca-b1ca-0bbbc584a364",
     "tuple": 
     {
-      "localIp": "11.22.33.44",
+      "localAddress": "11.22.33.44",
       "localPort": 45346,
       "protocol": "udp",
       "remoteIp": "55.66.77.88",
@@ -131,7 +131,7 @@ const stats = await pipeTransport.getStats();
     "transportId": "352f60cd-10ac-443b-8529-6474ecba2e46",
     "tuple": 
     {
-      "localIp": "11.22.33.44",
+      "localAddress": "11.22.33.44",
       "localPort": 12455,
       "protocol": "udp",
       "remoteIp": "11.22.33.44",

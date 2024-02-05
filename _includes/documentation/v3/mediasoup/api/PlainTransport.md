@@ -61,7 +61,7 @@ See also [Transport Properties](#Transport-properties).
 The transport tuple. If RTCP-mux is enabled (`rtcpMux` is set), this tuple refers to both RTP and RTCP.
 
 <div markdown="1" class="note">
-* Once the plain transport is created, `transport.tuple` will contain information about its `localIp`, `localPort` and `protocol`.
+* Once the plain transport is created, `transport.tuple` will contain information about its `localAddress`, `localPort` and `protocol`.
 * Information about `remoteIp` and `remotePort` will be set:
    * after calling `connect()` method, or
    * via dynamic remote address detection when using `comedia` mode.
@@ -75,7 +75,7 @@ The transport tuple. If RTCP-mux is enabled (`rtcpMux` is set), this tuple refer
 The transport tuple for RTCP. If RTCP-mux is enabled (`rtcpMux` is set), its value is `undefined`.
 
 <div markdown="1" class="note">
-* Once the plain transport is created (with RTCP-mux disabled), `transport.rtcpTuple` will contain information about its `localIp`, `localPort` and `protocol`.
+* Once the plain transport is created (with RTCP-mux disabled), `transport.rtcpTuple` will contain information about its `localAddress`, `localPort` and `protocol`.
 * Information about `remoteIp` and `remotePort` will be set:
    * after calling `connect()` method, or
    * via dynamic remote address detection when using `comedia` mode.
