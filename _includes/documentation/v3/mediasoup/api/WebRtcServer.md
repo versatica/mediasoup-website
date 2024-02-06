@@ -19,7 +19,7 @@ A WebRTC server brings the ability to listen on a single UDP/TCP port to [WebRtc
 
 Field        | Type    | Description   | Required | Default
 ------------ | ------- | ------------- | -------- | ---------
-`listenInfos` | Array&lt;[TransportListenInfo](#TransportListenInfo)\|String&gt; | Listening information in order of preference (first one is the preferred one). | No |
+`listenInfos` | Array&lt;[TransportListenInfo](#TransportListenInfo)&gt; | Listening information in order of preference (first one is the preferred one). | No |
 `appData`    | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
