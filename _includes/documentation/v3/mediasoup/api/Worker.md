@@ -102,6 +102,25 @@ Value       | Description
 
 </section>
 
+### Constants
+{: #Worker-constants}
+
+<section markdown="1">
+
+#### workerBin
+{: #workerBin .code}
+
+The absolute path to the `mediasoup-worker` binary.
+
+> `@type` String, read only
+
+<div markdown="1" class="note">
+If "MEDIASOUP_WORKER_BIN" environment variable is given then its value is assigned to `workerBin`.
+</div>
+
+</section>
+
+
 ### Properties
 {: #Worker-properties}
 
