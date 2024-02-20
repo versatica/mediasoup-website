@@ -44,7 +44,7 @@ const {
 #### mediasoup.types
 {: #mediasoup-types .code}
 
-An Object holding all classes and **TypeScript** types exported by mediasoup.
+An Object holding all classes, utils, **TypeScript** types and constants exported by mediasoup.
 
 
 > `@type` Object, read only

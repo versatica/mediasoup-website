@@ -34,11 +34,12 @@ Field        | Type    | Description   | Required | Default
 `enableTcp`  | Boolean | Listen in TCP. | No | `false`
 `preferUdp`  | Boolean | Listen in UDP. | No | `false`
 `preferTcp`  | Boolean | Listen in TCP. | No | `false`
+`iceConsentTimeout` | Number | ICE consent timeout (in seconds). If 0 it is disabled. | No | 30
 `initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps). | No | 600000
 `enableSctp` | Boolean | Create a SCTP association. | No | `false`
 `numSctpStreams` | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
 `maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers`. | No | 262144
-`sctpSendBufferSize` | Number | SCTP send buffer size used by usrsctp. | NO | 262144 |
+`sctpSendBufferSize` | Number | SCTP send buffer size used by usrsctp. | NO | 262144
 `appData`    | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
@@ -342,6 +343,10 @@ Argument  | Type    | Description
 
 </div>
 
+<div markdown="1" class="note">
+* This event will be emitted with `iceState: 'disconnected'` when ICE consent check fails (meaning that during the last 30 seconds the remote endpoind didn't send any ICE consent request, so probably network is down or the endpoint disconnected abruptly), and also when the remote endpoint was connected using TCP protocol and the TCP connection was closed. The application should close the transport when this happens since it's not recoverable.
+</div>
+
 ```javascript
 webRtcTransport.on("icestatechange", (iceState) =>
 {
@@ -373,6 +378,10 @@ Argument | Type    | Description
 ----------------- | ------- | ----------------
 `dtlsState`       | [DtlsState](#WebRtcTransportDtlsState) | The new DTLS state.
 
+</div>
+
+<div markdown="1" class="note">
+* This event will be emitted with `dtlsState: 'closed'` when the remote endpoint sends DTLS Close Alert message. If so, this event will be emitted before the [icestatechange](#webRtcTransport-on-icestatechange) event with `iceState: 'disconnected'`. The application should close the transport when this happens since it's not recoverable.
 </div>
 
 #### webRtcTransport.on("sctpstatechange", fn(sctpState))
