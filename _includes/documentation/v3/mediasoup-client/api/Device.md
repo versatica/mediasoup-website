@@ -70,6 +70,7 @@ Value          | Description
 "Chrome70"     | Chrome/Chromium >= 70.
 "Chrome67"     | Chrome/Chromium >= 67.
 "Chrome55"     | Chrome/Chromium >= 55.
+"Firefox120"   | Firefox >= 120.
 "Firefox60"    | Firefox >= 60.
 "Safari12"     | Safari >= 12.
 "Safari11"     | Safari >= 11.
