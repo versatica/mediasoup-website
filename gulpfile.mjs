@@ -20,19 +20,19 @@ const pkg = JSON.parse(fs.readFileSync('./package.json').toString());
 const octokit = new Octokit();
 
 /**
- * Filter tags with just X.Y.Z content.
+ * Filter releases/tags with just X.Y.Z content.
  */
-function getSemverVersions(tags)
+function getSemverVersions(datas)
 {
-	return tags.filter(tag => /^\d+\.\d+\.\d+$/.test(tag.name));
+	return datas.filter(data => /^\d+\.\d+\.\d+$/.test(data.name));
 }
 
 /**
- * Filter tags with just rust-X.Y.Z content.
+ * Filter releases/tags with just rust-X.Y.Z content.
  */
-function getRustSemverVersions(tags)
+function getRustSemverVersions(datas)
 {
-	return tags.filter(tag => /^rust-\d+\.\d+\.\d+$/.test(tag.name));
+	return datas.filter(data => /^rust-\d+\.\d+\.\d+$/.test(data.name));
 }
 
 gulp.task('clean', async () =>
@@ -62,29 +62,29 @@ gulp.task('jekyll:watch', shell.task(
 
 gulp.task('replace', async () =>
 {
-	let tags;
+	const mediasoupReleases = await octokit.repos.listReleases({ owner:'versatica', repo:'mediasoup' });
 
-	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup' });
-
-	const mediasoupNodeVersion = getSemverVersions(tags.data)[0].name;
+	const mediasoupNodeVersion = getSemverVersions(mediasoupReleases.data)[0].name;
 	console.log('"replace" task | mediasoup node:', mediasoupNodeVersion);
 
-	const mediasoupRustVersion = getRustSemverVersions(tags.data)[0].name.replace(/^rust-/, '');
+	const mediasoupTags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup' });
+
+	const mediasoupRustVersion = getRustSemverVersions(mediasoupTags.data)[0].name.replace(/^rust-/, '');
 	console.log('"replace" task | mediasoup rust:', mediasoupRustVersion);
 
-	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client' });
+	const mediasoupClientTags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client' });
 
-	const mediasoupClientVersion = getSemverVersions(tags.data)[0].name;
+	const mediasoupClientVersion = getSemverVersions(mediasoupClientTags.data)[0].name;
 	console.log('"replace" task | mediasoup-client:', mediasoupClientVersion);
 
-	tags = await octokit.repos.listTags({ owner:'versatica', repo:'libmediasoupclient' });
+	const libmediasoupclientTags = await octokit.repos.listTags({ owner:'versatica', repo:'libmediasoupclient' });
 
-	const libmediasoupclientVersion = getSemverVersions(tags.data)[0].name;
+	const libmediasoupclientVersion = getSemverVersions(libmediasoupclientTags.data)[0].name;
 	console.log('"replace" task | libmediasoupclient:', libmediasoupclientVersion);
 
-	tags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client-aiortc' });
+	const mediasoupClientAiortcTags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client-aiortc' });
 
-	const mediasoupClientAiortcVersion = getSemverVersions(tags.data)[0].name;
+	const mediasoupClientAiortcVersion = getSemverVersions(mediasoupClientAiortcTags.data)[0].name;
 	console.log('"replace" task | mediasoup-client-aiortc:', mediasoupClientAiortcVersion);
 
 	return gulp.src('_site/index.html')
