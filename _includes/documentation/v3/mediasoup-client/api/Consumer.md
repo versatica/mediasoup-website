@@ -121,7 +121,7 @@ Whether the consumer is paused.
 
 Custom data Object provided by the application in the consumer factory method. The app can modify its content at any time.
 
-> `@type` Object, read only
+> `@type` Object
 
 #### consumer.observer
 {: #consumer-observer .code}

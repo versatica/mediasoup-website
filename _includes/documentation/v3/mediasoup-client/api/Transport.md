@@ -109,7 +109,7 @@ The current connection state of the local peerconnection.
 
 Custom data Object provided by the application in the transport constructor. The app can modify its content at any time.
 
-> `@type` Object, read only
+> `@type` Object
 
 ```javascript
 transport.appData.foo = "bar";

@@ -110,7 +110,7 @@ The DataChannel binary type: 'blob' or 'arrayBuffer'.
 
 Custom data Object provided by the application in the data consumer factory method. The app can modify its content at any time.
 
-> `@type` Object, read only
+> `@type` Object
 
 #### dataConsumer.observer
 {: #dataConsumer-observer .code}

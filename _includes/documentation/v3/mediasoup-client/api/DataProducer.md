@@ -99,7 +99,7 @@ Threshold at which the buffered amount of bytes is considered to be low.
 
 Custom data Object provided by the application in the data producer factory method. The app can modify its content at any time.
 
-> `@type` Object, read only
+> `@type` Object
 
 #### dataProducer.observer
 {: #dataProducer-observer .code}

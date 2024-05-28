@@ -160,7 +160,7 @@ In case of simulcast, this value determines the highest stream (from 0 to N-1) b
 
 Custom data Object provided by the application in the producer factory method. The app can modify its content at any time.
 
-> `@type` Object, read only
+> `@type` Object
 
 
 #### producer.observer
