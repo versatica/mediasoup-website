@@ -25,6 +25,7 @@ Field           | Type    | Description   | Required | Default
 `kind`          | [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind) | Media kind ("audio" or "video"). | Yes |
 `rtpParameters` | [RtpReceiveParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpReceiveParameters) | Receive RTP parameters. | Yes |
 `streamId`      | String  | Stream id. Useful to limit the inbound RTP streams that the underlying RTC stack should try to synchonize when rendering them. | No | The RTCP CNAME of the remote producer.
+`onRtpReceiver` | [OnRtpReceiverCallback](#OnRtpReceiverCallback) | Callback called immediately once a [RTCRtpReceiver](https://www.w3.org/TR/webrtc/#rtcrtpreceiver-interface) is created. | No |
 `appData`       | Object  | Custom application data. | No | `{ }`
 
 </div>
@@ -43,6 +44,15 @@ screensharingConsumer = await transport.consume({ streamId: `${remotePeerId}-scr
 ```
 
 </div>
+
+#### OnRtpReceiverCallback
+{: #OnRtpReceiverCallback .code}
+
+Invoked synchronously immediately after a new [RTCRtpReceiver](https://www.w3.org/TR/webrtc/#rtcrtpreceiver-interface) is created. This allows for creating encoded streams in browsers supporting it.
+
+```ts
+type OnRtpReceiverCallback = (rtpReceiver: RTCRtpReceiver) => void;
+```
 
 </section>
 

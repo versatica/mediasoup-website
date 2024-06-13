@@ -27,6 +27,7 @@ Field            | Type    | Description   | Required | Default
 `stopTracks`     | Boolean | Whether mediasoup-client should call `stop()` on tracks handled by this producer. If set to `false`, the app is responsible of stopping tracks given to `transport.produce()` or `produce.replaceTrack()`. | No | `true`
 `disableTrackOnPause` | Boolean | Whether the producer should set `track.enabled = false` when paused. If set to `false`, audio/video will still be sent after pausing the producer, so caution. Specially useful in combination with `zeroRtpOnPause: true`. | No | `true`
 `zeroRtpOnPause` | Boolean | If `true`, zero RTP will be sent when the producer is paused (this is internally achieved by deactivating the corresponding SDP media section). Otherwise, if `false` and the producer is paused, the underlying WebRTC engine may send some RTP packets containing audio silence or black video frames. | No | `false`
+`onRtpSender` | [OnRtpSenderCallback](#OnRtpSenderCallback) | Callback called immediately once a [RTCRtpSender](https://www.w3.org/TR/webrtc/#rtcrtpsender-interface) is created. | No |
 `appData`        | Object  | Custom application data. | No | `{ }`
 
 </div>
@@ -82,6 +83,15 @@ Field           | Type    | Description   | Required | Default
 `videoGoogleMinBitrate` | Number | Just for libwebrtc based browsers. Set video minimum bitrate. | No |
 
 </div>
+
+#### OnRtpSenderCallback
+{: #OnRtpSenderCallback .code}
+
+Invoked synchronously immediately after a new [RTCRtpSender](https://www.w3.org/TR/webrtc/#rtcrtpsender-interface) is created. This allows for creating encoded streams in browsers supporting it.
+
+```ts
+type OnRtpSenderCallback = (rtpSender: RTCRtpSender) => void;
+```
 
 </section>
 
