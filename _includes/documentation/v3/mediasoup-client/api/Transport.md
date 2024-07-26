@@ -495,7 +495,7 @@ transport.on("producedata", async (parameters, callback, errback) =>
 });
 ```
 
-#### transport.on("icegatheringstatechange", fn(iceGatheringState)
+#### transport.on("icegatheringstatechange", fn(iceGatheringState))
 {: #transport-on-icegatheringstatechange .code}
 
 Emitted when the local transport ICE gathering state changes.
@@ -508,7 +508,7 @@ Argument    | Type    | Description
 
 </div>
 
-#### transport.on("connectionstatechange", fn(connectionState)
+#### transport.on("connectionstatechange", fn(connectionState))
 {: #transport-on-connectionstatechange .code}
 
 Emitted when the local transport connection state changes.
