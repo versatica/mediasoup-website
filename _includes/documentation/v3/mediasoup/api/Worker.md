@@ -26,7 +26,9 @@ Field                    | Type    | Description   | Required | Default
 `rtcMaxPort`             | Number  | Maximum RTC port for ICE, DTLS, RTP, etc. | No | 59999
 `dtlsCertificateFile`    | String  | Path to the DTLS public certificate file in PEM format. If unset, a certificate is dynamically created. | No |
 `dtlsPrivateKeyFile`     | String  | Path to the DTLS certificate private key file in PEM format. If unset, a certificate is dynamically created. | No |
-`appData`                 | [AppData](#AppData) | Custom application data. | No | `{ }` |
+`libwebrtcFieldTrials`   | String  | Field trials for `libwebrtc` dependencly. For advanced users only. An invalid value will make the worker crash. | No | 'WebRTC-Bwe-AlrLimitedBackoff/Enabled/'
+`disableLiburing`        | Boolean | Disable `io_uring` even if it's supported by the prebuilt `mediasoup-worker` and by current host. | No | `false`
+`appData`                | [AppData](#AppData) | Custom application data. | No | `{ }` |
 
 </div>
 
