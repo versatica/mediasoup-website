@@ -36,6 +36,44 @@ const {
 </section>
 
 
+### Dictionaries
+{: #mediasoup-dictionaries}
+
+<section markdown="1">
+
+#### LogEventListeners
+{: #LogEventListeners .code}
+
+<div markdown="1" class="table-wrapper L3 M5">
+
+Field     | Type                | Description   | Required | Default
+--------- | ------------------- | ------------- | -------- | ---------
+`ondebug` | `(namespace: string, log: string) => void` | Listener for debug logs. | No |
+`onwarn`  | `(namespace: string, log: string) => void` | Listener for warn logs.  | No |
+`onerror` | `(namespace: string, log: string, error?: Error) => void` | Listener for error logs. | No |
+
+</div>
+
+```javascript
+mediasoup.setLogEventListeners(
+  {
+    ondebug: undefined,
+    onwarn: (namespace, log) => {
+      MyEnterpriseLogger.warn(`${namespace} ${log}`);
+    },
+    onerror: (namespace, log, error) => {
+      if (error) {
+        MyEnterpriseLogger.error(`${namespace} ${log}: ${error}`);
+      } else {
+        MyEnterpriseLogger.error(`${namespace} ${log}`);
+      }
+    }
+  });
+```
+
+</section>
+
+
 ### Properties
 {: #mediasoup-properties}
 
@@ -89,6 +127,22 @@ console.log(mediasoup.version);
 // => "3.0.0"
 ```
 
+#### mediasoup.workerBin
+{: #mediasoup-workerBin .code}
+
+The absolute path to the mediasoup-worker binary.
+
+> `@type` String, read only
+
+```javascript
+console.log(mediasoup.workerBin);
+// => "/home/deploy/media-server-app/node_modules/mediasoup/worker/out/Release/mediasoup-worker"
+```
+
+<div markdown="1" class="note">
+If "MEDIASOUP_WORKER_BIN" environment variable is given then its value is assigned to `workerBin`.
+</div>
+
 #### mediasoup.observer
 {: #mediasoup-observer .code}
 
@@ -103,6 +157,31 @@ An event emitter that allows the application (or third party libraries) monitor 
 {: #mediasoup-functions}
 
 <section markdown="1">
+
+#### mediasoup.setLogEventListeners(listeners)
+{: #mediasoup-setLogEventListeners .code}
+
+Set event listeners for mediasoup generated logs. If called with no arguments then no events will be emitted.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`listeners` | [LogEventListeners](#LogEventListeners) | Event listeners. | No |
+
+</div>
+
+> `@returns` [Worker](#Worker)
+
+```javascript
+const worker = await mediasoup.createWorker<{ foo: number }>(
+  {
+    logLevel            : "warn",
+    dtlsCertificateFile : "/home/foo/dtls-cert.pem",
+    dtlsPrivateKeyFile  : "/home/foo/dtls-key.pem",
+    appData             : { foo: 123 }
+  });
+```
 
 #### mediasoup.createWorker&lt;WorkerAppData&gt;(settings)
 {: #mediasoup-createWorker .code}

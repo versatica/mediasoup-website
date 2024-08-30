@@ -27,7 +27,7 @@ Field                    | Type    | Description   | Required | Default
 `dtlsCertificateFile`    | String  | Path to the DTLS public certificate file in PEM format. If unset, a certificate is dynamically created. | No |
 `dtlsPrivateKeyFile`     | String  | Path to the DTLS certificate private key file in PEM format. If unset, a certificate is dynamically created. | No |
 `libwebrtcFieldTrials`   | String  | Field trials for `libwebrtc` dependencly. For advanced users only. An invalid value will make the worker crash. | No | 'WebRTC-Bwe-AlrLimitedBackoff/Enabled/'
-`disableLiburing`        | Boolean | Disable `io_uring` even if it's supported by the prebuilt `mediasoup-worker` and by current host. | No | `false`
+`disableLiburing`        | Boolean | Disable `io_uring` even if it's supported by the prebuilt mediasoup-worker and by current host. | No | `false`
 `appData`                | [AppData](#AppData) | Custom application data. | No | `{ }` |
 
 </div>
@@ -103,25 +103,6 @@ Value       | Description
 </div>
 
 </section>
-
-### Constants
-{: #Worker-constants}
-
-<section markdown="1">
-
-#### workerBin
-{: #workerBin .code}
-
-The absolute path to the `mediasoup-worker` binary.
-
-> `@type` String, read only
-
-<div markdown="1" class="note">
-If "MEDIASOUP_WORKER_BIN" environment variable is given then its value is assigned to `workerBin`.
-</div>
-
-</section>
-
 
 ### Properties
 {: #Worker-properties}
