@@ -111,9 +111,11 @@ const device = new mediasoupClient.Device();
 
 Performs current browser/device detection and returns the corresponding mediasoup-client WebRTC handler name (or nothing if the browser/device is not supported).
 
+<div markdown="1" class="table-wrapper L3">
+  
 Argument    | Type    | Description | Required | Default 
 ----------- | ------- | ----------- | -------- | ----------
-`userAgent` | String  | Optional browser User-Agent string. If not given, `navigator.userAgent` will be used (in case current device is a browser). | No |
+`userAgent` | String  | Optional browser User-Agen string. If not given, `navigator.userAgent` will be used (in case of browser). | No |
 
 </div>
 
