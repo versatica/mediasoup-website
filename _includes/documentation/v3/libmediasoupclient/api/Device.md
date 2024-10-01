@@ -37,10 +37,18 @@ Field           | Type    | Description   | Required | Default
 
 <section markdown="1">
 
-#### new Device()
+#### new Device(userAgent)
 {: #device-new-Device .code}
 
 Creates a new device.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`userAgent` | String  | Optional browser User-Agen string. If not given, `navigator.userAgent` will be used (in case of browser). | No |
+
+</div>
 
 ```c++
 auto* device = new mediasoupclient::Device();
