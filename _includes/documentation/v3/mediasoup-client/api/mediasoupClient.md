@@ -106,10 +106,17 @@ const device = new mediasoupClient.Device();
 
 <section markdown="1">
 
-#### mediasoupClient.detectDevice()
+#### mediasoupClient.detectDevice(userAgent)
 {: #mediasoupClient-detectDevice .code}
 
 Performs current browser/device detection and returns the corresponding mediasoup-client WebRTC handler name (or nothing if the browser/device is not supported).
+
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`userAgent` | String  | Optional browser User-Agent string. If not given, `navigator.userAgent` will be used (in case current device is a browser). | No |
+
+</div>
+
 
 > `@async`
 > 
