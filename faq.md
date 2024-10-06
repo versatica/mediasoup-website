@@ -64,7 +64,7 @@ Those environments run virtual hosts with private IP and provide mechanisms to r
 In order to run mediasoup in those environments (host with private IP and a mapped public IP):
 
 * Let `HOST_PUBLIC_IP` be the external public IP mapped to your host.
-* Redirect the port range given by `rtcMinPort`-`rtcMaxPort` from `HOST_PUBLIC_IP` to your host.
+* Redirect the port range given to the transport (`portRange` field) from `HOST_PUBLIC_IP` to your host.
 * Of course, also redirect whichever port your application uses for signaling (HTTP/WebSocket) from `HOST_PUBLIC_IP` to your host.
 * Use `ip: '0.0.0.0'` and `announcedAddress: HOST_PUBLIC_IP` when creating a transport.
 

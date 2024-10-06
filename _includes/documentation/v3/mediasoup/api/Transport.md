@@ -33,7 +33,12 @@ Field         | Type    | Description   | Required | Default
 `ip`          | String  | Listening IPv4 or IPv6. | Yes |
 `announcedAddress` | String  | Announced IPv4, IPv6 or hostname (useful when running mediasoup behind NAT with private IP). | No |
 `port`        | Number  | Listening port. | No | If not given, a random available port from the Worker's port range will be used.
+<<<<<<< HEAD
 `flags`       | [TransportSocketFlags](#TransportSocketFlags) | UDP/TCP socket flags. | No | All flags are disabled.
+=======
+`portRange`   | [TransportPortRange](#TransportPortRange)  | Listening port range. | No | If given, a random available port in this range (in given IP and protocol) will be used.
+`flags`       | [TransportSocketFlags](#TransportSocketFlags) | UDP/TCP socket flags. | No | All flags are disabled.
+>>>>>>> 26c2959 (Document new portRange field)
 `sendBufferSize` | Number  | Send buffer size (in bytes). | No |
 `recvBufferSize` | Number  | Receive buffer size (in bytes). | No |
 
@@ -58,6 +63,18 @@ Field         | Type    | Description   | Required | Default
 <div markdown="1" class="note">
 * **DEPRECATED:** Use [TransportListenInfo](#TransportListenInfo) instead.
 * If you use "0.0.0.0" or "::" as `ip` value, then you need to also provide `announcedIp`.
+</div>
+
+#### TransportPortRange
+{: #TransportPortRange .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Field          | Type    | Description   | Required | Default
+-------------- | ------- | ------------- | -------- | ---------
+`min`          | Number | Lowest port of the range. | Yes | 0
+`max`          | Number | Highest port of the range. | Yes | 0
+
 </div>
 
 #### TransportSocketFlags

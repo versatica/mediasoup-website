@@ -33,7 +33,7 @@ Field                    | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-RTC listening IPs are not set at worker level. Instead, they are set per individual transport.
+`rtcMinPort` and `rtcMaxPort` are **deprecated**. Use [TransportPortRange](#TransportPortRange) in [TransportListenInfo](#TransportListenInfo) instead.
 </div>
 
 #### WorkerUpdateableSettings
