@@ -33,7 +33,7 @@ Field         | Type    | Description   | Required | Default
 `ip`          | String  | Listening IPv4 or IPv6. | Yes |
 `announcedAddress` | String  | Announced IPv4, IPv6 or hostname (useful when running mediasoup behind NAT with private IP). | No |
 `port`        | Number  | Listening port. | No | If not given, a random available port from the Worker's port range will be used.
-`flags`       | [TransportSocketFlags](#TransportSocketFlags) | UDP/TCP socke flags. | No | All flags are disabled.
+`flags`       | [TransportSocketFlags](#TransportSocketFlags) | UDP/TCP socket flags. | No | All flags are disabled.
 `sendBufferSize` | Number  | Send buffer size (in bytes). | No |
 `recvBufferSize` | Number  | Receive buffer size (in bytes). | No |
 
