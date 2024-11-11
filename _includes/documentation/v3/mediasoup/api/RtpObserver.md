@@ -34,6 +34,26 @@ Field           | Type    | Description   | Required | Default
 </section>
 
 
+### Enums
+{: #Transport-enums}
+
+<section markdown="1">
+
+#### RtpObserverType
+{: #RtpObserverType .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value           | Description
+--------------- | -------------
+"activespeaker" | The type of [ActiveSpeakerObserver](#ActiveSpeakerObserver).
+"audiolevel"    | The type of [AudioLevelObserver](#AudioLevelObserver).
+
+</div>
+
+</section>
+
+
 ### Properties
 {: #RtpObserver-properties}
 
@@ -54,6 +74,13 @@ RTP observer identifier.
 Whether the RTP observer is closed.
 
 > `@type` Boolean, read only
+
+#### rtpObserver.type
+{: #rtpObserver-type .code}
+
+RTP observer type.
+
+> `@type` [RtpObserverType](#RtpObserverType), read only
 
 #### rtpObserver.paused
 {: #rtpObserver-paused .code}
