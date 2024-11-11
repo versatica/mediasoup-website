@@ -130,6 +130,21 @@ See also "trace" Event in the [Debugging](/documentation/v3/mediasoup/debugging#
 
 <section markdown="1">
 
+#### TransportType
+{: #TransportType .code}
+
+<div markdown="1" class="table-wrapper L2">
+
+Value          | Description
+-------------- | -------------
+"webrtc"       | The type of [WebRtcTransport](#WebRtcTransport).
+"plain"        | The type of [PlainTransport](#PlainTransport).
+"pipe"         | The type of [PipeTransport](#PipeTransport).
+"direct"       | The type of [DirectTransport](#DirectTransport).
+
+</div>
+
+
 #### TransportTraceEventType
 {: #TransportTraceEventType .code}
 
@@ -180,6 +195,13 @@ Transport identifier.
 Whether the transport is closed.
 
 > `@type` Boolean, read only
+
+#### transport.type
+{: #transport-type .code}
+
+Transport type.
+
+> `@type` [TransportType](#TransportType), read only
 
 #### transport.appData
 {: #transport-appData .code}
