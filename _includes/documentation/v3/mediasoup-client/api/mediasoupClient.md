@@ -16,7 +16,8 @@ import {
   Device,
   detectDevice,
   parseScalabilityMode,
-  debug
+  debug,
+  extras
 } from "mediasoup-client";
 
 // Using CommonJS.
@@ -29,7 +30,8 @@ const {
   Device,
   detectDevice,
   parseScalabilityMode,
-  debug
+  debug,
+  extras
 } = require("mediasoup-client");
 ```
 
@@ -62,6 +64,12 @@ let producer: Producer;
 let rtpParameters: RtpParameters;
 ```
 
+`types` can also be accessed directly by importing them from a specific module path as follows (ES6 only):
+
+```typescript
+import * as mediasoupClientTypes from 'mediasoup-client/types';
+```
+
 #### mediasoupClient.version
 {: #mediasoupClient-version .code}
 
@@ -78,6 +86,57 @@ console.log(mediasoupClient.version);
 {: #mediasoupClient-debug .code}
 
 Exposes the [debug](https://www.npmjs.com/package/debug) dependency used by mediasoup-client. Useful if you need to enable/disable `debug` namespaces programatically.  
+
+#### mediasoupClient.extras
+{: #mediasoupClient-extras .code}
+
+<div markdown="1" class="note warn">
+mediasoup-client `extras` are only intended for advanced usage. Normal applications based on mediasoup-client should not need them.
+</div>
+
+An Object with these extras:
+
+- `HandlerInterface`: A namespace exposing all the types and classes exported by the `src/handlers/HandlerInterface.ts` file. Useful to create custom mediasoup-client handlers.
+- `FakeHandler`: A fake mediasoup-client handler class (defined in `src/handlers/FakeHandler.ts)`. Useful for testing.
+- `fakeParameters`: Utils to generate fake mediasoup-client related parameters (defined in `src/test/fakeParameters.ts`). Useful for testing.
+
+> `@type` Object, read only
+
+```typescript
+import { extras as mediasoupClientExtras } from 'mediasoup-client';
+
+const {
+  HandlerInterface,
+  HandlerFactory,
+  // etc.
+} = extras.HandlerInterface;
+
+const { FakeHandler } = extras.FakeHandler;
+
+const {
+  generateRouterRtpCapabilities,
+  generateLocalDtlsParameters,
+  // etc.
+} = extras.fakeParameters;
+```
+
+`extras` can also be accessed directly by importing them from a specific module path as follows (ES6 only):
+
+```typescript
+import {
+  HandlerInterface,
+  HandlerFactory,
+  // etc.
+} from 'mediasoup-client/extras/HandlerInterface';
+
+import { FakeHandler } from 'mediasoup-client/extras/FakeHandler';
+
+import {
+  generateRouterRtpCapabilities,
+  generateLocalDtlsParameters,
+  // etc.
+} from 'mediasoup-client/extras/fakeParameters';
+```
 
 </section>
 
