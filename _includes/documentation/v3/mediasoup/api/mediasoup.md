@@ -82,7 +82,7 @@ mediasoup.setLogEventListeners(
 #### mediasoup.types
 {: #mediasoup-types .code}
 
-An Object holding all classes, utils, **TypeScript** types and constants exported by mediasoup.
+It exposes all public **TypeScript** types exported by mediasoup.
 
 
 > `@type` Object, read only
