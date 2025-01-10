@@ -364,6 +364,20 @@ Emitted when the worker subprocess has closed completely. This event is emitted 
 Await for this event if you can to be sure that no Node handler is still open/running after you close a worker.
 </div>
 
+#### worker.on("listenererror", fn(eventName, error))
+{: #worker-on-listenererror .code}
+
+Emitted when an event listener given by the application throws. The exception is silently ignored internally to not break the internal state. By listening to this event, the application can be aware of exceptions happening in its given event listeners.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`eventName` | String  | The name of the event.
+`error`     | Error   | The error happening in the application given event listener.
+
+</div>
+
 </section>
 
 

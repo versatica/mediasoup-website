@@ -471,6 +471,20 @@ consumer.on("rtp", (rtpPacket) =>
 });
 ```
 
+#### consumer.on("listenererror", fn(eventName, error))
+{: #consumer-on-listenererror .code}
+
+Emitted when an event listener given by the application throws. The exception is silently ignored internally to not break the internal state. By listening to this event, the application can be aware of exceptions happening in its given event listeners.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`eventName` | String  | The name of the event.
+`error`     | Error   | The error happening in the application given event listener.
+
+</div>
+
 </section>
 
 
