@@ -103,7 +103,7 @@ Whether the router is closed.
 #### router.rtpCapabilities
 {: #router-rtpCapabilities .code}
 
-An Object with the RTP capabilities of the router. These capabilities are tipically needed by mediasoup clients to compute their sending RTP parameters.
+An Object with the RTP capabilities of the router. These capabilities are typically needed by mediasoup clients to compute their sending RTP parameters.
 
 > `@type` [RtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCapabilities), read only
 
