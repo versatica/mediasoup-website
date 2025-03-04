@@ -517,7 +517,7 @@ Emitted when an error occurs while performing ICE negotiations through a STUN or
 
 Argument    | Type    | Description   
 ----------- | ------- | ----------------
-`event`     | [[RTCPeerConnectionIceErrorEvent](https://www.w3.org/TR/webrtc/#dom-rtcpeerconnectioniceerrorevent) | Details about the ICE negotiation error.
+`event`     | [RTCPeerConnectionIceErrorEvent](https://www.w3.org/TR/webrtc/#dom-rtcpeerconnectioniceerrorevent) | Details about the ICE negotiation error.
 
 </div>
 
