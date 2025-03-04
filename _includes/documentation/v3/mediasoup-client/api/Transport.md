@@ -508,6 +508,19 @@ Argument    | Type    | Description
 
 </div>
 
+#### transport.on("icecandidateerror", fn(event))
+{: #transport-on-icecandidateerror .code}
+
+Emitted when an error occurs while performing ICE negotiations through a STUN or TURN server.
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument    | Type    | Description   
+----------- | ------- | ----------------
+`event`     | [[RTCPeerConnectionIceErrorEvent](https://www.w3.org/TR/webrtc/#dom-rtcpeerconnectioniceerrorevent) | Details about the ICE negotiation error.
+
+</div>
+
 #### transport.on("connectionstatechange", fn(connectionState))
 {: #transport-on-connectionstatechange .code}
 
