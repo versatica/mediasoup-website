@@ -54,23 +54,6 @@ Field     | Type                | Description   | Required | Default
 
 </div>
 
-```javascript
-mediasoup.setLogEventListeners(
-  {
-    ondebug: undefined,
-    onwarn: (namespace, log) => {
-      MyEnterpriseLogger.warn(`${namespace} ${log}`);
-    },
-    onerror: (namespace, log, error) => {
-      if (error) {
-        MyEnterpriseLogger.error(`${namespace} ${log}: ${error}`);
-      } else {
-        MyEnterpriseLogger.error(`${namespace} ${log}`);
-      }
-    }
-  });
-```
-
 </section>
 
 
@@ -172,12 +155,19 @@ Argument    | Type    | Description | Required | Default
 </div>
 
 ```javascript
-const worker = await mediasoup.createWorker<{ foo: number }>(
+mediasoup.setLogEventListeners(
   {
-    logLevel            : "warn",
-    dtlsCertificateFile : "/home/foo/dtls-cert.pem",
-    dtlsPrivateKeyFile  : "/home/foo/dtls-key.pem",
-    appData             : { foo: 123 }
+    ondebug: undefined,
+    onwarn: (namespace, log) => {
+      MyEnterpriseLogger.warn(`${namespace} ${log}`);
+    },
+    onerror: (namespace, log, error) => {
+      if (error) {
+        MyEnterpriseLogger.error(`${namespace} ${log}: ${error}`);
+      } else {
+        MyEnterpriseLogger.error(`${namespace} ${log}`);
+      }
+    }
   });
 ```
 
