@@ -171,8 +171,6 @@ Argument    | Type    | Description | Required | Default
 
 </div>
 
-> `@returns` [Worker](#Worker)
-
 ```javascript
 const worker = await mediasoup.createWorker<{ foo: number }>(
   {
