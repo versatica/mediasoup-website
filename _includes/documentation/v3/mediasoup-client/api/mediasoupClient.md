@@ -15,6 +15,7 @@ import {
   version,
   Device,
   detectDevice,
+  detectDeviceAsync,
   parseScalabilityMode,
   debug
 } from "mediasoup-client";
@@ -28,6 +29,7 @@ const {
   version,
   Device,
   detectDevice,
+  detectDeviceAsync,
   parseScalabilityMode,
   debug
 } = require("mediasoup-client");
@@ -106,6 +108,38 @@ const device = new mediasoupClient.Device();
 
 <section markdown="1">
 
+#### mediasoupClient.detectDeviceAsync(userAgent)
+{: #mediasoupClient-detectDeviceAsync .code}
+
+Performs current browser/device detection and returns the corresponding mediasoup-client WebRTC handler name (or nothing if the browser/device is not supported).
+
+<div markdown="1" class="table-wrapper L3">
+  
+Argument    | Type    | Description | Required | Default 
+----------- | ------- | ----------- | -------- | ----------
+`userAgent` | String  | Optional browser User-Agen string. If not given, `navigator.userAgent` will be used (in case of browser). | No |
+
+</div>
+
+> `@async`
+> 
+> `@returns` [BuiltinHandlerName](#BuiltinHandlerName) \| undefined
+
+```javascript
+const handlerName = await mediasoupClient.detectDeviceAsync();
+
+if (handlerName) {
+  console.log("detected handler: %s", handlerName);
+} else {
+  console.warn("no suitable handler found for current browser/device");
+}
+```
+
+<div markdown="1" class="note">
+* Compared to [detectDevice()](#mediasoupClient-detectDevice), `detectDeviceAsync()` not only uses the browser `User-Agent` string to deternine which handler to asign, but it also performs available API checks using [withFeatureCheck()](https://docs.uaparser.dev/api/main/idata/with-feature-check.html) in **ua-parser-js** library.
+* So for example, `detectDevice()` fails to detect Safari on iPad in "desktop mode" while `detectDeviceAsync()` detects it properly.
+</div>
+
 #### mediasoupClient.detectDevice(userAgent)
 {: #mediasoupClient-detectDevice .code}
 
@@ -118,10 +152,8 @@ Argument    | Type    | Description | Required | Default
 `userAgent` | String  | Optional browser User-Agen string. If not given, `navigator.userAgent` will be used (in case of browser). | No |
 
 </div>
-
-
-> `@async`
-> 
+> `@deprecated`
+>
 > `@returns` [BuiltinHandlerName](#BuiltinHandlerName) \| undefined
 
 ```javascript
@@ -133,6 +165,10 @@ if (handlerName) {
   console.warn("no suitable handler found for current browser/device");
 }
 ```
+
+<div markdown="1" class="note warn">
+This function is deprecated. Use [detectDeviceAsync()](#mediasoupClient-detectDeviceAsync) instead.
+</div>
 
 #### mediasoupClient.parseScalabilityMode(scalabilityMode)
 {: #mediasoupClient-parseScalabilityMode .code}

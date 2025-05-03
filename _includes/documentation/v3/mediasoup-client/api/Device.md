@@ -82,6 +82,46 @@ Value          | Description
 
 </section>
 
+### Class functions
+{: #Device-class-functions}
+
+<section markdown="1">
+
+#### Device.factory(options)
+{: #device-factory .code}
+
+Creates a new device. It's recommended to use `Device.factory()` instead of the `Device` constructor because the browser/device detection handler in `Device.factory()` uses [detectDeviceAsync()](#mediasoupClient-detectDeviceAsync) instead of [detectDevice()](#mediasoupClient-detectDevice).
+
+<div markdown="1" class="table-wrapper L3">
+
+Argument  | Type    | Description | Required | Default 
+--------- | ------- | ----------- | -------- | ----------
+`options` | [DeviceOptions](#DeviceOptions) | Device options. | No |
+
+</div>
+
+> `@async`
+> 
+> `@returns` [Device](#Device)
+
+> `@throws` UnsupportedError, if the current browser/device is not supported.
+
+```javascript
+let device;
+
+try
+{
+  device = await Device.factory();
+}
+catch (error)
+{
+  if (error.name === 'UnsupportedError')
+    console.warn('browser not supported');
+}
+```
+
+</section>
+
 
 ### Constructor
 {: #Device-constructor}
@@ -101,6 +141,8 @@ Argument  | Type    | Description | Required | Default
 
 </div>
 
+> `@deprecated`
+
 > `@throws` UnsupportedError, if the current browser/device is not supported.
 
 ```javascript
@@ -116,6 +158,10 @@ catch (error)
     console.warn('browser not supported');
 }
 ```
+
+<div markdown="1" class="note warn">
+Using the `Device` constructor directly is deprecated. Use [Device.factory()](#device-factory) instead.
+</div>
 
 </section>
 
