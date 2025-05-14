@@ -227,7 +227,7 @@ See the [Observer Events](#Device-observer-events) section below.
 
 <section markdown="1">
 
-#### device.load({ routerRtpCapabilities })
+#### device.load({ routerRtpCapabilities, preferLocalCodecsOrder })
 {: #device-load .code}
 
 Loads the device with the RTP capabilities of the mediasoup router. This is how the device knows about the allowed media codecs and other settings.
@@ -237,6 +237,7 @@ Loads the device with the RTP capabilities of the mediasoup router. This is how 
 Argument      | Type    | Description | Required | Default 
 ------------- | ------- | ----------- | -------- | ----------
 `routerRtpCapabilities` | [RtpCapabilities](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCapabilities) | The mediasoup router RTP capabilities. | Yes |
+`preferLocalCodecsOrder` | Boolean | Whether to prefer device's local order of codecs rather than the order of codecs provided to mediasoup server. | No |
 
 </div>
 
