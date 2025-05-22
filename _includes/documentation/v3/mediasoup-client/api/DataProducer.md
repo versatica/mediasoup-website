@@ -23,7 +23,6 @@ Field              | Type    | Description   | Required | Default
 `ordered`          | Boolean | Whether data messages must be sent in order. if `true` the messages will be sent reliably. | No | true
 `maxPacketLifeTime`| Number | When `ordered` is `false` indicates the time (in milliseconds) after which a SCTP packet will stop being retransmitted. | No |
 `maxRetransmits`| Number | When `ordered` is `false` indicates the maximum number of times a packet will be retransmitted. | No |
-`priority`         | [RtcPriorityType](https://www.w3.org/TR/webrtc/#dom-rtcprioritytype) | Datachannel priority. | No | 'low'
 `label`            | String | A label which can be used to distinguish this DataChannel from others. | No | `''`
 `protocol`         | String | Name of the sub-protocol used by this DataChannel. | No | `''`
 `appData`          | Object  | Custom application data. | No | `{ }`
