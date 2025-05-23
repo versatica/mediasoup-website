@@ -128,7 +128,7 @@ Value          | Description
 "new"          | No ICE Binding Requests have been received yet.
 "connected"    | Valid ICE Binding Request have been received, but none with USE-CANDIDATE attribute. Outgoing media is allowed.
 "completed"    | ICE Binding Request with USE_CANDIDATE attribute has been received. Media in both directions is now allowed.
-"disconnected" | ICE was "connected" or "completed" but it has suddenly failed (this can just happen if the selected tuple has "tcp" protocol).
+"disconnected" | ICE was "connected" or "completed" but it has suddenly failed. It happens if ICE Consent mechanism is enabled and it failed (client didn't send a consent for 30 seconds or the configured interval) or if the selected tuple has "tcp" protocol and it was disconnected.
 "closed"       | ICE state when the `transport` has been closed.
 
 </div>
