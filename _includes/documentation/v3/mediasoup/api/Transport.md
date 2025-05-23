@@ -157,8 +157,8 @@ Value          | Description
 
 </div>
 
-#### TransportSctpState
-{: #TransportSctpState .code}
+#### SctpState
+{: #SctpState .code}
 
 <div markdown="1" class="table-wrapper L2">
 

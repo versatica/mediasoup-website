@@ -96,7 +96,7 @@ Local SCTP parameters. Or `undefined` if SCTP is not enabled.
 
 Current SCTP state. Or `undefined` if SCTP is not enabled.
 
-> `@type` [TransportSctpState](#TransportSctpState), read only
+> `@type` [SctpState](#SctpState), read only
 
 #### plainTransport.srtpParameters
 {: #plainTransport-srtpParameters .code}
@@ -251,7 +251,7 @@ Emitted when the transport SCTP state changes.
 
 Argument | Type    | Description   
 ----------------- | ------- | ----------------
-`sctpState`       | [TransportSctpState](#TransportSctpState) | The new SCTP state.
+`sctpState`       | [SctpState](#SctpState) | The new SCTP state.
 
 </div>
 
