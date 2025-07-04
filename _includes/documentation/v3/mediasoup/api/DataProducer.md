@@ -211,7 +211,7 @@ dataProducer.on("transportclose", () =>
 });
 ```
 
-#### dataPonsumer.on("listenererror", fn(eventName, error))
+#### dataProducer.on("listenererror", fn(eventName, error))
 {: #dataProducer-on-listenererror .code}
 
 Emitted when an event listener given by the application throws. The exception is silently ignored internally to not break the internal state. By listening to this event, the application can be aware of exceptions happening in its given event listeners.
