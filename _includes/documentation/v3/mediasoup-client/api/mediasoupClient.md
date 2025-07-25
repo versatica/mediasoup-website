@@ -58,7 +58,7 @@ let rtpParameters: mediasoupTypes.RtpParameters;
 
 // or alternatively:
 
-import { Producer, RtpParameters } from "mediasoup-client/lib/types";
+import { Producer, RtpParameters } from "mediasoup-client/types";
 
 let producer: Producer;
 let rtpParameters: RtpParameters;
