@@ -66,17 +66,11 @@ Field            | Type   | Description
 
 Value          | Description  
 -------------- | -------------
+"Chrome111"     | Chrome/Chromium >= 111.
 "Chrome74"     | Chrome/Chromium >= 74.
-"Chrome70"     | Chrome/Chromium >= 70.
-"Chrome67"     | Chrome/Chromium >= 67.
-"Chrome55"     | Chrome/Chromium >= 55.
 "Firefox120"   | Firefox >= 120.
-"Firefox60"    | Firefox >= 60.
 "Safari12"     | Safari >= 12.
-"Safari11"     | Safari >= 11.
-"Edge11"       | Edge >= 11 && <= 18 (higher versions use Chromium).
-"ReactNativeUnifiedPlan" | React-Native environment with `react-native-webrtc` >= 106.0.0 with Unified-Plan support.
-"ReactNative"  | React-Native environment with `react-native-webrtc` previous versions with Plan-B support.
+"ReactNative106" | React-Native environment with `react-native-webrtc` >= 106.0.0.
 
 </div>
 
