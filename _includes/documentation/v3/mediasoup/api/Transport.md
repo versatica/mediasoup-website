@@ -32,7 +32,7 @@ Field         | Type    | Description   | Required | Default
 `protocol`    | String  | Protocol ("udp" / "tcp"). | Yes |
 `ip`          | String  | Listening IPv4 or IPv6. | Yes |
 `announcedAddress` | String  | Announced IPv4, IPv6 or hostname (useful when running mediasoup behind NAT with private IP). | No |
-`exposeInternalIp` | Boolean | In transports with ICE candidates, this field determines whether to also expose an ICE candidate with the IP of the `ip` field when `announcedAddress` is given. | No | `false`
+`exposeInternalIp` | Boolean | When using ICE candidates and `announcedAddress` is set (e.g., a public IP or domain), this option controls whether to also include the internal/local IP address in the ICE candidate list. If `true`, both the local IP and announced address are advertised. If `false`, only the announced address is used. | No | `false`
 `port`        | Number  | Listening port. | No | If not given, a random available port from the Worker's port range will be used.
 `portRange`   | [TransportPortRange](#TransportPortRange)  | Listening port range. | No | If given, a random available port in this range (in given IP and protocol) will be used.
 `flags`       | [TransportSocketFlags](#TransportSocketFlags) | UDP/TCP socket flags. | No | All flags are disabled.
