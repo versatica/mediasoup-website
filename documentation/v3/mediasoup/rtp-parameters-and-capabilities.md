@@ -103,6 +103,20 @@ Field              | Type    | Description   | Required | Default
 
 </div>
 
+#### RouterRtpCapabilities
+{: #RouterRtpCapabilities .code}
+
+Same as [RtpCapabilities](#RtpCapabilities). However `codecs` is not an array of `RtpCodecCapability](#RtpCodecCapability)` but of `RouterRtpCodecCapability](#RouterRtpCodecCapability)` (in which `preferredPayloadType` is not mandatory).
+
+<div markdown="1" class="table-wrapper L3">
+
+Field              | Type    | Description   | Required | Default
+------------------ | ------- | ------------- | -------- | ---------
+`codecs`           | Array&lt;[RouterRtpCodecCapability](#RouterRtpCodecCapability)&gt; | Supported media and RTX codecs. | No | `[ ]`
+`headerExtensions` | Array&lt;[RtpHeaderExtension](#RtpHeaderExtension)&gt; | Supported RTP header extensions. | No | `[ ]`
+
+</div>
+
 
 #### RtpCodecParameters
 {: #RtpCodecParameters .code}
@@ -236,6 +250,26 @@ Field              | Type    | Description   | Required | Default
 
 <div markdown="1" class="note">
 `RtpCodecCapability` entries in the `mediaCodecs` array of [RouterOptions](/documentation/v3/mediasoup/api/#RouterOptions) do not require `preferredPayloadType` field (if unset, mediasoup will choose a random one). If given, make sure it's in the 96-127 range. Neither it requires `rtcpFeedback`.
+</div>
+
+
+#### RouterRtpCodecCapability
+{: #RouterRtpCodecCapability .code}
+
+Same as [RtpCodecCapability](#RtpCodecCapability), however `preferredPayloadType` is optional.
+
+<div markdown="1" class="table-wrapper L3">
+
+Field              | Type    | Description   | Required | Default
+------------------ | ------- | ------------- | -------- | ---------
+`kind`             | [MediaKind](#MediaKind) | Media kind ("audio" or "video"). | Yes |
+`mimeType`         | String  | The codec MIME media type/subtype (e.g. "audio/opus", "video/VP8"). | Yes |
+`preferredPayloadType` | Number  | The preferred RTP payload type. | No |
+`clockRate`        | Number  | Codec clock rate expressed in Hertz. | Yes |
+`channels`         | Number  | The number of channels supported (e.g. two for stereo). Just for audio. | No | 1
+`parameters`           | Object  | Codec specific parameters. Some parameters (such as "packetization-mode" and "profile-level-id" in H264 or "profile-id" in VP9) are critical for codec matching. | No |
+`rtcpFeedback`     | Array&lt;[RtcpFeedback](#RtcpFeedback)&gt; | Transport layer and codec-specific feedback messages for this codec. | No | `[ ]`
+
 </div>
 
 
