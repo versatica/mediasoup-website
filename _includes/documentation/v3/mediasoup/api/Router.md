@@ -44,6 +44,7 @@ Field         | Type               | Description   | Required | Default
 `producerId` | String  | Producer id. | No      |
 `dataProducerId` | String  | Data producer id. | No      |
 `router`     | [Router](#Router) | Destination router to pipe the given producer. | Yes |
+`keepId`     | Boolean | Whether the `id` of the returned producer or dataProducer should be the same than the `id` of the original producer or dataProducer. | No | `true`
 `listenInfo` | [TransportListenInfo](#TransportListenInfo)| Listening information to connect both routers in the same host. | No | `{ protocol: "udp", ip: "127.0.0.1" }`
 `listenIp`   | String  | IP to connect both routers in the same host. | No | "127.0.0.1"
 `enableSctp` | Boolean | Create a SCTP association. | No | `true`
@@ -295,7 +296,8 @@ Pipes the given media or data producer into another router in the same host. It 
 This is specially useful to expand broadcasting capabilities (one to many) by interconnecting different routers that run in separate workers (so in different CPU cores).
 
 <div markdown="1" class="note warn">
-Due to a internal design optimization in C++, the origin router and target router cannot be in the same worker. In other words, `router1.pipeToRouter({ router: router2, etc })` will throw if both `router1` and `router2` were created in the same mediasoup [Worker](#Worker) instance.
+- If `keepId` is set to `false` then the origin router and target router can be in the same mediasoup [Worker](#Worker) instance. However, the `id` of the returned producer or dataProducer **won't** match the `id` of the original producer or dataProducer. Instead, the `id` will be a randomly generated value.
+- Otherwise, if `keepId` is `true` (default value) `router1.pipeToRouter({ router: router2, etc })` will throw if both `router1` and `router2` were created in the same mediasoup [Worker](#Worker) instance.
 </div>
 
 <div markdown="1" class="table-wrapper L3">
