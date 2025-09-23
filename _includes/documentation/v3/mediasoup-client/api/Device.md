@@ -84,7 +84,7 @@ Value          | Description
 #### Device.factory(options)
 {: #device-factory .code}
 
-Creates a new device. It's recommended to use `Device.factory()` instead of the `Device` constructor because the browser/device detection handler in `Device.factory()` uses [detectDeviceAsync()](#mediasoupClient-detectDeviceAsync) instead of [detectDevice()](#mediasoupClient-detectDevice).
+Creates a new device. Currently, using `Device.factory()` instead of the `Device` constructor provides no benefit.
 
 <div markdown="1" class="table-wrapper L3">
 
