@@ -5,9 +5,12 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - package.json
+  - package-lock.json
   - node_modules
   - lib
+  - vendor
   - gulpfile.js
+  - README.md
   - LICENSE
 
 markdown: kramdown
@@ -21,8 +24,6 @@ kramdown:
   syntax_highlighter: rouge
 
 plugins:
-  - jekyll-compass
-  - breakpoint
   - rouge
 
 permalink: pretty

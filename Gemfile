@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '~> 3.10.0'
-gem 'jekyll-compass', '~> 2.0.1'
+gem 'jekyll', '~> 4.2.0'
 gem 'kramdown', '~> 2.5.1'
-gem 'breakpoint', '~>2.7.1'
-gem 'rouge', '~>2.2.1'
+gem 'rouge', '~> 3.3' # Compatible with Jekyll 4.2.
+gem 'logger'
+gem 'base64'
+gem 'bigdecimal'
+gem 'csv'
+gem 'webrick'
