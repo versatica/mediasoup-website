@@ -13,25 +13,25 @@
 	overflow: auto;
 	overscroll-behavior: contain;
 	background-color: lighten($color-white-2, 15%);
-	@include box-shadow(-3px 0px 8px 0px rgba(#fff, 0.25));
-	@include transition-property(right);
-	@include transition-duration(0.15s);
+	box-shadow: -3px 0px 8px 0px rgba(#fff, 0.25);
+	transition-property: right;
+	transition-duration: 0.15s;
 
 	&.visible {
 		right: 0;
 
 		> .container > .close {
-			@include transition-delay(0.25s);
-			@include transform(scale(1));
+			transition-delay: 0.25s;
+			transform: scale(1);
 		}
 	}
 
 	> .container {
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			padding: 64px 8px 8px 8px;
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			padding: 48px 6px 6px 6px;
 		}
 
@@ -47,13 +47,13 @@
 			background-repeat: no-repeat;
 			cursor: pointer;
 			opacity: 0.9;
-			@include transform(scale(0));
-			@include transition-property(opacity, transform);
-			@include transition-duration(0.25s);
+			transform: scale(0);
+			transition-property: opacity, transform;
+			transition-duration: 0.25s;
 			-webkit-tap-highlight-color: transparent;
 
 			&:hover {
-				@include transition-delay(0s);
+				transition-delay: 0s;
 				opacity: 1;
 			}
 		}
@@ -65,15 +65,15 @@
 			text-align: left;
 			text-decoration: none;
 			border-radius: 4px;
-			@include transition-property(color, background-color);
-			@include transition-duration(0.05s);
+			transition-property: color, background-color;
+			transition-duration: 0.05s;
 
-			@include breakpoint($computer) {
+			@media (min-width: #{$computer-min-width}) {
 				font-size: 1.1rem;
 				font-weight: 400;
 			}
 
-			@include breakpoint($mobile) {
+			@media (max-width: #{$mobile-max-width}) {
 				font-size: 1rem;
 				font-weight: 400;
 			}

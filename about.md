@@ -20,7 +20,6 @@ mediasoup is made with love by a small team of Real-Time addicts.
 [![][github-icon]][ibc-github-url]{: .inline-icon }
 [![][github-icon]][versatica-github-url]{: .inline-icon }
 [![][linkedin-icon]][ibc-linkedin-url]{: .inline-icon }
-<!-- [![][upwork-icon]][ibc-upwork-url]{: .inline-icon } -->
 
 I'm passionate about new technologies, Open Source, WebRTC, modern Web development, Node.js, C++ and, above all, Real-Time Communications.
 
@@ -37,7 +36,6 @@ Since the first days of WebRTC my professional efforts go around it, and this is
 [![][github-icon]][jmillan-github-url]{: .inline-icon }
 [![][github-icon]][versatica-github-url]{: .inline-icon }
 [![][linkedin-icon]][jmillan-linkedin-url]{: .inline-icon }
-[![][twitter-icon]][jmillan-twitter-url]{: .inline-icon }
 
 I'm a Real Time Communication passionate and developer. For the last years I've been focused on WebRTC development. I'm core designer, developer and maintainer of mediasoup. I also have taken part in the specification of [Object RTC (ORTC) API for WebRTC][ortc-draft-url].
 
@@ -83,13 +81,10 @@ You can support mediasoup by [sponsoring](/sponsor/#become-a-sponsor) it. Thanks
 [ibc-website-url]: https://inakibaz.me
 [ibc-github-url]: https://github.com/ibc
 [ibc-linkedin-url]: https://linkedin.com/in/inakibaz
-[ibc-twitter-url]: https://twitter.com/ibc_tw
-[ibc-upwork-url]: https://www.upwork.com/o/profiles/users/_~01d3a30a4d8a3d0690/
 
 [jmillan-photo]: /images/jmillan.jpg
 [jmillan-github-url]: https://github.com/jmillan
 [jmillan-linkedin-url]: https://www.linkedin.com/in/jos%C3%A9-luis-mill%C3%A1n-a423683b/
-[jmillan-twitter-url]: https://twitter.com/jomivi
 
 [nazar-photo]: /images/nazar.jpg
 [nazar-github-url]: https://github.com/nazar-pc
@@ -99,8 +94,6 @@ You can support mediasoup by [sponsoring](/sponsor/#become-a-sponsor) it. Thanks
 [website-icon]: /images/icon-website.svg
 [github-icon]: /images/icon-github.svg
 [linkedin-icon]: /images/icon-linkedin.svg
-[twitter-icon]: /images/icon-twitter.svg
-[upwork-icon]: /images/icon-upwork.svg
 
 [rfc7118-url]: https://tools.ietf.org/html/rfc7118
 [paypal-url]: https://paypal.me/inakibazcastillo/100

@@ -26,6 +26,11 @@ kramdown:
 plugins:
   - rouge
 
+sass:
+  style: expanded
+  sass_dir: _sass
+  verbose: true
+
 permalink: pretty
 
 defaults:
