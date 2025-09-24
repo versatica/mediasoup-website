@@ -56,19 +56,6 @@ bundle install
 Note that project gems are installed in `vendor/bundle` due to the configuration in `.bundle/config`.
 
 
-### SCSS files
-
-Former `_compass` is now renamed to `_scss`. It contains `.scss` files that should be processed with `jekyll-compass`, however `jekyll-compass` is not maintained and it's not compatible with Jekyll 4.
-
-As a workaround, `_scss` files have been compiled into a single `css/mediasoup.css` file using this command in a separate temporal project that uses Ruby 2.7.8 with `compass` and `breakpoint` gems in `Gemfile`:
-
-```zsh
-bundle exec compass compile --sass-dir /Users/xxx/src/mediasoup-website/_scss --css-dir /Users/xxx/src/mediasoup-website/css -r breakpoint
-```
-
-This is obviously a workaround and we need a better solution.
-
-
 ## Development
 
 See commands in `gulpfile.mjs` file.

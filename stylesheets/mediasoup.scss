@@ -1,21 +1,14 @@
-@import 'compass/reset';
-@import 'compass/css3/box-sizing';
-@import 'compass/css3/images';
-@import 'compass/css3/transform';
-@import 'compass/css3/transition';
-@import 'compass/css3/box-shadow';
-@import 'compass/css3/flexbox';
-@import 'compass/css3/user-interface';
-@import 'compass/css3/hyphenation';
-@import 'breakpoint';
+---
+# This ensures Jekyll reads the file to be transformed into CSS later.
+# Only Main files contain this front matter, not partials.
+---
 
-// Import fonts.
+@import './reset';
 @import './fonts';
-// Import my mixins.
 @import './mixins';
 
-$computer: min-width 901px;
-$mobile: max-width 900px;
+$computer-min-width: 901px;
+$mobile-max-width: 900px;
 
 $header-height-computer: 64px;
 $header-height-mobile: 56px;
@@ -28,19 +21,19 @@ $color-highlight-2: #1EB6E8;
 $color-text: #999;
 
 * {
-	@include box-sizing(border-box);
+	box-sizing: border-box;
 }
 
 html {
 	height: 100%;
 	font-family: 'Roboto', 'Helvetica', 'sans-serif';
 
-	@include breakpoint($computer) {
+	@media (min-width: #{$computer-min-width}) {
 		font-size: 16px;
 		font-weight: 300;
 	}
 
-	@include breakpoint($mobile) {
+	@media (max-width: #{$mobile-max-width}) {
 		font-size: 16px;
 		font-weight: 300;
 	}
@@ -51,14 +44,14 @@ body {
 	// Should not be needed, but IE does not takes all the height without it.
 	height: 100%;
 	overflow: auto;
-	@include display-flex;
-	@include flex-direction(column);
-	@include align-items(center);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	background-repeat: no-repeat;
 	background: radial-gradient($color-dark-2, $color-dark);
 	background-color: $color-dark;
 
-	@include breakpoint($computer) {
+	@media (min-width: #{$computer-min-width}) {
 		// Just set fixed background on computer (it's not supported in iOS Safari
 		// and scrolling becomes ugly in Chrome/Firefox for mobile).
 		background-attachment: fixed;
@@ -83,12 +76,12 @@ body {
 		right: 0;
 		background-color: rgba($color-dark, 0.85);
 		backdrop-filter: blur(4px);
-		@include display-flex;
-		@include flex-direction(row);
-		@include justify-content(space-between);
-		@include align-items(center);
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
 
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			height: $header-height-computer;
 			padding: 0 3.5rem;
 			font-size: 2.5rem;
@@ -99,7 +92,7 @@ body {
 			}
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			height: $header-height-mobile;
 			padding: 0 16px;
 			font-size: 2rem;
@@ -122,20 +115,20 @@ body {
 			background-image: url('/images/menu-white.svg');
 			background-size: contain;
 			opacity: 0.85;
-			@include transition-property(opacity);
-			@include transition-duration(0.25s);
+			transition-property: opacity;
+			transition-duration: 0.25s;
 			-webkit-tap-highlight-color: transparent;
 
 			&.hidden {
 				opacity: 0;
 			}
 
-			@include breakpoint($computer) {
+			@media (min-width: #{$computer-min-width}) {
 				width: 32px;
 				height: 32px;
 			}
 
-			@include breakpoint($mobile) {
+			@media (max-width: #{$mobile-max-width}) {
 				width: 32px;
 				height: 32px;
 			}
@@ -143,21 +136,21 @@ body {
 	}
 
 	> .content {
-		@include flex(100 0 auto);
-		@include display-flex;
-		@include flex-direction(column);
+		flex: 100 0 auto;
+		display: flex;
+		flex-direction: column;
 		position: relative;
 		width: 100%; // Nedded for IE 11.
-		@include transition-property(opacity);
-		@include transition-delay(0.15s);
-		@include transition-duration(0.25s);
+		transition-property: opacity;
+		transition-delay: 0.15s;
+		transition-duration: 0.25s;
 
 		&.loading {
 			opacity: 0;
 		}
 
 		> [data-content] {
-			@include flex(100 0 auto);
+			flex: 100 0 auto;
 		}
 
 		// Import categories.
@@ -171,16 +164,16 @@ body {
 	}
 
 	> .footer {
-		@include flex(0 0 auto);
+		flex: 0 0 auto;
 		width: 100%;
 		padding: 1.75rem 2rem 2.25rem 2rem;
 		background-color: $color-dark;
 
 		> .links {
-			@include breakpoint($computer) {
-				@include display-flex;
-				@include flex-direction(row);
-				@include justify-content(center);
+			@media (min-width: #{$computer-min-width}) {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
 			}
 
 			> a {
@@ -192,21 +185,21 @@ body {
 				text-align: center;
 				text-decoration: none;
 				-webkit-tap-highlight-color: transparent;
-				@include transition-property(color, border-bottom);
-				@include transition-duration(0.1s);
+				transition-property: color border-bottom;
+				transition-duration: 0.1s;
 
 				&:hover {
 					color: $color-white-2;
 					border-color: $color-white-2;
 				}
 
-				@include breakpoint($computer) {
+				@media (min-width: #{$computer-min-width}) {
 					margin: 0 0.5rem;
 					line-height: 2rem;
 					width: 8rem;
 				}
 
-				@include breakpoint($mobile) {
+				@media (max-width: #{$mobile-max-width}) {
 					line-height: 2.5rem;
 				}
 			}
@@ -223,8 +216,8 @@ body {
 		// Hidden by default.
 		z-index: -1;
 		opacity: 0;
-		@include transition-property(opacity);
-		@include transition-duration(0.2s);
+		transition-property: opacity;
+		transition-duration: 0.2s;
 		-webkit-tap-highlight-color: transparent;
 
 		&.visible {
@@ -236,14 +229,14 @@ body {
 			}
 		}
 
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			bottom: 2rem;
 			right: 2rem;
 			width: 60px;
 			height: 60px;
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			bottom: 16px;
 			right: 16px;
 			width: 42px;
@@ -255,21 +248,21 @@ body {
 		position: fixed;
 		z-index: 200;
 		width: 400px;
-		@include transform(rotate(-45deg));
+		transform: rotate(-45deg);
 		color: rgba(#fff, 0.9);
 		background-color: rgba(#f06a2a, 0.9);
-		@include box-shadow(0px 0px 5px 0px rgba(#333, 0.6));
+		box-shadow: 0px 0px 5px 0px rgba(#333, 0.6);
 		text-align: center;
 
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			bottom: 60px;
 			right: -120px;
 			font-size: 1rem;
 			line-height: 2.2rem;
 			opacity: 0.85;
-			@include transition-property(bottom, right);
-			@include transition-delay(2.5s);
-			@include transition-duration(.25s);
+			transition-property: bottom right;
+			transition-delay: 2.5s;
+			transition-duration: .25s;
 
 			&.loading {
 				bottom: -120px;
@@ -277,7 +270,7 @@ body {
 			}
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			bottom: 45px;
 			right: -145px;
 			font-size: 0.8rem;

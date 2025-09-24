@@ -7,7 +7,7 @@
 	width: 100%;
 	overflow: hidden;
 
-	@include breakpoint($computer) {
+	@media (min-width: #{$computer-min-width}) {
 		margin: 4rem auto;
 		padding-top: $padding + $header-height-computer;
 		width: 90%;
@@ -16,7 +16,7 @@
 		text-align: left;
 	}
 
-	@include breakpoint($mobile) {
+	@media (max-width: #{$mobile-max-width}) {
 		margin: 2.5rem auto;
 		padding-top: $padding + $header-height-mobile;
 		width: 100%;
@@ -30,12 +30,12 @@
 		display: block;
 		visibility: hidden;
 
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			height: $header-height-computer * 1.3;
 			margin-top: -$header-height-computer * 1.3;
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			height: $header-height-mobile * 1.3;
 			margin-top: -$header-height-mobile * 1.3;
 		}
@@ -49,11 +49,11 @@
 		clear: both;
 		overflow-wrap: break-word;
 
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			font-size: 2.5em;
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			font-size: 2em;
 		}
 	}
@@ -67,12 +67,12 @@
 		clear: both;
 		overflow-wrap: break-word;
 
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			font-size: 1.8em;
 			line-height: 1.8em;
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			font-size: 1.5em;
 			line-height: 1.5em;
 		}
@@ -112,7 +112,7 @@
 			font-family: 'Monaco', 'Andale Mono', monospace;
 			text-overflow: ellipsis;
 
-			@include breakpoint($computer) {
+			@media (min-width: #{$computer-min-width}) {
 				white-space: nowrap;
 			}
 		}
@@ -142,7 +142,7 @@
 		margin-bottom: 1em;
 		list-style-type: disc;
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			text-align: left;
 		}
 
@@ -186,8 +186,8 @@
 				height: 24px;
 				border-radius: 4px;
 				opacity: 0.75;
-				@include transition-property(opacity);
-				@include transition-duration(0.1s);
+				transition-property: opacity;
+				transition-duration: 0.1s;
 
 				&:hover {
 					opacity: 1;
@@ -215,11 +215,11 @@
 	div.highlighter-rouge {
 		margin: 2em auto;
 
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			width: 92%;
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			width: 100%;
 		}
 	}
@@ -237,11 +237,11 @@
 	section {
 		margin: 0;
 
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			padding-left: 1.5em;
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			padding-left: 0.5em;
 		}
 	}
@@ -258,11 +258,11 @@
 			border-color: rgba(#e47474, 0.5);
 		}
 
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			width: 92%;
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			width: 100%;
 		}
 
@@ -340,14 +340,14 @@
 	}
 
 	.computer-icon-text-columns {
-		@include breakpoint($computer) {
-			@include display-flex;
-			@include flex-direction(row);
-			@include justify-content(center);
-			@include align-items(center);
+		@media (min-width: #{$computer-min-width}) {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
 
 			> .icon {
-				@include flex(0 0 auto);
+				flex: 0 0 auto;
 
 				* {
 					margin-top: 0 !important;
@@ -357,7 +357,7 @@
 			}
 
 			> .text {
-				@include flex(100 100 auto);
+				flex: 100 100 auto;
 			}
 		}
 	}
@@ -376,12 +376,12 @@
 		}
 
 		&.left {
-			@include breakpoint($computer) {
+			@media (min-width: #{$computer-min-width}) {
 				float: left;
 				margin: 0 2em 1em 0;
 			}
 
-			@include breakpoint($mobile) {
+			@media (max-width: #{$mobile-max-width}) {
 				display: block;
 				margin: 2em auto;
 			}

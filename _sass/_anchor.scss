@@ -7,7 +7,7 @@
 .anchorjs-link:focus  {
 	/* To fade links as they appear, change transition-property from 'color' to 'all' */
 	opacity: 1;
-	@include transition(color .16s linear);
+	transition: color .16s linear;
 }
 
 .anchorjs-link:link    { color: $color-text; }

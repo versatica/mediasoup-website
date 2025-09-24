@@ -1,31 +1,31 @@
 [data-content='home'] {
-	@include display-flex;
-	@include flex-direction(column);
+	display: flex;
+	flex-direction: column;
 
 	> .banner {
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			overflow: hidden;
-			@include flex(0 0 auto);
-			@include display-flex;
-			@include flex-direction(column);
-			@include justify-content(center);
+			flex: 0 0 auto;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 			margin: 3rem 0 4rem 20%;
 			width: 500px;
 			font-size: 4.5rem;
-			@include transition-property(opacity, transform);
-			@include transition-delay(0.75s);
-			@include transition-duration(1s);
-			@include transform-origin(30%);
-			@include transform(perspective(250px));
+			transition-property: opacity, transform;
+			transition-delay: 0.75s;
+			transition-duration: 1s;
+			transform-origin: 30%;
+			transform: perspective(250px);
 
 			&.loading {
 				opacity: 0;
-				@include transform(perspective(250px) rotateY(90deg) rotateX(15deg));
+				transform: perspective(250px) rotateY(90deg) rotateX(5deg);
 			}
 		}
 
-		@include breakpoint($mobile) {
-			@include flex(0 0 auto);
+		@media (max-width: #{$mobile-max-width}) {
+			flex: 0 0 auto;
 			margin: 3rem 0;
 			width: 100%;
 			padding: 0 5%;
@@ -42,12 +42,12 @@
 			font-family: 'Poiret One';
 			line-height: 1.5em;
 
-			@include breakpoint($computer) {
+			@media (min-width: #{$computer-min-width}) {
 				color: rgba(#fff, 0.35);
 				font-size: 0.35em;
 			}
 
-			@include breakpoint($mobile) {
+			@media (max-width: #{$mobile-max-width}) {
 				color: rgba(#fff, 0.5);
 				font-size: 0.35em;
 			}
@@ -61,7 +61,7 @@
 		cursor: pointer;
 		-webkit-tap-highlight-color: transparent;
 
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			position: absolute;
 			top: 2rem;
 			right: 4%;
@@ -71,28 +71,28 @@
 			background-image: url('/images/menu-white.svg');
 			opacity: 0.85;
 			border-radius: 5px;
-			@include transition-property(transform);
-			@include transition-duration(.75s);
+			transition-property: transform;
+			transition-duration: .75s;
 
 			&:hover {
-				@include transition-duration(.25s);
+				transition-duration: .25s;
 				opacity: 1;
 			}
 
 			&.loading {
-				@include transform(scale(0));
+				transform: scale(0);
 			}
 
 			&.loaded {
-				@include transition-duration(0.25s);
+				transition-duration: 0.25s;
 			}
 
 			&.hidden {
-				@include transform(scale(0));
+				transform: scale(0);
 			}
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			position: absolute;
 			top: 12px;
 			right: 16px;
@@ -101,8 +101,8 @@
 			background-size: contain;
 			background-image: url('/images/menu-white.svg');
 			opacity: 0.9;
-			@include transition-property(opacity);
-			@include transition-duration(.25s);
+			transition-property: opacity;
+			transition-duration: .25s;
 
 			&.hidden {
 				opacity: 0;
@@ -111,17 +111,17 @@
 	}
 
 	> .install {
-		@include flex(0 0 auto);
+		flex: 0 0 auto;
 		overflow: hidden;
 
-		@include breakpoint($computer) {
-			@include display-flex;
-			@include flex-direction(row);
-			@include justify-content(center);
+		@media (min-width: #{$computer-min-width}) {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
 			margin-bottom: 2rem;
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			margin-bottom: 2rem;
 		}
 
@@ -135,23 +135,23 @@
 
 			&.loading {
 				opacity: 0;
-				@include transform(scale(1.5));
+				transform: scale(1.5);
 				color: #fff;
 			}
 
-			@include breakpoint($computer) {
-				@include display-flex;
-				@include flex-direction(row);
-				@include justify-content(center);
-				@include transition-property(opacity, transform, background-color, color);
-				@include transition-delay(1.5s);
-				@include transition-duration(1s);
+			@media (min-width: #{$computer-min-width}) {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				transition-property: opacity, transform background-color, color;
+				transition-delay: 1.5s;
+				transition-duration: 1s;
 			}
 
-			@include breakpoint($mobile) {
-				@include transition-property(opacity, transform, background-color, color);
-				@include transition-delay(0.25s);
-				@include transition-duration(1s);
+			@media (max-width: #{$mobile-max-width}) {
+				transition-property: opacity, transform background-color, color;
+				transition-delay: 0.25s;
+				transition-duration: 1s;
 			}
 
 			> .code-container {
@@ -165,19 +165,19 @@
 					color: rgba($color-white-2, 0.6);
 					text-shadow: inherit;
 
-					@include breakpoint($computer) {
+					@media (min-width: #{$computer-min-width}) {
 						font-size: 0.9em;
 						line-height: 1.8em;
 					}
 
-					@include breakpoint($mobile) {
+					@media (max-width: #{$mobile-max-width}) {
 						font-size: 0.8em;
 						line-height: 1.8em;
 					}
 
 					span.no-select {
 						color: $color-white-2;
-						@include user-select(none);
+						user-select: none;
 					}
 				}
 
@@ -196,7 +196,7 @@
 		background-size: contain;
 		background-position: center;
 
-		@include breakpoint($computer) {
+		@media (min-width: #{$computer-min-width}) {
 			position: absolute;
 			z-index: -1;
 			top: -1rem;
@@ -204,38 +204,38 @@
 			height: 400px;
 			width: 400px;
 			opacity: 0.5;
-			@include transition-property(opacity, transform);
-			@include transition-delay(1s);
-			@include transition-duration(1.5s);
-			@include transform(rotate(-20deg));
+			transition-property: opacity, transform;
+			transition-delay: 1s;
+			transition-duration: 1.5s;
+			transform: rotate(-20deg);
 
 			&.loading {
 				opacity: 0;
-				@include transform(rotate(0deg));
+				transform: rotate(0deg);
 			}
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			display: none;
 		}
 	}
 
 	> .github-stars {
 		height: 20px;
-		@include flex(100 0 auto);
-		@include display-flex;
-		@include flex-direction(column);
-		@include justify-content(center);
+		flex: 100 0 auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 		margin-bottom: 2rem;
 	}
 
 	> .boxes {
-		@include flex(100 0 auto);
+		flex: 100 0 auto;
 
-		@include breakpoint($computer) {
-			@include display-flex;
-			@include flex-direction(column);
-			@include justify-content(center);
+		@media (min-width: #{$computer-min-width}) {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
 			width: 100%;
 			min-width: 1024px;
 			max-width: 1280px;
@@ -244,22 +244,22 @@
 			font-size: 1rem;
 		}
 
-		@include breakpoint($mobile) {
+		@media (max-width: #{$mobile-max-width}) {
 			width: 100%;
 			padding: 0 10px;
 			font-size: 0.9rem;
 		}
 
 		> .wrapper {
-			@include breakpoint($computer) {
-				@include display-flex;
-				@include flex-direction(row);
-				@include justify-content(center);
-				@include transition-delay(1s);
-				@include transition-duration(1s);
+			@media (min-width: #{$computer-min-width}) {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				transition-delay: 1s;
+				transition-duration: 1s;
 			}
 
-			@include breakpoint($mobile) {
+			@media (max-width: #{$mobile-max-width}) {
 				margin-bottom: 3rem;
 			}
 
@@ -268,13 +268,13 @@
 				border: 1px solid rgba(#fff, 0.1);
 				border-radius: 6px;
 
-				@include breakpoint($computer) {
-					@include flex(0 10 auto);
+				@media (min-width: #{$computer-min-width}) {
+					flex: 0 10 auto;
 					width: 34%;
 					margin: 0 6px;
 					padding: 1.5rem 1.75rem 1.25rem;
-					@include transition-property(opacity);
-					@include transition-duration(1s);
+					transition-property: opacity;
+					transition-duration: 1s;
 
 					&:first-child {
 						margin-left: 0;
@@ -289,7 +289,7 @@
 					}
 				}
 
-				@include breakpoint($mobile) {
+				@media (max-width: #{$mobile-max-width}) {
 					margin: 10px  0;
 					padding: 1.5rem 1.5rem 1.5rem;
 				}
@@ -300,12 +300,12 @@
 					color: $color-white-2;
 					font-weight: 400;
 
-					@include breakpoint($computer) {
+					@media (min-width: #{$computer-min-width}) {
 						font-size: 1.1em;
 						padding: 0.4em 0;
 					}
 
-					@include breakpoint($mobile) {
+					@media (max-width: #{$mobile-max-width}) {
 						font-size: 1.4em;
 						padding: 0.5em 0;
 					}
@@ -317,16 +317,16 @@
 					font-weight: 400;
 					margin-bottom: 1em;
 
-					@include breakpoint($computer) {
+					@media (min-width: #{$computer-min-width}) {
 						font-size: 0.9em;
 					}
 
-					@include breakpoint($mobile) {
+					@media (max-width: #{$mobile-max-width}) {
 						font-size: 1em;
 					}
 
 					a {
-						@include transition-duration(0.25s);
+						transition-duration: 0.25s;
 						text-decoration: none;
 						color: $color-dark;
 						border-bottom: 1px solid transparent;
@@ -342,27 +342,27 @@
 	}
 
 	// > .shields {
-	// 	@include flex(0 0 auto);
+	// 	flex: 0 0 auto;
 	// 	display: flex;
 	// 	min-height: 20px;
 	// 	margin: 2rem 0;
 	// 	opacity: 0.65;
 
-	// 	@include breakpoint($computer) {
-	// 		@include flex-direction(row);
-	// 		@include justify-content(center);
-	// 		@include transition-property(transform);
-	// 		@include transition-duration(0.25s);
+	// 	@media (min-width: #{$computer-min-width}) {
+	// 		flex-direction: row;
+	// 		justify-content: center;
+	// 		transition-property: transform;
+	// 		transition-duration: 0.25s;
 
 	// 		&.loading {
-	// 			@include transform(scale(0));
+	// 			transform: scale(0);
 	// 		}
 	// 	}
 
-	// 	@include breakpoint($mobile) {
-	// 		@include flex-direction(column);
-	// 		@include justify-content(center);
-	// 		@include align-items(center);
+	// 	@media (max-width: #{$mobile-max-width}) {
+	// 		flex-direction: column;
+	// 		justify-content: center;
+	// 		align-items: center;
 	// 	}
 
 	// 	> a.shield {
@@ -372,25 +372,25 @@
 	// }
 
 	> .versions {
-		@include flex(0 0 auto);
+		flex: 0 0 auto;
 		display: flex;
 		margin: 2rem 0;
 
-		@include breakpoint($computer) {
-			@include flex-direction(row);
-			@include justify-content(center);
-			@include transition-property(transform);
-			@include transition-duration(0.25s);
+		@media (min-width: #{$computer-min-width}) {
+			flex-direction: row;
+			justify-content: center;
+			transition-property: transform;
+			transition-duration: 0.25s;
 
 			&.loading {
-				@include transform(scale(0));
+				transform: scale(0);
 			}
 		}
 
-		@include breakpoint($mobile) {
-			@include flex-direction(column);
-			@include justify-content(center);
-			@include align-items(center);
+		@media (max-width: #{$mobile-max-width}) {
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
 		}
 
 		> a.version {

@@ -1,12 +1,12 @@
 [data-content='breadcrumbs'] {
 	position: absolute;
 
-	@include breakpoint($computer) {
+	@media (min-width: #{$computer-min-width}) {
 		top: 20px;
 		font-size: 0.9rem;
 	}
 
-	@include breakpoint($mobile) {
+	@media (max-width: #{$mobile-max-width}) {
 		top: 40px;
 		font-size: 0.65rem;
 	}

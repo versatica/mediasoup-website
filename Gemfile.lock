@@ -90,6 +90,7 @@ DEPENDENCIES
   bigdecimal
   csv
   jekyll (~> 4.2.0)
+  jekyll-sass-converter
   kramdown (~> 2.5.1)
   logger
   rouge (~> 3.3)

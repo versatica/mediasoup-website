@@ -1,7 +1,6 @@
 /node_modules
 /js/site.js
 /vendor/bundle
-/_site
-/.sass-cache
 /.jekyll-cache
 /.jekyll-metadata
+/_site

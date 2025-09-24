@@ -5,12 +5,12 @@
 	background-size: 50%;
 	background-color: lighten($color-white-2, 15%);
 	border-right: none;
-	@include box-shadow(0px 0px 3px 0px rgba(#111, 0.35));
+	box-shadow: 0px 0px 3px 0px rgba(#111, 0.35);
 	cursor: pointer;
 	overscroll-behavior: contain;
 	-webkit-tap-highlight-color: transparent;
 
-	@include breakpoint($computer) {
+	@media (min-width: #{$computer-min-width}) {
 		$height: 110px;
 		$width: 56px;
 
@@ -21,7 +21,7 @@
 		width: $width;
 	}
 
-	@include breakpoint($mobile) {
+	@media (max-width: #{$mobile-max-width}) {
 		$height: 50px;
 		$width: 30px;
 
@@ -39,22 +39,22 @@
 	bottom: 0;
 	top: 0;
 	background-color: lighten($color-white-2, 15%);
-	@include box-shadow(-3px 0px 8px 0px rgba(#fff, 0.25));
+	box-shadow: -3px 0px 8px 0px rgba(#fff, 0.25);
 	border-color: transparent;
 	border-style: solid;
 	border-width: 8px 0;
 	font-size: 0.95rem;
-	@include transition-duration(0.2s);
+	transition-duration: 0.2s;
 	overflow-y: auto;
 	overscroll-behavior: contain;
 
-	@include breakpoint($computer) {
+	@media (min-width: #{$computer-min-width}) {
 		right: -500px;
 		width: 480px;
 		padding: 2rem 1rem;
 	}
 
-	@include breakpoint($mobile) {
+	@media (max-width: #{$mobile-max-width}) {
 		right: -290px;
 		width: 260px;
 		padding: 1rem 0.25rem;
