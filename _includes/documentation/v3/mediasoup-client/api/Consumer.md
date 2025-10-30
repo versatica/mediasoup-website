@@ -24,7 +24,7 @@ Field           | Type    | Description   | Required | Default
 `producerId`    | String  | The identifier of the server side producer being consumed. | Yes |
 `kind`          | [MediaKind](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#MediaKind) | Media kind ("audio" or "video"). | Yes |
 `rtpParameters` | [RtpReceiveParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpReceiveParameters) | Receive RTP parameters. | Yes |
-`streamId`      | String  | Stream id. Useful to limit the inbound RTP streams that the underlying RTC stack should try to synchonize when rendering them. | No | The RTCP CNAME of the remote producer.
+`streamId`      | String  | Stream id. Useful to limit the inbound RTP streams that the underlying RTC stack should try to synchonize when rendering them. | No | The RTCP CNAME of the remote producer.  | No |
 `onRtpReceiver` | [OnRtpReceiverCallback](#OnRtpReceiverCallback) | Callback called immediately once a [RTCRtpReceiver](https://www.w3.org/TR/webrtc/#rtcrtpreceiver-interface) is created. | No |
 `appData`       | Object  | Custom application data. | No | `{ }`
 
@@ -33,7 +33,9 @@ Field           | Type    | Description   | Required | Default
 <div markdown="1" class="note">
 About `streamId`:
 
-libwebrtc based devices can just synchonize up to one inbound audio stream and one inbound video stream. If `streamId` is not given, it will have the same value for all consumers belonging to the same producer. However, the application may wish to ensure that inbound microphone and camera streams produced by a remote peer are synchonized (instead of synchronizing, for instance, microphone and screen sharing streams). 
+It's used to generate the `a=msid` attribute of each audio or video media section in the remote SDP. The `streamId` is the `id` field of the `msid` value, which identifies the `MediaStream` the inbound `MediaStreamTrack` belongs to.
+
+libwebrtc based devices can just synchonize up to one inbound audio stream and one inbound video stream. If `streamId` is not given, it will respect the `msid` in the receive [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters), which mirrors the `msid` in the `RtpParameters` of the original producer. However, the application may wish to ensure that inbound microphone and camera streams produced by a remote peer are synchonized (instead of synchronizing, for instance, microphone and screen sharing streams). 
 
 Usage example:
 
@@ -43,6 +45,7 @@ webcamConsumer = await transport.consume({ streamId: `${remotePeerId}-mic-webcam
 screensharingConsumer = await transport.consume({ streamId: `${remotePeerId}-screensharing` });
 ```
 
+Take into account that the producer side can also set its desired `streamId` in its [ProducerOptions](#ProducerOptions).
 </div>
 
 #### OnRtpReceiverCallback

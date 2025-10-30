@@ -56,6 +56,7 @@ Field              | Type    | Description   | Required | Default
 `headerExtensions` | Array&lt;[RtpHeaderExtensionParameters](#RtpHeaderExtensionParameters)&gt; | RTP header extensions in use. | No | `[ ]`
 `encodings`        | Array&lt;[RtpEncodingParameters](#RtpEncodingParameters)&gt; | Transmitted RTP streams and their settings. | No |
 `rtcp`             | [RtcpParameters](#RtcpParameters) | Parameters used for RTCP. | No |
+`msid`             | String | The value of the `a=msid` attribute in the SDP media section (see [RFC 8830](https://datatracker.ietf.org/doc/html/rfc8830)).
 
 </div>
 

@@ -21,6 +21,7 @@ A producer represents an audio or video source that will be transmitted to the m
 Field            | Type    | Description   | Required | Default
 ---------------- | ------- | ------------- | -------- | ---------
 `track`          | [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#mediastreamtrack) | An audio or video track. | Yes |
+`streamId`       | String  | Stream id. Useful to group sending audio/video tracks that the consuming endpoint must synchonize when rendering them. | No |
 `encodings`      | Array&lt;[RTCRtpEncodingParameters](https://w3c.github.io/webrtc-pc/#rtcrtpencodingparameters)&gt; | Encoding settings. | No |
 `codecOptions`   | [ProducerCodecOptions](#ProducerCodecOptions) | Per codec specific options. | No | `[ ]`
 `headerExtensionOptions` | [ProducerHeaderExtensionOptions](#ProducerHeaderExtensionOptions) | RTP header extension options. | No | `[ ]`
@@ -31,6 +32,16 @@ Field            | Type    | Description   | Required | Default
 `onRtpSender` | [OnRtpSenderCallback](#OnRtpSenderCallback) | Callback called immediately once a [RTCRtpSender](https://www.w3.org/TR/webrtc/#rtcrtpsender-interface) is created. | No |
 `appData`        | Object  | Custom application data. | No | `{ }`
 
+</div>
+
+<div markdown="1" class="note">
+About `streamId`:
+
+It's used to generate the `msid` field of the resulting [RtpSendParameters](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpSendParameters). `streamId` is the `id` field of the `msid` value, which identifies the `MediaStream` the outbound `MediaStreamTrack` belongs to. The resulting `msid` value is propagated to consuming endpoints so they can group inbound audio and video tracks znd render them in sync.
+
+libwebrtc based devices can just synchonize up to one inbound audio stream and one inbound video stream. If `streamId` is not given, the `RtpParameters` of all producers created on the same transport will share the same value (a random value) for `streamId`.
+
+Take into account that the consumer side can also set its desired `streamId` in its [ConsumerOptions](#ConsumerOptions).
 </div>
 
 <div markdown="1" class="note">
