@@ -53,6 +53,7 @@ When enabling stats for a `consumer`, received stats look as follows:
     fractionLost: 0
     id: 'x2dtpsmtsmnp7dwp'
     inboundRtpId: '8nvfesjqo5ntjm3k'
+    jitter: 15
     kind: 'video'
     mediaType: 'video'
     mimeType: 'video/VP8'
