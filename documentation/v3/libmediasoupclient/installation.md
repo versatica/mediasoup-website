@@ -10,16 +10,16 @@ anchors : true
 ## Requirements
 
 * POSIX or Windows based operating system
-* `cmake` >= 3.5
-* `gcc` and `g++` >= 4.9 or `clang` (with C++14 support)
+* `cmake` >= 3.14
+* `gcc` and `g++` >= 4.9 or `clang` (with C++20 support)
 
 
 ## Build libwebrtc
 
-libmediasoupclient makes use of Google's libwebrtc C++ library. Follow the [official instructions](https://webrtc.googlesource.com/src/+/refs/heads/main/docs/native-code/development/) by checking out branch `branch-heads/6099` ([m120](https://chromiumdash.appspot.com/branches)) and build it.
+libmediasoupclient makes use of Google's libwebrtc C++ library. Follow the [official instructions](https://webrtc.googlesource.com/src/+/refs/heads/main/docs/native-code/development/) by checking out branch `branch-heads/7339` ([m140](https://chromiumdash.appspot.com/branches)) and build it.
 
 <div markdown="1" class="note">
-* Future versions of libmediasoupclient will include a more recent version of libwebrtc. For now, supported version is `m120` branch.
+* Future versions of libmediasoupclient will include a more recent version of libwebrtc. For now, supported version is `m140` branch.
 * The [Build Examples](#Build-Examples) section below provides some hints about how to build libwebrtc and libmediasoup client in different platforms.
 * When building libwebrtc, you may want to include `rtc_include_tests=true` into arguments given to `gn gen`. This is needed for some unit tests in libmediasoupclient.
 </div>
@@ -68,7 +68,7 @@ Depending on the host, it will generate the following static library and header 
 
 <div markdown="1" class="table-wrapper L3">
 
-Argument        | Type    | Description | Required | Default 
+Argument        | Type    | Description | Required | Default
 --------------- | ------- | ----------- | -------- | ----------
 LIBWEBRTC_INCLUDE_PATH | Path | Path to libwebrtc sources (the `src` folder). | Yes |
 LIBWEBRTC_BINARY_PATH | Path | Path to the libwebrtc static library. | Yes |
@@ -118,26 +118,26 @@ $ cd webrtc-checkout
 $ fetch --nohooks webrtc
 $ gclient sync
 $ cd src
-$ git checkout -b m120 refs/remotes/branch-heads/6099
+$ git checkout -b m140 refs/remotes/branch-heads/7339
 $ gclient sync
 ```
 
 * In OSX 10.14.16 this works:
 
 ```bash
-$ gn gen out/m120 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=false rtc_use_h264=true use_rtti=true mac_deployment_target="10.11" use_custom_libcxx=false'
+$ gn gen out/m140 --args='is_debug=false is_component_build=false is_clang=true rtc_include_tests=false rtc_use_h264=true use_rtti=true mac_deployment_target="10.11" use_custom_libcxx=false'
 ```
 
 * In Linux Debian Stretch with GCC 6.3 this works:
 
 ```bash
-$ gn gen out/m120 --args='is_debug=false is_component_build=false is_clang=false rtc_include_tests=false rtc_use_h264=true use_rtti=true use_custom_libcxx=false treat_warnings_as_errors=false use_ozone=true'
+$ gn gen out/m140 --args='is_debug=false is_component_build=false is_clang=false rtc_include_tests=false rtc_use_h264=true use_rtti=true use_custom_libcxx=false treat_warnings_as_errors=false use_ozone=true'
 ```
 
 * Then build it:
 
 ```bash
-$ ninja -C out/m120
+$ ninja -C out/m140
 ```
 
 * Then build libmediasoupclient:
@@ -147,7 +147,7 @@ $ cd /home/foo/src/libmediasoupclient
 
 $ cmake . -Bbuild \
   -DLIBWEBRTC_INCLUDE_PATH:PATH=/home/foo/src/webrtc-checkout/src \
-  -DLIBWEBRTC_BINARY_PATH:PATH=/home/foo/src/webrtc-checkout/src/out/m120/obj
+  -DLIBWEBRTC_BINARY_PATH:PATH=/home/foo/src/webrtc-checkout/src/out/m140/obj
 
 $ make -C build/
 ```
@@ -168,4 +168,3 @@ The libmediasoupclient API is exposed under the [mediasoupclient](/documentation
 <div markdown="1" class="note">
 The C++ application should also include the required libwebrtc headers.
 </div>
-

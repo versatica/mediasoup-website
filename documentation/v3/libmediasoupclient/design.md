@@ -11,7 +11,7 @@ libmediasoupclient is a C++ library based on [libwebrtc](https://webrtc.org/) fo
 
 ## Features
 
-* C++11 low level API.
+* C++20 low level API.
 * Uses [libwebrtc](https://webrtc.org/) as native WebRTC engine.
 
 
