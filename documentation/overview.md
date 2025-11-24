@@ -19,7 +19,7 @@ Detailed information regarding the architecture of an SFU can be found at RFC 76
 
 mediasoup and its client side libraries are designed to accomplish with the following goals:
 
-* Be a [SFU](https://webrtcglossary.com/sfu/) (Selective Forwarding Unit).
+* Be a SFU (Selective Forwarding Unit).
 * Support both WebRTC and plain RTP input and output.
 * Be a Node.js module in server side.
 * Be a tiny JavaScript and C++ libraries in client side.
