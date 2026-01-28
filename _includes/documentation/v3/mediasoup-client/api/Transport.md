@@ -30,7 +30,6 @@ Field            | Type    | Description   | Required | Default
 `iceServers`     | Array&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver-dictionary)&gt; | List of TURN servers. This setting is given to the local peerconnection. | No   | `[ ]`
 `iceTransportPolicy` | [RTCIceTransportPolicy](https://w3c.github.io/webrtc-pc/#rtcicetransportpolicy-enum) | ICE candidate policy for the local peerconnection. | No   | "all"
 `additionalSettings` | Object | Additional [RTCConfiguration](https://www.w3.org/TR/webrtc/#rtcconfiguration-dictionary) settings other than `iceServers`, `iceTransportPolicy`, `bundlePolicy`, `rtcpMuxPolic` and `sdpSemantics`. Use it to enable experimental settings.
-`proprietaryConstraints` | Object  | Browser vendor's proprietary constraints used as second argument in the peerconnection constructor (deprecated in the WebRTC 1.0 API). | No |
 `appData`       | Object  | Custom application data. | No | `{ }`
 
 </div>
