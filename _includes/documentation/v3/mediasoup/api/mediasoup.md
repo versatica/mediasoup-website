@@ -13,10 +13,13 @@ import * as mediasoup from "mediasoup";
 import {
   types,
   version,
+  workerBin,
   observer,
   createWorker,
   getSupportedRtpCapabilities,
-  parseScalabilityMode
+  parseScalabilityMode,
+  ortc,
+  extras
 } from "mediasoup";
 
 // Using CommonJS:
@@ -26,10 +29,13 @@ const mediasoup = require("mediasoup");
 const {
   types,
   version,
+  workerBin,
   observer,
   createWorker,
   getSupportedRtpCapabilities,
-  parseScalabilityMode
+  parseScalabilityMode,
+  ortc,
+  extras
 } = require("mediasoup");
 ```
 
@@ -132,6 +138,16 @@ If "MEDIASOUP_WORKER_BIN" environment variable is given then its value is assign
 An event emitter that allows the application (or third party libraries) monitor [Worker](#Worker) instances created by the application. See the [Observer Events](#mediasoup-observer-events) section below.
 
 > `@type` [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter), read only
+
+#### mediasoup.ortc
+{: #mediasoup-ortc .code}
+
+Functions to deal with RTP parameters and capabilities. Used internally but exposed for convenience.
+
+#### mediasoup.extras
+{: #mediasoup-extras .code}
+
+Exposes the `EnhancedEventEmitter` class and `enhancedOnce()` function internally used by mediasoup.
 
 </section>
 

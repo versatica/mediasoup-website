@@ -17,6 +17,10 @@ import {
   detectDevice,
   detectDeviceAsync,
   parseScalabilityMode,
+  ortc,
+  enhancedEvents,
+  FakeHandler,
+  testFakeParameters,
   debug
 } from "mediasoup-client";
 
@@ -31,6 +35,10 @@ const {
   detectDevice,
   detectDeviceAsync,
   parseScalabilityMode,
+  ortc,
+  enhancedEvents,
+  FakeHandler,
+  testFakeParameters,
   debug
 } = require("mediasoup-client");
 ```
@@ -75,6 +83,26 @@ The mediasoup-client version.
 console.log(mediasoupClient.version);
 // => "3.0.0"
 ```
+
+#### mediasoupClient.ortc
+{: #mediasoupClient-ortc .code}
+
+Functions to deal with RTP parameters and capabilities. Used internally but exposed for convenience.
+
+#### mediasoupClient.enhancedEvents
+{: #mediasoupClient-enhancedEvents .code}
+
+Exposes the `EnhancedEventEmitter` class internally used by mediasoup-client.
+
+#### mediasoupClient.FakeHandler
+{: #mediasoupClient-FakeHandler .code}
+
+Exposes the `FakeHandler` class internally used by mediasoup-client for testing.
+
+#### mediasoupClient.testFakeParameters
+{: #mediasoupClient-testFakeParameters .code}
+
+Exposes utils used for internal tests.
 
 #### mediasoupClient.debug
 {: #mediasoupClient-debug .code}
