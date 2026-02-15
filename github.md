@@ -49,6 +49,10 @@ Here some libraries and SDKs contributed by non mediasoup authors.
 Those are just some of the libraries/SDKs that exist. Not all them are covered here.
 </div>
 
+##### [Hilokal/audio-rtp-tools](https://github.com/Hilokal/audio-rtp-tools)
+
+A Node.js native addon for real-time audio RTP streaming with Opus encoding/decoding.
+
 ##### [ethand91/mediasoup-ios-client](https://github.com/ethand91/mediasoup-ios-client)
 
 Objective-C wrapper library for libmediasoupclient for building mediasoup based **native** iOS based applications.
