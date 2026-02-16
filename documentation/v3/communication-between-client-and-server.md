@@ -348,27 +348,7 @@ Related:
 * [mediasoup-demo: Refactor the message Bot with new DataChannel termination in mediasoup](https://github.com/versatica/mediasoup-demo/pull/99)
 
 
-## Guidelines for node-sctp (SCTP/DataChannel in Node.js)
-{: #guidelines-for-node-sctp}
+## Guidelines for SCTP/DataChannel in Node.js
+{: #guidelines-for-sctp-datachannel-in-node}
 
-<div markdown="1" class="note">
-Probably you want to avoid this and focus on [Guidelines for DataChannel termination in Node.js](#guidelines-for-datachannel-termination-in-node) instead.
-</div>
-
-The [node-sctp](https://github.com/latysheff/node-sctp/) library can be used to send and receive SCTP messages into/from a mediasoup router and, hence, interact via DataChannel with WebRTC endpoints. 
-
-mediasoup (also) supports SCTP over plain UDP, which is also supported by node-sctp. Therefore, in order to create a `DataProducer` in Node.js:
-
-* Create a plain transport with SCTP enabled.
-* Create a Node.js UDP socket and connect the mediasoup transport to its local IP:port.
-* Create a SCTP socket using the node-sctp API and make it use the UDP socket as transport.
-  - The SCTP source and destination ports must be set to 5000. This makes it possible for mediasoup to demultiplex SCTP and RTP/RTCP packets on top of the same UDP 5-tuple.
-* Create a SCTP stream with the desired `streamId`.
-* Create a `DataProducer` on the mediasoup transport via `transport.produceData()` with the same `streamId`.
-* Write data into the SCTP stream with the proper `PPID` value (it must be 51 for WebRTC String and 53 for WebRTC Binary).
-
-<div markdown="1" class="note">
-Remember to close the UDP socket (`udpSocket.close()`) and also call `sctpSocket.end()` once the SCTP socket should be destroyed to avoid leaks.
-</div>
-
-See a complete usage example with both, Node.js `DataProducers` and `DataConsumers`, in the [server/lib/Bot.js](https://github.com/versatica/mediasoup-demo/blob/v3/server/lib/Bot.js) file of the mediasoup-demo project.
+Check [test-werift-sctp.ts](https://github.com/versatica/mediasoup/blob/v3/node/src/test/test-werift-sctp.ts) test file which uses [werift-sctp](https://github.com/shinyoshiaki/werift-webrtc/tree/develop/packages/sctp) package.
