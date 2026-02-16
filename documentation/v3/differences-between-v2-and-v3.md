@@ -92,7 +92,7 @@ New "tuple" and "rtcpTuple" events in plain transport | They tell the applicatio
 Feature                   | Description
 ------------------------- | -------------------------------
 New `DirectTransport`     | It represents a direct connection between the mediasoup Node.js process and a `Router` instance in a mediasoup-worker subprocess. It enables direct transmission of data messages between the Node.js application and the mediasoup `Router` by using `DataProducers` and `DataConsumers`. It also enables direct injection on RTP and RTCP packet from Node.js by using the `producer.send(rtpPacket)` and `consumer.on('rtp')` API (plus `directTransport.sendRtcp(rtcpPacket)` and `directTransport.on('rtcp')`).
-DataChannel termination   | Thanks to the new `DirectTransport` it's no longer needed to use a complex setup with the Node.js [node-sctp](https://github.com/latysheff/node-sctp/) library to send and receive DataChannels within the Node.js application.
+DataChannel termination   | Thanks to the new `DirectTransport` it's no longer needed to use a complex setup with the Node.js SCTP libraries to send and receive DataChannels within the Node.js application.
 
 </div>
 
