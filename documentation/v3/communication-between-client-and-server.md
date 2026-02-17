@@ -79,7 +79,7 @@ Once the send transport is created, the client side application can produce mult
 
 Once the receive transport is created, the client side application can consume multiple audio and video tracks on it. However the order is the opposite (here the consumer must be created in the server first).
 
-* The client application signals its [device.rtpCapabilities](/documentation/v3/mediasoup-client/api/#device-rtpCapabilities) to the server (it may have done it in advance).
+* The client application signals its [device.recvRtpCapabilities](/documentation/v3/mediasoup-client/api/#device-recvRtpCapabilities) to the server (it may have done it in advance).
 * The server application should check whether the remote device can consume a specific producer (this is, whether it supports the producer media codecs). It can do it by using the [router.canConsume()](/documentation/v3/mediasoup/api/#router-canConsume) method.
 * Then the server application calls [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume) in the WebRTC transport the client created for receiving media, thus generating a server side [Consumer](/documentation/v3/mediasoup-client/api/#Consumer).
   - As explained in the [transport.consume()](/documentation/v3/mediasoup/api/#transport-consume) documentation, it's strongly recommended to create the server side consumer with `paused: true` and resume it once created in the remote endpoint.
@@ -177,7 +177,7 @@ If you wish to route the media of a producer to an external RTP device or endpoi
 
 * Create (if not already created) a plain transport in mediasoup and get its local IP and port for RTP (and optionally for RTCP if your media endpoint does not support RTCP-mux).
 * Check your mediasoup [router.rtpCapabilities](/documentation/v3/mediasoup/api/#router-rtpCapabilities) and create a subset of them with the RTP capabilities supported by your external endpoint. It's critical that you keep the same codec `preferredPayloadType` values and RTP header extension `preferredId` values.
-* Create a consumer (via `transport.consume()`) on top of the plain transport with the corresponding `producerId` and the generated `rtpCapabilities` of your external endpoint.
+* Create a consumer (via `transport.consume()`) on top of the plain transport with the corresponding `producerId` and the generated `recvRtpCapabilities` of your external endpoint.
 * Get the [consumer.rtpParameters](/documentation/v3/mediasoup/api/#consumer-rtpParameters) and the transport local RTP IP and port(s) and instruct your external endpoint to consume RTP based on those parameters.
   * You may need to build a "remote" SDP offer based on those transport and RTP parameters if your endpoint requires a SDP.
   * Or you may need to tell your external endpoint about the media source parameters (via FFmpeg or GStreamer command line arguments).

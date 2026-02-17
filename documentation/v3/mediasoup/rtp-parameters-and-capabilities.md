@@ -328,7 +328,7 @@ Some of those parameters are part of the codec settings and are used for codec m
 ### Parameters for Codec Matching
 {: #Parameters-for-Codec-Matching}
 
-These parameters are part of the codec settings, meaning that their values determine whether an entry in `rtpParameters.codecs` matches or not an entry in the remote `rtpCapabilities.codecs`. These parameters are codec-specific:
+These parameters are part of the codec settings, meaning that their values determine whether an entry in `rtpParameters.codecs` matches or not an entry in the remote `sendRtpCapabilities.codecs`. These parameters are codec-specific:
 
 <section markdown="1">
 

@@ -21,14 +21,14 @@ Sometimes it's useful to use, for instance, H264 for webcam and VP8 for screen s
 const webcamProducer = await sendTransport.produce(
   {
     track: videoTrack,
-    codec : device.rtpCapabilities.codecs
+    codec : device.sendRtpCapabilities.codecs
       .find((codec) => codec.mimeType.toLowerCase() === 'video/h264')
   });
 
 const sharingProducer = await sendTransport.produce(
   {
     track: sharingTrack,
-    codec : device.rtpCapabilities.codecs
+    codec : device.sendRtpCapabilities.codecs
       .find((codec) => codec.mimeType.toLowerCase() === 'video/vp8')
   });
 ```
