@@ -356,7 +356,7 @@ TypeScript argument | Type    | Description | Required | Default
 
 > `@async`
 >
-> `@returns` [ActiveSpakerObserver](#ActiveSpeakerObserver)
+> `@returns` [ActiveSpeakerObserver](#ActiveSpeakerObserver)
 
 ```javascript
 const activeSpeakerObserver = await router.createActiveSpeakerObserver(
