@@ -130,7 +130,7 @@ See the [Observer Events](#DataProducer-observer-events) section below.
 #### dataProducer.close()
 {: #dataProducer-close .code}
 
-Closes the producer. Triggers a ["dataproducerclose"](#dataConsumer-on-dataproducerclose) event in all its associated consumers.
+Closes the data producer. Triggers a ["dataproducerclose"](#dataConsumer-on-dataproducerclose) event in all its associated consumers.
 
 #### dataProducer.getStats()
 {: #dataProducer-getStats .code}
@@ -202,7 +202,7 @@ Resumes the data producer (messages are sent again to its associated data consum
 #### dataProducer.on("transportclose", fn())
 {: #dataProducer-on-transportclose .code}
 
-Emitted when the transport this data producer belongs to is closed for whatever reason. The producer itself is also closed. A ["dataproducerclose"](#dataConsumer-on-dataproducerclose) event is triggered in all its associated consumers.
+Emitted when the transport this data producer belongs to is closed for whatever reason. The data producer itself is also closed. A ["dataproducerclose"](#dataConsumer-on-dataproducerclose) event is triggered in all its associated consumers.
 
 ```javascript
 dataProducer.on("transportclose", () =>
@@ -240,7 +240,7 @@ See the [Observer API](#observer-api) section below.
 #### dataProducer.observer.on("close", fn())
 {: #dataProducer-observer-on-close .code}
 
-Emitted when the producer is closed for whatever reason.
+Emitted when the data producer is closed for whatever reason.
 
 #### dataProducer.observer.on("pause", fn())
 {: #dataProducer-observer-on-pause .code}

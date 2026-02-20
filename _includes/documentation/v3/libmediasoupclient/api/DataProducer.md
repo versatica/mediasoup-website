@@ -16,7 +16,7 @@ A data producer represents a data source that will be transmitted to the mediaso
 #### dataProducer.GetId()
 {: #DataProducer-GetId .code}
 
-Producer identifier.
+Data producer identifier.
 
 > `@returns` const std::string&
 
@@ -75,7 +75,7 @@ Whether the data producer is closed.
 Closes the data producer. No more data is transmitted.
 
 <div markdown="1" class="note">
-This method should be called when the server side producer has been closed (and vice-versa).
+This method should be called when the server side data producer has been closed (and vice-versa).
 </div>
 
 #### dataProducer.Send(buffer)

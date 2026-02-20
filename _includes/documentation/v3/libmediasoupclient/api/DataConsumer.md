@@ -16,7 +16,7 @@ A data consumer represents a data source being transmitted from the mediasoup ro
 #### dataConsumer.GetId()
 {: #DataConsumer-GetId .code}
 
-Consumer identifier.
+Data consumer identifier.
 
 > `@returns` const std::string&
 
@@ -58,14 +58,14 @@ The DataChannel sub-protocol.
 #### dataConsumer.GetAppData()
 {: #DataConsumer-GetAppData .code}
 
-Custom data Object provided by the application in the consumer factory method. The app can modify its content at any time.
+Custom data Object provided by the application in the data consumer factory method. The app can modify its content at any time.
 
 > `@returns` const nlohmann::json&
 
 #### dataConsumer.IsClosed()
 {: #DataConsumer-IsClosed .code}
 
-Whether the consumer is closed.
+Whether the data consumer is closed.
 
 > `@returns` bool
 
@@ -75,7 +75,7 @@ Whether the consumer is closed.
 Closes the dataConsumer.
 
 <div markdown="1" class="note">
-This method should be called when the server side consumer has been closed (and vice-versa).
+This method should be called when the server side data consumer has been closed (and vice-versa).
 </div>
 
 </section>

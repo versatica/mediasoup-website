@@ -297,7 +297,7 @@ Argument    | Type    | Description | Required | Default
 > `@returns` [DataProducer](#DataProducer)
 
 ```javascript
-const producer = await transport.produceData();
+const dataProducer = await transport.produceData();
 ```
 
 <div markdown="1" class="note">
@@ -328,7 +328,7 @@ Argument    | Type    | Description | Required | Default
 // parameters to the client app.
 mySignaling.on('newDataConsumer', async (data) =>
 {
-  const consumer = await transport.consumeData(
+  const dataConsumer = await transport.consumeData(
     {
       id                   : data.id,
       producerId           : data.producerId,
