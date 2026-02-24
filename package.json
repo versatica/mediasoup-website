@@ -29,7 +29,7 @@
     "hammerjs": "^2.0.8"
   },
   "devDependencies": {
-    "@octokit/rest": "^22.0.0",
+    "@octokit/rest": "^22.0.1",
     "browserify": "^17.0.1",
     "browserify-shim": "^3.8.16",
     "del": "^8.0.1",
