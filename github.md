@@ -43,11 +43,17 @@ The mediasoup project website at [https://mediasoup.org](https://mediasoup.org).
 
 ## 3rd Party Contributions
 
-Here some libraries and SDKs contributed by non mediasoup authors. 
+Here some libraries, SDKs and applications contributed by non mediasoup authors. 
 
 <div markdown="1" class="note">
-Those are just some of the libraries/SDKs that exist. Not all them are covered here.
+This is not an up-to-date list of libraries/SDKs. Many others exist out there.
 </div>
+
+##### [techtruth/SignalSalad](https://github.com/techtruth/SignalSalad)
+
+Provides signaling control plane for mediasoup, scalable ingress/egress media services, plus Terraform + GitHub Actions deployment workflows for popular cloud providers.
+
+It is designed to be readable, testable, and operable for multi-peer rooms, with explicit diagnostics for join, transport, and media fanout failures.
 
 ##### [Hilokal/audio-rtp-tools](https://github.com/Hilokal/audio-rtp-tools)
 
