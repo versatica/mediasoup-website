@@ -26,7 +26,7 @@ Field            | Type    | Description   | Required | Default
 `iceParameters`  | [IceParameters](/documentation/v3/mediasoup/api/#WebRtcTransportIceParameters) | ICE parameters of the server side transport. | Yes   |
 `iceCandidates`  | Array&lt;[IceCandidate](/documentation/v3/mediasoup/api/#WebRtcTransportIceCandidate)&gt; | ICE candidates of the server side transport. | Yes   |
 `dtlsParameters` | [DtlsParameters](/documentation/v3/mediasoup/api/#WebRtcTransportDtlsParameters) | DTLS parameters of the server side transport. | Yes   |
-`sctpParameters` | [SctpParameters](/documentation/v3/mediasoup/api/#TransportSctpParameters) | SCTP parameters of the server side transport. | No   |
+`sctpParameters` | [SctpParameters](/documentation/v3/mediasoup/sctp-parameters/#SctpParameters) | SCTP parameters of the server side transport. | No   |
 `iceServers`     | Array&lt;[RTCIceServer](https://w3c.github.io/webrtc-pc/#rtciceserver-dictionary)&gt; | List of TURN servers. This setting is given to the local peerconnection. | No   | `[ ]`
 `iceTransportPolicy` | [RTCIceTransportPolicy](https://w3c.github.io/webrtc-pc/#rtcicetransportpolicy-enum) | ICE candidate policy for the local peerconnection. | No   | "all"
 `additionalSettings` | Object | Additional [RTCConfiguration](https://www.w3.org/TR/webrtc/#rtcconfiguration-dictionary) settings other than `iceServers`, `iceTransportPolicy`, `bundlePolicy`, `rtcpMuxPolic` and `sdpSemantics`. Use it to enable experimental settings.
