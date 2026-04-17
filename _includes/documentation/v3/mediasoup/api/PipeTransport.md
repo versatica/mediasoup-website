@@ -31,7 +31,7 @@ Field         | Type    | Description   | Required | Default
 `port`        | Number  | Fixed port to listen on instead of selecting automatically from Worker's port range. | No |
 `enableSctp`  | Boolean | Create a SCTP association. | No | `false`
 `numSctpStreams` | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
-`maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers`. | No | 268435456
+`maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers` and received by `DataConsumers`. | No | 268435456
 `sctpSendBufferSize` | Number | SCTP send buffer size used by usrsctp. | NO | 268435456 |
 `enableRtx`   | Boolean | Enable RTX and NACK for RTP retransmission. Useful if both `pipeTransports` run in different hosts. If enabled, the paired `pipeTransport` must also enable this setting. | No | `false`
 `enableSrtp`  | Boolean | Enable SRTP to encrypt RTP and SRTP. If enabled, the paired `pipeTransport` must also enable this setting. | No | `false`

@@ -38,7 +38,7 @@ Field        | Type    | Description   | Required | Default
 `initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps). | No | 600000
 `enableSctp` | Boolean | Create a SCTP association. | No | `false`
 `numSctpStreams` | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
-`maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers`. | No | 262144
+`maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers` and received by `DataConsumers`. | No | 262144
 `sctpSendBufferSize` | Number | SCTP send buffer size used by usrsctp. | NO | 262144
 `appData`    | [AppData](#AppData) | Custom application data. | No | `{ }`
 
