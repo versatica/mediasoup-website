@@ -44,24 +44,11 @@ As a former VoIP engineer I have many years of experience in SIP and VoIP.
 I'm a core author of [JsSIP][jssip-url] "The JavaScript SIP library" and co-author of the [RFC 7118][rfc7118-url]{:target="_blank"} "The WebSocket Protocol as a Transport for the Session Initiation Protocol (SIP)".
 
 
-## Core Contributors
-
-### Nazar Mokynskyi
-{: .no-border.h3color}
-
-![Nazar Mokynskyi][nazar-photo]{: .photo.left.round }
-
-[![][github-icon]][nazar-github-url]{: .inline-icon }
-
-I’m an Open Source enthusiast with over 10 years of contributions ranging from jQuery to Emscripten to Linux kernel.
-
-Passionate about open web-related technologies, especially WebAssembly, WebRTC, Web Audio API and Web Components. Lately enjoy working with Rust programming language, helping others to get more productive in it as well as writing useful libraries for the community.
-
-
-## Acknowledgements
+## Contributors and Acknowledgements
 
 Special thanks for their contributions, help and advice to:
 
+* [Nazar Mokynskyi][nazar-personal-url]: mediasoup Rust layer and tons of other contributions.
 * [Saúl Ibarra Corretgé][saghul-personal-url]: Advice on libuv usage and GYP.
 * [Gustavo García][gustavo-personal-url]: The source of WebRTC knowledge.
 * [Vittorio Palmisano][vittorio-personal-url]: Performance master.
@@ -86,9 +73,6 @@ You can support mediasoup by [sponsoring](/sponsor/#become-a-sponsor) it. Thanks
 [jmillan-github-url]: https://github.com/jmillan
 [jmillan-linkedin-url]: https://www.linkedin.com/in/jos%C3%A9-luis-mill%C3%A1n-a423683b/
 
-[nazar-photo]: /images/nazar.jpg
-[nazar-github-url]: https://github.com/nazar-pc
-
 [versatica-github-url]: https://github.com/versatica
 
 [website-icon]: /images/icon-website.svg
@@ -100,6 +84,7 @@ You can support mediasoup by [sponsoring](/sponsor/#become-a-sponsor) it. Thanks
 [ortc-draft-url]: https://draft.ortc.org
 [jssip-url]: https://jssip.net
 
+[nazar-personal-url]: https://github.com/nazar-pc
 [saghul-personal-url]: https://about.me/saghul
 [gustavo-personal-url]: https://www.rtcbits.com
 [vittorio-personal-url]: https://github.com/vpalmisano
