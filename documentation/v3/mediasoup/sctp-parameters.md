@@ -56,8 +56,8 @@ const transport = await router.createWebRtcTransport(
     enableSctp     : true,
     numSctpStreams :
     {
-      os  : clientSctpCapabilities.numStreams.mis,
-      mis  : clientSctpCapabilities.numStreams.os
+      OS  : clientSctpCapabilities.numStreams.MIS,
+      MIS  : clientSctpCapabilities.numStreams.OS
     }
   });
 ```
