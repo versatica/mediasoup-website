@@ -59,7 +59,23 @@ For receiving media:
 * And then replicated in the client side application: [device.createRecvTransport()](/documentation/v3/mediasoup-client/api/#device-createRecvTransport).
 * The client application must subscribe to the "connect" event in the local transport.
 
-If SCTP (AKA DataChannel in WebRTC) are desired on those transports, `enableSctp` must be enabled in them (with proper [numSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams)) and other SCTP related settings.
+If SCTP (AKA DataChannel in WebRTC) are desired on those transports, `enableSctp` must be enabled in them with proper [numSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) and other SCTP related settings.
+
+<div markdown="1" class="note">
+When obtaining `numSctpStreams` from mediasoup-client via [device.sctpCapabilities.numStreams](/documentation/v3/mediasoup-client/api/#device-sctpCapabilities), the obtained fields must be reversed:
+
+```javascript
+const transport = await router.createWebRtcTransport(
+  {
+    enableSctp     : true,
+    numSctpStreams :
+    {
+      os  : clientSctpCapabilities.numStreams.mis,
+      mis  : clientSctpCapabilities.numStreams.os
+    }
+  });
+```
+</div>
 
 
 ### Producing Media
