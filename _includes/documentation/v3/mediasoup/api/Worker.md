@@ -29,6 +29,7 @@ Field                    | Type    | Description   | Required | Default
 `workerBin`              | String  | Absolute path to the mediasoup-worker binary. If given it overrides the default location of the binary and the `MEDIASOUP_WORKER_BIN` environment variable. | No |
 `libwebrtcFieldTrials`   | String  | Field trials for `libwebrtc` dependencly. For advanced users only. An invalid value will make the worker crash. | No | 'WebRTC-Bwe-AlrLimitedBackoff/Enabled/'
 `disableLiburing`        | Boolean | Disable `io_uring` even if it's supported by the prebuilt mediasoup-worker and by current host. | No | `false`
+`useBuiltInSctpStack`    | Boolean | Enable mediasoup built-in SCTP stack (not yet production ready). | No | `false`
 `appData`                | [AppData](#AppData) | Custom application data. | No | `{ }` |
 
 </div>
