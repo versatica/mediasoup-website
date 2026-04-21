@@ -55,6 +55,7 @@ Special thanks for their contributions, help and advice to:
 * [Haiyang Wu][haiyangwu-personal-url]: Windows support for mediasoup.
 * [Micael Gallego][micael-gallego-personal-url]: TypeScript contribution for mediasoup.
 * [JunLong Zou][junlong-zou-personal-url]: Optimizations and fixes ad C++ level.
+* [Xinfei Wu][xinfei.wu-personal-url]: Author of [mediasoup-go](https://github.com/jiyeyuran/mediasoup-go). 
 
 
 ## Donate
@@ -91,4 +92,5 @@ You can support mediasoup by [sponsoring](/sponsor/#become-a-sponsor) it. Thanks
 [haiyangwu-personal-url]: https://github.com/haiyangwu
 [micael-gallego-personal-url]: https://about.me/micael.gallego
 [junlong-zou-personal-url]: https://lonny.me/wp/
+[xinfei.wu-personal-url]: https://github.com/jiyeyuran
 

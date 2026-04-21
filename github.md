@@ -49,6 +49,10 @@ Here some libraries, SDKs and applications contributed by non mediasoup authors.
 This is not an up-to-date list of libraries/SDKs. Many others exist out there.
 </div>
 
+##### [jiyeyuran/mediasoup-go](https://github.com/jiyeyuran/mediasoup-go)
+
+A Go library for mediasoup.
+
 ##### [techtruth/SignalSalad](https://github.com/techtruth/SignalSalad)
 
 Provides signaling control plane for mediasoup, scalable ingress/egress media services, plus Terraform + GitHub Actions deployment workflows for popular cloud providers.
