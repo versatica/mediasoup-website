@@ -345,6 +345,17 @@ The data consumer is created in server side first via [transport.consumeData()](
 Check the [Communication Between Client and Server](/documentation/v3/communication-between-client-and-server/) section for more details.
 </div>
 
+#### transport.getDataChannelMaxMessageSize()
+{: #transport-getDataChannelMaxMessageSize .code}
+
+In a send transport it returns the maximum DataChannel message size that it can send. In a receive transport it returns the maximum DataChannel message size that it can receive.
+
+<div markdown="1" class="note">
+It returns `undefined` if DataChannels is not enabled.
+</div>
+
+> `@returns` number | undefined
+
 </section>
 
 
