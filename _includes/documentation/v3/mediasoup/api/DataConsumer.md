@@ -188,7 +188,7 @@ Only for non direct transports. Returns the number of bytes of data currently bu
 #### dataConsumer.setBufferedAmountLowThreshold()
 {: #dataConsumer-setBufferedAmountLowThreshold .code}
 
-Only for non direct transports. Whenever the underlaying SCTP association buffered bytes drop to this value, [bufferedamountlow](#dataConsumer-on-bufferedamountlow) event is fired.
+Only for non direct transports. Whenever the underlaying SCTP stream buffered bytes drop to this value, [bufferedamountlow](#dataConsumer-on-bufferedamountlow) event is fired.
 
 <div markdown="1" class="table-wrapper L3">
 
@@ -382,13 +382,13 @@ Emitted when a message could not be sent because the SCTP send buffer was full.
 #### dataConsumer.on("bufferedamountlow", fn(bufferedAmount))
 {: #dataConsumer-on-bufferedamountlow .code}
 
-Emitted when the underlaying SCTP association buffered bytes drop down to [bufferedAmountLowThreshold](#dataConsumer-bufferedAmountLowThreshold).
+Emitted when the underlaying SCTP stream buffered bytes drop down to [bufferedAmountLowThreshold](#dataConsumer-bufferedAmountLowThreshold).
 
 <div markdown="1" class="table-wrapper L3">
 
 Argument    | Type    | Description   
 ----------- | ------- | ----------------
-`bufferedAmount`   | Number  | Number of bytes buffered in the underlaying SCTP association.
+`bufferedAmount`   | Number  | Number of bytes buffered in the underlaying SCTP stream.
 
 </div>
 
