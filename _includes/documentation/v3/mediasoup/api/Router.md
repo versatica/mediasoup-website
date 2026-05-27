@@ -48,7 +48,11 @@ Field         | Type               | Description   | Required | Default
 `listenInfo` | [TransportListenInfo](#TransportListenInfo)| Listening information to connect both routers in the same host. | No | `{ protocol: "udp", ip: "127.0.0.1" }`
 `listenIp`   | String  | IP to connect both routers in the same host. | No | "127.0.0.1"
 `enableSctp` | Boolean | Create a SCTP association. | No | `true`
-`numSctpStreams` | [NumSctpStreams](#NumSctpStreams) | SCTP streams number. | No |
+`maxSendMessageSize` | Number | Maximum allowed size for SCTP messages sent by data consumers (in bytes). | No | 262144
+`maxReceiveMessageSize` | Number | Maximum allowed size for SCTP messages received by data producers (in bytes). | No | 262144
+`sctpSendBufferSize` | Number | Maximum SCTP send buffer used by data consumers (in bytes). | No | 2000000
+`sctpPerStreamSendQueueLimit` | Number | Per stream send queue size limit. Similar to `sctpSendBufferSize`, but limiting the size of individual streams. | No | 2000000
+`sctpMaxReceiverWindowBufferSize` | Number | Maximum received window buffer size (in bytes). This should be a bit larger than the largest sized message you want to be able to receive. | No | 5242880
 `enableRtx` | Boolean | Enable RTX and NACK for RTP retransmission. Typically not needed since the link is typically localhost. | No | `false`
 `enableSrtp` | Boolean | Enable SRTP. | No | `false`
 
