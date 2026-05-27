@@ -179,11 +179,7 @@ Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section 
 #### dataConsumer.getBufferedAmount()
 {: #dataConsumer-getBufferedAmount .code}
 
-Returns the number of bytes of data currently buffered to be sent over the underlaying SCTP association.
-
-<div markdown="1" class="note">
-The underlaying SCTP association uses a common send buffer for all data consumers, hence the value given by this method indicates the data buffered for all data consumers in the transport.
-</div>
+Only for non direct transports. Returns the number of bytes of data currently buffered to be sent over the underlaying SCTP stream.
 
 > `@async`
 > 
@@ -192,16 +188,14 @@ The underlaying SCTP association uses a common send buffer for all data consumer
 #### dataConsumer.setBufferedAmountLowThreshold()
 {: #dataConsumer-setBufferedAmountLowThreshold .code}
 
+Only for non direct transports. Whenever the underlaying SCTP association buffered bytes drop to this value, [bufferedamountlow](#dataConsumer-on-bufferedamountlow) event is fired.
+
 <div markdown="1" class="table-wrapper L3">
 
 Field            | Type    | Description   | Required | Default
 ---------------- | ------- | ------------- | -------- | ---------
-`bufferedAmountLowThreshold`   | Number  | Bytes of buffered outgoing data that is considered low.| No | 0
+`bufferedAmountLowThreshold`   | Number  | Bytes of buffered outgoing data that is considered low for this SCTP stream.| No | 0
 
-</div>
-
-<div markdown="1" class="note">
-Whenever the underlaying SCTP association buffered bytes drop to this value, [bufferedamountlow](#dataConsumer-on-bufferedamountlow) event is fired.
 </div>
 
 > `@async`
@@ -209,7 +203,7 @@ Whenever the underlaying SCTP association buffered bytes drop to this value, [bu
 #### dataConsumer.send(message, ppid)
 {: #dataConsumer-send .code}
 
-Sends direct messages from the Node.js process.
+Sends messages from the Node.js process to the remote endpoint.
 
 <div markdown="1" class="note">
 - Just available in data consumers of type "SCTP".
