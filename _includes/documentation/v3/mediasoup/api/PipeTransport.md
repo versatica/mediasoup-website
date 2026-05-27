@@ -30,9 +30,11 @@ Field         | Type    | Description   | Required | Default
 `listenIp`    | [TransportListenIp](#TransportListenIp)\|String| Listening IP address. | Yes |
 `port`        | Number  | Fixed port to listen on instead of selecting automatically from Worker's port range. | No |
 `enableSctp`  | Boolean | Create a SCTP association. | No | `false`
-`numSctpStreams` | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
-`maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers` and received by `DataConsumers`. | No | 268435456
-`sctpSendBufferSize` | Number | SCTP send buffer size used by usrsctp. | NO | 268435456 |
+`maxSendMessageSize` | Number | Maximum allowed size for SCTP messages sent by data consumers (in bytes). | No | 262144
+`maxReceiveMessageSize` | Number | Maximum allowed size for SCTP messages received by data producers (in bytes). | No | 262144
+`sctpSendBufferSize` | Number | Maximum SCTP send buffer used by data consumers (in bytes). | No | 2000000
+`sctpPerStreamSendQueueLimit` | Number | Per stream send queue size limit. Similar to `sctpSendBufferSize`, but limiting the size of individual streams. | No | 2000000
+`sctpMaxReceiverWindowBufferSize` | Number | Maximum received window buffer size (in bytes). This should be a bit larger than the largest sized message you want to be able to receive. | No | 5242880
 `enableRtx`   | Boolean | Enable RTX and NACK for RTP retransmission. Useful if both `pipeTransports` run in different hosts. If enabled, the paired `pipeTransport` must also enable this setting. | No | `false`
 `enableSrtp`  | Boolean | Enable SRTP to encrypt RTP and SRTP. If enabled, the paired `pipeTransport` must also enable this setting. | No | `false`
 `appData`     | [AppData](#AppData) | Custom application data. | No | `{ }`

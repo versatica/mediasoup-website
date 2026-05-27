@@ -18,49 +18,20 @@ anchors : true
 #### SctpParameters
 {: #SctpParameters .code}
 
-Parameters of the SCTP association.
+Parameters of the mediasoup SCTP association.
 
-<div markdown="1" class="table-wrapper L3">
+<div markdown="1" class="table-wrapper L2">
 
-Field            | Type   | Description   | Required  | Default
----------------- | ------ | ------------- | --------- |
-`port`           | Number | Must always equal 5000. | Yes |
-`OS`             | Number | Initially requested number of outgoing SCTP streams. | Yes |
-`MIS`            | Number | Maximum number of incoming SCTP streams. | Yes |
-`maxMessageSize` | Number | Maximum allowed size for SCTP messages. | Yes |
+Field                     | Type   | Description   | Required
+------------------------- | ------ | ------------- | ---------
+`port`                    | Number | SCTP port. | Yes
+`maxSendMessageSize`      | Number | Maximum allowed size for SCTP messages sent by data consumers (in bytes). | Yes
+`maxReceiveMessageSize`   | Number | Maximum allowed size for SCTP messages received by data producers (in bytes). | Yes
+`sendBufferSize`          | Number | Maximum SCTP send buffer used by data consumers (in bytes). | Yes
+`perStreamSendQueueLimit` | Number | Per stream send queue size limit. Similar to `sctpSendBufferSize`, but limiting the size of individual streams. | Yes
+`maxReceiverWindowBufferSize` | Number | Maximum received window buffer size (in bytes). This should be a bit larger than the largest sized message you want to be able to receive. | Yes
+`isDataChannel` | Boolean | Whether this is a WebRTC based transport (only WebRTC transport is). | Yes
 
-</div>
-
-#### NumSctpStreams
-{: #NumSctpStreams .code}
-
-<div markdown="1" class="table-wrapper L3">
-
-Field  | Type   | Description   | Required  | Default
------- | ------ | ------------- | --------- |
-`OS`   | Number | Initially requested number of outgoing SCTP streams (from 1 to 65535). | No | 1024
-`MIS`  | Number | Maximum number of incoming SCTP streams (from 1 to 65535). | No | 1024
-
-</div>
-
-<div markdown="1" class="note">
-Both `OS` and `MIS` are part of the SCTP INIT+ACK handshake. `OS` refers to the initial number of outgoing SCTP streams that the server side transport creates (to be used by [DataConsumers](#DataConsumer)), while `MIS` refers to the maximum number of incoming SCTP streams that the server side transport can receive (to be used by [DataProducers](#DataProducer)). So, if the server side transport will just be used to create data producers (but no data consumers), `OS` can be low (~1). 
-</div>
-
-<div markdown="1" class="note">
-When obtaining `numSctpStreams` from mediasoup-client via [device.sctpCapabilities.numStreams](/documentation/v3/mediasoup-client/api/#device-sctpCapabilities), the obtained fields must be reversed:
-
-```javascript
-const transport = await router.createWebRtcTransport(
-  {
-    enableSctp     : true,
-    numSctpStreams :
-    {
-      OS  : clientSctpCapabilities.numStreams.MIS,
-      MIS  : clientSctpCapabilities.numStreams.OS
-    }
-  });
-```
 </div>
 
 #### SctpStreamParameters

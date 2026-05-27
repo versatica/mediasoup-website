@@ -29,9 +29,11 @@ Field         | Type    | Description   | Required | Default
 `rtcpMux`     | Boolean | Use RTCP-mux (RTP and RTCP in the same port). | No | `true`
 `comedia`     | Boolean | Whether remote IP:port should be auto-detected based on first RTP/RTCP packet received. If enabled, `connect()` must only be called if SRTP is enabled by providing the remote `srtpParameters` and nothing else. | No | `false`
 `enableSctp`  | Boolean | Create a SCTP association. | No | `false`
-`numSctpStreams`     | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
-`maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers` and received by `DataConsumers`. | No | 262144
-`sctpSendBufferSize` | Number | SCTP send buffer size used by usrsctp. | NO | 262144 |
+`maxSendMessageSize` | Number | Maximum allowed size for SCTP messages sent by data consumers (in bytes). | No | 262144
+`maxReceiveMessageSize` | Number | Maximum allowed size for SCTP messages received by data producers (in bytes). | No | 262144
+`sctpSendBufferSize` | Number | Maximum SCTP send buffer used by data consumers (in bytes). | No | 2000000
+`sctpPerStreamSendQueueLimit` | Number | Per stream send queue size limit. Similar to `sctpSendBufferSize`, but limiting the size of individual streams. | No | 2000000
+`sctpMaxReceiverWindowBufferSize` | Number | Maximum received window buffer size (in bytes). This should be a bit larger than the largest sized message you want to be able to receive. | No | 5242880
 `enableSrtp`  | Boolean | Enable SRTP to encrypt RTP and SRTP. If enabled, the remote must also enable SRTP. | No | `false`
 `srtpCryptoSuite` | [SrtpCryptoSuite](/documentation/v3/mediasoup/srtp-parameters/#SrtpCryptoSuite) | Just valid if `enableSrtp` is set. | No | "AES_CM_128_HMAC_SHA1_80"
 `appData`     | [AppData](#AppData) | Custom application data. | No | `{ }`

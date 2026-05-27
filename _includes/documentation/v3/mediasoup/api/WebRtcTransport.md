@@ -37,9 +37,11 @@ Field        | Type    | Description   | Required | Default
 `iceConsentTimeout` | Number | ICE consent timeout (in seconds). If 0 it is disabled. | No | 30
 `initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps). | No | 600000
 `enableSctp` | Boolean | Create a SCTP association. | No | `false`
-`numSctpStreams` | [NumSctpStreams](/documentation/v3/mediasoup/sctp-parameters/#NumSctpStreams) | SCTP streams number. | No |
-`maxSctpMessageSize` | Number | Maximum allowed size for SCTP messages sent by `DataProducers` and received by `DataConsumers`. | No | 262144
-`sctpSendBufferSize` | Number | SCTP send buffer size used by usrsctp. | NO | 262144
+`maxSendMessageSize` | Number | Maximum allowed size for SCTP messages sent by data consumers (in bytes). | No | 262144
+`maxReceiveMessageSize` | Number | Maximum allowed size for SCTP messages received by data producers (in bytes). | No | 262144
+`sctpSendBufferSize` | Number | Maximum SCTP send buffer used by data consumers (in bytes). | No | 2000000
+`sctpPerStreamSendQueueLimit` | Number | Per stream send queue size limit. Similar to `sctpSendBufferSize`, but limiting the size of individual streams. | No | 2000000
+`sctpMaxReceiverWindowBufferSize` | Number | Maximum received window buffer size (in bytes). This should be a bit larger than the largest sized message you want to be able to receive. | No | 5242880
 `appData`    | [AppData](#AppData) | Custom application data. | No | `{ }`
 
 </div>
