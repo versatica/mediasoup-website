@@ -203,7 +203,7 @@ Field            | Type    | Description   | Required | Default
 #### dataConsumer.send(message, ppid)
 {: #dataConsumer-send .code}
 
-Sends messages from the Node.js process to the remote endpoint.
+Sends messages from the Node.js process to the remote endpoint. It returns the current buffered amount (in bytes) after sending/queuing the message.
 
 <div markdown="1" class="note">
 - Just available in data consumers of type "SCTP".
@@ -223,11 +223,13 @@ Argument  | Type    | Description | Required | Default
 const stringMessage = "hello";
 const binaryMessage = Buffer.from([ 1, 2, 3, 4 ]);
 
-dataConsumer.send(stringMessage);
-dataConsumer.send(binaryMessage);
+await dataConsumer.send(stringMessage);
+const bufferedAmount = await dataConsumer.send(binaryMessage);
 ```
 
 > `@async`
+>
+> `@returns` Number;
 
 #### dataConsumer.pause()
 {: #dataConsumer-pause .code}
