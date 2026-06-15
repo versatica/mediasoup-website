@@ -53,22 +53,6 @@ This is not an up-to-date list of libraries/SDKs. Many others exist out there.
 
 A Go library for mediasoup.
 
-##### [miroslavpejic85/mirotalksfu](https://github.com/miroslavpejic85/mirotalksfu)
-
-**MiroTalk SFU:** Self-hosted, open-source WebRTC video conferencing platform for real-time communication and collaboration at scale.
-
-A modern alternative to Zoom, Google Meet, Jitsi Meet, and Microsoft Teams, powered by a scalable SFU architecture (mediasoup).
-
-##### [techtruth/SignalSalad](https://github.com/techtruth/SignalSalad)
-
-Provides signaling control plane for mediasoup, scalable ingress/egress media services, plus Terraform + GitHub Actions deployment workflows for popular cloud providers.
-
-It is designed to be readable, testable, and operable for multi-peer rooms, with explicit diagnostics for join, transport, and media fanout failures.
-
-##### [Hilokal/audio-rtp-tools](https://github.com/Hilokal/audio-rtp-tools)
-
-A Node.js native addon for real-time audio RTP streaming with Opus encoding/decoding.
-
 ##### [MediaSFU/mediasfu-mediasoup-client-apple](https://github.com/MediaSFU/mediasfu-mediasoup-client-apple)
 
 **MediaSFU mediasoup Client for Apple Platforms:** Native Apple-side mediasoup/WebRTC bridge for MediaSFU's iOS, iPadOS, and macOS integration.
@@ -102,6 +86,26 @@ Java wrapper library for libmediasoupclient for building mediasoup based **nativ
 ##### [haiyangwu/mediasoup-demo-android](https://github.com/haiyangwu/mediasoup-demo-android)
 
 mediasoup-client-android based Android app to connect to the [mediasoup demo](https://demo.mediasoup.org).
+
+##### [Hilokal/audio-rtp-tools](https://github.com/Hilokal/audio-rtp-tools)
+
+A Node.js native addon for real-time audio RTP streaming with Opus encoding/decoding.
+
+##### [miroslavpejic85/mirotalksfu](https://github.com/miroslavpejic85/mirotalksfu)
+
+**MiroTalk SFU:** Self-hosted, open-source WebRTC video conferencing platform for real-time communication and collaboration at scale.
+
+A modern alternative to Zoom, Google Meet, Jitsi Meet, and Microsoft Teams, powered by a scalable SFU architecture (mediasoup).
+
+##### [techtruth/SignalSalad](https://github.com/techtruth/SignalSalad)
+
+Provides signaling control plane for mediasoup, scalable ingress/egress media services, plus Terraform + GitHub Actions deployment workflows for popular cloud providers.
+
+It is designed to be readable, testable, and operable for multi-peer rooms, with explicit diagnostics for join, transport, and media fanout failures.
+
+##### [azversan/mediasoup-module](https://github.com/azversan/mediasoup-module)
+
+An open-source NestJS module for mediasoup.
 
 
 ## Examples
