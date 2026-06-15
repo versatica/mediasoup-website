@@ -53,6 +53,12 @@ This is not an up-to-date list of libraries/SDKs. Many others exist out there.
 
 A Go library for mediasoup.
 
+##### [miroslavpejic85/mirotalksfu](https://github.com/miroslavpejic85/mirotalksfu)
+
+**MiroTalk SFU:** Self-hosted, open-source WebRTC video conferencing platform for real-time communication and collaboration at scale.
+
+A modern alternative to Zoom, Google Meet, Jitsi Meet, and Microsoft Teams, powered by a scalable SFU architecture (mediasoup).
+
 ##### [techtruth/SignalSalad](https://github.com/techtruth/SignalSalad)
 
 Provides signaling control plane for mediasoup, scalable ingress/egress media services, plus Terraform + GitHub Actions deployment workflows for popular cloud providers.
@@ -62,6 +68,18 @@ It is designed to be readable, testable, and operable for multi-peer rooms, with
 ##### [Hilokal/audio-rtp-tools](https://github.com/Hilokal/audio-rtp-tools)
 
 A Node.js native addon for real-time audio RTP streaming with Opus encoding/decoding.
+
+##### [MediaSFU/mediasfu-mediasoup-client-apple](https://github.com/MediaSFU/mediasfu-mediasoup-client-apple)
+
+**MediaSFU mediasoup Client for Apple Platforms:** Native Apple-side mediasoup/WebRTC bridge for MediaSFU's iOS, iPadOS, and macOS integration.
+
+It exposes a unified Swift API that bridges native libmediasoupclient (C++) and Google WebRTC into Apple platforms, allowing developers to create highly-optimized, low-latency audio/video rooms.
+
+##### [MediaSFU/mediasfu-mediasoup-client-unity](https://github.com/MediaSFU/mediasfu-mediasoup-client-unity)
+
+**MediaSFU mediasoup Client Unity:** Unity 2022.3+ mediasoup/WebRTC bridge used by MediaSFU Unity and custom Unity SFU apps.
+
+It provides C# transport abstractions, native plugin bindings, and platform binaries for Windows, macOS, Android, and iOS, with a Linux package layout available for teams building the native bridge on Linux.
 
 ##### [ethand91/mediasoup-ios-client](https://github.com/ethand91/mediasoup-ios-client)
 
