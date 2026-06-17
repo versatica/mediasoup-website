@@ -70,6 +70,8 @@ gulp.task('replace', async () =>
 	const mediasoupTags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup' });
 
 	const mediasoupRustVersion = getRustSemverVersions(mediasoupTags.data)[0].name.replace(/^rust-/, '');
+	// NOTE: If we had releases in GitHub for Rust mediasoup crate, then we could use this instead.
+	// const mediasoupRustVersion = getRustSemverVersions(mediasoupReleases.data)[0].name.replace(/^rust-/, '');
 	console.log('"replace" task | mediasoup rust:', mediasoupRustVersion);
 
 	const mediasoupClientTags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client' });
