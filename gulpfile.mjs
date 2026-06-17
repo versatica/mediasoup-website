@@ -62,7 +62,7 @@ gulp.task('jekyll:watch', shell.task(
 
 gulp.task('replace', async () =>
 {
-	const mediasoupReleases = await octokit.repos.listReleases({ owner:'versatica', repo:'mediasoup' });
+	const mediasoupReleases = await octokit.repos.listReleases({ owner:'versatica', repo:'mediasoup', per_page: 100 });
 
 	const mediasoupNodeVersion = getSemverVersions(mediasoupReleases.data)[0].name;
 	console.log('"replace" task | mediasoup node:', mediasoupNodeVersion);
