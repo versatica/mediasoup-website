@@ -15,7 +15,10 @@ concurrency:
 jobs:
   build-and-publish:
     name: Build website and publish
-    runs-on: ubuntu-26.04
+    # ubuntu-24.04 (not 26.04) because ruby/setup-ruby does not support
+    # ubuntu-26.04 yet (no prebuilt Ruby binaries for it). Node is installed by
+    # setup-node regardless of the runner OS.
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     permissions:
       contents: read
