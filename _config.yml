@@ -9,9 +9,10 @@ exclude:
   - node_modules
   - lib
   - vendor
-  - gulpfile.js
+  - gulpfile.mjs
   - README.md
   - LICENSE
+  - fonts/embed.c
 
 markdown: kramdown
 
