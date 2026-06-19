@@ -16,8 +16,12 @@ import rsync from 'rsyncwrapper';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 const pkg = JSON.parse(fs.readFileSync('./package.json').toString());
-const octokit = new Octokit();
+// Authenticated when GITHUB_TOKEN is set (CI), otherwise unauthenticated
+// (local dev). Authentication raises the GitHub API rate limit from 60 to
+// 1000 req/hour, which the 'replace' task needs to avoid being throttled.
+const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 
 /**
  * Filter releases/tags with just X.Y.Z content.

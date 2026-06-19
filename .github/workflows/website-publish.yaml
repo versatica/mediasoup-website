@@ -1,0 +1,75 @@
+name: website-publish
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  # Cancel a currently running workflow from the same PR, branch or tag when a
+  # new workflow is triggered.
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    name: Build website and publish
+    runs-on: ubuntu-26.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 26
+          cache: npm
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          # Honors .ruby-version (3.4.6) and installs gems into vendor/bundle
+          # (per .bundle/config), caching them between runs.
+          ruby-version: 3.4.6
+          bundler-cache: true
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Install gulp CLI
+        run: npm install --global gulp-cli
+
+      # Builds the static website into _site/. GITHUB_TOKEN authenticates the
+      # GitHub API calls made by gulpfile.mjs.
+      - name: Build website
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: gulp build
+
+      # Publish only happens on push to master (and manual dispatch), never on
+      # pull requests.
+      - name: Publish website via rsync
+        if: github.event_name != 'pull_request'
+        run: |
+          mkdir -p "$HOME/.ssh"
+          chmod 700 "$HOME/.ssh"
+          install -m 600 /dev/null "$HOME/.ssh/deploy_key"
+          printf '%s\n' "${{ secrets.SSH_PRIVATE_KEY }}" > "$HOME/.ssh/deploy_key"
+          printf '%s\n' "${{ secrets.SSH_KNOWN_HOSTS }}" >> "$HOME/.ssh/known_hosts"
+
+          # The destination path is "." (the root of the rrsync jail). The real
+          # target path is enforced server-side via the forced
+          # `command="rrsync -wo ..."` in authorized_keys.
+          rsync -rlvz --no-perms --delete-after \
+            -e "ssh -i $HOME/.ssh/deploy_key \
+                    -p ${{ secrets.SSH_PORT }} \
+                    -o IdentitiesOnly=yes \
+                    -o StrictHostKeyChecking=yes \
+                    -o UserKnownHostsFile=$HOME/.ssh/known_hosts" \
+            ./_site/ \
+            "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:."
