@@ -1,5 +1,14 @@
 name: update-website
 
+# Triggered:
+#  - automatically on every push to master,
+#  - on pull requests (build only, no publish),
+#  - manually from the Actions tab (workflow_dispatch),
+#  - and via workflow_dispatch from the mediasoup repository once a new
+#    mediasoup library has been released.
+#
+# It always builds the website, and publishes the static site via ssh+rsync to
+# the web server on every event except pull requests.
 on:
   push:
     branches: [master]
