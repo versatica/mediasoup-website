@@ -1,4 +1,4 @@
-name: website-publish
+name: update-website
 
 on:
   push:

@@ -1,5 +1,7 @@
 # mediasoup-website
 
+[![][github-actions-shield-update-website]][github-actions-update-website]
+
 [mediasoup](https://mediasoup.org) website.
 
 ## Installation requirements
@@ -59,3 +61,6 @@ Note that project gems are installed in `vendor/bundle` due to the configuration
 ## Development
 
 See commands in `gulpfile.mjs` file.
+
+[github-actions-shield-update-website]: https://github.com/versatica/mediasoup-website/actions/workflows/update-website.yaml/badge.svg?branch=master
+[github-actions-update-website]: https://github.com/versatica/mediasoup-website/actions/workflows/update-website.yaml?query=branch%3Amaster
