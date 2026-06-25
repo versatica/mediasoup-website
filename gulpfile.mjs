@@ -12,7 +12,6 @@ import stream from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import uglify from 'gulp-uglify-es';
 import { Octokit } from '@octokit/rest';
-import rsync from 'rsyncwrapper';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -110,45 +109,8 @@ gulp.task('sitemap', () =>
 		.pipe(gulp.dest('./_site'));
 });
 
-gulp.task('rsync', (done) =>
-{
-	const options =
-	{
-		src	      : './_site/',
-		dest      : 'vhost1-deploy:/var/www/mediasoup.org/',
-		ssh       : true,
-		recursive : true,
-		deleteAll : true,
-		args      : [ '--no-perms' ],
-		onStdout  : (data) =>
-		{
-			console.log(String(data));
-		},
-		onStderr  : (data) =>
-		{
-			console.error(String(data));
-		}
-	};
-
-	rsync(options, (error, stdout, stderr, cmd) =>
-	{
-		if (!error)
-		{
-			console.log(cmd + ' succeeded');
-			done();
-		}
-		else
-		{
-			console.log(cmd + ' failed');
-			done(error);
-		}
-	});
-});
-
 gulp.task('build', gulp.series('clean', 'browserify', 'jekyll:build', 'replace', 'sitemap'));
 
 gulp.task('live', gulp.series('clean', 'browserify', 'jekyll:watch'));
-
-gulp.task('deploy', gulp.series('build', 'rsync'));
 
 gulp.task('default', gulp.series('build'));
