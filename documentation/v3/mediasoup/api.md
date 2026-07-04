@@ -49,6 +49,6 @@ class   : h3color
 
 {% include documentation/v3/mediasoup/api/AudioLevelObserver.md %}
 
-{% include documentation/v3/mediasoup/api/observer-api.md %}
-
 {% include documentation/v3/mediasoup/api/errors.md %}
+
+{% include documentation/v3/mediasoup/api/observer-api.md %}

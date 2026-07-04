@@ -3,7 +3,10 @@
 
 <section markdown="1">
 
-The public API of the Node.js layer of mediasoup generates errors which can be native errors (such as `TypeError` or `Error` instances) or custom ones (defined below):
+The public API of the Node.js layer of mediasoup generates errors which can be native errors (such as `TypeError` or `Error` instances) or custom ones (defined below).
+
+### Node error classes
+{: #Node-error-classes}
 
 #### UnsupportedError
 {: #UnsupportedError .code}
