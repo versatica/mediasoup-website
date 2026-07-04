@@ -56,11 +56,10 @@ jobs:
       - name: Install gulp CLI
         run: npm install --global gulp-cli
 
-      # Builds the static website into _site/. GITHUB_TOKEN authenticates the
-      # GitHub API calls made by gulpfile.mjs.
+      # Builds the static website into _site/. Version numbers are read from the
+      # NPM and crates.io registries and (only for libmediasoupclient) from the
+      # GitHub API, whose anonymous rate limit is enough for the single call.
       - name: Build website
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
         run: gulp build
 
       # Publish only happens on push to master (and manual dispatch), never on

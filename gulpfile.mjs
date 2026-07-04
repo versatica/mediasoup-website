@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'url';
 import * as path from 'path';
 import * as fs from 'fs';
+import { execSync } from 'child_process';
 import { deleteAsync } from 'del';
 import { default as gulp } from 'gulp';
 import rename from 'gulp-rename';
@@ -17,10 +18,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const pkg = JSON.parse(fs.readFileSync('./package.json').toString());
-// Authenticated when GITHUB_TOKEN is set (CI), otherwise unauthenticated
-// (local dev). Authentication raises the GitHub API rate limit from 60 to
-// 1000 req/hour, which the 'replace' task needs to avoid being throttled.
-const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+// Unauthenticated Octokit is enough now that the 'replace' task only hits the
+// GitHub API once (for libmediasoupclient, which is not published on NPM nor
+// crates.io). Everything else is queried from the NPM and crates.io registries,
+// so no GITHUB_TOKEN is needed to stay within the 60 req/hour anonymous limit.
+const octokit = new Octokit();
 
 /**
  * Filter releases/tags with just X.Y.Z content.
@@ -31,11 +33,28 @@ function getSemverVersions(datas)
 }
 
 /**
- * Filter releases/tags with just rust-X.Y.Z content.
+ * Get the latest version of a package published on NPM.
  */
-function getRustSemverVersions(datas)
+function getNpmVersion(name)
 {
-	return datas.filter(data => /^rust-\d+\.\d+\.\d+$/.test(data.name));
+	return execSync(`npm view ${name} version`).toString().trim();
+}
+
+/**
+ * Get the latest stable version of a crate published on crates.io.
+ */
+async function getCrateVersion(name)
+{
+	const response = await fetch(`https://crates.io/api/v1/crates/${name}`, {
+		headers : { 'User-Agent': `${pkg.name} (${pkg.homepage})` },
+	});
+
+	if (!response.ok)
+	{
+		throw new Error(`cannot fetch crates.io version for '${name}': HTTP ${response.status}`);
+	}
+
+	return (await response.json()).crate.max_stable_version;
 }
 
 gulp.task('clean', async () =>
@@ -65,31 +84,26 @@ gulp.task('jekyll:watch', shell.task(
 
 gulp.task('replace', async () =>
 {
-	const mediasoupReleases = await octokit.repos.listReleases({ owner:'versatica', repo:'mediasoup', per_page: 100 });
-
-	const mediasoupNodeVersion = getSemverVersions(mediasoupReleases.data)[0].name;
+	// NPM package.
+	const mediasoupNodeVersion = getNpmVersion('mediasoup');
 	console.log('"replace" task | mediasoup node:', mediasoupNodeVersion);
 
-	const mediasoupTags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup' });
-
-	const mediasoupRustVersion = getRustSemverVersions(mediasoupTags.data)[0].name.replace(/^rust-/, '');
-	// NOTE: If we had releases in GitHub for Rust mediasoup crate, then we could use this instead.
-	// const mediasoupRustVersion = getRustSemverVersions(mediasoupReleases.data)[0].name.replace(/^rust-/, '');
+	// crates.io crate.
+	const mediasoupRustVersion = await getCrateVersion('mediasoup');
 	console.log('"replace" task | mediasoup rust:', mediasoupRustVersion);
 
-	const mediasoupClientTags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client' });
-
-	const mediasoupClientVersion = getSemverVersions(mediasoupClientTags.data)[0].name;
+	// NPM package.
+	const mediasoupClientVersion = getNpmVersion('mediasoup-client');
 	console.log('"replace" task | mediasoup-client:', mediasoupClientVersion);
 
+	// Not published on NPM nor crates.io, so read its latest tag from GitHub.
 	const libmediasoupclientTags = await octokit.repos.listTags({ owner:'versatica', repo:'libmediasoupclient' });
 
 	const libmediasoupclientVersion = getSemverVersions(libmediasoupclientTags.data)[0].name;
 	console.log('"replace" task | libmediasoupclient:', libmediasoupclientVersion);
 
-	const mediasoupClientAiortcTags = await octokit.repos.listTags({ owner:'versatica', repo:'mediasoup-client-aiortc' });
-
-	const mediasoupClientAiortcVersion = getSemverVersions(mediasoupClientAiortcTags.data)[0].name;
+	// NPM package.
+	const mediasoupClientAiortcVersion = getNpmVersion('mediasoup-client-aiortc');
 	console.log('"replace" task | mediasoup-client-aiortc:', mediasoupClientAiortcVersion);
 
 	return gulp.src('_site/index.html')
