@@ -30,10 +30,6 @@ Field            | Type    | Description   | Required | Default
 
 </div>
 
-<div markdown="1" class="note">
-`subchannels` are only used in case this data consumer receives messages from a data producer created on a direct transport that specifies subchannel(s) when calling [dataProducer.send()](#dataProducer-send).
-</div>
-
 </section>
 
 
@@ -131,10 +127,6 @@ Whether the associated data producer is paused.
 Subchannels (unsigned 16 bit integers) this data consumer is currently subscribed to.
 
 > `@type` Array&lt;Number&gt;, read only
-
-<div markdown="1" class="note">
-`subchannels` are only used in case this data consumer receives messages from a data producer created on a direct transport that specifies subchannel(s) when calling [dataProducer.send()](#dataProducer-send).
-</div>
 
 #### dataConsumer.appData
 {: #dataConsumer-appData .code}
@@ -260,10 +252,6 @@ Argument  | Type    | Description | Required | Default
 
 > `@async`
 
-<div markdown="1" class="note">
-`subchannels` are only used in case this data consumer receives messages from a data producer created on a direct transport that specifies subchannel(s) when calling [dataProducer.send()](#dataProducer-send).
-</div>
-
 ```javascript
 dataConsumer.setSubchannels([ 1, 4 ]);
 ```
@@ -283,10 +271,6 @@ Argument  | Type    | Description | Required | Default
 
 > `@async`
 
-<div markdown="1" class="note">
-`subchannels` are only used in case this data consumer receives messages from a data producer created on a direct transport that specifies subchannel(s) when calling [dataProducer.send()](#dataProducer-send).
-</div>
-
 #### dataConsumer.removeSubchannel(subchannel)
 {: #dataConsumer-removeSubchannel .code}
 
@@ -301,10 +285,6 @@ Argument  | Type    | Description | Required | Default
 </div>
 
 > `@async`
-
-<div markdown="1" class="note">
-`subchannels` are only used in case this data consumer receives messages from a data producer created on a direct transport that specifies subchannel(s) when calling [dataProducer.send()](#dataProducer-send).
-</div>
 
 </section>
 
