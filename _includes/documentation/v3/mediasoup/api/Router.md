@@ -53,6 +53,7 @@ Field         | Type               | Description   | Required | Default
 `sctpSendBufferSize` | Number | Maximum SCTP send buffer used by data consumers (in bytes). | No | 2000000
 `sctpPerStreamSendQueueLimit` | Number | Per stream send queue size limit. Similar to `sctpSendBufferSize`, but limiting the size of individual streams. | No | 2000000
 `sctpMaxReceiverWindowBufferSize` | Number | Maximum received window buffer size (in bytes). This should be a bit larger than the largest sized message you want to be able to receive. | No | 5242880
+`sctpDefaultStreamBufferedAmountLowThreshold` | Number | Default stream buffered amount low threshold (in bytes). When the buffered amount of a data consumer stream drops to or below this value, the 'bufferedamountlow' event is emitted. | No | 1024
 `enableRtx` | Boolean | Enable RTX and NACK for RTP retransmission. Typically not needed since the link is typically localhost. | No | `false`
 `enableSrtp` | Boolean | Enable SRTP. | No | `false`
 
