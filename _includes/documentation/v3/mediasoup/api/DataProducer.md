@@ -162,7 +162,8 @@ Argument  | Type    | Description | Required | Default
 </div>
 
 <div markdown="1" class="note">
-Just available in direct transports, this is, those created via `router.createDirectTransport()`.
+- Just available in direct transports, this is, those created via `router.createDirectTransport()`.
+- Data consumers created in pipe transports only verify the subchannels and/or required subchannel associated to a received message if such a data consumer is subscribed to at least one subchannel, otherwise it allows all messages pass through.
 </div>
 
 ```javascript
