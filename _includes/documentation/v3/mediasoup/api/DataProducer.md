@@ -145,7 +145,7 @@ Returns current statistics of the data producer.
 Check the [RTC Statistics](/documentation/v3/mediasoup/rtc-statistics/) section for more details.
 </div>
 
-#### dataProducer.send(message, ppid, subchannels, requiredSubchannel)
+#### dataProducer.send(message, ppid, subchannels, requiredSubchannel, ignoredSubchannel)
 {: #dataProducer-send .code}
 
 Sends direct messages from the Node.js process.
@@ -158,6 +158,7 @@ Argument  | Type    | Description | Required | Default
 `ppid`    | Number | Mimics the [SCTP Payload Protocol Identifier](https://www.iana.org/assignments/sctp-parameters/sctp-parameters.xhtml#sctp-parameters-25). In most cases it must not be set. | No | 51 (`WebRTC String`) if `message` is a String and 53 (`WebRTC Binary`) if it's a Buffer.
 `subchannels` | Array&lt;Number&gt; | Only data consumers subscribed to at least one of these subchannels (unsigned 16 bit integers) will receive the message. | No |
 `requiredSubchannel` | Number | Only data consumers subscribed to this subchannel (unsigned 16 bit integer) will receive the message. | No |
+`ignoredSubchannel` | Number | Only data consumers **not** subscribed to this subchannel (unsigned 16 bit integer) will receive the message. | No |
 
 </div>
 
