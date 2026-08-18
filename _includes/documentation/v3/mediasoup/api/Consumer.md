@@ -267,7 +267,13 @@ Resumes the consumer (RTP is sent again to the consuming endpoint).
 #### consumer.setPreferredLayers(preferredLayers)
 {: #consumer-setPreferredLayers .code}
 
-Sets the preferred (highest) spatial and temporal layers to be sent to the consuming endpoint. Just valid for simulcast and SVC consumers.
+Sets the preferred (highest) spatial and temporal layers to be sent to the
+consuming endpoint. Only valid for simulcast and SVC consumers.
+
+If `temporalLayer` is given, mediasoup caps the temporal layer to that value
+regardless of which spatial layer it ends up using. Note that the spatial layer
+may be lower than the preferred one if that layer is unavailable or if the
+consuming endpoint cannot sustain its bitrate.
 
 <div markdown="1" class="table-wrapper L3">
 
