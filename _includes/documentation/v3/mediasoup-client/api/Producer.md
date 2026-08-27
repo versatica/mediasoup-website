@@ -23,9 +23,8 @@ Field            | Type    | Description   | Required | Default
 `track`          | [MediaStreamTrack](https://www.w3.org/TR/mediacapture-streams/#mediastreamtrack) | An audio or video track. | Yes |
 `streamId`       | String  | Stream id. Useful to group sending audio/video tracks that the consuming endpoint must synchonize when rendering them. | No |
 `encodings`      | Array&lt;[RTCRtpEncodingParameters](https://w3c.github.io/webrtc-pc/#rtcrtpencodingparameters)&gt; | Encoding settings. | No |
-`codecOptions`   | [ProducerCodecOptions](#ProducerCodecOptions) | Per codec specific options. | No | `[ ]`
-`headerExtensionOptions` | [ProducerHeaderExtensionOptions](#ProducerHeaderExtensionOptions) | RTP header extension options. | No | `[ ]`
 `codec`          | [RtpCodecCapability](/documentation/v3/mediasoup/rtp-parameters-and-capabilities/#RtpCodecCapability) | Specific media codec to use. If given, it must be a media codec in [device.sendRtpCapabilities.codecs](#device-sendRtpCapabilities). If not given, first suitable codec will be used. | No |
+`codecOptions`   | [ProducerCodecOptions](#ProducerCodecOptions) | Per codec specific options. | No | `[ ]`
 `stopTracks`     | Boolean | Whether mediasoup-client should call `stop()` on tracks handled by this producer. If set to `false`, the app is responsible of stopping tracks given to `transport.produce()` or `produce.replaceTrack()`. | No | `true`
 `disableTrackOnPause` | Boolean | Whether the producer should set `track.enabled = false` when paused. If set to `false`, audio/video will still be sent after pausing the producer, so caution. Specially useful in combination with `zeroRtpOnPause: true`. | No | `true`
 `zeroRtpOnPause` | Boolean | If `true`, zero RTP will be sent when the producer is paused (this is internally achieved by deactivating the corresponding SDP media section). Otherwise, if `false` and the producer is paused, the underlying WebRTC engine may send some RTP packets containing audio silence or black video frames. | No | `false`

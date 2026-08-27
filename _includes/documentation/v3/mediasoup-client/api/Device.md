@@ -27,6 +27,7 @@ Field            | Type     | Description   | Required | Default
 ---------------- | -------- | ------------- | -------- | ---------
 `handlerName`    | [BuiltinHandlerName](#BuiltinHandlerName) | The name of one of the builtin handlers. | No |
 `handlerFactory` | Function | A function that returns an instance of a handler. Check the [HandlerInterface](https://github.com/versatica/mediasoup-client/tree/v3/src/handlers/HandlerInterface.ts) parent class from which any valid handler must inherit. | No |
+`forcedRtpExtensions` | [HandlerForcedRtpExtensions](#HandlerForcedRtpExtensions) | Enbable or disable RTP extensions. | No | 
 
 </div>
 
@@ -39,6 +40,25 @@ Field            | Type     | Description   | Required | Default
 const device = new mediasoupClient.Device({ handlerName: "Chrome111" });
 ```
 </div>
+
+#### HandlerForcedRtpExtensions
+{: #HandlerForcedRtpExtensions .code}
+
+<div markdown="1" class="table-wrapper L3">
+
+Key              | Type     | Description   
+---------------- | -------- | ------------- 
+RTP extension URI | Boolean | Whether this RTP extension URI should be enabled or disabled.
+
+</div>
+
+```javascript
+const device = await Device.factory({
+  forcedRtpExtensions: {
+    'http://www.webrtc.org/experiments/rtp-hdrext/abs-capture-time': true
+  },
+});
+```
 
 </section>
 
