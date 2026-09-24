@@ -532,12 +532,6 @@ const consumer = await transport.consume(
           uri              : "urn:3gpp:video-orientation",
           preferredId      : 9,
           preferredEncrypt : false
-        },
-        {
-          kind             : "video",
-          uri              : "urn:ietf:params:rtp-hdrext:toffset",
-          preferredId      : 10,
-          preferredEncrypt : false
         }
       ]
     }
