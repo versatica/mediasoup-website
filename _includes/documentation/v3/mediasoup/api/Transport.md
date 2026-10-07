@@ -173,6 +173,21 @@ Value          | Description
 
 </div>
 
+#### SctpZeroChecksum
+{: #SctpZeroChecksum .code}
+
+SCTP Zero Checksum ([RFC 9653](https://www.rfc-editor.org/rfc/rfc9653)) alternate error detection method announced to the remote SCTP endpoint. The CRC32c checksum of SCTP packets is only skipped if the remote endpoint announces the same method.
+
+<div markdown="1" class="table-wrapper L2">
+
+Value             | Description
+----------------- | -------------
+"sctp-over-dtls"  | SCTP over DTLS, as defined in RFC 9653.
+"trusted-network" | mediasoup specific method, only meant to be used between mediasoup endpoints over a trusted network path (such as localhost).
+"none"            | Zero Checksum is not announced.
+
+</div>
+
 </section>
 
 
