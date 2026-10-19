@@ -312,7 +312,7 @@ Set maximum outgoing bitrate for media streams sent by mediasoup to the remote e
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`bitrate`  | Number | Maximum outgoing bitrate in `bps`. Must be given than 30000. | Yes | 0 (no limit)
+`bitrate`  | Number | Maximum outgoing bitrate in `bps`. | Yes | 0 (no limit)
 
 </div>
 
@@ -337,7 +337,7 @@ Set minimum outgoing bitrate for media streams sent by mediasoup to the remote e
 
 Argument   | Type    | Description | Required | Default 
 ---------- | ------- | ----------- | -------- | ----------
-`bitrate`  | Number | Minimum outgoing bitrate in `bps`. Must be given than 30000. | Yes | 0 (no limit)
+`bitrate`  | Number | Minimum outgoing bitrate in `bps`. | Yes | 0 (no limit)
 
 </div>
 
