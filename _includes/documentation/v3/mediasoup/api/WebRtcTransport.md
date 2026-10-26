@@ -35,7 +35,11 @@ Field        | Type    | Description   | Required | Default
 `preferUdp`  | Boolean | Listen in UDP. | No | `false`
 `preferTcp`  | Boolean | Listen in TCP. | No | `false`
 `iceConsentTimeout` | Number | ICE consent timeout (in seconds). If 0 it is disabled. | No | 30
+`enableBwe` | Boolean | Estimate the bandwidth of the transport link, as far as the negotiated RTP parameters allow it. | No | `true`
 `initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps). | No | 600000
+`minOutgoingBitrate` | Number | Minimum outgoing bitrate (in bps). | No | No limit
+`maxOutgoingBitrate` | Number | Maximum outgoing bitrate (in bps). | No | No limit
+`maxIncomingBitrate` | Number | Maximum incoming bitrate (in bps). | No | No limit
 `enableSctp` | Boolean | Create a SCTP association. | No | `false`
 `maxSendMessageSize` | Number | Maximum allowed size for SCTP messages sent by data consumers (in bytes). | No | 262144
 `maxReceiveMessageSize` | Number | Maximum allowed size for SCTP messages received by data producers (in bytes). | No | 262144
@@ -53,7 +57,7 @@ Field        | Type    | Description   | Required | Default
 * One of `webRtcServer` or `listenInfos` or `listenIps` must be given when creating a WebRTC transport.
 * The IP in each entry in `listenInfos` or `listenIps` must be a bindable IP in the host.
 * If you use "0.0.0.0" or "::" in an entry in `listenInfos` or `listenIps`, then you need to also provide `announcedAddress` or `announcedIp` in the corresponding entry.
-* `initialAvailableOutgoingBitrate` is just applied when the consumer endpoint supports REMB or Transport-CC.
+* If the remote endpoint receives RTP from mediasoup but supports neither Transport-CC nor REMB, mediasoup still estimates the available outgoing bitrate out of the packet loss reported in the RTCP Receiver Reports of the remote endpoint. However, without those mechanisms the estimation can only grow slowly, so a higher `initialAvailableOutgoingBitrate` or `minOutgoingBitrate` may be convenient. And if the remote endpoint sends no RTCP Receiver Reports at all, the estimation never moves, so the transport keeps `initialAvailableOutgoingBitrate` as available outgoing bitrate for its whole life. In those cases it's better to create the transport with `enableBwe: false` (or with a very high `initialAvailableOutgoingBitrate` or `minOutgoingBitrate`).
 * `enableUdp`, `enableTcp`, `preferUdp` and `preferTcp` are only processed if `webRtcServer` is given, and they filter and define the priority of the ICE candidates available in the `webRtcServer`.
 </div>
 

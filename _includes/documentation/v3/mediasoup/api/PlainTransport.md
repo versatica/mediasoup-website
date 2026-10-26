@@ -28,6 +28,11 @@ Field         | Type    | Description   | Required | Default
 `port`        | Number  | Fixed port to listen on instead of selecting automatically from Worker's port range. | No |
 `rtcpMux`     | Boolean | Use RTCP-mux (RTP and RTCP in the same port). | No | `true`
 `comedia`     | Boolean | Whether remote IP:port should be auto-detected based on first RTP/RTCP packet received. If enabled, `connect()` must only be called if SRTP is enabled by providing the remote `srtpParameters` and nothing else. | No | `false`
+`enableBwe` | Boolean | Estimate the bandwidth of the transport link, as far as the negotiated RTP parameters allow it. | No | `true`
+`initialAvailableOutgoingBitrate` | Number | Initial available outgoing bitrate (in bps). | No | 600000
+`minOutgoingBitrate` | Number | Minimum outgoing bitrate (in bps). | No | No limit
+`maxOutgoingBitrate` | Number | Maximum outgoing bitrate (in bps). | No | No limit
+`maxIncomingBitrate` | Number | Maximum incoming bitrate (in bps). | No | No limit
 `enableSctp`  | Boolean | Create a SCTP association. | No | `false`
 `maxSendMessageSize` | Number | Maximum allowed size for SCTP messages sent by data consumers (in bytes). | No | 262144
 `maxReceiveMessageSize` | Number | Maximum allowed size for SCTP messages received by data producers (in bytes). | No | 262144
@@ -47,6 +52,7 @@ Field         | Type    | Description   | Required | Default
 * `rtcpPort` is **DEPRECATED**. Use `rtcpListenInfo` instead to setup different listening information for RTCP.
 * Note that `comedia` mode just makes sense when the remote endpoint is gonna produce RTP on this plain transport. Otherwise, if the remote endpoint does not send any RTP (or SCTP) packet to mediasoup, there is no way to detect its remote RTP IP and port, so the endpoint won't receive any packet from mediasoup.
 * In other words, do not use `comedia` mode if the remote endpoint is not going to produce RTP but just consume it. In those cases, do not set `comedia` flag and call [connect()](#plainTransport-connect) with the IP and port(s) of the remote endpoint. 
+* If the remote endpoint receives RTP from mediasoup but supports neither Transport-CC nor REMB, mediasoup still estimates the available outgoing bitrate out of the packet loss reported in the RTCP Receiver Reports of the remote endpoint. However, without those mechanisms the estimation can only grow slowly, so a higher `initialAvailableOutgoingBitrate` or `minOutgoingBitrate` may be convenient. And if the remote endpoint sends no RTCP Receiver Reports at all, the estimation never moves, so the transport keeps `initialAvailableOutgoingBitrate` as available outgoing bitrate for its whole life. In those cases it's better to create the transport with `enableBwe: false` (or with a very high `initialAvailableOutgoingBitrate` or `minOutgoingBitrate`).
 </div>
 
 </section>
