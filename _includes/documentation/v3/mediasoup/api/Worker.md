@@ -32,7 +32,8 @@ Field                    | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-`rtcMinPort` and `rtcMaxPort` are **deprecated**. Use [TransportPortRange](#TransportPortRange) in [TransportListenInfo](#TransportListenInfo) instead.
+* `rtcMinPort` port cannot be 0.
+* `rtcMinPort` and `rtcMaxPort` are **deprecated**. Use [TransportPortRange](#TransportPortRange) in [TransportListenInfo](#TransportListenInfo) instead.
 </div>
 
 #### WorkerUpdateableSettings

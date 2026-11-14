@@ -69,9 +69,13 @@ Field         | Type    | Description   | Required | Default
 
 Field          | Type    | Description   | Required | Default
 -------------- | ------- | ------------- | -------- | ---------
-`min`          | Number | Lowest port of the range. | Yes | 0
-`max`          | Number | Highest port of the range. | Yes | 0
+`min`          | Number | Lowest port of the range. | Yes | 
+`max`          | Number | Highest port of the range. | Yes | 
 
+</div>
+
+<div markdown="1" class="note">
+`min` port cannot be 0.
 </div>
 
 #### TransportSocketFlags
