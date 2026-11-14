@@ -42,7 +42,8 @@ Field         | Type    | Description   | Required | Default
 </div>
 
 <div markdown="1" class="note">
-If you use "0.0.0.0" or "::" as `ip` value, then you need to also provide `announcedAddress`.
+- If you use "0.0.0.0" or "::" as `ip` value, then you need to also provide `announcedAddress`.
+- `port` cannot be 0.
 </div>
 
 #### TransportListenIp
